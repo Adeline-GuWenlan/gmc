@@ -1,0 +1,21 @@
+# Reproduction environment for the round-4 final package (round-6 P0-R2:
+# a real lock, replacing the free-text environment.txt).
+#
+# The numeric chain (all canonical tables) is determined by python /
+# numpy / scipy — these are pinned EXACTLY as on the machine that
+# produced and clean-room-reproduced the canonical tables (NYUAD Jubail,
+# singularity overlay, Linux x86_64).  matplotlib affects figures only
+# (canonical figures rendered with 3.9.4; clean-room re-render used
+# 3.11.1); figure pixels are NOT compared by the release gate.
+#
+#   conda env create -f environment.yml && conda activate splatc
+#   # then, from src_snapshot/:  bash reproduce.sh
+name: splatc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - numpy=1.26.4
+  - scipy=1.10.1
+  - matplotlib>=3.9
+  - pytest>=8

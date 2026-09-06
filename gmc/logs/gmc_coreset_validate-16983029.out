@@ -1,0 +1,98 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ echo '=== DUAL-DOOR CONDITIONING ==='
+=== DUAL-DOOR CONDITIONING ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_conditioning_dual.py -o results/coreset/conditioning_dual.json
+scene dual_door_0.9_0.45: 220 supports
+  robot small: a=0.2 b=0.1  2a=0.4 2b=0.2 vs narrow=0.45 -> fits
+  robot large: a=0.4 b=0.25  2a=0.8 2b=0.5 vs narrow=0.45 -> cannot fit
+[coreset built_for=small] 220 -> 5 (ratio 0.0227) critical=[]
+[coreset built_for=large] 220 -> 16 (ratio 0.0727) critical=[0.2731, 0.2766]
+
+=== is each doorway still usable? (theta=0) ===
+  robot=small  on original         n= 220 wide=OPEN narrow=OPEN
+  robot=small  on coreset[small]   n=   5 wide=OPEN narrow=OPEN
+  robot=small  on coreset[large]   n=  16 wide=OPEN narrow=OPEN
+  robot=large  on original         n= 220 wide=OPEN narrow=shut
+  robot=large  on coreset[small]   n=   5 wide=shut narrow=shut
+  robot=large  on coreset[large]   n=  16 wide=OPEN narrow=shut
+
+=== adequacy matrix (coreset built_for -> evaluated robot) ===
+  built_for=small  small:OK   large:LOST
+  built_for=large  small:OK   large:OK 
+
+CONDITIONING SIGNAL: YES -- every coreset is adequate for its own robot=True; cross-application failures=['small->large']
+wrote results/coreset/conditioning_dual.json
++ echo '=== SINGLE-DOOR PARETO + CROSS-ROBOT ==='
+=== SINGLE-DOOR PARETO + CROSS-ROBOT ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_robot_conditioning.py -o results/coreset/robot_conditioning_v2.json
+[full] robot=wide  a=0.5 b=0.2 gate=0.50976 truth=0.50974 err=+0.00002 calls=900240
+[full] robot=slim  a=0.4 b=0.15 gate=0.77629 truth=0.77631 err=-0.00002 calls=868296
+[full] robot=fat   a=0.35 b=0.28 gate=0.53852 truth=0.53853 err=-0.00000 calls=952512
+[pareto] robot=wide  eps=0.02   gate_tol=0.1    n=   8 err=-0.15280 speedup=38.9x | uniform err=-0.50974
+[pareto] robot=wide  eps=0.01   gate_tol=0.05   n=  12 err=-0.06882 speedup=30.4x | uniform err=-0.50974
+[pareto] robot=wide  eps=0.005  gate_tol=0.02   n=  26 err=-0.01474 speedup=16.3x | uniform err=-0.41089
+[pareto] robot=wide  eps=0.002  gate_tol=0.005  n=  28 err=+0.00002 speedup=15.2x | uniform err=-0.34627
+[pareto] robot=wide  eps=0.002  gate_tol=0.002  n=  28 err=+0.00002 speedup=15.2x | uniform err=-0.34627
+[pareto] robot=slim  eps=0.02   gate_tol=0.1    n=   9 err=-0.13712 speedup=37.2x | uniform err=-0.77631
+[pareto] robot=slim  eps=0.01   gate_tol=0.05   n=  18 err=-0.05639 speedup=21.4x | uniform err=-0.33922
+[pareto] robot=slim  eps=0.005  gate_tol=0.02   n=  28 err=-0.01766 speedup=15.3x | uniform err=-0.37680
+[pareto] robot=slim  eps=0.002  gate_tol=0.005  n=  28 err=-0.00002 speedup=15.4x | uniform err=-0.37680
+[pareto] robot=slim  eps=0.002  gate_tol=0.002  n=  28 err=-0.00002 speedup=15.4x | uniform err=-0.37680
+[pareto] robot=fat   eps=0.02   gate_tol=0.1    n=  30 err=-0.41725 speedup=11.8x | uniform err=-0.53853
+[pareto] robot=fat   eps=0.01   gate_tol=0.05   n=  28 err=-0.17756 speedup=14.2x | uniform err=-0.53853
+[pareto] robot=fat   eps=0.005  gate_tol=0.02   n=  28 err=-0.06712 speedup=14.7x | uniform err=-0.53853
+[pareto] robot=fat   eps=0.002  gate_tol=0.005  n=  28 err=-0.00000 speedup=15.5x | uniform err=-0.53853
+[pareto] robot=fat   eps=0.002  gate_tol=0.002  n=  28 err=-0.00000 speedup=15.5x | uniform err=-0.53853
+
+=== cross-robot matrix at eps=0.002 target_gate_tol=0.005 ===
+  built_for=wide  eval=wide  n=  28 gate=0.50976 truth=0.50974 err=+0.00002 vs_full=+0.00000
+  built_for=wide  eval=slim  n=  28 gate=0.77629 truth=0.77631 err=-0.00002 vs_full=+0.00000
+  built_for=wide  eval=fat   n=  28 gate=0.53852 truth=0.53853 err=-0.00000 vs_full=+0.00000
+  built_for=slim  eval=wide  n=  28 gate=0.50976 truth=0.50974 err=+0.00002 vs_full=+0.00000
+  built_for=slim  eval=slim  n=  28 gate=0.77629 truth=0.77631 err=-0.00002 vs_full=+0.00000
+  built_for=slim  eval=fat   n=  28 gate=0.53852 truth=0.53853 err=-0.00000 vs_full=+0.00000
+  built_for=fat   eval=wide  n=  28 gate=0.50976 truth=0.50974 err=+0.00002 vs_full=+0.00000
+  built_for=fat   eval=slim  n=  28 gate=0.77629 truth=0.77631 err=-0.00002 vs_full=+0.00000
+  built_for=fat   eval=fat   n=  28 gate=0.53852 truth=0.53853 err=-0.00000 vs_full=+0.00000
+wrote results/coreset/robot_conditioning_v2.json
++ echo '=== FILLED/SURFACE PARETO ==='
+=== FILLED/SURFACE PARETO ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_pareto.py -o results/coreset/pareto_v3.json
+analytic gate half-angle = 0.509740 rad  (robot a=0.5 b=0.2, door w=0.6, disc_r=0.08)
+[filled] full n=484 gate=0.50976 truth=0.50974 calls=900240 17.1s
+[filled] coreset gate_tol=0.002  n=  28 ratio=0.0579 gate=0.50976 err=+0.00002 calls=59088 1.08s
+[filled] uniform n=  28 ratio=0.0579 gate=0.16346 err=-0.34627 calls=75288 1.09s
+[filled] coreset gate_tol=0.005  n=  28 ratio=0.0579 gate=0.50976 err=+0.00002 calls=59088 1.08s
+[filled] uniform n=  28 ratio=0.0579 gate=0.16346 err=-0.34627 calls=75288 1.14s
+[filled] coreset gate_tol=0.01   n=  28 ratio=0.0579 gate=0.50976 err=+0.00002 calls=59088 1.08s
+[filled] uniform n=  28 ratio=0.0579 gate=0.16346 err=-0.34627 calls=75288 1.09s
+[filled] coreset gate_tol=0.02   n=  26 ratio=0.0537 gate=0.50478 err=-0.00496 calls=55746 1.00s
+[filled] uniform n=  26 ratio=0.0537 gate=0.09885 err=-0.41089 calls=70308 1.09s
+[filled] coreset gate_tol=0.05   n=  12 ratio=0.0248 gate=0.44092 err=-0.06882 calls=29634 0.52s
+[filled] uniform n=  12 ratio=0.0248 gate=0.00000 err=-0.50974 calls=2328 0.03s
+[filled] coreset gate_tol=0.1    n=   8 ratio=0.0165 gate=0.35694 err=-0.15280 calls=23148 0.37s
+[filled] uniform n=   8 ratio=0.0165 gate=0.00000 err=-0.50974 calls=1536 0.02s
+[surface] full n=124 gate=0.50976 truth=0.50974 calls=230640 4.5s
+[surface] coreset gate_tol=0.002  n=  65 ratio=0.5242 gate=0.50976 err=+0.00002 calls=126120 2.43s
+[surface] uniform n=  65 ratio=0.5242 gate=0.46144 err=-0.04830 calls=123810 2.51s
+[surface] coreset gate_tol=0.005  n=  65 ratio=0.5242 gate=0.50976 err=+0.00002 calls=125910 2.43s
+[surface] uniform n=  65 ratio=0.5242 gate=0.46144 err=-0.04830 calls=123810 2.43s
+[surface] coreset gate_tol=0.01   n=  65 ratio=0.5242 gate=0.50976 err=+0.00002 calls=126120 2.41s
+[surface] uniform n=  65 ratio=0.5242 gate=0.46144 err=-0.04830 calls=123810 2.49s
+[surface] coreset gate_tol=0.02   n=  30 ratio=0.2419 gate=0.50478 err=-0.00496 calls=62400 1.21s
+[surface] uniform n=  30 ratio=0.2419 gate=0.37688 err=-0.13286 calls=64116 1.16s
+[surface] coreset gate_tol=0.05   n=  20 ratio=0.1613 gate=0.45933 err=-0.05041 calls=45072 0.85s
+[surface] uniform n=  20 ratio=0.1613 gate=0.17880 err=-0.33094 calls=44640 0.86s
+[surface] coreset gate_tol=0.1    n=  14 ratio=0.1129 gate=0.39605 err=-0.11369 calls=33762 0.64s
+[surface] uniform n=  14 ratio=0.1129 gate=0.00000 err=-0.50974 calls=2238 0.05s
+wrote results/coreset/pareto_v3.json
++ echo '=== CORESET_VALIDATE_DONE ==='
+=== CORESET_VALIDATE_DONE ===

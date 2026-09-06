@@ -1,0 +1,37 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ echo '=== FULL SUITE INCLUDING NEW CORESET GATES ==='
+=== FULL SUITE INCLUDING NEW CORESET GATES ===
++ tail -20
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python -m pytest -q
+........................................................................ [ 17%]
+........................................................................ [ 35%]
+........................................................................ [ 53%]
+........................................................................ [ 70%]
+........................................................................ [ 88%]
+..............................................                           [100%]
++ echo '=== END TO END TOY ==='
+=== END TO END TOY ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_end_to_end.py -o results/coreset/end_to_end.json
+coreset: 484 -> 28 supports (ratio 0.0579), min_slack=+7.27e-05, critical_radii=[0.30067, 0.30419], 12.8s
+[coreset] n=28 pairs=28 compile=8.9s query=0.4s safe=72n/74e status=REACHABLE clearance_lb=0.021715945291855537
+[full] n=484 pairs=484 compile=137.6s query=2.4s safe=72n/74e status=REACHABLE clearance_lb=0.0217159080615251
+
+=== INDEPENDENT VERIFICATION OF THE CORESET PATH AGAINST ALL 484 ORIGINAL PAIRS ===
+certified=True min_clearance=0.021716 reason=ok
+
+compile speedup 15.4x wall, 14.4x support evaluations
+wrote results/coreset/end_to_end.json
++ echo '=== FIGURES ==='
+=== FIGURES ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_figures.py -o results/coreset/figures
+wrote results/coreset/figures/coreset_overlay.png
++ echo '=== CORESET_FINAL_DONE ==='
+=== CORESET_FINAL_DONE ===

@@ -1,0 +1,12 @@
+name: ellipse_robot
+supports:
+- primitive_id: 0
+  mean:
+  - 0.0
+  - 0.0
+  covariance:
+  - - 0.25
+    - 0.0
+  - - 0.0
+    - 0.04000000000000001
+  level: 1.0

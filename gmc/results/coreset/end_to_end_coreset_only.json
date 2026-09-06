@@ -1,0 +1,40 @@
+{
+  "coreset": {
+    "n_original": 484,
+    "n_macro": 28,
+    "compression": 0.05785123966942149,
+    "min_slack": 7.272439581750174e-05,
+    "critical_radii": [
+      0.30067138671875004,
+      0.30418701171874996
+    ],
+    "coarsen_seconds": 14.943689346313477,
+    "target_gate_tol": 0.005
+  },
+  "arms": [
+    {
+      "arm": "coreset",
+      "n_supports": 28,
+      "n_pairs": 28,
+      "compile_seconds": 10.50354552268982,
+      "query_seconds": 0.4668002128601074,
+      "safe_nodes": 72,
+      "safe_edges": 74,
+      "possible_nodes": 128,
+      "possible_edges": 138,
+      "status": "REACHABLE",
+      "clearance_lb": 0.021715945291855537,
+      "support_value_evals": 409508,
+      "support_point_evals": 147652
+    }
+  ],
+  "independent_verification_on_original": {
+    "ran": true,
+    "certified": true,
+    "min_clearance": 0.0217159080615251,
+    "failed_segment": null,
+    "reason": "ok",
+    "n_original_pairs": 484
+  },
+  "support_eval_speedup": null
+}

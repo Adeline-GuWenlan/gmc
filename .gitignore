@@ -1,0 +1,26 @@
+# --- macOS junk from the original snapshot ---
+.DS_Store
+._*
+
+# --- Python caches ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- Large evidence bundles: reproducible, kept on HPC not in git ---
+# gmc/outputs 2.2G (per-run compile/query bundles)
+# gmc/artifacts 738M (P5 + formal gate JSON)
+gmc/outputs/
+gmc/artifacts/
+
+# --- Frozen external asset splatc_atlas: keep code/docs, drop the bulk ---
+splatc_atlas/data/
+splatc_atlas/outputs/
+splatc_atlas/results/
+
+# --- Third-party paper PDFs: copyright + 218M. Bibliography kept in
+#     rw/manifest.csv, which lists title/venue/arXiv id/sha256/source URL. ---
+rw/*.pdf
+
+# --- Redundant binary snapshot of this very tree ---
+archive/

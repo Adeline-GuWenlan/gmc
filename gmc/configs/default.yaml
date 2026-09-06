@@ -1,0 +1,24 @@
+units:
+  length: meter
+geometry:
+  workspace_precision: 1.0e-8
+  min_cov_eigenvalue: 1.0e-10
+  support_level_scene: 2.0
+  support_level_robot: 1.0
+pair_approx:
+  initial_directions: 16
+  max_directions: 256
+  eps_pair: 1.0e-3
+  certificate_mode: prototype   # prototype | theorem
+orientation:
+  initial_intervals: 16
+  theta_min: 1.0e-4
+  max_depth: 18
+query:
+  max_support_calls: 2_000_000
+  max_wall_seconds: 120
+  eps_clear: 5.0e-3
+  max_refinement_rounds: 8
+logging:
+  save_intermediate_geometry: true
+  save_failed_cases: true

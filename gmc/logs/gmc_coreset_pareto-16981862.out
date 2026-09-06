@@ -1,0 +1,40 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src MPLBACKEND=Agg
++ PYTHONPATH=src
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=4
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/coreset_pareto.py -o results/coreset/pareto.json
+analytic gate half-angle = 0.509740 rad  (robot a=0.5 b=0.2, door w=0.6, disc_r=0.08)
+[filled] full n=484 gate=0.50976 truth=0.50974 calls=900240 18.2s
+[filled] coreset eps=0.005  n= 134 ratio=0.2769 gate=0.49864 err=-0.01110 calls=263778 5.13s
+[filled] uniform n= 134 ratio=0.2769 gate=0.38532 err=-0.12442 calls=266808 5.11s
+[filled] coreset eps=0.01   n= 125 ratio=0.2583 gate=0.48272 err=-0.02702 calls=247314 5.15s
+[filled] uniform n= 125 ratio=0.2583 gate=0.38532 err=-0.12442 calls=251220 4.88s
+[filled] coreset eps=0.02   n=  79 ratio=0.1632 gate=0.45530 err=-0.05444 calls=165444 3.13s
+[filled] uniform n=  79 ratio=0.1632 gate=0.33930 err=-0.17044 calls=163578 3.13s
+[filled] coreset eps=0.04   n=  32 ratio=0.0661 gate=0.32223 err=-0.18751 calls=79062 1.37s
+[filled] uniform n=  32 ratio=0.0661 gate=0.24803 err=-0.26171 calls=81552 1.41s
+[filled] coreset eps=0.08   n=  15 ratio=0.0310 gate=0.09885 err=-0.41089 calls=42786 0.70s
+[filled] uniform n=  15 ratio=0.0310 gate=0.00000 err=-0.50974 calls=2868 0.05s
+[filled] coreset eps=0.16   n=  15 ratio=0.0310 gate=0.09885 err=-0.41089 calls=42786 0.70s
+[filled] uniform n=  15 ratio=0.0310 gate=0.00000 err=-0.50974 calls=2868 0.05s
+[surface] full n=124 gate=0.50976 truth=0.50974 calls=230640 4.8s
+[surface] coreset eps=0.005  n=  93 ratio=0.7500 gate=0.50976 err=+0.00002 calls=174966 3.66s
+[surface] uniform n=  93 ratio=0.7500 gate=0.50152 err=-0.00822 calls=174282 3.64s
+[surface] coreset eps=0.01   n=  93 ratio=0.7500 gate=0.50976 err=+0.00002 calls=174966 3.70s
+[surface] uniform n=  93 ratio=0.7500 gate=0.50152 err=-0.00822 calls=174282 3.70s
+[surface] coreset eps=0.02   n=  30 ratio=0.2419 gate=0.41983 err=-0.08991 calls=64866 1.26s
+[surface] uniform n=  30 ratio=0.2419 gate=0.37688 err=-0.13286 calls=64116 1.25s
+[surface] coreset eps=0.04   n=  22 ratio=0.1774 gate=0.41983 err=-0.08991 calls=49374 1.03s
+[surface] uniform n=  22 ratio=0.1774 gate=0.17880 err=-0.33094 calls=48288 1.00s
+[surface] coreset eps=0.08   n=  20 ratio=0.1613 gate=0.38225 err=-0.12749 calls=44862 0.93s
+[surface] uniform n=  20 ratio=0.1613 gate=0.17880 err=-0.33094 calls=44640 0.92s
+[surface] coreset eps=0.16   n=  14 ratio=0.1129 gate=0.17880 err=-0.33094 calls=33846 0.70s
+[surface] uniform n=  14 ratio=0.1129 gate=0.00000 err=-0.50974 calls=2238 0.05s
+wrote results/coreset/pareto.json
++ echo '=== CORESET_PARETO_DONE ==='
+=== CORESET_PARETO_DONE ===

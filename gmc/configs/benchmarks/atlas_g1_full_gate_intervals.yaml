@@ -1,0 +1,168 @@
+name: atlas-g1-full-gate-connectivity-intervals-phase1
+kind: atlas_g1_full_gate_intervals
+formal_profile: atlas_g1_full_gate_intervals_v1
+
+# Read-only, hash-sealed inputs.  This phase deliberately excludes blind.
+atlas_root: ../../../splatc_atlas
+splits: [dev, validation]
+families: [G1]
+partial_gate_only: false
+event_tolerance_deg: 5.0
+
+# Keep the all-case soundness pass and the adaptive acceptance pass separate.
+# They are independent cold runs and their aggregates must never be pooled.
+stages:
+  # Bounded first pass over all 42 non-blind episodes.  It compiles every
+  # scene support and the complete 360-degree orientation domain.  Coarse
+  # unresolved regions remain UNKNOWN; this stage validates conservative
+  # containment and input coverage, not event-bracket closure.
+  - stage: initial_42_soundness
+    expected:
+      expected_n_cases: 42
+      expected_case_ids:
+        - dev_000
+        - dev_001
+        - dev_002
+        - dev_003
+        - dev_004
+        - dev_005
+        - dev_006
+        - dev_007
+        - dev_008
+        - dev_009
+        - dev_010
+        - dev_011
+        - dev_012
+        - dev_013
+        - dev_014
+        - dev_015
+        - dev_016
+        - dev_017
+        - dev_018
+        - dev_019
+        - dev_020
+        - dev_021
+        - dev_022
+        - dev_023
+        - val_000
+        - val_001
+        - val_002
+        - val_003
+        - val_004
+        - val_005
+        - val_006
+        - val_007
+        - val_008
+        - val_009
+        - val_010
+        - val_011
+        - val_012
+        - val_013
+        - val_014
+        - val_015
+        - val_016
+        - val_017
+      acceptance_policy: all_cases_containment
+    compiler:
+      length_unit: meter
+      geometry:
+        workspace_precision: 1.0e-8
+        min_cov_eigenvalue: 1.0e-10
+        support_level_scene: 1.0
+        support_level_robot: 1.0
+      pair_approx:
+        initial_directions: 16
+        max_directions: 64
+        eps_pair: 1.0e-2
+        certificate_mode: theorem
+      orientation:
+        initial_intervals: 4
+        theta_min: 2.0e-2
+        max_depth: 0
+      query:
+        max_support_calls: 5_000_000
+        max_wall_seconds: 120
+        eps_clear: 2.0e-3
+        max_refinement_rounds: 0
+      logging:
+        save_intermediate_geometry: false
+        save_failed_cases: true
+    budget:
+      limits_per_case:
+        support_value_evals: 5_000_000
+        support_point_evals: 5_000_000
+      # One nominal allowance lets the non-refinable depth-0 decomposition
+      # stop on its declared resolution limit rather than a zero budget.
+      max_refinements_per_case: 1
+      max_wall_seconds_per_case: 120
+
+  # Formal non-blind acceptance matrix: full-open and closed controls plus all
+  # 14 partial G1 episodes.  A separate 4-case smoke stays in the tests only.
+  - stage: refined_16_acceptance
+    case_ids:
+      - dev_000
+      - dev_001
+      - dev_002
+      - dev_004
+      - dev_007
+      - dev_010
+      - dev_013
+      - dev_016
+      - dev_019
+      - dev_022
+      - val_001
+      - val_004
+      - val_007
+      - val_010
+      - val_013
+      - val_016
+    expected:
+      expected_n_cases: 16
+      expected_case_ids:
+        - dev_000
+        - dev_001
+        - dev_002
+        - dev_004
+        - dev_007
+        - dev_010
+        - dev_013
+        - dev_016
+        - dev_019
+        - dev_022
+        - val_001
+        - val_004
+        - val_007
+        - val_010
+        - val_013
+        - val_016
+      acceptance_policy: all_cases_accept
+    compiler:
+      length_unit: meter
+      geometry:
+        workspace_precision: 1.0e-8
+        min_cov_eigenvalue: 1.0e-10
+        support_level_scene: 1.0
+        support_level_robot: 1.0
+      pair_approx:
+        initial_directions: 32
+        max_directions: 128
+        eps_pair: 2.0e-3
+        certificate_mode: theorem
+      orientation:
+        initial_intervals: 32
+        theta_min: 1.7453292519943296e-2  # 1 degree
+        max_depth: 8
+      query:
+        max_support_calls: 50_000_000
+        max_wall_seconds: 1800
+        eps_clear: 2.0e-3
+        max_refinement_rounds: 128
+      logging:
+        save_intermediate_geometry: false
+        save_failed_cases: true
+    budget:
+      limits_per_case:
+        support_value_evals: 50_000_000
+        support_point_evals: 50_000_000
+      max_refinements_per_case: 128
+      max_wall_seconds_per_case: 1800

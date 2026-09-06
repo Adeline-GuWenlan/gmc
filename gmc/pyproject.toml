@@ -1,0 +1,30 @@
+[project]
+name = "gaussian-mobility-compiler"
+version = "0.1.0"
+description = "Certified SE(2) mobility compilation from Gaussian scene/body supports"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy>=2.0",
+  "scipy>=1.18",
+  "shapely>=2.1",
+  "networkx>=3.4",
+  "pyyaml>=6.0",
+  "matplotlib>=3.9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "hypothesis>=6", "mypy>=1.11", "ruff>=0.8"]
+
+[project.scripts]
+gmc = "gmc.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = ["tests"]

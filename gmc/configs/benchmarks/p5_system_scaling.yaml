@@ -1,0 +1,31 @@
+name: p5-system-scaling-v0
+kind: p5_system_scaling
+profile_top_n: 15
+
+bvh:
+  seed: 20260901
+  support_counts: [128, 512, 2048, 8192]
+  leaf_size: 8
+  workspace: [-2.0, -2.0, 2.0, 2.0]
+  near_fraction: 0.125
+  scene_axes_min: [0.03, 0.03]
+  scene_axes_max: [0.12, 0.09]
+  far_center: [30.0, -24.0]
+  far_jitter: [6.0, 5.0]
+  robot_axes: [0.22, 0.12]
+
+incremental:
+  support_counts: [8, 32, 128]
+  theta: 0.31
+  workspace: [-3.0, -3.0, 3.0, 3.0]
+  layout_radius: 1.8
+  scene_radius: 0.055
+  robot_axes: [0.18, 0.09]
+  edit_delta: [0.025, -0.015]
+  semantic_area_tolerance: 1.0e-12
+  gmc_config: ../default.yaml
+  pair_approx:
+    initial_directions: 16
+    max_directions: 128
+    eps_pair: 1.0e-2
+    certificate_mode: theorem

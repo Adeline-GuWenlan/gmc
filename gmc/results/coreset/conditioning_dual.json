@@ -1,0 +1,82 @@
+{
+  "scene": "dual_door_0.9_0.45",
+  "n_supports": 220,
+  "robots": {
+    "small": [
+      0.2,
+      0.1
+    ],
+    "large": [
+      0.4,
+      0.25
+    ]
+  },
+  "w_wide": 0.9,
+  "w_narrow": 0.45,
+  "coresets": {
+    "small": {
+      "n": 5,
+      "compression": 0.022727272727272728,
+      "critical_radii": []
+    },
+    "large": {
+      "n": 16,
+      "compression": 0.07272727272727272,
+      "critical_radii": [
+        0.27310791015625,
+        0.27662353515624993
+      ]
+    }
+  },
+  "rows": [
+    {
+      "evaluated": "small",
+      "scene": "original",
+      "wide_door_free": true,
+      "narrow_door_free": true,
+      "n": 220
+    },
+    {
+      "evaluated": "small",
+      "scene": "coreset[small]",
+      "wide_door_free": true,
+      "narrow_door_free": true,
+      "n": 5
+    },
+    {
+      "evaluated": "small",
+      "scene": "coreset[large]",
+      "wide_door_free": true,
+      "narrow_door_free": true,
+      "n": 16
+    },
+    {
+      "evaluated": "large",
+      "scene": "original",
+      "wide_door_free": true,
+      "narrow_door_free": false,
+      "n": 220
+    },
+    {
+      "evaluated": "large",
+      "scene": "coreset[small]",
+      "wide_door_free": false,
+      "narrow_door_free": false,
+      "n": 5
+    },
+    {
+      "evaluated": "large",
+      "scene": "coreset[large]",
+      "wide_door_free": true,
+      "narrow_door_free": false,
+      "n": 16
+    }
+  ],
+  "adequacy_matrix": {
+    "small->small": true,
+    "small->large": false,
+    "large->small": true,
+    "large->large": true
+  },
+  "conditioning_signal": true
+}

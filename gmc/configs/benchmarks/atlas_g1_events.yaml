@@ -1,0 +1,27 @@
+name: atlas-g1-paired-events-v0
+kind: atlas_g1_paired_event
+
+# Resolved relative to this spec. The Atlas tree is input-only.
+atlas_root: ../../../splatc_atlas
+splits: [dev]
+families: [G1]
+robot_ids: [R_long_ellipse]
+partial_gate_only: true
+
+# First paired family: three partial-width doors, each aligned and de-aligned.
+# Validation and the sealed blind split remain outside this first run.
+case_ids:
+  - dev_001
+  - dev_004
+  - dev_007
+  - dev_010
+  - dev_013
+  - dev_016
+
+budget:
+  currency: support_value_evals
+  caps_per_arm_per_case: [64, 128, 256, 512, 1024, 2048]
+
+search:
+  event_tolerance_deg: 0.25
+  initial_intervals: 8
