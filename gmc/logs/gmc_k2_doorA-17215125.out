@@ -1,0 +1,155 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ echo '=== ROUND 1: half=1.5, slice-level only ==='
+=== ROUND 1: half=1.5, slice-level only ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 1.5 --figure results/k2/figures/door_A_h1.5.png -o results/k2/door_A_h1.5.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=1.5 u
+  in box (any weight)      17314
+  after weight > 0.3       4566
+  dropped (not SPD)        0
+  supports used            4566
+  semi-axes p50            0.0002 x 0.0361 u  (p99 major 0.1346)
+  0.3s
+  wall bearing -29.25 deg, probe segments [[21.811, -16.072], [21.127, -17.294]] | [[22.789, -14.328], [23.473, -13.106]]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 (v3) ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=663042 14.2s
+  L24 (2.4x0.6 u) theta=2.1293 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=641004 14.1s
+  L24 (2.4x0.6 u) theta=0.6021 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=3 free_a=True free_b=True calls=641328 13.9s
+  L32 (3.2x0.6 u) theta=1.2086 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=False agree_v3=True agree_v2=False comps=1 free_a=True free_b=True calls=668544 16.5s
+  L32 (3.2x0.6 u) theta=1.7890 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=2 free_a=True free_b=True calls=692124 16.9s
+  agreement with atlas v3: 5/5
+  agreement with atlas v2: 4/5
+
+=== STAGE 3: negative control ===
+  point [20.8, -14.211] is 0.837 u inside forbidden mass -> located_in_free=False PASS=True
+
+figure -> results/k2/figures/door_A_h1.5.png
+
+wrote results/k2/door_A_h1.5.json
++ echo '=== ROUND 2: half=3.0, atlas-matched cross-check ==='
+=== ROUND 2: half=3.0, atlas-matched cross-check ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 3.0 --figure results/k2/figures/door_A_h3.0.png -o results/k2/door_A_h3.0.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=3.0 u
+  in box (any weight)      55514
+  after weight > 0.3       14894
+  dropped (not SPD)        0
+  supports used            14894
+  semi-axes p50            0.0007 x 0.0395 u  (p99 major 0.1390)
+  0.5s
+  wall bearing -29.25 deg, probe segments [[21.811, -16.072], [21.127, -17.294]] | [[22.789, -14.328], [23.473, -13.106]]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 (v3) ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=2168334 46.4s
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb/gmc/experiments/k2_door_gate.py", line 440, in <module>
+    main()
+    ~~~~^^
+  File "/scratch/wg2381/splathjb/gmc/experiments/k2_door_gate.py", line 272, in main
+    res, sl, pts = gate_open(scene, robot, cfg, theta, seg_a, seg_b)
+                   ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/wg2381/splathjb/gmc/experiments/k2_door_gate.py", line 132, in gate_open
+    sl = build_slice(scene, robot, float(theta), cfg)
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/spatial/slice_compiler.py", line 268, in build_slice
+    pair_slice = build_pair_sandwich_slice(
+        scene, robot, theta, cfg, oracles,
+        ledger=ledger, deadline=deadline,
+    )
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/spatial/slice_compiler.py", line 146, in build_pair_sandwich_slice
+    sandwiches.append(approximate_pair(
+                      ~~~~~~~~~~~~~~~~^
+        oracle, theta, cfg.pair_approx,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/geometry/envelopes.py", line 719, in approximate_pair
+    _prototype_outward_world_vertices(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        oracle, theta, U, h,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/geometry/envelopes.py", line 595, in _prototype_outward_world_vertices
+    raise FloatingPointError(
+        "prototype outer world-coordinate bound did not converge")
+FloatingPointError: prototype outer world-coordinate bound did not converge
++ echo '=== ROUND 3: half=1.5, full compile + query + independent verify ==='
+=== ROUND 3: half=1.5, full compile + query + independent verify ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 1.5 --with-compile -o results/k2/door_A_h1.5_full.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=1.5 u
+  in box (any weight)      17314
+  after weight > 0.3       4566
+  dropped (not SPD)        0
+  supports used            4566
+  semi-axes p50            0.0002 x 0.0361 u  (p99 major 0.1346)
+  0.2s
+  wall bearing -29.25 deg, probe segments [[21.811, -16.072], [21.127, -17.294]] | [[22.789, -14.328], [23.473, -13.106]]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 (v3) ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=663042 14.0s
+  L24 (2.4x0.6 u) theta=2.1293 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=641004 14.0s
+  L24 (2.4x0.6 u) theta=0.6021 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=3 free_a=True free_b=True calls=641328 13.8s
+  L32 (3.2x0.6 u) theta=1.2086 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=False agree_v3=True agree_v2=False comps=1 free_a=True free_b=True calls=668544 16.5s
+  L32 (3.2x0.6 u) theta=1.7890 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=2 free_a=True free_b=True calls=692124 16.7s
+  agreement with atlas v3: 5/5
+  agreement with atlas v2: 4/5
+
+=== STAGE 3: negative control ===
+  point [20.8, -14.211] is 0.837 u inside forbidden mass -> located_in_free=False PASS=True
+
+=== STAGE 4: full compile + query + independent verify (L24) ===
+  start=[21.6357, -16.3862] goal=[22.9643, -14.0138] theta=2.1293 (both taken from the certified-safe component that reaches both probe segments)
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb/gmc/experiments/k2_door_gate.py", line 440, in <module>
+    main()
+    ~~~~^^
+  File "/scratch/wg2381/splathjb/gmc/experiments/k2_door_gate.py", line 360, in main
+    dec = build_slabs(scene, robot, cfg, oracles, ledger=ledger)
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/orientation/slab_builder.py", line 789, in build_slabs
+    slabs += refine(I, slice_at(I.lo), slice_at(I.hi % TWO_PI), 0)
+             ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/orientation/slab_builder.py", line 785, in refine
+    + refine(I.right_half, mid, right, depth + 1))
+      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/orientation/slab_builder.py", line 776, in refine
+    mid = slice_at(I.midpoint)
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/orientation/slab_builder.py", line 769, in slice_at
+    else build_slice(scene, robot, key, cfg, oracles,
+         ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     ledger=ledger)
+                     ^^^^^^^^^^^^^^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/spatial/slice_compiler.py", line 268, in build_slice
+    pair_slice = build_pair_sandwich_slice(
+        scene, robot, theta, cfg, oracles,
+        ledger=ledger, deadline=deadline,
+    )
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/spatial/slice_compiler.py", line 146, in build_pair_sandwich_slice
+    sandwiches.append(approximate_pair(
+                      ~~~~~~~~~~~~~~~~^
+        oracle, theta, cfg.pair_approx,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/geometry/envelopes.py", line 719, in approximate_pair
+    _prototype_outward_world_vertices(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        oracle, theta, U, h,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/scratch/wg2381/splathjb/gmc/src/gmc/geometry/envelopes.py", line 595, in _prototype_outward_world_vertices
+    raise FloatingPointError(
+        "prototype outer world-coordinate bound did not converge")
+FloatingPointError: prototype outer world-coordinate bound did not converge
++ echo '=== K2_DOOR_GATE_DONE ==='
+=== K2_DOOR_GATE_DONE ===

@@ -1,0 +1,51 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ echo '=== ROUND 1: half=1.5, slice-level only ==='
+=== ROUND 1: half=1.5, slice-level only ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 1.5 --figure results/k2/figures/door_A_h1.5.png -o results/k2/door_A_h1.5.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=1.5 u
+  in box (any weight)      17314
+  after weight > 0.3       4566
+  dropped (not SPD)        0
+  supports used            4566
+  semi-axes p50            0.0002 x 0.0361 u  (p99 major 0.1346)
+  0.3s
+  wall bearing -29.25 deg, probes [21.665, -16.334] -> [22.935, -14.066]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_open=True agree=True comps=1 calls=663042 17.0s
+  L24 (2.4x0.6 u) theta=2.1380 [atlas_open] gmc_open=True atlas_open=True agree=True comps=1 calls=641508 17.5s
+  L24 (2.4x0.6 u) theta=0.9163 [atlas_closed] gmc_open=False atlas_open=False agree=True comps=1 calls=641376 17.4s
+  L32 (3.2x0.6 u) theta=1.5708 [atlas_closed] gmc_open=False atlas_open=False agree=True comps=2 calls=617304 20.6s
+  atlas agreement: 4/4
+
+=== STAGE 3: negative control ===
+  point [20.8, -13.955] is 1.810 u inside forbidden mass -> located_in_free=False PASS=True
+
+figure -> results/k2/figures/door_A_h1.5.png
+
+wrote results/k2/door_A_h1.5.json
++ echo '=== ROUND 2: half=3.0, atlas-matched cross-check ==='
+=== ROUND 2: half=3.0, atlas-matched cross-check ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 3.0 --figure results/k2/figures/door_A_h3.0.png -o results/k2/door_A_h3.0.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=3.0 u
+  in box (any weight)      55514
+  after weight > 0.3       14894
+  dropped (not SPD)        0
+  supports used            14894
+  semi-axes p50            0.0007 x 0.0395 u  (p99 major 0.1390)
+  0.6s
+  wall bearing -29.25 deg, probes [21.665, -16.334] -> [22.935, -14.066]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_open=True agree=True comps=1 calls=2168334 57.2s
+[2026-09-08T14:27:16.887] error: *** JOB 17214732 ON cs698 CANCELLED AT 2026-09-08T14:27:16 DUE to SIGNAL Terminated ***

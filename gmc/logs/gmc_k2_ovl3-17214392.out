@@ -1,0 +1,19 @@
++ OVERLAY=/scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3
++ BASE=/share/apps/images/centos-7.9.2009.sif
++ singularity exec --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif bash -c '
+  ls -la /datasets || echo "LS_DENIED"
+  echo "--- depth 4"
+  find /datasets -maxdepth 4 2>/dev/null | head -80
+  echo "--- big files"
+  find /datasets -type f -size +10M -printf "%10s  %p\n" 2>/dev/null | head -40
+  echo "--- du"
+  du -sh /datasets/* 2>/dev/null | head -20
+'
+ls: cannot open directory /datasets: Permission denied
+LS_DENIED
+--- depth 4
+/datasets
+--- big files
+--- du
++ echo '=== K2_OVL3_DONE ==='
+=== K2_OVL3_DONE ===

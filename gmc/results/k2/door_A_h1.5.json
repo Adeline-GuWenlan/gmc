@@ -1,0 +1,240 @@
+{
+  "door": "door_A",
+  "center": [
+    22.3,
+    -15.2
+  ],
+  "half": 1.5,
+  "config": "configs/toy.yaml",
+  "units_per_m": 2.0,
+  "probe_near_far": [
+    1.0,
+    2.4
+  ],
+  "atlas_reference": "/scratch/wg2381/splathjb/splatc_atlas/results/gmc_h2/k2_windows.json",
+  "caveat": "plumbing + cross-check only; the wall-gap audit in meta.json is not done, so an opening here may be glass or a scan hole and no planning claim follows",
+  "scene": {
+    "center": [
+      22.3,
+      -15.2
+    ],
+    "half": 1.5,
+    "margin": 0.75,
+    "w_min": 0.3,
+    "level": 2.0,
+    "n_in_box_any_weight": 17314,
+    "n_after_weight_filter": 4566,
+    "n_dropped_not_spd": 0,
+    "n_supports": 4566,
+    "semi_minor_p50": 0.00023979154733138887,
+    "semi_major_p50": 0.03609760436534991,
+    "semi_major_p99": 0.134624815693211,
+    "workspace_area_u2": 9.0,
+    "load_seconds": 0.34398961067199707
+  },
+  "wall": {
+    "along_deg": -29.25,
+    "normal_deg": 60.75,
+    "segment_a": [
+      [
+        21.811378758503047,
+        -16.072496007072797
+      ],
+      [
+        21.12730902040731,
+        -17.29399041697471
+      ]
+    ],
+    "segment_b": [
+      [
+        22.788621241496955,
+        -14.327503992927202
+      ],
+      [
+        23.47269097959269,
+        -13.106009583025287
+      ]
+    ],
+    "segment_a_inside_workspace": 0.513718268246181,
+    "segment_b_inside_workspace": 0.513718268246181
+  },
+  "gate_rows": [
+    {
+      "theta": 1.5707963267948966,
+      "side_a_has_free_space": true,
+      "side_b_has_free_space": true,
+      "open": true,
+      "n_safe_components": 1,
+      "slice_status": "APPROX_UNCERTIFIED",
+      "support_calls": 663042,
+      "seconds": 17.393802165985107,
+      "start": [
+        21.635669197895965,
+        -16.386248003536398
+      ],
+      "goal": [
+        22.964330802104037,
+        -14.0137519964636
+      ],
+      "robot": "L16",
+      "robot_semi_axes": [
+        0.8,
+        0.3
+      ],
+      "support_extent_u": [
+        1.6,
+        0.6
+      ],
+      "probe_kind": "atlas_open",
+      "atlas_v3_open_fraction": 1.0,
+      "atlas_v3_open_at_theta": true,
+      "atlas_v2_open_at_theta": true,
+      "atlas_theta": 1.5707963267948966,
+      "agrees_with_atlas_v3": true,
+      "agrees_with_atlas_v2": true
+    },
+    {
+      "theta": 2.129301687433082,
+      "side_a_has_free_space": true,
+      "side_b_has_free_space": true,
+      "open": true,
+      "n_safe_components": 1,
+      "slice_status": "APPROX_UNCERTIFIED",
+      "support_calls": 641004,
+      "seconds": 18.226106643676758,
+      "start": [
+        21.635669197895965,
+        -16.386248003536398
+      ],
+      "goal": [
+        22.964330802104037,
+        -14.0137519964636
+      ],
+      "robot": "L24",
+      "robot_semi_axes": [
+        1.2,
+        0.3
+      ],
+      "support_extent_u": [
+        2.4,
+        0.6
+      ],
+      "probe_kind": "atlas_open",
+      "atlas_v3_open_fraction": 0.6444444444444445,
+      "atlas_v3_open_at_theta": true,
+      "atlas_v2_open_at_theta": true,
+      "atlas_theta": 2.129301687433082,
+      "agrees_with_atlas_v3": true,
+      "agrees_with_atlas_v2": true
+    },
+    {
+      "theta": 0.6021385919380436,
+      "side_a_has_free_space": true,
+      "side_b_has_free_space": true,
+      "open": false,
+      "n_safe_components": 3,
+      "slice_status": "APPROX_UNCERTIFIED",
+      "support_calls": 641328,
+      "seconds": 18.28563666343689,
+      "start": null,
+      "goal": null,
+      "robot": "L24",
+      "robot_semi_axes": [
+        1.2,
+        0.3
+      ],
+      "support_extent_u": [
+        2.4,
+        0.6
+      ],
+      "probe_kind": "atlas_closed",
+      "atlas_v3_open_fraction": 0.6444444444444445,
+      "atlas_v3_open_at_theta": false,
+      "atlas_v2_open_at_theta": false,
+      "atlas_theta": 0.6021385919380436,
+      "agrees_with_atlas_v3": true,
+      "agrees_with_atlas_v2": true
+    },
+    {
+      "theta": 1.2086405070060733,
+      "side_a_has_free_space": true,
+      "side_b_has_free_space": true,
+      "open": true,
+      "n_safe_components": 1,
+      "slice_status": "APPROX_UNCERTIFIED",
+      "support_calls": 668544,
+      "seconds": 22.084168672561646,
+      "start": [
+        21.48159134925232,
+        -16.661373798944105
+      ],
+      "goal": [
+        22.964330802104037,
+        -14.0137519964636
+      ],
+      "robot": "L32",
+      "robot_semi_axes": [
+        1.6,
+        0.3
+      ],
+      "support_extent_u": [
+        3.2,
+        0.6
+      ],
+      "probe_kind": "atlas_open",
+      "atlas_v3_open_fraction": 0.2652777777777778,
+      "atlas_v3_open_at_theta": true,
+      "atlas_v2_open_at_theta": false,
+      "atlas_theta": 1.2086405070060733,
+      "agrees_with_atlas_v3": true,
+      "agrees_with_atlas_v2": false
+    },
+    {
+      "theta": 1.7889624832941877,
+      "side_a_has_free_space": true,
+      "side_b_has_free_space": true,
+      "open": false,
+      "n_safe_components": 2,
+      "slice_status": "APPROX_UNCERTIFIED",
+      "support_calls": 692124,
+      "seconds": 22.435986518859863,
+      "start": null,
+      "goal": null,
+      "robot": "L32",
+      "robot_semi_axes": [
+        1.6,
+        0.3
+      ],
+      "support_extent_u": [
+        3.2,
+        0.6
+      ],
+      "probe_kind": "atlas_closed",
+      "atlas_v3_open_fraction": 0.2652777777777778,
+      "atlas_v3_open_at_theta": false,
+      "atlas_v2_open_at_theta": false,
+      "atlas_theta": 1.7889624832941877,
+      "agrees_with_atlas_v3": true,
+      "agrees_with_atlas_v2": true
+    }
+  ],
+  "atlas_v3_agreement": {
+    "checked": 5,
+    "agree": 5
+  },
+  "atlas_v2_agreement": {
+    "checked": 5,
+    "agree": 4
+  },
+  "negative_control": {
+    "ran": true,
+    "point": [
+      20.8,
+      -14.21063829787234
+    ],
+    "distance_to_free_u": 0.8372523104259929,
+    "located_in_free_space": false,
+    "passed": true
+  },
+  "figure": "results/k2/figures/door_A_h1.5.png"
+}

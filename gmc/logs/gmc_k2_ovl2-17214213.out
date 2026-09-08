@@ -1,0 +1,27 @@
++ OVERLAY=/scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3
++ BASE=/share/apps/images/centos-7.9.2009.sif
++ echo '=== try --fakeroot ==='
+=== try --fakeroot ===
++ singularity exec --fakeroot --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif bash -c 'ls -la /datasets; echo "--- du"; du -sh /datasets 2>/dev/null; echo "--- depth3"; find /datasets -maxdepth 3 2>/dev/null | head -60'
+INFO:    User not listed in /etc/subuid, trying root-mapped namespace
+INFO:    Using fakeroot command combined with root-mapped namespace
+ls: cannot open directory /datasets: Permission denied
+--- du
+4.0K	/datasets
+--- depth3
+/datasets
++ echo '=== plain, just stat ==='
+=== plain, just stat ===
++ singularity exec --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif bash -c 'stat /datasets; id'
+  File: '/datasets'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: d5h/213d	Inode: 63          Links: 3
+Access: (0750/drwxr-x---)  Uid: (65534/nfsnobody)   Gid: (65534/nfsnobody)
+Context: system_u:object_r:fusefs_t:s0
+Access: 2026-08-05 09:57:53.958080449 -0400
+Modify: 2026-08-05 09:57:53.968080503 -0400
+Change: 2026-08-05 09:57:53.968080503 -0400
+ Birth: -
+uid=4418134(wg2381) gid=4418134(wg2381) groups=4418134(wg2381),65534(nfsnobody) context=system_u:system_r:unconfined_service_t:s0
++ echo '=== K2_OVL2_DONE ==='
+=== K2_OVL2_DONE ===

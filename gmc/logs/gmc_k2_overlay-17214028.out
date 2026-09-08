@@ -1,0 +1,137 @@
++ OVERLAY=/scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3
++ BASE=/share/apps/images/centos-7.9.2009.sif
++ echo '=== overlay filesystem usage (the decisive number) ==='
+=== overlay filesystem usage (the decisive number) ===
++ singularity exec --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          61G   26G   33G  45% /
++ echo '=== root listing WITH overlay ==='
+=== root listing WITH overlay ===
++ singularity exec --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif ls -la /
++ cat /tmp/with_overlay.txt
+total 24
+drwxrwxrwx.    1 nfsnobody nfsnobody  4096 Aug  5 09:57 .
+drwxrwxrwx.    1 nfsnobody nfsnobody  4096 Aug  5 09:57 ..
+lrwxrwxrwx.    1 wg2381    wg2381       27 Sep  3  2021 .exec -> .singularity.d/actions/exec
+lrwxrwxrwx.    1 wg2381    wg2381       26 Sep  3  2021 .run -> .singularity.d/actions/run
+lrwxrwxrwx.    1 wg2381    wg2381       28 Sep  3  2021 .shell -> .singularity.d/actions/shell
+drwxr-xr-x.    5 wg2381    wg2381        0 Sep  3  2021 .singularity.d
+lrwxrwxrwx.    1 wg2381    wg2381       27 Sep  3  2021 .test -> .singularity.d/actions/test
+-rw-r--r--.    1 wg2381    wg2381    12114 Nov 12  2020 anaconda-post.log
+lrwxrwxrwx.    1 wg2381    wg2381        7 Nov 12  2020 bin -> usr/bin
+drwxr-xr-x.    6 wg2381    wg2381        0 Sep  3  2021 boot
+drwxr-x---.    3 nfsnobody nfsnobody  4096 Aug  5 09:57 datasets
+drwxr-xr-x.    4 wg2381    wg2381      280 Sep  8 14:16 dev
+lrwxrwxrwx.    1 wg2381    wg2381       36 Sep  3  2021 environment -> .singularity.d/env/90-environment.sh
+drwxr-xr-x.    1 wg2381    wg2381       60 Sep  8 14:16 etc
+drwxr-xr-x.    1 wg2381    wg2381       60 Sep  8 14:16 home
+lrwxrwxrwx.    1 wg2381    wg2381        7 Nov 12  2020 lib -> usr/lib
+lrwxrwxrwx.    1 wg2381    wg2381        9 Nov 12  2020 lib64 -> usr/lib64
+drwxr-xr-x.    2 wg2381    wg2381        0 Apr 11  2018 media
+drwxr-xr-x.    2 nfsnobody nfsnobody     6 Aug  9 12:11 mnt
+drwxr-xr-x.    8 wg2381    wg2381        0 Sep  3  2021 opt
+dr-xr-xr-x. 1671 nfsnobody nfsnobody     0 Jul  9 16:22 proc
+drwxr-sr-x.    2 nfsnobody nfsnobody  4096 Feb 19  2026 projects
+dr-xr-x---.    4 wg2381    wg2381        0 Sep  3  2021 root
+drwxr-xr-x.   40 wg2381    wg2381        0 Sep  3  2021 run
+lrwxrwxrwx.    1 wg2381    wg2381        8 Nov 12  2020 sbin -> usr/sbin
+drwxr-xr-x.  572 nfsnobody nfsnobody     0 Sep  8 14:16 scratch
+drwxr-xr-x.    3 wg2381    wg2381       60 Sep  8 14:16 share
+lrwxrwxrwx.    1 wg2381    wg2381       24 Sep  3  2021 singularity -> .singularity.d/runscript
+drwxr-xr-x.    2 wg2381    wg2381        0 Apr 11  2018 srv
+drwxr-xr-x.    3 wg2381    wg2381       60 Sep  8 14:16 state
+dr-xr-xr-x.   13 nfsnobody nfsnobody     0 Jul  9 16:22 sys
+drwxrwxrwt.    2 wg2381    wg2381       40 Sep  8 14:16 tmp
+drwxr-xr-x.   13 wg2381    wg2381        0 Nov 12  2020 usr
+drwxr-xr-x.   22 wg2381    wg2381        0 Sep  3  2021 var
++ echo '=== root listing WITHOUT overlay (base image alone) ==='
+=== root listing WITHOUT overlay (base image alone) ===
++ singularity exec --contain /share/apps/images/centos-7.9.2009.sif ls -la /
++ cat /tmp/base_only.txt
+total 12
+drwxr-xr-x.    1 wg2381    wg2381      160 Sep  8 14:16 .
+drwxr-xr-x.    1 wg2381    wg2381      160 Sep  8 14:16 ..
+lrwxrwxrwx.    1 wg2381    wg2381       27 Sep  3  2021 .exec -> .singularity.d/actions/exec
+lrwxrwxrwx.    1 wg2381    wg2381       26 Sep  3  2021 .run -> .singularity.d/actions/run
+lrwxrwxrwx.    1 wg2381    wg2381       28 Sep  3  2021 .shell -> .singularity.d/actions/shell
+drwxr-xr-x.    5 wg2381    wg2381        0 Sep  3  2021 .singularity.d
+lrwxrwxrwx.    1 wg2381    wg2381       27 Sep  3  2021 .test -> .singularity.d/actions/test
+-rw-r--r--.    1 wg2381    wg2381    12114 Nov 12  2020 anaconda-post.log
+lrwxrwxrwx.    1 wg2381    wg2381        7 Nov 12  2020 bin -> usr/bin
+drwxr-xr-x.    6 wg2381    wg2381        0 Sep  3  2021 boot
+drwxr-xr-x.    4 wg2381    wg2381      280 Sep  8 14:16 dev
+lrwxrwxrwx.    1 wg2381    wg2381       36 Sep  3  2021 environment -> .singularity.d/env/90-environment.sh
+drwxr-xr-x.    1 wg2381    wg2381       60 Sep  8 14:16 etc
+drwxr-xr-x.    1 wg2381    wg2381       60 Sep  8 14:16 home
+lrwxrwxrwx.    1 wg2381    wg2381        7 Nov 12  2020 lib -> usr/lib
+lrwxrwxrwx.    1 wg2381    wg2381        9 Nov 12  2020 lib64 -> usr/lib64
+drwxr-xr-x.    2 wg2381    wg2381        0 Apr 11  2018 media
+drwxr-xr-x.    2 nfsnobody nfsnobody     6 Aug  9 12:11 mnt
+drwxr-xr-x.    8 wg2381    wg2381        0 Sep  3  2021 opt
+dr-xr-xr-x. 1671 nfsnobody nfsnobody     0 Jul  9 16:22 proc
+drwxr-sr-x.    2 nfsnobody nfsnobody  4096 Feb 19  2026 projects
+dr-xr-x---.    4 wg2381    wg2381        0 Sep  3  2021 root
+drwxr-xr-x.   40 wg2381    wg2381        0 Sep  3  2021 run
+lrwxrwxrwx.    1 wg2381    wg2381        8 Nov 12  2020 sbin -> usr/sbin
+drwxr-xr-x.  572 nfsnobody nfsnobody     0 Sep  8 14:16 scratch
+drwxr-xr-x.    3 wg2381    wg2381       60 Sep  8 14:16 share
+lrwxrwxrwx.    1 wg2381    wg2381       24 Sep  3  2021 singularity -> .singularity.d/runscript
+drwxr-xr-x.    2 wg2381    wg2381        0 Apr 11  2018 srv
+drwxr-xr-x.    3 wg2381    wg2381       60 Sep  8 14:16 state
+dr-xr-xr-x.   13 nfsnobody nfsnobody     0 Jul  9 16:22 sys
+drwxrwxrwt.    2 wg2381    wg2381       40 Sep  8 14:16 tmp
+drwxr-xr-x.   13 wg2381    wg2381        0 Nov 12  2020 usr
+drwxr-xr-x.   22 wg2381    wg2381        0 Sep  3  2021 var
++ echo '=== diff: what the overlay adds at / ==='
+=== diff: what the overlay adds at / ===
++ diff /tmp/base_only.txt /tmp/with_overlay.txt
+1,3c1,3
+< total 12
+< drwxr-xr-x.    1 wg2381    wg2381      160 Sep  8 14:16 .
+< drwxr-xr-x.    1 wg2381    wg2381      160 Sep  8 14:16 ..
+---
+> total 24
+> drwxrwxrwx.    1 nfsnobody nfsnobody  4096 Aug  5 09:57 .
+> drwxrwxrwx.    1 nfsnobody nfsnobody  4096 Aug  5 09:57 ..
+11a12
+> drwxr-x---.    3 nfsnobody nfsnobody  4096 Aug  5 09:57 datasets
++ true
++ echo '=== overlay payload (staying inside the container root only) ==='
+=== overlay payload (staying inside the container root only) ===
++ singularity exec --contain --overlay /scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3:ro /share/apps/images/centos-7.9.2009.sif bash -c '
+  for d in /ext3 /data /work /opt/data /root /var/data; do
+    [ -d "$d" ] && { echo "--- $d"; ls -la "$d"; }
+  done
+  echo "--- files >50M anywhere on the overlay root fs"
+  find / -xdev -type f -size +50M -printf "%10s  %p\n" 2>/dev/null | head -40
+  echo "--- ply / npz / ckpt anywhere on the overlay root fs"
+  find / -xdev \( -name "*.ply" -o -name "*.npz" -o -name "*.ckpt" -o -name "*.pth" \) -printf "%10s  %p\n" 2>/dev/null | head -40
+'
+--- /root
+total 8
+dr-xr-x---. 4 wg2381    wg2381       0 Sep  3  2021 .
+drwxrwxrwx. 1 nfsnobody nfsnobody 4096 Aug  5 09:57 ..
+-rw-r--r--. 1 wg2381    wg2381      18 Dec 28  2013 .bash_logout
+-rw-r--r--. 1 wg2381    wg2381     176 Dec 28  2013 .bash_profile
+-rw-r--r--. 1 wg2381    wg2381     176 Dec 28  2013 .bashrc
+drwx------. 3 wg2381    wg2381       0 Sep  3  2021 .cache
+-rw-r--r--. 1 wg2381    wg2381     100 Dec 28  2013 .cshrc
+drwxrw----. 3 wg2381    wg2381       0 Sep  3  2021 .pki
+-rw-------. 1 wg2381    wg2381    1024 Sep  3  2021 .rnd
+-rw-r--r--. 1 wg2381    wg2381     129 Dec 28  2013 .tcshrc
+-rw-------. 1 wg2381    wg2381    3416 Nov 12  2020 anaconda-ks.cfg
+--- files >50M anywhere on the overlay root fs
+  81691429  /boot/initramfs-0-rescue-65fe699d3fec4c7db7b1a5e5f1b4fbff.img
+  68746059  /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.261-2.6.22.2.el7_8.x86_64/jre/lib/rt.jar
+  73827631  /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.el7_9.x86_64/jre/lib/rt.jar
+ 130779552  /usr/lib64/firefox/libxul.so
+  53845120  /usr/lib64/xulrunner/libxul.so
+ 203517952  /var/lib/rpm/Packages
+--- ply / npz / ckpt anywhere on the overlay root fs
+       304  /usr/lib/python2.7/site-packages/Paste-1.7.5.1-py2.7-nspkg.pth
+       322  /usr/lib/python2.7/site-packages/ipaplatform-4.6.8-py2.7-nspkg.pth
+       298  /usr/lib/python2.7/site-packages/openlmi-0.5.0-py2.7-nspkg.pth
+        30  /usr/lib64/python2.7/site-packages/abrt.pth
+         8  /usr/lib64/python2.7/site-packages/pygtk.pth
++ echo '=== K2_OVERLAY_DONE ==='
+=== K2_OVERLAY_DONE ===
