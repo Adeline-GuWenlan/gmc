@@ -1,0 +1,38 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python -
+node: cs626.hpc.nyu.edu numpy 2.1.3
+certificate_mode: prototype
+half=1.5 theta=2.1293: n_oracles=4566 converged=18264 max_iters=8 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9017 3x6375 4x2202 5x533 6x109 7x22 8x6
+half=1.5 theta=0.6021: n_oracles=4566 converged=18264 max_iters=10 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9192 3x6353 4x2094 5x474 6x110 7x34 8x2 9x3 10x2
+half=1.5 theta=1.2086: n_oracles=4566 converged=18264 max_iters=11 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9102 3x6297 4x2055 5x582 6x161 7x51 8x9 9x6 11x1
+half=1.5 theta=1.789: n_oracles=4566 converged=18264 max_iters=10 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9218 3x6222 4x1968 5x618 6x170 7x54 8x10 9x2 10x2
+half=1.5 theta=0.0: n_oracles=4566 converged=18264 max_iters=11 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9139 3x6427 4x2075 5x509 6x94 7x14 8x4 10x1 11x1
+half=1.5 theta=0.7854: n_oracles=4566 converged=18264 max_iters=15 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x9265 3x6152 4x2083 5x569 6x151 7x26 8x8 9x3 10x3 11x2 12x1 15x1
+half=3.0 theta=2.1293: n_oracles=14894 converged=59576 max_iters=11 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x29478 3x20885 4x6879 5x1822 6x406 7x72 8x29 9x3 10x1 11x1
+half=3.0 theta=0.6021: n_oracles=14894 converged=59577 max_iters=12 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x30514 3x20233 4x6722 5x1641 6x351 7x81 8x18 9x8 10x5 11x1 12x3
+half=3.0 theta=1.2086: n_oracles=14894 converged=59576 max_iters=13 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x29779 3x20370 4x6750 5x1920 6x532 7x155 8x33 9x21 10x8 11x6 13x2
+half=3.0 theta=1.789: n_oracles=14894 converged=59578 max_iters=11 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x29827 3x20360 4x6634 5x1983 6x570 7x157 8x35 9x9 10x2 11x1
+half=3.0 theta=0.0: n_oracles=14894 converged=59576 max_iters=11 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x29731 3x20996 4x6677 5x1700 6x332 7x97 8x26 9x6 10x9 11x2
+half=3.0 theta=0.7854: n_oracles=14894 converged=59577 max_iters=15 over_16=0 empty_inner=0 INRADIUS_RAISE=0 FAIL=0
+      hist: 2x30084 3x20322 4x6734 5x1804 6x461 7x107 8x45 9x10 10x4 11x3 12x1 15x2
++ echo '=== K2_INWARD_CAP_DONE ==='
+=== K2_INWARD_CAP_DONE ===

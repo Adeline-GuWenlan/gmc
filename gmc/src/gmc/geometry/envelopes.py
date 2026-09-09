@@ -521,6 +521,30 @@ def _outer_support_margin(oracle: PairOracle, theta: float,
     return float(np.min(margin))
 
 
+# Iteration budget for the two binary64 world-export fixed points below,
+# ``_prototype_outward_world_vertices`` and ``_inward_world_points``.  The
+# budget is measured, not guessed: job 17217578 instrumented the outward
+# prototype loop with the cap raised to 512 and ran it over real K2 3DGS
+# geometry, whose supports are needles rather than the near-discs of the
+# synthetic families, and recorded a worst case of 25 iterations.  64 is about
+# 2.6x that measured worst case.  The shipped 16 was below what two thirds of
+# the tested orientations needed, and because 16 sat exactly at the edge of the
+# distribution, convergence there was decided by last-bit rounding: the same
+# slice passed on a login node and failed on a compute node.
+#
+# Raising the budget is sound because both loops are monotone in their
+# slack/shrink parameter (``slack = max(slack, needed)`` and
+# ``alpha = max(alpha, needed)``), so extra iterations move the returned set
+# only in the CONSERVATIVE direction: a LARGER outer hull and a SMALLER inner
+# hull, i.e. a looser over-approximation of the C-obstacle and therefore less
+# free space, never more.  Every call that already converged within 16
+# iterations returns bit-identical results, because the loop bodies are
+# unchanged; the only behavioural change is that calls which previously
+# exhausted the budget and raised now get more attempts to satisfy the same
+# exit condition.  The cap never made anything safe.  The exit condition does.
+_WORLD_EXPORT_MAX_ITERS = 64
+
+
 def _outward_world_vertices(oracle: PairOracle, theta: float,
                             directions: np.ndarray, h: np.ndarray,
                             support_error: float):
@@ -584,7 +608,7 @@ def _prototype_outward_world_vertices(oracle: PairOracle, theta: float,
     fixed point without paying for theorem-only true-support edge audits.
     """
     slack = 0.0
-    for _ in range(16):
+    for _ in range(_WORLD_EXPORT_MAX_ITERS):
         local = _outer_vertices(
             directions, np.asarray(h, dtype=np.longdouble) + slack,
         )
@@ -610,7 +634,7 @@ def _inward_world_points(oracle: PairOracle, theta: float,
     if not np.isfinite(inradius) or inradius <= 0.0:
         raise FloatingPointError("pair inradius bound is not positive")
     alpha = 0.0
-    for _ in range(16):
+    for _ in range(_WORLD_EXPORT_MAX_ITERS):
         local = (1.0 - alpha) * points
         world, export_error = oracle.translate_local_points(theta, local)
         multiply_error = float(_binary64_error_scale(

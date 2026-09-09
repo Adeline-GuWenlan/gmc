@@ -11,6 +11,10 @@ Code: `gmc/experiments/k2_scene.py` (loader), `gmc/experiments/k2_door_gate.py`
 
 ## Step 0 — the fisheye_gs overlay is not usable as a scene
 
+> **Superseded 2026-09-09.** The diagnosis in this section is wrong and the
+> overlay has since been read and extracted without mounting it at all. See
+> correction 2 in the update at the end of this file.
+
 `/scratch/wg2381/fisheye_gs/xgrid_indoor_1_k2_full_64g.ext3` is a 64 GB
 apptainer overlay, not a readable scene directory. Mounted read-only against
 `/share/apps/images/centos-7.9.2009.sif`:
@@ -166,7 +170,9 @@ bound. Nothing unsound was produced.
 **Proposed fix, not applied.** Raise the cap in
 `_prototype_outward_world_vertices` from 16 to 64 -- 2.6x the measured worst
 case of 25, and the iteration is monotone in `slack`, so extra iterations can
-only tighten the bound and never weaken it. It is a one-line change inside the
+only tighten the bound and never weaken it [**stated backwards — see correction
+1 in the 2026-09-09 update; the true argument is that extra iterations are
+monotonically more conservative, not tighter**]. It is a one-line change inside the
 certified core, so it is left for an explicit decision rather than made as a
 side effect of this experiment. A cap of 16 does not merely fail sometimes on
 real data: it is below what two thirds of the tested orientations need.
@@ -193,3 +199,97 @@ real data: it is below what two thirds of the tested orientations need.
   completed on real data.
 - Test B (door_A -> door_B, 8.25 u apart, ~13,940 splats at pad 1.0 u) is
   still unstarted and needs Stage 4 working first.
+
+---
+
+## Update 2026-09-09 — cap raised, pipeline completed once, three corrections
+
+Jobs `17225249` (inward-loop probe) and `17225251` (Stage 4).
+
+### The change
+
+`_WORLD_EXPORT_MAX_ITERS = 64` in `gmc/src/gmc/geometry/envelopes.py`, applied to
+both `range(16)` loops: `_prototype_outward_world_vertices` and
+`_inward_world_points`. Theorem-mode `_outward_world_vertices` keeps its
+`range(24)` and is untouched. Every call that already converged within 16
+iterations returns bit-identical results; the only behavioural change is that
+calls which previously exhausted the budget now get more attempts at the same
+exit condition.
+
+### The inward loop was measured, and it was not the problem
+
+The inward cap runs in *both* certificate modes and had never been instrumented.
+Job `17225249` probed it at cap 512 over the same twelve (window, theta) cells:
+
+| | outer (prototype) | inner |
+|---|---|---|
+| worst case | 25 iters | **15 iters** |
+| cells exceeding 16 | 5 of 12 | **0 of 12** |
+| cells landing exactly on 16 | 3 | 0 |
+| empty-inner early returns / inradius raises / FAILs | — | 0 / 0 / 0 |
+
+So 16 was sufficient for the inward fixed point — by exactly one iteration at
+worst (theta=0.7854 reaches 15 in both windows). It had no margin and nobody had
+checked. The outward loop was the only actual blocker.
+
+### Stage 4 completed for the first time — with verdict UNKNOWN
+
+Job `17225251`, 1 h 43 m 51 s, exit 0. `build_slabs` no longer raises.
+
+    n_supports 4,566   n_pairs 4,566
+    compile 5,707.4 s  query 394.1 s
+    M_safe     203 nodes / 203 edges
+    M_possible 283 nodes / 339 edges
+    status UNKNOWN     clearance_lb None
+
+**The query returned no curve, so `independent_verification.ran` is false.** The
+crash is fixed and the pipeline runs end to end, but the safety property Stage 4
+exists to test — re-verifying the returned path against all original supports —
+is still unexercised. This is a plumbing milestone, not a verification result.
+The next question is why the query is UNKNOWN: M_possible carries 339 edges
+against M_safe's 203, which is consistent with the start and goal being joined
+only through slabs that never reached a certified status, but that has not been
+confirmed.
+
+### Corrections to what is written above
+
+1. **The soundness argument was stated backwards.** This document said extra
+   iterations "can only tighten the bound and never weaken it" (and the Chinese
+   version said 多迭代只会让界更紧). That is the wrong direction: the loops only
+   ever grow `slack` and `alpha`, so extra iterations produce a *larger* outer
+   hull and a *smaller* inner hull — a looser over-approximation of the
+   C-obstacle and therefore less free space. The change is sound because it is
+   monotonically **more conservative**, never less.
+
+2. **Step 0's diagnosis of the fisheye_gs overlay was wrong**, and the correct
+   one dissolves the problem. The payload is at `/upper/datasets`, not
+   `/datasets` — `upper` is the overlayfs upper directory. `/upper/datasets` is
+   mode 0750 owned by **uid 3003305, gid 100**, a different real user; the
+   container rendered it as `nfsnobody` only because uid 3003305 has no passwd
+   entry in the base image. `--fakeroot` could therefore never have worked
+   either, since an unmappable owner uid defeats the namespace root mapping.
+   No read-write mount is needed at all: `debugfs` reads the ext3 image as a
+   file, consulting no permission bits, and without `-w` cannot modify it. See
+   `gmc/hpc/k2_dataset_extract.sh`. Extracted 2026-09-09 to
+   `/scratch/wg2381/fisheye_gs/k2_dataset/`: 26 GB, 6,689 files, **all 66
+   shipped SHA256SUMS entries OK**, `map.ply` hashing to `d6f8f327...c43a2`
+   exactly as its manifest declares.
+
+3. **"The full pipeline has never completed on real data" no longer holds** — it
+   completed on 2026-09-09, as above. The stronger claim it was standing in for
+   does still hold: the independent verification arm has never run.
+
+### What the overlay actually contains
+
+Not a trained 3DGS — the raw Lixel K2 capture, `verification.json` all `pass`:
+2,130 three-camera frames (710 each left/centre/right; left and right fisheye
+`kb4`/`OPENCV_FISHEYE`, centre pinhole), Livox Mid-360 lidar at 46,303,401
+points over 2,335 scans, `map.ply` at 38,882,391 points, 2,310 trajectory poses,
+47,600 IMU samples, 7 calibration files, and a known-pose COLMAP rig (3 cameras,
+2,064 images, 0 points3D).
+
+This bears on two standing caveats. The LAS header is **metric at 1 mm scale**,
+min `[-2.301, -25.505, -2.025]` max `[52.194, 18.502, 10.082]`, a
+54.5 x 44.0 x 12.1 m extent — enough to settle the UNVERIFIED 0.5 m/u scale
+hypothesis by comparison against the slab's extent. And a 38.9 M-point lidar map
+is independent geometry for the pending wall-gap audit. Neither has been done.

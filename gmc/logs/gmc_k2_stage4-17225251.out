@@ -1,0 +1,43 @@
++ PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
++ cd /scratch/wg2381/splathjb/gmc
++ export PYTHONPATH=src:experiments MPLBACKEND=Agg
++ PYTHONPATH=src:experiments
++ MPLBACKEND=Agg
++ export OPENBLAS_NUM_THREADS=8 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
++ OPENBLAS_NUM_THREADS=8
++ OMP_NUM_THREADS=1
++ MKL_NUM_THREADS=1
++ echo '=== STAGE 4: half=1.5, full compile + query + independent verify ==='
+=== STAGE 4: half=1.5, full compile + query + independent verify ===
++ /scratch/wg2381/.conda/envs/gmc-venv/bin/python experiments/k2_door_gate.py --door door_A --half 1.5 --with-compile -o results/k2/door_A_h1.5_full.json
+=== STAGE 0: scene ===
+  window door_A (22.3, -15.2) half=1.5 u
+  in box (any weight)      17314
+  after weight > 0.3       4566
+  dropped (not SPD)        0
+  supports used            4566
+  semi-axes p50            0.0002 x 0.0361 u  (p99 major 0.1346)
+  0.3s
+  WARNING: probe segments are clipped by the workspace (A 51% inside, B 51% inside). half must be at least 2.09 u for the atlas comparison to be exact.
+  wall bearing -29.25 deg, probe segments [[21.811, -16.072], [21.127, -17.294]] | [[22.789, -14.328], [23.473, -13.106]]
+
+=== STAGE 1-2: gate, dose-response vs atlas H2 (v3) ===
+  L16 (1.6x0.6 u) theta=1.5708 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=663042 18.2s
+  L24 (2.4x0.6 u) theta=2.1293 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=True agree_v3=True agree_v2=True comps=1 free_a=True free_b=True calls=641004 18.0s
+  L24 (2.4x0.6 u) theta=0.6021 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=3 free_a=True free_b=True calls=641328 17.9s
+  L32 (3.2x0.6 u) theta=1.2086 [atlas_open] gmc_open=True atlas_v3=True atlas_v2=False agree_v3=True agree_v2=False comps=1 free_a=True free_b=True calls=668544 21.4s
+  L32 (3.2x0.6 u) theta=1.7890 [atlas_closed] gmc_open=False atlas_v3=False atlas_v2=False agree_v3=True agree_v2=True comps=2 free_a=True free_b=True calls=692124 21.7s
+  agreement with atlas v3: 5/5
+  agreement with atlas v2: 4/5
+
+=== STAGE 3: negative control ===
+  point [20.8, -14.211] is 0.837 u inside forbidden mass -> located_in_free=False PASS=True
+
+=== STAGE 4: full compile + query + independent verify (L24) ===
+  start=[21.6357, -16.3862] goal=[22.9643, -14.0138] theta=2.1293 (both taken from the certified-safe component that reaches both probe segments)
+  n=4566 pairs=4566 compile=5707.4s query=394.1s safe=203n/203e status=UNKNOWN clearance_lb=None
+  query returned no curve; nothing to verify
+
+wrote results/k2/door_A_h1.5_full.json
++ echo '=== K2_STAGE4_DONE ==='
+=== K2_STAGE4_DONE ===
