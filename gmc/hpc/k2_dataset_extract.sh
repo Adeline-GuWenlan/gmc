@@ -26,7 +26,7 @@
 # write, so the source image is provably untouched.  This is why no read-write
 # mount, and therefore no mutation of the delivered image, is required.
 #
-# VERIFIED 2026-09-09: 26 GB, 6,689 files, all 66 shipped SHA256SUMS entries OK,
+# VERIFIED 2026-09-08: 26 GB, 6,689 files, all 66 shipped SHA256SUMS entries OK,
 # and map.ply hashing to d6f8f327...c43a2 exactly as map.ply.manifest.json
 # declares.
 #

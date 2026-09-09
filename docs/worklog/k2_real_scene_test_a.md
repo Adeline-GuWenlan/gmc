@@ -11,7 +11,7 @@ Code: `gmc/experiments/k2_scene.py` (loader), `gmc/experiments/k2_door_gate.py`
 
 ## Step 0 — the fisheye_gs overlay is not usable as a scene
 
-> **Superseded 2026-09-09.** The diagnosis in this section is wrong and the
+> **Superseded.** The diagnosis in this section is wrong and the
 > overlay has since been read and extracted without mounting it at all. See
 > correction 2 in the update at the end of this file.
 
@@ -50,7 +50,7 @@ Support shape, which is the number that matters for everything downstream:
 
 **Real 3DGS supports are needles**: the median is ~40-100x longer than it is
 wide and the worst is 2,212x. The smallest covariance eigenvalue in the window
-is 1.98e-9, only about ten times the configured `min_cov_eigenvalue = 1e-10`
+is 1.98e-9, only about ten times [**wrong: it is 19.8x, see correction 4**] the configured `min_cov_eigenvalue = 1e-10`
 floor, so `validate_models` admits them but they sit close to the degenerate
 end. Nothing in the synthetic families resembles this.
 
@@ -171,7 +171,7 @@ bound. Nothing unsound was produced.
 `_prototype_outward_world_vertices` from 16 to 64 -- 2.6x the measured worst
 case of 25, and the iteration is monotone in `slack`, so extra iterations can
 only tighten the bound and never weaken it [**stated backwards — see correction
-1 in the 2026-09-09 update; the true argument is that extra iterations are
+1 in the update at the end of this file; the true argument is that extra iterations are
 monotonically more conservative, not tighter**]. It is a one-line change inside the
 certified core, so it is left for an explicit decision rather than made as a
 side effect of this experiment. A cap of 16 does not merely fail sometimes on
@@ -202,9 +202,10 @@ real data: it is below what two thirds of the tested orientations need.
 
 ---
 
-## Update 2026-09-09 — cap raised, pipeline completed once, three corrections
+## Update — later on 2026-09-08, written up 09-09: cap raised, pipeline completed once, four corrections
 
-Jobs `17225249` (inward-loop probe) and `17225251` (Stage 4).
+Jobs `17225249` (inward-loop probe, 16:30:35-16:36:52) and `17225251` (Stage 4,
+16:30:35-18:14:26), both on 2026-09-08.
 
 ### The change
 
@@ -270,14 +271,33 @@ confirmed.
    either, since an unmappable owner uid defeats the namespace root mapping.
    No read-write mount is needed at all: `debugfs` reads the ext3 image as a
    file, consulting no permission bits, and without `-w` cannot modify it. See
-   `gmc/hpc/k2_dataset_extract.sh`. Extracted 2026-09-09 to
+   `gmc/hpc/k2_dataset_extract.sh`. Extracted 2026-09-08 to
    `/scratch/wg2381/fisheye_gs/k2_dataset/`: 26 GB, 6,689 files, **all 66
    shipped SHA256SUMS entries OK**, `map.ply` hashing to `d6f8f327...c43a2`
    exactly as its manifest declares.
 
 3. **"The full pipeline has never completed on real data" no longer holds** — it
-   completed on 2026-09-09, as above. The stronger claim it was standing in for
+   completed on 2026-09-08 (job 17225251, 16:30:35-18:14:26), as above. The stronger claim it was standing in for
    does still hold: the independent verification arm has never run.
+
+4. **"only about ten times the configured `min_cov_eigenvalue = 1e-10` floor" is
+   wrong.** The measured minimum is 1.983e-9, which is **19.8x** the floor, not
+   ~10x. Re-measured directly from `slab_2d.npz` on 2026-09-08 while building
+   the talk figures. The qualitative point survives -- these supports sit close
+   to the degenerate end and `validate_models` admits them -- but the margin is
+   twice what this document claimed.
+
+### One implementation difference worth recording
+
+`gmc/experiments/k2_scene.py::load_window` takes supports from a box of
+half-width `half + 0.75` while the workspace stays at `half`, because a splat
+whose mean sits just outside the workspace can still intrude into it and
+dropping it would silently open free space at the boundary. The atlas
+(`h2_k2_windows.py::load_window`) uses `half + 0.5`. The two stacks therefore
+admit slightly different support sets at the window edge; ours is the more
+conservative of the two. This is not a discrepancy to fix, but it is a reason
+the two implementations are not expected to agree bit-for-bit at the boundary,
+and it was not recorded anywhere before now.
 
 ### What the overlay actually contains
 
