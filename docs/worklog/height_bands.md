@@ -337,3 +337,231 @@ All T1/T2 gates pass. No gate criterion was changed and no gate was rerun in C1.
 - 09:03 — C1 closed. All T1/T2 gates pass; one soundness fix (`91ab698`); gate artifacts committed
   (`91f11d1`). No Slurm jobs were submitted by C1, so A2 has nothing of C1's to wait for. Standup:
   `/scratch/wg2381/claude_jobs/logs/height_C1_done.md`.
+
+## Stage A2 (job 17582911, started 2026-09-13 13:03 EDT on cs638)
+
+- 13:04 — Read `_rules.md`, spec, plan, README, `height_C1_done.md`, `state/A1.json`, `state/C1.json`.
+  There was no `state/A2.json`, so this is a fresh start. HEAD is `e4a34da` and the tree is clean.
+  - **Pre-flight:** all ten gate JSONs in `gmc/results/height/toy/` (T1a, T1b, T2-1…T2-8) have
+    `"pass": true`, and C1's standup reports no unresolved failure, so the showcase starts.
+    `showcase_initial_intervals = 1` (`T2-8.json` `extra`).
+  - The helpers Task 10 uses (`load_3dgs_ply`, `fit_floor`, `gravity_rotation`, `rotate_scene`,
+    `crop_box`, `aabb`, `band_overlap_mask`, `robot_table`, `max_radius`) match the plan's script, so it
+    is written verbatim.
+  - The source PLY is 499,121,449 bytes (mtime 2026-09-08 16:15) with 7,340,008 vertices. Its header
+    bounds are x −15.60…43.81, y −6.95…42.16, z −15.33…12.06: a ≈59 × 49 m extent, so floaters or
+    neighbouring spaces are present. The floor and ceiling fits must be checked in pictures.
+- 13:07 — A first launch wrapped the steps in `/usr/bin/time -v`, which is not installed on cs638.
+  Nothing ran. Relaunched without the wrapper.
+- 13:07 — **Task 10 Step 2 (copy + decode)**, log
+  `/scratch/wg2381/splathjb/gmc/outputs/height/a2/step2_copy_decode.log`, took 16 s.
+  - Copy: sha256 of source and copy equal, `98af4928cc67523015bd32c4f438d334adb86db59bc20ef1c97227bf367cc3c2`;
+    `meta.json` written.
+  - Decode: 7,340,008 rows, 0 non-finite dropped.
+  - Floor fit: `z_floor = −1.2272`, tilt 0.285° (≤ 0.5°, so no gravity rotation; identity is stored),
+    42,709 inliers. The fit's own histogram peak is `peak_z = −1.3207`, **9.4 cm below the plane**. Checking
+    what these two levels are before trusting `z_f`.
+  - Ceiling: z = 4.083, **5.31 m** above `z_f`.
+  - Crop `[z_f − 0.2, ceiling + 0.2]`: 20,583 dropped, 7,319,425 kept.
+  - **Finding (spec §5.3, reported, `z_lo` unchanged):** opaque (τ = 0.3) splats with centre within 5 cm
+    of `z_f` have ρ-top above floor at p50 0.020, p90 0.062, p99 0.136, p99.9 0.236 m. **50,305** of them
+    reach above `z_lo = 0.02`, and the sweeper band is [0.02, 0.10], so its map will contain floor splats.
+- 13:09 — **Floor check (pictures first).** Diagnostics are in `/scratch/wg2381/splathjb/gmc/outputs/height/a2/diag/`
+  (script `a2/floor_diag.py`, not committed).
+  - `z_hist.png`: the floor is one thick layer of splat centres from z ≈ −1.42 to −1.15. Its densest
+    5 mm bins are at −1.25…−1.20, where the red `z_f` line sits.
+  - `peak_z = −1.32` is a local maximum on the lower shoulder of that layer, not a second floor. The
+    fit's 2 cm histogram took the first bin ≥ 20 % of max. The RANSAC plane with the most ±2 cm inliers
+    is the dense layer, which is the right floor.
+  - `xy_layers.png`: splats within 2 cm of `z_f` trace wall feet over the whole floor plan. Splats at
+    `peak_z` cluster under two spots, (10, 8) and (12, 34), the tables/objects below. They look like
+    reflections below a glossy floor.
+  - The floor's 25 cm thickness in splat centres is the reason for the 50,305 floor splats in the sweeper
+    band. **`z_f = −1.2272` accepted**, and nothing is changed.
+- 13:09 — **Task 10 Step 3 (maps)**, log `a2/step3_maps.log`, 10 s. Extent x −4.43…21.15,
+  y −0.96…37.85; 10,064 overhang-candidate cells. Opened all five `figs/band_*.png` and
+  `figs/overhang_candidates.png`. I also opened `diag/topdown_full.png` (RGB from the PLY's `f_dc`, lowest
+  underside, sweeper-band hit count) and `diag/side_views.png`.
+  - Building: one gallery rotated ≈62.6° (long walls along u = (0.46, 0.89)).
+    - Main hall x ≈ −4…20, y ≈ 0…23; north wing/corridor up to y ≈ 38; an entrance vestibule at the SW
+      corner (x ≈ −4…0, y ≈ −1…3, with cyan/blue speckle).
+    - The semicircular bulge on the SE outer wall at ≈(12.5, 5.5) shows a curved low object in the
+      0.10–0.55 band. Candidate glass entrance; to be checked before any route near it.
+    - Freestanding partitions are 4.5 m tall. Ceiling at ≈5.0–5.3 m, with pendant lights at 4.4–4.9 m
+      (`figs/section_room_long.png`).
+  - Square hollow columns/plinth boxes, ≈0.8 m, visible in every band from 0.10 m up to 2.50 m:
+    (−1.2, 9), (3.8, 6.5), (8.8, 4.2), (12.3, 11.5), (2.2, 16.5).
+  - Round objects in the north wing at ≈(12, 34): up to 1.75 m, ring-shaped in the underside map.
+    Tables or planters with chairs.
+  - Objects in the 0.55–1.00 band but open underneath (green/yellow, 0.7–0.9 m, in the lowest-underside
+    map) are the overhang candidates. A (9.2, 7.5) is a 2.8 × 0.9 m tan rectangle with dark items. Also
+    B (0.4, 10.8), C (13.5, 14.1), D (5.8, 18) small, (2.5–3.3, 15–17.5) at the L-shaped column,
+    E (11, 28), F (15.5, 10) and G (3.2, 22.5).
+  - Benches (0.10–0.55 band only, underside ≈0.35–0.45 m): (10, 16), (7.8, 28.5) and (2.2, 10.5).
+    `section_room_long` crosses (10, 16) lengthwise, a 2.0 m bench with a flat seat at **0.43 m** and legs
+    at both ends.
+  - `overhang_candidates.png`: red clusters at A, B, the L-column (2, 15), D, G and outside the west wall.
+    Outside-wall hits at x < −1, y 15–20 are exterior clutter seen through glass/windows.
+  - **Sweeper band (0.02–0.10) is the problem band.** The AABB occupancy map is nearly solid in the NE
+    half (x > 9, y > 12) and the north wing, and speckled in the SW hall. The per-cell hit count
+    (`topdown_full.png`, right) is light but everywhere, so floor splats are spread over the whole floor.
+    The case start/goal must sit where this band is clear. Reported as scene fidelity; `z_lo`, τ and
+    the filters are not changed.
+- 13:14 — **Zoomed diagnostics** (`a2/zoom_diag.py`, `diag/zoom_<tag>.png`; 2.5 cm cells, panels RGB /
+  lowest underside / highest top / lintel). Opened `full, A, B, C, G, SE, ENT`. Sections
+  `figs/section_{A_u,A_v,C_u,C_v}.png` opened.
+  - A `section --seg -0.52,…` call failed because argparse reads a leading `-` as a flag. Negative
+    coordinates are passed as `--seg=-0.52,…`.
+  - **A (9.2, 7.5)**: a long table.
+    - Top surface ≈0.80 m (ρ-extent 0.73–0.88 in `section_A_v`; top-height modes 0.80/0.88), 2.95 m ×
+      0.82 m. Legs at both ends plus a middle trestle at ≈(9.08, 7.56); open knee space.
+    - Objects lie on it (dark items in RGB).
+    - A 1.95 m bench, seat **0.42–0.44 m** (`section_A_u`, `A_v`), is attached along its NE side.
+  - **C (13.5, 14.1)**: a 1.8 × 0.6 m high table with slab ends (0.1 m thick, floor to top). Top
+    **≈0.92–0.94 m** (modes 0.94/0.92, `section_C_v`), underside ≈0.82, open between the slabs; objects on top.
+  - **B (−0.05, 10.8)**: a 2.3 × 0.7 m table, underside ≈0.7, top ≈0.76–0.86 (`B_v` modes). Its SW end meets
+    a plinth box at (−1.2, 9.2). A bench, seat ≈0.4, at (2.1, 10.5).
+  - **G (3.3, 22.5)**: a 1.8 × 0.9 m table against the NW corner wall, top ≈0.95, underside ≈0.8.
+  - **SE bulge (12.7, 5.7)**: a semicircular low platform (top ≈0.3 m) against the outer wall, with ≈1.2 m
+    boxes on the wall line. Not an opening.
+  - **Reception area (ENT)**: the counter is here, not in the hall.
+    - A 3.5 m strip from ≈(−0.5, 3.0) to (0.1, −0.5): highest top ≈1.0–1.05; lowest underside ≈1.0 on the
+      outer (west) edge and ≈0.3 inside.
+    - A ≈0.7 m work surface runs behind it to the east.
+    - The west wall x ≈ −3.9, y ≈ 0.3–2.8 has cyan/blue speckle in RGB and a lintel strip: free in
+      [0.10, 1.80], with mass above whose underside is at ≈2.3–2.6 m. Outside it (x < −3.9) there is a ≈2.5 m
+      canopy-like layer. **This is the glass entrance door**, 3.5–4 m from the counter.
+  - Next: sections across the counter (knee space from the visitor side?) and along the door.
+- 13:17 — **Reception counter and door sections** (opened `figs/section_counter_{n1,n2,len}.png` and
+  `figs/section_door_W.png`).
+  - **Counter:** across it (s increases eastwards, away from the entrance), the visitor-side face is a solid
+    panel from ≈0.08 m up to the top ledge at **1.02–1.04 m**. The ledge overhangs the panel by only ≈0.15 m.
+    Behind it, an ≈0.75 m work surface sits ≈1 m further east.
+    - `counter_len` shows the panel is continuous over 3.8 m (vertical panel joints every ≈0.9 m), with a
+      structure from 1.2 m to the ceiling over its south end.
+    - **No knee space from the approach side, so by spec §5.3 the case uses another overhang.**
+  - **Door:** along the west wall, glass double doors (each ≈0.75 m) for s ≈ 1.67–3.35, i.e. y ≈ 0.9–2.6 at
+    x ≈ −3.9. Frame top at **2.37 m**, push bar at 0.97 m, bottom rail 0.08 m. Side lights at s ≈ 1.1–1.5 and
+    3.5–3.9, top 2.5 m. This is the glass entrance; routes must stay away from it.
+- 13:18 — **Task 10 Step 4 scale check** → `gmc/results/height/showcase/scale_check.json`. Rule: agrees iff
+  measured is in [0.85·lo, 1.15·hi].
+
+  | object | measured | typical | agrees |
+  |---|---|---|---|
+  | hall bench seat | 0.43 | 0.40–0.50 | yes |
+  | table A top | 0.80 | 0.70–0.78 | yes |
+  | bench seat at A | 0.43 | 0.40–0.50 | yes |
+  | counter top | 1.03 | 0.90–1.10 | yes |
+  | door clear height | 2.37 | 2.00–2.40 | yes |
+
+  5/5 agree → **`metric_accepted: true`**, and G1 may run. Not counted: high table C (0.93, purpose
+  unknown); ceiling 5.0–5.3 m (no typical range in the plan).
+- 13:20 — **Task 10 Step 5, case selection. Counter rejected (no knee space); table A tried first.**
+  - Selection aid `a2/case_aid.py` reuses the plan's `_occupancy`/`_section` in window
+    [5.5, 3.5, 12, 10.5], z_c = 1.20. It scored 18 straight lines along u across table A, at crossing
+    points s_v ∈ {1.3…3.3} and half-lengths 1.6–2.4 m. Log `a2/case_aid_A.log`; figure `diag/case_aid_A.png`
+    (opened).
+  - **Criterion 1 would pass on every line:** 41–63 bins that are free in [0.02, 0.15] and overhung.
+  - **Criterion 3 fails on every line:**
+    - Start/goal distance to an AABB-occupied cell is 0.00–0.29 m in the sweeper band, and identical in
+      the cylinder band, which contains the sweeper band.
+    - The sweeper-band distance map around A is almost entirely below 0.3 m. Every cell holds the AABB of
+      some floor splat whose ρ-extent reaches 0.02 m.
+  - Whole-scene check `a2/clear_map.py` (`diag/clear_map.png`, opened):
+    - **42 %** of cells in the ≈26 × 39 m extent are sweeper-band occupied (AABB aid).
+    - Cells ≥ 0.5 m clear in all three bands form 29 clusters. The three large ones lie **outside** the
+      building walls.
+    - Inside, the only sizeable one is ≈6.6 m² at (1.7, 13.2) in the SW hall. The rest are ≤ 0.14 m²
+      specks, e.g. (2.32, 7.66), (1.82, 5.93), (6.28, 13.66), (5.0, 20.38), and a few in the reception area.
+  - Possible contributor: residual floor tilt. The fitted normal (−0.00494, −0.00059, 1) is 0.285°, below the
+    spec's 0.5° rotation threshold, so no rotation is applied. The plane then lies up to ≈+5 cm above
+    `z_f` on the east side (x ≈ 18) and ≈−4 cm on the SW side, matching the denser clutter in the NE.
+    Checking against local floor modes. **The threshold is scene definition and is not changed.**
+  - Next: search every pair of interior clear cells for criteria 1–3 (`a2/pair_search.py`) before
+    deciding anything else.
+- 13:26 — **Local floor modes vs the fitted plane** (`a2/pair_search.log`; opacity > 0.5 centres within
+  0.15 m of `z_f`, 1 cm bins, 2 × 2 m boxes).
+  - East side, mode / plane offset relative to `z_f`: (13, 14) 0.005/0.021, (15, 20) 0.035/0.034,
+    (18, 14) 0.045/0.046, (9, 28) 0.005/0.009, (12, 34) 0.035/0.028. The tilt is real, and floor splats in
+    the east sit 2–5 cm up, inside the sweeper band.
+  - SW: modes −0.045 … −0.145 against plane −0.002 … −0.041, with few opaque splats. These look like the
+    reflection layer under a glossy floor rather than the surface.
+- 13:27 — **Pair search: no pair meets criteria 1–3.**
+  - 90 candidate endpoints (all interior clear clusters, 0.15–0.4 m sampling), 967 pairs of 2.5–7.5 m
+    (`a2/pair_breakdown.log`).
+  - Criterion 1 (overhang) passes for 370 pairs, criterion 2 (cylinder raster connectivity) for 167,
+    **both for 0**.
+  - The cylinder-band free raster (distance > 0.30) splits into 65 components. The interior candidates sit in
+    17 different small ones. The only connected pairs are within one blob, which holds no overhang.
+  - The inline section was asserted equal to the plan's `_section` on one line.
+- 13:30 — **Visualized the certified per-robot maps** (`project_scene`, not the aid), 2.5 cm raster
+  (`a2/proj_map_diag.py`; opened `diag/proj_map_A.png`, `diag/proj_map_SW.png`).
+  - **Window A** [5.5, 3.5, 12, 10.5]:
+    - Sweeper: 3,876 supports, 3,037 of them centred < 0.10 m above the floor. Red floor-splat shadows cover
+      the window in 0.1–0.4 m blobs; the disc r = 0.175 fits in only 14.6 % of it, in isolated patches.
+    - Cylinder: **112,068** supports; table + bench are one solid block; the disc fits in 2.6 %.
+    - UAV: 11,012 supports; 77 % free and connected; only the column box is red.
+  - **Window SW** [−2, 8.5, 5, 15] is much cleaner for the sweeper: 2,749 supports, disc fits in 58.5 %,
+    scattered small blobs. Cylinder has **210,822** supports (table B and the bench as blocks, disc fits
+    in 33.5 %). UAV 33,946, free.
+  - The cylinder support counts (1–2 × 10⁵ in ≤ 7 m windows) mean compile time is a separate risk even
+    with a valid case.
+- 13:31 — **Diagnostic only, not the scene definition: gravity-aligned copy** (`a2/rot_diag.py`,
+  `a2/rot_diag.log`).
+  - Refit tilt 0.030°, `z_f` −1.2259. Floor splats reaching 0.02 m: 35,072 (was 50,305); tops p50 0.009,
+    p90 0.054, p99 0.126. Sweeper-band AABB occupancy 43.8 % (was 41.8 %).
+  - The SW clear blob shrinks to 18 cells: 35 candidates, 61 pairs, crit1 15, crit2 6, **both 0**.
+  - **Rotating the 0.285° tilt away does not produce a valid case.** The limit is the floor layer's own
+    thickness (ρ = 2 extents of floor splats reach 5–13 cm), not the tilt.
+- 13:32 — **Task 10 Step 5 `--step case`, best available case: SW bench**. Log `a2/step5_case_SWbench.log`.
+  - Inputs: window [−1.5, 6.5, 5.5, 14.2], start (2.12, 7.72, 0), goal (1.93, 13.02, 0), z_c = 1.2,
+    `--glass-clear yes`. The route runs along x ≈ 2, 3.5–5 m east of the west wall, through no opening. The
+    wall in B/G zooms shows no glass speckle; the glass doors are at x ≈ −3.9, y 0.9–2.6, outside the window.
+  - Opened `figs/case_overview.png`. Left: the window's 0.02–1.75 AABB map, with table B as a diagonal block
+    at x ≈ −1…0.5 and the bench as a block at (1.4–2.7, 9.3–11.5), plus scattered floor clutter. The red line
+    runs S→N through the bench block. Right: a bench leg (0–0.40) at s ≈ 1.75 and the seat at 0.38–0.45 over
+    s ≈ 1.8–3.66. The sweeper band runs under the seat, the UAV band 1.1–1.3 is empty, the cylinder band
+    crosses the seat, and a pendant light hangs at 4.6.
+  - `case.json`: overhang top 0.448, underside 0.326, s 1.80–3.66; ceiling-side obstacle 4.55. Every
+    criterion is true **except `cylinder_detour_plausible_raster: false`**, so **`pass: false`**.
+  - The plan and spec allow continuing without a passing case only when criterion 1 fails. Here criterion 2
+    fails, and it fails for every candidate pair in the scene. **G1 is not submitted on this case; this is
+    escalated** (see standup).
+- 13:34 — **Task 11 Steps 1–3**:
+  - `configs/height_showcase.yaml` is built by the plan's sed from `T2-8.json`
+    (`showcase_initial_intervals = 1`). `diff` against `toy.yaml` shows exactly the header line plus
+    `initial_intervals: 1`, `max_support_calls: 50_000_000` and `max_wall_seconds: 7200`.
+  - `experiments/showcase_run.py` and `hpc/height_showcase_robot.sbatch` are written verbatim. The helpers
+    they call (`with_overrides`, `compile_and_query`, `replay_curve`, `curve_from_dict`) match their
+    signatures.
+  - `sbatch --test-only --export=ALL,ROBOT=cylinder` would start on cs671 in partition `cs`. It created
+    no job.
+- 13:35 — **Task 11 Step 4 inline dry-check** on `case.json`, with the plan's exact one-liner
+  (`a2/task11_step4_dry_check.log`). All three robots: n_input 7,319,425, dropped_opacity 3,448,924,
+  floored_3d 0.
+
+  | robot | excluded_band | outside_window | deduplicated | kept | floored_2d | candidate2 |
+  |---|---|---|---|---|---|---|
+  | cylinder | 1,548,256 | 2,121,916 | 0 | **200,329** | 14 | 2,288 |
+  | sweeper | 3,785,433 | 82,256 | 0 | **2,812** | 2 | 1,199 |
+  | uav | 3,420,899 | 413,870 | 0 | **35,732** | 18 | 2,818 |
+
+- 13:36 — **Criteria 2–3 re-checked on the certified maps of this case** (diagnostic only, not a plan
+  criterion; `a2/case_certified_check.py`, `figs/diag/case_certified_check.png`, opened).
+  - Sweeper: shadows are scattered floor blobs and bench legs. Start clear 0.55 m, goal 1.18 m; start and
+    goal lie in the same r = 0.175 free component, which covers most of the window.
+  - **Cylinder**: table B and the bench are solid blocks.
+    - The ≈0.6 m gap between them is closed by floor-splat shadows at (0.4–1.0, 9.8–10.8) under r = 0.30.
+    - East of the bench, clutter at (2.5–4.5, 9.5–12) meets the partition wall.
+    - The start component (y ≈ 7–9.8) does **not** reach the goal (north). On the certified map as well,
+      there is no detour in this window.
+  - UAV: only walls are red; start and goal are connected.
+- 13:37 — **Decision: stop before G1 and escalate.**
+  - The spec requires all five case criteria. It allows running the best available case only when criterion
+    1 fails.
+  - Criterion 2 fails for all 967 candidate pairs, and the certified map confirms it for the best case.
+  - The cylinder map would carry 2 × 10⁵ supports, so the probe would likely abort (> 20 h).
+  - Floor treatment is scene definition (spec §3.1, §5.3: floor splats are reported, never thresholded),
+    and so is the tilt threshold. Neither is mine to change.
+  - The case, the evidence and the ready job code are committed. No Slurm job is submitted and A3 is not
+    submitted. Options are in the A2 standup.
