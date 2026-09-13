@@ -186,3 +186,154 @@ times have been corrected to approximate values (≈).
     0.0897; replay3d lb ≥ 0.05; 449 / 455 / 451 samples). Their curves have no control points, so
     this was expected.
   - T1a's rerun result is for C1 to collect.
+
+## Stage C1 (job 17582910, started 2026-09-13 08:03 EDT on cs657)
+
+- 08:05 — Read `_rules.md`, spec, plan, README, `state/A1.json`, `jobids/A1.txt`,
+  `height_A1_done.md`, the A1 agent log. No `state/C1.json` existed (fresh start). `sacct`: all 13
+  gate jobs in `jobids/A1.txt` COMPLETED 0:0 (first runs 03:21–03:25, reruns 03:40–03:46).
+- 08:08 — **A1 diagnosis from artifacts.**
+  - All nine task commits exist (`9a3cd4f 7d14e3d a819cf5 e34d8c9 02b4af2 3bca411 8533c61 ef901e0
+    51178f2`), plus fix `9f361b3` and worklog `ff1d423`, all with the trailer.
+  - Every plan code block was diffed against the file at HEAD. Identical: `__init__`, `ply3d`,
+    `band_shadow`, `prism`, `project`, `synth3d`, `run`, `height_toy.py`, `height_toy.sbatch`, and
+    every plan test file. `height_toy.yaml` is the header line + `toy.yaml` byte for byte.
+  - The only differences are the three A1 documented: `replay3d` (refine the argmin pair), `viz`
+    (skip an empty scatter), and `pathio` (walk control points, +2 tests appended to
+    `test_height_pathio.py`).
+  - The read-only core (`geometry … io`, `types.py`, `config.py`, `synth.py`, `configs/toy.yaml`) is
+    unchanged since `f19a04f`.
+- 08:09 — Gate JSONs: all ten exist with `"pass": true` (criteria listed in the table below).
+  `logs/height_toy-17618957.out` prints `T1a pass=True`, and `T1a.json` (03:46) is the rerun.
+  The only failing log is the first-run T2-4 (17611970, the `pathio` bug A1 fixed; rerun 17618960
+  passes). No gate JSON is missing, so nothing was resubmitted.
+- 08:10 — Checked A1's `pathio` fix against the core rather than against its own tests.
+  `verify_curve` (`verification/path.py:118`) walks `[q0, *control_points, q1]`. It checks
+  translations piece by piece with `translation_safe(a, b)`. It checks rotations piece by piece with
+  `rotation_interval_safe(th0, th1)` over the literal interval `[min, max]`, not the short arc.
+  `pathio._knots` + linear interpolation of raw θ is the same motion. Agrees.
+- 08:11 — Challenged T1a's `crossing_inside_gate`. It looks only at translation pieces that cross
+  x = 0, but the `single_door` wall is 1.2 m thick (x ∈ [−0.6, 0.6]), and the path rotates in place at
+  (0, 0) twice (segments 22–23 and 67). Sampling the whole curve (δ = 0.01): all 404 poses with |x| ≤ 0.6
+  have folded θ ≤ 0.442, and the 43 poses at x = 0 have ≤ 0.196; gate half-angle 0.510. The criterion
+  holds over the whole wall slab, not only at x = 0. The T1a witness goes −2 → 2 → −2 → 2 (3 sign
+  changes of x, length 12.45 m for a 4 m gap): certified but far from short.
+- 08:12 — **Bug found in new height code: `replay3d`'s KD-tree prefilter can drop a colliding
+  splat (false pass).** `reach = R + margin + big_extent` (R = dilated footprint radius) assumes a
+  "small" splat reaches at most `big_extent` from its centre. But `ext` is the larger *per-axis* AABB
+  half-extent, and a splat elongated along the xy diagonal reaches √2·ext. Also, per-axis AABB
+  contact at a corner puts centres √2 times the per-axis bound apart. So the plan's claim "the
+  KD-tree prefilter never drops a pair the AABB test would keep" is false.
+  - Reproduction: needle along (1,1,0)/√2, σ = 0.35 (ext 0.495, "small"), centre 0.95 m from a
+    diagonal cylinder path (reach 0.86). The needle's end is 0.25 m from the path. `refine_gap` at the
+    origin pose: −0.06, a real collision. `replay_curve` → `passed=True, n_pairs_checked=0`. With
+    `big_extent=0.4` (needle always checked) → `passed=False`.
+  - Toy gates: every toy splat has xy half-extent and xy radius 0.08 (open and closed scenes). The old
+    reach already covered every AABB-kept pair there, so no toy gate can change; an inline replay
+    confirms (entry below). The showcase GS has large, arbitrarily oriented splats, so G2 would have
+    been exposed.
+  - TDD: two new tests in `test_height_replay3d.py`; the plan's 7 tests are unchanged.
+    `test_diagonal_splat_beyond_kdtree_reach_still_collides` and
+    `test_kdtree_prefilter_keeps_every_pair_the_aabb_test_keeps` compare `n_pairs_checked` with a
+    `big_extent=1e9` run (no prefilter). Both failed first: `assert not True`, and `0 == 8`.
+  - Fix: `reach = √2·(R + margin + big_extent)·(1 + 1e-9)`. Per axis a kept centre is within
+    R + margin + big_extent of the pose; in the plane it is within √2 times that. The KD-tree now returns
+    a superset of the AABB test's keep set, so replay results equal the no-prefilter results. 9/9 pass.
+- 08:14 — Environment finding for the full suite: 25 of the 31 tests in
+  `tests/integration/test_atlas_{benchmark,gate_intervals}.py` fail in this worktree with
+  `AtlasAssetError: Atlas root does not contain the sealed round4_final_package:
+  /scratch/wg2381/splathjb-height/splatc_atlas`. `splatc_atlas/outputs/` is gitignored, so a git
+  worktree never has it; the main checkout does
+  (`/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/MANIFEST.sha256`). These tests
+  and `benchmarking/atlas.py` contain no write calls. Plan: record the as-is run, then run the suite
+  once more with a temporary, untracked, read-only symlink `splatc_atlas/outputs →` the main checkout's
+  copy, and remove it afterwards.
+- 08:16 — **Key frames opened** (`gmc/results/height/toy/media/`, f000/f050/f100 each):
+  - **T1a** (ellipse_toy, top-down only). Pink disc supports fill the wall slab x ∈ [−0.6, 0.6] except
+    a 0.6 m door at y = 0.
+    - f000: the a = 0.5 / b = 0.2 ellipse stands upright (θ = π/2) at (−2, 0), 1.0 m tall against a
+      0.6 m door.
+    - f050: the ellipse is at x ≈ −1.1, turned ≈25° clockwise (θ = −0.44, segment 26), and the solid
+      trail already spans −2…2 (the back-and-forth witness).
+    - f100: upright again at (2, 0) (θ = −3π/2 ≡ π/2).
+    - None of the three frames catches the ellipse inside the door, hence the numeric check at 08:11.
+  - **T2-1** (sweeper, closed). Wall shadow discs on x = 0 for |y| ≳ 0.68, with a touching seam at
+    y = 1.2 between wall segments. Four tiny leg shadows at (±0.25, ±0.55). The tabletop appears only as
+    faint grey density, with no red shadow.
+    - The r = 0.175 disc runs along y = 0: (−2.2, 0) → (0, 0) under the tabletop footprint → (2.2, 0).
+    - Side panel: the 0.02–0.10 band slides from s = 0 to s ≈ 4.4, under a row of tabletop dots at
+      0.74 m over s ≈ 1.95–2.45.
+    - Title `replay3d=True lb=0.05`: no splat came within the 0.05 m margin (`n_pairs_checked` 0).
+    - Picture = under the table.
+  - **T2-4** (cylinder, open). The tabletop shadow block [−0.3, 0.3] × [−0.6, 0.6] joins the wall
+    shadows at |y| = 0.6; the wall ends at y = 1.2, and y ∈ [1.2, 2.0] is empty. Dashed path (−2.2, 0) →
+    (−0.18, 1.54) → (0.78, 1.42) → (2.2, 0).
+    - f050: the r = 0.30 disc at ≈(0.03, 1.5) sits in the door. Its lower edge is on the wall end, its
+      top ≈0.2 m below the workspace edge.
+    - f100: the disc is at the goal, with the full trail.
+    - Side panel: the 0.02–1.75 band moves s ≈ 0 → 2.75 → 5.5 with no corridor dots.
+    - Title `REACHABLE replay3d=True lb=0.00443`. Picture = around the table through the door.
+  - **T2-5** (uav z_c = 1.20, closed). Only wall shadows (no legs, no tabletop). The r = 0.25 disc runs
+    along y = 0 and is at (0, 0) over the tabletop footprint at f050. Side panel: the 1.10–1.30 band
+    passes above the tabletop dots at 0.74 m. `lb=0.05` (nothing within margin). Picture = over the table.
+  - All four pictures match their verdicts and criteria. The frames can show T2-1/T2-5 `lb=0.05` only as
+    "≥ 0.05" (A1 note); the synthetic scene leaves ≥ 0.26 m around those paths.
+- 08:20 — Reach fix checked against the toy evidence. Replayed the committed T2-1, T2-2, T2-4 and
+  T2-5 curves and the T2-6 straight line with the fixed code; every field (`passed, n_samples,
+  n_pairs_checked, n_refined, min_clearance_lb, worst, collisions`) is **identical** to the gate JSON
+  (T2-4: 2489 pairs, lb 0.00443; T2-6: 5270 pairs, rejects, lb −0.343). Output:
+  `/scratch/wg2381/splathjb/gmc/outputs/height/c1/replay_equivalence_after_reach_fix.txt`. No toy
+  gate needs a rerun; T1b, T2-3, T2-7 and T2-8 do not call `replay_curve`. Height subset with the fix:
+  **45 passed in 152.17s** (41 plan + 2 A1 + 2 C1). Committed as the T5 fix below.
+- 08:21 — `91ab698` `[height T5] fix: replay3d KD-tree reach covers diagonal splats`.
+
+### Toy gates (C1, 2026-09-13)
+
+Source: `gmc/results/height/toy/<gate>.json` (every `criteria` value true, `pass: true`); job logs
+`gmc/logs/height_toy-<job>.out`. The JSONs predate `91ab698`, but the fixed replay reproduces every
+replay field (08:20 entry). T1b, T2-3 and T2-8 are first runs, which the `pathio` fix cannot affect:
+no curve, or no curve consumer.
+
+| gate | case | job | criteria (all true) | pass | evidence |
+|---|---|---|---|---|---|
+| T1a | `single_door` 0.6, ellipse_toy, (−2,0,π/2) → (2,0,π/2) | 17618957 (rerun) | reachable, verify_certified, crossing_inside_gate | yes | REACHABLE; verify min 0.00581; 484 supports, 56 slabs; crossing θ folded 0.196 at x = 0, ≤ 0.442 over \|x\| ≤ 0.6, half-angle 0.510 |
+| T1b | `single_door` 0.35, ellipse_toy | 17611966 | not_reachable | yes | UNKNOWN (`possible_cut_is_not_a_global_certificate`); 506 supports |
+| T1c | video of T1a | 17618957 | — | done | `media/T1a.gif` (1.3 MB), `T1a_f000/f050/f100.png` |
+| T2-1 | closed / sweeper | 17618958 (rerun) | reachable, verify_certified, replay3d_passed, crosses_tabletop | yes | verify min 0.0900; replay3d 449 samples, no pair within 0.05 m (lb ≥ 0.05); 74 supports |
+| T2-2 | closed / quadruped | 17618959 (rerun) | reachable, verify_certified, replay3d_passed | yes | verify min 0.0896; replay3d 455 samples, lb ≥ 0.05; 84 supports |
+| T2-3 | closed / cylinder | 17611969 | not_reachable | yes | UNKNOWN (`possible_cut_is_not_a_global_certificate`); 148 supports; M_safe = M_possible = 48 nodes / 48 edges |
+| T2-4 | open / cylinder | 17618960 (rerun; first run 17611970 failed on the `pathio` bug) | reachable, verify_certified, replay3d_passed, avoids_tabletop | yes | verify min 0.00511; replay3d 566 samples, 2489 pairs, lb 0.00443; path via (−0.18, 1.54), (0.78, 1.42) |
+| T2-5 | closed / uav, z_c = 1.20 | 17618961 (rerun) | reachable, verify_certified, replay3d_passed, crosses_tabletop | yes | verify min 0.0897; replay3d 451 samples, lb ≥ 0.05; 106 supports |
+| T2-6 | closed / cylinder, hand-made straight line | inline, A1 `51178f2` | replay3d_rejects | yes | 441 samples, 5270 pairs, 20 collisions recorded (cap), first at x = −0.60 on tabletop splat 955; worst gap −0.343 (splat 1016) |
+| T2-7 | closed maps by provenance id | inline, A1 `51178f2` | sweeper_legs_no_top, cylinder_legs_and_top, uav_walls_only | yes | supports: sweeper 74, cylinder 148, uav 106 |
+| T2-8 | closed / sweeper, `initial_intervals` 1 vs 16 | 17611972 | same_status, areas_within_1e-6 | yes | both REACHABLE; 1 slab and 16 slabs, every safe area 22.106109106084222 m², max rel. diff 0.0 → **`showcase_initial_intervals = 1`** |
+
+All T1/T2 gates pass. No gate criterion was changed and no gate was rerun in C1.
+- 08:26 — Full suite, **baseline at `ff1d423` (A1's HEAD), worktree as-is**, exact command
+  `cd gmc && PYTHONPATH=src:experiments $PY -m pytest -q` (+ `--junitxml` for the counts, since the
+  doubled `-q` hides the summary line): **449 tests, 424 passed, 25 failed, 0 errors, 1083.9 s**. All 25
+  failures are in `tests/integration/test_atlas_benchmark.py` (10) and `test_atlas_gate_intervals.py`
+  (15): 24 `AtlasAssetError: Atlas root does not contain the sealed round4_final_package` and one
+  `FileNotFoundError` under `/scratch/wg2381/splathjb-height/splatc_atlas/outputs/…`. Same cause for all:
+  the gitignored package is absent from the worktree (08:14 entry). No failure in the height tests or in
+  any other module. 449 = 353 inherited + 53 coreset (`docs/worklog/coreset_phase1.md`: 406/406) + 43
+  height. Log/XML: `/scratch/wg2381/splathjb/gmc/outputs/height/c1/suite_baseline_ff1d423.{log,xml}`.
+- 08:27 — Final run started on HEAD `91f11d1` (code = `91ab698`) with a temporary, untracked symlink
+  `splatc_atlas/outputs → /scratch/wg2381/splathjb/splatc_atlas/outputs` (read-only use).
+- 08:45 — Final run 1 on `91f11d1` with the `splatc_atlas/outputs` link: **451 tests, 450 passed,
+  1 failed, 1049.9 s**. The 24 package tests now pass. The remaining failure,
+  `test_atlas_benchmark.py::test_blind_opt_in_keeps_withheld_manifest_scope_explicit`, needs
+  `splatc_atlas/data/splatc_gates/blind/manifest.json`, which is also gitignored. Only the two atlas test
+  files reference `splatc_atlas` data. Added a second read-only link: a real, ignored
+  `splatc_atlas/data/` directory holding a symlink `splatc_gates →` the main checkout's copy. Then reran
+  the whole suite for a single clean summary line.
+- 09:02 — **Final full suite, HEAD `91f11d1` (code `91ab698`), both read-only atlas links present:**
+  exact command `cd gmc && PYTHONPATH=src:experiments $PY -m pytest -q` (+ `--junitxml`) exited 0.
+  JUnit: **451 tests, 451 passed, 0 failed, 0 errors, 0 skipped, 1044.4 s**
+  (353 inherited + 53 coreset + 45 height). Log/XML:
+  `/scratch/wg2381/splathjb/gmc/outputs/height/c1/suite_final2_91f11d1.{log,xml}`. Both symlinks and the
+  empty `splatc_atlas/data/` were removed afterwards; the main checkout's package and blind manifest
+  are untouched. `git status` is clean apart from this worklog.
+- 09:03 — C1 closed. All T1/T2 gates pass; one soundness fix (`91ab698`); gate artifacts committed
+  (`91f11d1`). No Slurm jobs were submitted by C1, so A2 has nothing of C1's to wait for. Standup:
+  `/scratch/wg2381/claude_jobs/logs/height_C1_done.md`.
