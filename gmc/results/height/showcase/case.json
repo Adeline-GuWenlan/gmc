@@ -1,0 +1,71 @@
+{
+  "window": [
+    -1.5,
+    6.5,
+    5.5,
+    14.2
+  ],
+  "start": [
+    2.12,
+    7.72,
+    0.0
+  ],
+  "goal": [
+    1.93,
+    13.02,
+    0.0
+  ],
+  "z_floor": -1.2271749593107995,
+  "z_c": 1.2,
+  "overhang": {
+    "top": 0.4483488003449183,
+    "underside": 0.32624411040243373,
+    "s_interval": [
+      1.8,
+      3.66
+    ]
+  },
+  "criteria": {
+    "window_at_most_8x8": true,
+    "straight_line_under_overhang": true,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "start_clear_0.5m_sweeper": true,
+    "goal_clear_0.5m_sweeper": true,
+    "start_clear_0.5m_cylinder": true,
+    "goal_clear_0.5m_cylinder": true,
+    "start_clear_0.5m_uav": true,
+    "goal_clear_0.5m_uav": true,
+    "cylinder_detour_plausible_raster": false,
+    "not_through_glass_adjacent_opening": true
+  },
+  "pass": false,
+  "notes": {
+    "overhang": {
+      "top": 0.4483488003449183,
+      "underside": 0.32624411040243373,
+      "s_interval": [
+        1.8,
+        3.66
+      ]
+    },
+    "ceiling_side_obstacle_above_floor": 4.546100407036704
+  },
+  "gravity_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ]
+}

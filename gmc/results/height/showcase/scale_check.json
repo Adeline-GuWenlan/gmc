@@ -1,0 +1,22 @@
+{
+  "rule": "agrees_within_15pct: measured_m lies in [0.85*typical_lo, 1.15*typical_hi]; metric_accepted iff at least two measurements agree (plan Task 10 Step 4, spec 5.3)",
+  "height_reference": "z_floor = -1.2271749593107995 (g0.json floor.z_floor); heights are rho=2 support extents of opaque (tau=0.3) splats in a 0.4 m wide corridor",
+  "measurements": [
+    {"object": "wooden bench seat in the main hall at ~(9.8, 16.1), crossed lengthwise (2.0 m long, legs at both ends)",
+     "measured_m": 0.43, "typical_m": [0.40, 0.50], "figure": "figs/section_room_long.png", "agrees_within_15pct": true},
+    {"object": "long display table A at ~(9.2, 7.5), top surface (top slab rho-extent 0.73-0.88, top-height modes 0.80 / 0.88)",
+     "measured_m": 0.80, "typical_m": [0.70, 0.78], "figure": "figs/section_A_v.png", "agrees_within_15pct": true},
+    {"object": "bench attached to table A on its NE side, seat (plank at 0.42-0.44)",
+     "measured_m": 0.43, "typical_m": [0.40, 0.50], "figure": "figs/section_A_u.png", "agrees_within_15pct": true},
+    {"object": "reception counter at the SW entrance, x~0, y -0.5..3.0, top ledge (top-height modes 1.04 / 1.02)",
+     "measured_m": 1.03, "typical_m": [0.90, 1.10], "figure": "figs/section_counter_n1.png", "agrees_within_15pct": true},
+    {"object": "glass double entrance doors in the west wall x~-3.9, y 0.9-2.6, clear height under the frame (push bar at 0.97)",
+     "measured_m": 2.37, "typical_m": [2.00, 2.40], "figure": "figs/section_door_W.png", "agrees_within_15pct": true}
+  ],
+  "not_counted": {
+    "high_table_C": "table at ~(13.5, 14.1) with slab ends, top 0.92-0.94 (figs/section_C_v.png); purpose unknown (desk vs counter height), so not classified",
+    "ceiling": "ceiling 5.0-5.3 m with pendant lights at 4.4-4.9 m and freestanding partitions 4.5 m tall (figs/section_room_long.png); plausible for a gallery hall but no typical range in the plan"
+  },
+  "n_agree": 5,
+  "metric_accepted": true
+}
