@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "not_reachable": true
+  },
+  "result": {
+    "status": "UNKNOWN",
+    "clearance_lb": null,
+    "reason": "possible_cut_is_not_a_global_certificate",
+    "n_supports": 506,
+    "n_pairs": 506,
+    "n_slabs": 16,
+    "compile_seconds": 56.31147623062134,
+    "query_seconds": 77.83740019798279,
+    "safe_nodes": 48,
+    "safe_edges": 48,
+    "possible_nodes": 48,
+    "possible_edges": 48,
+    "verify": {
+      "ran": false
+    },
+    "curve": null,
+    "start": [
+      -2.0,
+      0.0,
+      1.5707963267948966
+    ],
+    "goal": [
+      2.0,
+      0.0,
+      1.5707963267948966
+    ]
+  },
+  "gate": "T1b",
+  "pass": true
+}

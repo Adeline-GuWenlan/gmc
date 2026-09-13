@@ -1,0 +1,3 @@
+=== height_toy GATE=T1b 2026-09-13T03:21:14-04:00 host=cs685.hpc.nyu.edu job=17611966 ===
+T1b pass=True criteria={'not_reachable': True}
+=== HEIGHT_TOY_DONE T1b ===

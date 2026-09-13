@@ -1,0 +1,167 @@
+{
+  "criteria": {
+    "reachable": true,
+    "verify_certified": true,
+    "replay3d_passed": true,
+    "crosses_tabletop": true
+  },
+  "result": {
+    "status": "REACHABLE",
+    "clearance_lb": 0.08997445637269265,
+    "reason": null,
+    "n_supports": 74,
+    "n_pairs": 74,
+    "n_slabs": 16,
+    "compile_seconds": 5.847646713256836,
+    "query_seconds": 0.2059922218322754,
+    "safe_nodes": 16,
+    "safe_edges": 16,
+    "possible_nodes": 16,
+    "possible_edges": 16,
+    "verify": {
+      "ran": true,
+      "certified": true,
+      "min_clearance": 0.08997445637269265,
+      "reason": "ok"
+    },
+    "curve": {
+      "schema_version": 2,
+      "query_id": "",
+      "segments": [
+        {
+          "kind": "ROTATION",
+          "q0": [
+            -2.2,
+            0.0,
+            0.0
+          ],
+          "q1": [
+            -2.2,
+            0.0,
+            0.19634954084936207
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        },
+        {
+          "kind": "TRANSLATION",
+          "q0": [
+            -2.2,
+            0.0,
+            0.19634954084936207
+          ],
+          "q1": [
+            2.2,
+            0.0,
+            0.19634954084936207
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        },
+        {
+          "kind": "ROTATION",
+          "q0": [
+            2.2,
+            0.0,
+            0.19634954084936207
+          ],
+          "q1": [
+            2.2,
+            0.0,
+            0.0
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        }
+      ]
+    },
+    "start": [
+      -2.2,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      2.2,
+      0.0,
+      0.0
+    ],
+    "replay3d": {
+      "passed": true,
+      "n_samples": 449,
+      "n_pairs_checked": 0,
+      "n_refined": 0,
+      "min_clearance_lb": 0.05,
+      "worst": null,
+      "collisions": [],
+      "params": {
+        "tau": 0.3,
+        "level": 2.0,
+        "delta": 0.01,
+        "n_coarse": 256,
+        "n_fine": 2048,
+        "margin": 0.05,
+        "band_abs": [
+          0.02,
+          0.1
+        ]
+      }
+    }
+  },
+  "replay3d": {
+    "passed": true,
+    "n_samples": 449,
+    "n_pairs_checked": 0,
+    "n_refined": 0,
+    "min_clearance_lb": 0.05,
+    "worst": null,
+    "collisions": [],
+    "params": {
+      "tau": 0.3,
+      "level": 2.0,
+      "delta": 0.01,
+      "n_coarse": 256,
+      "n_fine": 2048,
+      "margin": 0.05,
+      "band_abs": [
+        0.02,
+        0.1
+      ]
+    }
+  },
+  "extra": {
+    "projection": {
+      "n_input": 1050,
+      "tau": 0.3,
+      "level": 2.0,
+      "window": [
+        -3.0,
+        -2.0,
+        3.0,
+        2.0
+      ],
+      "band_abs": [
+        0.02,
+        0.1
+      ],
+      "dilate_radius": 0.175,
+      "dropped_opacity": 0,
+      "floored_3d": 0,
+      "excluded_band": 966,
+      "outside_window": 10,
+      "deduplicated": 0,
+      "kept": 74,
+      "floored_2d": 32,
+      "candidate2": 36
+    },
+    "media": {
+      "video": "results/height/toy/media/T2-1.gif",
+      "frames": [
+        "results/height/toy/media/T2-1_f000.png",
+        "results/height/toy/media/T2-1_f050.png",
+        "results/height/toy/media/T2-1_f100.png"
+      ]
+    }
+  },
+  "gate": "T2-1",
+  "pass": true
+}

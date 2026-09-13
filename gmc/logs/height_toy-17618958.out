@@ -1,0 +1,3 @@
+=== height_toy GATE=T2-1 2026-09-13T03:41:01-04:00 host=cs665.hpc.nyu.edu job=17618958 ===
+T2-1 pass=True criteria={'reachable': True, 'verify_certified': True, 'replay3d_passed': True, 'crosses_tabletop': True}
+=== HEIGHT_TOY_DONE T2-1 ===
