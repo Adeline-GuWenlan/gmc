@@ -92,7 +92,10 @@ def replay_curve(scene3d, robot, curve, *, z_floor, tau=0.3, level=2.0,
     tree = cKDTree(sub.means[small, :2]) if len(small) else None
     Vc, Vf = sphere_dirs(n_coarse), sphere_dirs(n_fine)
     poses = sample_curve(curve, delta, robot.max_radius())
-    reach = _dilated_radius(robot, delta) + margin + big_extent
+    # A splat the AABB test below can keep has its centre within
+    # R + margin + big_extent of the pose on each axis (R = dilated radius),
+    # so within sqrt(2) times that in the plane.
+    reach = np.sqrt(2.0) * (_dilated_radius(robot, delta) + margin + big_extent) * (1 + 1e-9)
 
     n_pairs = n_refined = 0
     min_lb, worst, collisions = margin, None, []

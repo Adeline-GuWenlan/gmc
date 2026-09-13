@@ -75,3 +75,34 @@ def test_replay_imports_nothing_from_the_projection_or_core():
                    "from ..spatial", "gmc.mobility", "gmc.geometry",
                    "gmc.orientation", "gmc.verification", "gmc.spatial"):
         assert banned not in src.split('"""', 2)[-1], banned
+
+
+def test_diagonal_splat_beyond_kdtree_reach_still_collides():
+    # C1 fix: a needle along the xy diagonal has AABB half-extent 0.495 (a
+    # "small" splat) but reaches 0.70 from its centre; the centre stays 0.95 m
+    # from every pose, beyond the old reach 0.31 + 0.05 + 0.5, yet the needle
+    # end is 0.25 m from the path, inside the cylinder.
+    u = np.array([1.0, 1.0, 0.0]) / np.sqrt(2)
+    Sig = 0.35 ** 2 * np.outer(u, u) + 0.01 ** 2 * (np.eye(3) - np.outer(u, u))
+    s3 = GaussianScene3D(np.append(0.95 * u[:2], 1.0)[None], Sig[None],
+                         np.array([0.9]), np.array([7]), "diagonal_needle")
+    line = {"schema_version": 2, "segments": [
+        {"kind": "TRANSLATION", "q0": [-0.5, 0.5, 0.0], "q1": [0.5, -0.5, 0.0]}]}
+    rep = replay_curve(s3, robot_table()["cylinder"], curve_from_dict(line), z_floor=0.0)
+    assert not rep["passed"] and rep["collisions"][0]["splat_id"] == 7
+
+
+def test_kdtree_prefilter_keeps_every_pair_the_aabb_test_keeps():
+    # spheres at the corners of the footprint box: AABBs meet per axis, but the
+    # centres are sqrt(2) times the per-axis bound away
+    means = np.array([[sx * 0.8, sy * 0.8, 1.0] for sx in (-1, 1) for sy in (-1, 1)])
+    s3 = GaussianScene3D(means, np.tile(np.eye(3) * 0.225 ** 2, (4, 1, 1)),
+                         np.full(4, 0.9), np.arange(4), "corners")
+    still = {"schema_version": 2, "segments": [
+        {"kind": "ROTATION", "q0": [0.0, 0.0, 0.0], "q1": [0.0, 0.0, 0.0]}]}
+    curve, cyl = curve_from_dict(still), robot_table()["cylinder"]
+    rep = replay_curve(s3, cyl, curve, z_floor=0.0)
+    ref = replay_curve(s3, cyl, curve, z_floor=0.0, big_extent=1e9)
+    assert ref["n_pairs_checked"] == 4 * ref["n_samples"]
+    assert rep["n_pairs_checked"] == ref["n_pairs_checked"]
+    assert rep["passed"] and rep["min_clearance_lb"] == ref["min_clearance_lb"]
