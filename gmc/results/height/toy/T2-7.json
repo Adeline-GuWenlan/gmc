@@ -1,0 +1,14 @@
+{
+  "criteria": {
+    "sweeper_legs_no_top": true,
+    "cylinder_legs_and_top": true,
+    "uav_walls_only": true
+  },
+  "extra": {
+    "sweeper": 74,
+    "cylinder": 148,
+    "uav": 106
+  },
+  "gate": "T2-7",
+  "pass": true
+}

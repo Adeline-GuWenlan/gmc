@@ -1,0 +1,25 @@
+# height-band toy gates (spec §5.1-5.2); identical to toy.yaml, kept separate so T2-8 cannot edit toy.yaml
+units:
+  length: meter
+geometry:
+  workspace_precision: 1.0e-8
+  min_cov_eigenvalue: 1.0e-10
+  support_level_scene: 2.0
+  support_level_robot: 1.0
+pair_approx:
+  initial_directions: 16
+  max_directions: 128
+  eps_pair: 2.0e-3
+  certificate_mode: prototype
+orientation:
+  initial_intervals: 16
+  theta_min: 5.0e-3
+  max_depth: 14
+query:
+  max_support_calls: 5_000_000
+  max_wall_seconds: 360
+  eps_clear: 2.0e-3
+  max_refinement_rounds: 8
+logging:
+  save_intermediate_geometry: true
+  save_failed_cases: true
