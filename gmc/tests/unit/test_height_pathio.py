@@ -45,6 +45,34 @@ def test_sampling_bounds_footprint_motion():
     assert len(poses) >= 400
 
 
+DETOUR_PATH = {"schema_version": 2, "query_id": "q", "segments": [
+    {"kind": "TRANSLATION", "q0": [-2.2, 0.0, 0.2], "q1": [2.2, 0.0, 0.2],
+     "control_points": [[-0.2, 1.5, 0.2], [0.8, 1.4, 0.2]],
+     "certificate_ids": []}]}
+
+
+def test_translation_control_points_are_part_of_the_path():
+    # verify_curve sweeps q0 -> control points -> q1; so must every height consumer
+    curve = curve_from_dict(DETOUR_PATH)
+    np.testing.assert_allclose(polyline_xy(curve),
+                               [[-2.2, 0.0], [-0.2, 1.5], [0.8, 1.4], [2.2, 0.0]])
+    poses = sample_curve(curve, max_step=0.01, radius=0.3)
+    assert np.min(np.linalg.norm(poses[:, :2] - [-0.2, 1.5], axis=1)) < 1e-12
+    assert poses[:, 1].max() == pytest.approx(1.5)
+    assert np.linalg.norm(np.diff(poses[:, :2], axis=0), axis=1).max() <= 0.01 + 1e-12
+    assert not path_crosses(curve, box(-0.3, -0.6, 0.3, 0.6))
+    assert crossing_thetas(curve, 0.0) == [pytest.approx(0.2)]
+
+
+def test_rotation_control_points_are_sampled_in_order():
+    d = {"schema_version": 2, "segments": [
+        {"kind": "ROTATION", "q0": [0.0, 0.0, 0.0], "q1": [0.0, 0.0, 0.0],
+         "control_points": [[0.0, 0.0, 3.0]]}]}
+    poses = sample_curve(curve_from_dict(d), max_step=0.01, radius=0.5)
+    assert poses[:, 2].max() == pytest.approx(3.0)
+    assert (np.abs(np.diff(poses[:, 2])) * 0.5).max() <= 0.01 + 1e-12
+
+
 def test_polyline_crossing_and_thetas():
     curve = curve_from_dict(DOOR_PATH)
     assert polyline_xy(curve).shape == (4, 2)

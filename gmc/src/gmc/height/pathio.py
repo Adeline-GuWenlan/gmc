@@ -45,21 +45,29 @@ def load_path_json(path) -> PoseCurve:
     return curve_from_dict(json.loads(Path(path).read_text()))
 
 
+def _knots(segment) -> list:
+    """q0, control points, q1: the pieces verify_curve checks one by one."""
+    return [np.array(_vals(p)) for p in (segment.q0, *segment.control_points, segment.q1)]
+
+
 def sample_curve(curve, max_step, radius) -> np.ndarray:
     rows = []
     for s in curve.segments:
-        a, b = np.array(_vals(s.q0)), np.array(_vals(s.q1))
-        move = (float(np.linalg.norm(b[:2] - a[:2]))
-                + abs(b[2] - a[2]) * max(float(radius), 0.0))
-        n = max(1, math.ceil(move / float(max_step)))
-        t = np.linspace(0.0, 1.0, n + 1)[:, None]
-        pts = a + t * (b - a)
-        rows.append(pts if not rows else pts[1:])
+        knots = _knots(s)
+        for a, b in zip(knots[:-1], knots[1:]):
+            move = (float(np.linalg.norm(b[:2] - a[:2]))
+                    + abs(b[2] - a[2]) * max(float(radius), 0.0))
+            n = max(1, math.ceil(move / float(max_step)))
+            t = np.linspace(0.0, 1.0, n + 1)[:, None]
+            pts = a + t * (b - a)
+            rows.append(pts if not rows else pts[1:])
     return np.vstack(rows)
 
 
 def polyline_xy(curve) -> np.ndarray:
-    pts = [curve.segments[0].q0.xy] + [s.q1.xy for s in curve.segments]
+    pts = [curve.segments[0].q0.xy]
+    for s in curve.segments:
+        pts.extend(k[:2] for k in _knots(s)[1:])
     return np.asarray(pts, dtype=float)
 
 
@@ -73,7 +81,9 @@ def crossing_thetas(curve, x0) -> list:
     out = []
     for s in curve.segments:
         if s.kind is SegmentKind.TRANSLATION:
-            xa, xb = float(s.q0.xy[0]), float(s.q1.xy[0])
-            if min(xa, xb) <= x0 <= max(xa, xb) and xa != xb:
-                out.append(float(s.q0.theta))
+            knots = _knots(s)
+            for a, b in zip(knots[:-1], knots[1:]):
+                xa, xb = float(a[0]), float(b[0])
+                if min(xa, xb) <= x0 <= max(xa, xb) and xa != xb:
+                    out.append(float(s.q0.theta))
     return out
