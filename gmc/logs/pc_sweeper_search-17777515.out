@@ -1,0 +1,81 @@
+=== percase_search experiments/percase_search_sweeper.py  2026-09-14T09:59:44-04:00 host=cs731.hpc.nyu.edu job=17777515 ===
+[    10.5s] scene {'n': 7247831, 'floor_rule': {'n_input': 7319425, 'removed': 71594, 'removed_opaque_tau0.3': 18414, 'params': {'max_offset': 0.05, 'max_tilt_deg': 15.0, 'max_flatness': 0.5}}, 'z_floor': -1.2271749593107995, 'load_seconds': 10.4}
+[    19.8s] subset_check {'window': [-1.5, 6.5, 5.5, 14.2], 'full_kept': 2796, 'subset_kept': 2796, 'identical': True, 'a4_reported_kept': 2796}
+[    32.4s] region SW {"box": [-2.5, 5.5, 6.5, 16.0], "n_subset": 2674692, "n_opaque_subset": 1340477, "n_supports_region": 5034, "overhang_cells": 17621, "region_disc_free_frac": 0.4815079365079365, "seconds_maps": 2.4, "note": "SW bench (2.1,10.5) seat 0.43; table B (-0.45,10.81) top ~0.8; SW clear blob", "lattice_points": 1216, "endpoints": 468, "pairs_connected_len_ok": 51575, "pairs_line_under_raster": 9258, "pairs_top_distinct": 300, "section_inline_equals_plan": true, "pairs_section_under": 300, "windows_evaluated": 1433, "windows_valid": 1287, "windows_valid_tier0": 886, "seconds_screen": 11.9, "seconds_total": 12.0, "figure": "results/height/percase/sweeper/figs/region_SW.png"}
+[    34.3s] region A {"box": [4.5, 2.5, 13.5, 11.5], "n_subset": 1633698, "n_opaque_subset": 841136, "n_supports_region": 7209, "overhang_cells": 17551, "region_disc_free_frac": 0.17419753086419754, "seconds_maps": 1.7, "note": "table A (8.96,7.29) top 0.80 with a bench along its NE side", "lattice_points": 1024, "endpoints": 97, "pairs_connected_len_ok": 119, "pairs_line_under_raster": 0, "pairs_top_distinct": 0, "pairs_section_under": 0, "windows_evaluated": 0, "windows_valid": 0, "windows_valid_tier0": 0, "seconds_screen": 0.0, "seconds_total": 1.7, "figure": "results/height/percase/sweeper/figs/region_A.png"}
+[    37.2s] region E {"box": [6.5, 10.5, 16.5, 19.5], "n_subset": 2454299, "n_opaque_subset": 1307329, "n_supports_region": 12280, "overhang_cells": 15170, "region_disc_free_frac": 0.060444444444444446, "seconds_maps": 2.6, "note": "hall bench (10,16) seat 0.43; table C (13.28,14.09) top 0.93", "lattice_points": 1152, "endpoints": 30, "pairs_connected_len_ok": 0, "pairs_line_under_raster": 0, "pairs_top_distinct": 0, "pairs_section_under": 0, "windows_evaluated": 0, "windows_valid": 0, "windows_valid_tier0": 0, "seconds_screen": 0.0, "seconds_total": 2.6, "figure": "results/height/percase/sweeper/figs/region_E.png"}
+[    42.2s] region G {"box": [-0.5, 18.5, 7.5, 26.5], "n_subset": 1507708, "n_opaque_subset": 766474, "n_supports_region": 3128, "overhang_cells": 9980, "region_disc_free_frac": 0.454384765625, "seconds_maps": 1.4, "note": "table G (3.35,22.53) top 0.95; object D (5.8,18)", "lattice_points": 784, "endpoints": 313, "pairs_connected_len_ok": 18926, "pairs_line_under_raster": 218, "pairs_top_distinct": 49, "section_inline_equals_plan": true, "pairs_section_under": 49, "windows_evaluated": 245, "windows_valid": 118, "windows_valid_tier0": 70, "seconds_screen": 3.2, "seconds_total": 4.6, "figure": "results/height/percase/sweeper/figs/region_G.png"}
+[    44.6s] region N {"box": [3.5, 24.5, 12.5, 32.5], "n_subset": 1614772, "n_opaque_subset": 897536, "n_supports_region": 15342, "overhang_cells": 15761, "region_disc_free_frac": 0.30983506944444444, "seconds_maps": 2.2, "note": "north bench (7.8,28.5); object E (11,28)", "lattice_points": 896, "endpoints": 280, "pairs_connected_len_ok": 23001, "pairs_line_under_raster": 0, "pairs_top_distinct": 0, "pairs_section_under": 0, "windows_evaluated": 0, "windows_valid": 0, "windows_valid_tier0": 0, "seconds_screen": 0.1, "seconds_total": 2.2, "figure": "results/height/percase/sweeper/figs/region_N.png"}
+[    45.0s] shortlist 80 [('SW-p1-m0.5', 0, 477, 0.3250000000000001, 0.9121320343559642), ('SW-p7-m0.5', 0, 478, 0.3250000000000001, 0.9121320343559642), ('SW-p96-m0.5', 0, 478, 0.3250000000000001, 0.8310660171779822), ('SW-p194-m0.5', 0, 521, 0.3250000000000001, 0.8310660171779822), ('SW-p1-m0.75', 0, 545, 0.3250000000000001, 0.9121320343559642), ('SW-p2-m0.5', 0, 545, 0.3250000000000001, 0.9103553390593275), ('SW-p7-m0.75', 0, 546, 0.3250000000000001, 0.9121320343559642), ('SW-p14-m0.5', 0, 546, 0.3250000000000001, 0.9103553390593275), ('SW-p85-m0.5', 0, 546, 0.3250000000000001, 0.9103553390593275), ('SW-p118-m0.5', 0, 546, 0.3250000000000001, 0.9103553390593275)]
+[    46.8s] precheck SW-p1-m0.5 477 est 477 0.37165171868296265 0.3553167600887974 True 0.3250000000000001 0.9121320343559642 mismatch 0.0
+[    48.6s] precheck SW-p7-m0.5 478 est 478 0.37165171868296265 0.5129571132170798 True 0.3250000000000001 0.9121320343559642 mismatch 0.0
+[    50.4s] precheck SW-p96-m0.5 478 est 478 0.37165171868296265 0.4069705149024927 True 0.3250000000000001 0.8310660171779822 mismatch 0.0
+[    52.1s] precheck SW-p194-m0.5 520 est 521 0.37165171868296265 0.55 True 0.3250000000000001 0.8310660171779822 mismatch 0.0
+[    53.9s] precheck SW-p2-m0.5 545 est 545 0.39131189606246325 0.55 True 0.3250000000000001 0.9103553390593275 mismatch 0.0
+[    55.8s] precheck SW-p14-m0.5 546 est 546 0.39131189606246325 0.55 True 0.3250000000000001 0.9103553390593275 mismatch 0.0
+[    57.6s] precheck SW-p85-m0.5 546 est 546 0.39131189606246325 0.3400367627183861 True 0.3250000000000001 0.9103553390593275 mismatch 0.0
+[    59.4s] precheck SW-p118-m0.5 546 est 546 0.39131189606246325 0.5153882032022076 True 0.3250000000000001 0.9103553390593275 mismatch 0.0
+[    61.4s] precheck ref-SWbench-A2-A2 2796 est 2799 0.550567888638631 1.175 True 0.3000000000000001 0.0 mismatch 0.0
+[    63.2s] precheck ref-SWbench-A2-m1.0 276 est 277 0.550567888638631 1.0250000000000001 True 0.21250000000000002 0.0 mismatch 0.0
+[    75.5s] top 1 SW-p1-m0.5 477 results/height/percase/sweeper/figs/precheck_top1_SW-p1-m0.5.png
+[    87.8s] top 2 SW-p7-m0.5 478 results/height/percase/sweeper/figs/precheck_top2_SW-p7-m0.5.png
+[   100.1s] top 3 SW-p96-m0.5 478 results/height/percase/sweeper/figs/precheck_top3_SW-p96-m0.5.png
+[   110.8s] probe {"candidate": "SW-p1-m0.5", "n_supports_full": 477, "n_supports_probe": 368, "probe_window": [-0.8751785553940213, 10.36392844315217, 1.1248214446059785, 12.36392844315217], "probe_compile_seconds": 1.6771502494812012, "projected_hours": 0.0006038652392833129, "abort": false, "probe_status": "INVALID_GEOMETRY", "extrapolation": "linear in supports x initial_intervals (rough)"}
+[   117.5s] probe {"candidate": "SW-p7-m0.5", "n_supports_full": 478, "n_supports_probe": 368, "probe_window": [-0.8469540909230988, 10.357040909230987, 1.1530459090769012, 12.357040909230987], "probe_compile_seconds": 1.6148295402526855, "projected_hours": 0.0005826453202300602, "abort": false, "probe_status": "INVALID_GEOMETRY", "extrapolation": "linear in supports x initial_intervals (rough)"}
+[   124.2s] probe {"candidate": "SW-p96-m0.5", "n_supports_full": 478, "n_supports_probe": 366, "probe_window": [-0.8158717549867006, 10.359704569813807, 1.1841282450132993, 12.359704569813807], "probe_compile_seconds": 1.5838861465454102, "projected_hours": 0.000574603504894282, "abort": false, "probe_status": "INVALID_GEOMETRY", "extrapolation": "linear in supports x initial_intervals (rough)"}
+[   124.2s] trial start SW-p1-m0.5 budget_s 2400
+[   136.6s] trial {"status": "REACHABLE", "clearance_lb": 0.01716309406573232, "reason": null, "n_supports": 477, "n_pairs": 477, "n_slabs": 1, "compile_seconds": 2.0164926052093506, "query_seconds": 3.534130096435547, "safe_nodes": 1, "safe_edges": 0, "possible_nodes": 1, "possible_edges": 0, "verify": {"ran": true, "certified": true, "min_clearance": 0.01716309406573232, "reason": "ok"}, "candidate": "SW-p1-m0.5", "note": "selection aid; the planning job (percase_run) is the result", "wall_seconds": 12.4, "path_len_m": 2.0155644370746373, "path_under_overhang_m": 0.9331316838308505, "n_vertices": 4}
+[   144.0s] done {
+ "why": "top-3 candidate whose trial compile+query was REACHABLE and verify-certified",
+ "case_draft": {
+  "robot": "sweeper",
+  "window": [
+   -0.85,
+   9.75,
+   1.15,
+   12.8
+  ],
+  "start": [
+   0.2625,
+   10.2625,
+   0.0
+  ],
+  "goal": [
+   0.0125,
+   12.2625,
+   0.0
+  ],
+  "z_floor": -1.2271749593107995,
+  "z_c": 1.2,
+  "behaviour": "under",
+  "overhang": {
+   "top": 0.8668121709639943,
+   "underside": 0.6651621819420506,
+   "s_interval": [
+    0.5,
+    1.72
+   ]
+  },
+  "precheck": {
+   "start_clear_m": 0.37165171868296265,
+   "goal_clear_m": 0.3553167600887974,
+   "connected_r": true,
+   "connected_r_plus_0.025": true,
+   "connected_r_plus_0.05": true,
+   "bottleneck_m": 0.3250000000000001,
+   "disc_free_frac": 0.5372967479674797,
+   "occupied_frac": 0.05071138211382114,
+   "path_len_m": 2.103553390593274,
+   "path_under_m": 0.9121320343559642,
+   "path_min_dist_m": 0.2692582403567252,
+   "precheck_scene": "full scene",
+   "raster_cell": 0.025,
+   "clearance_required_m": 0.22499999999999998,
+   "disc_r": 0.175
+  },
+  "n_supports": 477,
+  "claims_boundary": "Per-robot showcase case chosen for success, not a morphology comparison at one place; no 'body shape changes the route' claim rests on it; floor-surface rule (Amendment 1) on.",
+  "candidate_id": "SW-p1-m0.5"
+ }
+}
+=== PERCASE_SEARCH_DONE experiments/percase_search_sweeper.py ===

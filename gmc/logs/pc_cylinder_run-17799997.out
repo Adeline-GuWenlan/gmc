@@ -1,0 +1,5 @@
+=== percase_run --robot cylinder --tau 0.3 --budget-scale 1 --case results/height/percase/cylinder/case.json --out-dir results/height/percase/cylinder --raw-subdir percase 2026-09-14T15:43:37-04:00 host=cs660.hpc.nyu.edu job=17799997 ===
+projection {"n_input": 7247831, "tau": 0.3, "level": 2.0, "window": [0.5, 10.0, 3.5, 13.0], "band_abs": [-1.2071749593107994, 0.5228250406892005], "dilate_radius": 0.3, "dropped_opacity": 3395744, "floored_3d": 0, "excluded_band": 1535663, "outside_window": 2312633, "deduplicated": 0, "kept": 3791, "floored_2d": 0, "candidate2": 45}
+probe {"n_supports_full": 3791, "abort": false, "n_supports_probe": 1236, "probe_compile_seconds": 6.610687017440796, "projected_hours": 0.005632217386533185, "extrapolation": "linear in supports x initial_intervals (rough)"}
+=== cylinder status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.006602353302799337, 'reason': 'ok'} replay3d=True abort=False ===
+=== PERCASE_RUN_DONE cylinder ===

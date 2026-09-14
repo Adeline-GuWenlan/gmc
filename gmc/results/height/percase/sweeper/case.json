@@ -1,0 +1,99 @@
+{
+  "robot": "sweeper",
+  "window": [
+    -0.85,
+    9.75,
+    1.15,
+    12.8
+  ],
+  "start": [
+    0.2625,
+    10.2625,
+    0.0
+  ],
+  "goal": [
+    0.0125,
+    12.2625,
+    0.0
+  ],
+  "z_floor": -1.2271749593107995,
+  "z_c": 1.2,
+  "behaviour": "under",
+  "overhang": {
+    "top": 0.8668121709639943,
+    "underside": 0.6651621819420506,
+    "s_interval": [
+      0.5,
+      1.72
+    ],
+    "object": "table B (A4 frame centre (-0.45, 10.81), top ~0.8 m)",
+    "longest_run_m": 1.24,
+    "section": "showcase_scene._section strip +-0.2 m; free low (nothing with rho-bottom <= 0.15, rho-top >= 0.02) and rho-bottom in (0.15, 1.75)"
+  },
+  "precheck": {
+    "start_clear_m": 0.37165171868296265,
+    "goal_clear_m": 0.3553167600887974,
+    "connected_r": true,
+    "connected_r_plus_0.025": true,
+    "connected_r_plus_0.05": true,
+    "bottleneck_m": 0.3250000000000001,
+    "disc_free_frac": 0.5372967479674797,
+    "occupied_frac": 0.05071138211382114,
+    "path_len_m": 2.103553390593274,
+    "path_under_m": 0.9121320343559642,
+    "line_disc_free_frac": 1.0,
+    "line_under_overhang_and_free_m": 0.9264084990280941,
+    "precheck_scene": "full scene",
+    "raster_cell": 0.025,
+    "clearance_required_m": 0.225,
+    "disc_r": 0.175,
+    "method": "project_scene(sweeper, window) -> _support_raster(s2, window, 0.025) -> EDT; 4-connected labels of dist > r"
+  },
+  "n_supports": 477,
+  "claims_boundary": "Per-robot showcase case chosen for success, not a morphology comparison at one place; no \"body shape changes the route\" claim may rest on it; floor-surface rule (Amendment 1) on.",
+  "not_through_glass_adjacent_opening": true,
+  "selection": {
+    "search_job": "17777515",
+    "candidate_id": "SW-p1-m0.5",
+    "search_file": "results/height/percase/sweeper/search.json",
+    "figure": "results/height/percase/sweeper/figs/precheck_top1_SW-p1-m0.5.png",
+    "figure_trial": "results/height/percase/sweeper/figs/precheck_top1_trial_SW-p1-m0.5.png",
+    "trial_selection_aid": {
+      "status": "REACHABLE",
+      "verify": {
+        "ran": true,
+        "certified": true,
+        "min_clearance": 0.01716309406573232,
+        "reason": "ok"
+      },
+      "compile_seconds": 2.0164926052093506,
+      "query_seconds": 3.534130096435547,
+      "n_slabs": 1,
+      "path_len_m": 2.0155644370746373,
+      "path_under_overhang_m": 0.9331316838308505
+    },
+    "backup_candidate": "SW-p7-m0.5 (same start, goal (0.0125, 12.7625), window [-0.85, 9.75, 1.15, 13.3], 478 supports; not trialled)",
+    "cylinder_diag_same_window": {
+      "n_supports": 32369,
+      "line_blocked_m": 1.740145694120339,
+      "note": "diagnostic of the overhang only; not a morphology comparison"
+    }
+  },
+  "gravity_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ]
+}

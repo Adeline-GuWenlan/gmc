@@ -1,0 +1,234 @@
+{
+  "robot": "uav",
+  "tau": 0.3,
+  "budget_scale": 1,
+  "case_file": "results/height/percase/uav/case.json",
+  "case": {
+    "robot": "uav",
+    "window": [
+      6.0,
+      5.45,
+      11.9,
+      9.1
+    ],
+    "start": [
+      7.049,
+      8.097,
+      0.0
+    ],
+    "goal": [
+      10.871,
+      6.483,
+      0.0
+    ],
+    "z_floor": -1.2271749593107995,
+    "z_c": 1.2,
+    "behaviour": "over",
+    "overhang": {
+      "top": 0.9014559074434363,
+      "underside": 0.15117267263806933,
+      "s_interval": [
+        0.7994083422641762,
+        3.349408356506693
+      ],
+      "table": "A",
+      "top_step_case": 0.9014559074434363,
+      "top_table": 0.9014559074434363,
+      "note": "s_interval = straight line inside table A's frame rectangle (A4 table_frames). underside = lowest rho-underside among splats with underside in (0.15, z_c-0.10) over the crossing +- r: it picks up legs/trestle, not the tabletop underside (~0.71 m, A4)."
+    },
+    "ceiling_side_obstacle": {
+      "step_case_definition": 4.650321682844905,
+      "strict_corridor_r_plus_0.30": 4.569472455532058,
+      "used": 4.569472455532058
+    },
+    "z_c_rule": {
+      "z_c_min_top_plus_0.25": 1.1514559074434363,
+      "z_c_max_ceiling_minus_0.40": 4.169472455532057,
+      "zc_ok": true,
+      "ceil_ok": true,
+      "ceil_strict_ok": true,
+      "band_hits_over_table": 0,
+      "uav_hit_bins_line": 0
+    },
+    "precheck": {
+      "start_clear": 1.0,
+      "goal_clear": 1.024999976158142,
+      "same_component": true,
+      "n_components": 1,
+      "free_frac": 0.7701416299048062,
+      "occ_frac": 0.02205711632226608,
+      "line_min_dist": 1.0,
+      "line_clear": true,
+      "raster": 0.025,
+      "clear_min": 0.3,
+      "full_scene_kept": 143,
+      "full_scene_ids_identical": true
+    },
+    "n_supports": 143,
+    "search_ref": {
+      "search_json": "results/height/percase/uav/search.json",
+      "cand_index": 185,
+      "line_id": "A-long-46",
+      "window_tag": "bbox1.0",
+      "job": 17763665,
+      "figure": "results/height/percase/uav/figs/precheck_top2_A-long-46_zc1.20.png"
+    },
+    "choice": "Rank 2 of 908 passing candidates. Rank 1 (A-long-48, same line shifted 0.16 m) has an empty uav map; A-long-46 is equally clean (clearances 1.00/1.02, straight line 1.00 m from any shadow, tier 0, z_c 1.20) with 143 supports, so GMC and verify see real obstacles. Its shadows lie at/just outside the window edge, so the path is expected to be near-straight; the 'over' evidence is table A's top (0.90 m) below the band [1.10, 1.30].",
+    "claims_boundary": "Per-robot showcase case chosen for success: not a morphology comparison at one place, and no 'body shape changes the route' claim may rest on it; floor-surface rule (Amendment 1) on."
+  },
+  "projection": {
+    "n_input": 7247831,
+    "tau": 0.3,
+    "level": 2.0,
+    "window": [
+      6.0,
+      5.45,
+      11.9,
+      9.1
+    ],
+    "band_abs": [
+      -0.12717495931079958,
+      0.07282504068920059
+    ],
+    "dilate_radius": 0.25,
+    "dropped_opacity": 3395744,
+    "floored_3d": 0,
+    "excluded_band": 3402485,
+    "outside_window": 449459,
+    "deduplicated": 0,
+    "kept": 143,
+    "floored_2d": 1,
+    "candidate2": 9
+  },
+  "probe": {
+    "n_supports_full": 143,
+    "abort": false,
+    "n_supports_probe": 0,
+    "probe_compile_seconds": 0.03285050392150879,
+    "projected_hours": 0.0013048950168821547,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+  },
+  "result": {
+    "status": "REACHABLE",
+    "clearance_lb": 0.4563342746640041,
+    "reason": null,
+    "n_supports": 143,
+    "n_pairs": 143,
+    "n_slabs": 1,
+    "compile_seconds": 0.6417562961578369,
+    "query_seconds": 0.2754087448120117,
+    "safe_nodes": 1,
+    "safe_edges": 0,
+    "possible_nodes": 1,
+    "possible_edges": 0,
+    "verify": {
+      "ran": true,
+      "certified": true,
+      "min_clearance": 0.4563342746640041,
+      "reason": "ok"
+    },
+    "curve": {
+      "schema_version": 2,
+      "query_id": "",
+      "segments": [
+        {
+          "kind": "ROTATION",
+          "q0": [
+            7.049,
+            8.097,
+            0.0
+          ],
+          "q1": [
+            7.049,
+            8.097,
+            3.141592653589793
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        },
+        {
+          "kind": "TRANSLATION",
+          "q0": [
+            7.049,
+            8.097,
+            3.141592653589793
+          ],
+          "q1": [
+            10.871,
+            6.483,
+            3.141592653589793
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        },
+        {
+          "kind": "ROTATION",
+          "q0": [
+            10.871,
+            6.483,
+            3.141592653589793
+          ],
+          "q1": [
+            10.871,
+            6.483,
+            0.0
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        }
+      ]
+    },
+    "start": [
+      7.049,
+      8.097,
+      0.0
+    ],
+    "goal": [
+      10.871,
+      6.483,
+      0.0
+    ],
+    "replay3d": {
+      "passed": true,
+      "n_samples": 574,
+      "n_pairs_checked": 0,
+      "n_refined": 0,
+      "min_clearance_lb": 0.05,
+      "worst": null,
+      "collisions": [],
+      "params": {
+        "tau": 0.3,
+        "level": 2.0,
+        "delta": 0.01,
+        "n_coarse": 256,
+        "n_fine": 2048,
+        "margin": 0.05,
+        "band_abs": [
+          -0.12717495931079958,
+          0.07282504068920059
+        ]
+      }
+    }
+  },
+  "replay3d": {
+    "passed": true,
+    "n_samples": 574,
+    "n_pairs_checked": 0,
+    "n_refined": 0,
+    "min_clearance_lb": 0.05,
+    "worst": null,
+    "collisions": [],
+    "params": {
+      "tau": 0.3,
+      "level": 2.0,
+      "delta": 0.01,
+      "n_coarse": 256,
+      "n_fine": 2048,
+      "margin": 0.05,
+      "band_abs": [
+        -0.12717495931079958,
+        0.07282504068920059
+      ]
+    }
+  }
+}

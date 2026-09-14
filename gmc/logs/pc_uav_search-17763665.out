@@ -1,0 +1,28 @@
+=== percase_search experiments/percase_search_uav.py  2026-09-14T06:07:49-04:00 host=cs681.hpc.nyu.edu job=17763665 ===
+06:08:15 scene 7247831 z_f -1.2271749593107995 ceiling 5.310000826248441 load s 20.1
+06:08:17 table A {'centre': [8.96, 7.29], 'long_axis': [0.9211854055657213, -0.38912395014020623], 'short_axis': [0.38912395014020623, 0.9211854055657213], 'length': 2.55, 'width': 0.72, 'n_section_splats': 670410, 'n_projection_presubset': 1046740, 'section_equals_showcase_section': True}
+06:09:44 table A done {'centre': [8.96, 7.29], 'long_axis': [0.9211854055657213, -0.38912395014020623], 'short_axis': [0.38912395014020623, 0.9211854055657213], 'length': 2.55, 'width': 0.72, 'n_section_splats': 670410, 'n_projection_presubset': 1046740, 'section_equals_showcase_section': True, 'n_lines': 66, 'n_lines_over_valid': 62, 'n_lines_over_strict': 62, 'n_candidates': 264, 'n_precheck_pass': 264, 'n_over_precheck_pass': 248, 'n_windows_projected': 263, 'seconds': 88.2170774936676}
+06:09:44   best A-long-48 over tier 0 z_c 1.2 win [6.1, 5.6, 11.95, 9.3] supports 0 clear 1.0 1.0 line_min 1.0
+06:09:46 table C {'centre': [13.28, 14.09], 'long_axis': [0.9310558158625283, -0.3648767843376196], 'short_axis': [0.3648767843376196, 0.9310558158625283], 'length': 1.74, 'width': 0.68, 'n_section_splats': 628122, 'n_projection_presubset': 1472874, 'section_equals_showcase_section': True}
+06:12:47 table C done {'centre': [13.28, 14.09], 'long_axis': [0.9310558158625283, -0.3648767843376196], 'short_axis': [0.3648767843376196, 0.9310558158625283], 'length': 1.74, 'width': 0.68, 'n_section_splats': 628122, 'n_projection_presubset': 1472874, 'section_equals_showcase_section': True, 'n_lines': 54, 'n_lines_over_valid': 50, 'n_lines_over_strict': 50, 'n_candidates': 416, 'n_precheck_pass': 416, 'n_over_precheck_pass': 200, 'n_windows_projected': 416, 'seconds': 182.656476020813}
+06:12:47   best C-long-36 over tier 0 z_c 1.55 win [10.75, 12.6, 15.9, 15.9] supports 234 clear 1.02 1.0 line_min 1.0
+06:12:49 table B {'centre': [-0.45, 10.81], 'long_axis': [0.4863353804234905, 0.8737722230354652], 'short_axis': [-0.8737722230354652, 0.4863353804234905], 'length': 2.35, 'width': 0.93, 'n_section_splats': 726535, 'n_projection_presubset': 1294591, 'section_equals_showcase_section': True}
+06:17:20 table B done {'centre': [-0.45, 10.81], 'long_axis': [0.4863353804234905, 0.8737722230354652], 'short_axis': [-0.8737722230354652, 0.4863353804234905], 'length': 2.35, 'width': 0.93, 'n_section_splats': 726535, 'n_projection_presubset': 1294591, 'section_equals_showcase_section': True, 'n_lines': 62, 'n_lines_over_valid': 44, 'n_lines_over_strict': 38, 'n_candidates': 248, 'n_precheck_pass': 224, 'n_over_precheck_pass': 176, 'n_windows_projected': 248, 'seconds': 272.7582187652588}
+06:17:20   best B-short-36 over tier 0 z_c 1.2 win [-1.9, 10.25, 1.9, 13.0] supports 1407 clear 0.7 0.7 line_min 0.7
+06:17:22 table G {'centre': [3.35, 22.53], 'long_axis': [0.8526401643540922, 0.5224985647159488], 'short_axis': [-0.5224985647159488, 0.8526401643540922], 'length': 1.64, 'width': 0.62, 'n_section_splats': 499058, 'n_projection_presubset': 1191917, 'section_equals_showcase_section': True}
+06:20:51 table G done {'centre': [3.35, 22.53], 'long_axis': [0.8526401643540922, 0.5224985647159488], 'short_axis': [-0.5224985647159488, 0.8526401643540922], 'length': 1.64, 'width': 0.62, 'n_section_splats': 499058, 'n_projection_presubset': 1191917, 'section_equals_showcase_section': True, 'n_lines': 54, 'n_lines_over_valid': 0, 'n_lines_over_strict': 0, 'n_candidates': 216, 'n_precheck_pass': 4, 'n_over_precheck_pass': 0, 'n_windows_projected': 216, 'seconds': 211.34746193885803}
+06:20:51   best G-parallel-52 fallback tier 2 z_c 1.2 win [0.55, 22.55, 4.35, 25.45] supports 1866 clear 0.61 0.36 line_min 0.0
+06:20:52 precheck pass 908 of 1144
+06:20:52   top1 A-long-48 over tier 0 z_c 1.2 [6.1, 5.6, 11.95, 9.3] supports 0 clear 1.0 1.0 line_min 1.0 top 0.9014559074434363
+06:20:52   top2 A-long-46 over tier 0 z_c 1.2 [6.0, 5.45, 11.9, 9.1] supports 143 clear 1.0 1.02 line_min 1.0 top 0.9014559074434363
+06:20:52   top3 A-long-49 over tier 0 z_c 1.2 [5.75, 5.45, 12.35, 9.45] supports 233 clear 1.0 1.02 line_min 1.0 top 0.9014559074434363
+06:20:52   top4 A-diag-56 over tier 0 z_c 1.2 [5.8, 5.85, 10.7, 9.35] supports 0 clear 1.0 1.0 line_min 1.0 top 0.901188383222812
+06:20:52   top5 A-diag-58 over tier 0 z_c 1.2 [6.5, 5.55, 11.4, 9.05] supports 0 clear 1.0 1.0 line_min 1.0 top 0.9049411140294497
+06:21:35 full-scene check A-long-48 0 0 True
+06:22:07 full-scene check A-long-46 143 143 True
+06:22:26 full-scene check A-long-49 233 233 True
+06:22:40 full-scene check A-parallel-62 0 0 True
+06:22:43 empty map smoke {"status": "REACHABLE", "verify": {"ran": true, "certified": true, "min_clearance": 0.4999999999999715, "reason": "ok"}, "compile_seconds": 0.016951322555541992, "seconds": 0.03464770317077637}
+06:23:04 probe top1 {"probe_window": [8.029999287676178, 6.455711522470042, 10.029999287676178, 8.455711522470043], "n_supports_probe": 0, "probe_compile_seconds": 0.004786252975463867, "probe_status": "REACHABLE", "ratio": 0.0, "projected_hours": 0.0, "initial_intervals": 1}
+06:23:04 done 909.1 s; errors 0
+=== PERCASE_SEARCH_DONE experiments/percase_search_uav.py ===

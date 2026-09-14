@@ -1,0 +1,5 @@
+=== percase_run --robot uav --tau 0.3 --budget-scale 1 --case results/height/percase/uav/case.json --out-dir results/height/percase/uav --raw-subdir percase 2026-09-14T10:02:42-04:00 host=cs733.hpc.nyu.edu job=17777506 ===
+projection {"n_input": 7247831, "tau": 0.3, "level": 2.0, "window": [6.0, 5.45, 11.9, 9.1], "band_abs": [-0.12717495931079958, 0.07282504068920059], "dilate_radius": 0.25, "dropped_opacity": 3395744, "floored_3d": 0, "excluded_band": 3402485, "outside_window": 449459, "deduplicated": 0, "kept": 143, "floored_2d": 1, "candidate2": 9}
+probe {"n_supports_full": 143, "abort": false, "n_supports_probe": 0, "probe_compile_seconds": 0.03285050392150879, "projected_hours": 0.0013048950168821547, "extrapolation": "linear in supports x initial_intervals (rough)"}
+=== uav status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.4563342746640041, 'reason': 'ok'} replay3d=True abort=False ===
+=== PERCASE_RUN_DONE uav ===

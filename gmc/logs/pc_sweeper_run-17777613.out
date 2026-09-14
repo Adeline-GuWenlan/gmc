@@ -1,0 +1,5 @@
+=== percase_run --robot sweeper --tau 0.3 --budget-scale 1 --case results/height/percase/sweeper/case.json --out-dir results/height/percase/sweeper --raw-subdir percase 2026-09-14T10:05:57-04:00 host=cs733.hpc.nyu.edu job=17777613 ===
+projection {"n_input": 7247831, "tau": 0.3, "level": 2.0, "window": [-0.85, 9.75, 1.15, 12.8], "band_abs": [-1.2071749593107994, -1.1271749593107994], "dilate_radius": 0.175, "dropped_opacity": 3395744, "floored_3d": 0, "excluded_band": 3772825, "outside_window": 78785, "deduplicated": 0, "kept": 477, "floored_2d": 0, "candidate2": 151}
+probe {"n_supports_full": 477, "abort": false, "n_supports_probe": 368, "probe_compile_seconds": 1.6037142276763916, "projected_hours": 0.0005774242803454399, "extrapolation": "linear in supports x initial_intervals (rough)"}
+=== sweeper status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.01716309406573232, 'reason': 'ok'} replay3d=True abort=False ===
+=== PERCASE_RUN_DONE sweeper ===

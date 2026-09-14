@@ -1,0 +1,100 @@
+{
+  "robot": "cylinder",
+  "window": [
+    0.5,
+    10.0,
+    3.5,
+    13.0
+  ],
+  "start": [
+    1.2125,
+    10.5125,
+    0.0
+  ],
+  "goal": [
+    3.0125,
+    12.5125,
+    0.0
+  ],
+  "z_floor": -1.2271749593107995,
+  "z_c": 1.2,
+  "behaviour": "around",
+  "blocking_obstacle": "north end of the SW-hall bench (seat 0.38-0.43 m, end support floor to seat), straight line crosses it at ~(2.0, 11.4)",
+  "precheck": {
+    "start_clear": 0.48541219597369,
+    "goal_clear": 0.47500000000000003,
+    "same_component": true,
+    "precheck_pass": true,
+    "bottleneck": 0.35,
+    "line_min_dist": 0.10606601717798213,
+    "line_blocked": true,
+    "line_blocked_strong": true,
+    "straight_length": 2.6907248094147422,
+    "geodesic_length": 3.5324116139070387,
+    "detour_ratio": 1.3128104373763034,
+    "disc_free_frac": 0.3464583333333333,
+    "n_components": 2,
+    "blocker_3d": {
+      "centroid": [
+        2.004,
+        11.392
+      ],
+      "name": "SW-hall bench at (2.1, 10.5)",
+      "n_supports_near": 477,
+      "n_centre_above_0.30": 416,
+      "top_p95": 0.4269892025276474,
+      "top_max": 0.43895367931175155,
+      "centre_height_p50": 0.3936550237028893,
+      "real_object": true
+    },
+    "raster_cell": 0.025,
+    "clear_min": 0.35,
+    "method": "project_scene -> showcase_scene._support_raster(0.025) -> EDT; dist > r components"
+  },
+  "n_supports": 3791,
+  "probe": {
+    "label": "P1",
+    "probe_window": [
+      1.1124999999999998,
+      10.5125,
+      3.1125,
+      12.5125
+    ],
+    "n_supports_probe": 1236,
+    "probe_compile_seconds": 7.102450609207153,
+    "projected_hours": 0.0060511934240166125,
+    "projected_hours_lower_bound": null,
+    "ratio": 3.0671521035598706,
+    "probe_status": "INVALID_GEOMETRY",
+    "timeout": null,
+    "abort": false
+  },
+  "full_scene_check": {
+    "refined_index": 0,
+    "window": [
+      0.5,
+      10.0,
+      3.5,
+      13.0
+    ],
+    "n_full": 3791,
+    "n_presubset": 3791,
+    "ids_equal": true
+  },
+  "claims_boundary": "Per-robot showcase case chosen for success: not a morphology comparison at one place, and no 'body shape changes the route' claim may rest on it; floor-surface rule (Amendment 1) on.",
+  "provenance": {
+    "search_json": "results/height/percase/cylinder/search.json",
+    "search_job": "17777663",
+    "refined_index": 0,
+    "window_from": "tight",
+    "scan_window": [
+      0.5,
+      10.0,
+      3.5,
+      13.0
+    ],
+    "interior": true,
+    "floor_frac": 0.9444444444444444,
+    "ceil_frac": 1.0
+  }
+}
