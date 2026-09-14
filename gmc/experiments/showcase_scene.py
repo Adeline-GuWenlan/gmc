@@ -91,10 +91,15 @@ def step_decode():
     print(json.dumps({k: v for k, v in g0.items() if k != "gravity_rotation"}, indent=2))
 
 
-def load_processed():
+def load_processed(floor_rule=True):
     d = np.load(DATA / "processed.npz")
     g0 = json.loads((RES / "g0.json").read_text())
-    return GaussianScene3D(d["means"], d["covs"], d["opacity"], d["ids"], "showcase"), g0
+    scene = GaussianScene3D(d["means"], d["covs"], d["opacity"], d["ids"], "showcase")
+    if floor_rule:
+        from gmc.height.floor import apply_floor_rule
+        scene, st = apply_floor_rule(scene, g0["floor"])
+        g0["floor_rule"] = st
+    return scene, g0
 
 
 def _grid(scene, extent):
@@ -247,9 +252,131 @@ def step_case(window, start, goal, z_c, glass_clear):
     print(json.dumps(case, indent=2))
 
 
+WINDOW_A = [5.5, 3.5, 12.0, 10.5]
+RASTER = 0.025
+
+
+def _support_raster(s2, win, cell=RASTER):
+    """Cells whose centre lies in a projected support, plus the window border (a2/proj_map_diag.py method)."""
+    nx, ny = int(np.ceil((win[2] - win[0]) / cell)), int(np.ceil((win[3] - win[1]) / cell))
+    gx = win[0] + (np.arange(nx) + 0.5) * cell
+    gy = win[1] + (np.arange(ny) + 0.5) * cell
+    occ = np.zeros((nx, ny), dtype=bool)
+    for sp in s2.supports:
+        m = sp.mean
+        Ci = np.linalg.inv(sp.covariance)
+        h = sp.level * np.sqrt(np.diag(sp.covariance))
+        i0, i1 = np.searchsorted(gx, m[0] - h[0]), np.searchsorted(gx, m[0] + h[0])
+        j0, j1 = np.searchsorted(gy, m[1] - h[1]), np.searchsorted(gy, m[1] + h[1])
+        if i1 <= i0 or j1 <= j0:
+            if 0 <= m[0] - win[0] < win[2] - win[0] and 0 <= m[1] - win[1] < win[3] - win[1]:
+                occ[min(np.searchsorted(gx, m[0]), nx - 1), min(np.searchsorted(gy, m[1]), ny - 1)] = True
+            continue
+        dx = gx[i0:i1, None] - m[0]
+        dy = gy[None, j0:j1] - m[1]
+        occ[i0:i1, j0:j1] |= Ci[0, 0] * dx * dx + 2 * Ci[0, 1] * dx * dy + Ci[1, 1] * dy * dy <= sp.level ** 2
+    occ[0, :] = occ[-1, :] = occ[:, 0] = occ[:, -1] = True
+    return occ
+
+
+def step_floor_rule():
+    from gmc.height.floor import apply_floor_rule
+    from gmc.height.project import project_scene
+    before, g0 = load_processed(floor_rule=False)
+    after, st = apply_floor_rule(before, g0["floor"])
+    z_f = g0["floor"]["z_floor"]
+    n = np.asarray(g0["floor"]["normal"], float)
+    n = n / np.linalg.norm(n)
+    p0 = np.asarray(g0["floor"]["centroid"], float)
+    removed = before.subset(~np.isin(before.ids, after.ids))
+    off = (removed.means - p0) @ n
+    rtop = removed.aabb(RHO)[1][:, 2] - z_f
+    ropq = removed.opacity > TAU
+    out = {"rule": st, "plane": {"normal": n.tolist(), "centroid": p0.tolist(), "z_floor": z_f},
+           "removed": {"plane_offset_m_percentiles": {q: float(np.percentile(off, q)) for q in (1, 50, 99)},
+                       "opaque_top_above_floor_m_percentiles": {q: float(np.percentile(rtop[ropq], q))
+                                                                for q in (50, 90, 99, 99.9)}}}
+    tops = {}
+    reach = {}
+    for tag, sc in (("before", before), ("after", after)):
+        opq = sc.opacity > TAU
+        top = sc.aabb(RHO)[1][:, 2] - z_f
+        vert = opq & (np.abs(sc.means[:, 2] - z_f) < 0.05)
+        normal = opq & (np.abs((sc.means - p0) @ n) <= 0.05)
+        tops[tag] = top[vert]
+        reach[tag] = {"abs_z_within_0.05_of_z_f (g0 definition)": int((vert & (top > 0.02)).sum()),
+                      "plane_offset_within_0.05": int((normal & (top > 0.02)).sum()),
+                      "top_above_floor_m_percentiles (g0 definition)":
+                          {q: float(np.percentile(top[vert], q)) for q in (50, 90, 99, 99.9)}}
+    out["opaque_near_floor_reaching_0.02"] = reach
+
+    robots = robot_table(1.20)
+    assert np.all(np.diff(before.ids) > 0)
+    out["window_A"] = {"window": WINDOW_A, "raster_cell": RASTER}
+    panels = {}
+    for key in ("sweeper", "cylinder"):
+        rob = robots[key]
+        for tag, sc in (("before", before), ("after", after)):
+            s2, pst = project_scene(sc, rob, WINDOW_A, z_floor=z_f)
+            pid = np.array([s.primitive_id for s in s2.supports], dtype=np.int64)
+            zc = before.means[np.searchsorted(before.ids, pid), 2] - z_f
+            occ = _support_raster(s2, WINDOW_A)
+            dist = ndimage.distance_transform_edt(~occ) * RASTER
+            row = {"kept": pst["kept"], "supports_centre_within_0.10_of_floor": int((zc < 0.10).sum()),
+                   "occupied_frac": float(occ.mean()), "projection": pst}
+            for r in sorted({0.175, rob.max_radius()}):
+                row[f"disc_r{r:g}_fit_frac"] = float((dist > r).mean())
+            out["window_A"][f"{key}_{tag}"] = row
+            panels[key, tag] = (occ, dist > rob.max_radius(), row)
+            print(key, tag, json.dumps({k: v for k, v in row.items() if k != "projection"}), flush=True)
+
+    fdir = FIGS / "floor_rule"
+    fdir.mkdir(parents=True, exist_ok=True)
+    w = WINDOW_A
+    fig, axs = plt.subplots(2, 2, figsize=(18, 19))
+    for i, key in enumerate(("sweeper", "cylinder")):
+        for j, tag in enumerate(("before", "after")):
+            occ, fit, row = panels[key, tag]
+            img = np.ones(occ.shape[::-1] + (3,))
+            img[fit.T] = (0.75, 0.95, 0.75)
+            img[occ.T] = (0.8, 0.1, 0.1)
+            ax = axs[i, j]
+            ax.imshow(img, origin="lower", extent=[w[0], w[2], w[1], w[3]], interpolation="nearest")
+            r = robots[key].max_radius()
+            ax.set_title(f"{key} {tag} floor rule: {row['kept']} supports (red); "
+                         f"green = disc r={r:g} fits ({row[f'disc_r{r:g}_fit_frac']:.1%})", fontsize=11)
+            ax.set_xticks(np.arange(np.ceil(w[0]), w[2], 0.5))
+            ax.set_yticks(np.arange(np.ceil(w[1]), w[3], 0.5))
+            ax.tick_params(labelsize=7)
+            ax.grid(alpha=0.3, lw=0.4)
+    plt.tight_layout(); plt.savefig(fdir / "proj_map_A_before_after.png", dpi=80); plt.close()
+
+    fig, ax = plt.subplots(1, 2, figsize=(16, 6))
+    bins = np.arange(-0.06, 0.0601, 0.002)
+    ax[0].hist(off, bins=bins, color="0.6", label=f"all removed ({len(off):,})")
+    ax[0].hist(off[ropq], bins=bins, color="C3", alpha=0.7, label=f"opacity > {TAU} ({int(ropq.sum()):,})")
+    ax[0].set_xlabel("removed splat centre offset along floor normal (m)"); ax[0].set_ylabel("count")
+    ax[0].legend(); ax[0].set_title("floor-surface splats removed")
+    tb = np.arange(-0.05, 0.40, 0.005)
+    for tag, colr in (("before", "0.5"), ("after", "C0")):
+        ax[1].hist(tops[tag], bins=tb, histtype="step", lw=1.5, color=colr,
+                   label=f"{tag}: {reach[tag]['abs_z_within_0.05_of_z_f (g0 definition)']:,} reach > 0.02")
+    for z, lab in ((0.02, "z_lo"), (0.10, "sweeper top")):
+        ax[1].axvline(z, color="k", ls="--", lw=0.8)
+        ax[1].text(z, ax[1].get_ylim()[1] * 0.5, lab, rotation=90, fontsize=8)
+    ax[1].set_yscale("log"); ax[1].legend()
+    ax[1].set_xlabel("rho-top above floor of opaque splats with |z - z_f| < 0.05 (m)")
+    ax[1].set_title("near-floor splat tops, before vs after")
+    plt.tight_layout(); plt.savefig(fdir / "removed_z_hist.png", dpi=90); plt.close()
+
+    (RES / "floor_rule.json").write_text(json.dumps(out, indent=2))
+    print(json.dumps({k: v for k, v in out.items() if k != "window_A"}, indent=2))
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--step", required=True, choices=["copy", "decode", "maps", "section", "case"])
+    ap.add_argument("--step", required=True,
+                    choices=["copy", "decode", "maps", "section", "case", "floor_rule"])
     ap.add_argument("--seg"); ap.add_argument("--name")
     ap.add_argument("--window"); ap.add_argument("--start"); ap.add_argument("--goal")
     ap.add_argument("--zc", type=float); ap.add_argument("--glass-clear", choices=["yes", "no"])
@@ -259,6 +386,8 @@ def main():
         step_copy()
     elif a.step == "decode":
         step_decode()
+    elif a.step == "floor_rule":
+        step_floor_rule()
     elif a.step == "maps":
         step_maps()
     elif a.step == "section":

@@ -1,0 +1,191 @@
+{
+  "rule": {
+    "n_input": 7319425,
+    "removed": 71594,
+    "removed_opaque_tau0.3": 18414,
+    "params": {
+      "max_offset": 0.05,
+      "max_tilt_deg": 15.0,
+      "max_flatness": 0.5
+    }
+  },
+  "plane": {
+    "normal": [
+      -0.004939390758035324,
+      -0.0005859098184822146,
+      0.9999876294877973
+    ],
+    "centroid": [
+      8.120587301399752,
+      19.38866848198973,
+      -1.2271749593107995
+    ],
+    "z_floor": -1.2271749593107995
+  },
+  "removed": {
+    "plane_offset_m_percentiles": {
+      "1": -0.0458376864695697,
+      "50": -0.007813224327234018,
+      "99": 0.03255170620273833
+    },
+    "opaque_top_above_floor_m_percentiles": {
+      "50": 0.005581598964397805,
+      "90": 0.046619732095076985,
+      "99": 0.10318139989601784,
+      "99.9": 0.18010210611354185
+    }
+  },
+  "opaque_near_floor_reaching_0.02": {
+    "before": {
+      "abs_z_within_0.05_of_z_f (g0 definition)": 50305,
+      "plane_offset_within_0.05": 54164,
+      "top_above_floor_m_percentiles (g0 definition)": {
+        "50": 0.02020619113621902,
+        "90": 0.06165187969977405,
+        "99": 0.1362923108928613,
+        "99.9": 0.23618989347179767
+      }
+    },
+    "after": {
+      "abs_z_within_0.05_of_z_f (g0 definition)": 45295,
+      "plane_offset_within_0.05": 48343,
+      "top_above_floor_m_percentiles (g0 definition)": {
+        "50": 0.023381037442809505,
+        "90": 0.06602592124256323,
+        "99": 0.14252128935786604,
+        "99.9": 0.24792121803922818
+      }
+    }
+  },
+  "window_A": {
+    "window": [
+      5.5,
+      3.5,
+      12.0,
+      10.5
+    ],
+    "raster_cell": 0.025,
+    "sweeper_before": {
+      "kept": 3876,
+      "supports_centre_within_0.10_of_floor": 3037,
+      "occupied_frac": 0.19842032967032966,
+      "projection": {
+        "n_input": 7319425,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          -1.1271749593107994
+        ],
+        "dilate_radius": 0.175,
+        "dropped_opacity": 3448924,
+        "floored_3d": 0,
+        "excluded_band": 3785433,
+        "outside_window": 81192,
+        "deduplicated": 0,
+        "kept": 3876,
+        "floored_2d": 2,
+        "candidate2": 1987
+      },
+      "disc_r0.175_fit_frac": 0.14563186813186813
+    },
+    "sweeper_after": {
+      "kept": 3764,
+      "supports_centre_within_0.10_of_floor": 2925,
+      "occupied_frac": 0.17910714285714285,
+      "projection": {
+        "n_input": 7247831,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          -1.1271749593107994
+        ],
+        "dilate_radius": 0.175,
+        "dropped_opacity": 3395744,
+        "floored_3d": 0,
+        "excluded_band": 3772825,
+        "outside_window": 75498,
+        "deduplicated": 0,
+        "kept": 3764,
+        "floored_2d": 2,
+        "candidate2": 1883
+      },
+      "disc_r0.175_fit_frac": 0.17001373626373625
+    },
+    "cylinder_before": {
+      "kept": 112068,
+      "supports_centre_within_0.10_of_floor": 3364,
+      "occupied_frac": 0.2838186813186813,
+      "projection": {
+        "n_input": 7319425,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          0.5228250406892005
+        ],
+        "dilate_radius": 0.3,
+        "dropped_opacity": 3448924,
+        "floored_3d": 0,
+        "excluded_band": 1548256,
+        "outside_window": 2210177,
+        "deduplicated": 0,
+        "kept": 112068,
+        "floored_2d": 3,
+        "candidate2": 2419
+      },
+      "disc_r0.175_fit_frac": 0.12164835164835165,
+      "disc_r0.3_fit_frac": 0.026057692307692306
+    },
+    "cylinder_after": {
+      "kept": 111941,
+      "supports_centre_within_0.10_of_floor": 3237,
+      "occupied_frac": 0.2659478021978022,
+      "projection": {
+        "n_input": 7247831,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          0.5228250406892005
+        ],
+        "dilate_radius": 0.3,
+        "dropped_opacity": 3395744,
+        "floored_3d": 0,
+        "excluded_band": 1535663,
+        "outside_window": 2204483,
+        "deduplicated": 0,
+        "kept": 111941,
+        "floored_2d": 3,
+        "candidate2": 2302
+      },
+      "disc_r0.175_fit_frac": 0.14277472527472526,
+      "disc_r0.3_fit_frac": 0.031098901098901097
+    }
+  }
+}

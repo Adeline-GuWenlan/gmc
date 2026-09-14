@@ -1,0 +1,333 @@
+{
+ "legs": [
+  {
+   "xy": [
+    7.825,
+    8.281
+   ],
+   "sv_su": [
+    -1.58,
+    0.06
+   ],
+   "cells": 7,
+   "radius": 0.097,
+   "opaque_splats_h_le_0.15_before": 277,
+   "opaque_splats_h_le_0.15_after": 270,
+   "opaque_splats_all_h_before": 948,
+   "opaque_splats_all_h_after": 941,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.197,
+   "sweeper_before_supports_centre_in_disc": 160,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.197,
+   "sweeper_after_supports_centre_in_disc": 160
+  },
+  {
+   "xy": [
+    7.511,
+    7.588
+   ],
+   "sv_su": [
+    -1.54,
+    -0.7
+   ],
+   "cells": 1,
+   "radius": 0.04,
+   "opaque_splats_h_le_0.15_before": 60,
+   "opaque_splats_h_le_0.15_after": 57,
+   "opaque_splats_all_h_before": 368,
+   "opaque_splats_all_h_after": 365,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.471,
+   "sweeper_before_supports_centre_in_disc": 41,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.471,
+   "sweeper_after_supports_centre_in_disc": 41
+  },
+  {
+   "xy": [
+    8.783,
+    6.943
+   ],
+   "sv_su": [
+    -0.11,
+    -0.69
+   ],
+   "cells": 3,
+   "radius": 0.07,
+   "opaque_splats_h_le_0.15_before": 197,
+   "opaque_splats_h_le_0.15_after": 184,
+   "opaque_splats_all_h_before": 803,
+   "opaque_splats_all_h_after": 790,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.227,
+   "sweeper_before_supports_centre_in_disc": 136,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.227,
+   "sweeper_after_supports_centre_in_disc": 136
+  },
+  {
+   "xy": [
+    9.14,
+    7.653
+   ],
+   "sv_su": [
+    -0.12,
+    0.11
+   ],
+   "cells": 5,
+   "radius": 0.091,
+   "opaque_splats_h_le_0.15_before": 104,
+   "opaque_splats_h_le_0.15_after": 88,
+   "opaque_splats_all_h_before": 515,
+   "opaque_splats_all_h_after": 499,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.141,
+   "sweeper_before_supports_centre_in_disc": 73,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.141,
+   "sweeper_after_supports_centre_in_disc": 73
+  },
+  {
+   "xy": [
+    10.433,
+    7.036
+   ],
+   "sv_su": [
+    1.31,
+    0.16
+   ],
+   "cells": 5,
+   "radius": 0.091,
+   "opaque_splats_h_le_0.15_before": 197,
+   "opaque_splats_h_le_0.15_after": 178,
+   "opaque_splats_all_h_before": 794,
+   "opaque_splats_all_h_after": 775,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.178,
+   "sweeper_before_supports_centre_in_disc": 118,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.178,
+   "sweeper_after_supports_centre_in_disc": 118
+  },
+  {
+   "xy": [
+    10.077,
+    6.324
+   ],
+   "sv_su": [
+    1.32,
+    -0.64
+   ],
+   "cells": 4,
+   "radius": 0.068,
+   "opaque_splats_h_le_0.15_before": 132,
+   "opaque_splats_h_le_0.15_after": 119,
+   "opaque_splats_all_h_before": 795,
+   "opaque_splats_all_h_after": 782,
+   "sweeper_before_occupied_frac_in_leg_disc": 0.282,
+   "sweeper_before_supports_centre_in_disc": 88,
+   "sweeper_after_occupied_frac_in_leg_disc": 0.282,
+   "sweeper_after_supports_centre_in_disc": 88
+  }
+ ],
+ "tabletop_opaque_splats_h_0.65_0.95": {
+  "before": 15740,
+  "after": 15740
+ },
+ "tabletop_ids_in_cylinder_map": {
+  "before": 15740,
+  "after": 15740
+ },
+ "sweeper_supports_removed_in_table_box": {
+  "n": 15,
+  "largest": [
+   {
+    "id": 4737724,
+    "xy": [
+     9.001,
+     7.845
+    ],
+    "h": -0.0007,
+    "sigmas": [
+     0.008,
+     0.0755,
+     0.0875
+    ],
+    "tilt_deg": 12.1,
+    "shadow_area_m2": 0.0451,
+    "opacity": 0.41
+   },
+   {
+    "id": 4817618,
+    "xy": [
+     11.108,
+     7.879
+    ],
+    "h": -0.012,
+    "sigmas": [
+     0.0218,
+     0.0574,
+     0.0644
+    ],
+    "tilt_deg": 8.2,
+    "shadow_area_m2": 0.0254,
+    "opacity": 0.34
+   },
+   {
+    "id": 4810487,
+    "xy": [
+     10.482,
+     7.706
+    ],
+    "h": -0.012,
+    "sigmas": [
+     0.0194,
+     0.0488,
+     0.0556
+    ],
+    "tilt_deg": 9.2,
+    "shadow_area_m2": 0.0143,
+    "opacity": 0.35
+   },
+   {
+    "id": 4772371,
+    "xy": [
+     9.863,
+     7.504
+    ],
+    "h": 0.0001,
+    "sigmas": [
+     0.0127,
+     0.0425,
+     0.0575
+    ],
+    "tilt_deg": 2.1,
+    "shadow_area_m2": 0.0124,
+    "opacity": 0.44
+   },
+   {
+    "id": 4810716,
+    "xy": [
+     10.845,
+     7.705
+    ],
+    "h": -0.0035,
+    "sigmas": [
+     0.0145,
+     0.0348,
+     0.0487
+    ],
+    "tilt_deg": 11.5,
+    "shadow_area_m2": 0.0099,
+    "opacity": 0.41
+   },
+   {
+    "id": 4772256,
+    "xy": [
+     9.349,
+     7.772
+    ],
+    "h": -0.0265,
+    "sigmas": [
+     0.0149,
+     0.0806,
+     0.0937
+    ],
+    "tilt_deg": 13.2,
+    "shadow_area_m2": 0.0089,
+    "opacity": 0.31
+   },
+   {
+    "id": 4772499,
+    "xy": [
+     9.885,
+     7.855
+    ],
+    "h": -0.0018,
+    "sigmas": [
+     0.0008,
+     0.046,
+     0.0556
+    ],
+    "tilt_deg": 14.7,
+    "shadow_area_m2": 0.0054,
+    "opacity": 0.33
+   },
+   {
+    "id": 4736795,
+    "xy": [
+     8.259,
+     7.453
+    ],
+    "h": -0.0151,
+    "sigmas": [
+     0.0185,
+     0.0382,
+     0.0607
+    ],
+    "tilt_deg": 6.3,
+    "shadow_area_m2": 0.0041,
+    "opacity": 0.48
+   },
+   {
+    "id": 4810206,
+    "xy": [
+     10.799,
+     6.956
+    ],
+    "h": -0.007,
+    "sigmas": [
+     0.011,
+     0.0406,
+     0.0493
+    ],
+    "tilt_deg": 12.2,
+    "shadow_area_m2": 0.0039,
+    "opacity": 0.47
+   },
+   {
+    "id": 4772501,
+    "xy": [
+     9.929,
+     7.657
+    ],
+    "h": -0.0167,
+    "sigmas": [
+     0.0172,
+     0.0395,
+     0.0555
+    ],
+    "tilt_deg": 13.6,
+    "shadow_area_m2": 0.0033,
+    "opacity": 0.83
+   },
+   {
+    "id": 4736470,
+    "xy": [
+     8.283,
+     7.188
+    ],
+    "h": -0.0242,
+    "sigmas": [
+     0.0209,
+     0.0421,
+     0.0527
+    ],
+    "tilt_deg": 13.5,
+    "shadow_area_m2": 0.0032,
+    "opacity": 0.62
+   },
+   {
+    "id": 4845354,
+    "xy": [
+     8.72,
+     8.522
+    ],
+    "h": 0.0012,
+    "sigmas": [
+     0.0094,
+     0.0369,
+     0.0453
+    ],
+    "tilt_deg": 3.3,
+    "shadow_area_m2": 0.0011,
+    "opacity": 0.3
+   }
+  ]
+ },
+ "sweeper_supports_total_in_table_box": {
+  "before": 871,
+  "after": 856
+ }
+}

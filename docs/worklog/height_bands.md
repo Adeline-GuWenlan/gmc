@@ -588,3 +588,138 @@ Executes Amendment 1 (`docs/superpowers/plans/2026-09-13-floor-rule-amendment.md
     - a thickest-axis variant fails three tests (flat floor, tilted plane, chunked).
     So test 6 now discriminates the normal-offset requirement.
   - The full `tests/unit` suite printed 189 dots with no F or E (4 m 45 s).
+- 23:32 — **F2 Steps 1–2: floor rule on the showcase.**
+  - `load_processed` was replaced verbatim; `--step floor_rule` added (log `a4/step_floor_rule.log`, 45 s).
+    A4 diagnostics are in `/scratch/wg2381/splathjb/gmc/outputs/height/a4/`.
+  - **Opened `figs/floor_rule/proj_map_A_before_after.png`.**
+    - Sweeper before vs after: the same field of 0.05–0.3 m floor blobs. A few small blobs vanish, and the
+      green (disc fits) patches grow slightly, e.g. around (7.0, 8.5) and (9.5, 9.2).
+    - Cylinder: the notched table + bench block is identical in both, as are the column box at (9, 4.5)
+      and the wall at the lower left.
+  - **Opened `figs/floor_rule/removed_z_hist.png`.**
+    - Left: offsets of removed centres along the normal peak at −0.01 m and span ±0.05 m; the opaque
+      removed splats are spread more widely.
+    - Right: the before/after distributions of near-floor tops differ only below ≈0.06 m. The tail
+      into the sweeper band (0.06–0.25 m) is unchanged.
+  - **Numbers** (`results/height/showcase/floor_rule.json`):
+    - The rule removes **71,594** of 7,319,425 splats (**18,414** opaque at τ = 0.3).
+    - Opaque near-floor splats reaching above 0.02: **50,305 → 45,295** by g0's definition
+      (|z − z_f| < 0.05); 54,164 → 48,343 by plane offset ≤ 0.05.
+    - Their tops above floor: p99 0.136 → 0.143, because the removed ones were the low ones.
+    - Window A:
+
+      | robot | supports | centred < 0.10 m | disc fits |
+      |---|---|---|---|
+      | sweeper before → after | 3,876 → 3,764 | 3,037 → 2,925 | r = 0.175: 14.6 % → 17.0 % |
+      | cylinder before → after | 112,068 → 111,941 | — | r = 0.30: 2.6 % → 3.1 % |
+  - **Why so little** (`a4/floor_rule_diag.py`, `diag/floor_survivors.json`; opened
+    `diag/floor_survivors_tilt_flatness.png`).
+    - Of the 50,305 reaching splats, all three conditions hold for only **5,010**. The largest group is
+      a=1, b=0, c=1 (**31,218**: flat and near the floor, but the thinnest axis is > 15° off the normal).
+      Next: a=1 b=0 c=0 7,301; a=0 b=0 c=1 4,515.
+    - Survivors: tilt p10/p50/p90 = 21/57/85°; σ_min/σ_mid p50 = 0.24; σ_min p50 1.4 mm, σ_mid 10 mm,
+      σ_max 25 mm.
+    - The 2D histogram is spread over all tilts and densest at flatness < 0.025 and tilt 70–90°
+      (vertical slivers). The rule's box (tilt ≤ 15°, flatness ≤ 0.5) holds a small corner.
+    - Reading: this is a selection effect. A flat-lying disc with σ_min ≈ 1 mm reaches 0.02 m only if
+      centred ≥ ≈0.018 m above the plane. The splats that actually intrude into the sweeper band are
+      mostly tilted slivers, which the rule keeps by design.
+    - **Thresholds not changed** (amendment: no further tuning without the user).
+  - **Opened `diag/tableA_zoom_before_after.png`** (1 cm raster of the certified maps).
+    - The cylinder table + bench block is identical.
+    - Sweeper: most blobs are identical, but a few flat blobs vanish; the largest is at ≈(9.05, 7.85),
+      on the table/bench seam.
+    - The picture cannot tell whether any of them belongs to a leg or the middle trestle (≈9.08, 7.56),
+      so it is checked in 3D next (`a4/legs_check.py`) before continuing.
+  - **Scene-wide clear map** (A2's `clear_map.py` on the amended scene, `a4/clear_map.log`):
+    - sweeper-band AABB occupancy 41.8 % → 40.4 %;
+    - cells ≥ 0.5 m clear in all bands 127,380 → 127,443; clusters 29 → 33;
+    - the interior SW blob is unchanged at 2,626 cells.
+  - **Table A case search, first pass** (`a4/case_search_table.py`: lines across the short axis,
+    z_c 1.20–1.60, 6/7/8 m windows).
+    - 324 lines; 270 meet criterion 1 with a valid z_c.
+    - Of 4,828 line–window pairs, **criterion 3 holds for 0 and criterion 2 for 0**.
+    - The run crashed writing its JSON (numpy bool) after the counts; it is rerun with near-miss
+      reporting.
+- 23:46 — **Stop condition 1 check: table A's legs and tabletop survive** (`a4/legs_check.py`,
+  `results/height/showcase/floor_rule_legs_check.json`; opened `figs/floor_rule/legs_check.png`).
+  - **Method:** vertical members were found in 3D as 4 cm cells holding opaque centres in each of 0.10–0.30,
+    0.30–0.50 and 0.50–0.68 m. Six were found:
+    - table ends: (7.83, 8.28), (7.51, 7.59), (10.43, 7.04), (10.08, 6.32);
+    - mid-length: (8.78, 6.94) and (9.14, 7.65), the trestle.
+  - **Figure:** each cyan member circle encloses the same red leg shadow in both panels. The blue x's (the
+    15 sweeper supports removed inside the table box) all lie on open floor, none inside a circle.
+    - The dashed nominal rectangle uses A2's centre (9.2, 7.5), which sits ≈0.3 m toward the bench.
+    - The legs put the table centre at (8.96, 7.31).
+  - **Sweeper map per member disc** (occupied fraction / supports, identical before and after):
+    0.197/160, 0.471/41, 0.227/136, 0.141/73, 0.178/118, 0.282/88.
+  - **Tabletop** (opaque, 0.65–0.95 m, inside the table): 15,740 splats before and after, all 15,740 in the
+    cylinder map both times.
+  - **Largest removed sweeper support:** a flat floor disc at (9.00, 7.85), h −0.001 m, σ (8, 76, 88) mm,
+    tilt 12°, 0.24 m from the trestle.
+  - **No leg or tabletop disappeared. Continue.**
+- 23:46 — **F2 Step 3, `--step maps`** (`a4/step3_maps.log`). Opened `figs/band_0.02_0.10.png` and
+  `figs/overhang_candidates.png`.
+  - The sweeper band is still nearly solid in the NE half (x > 9, y > 12) and the north wing, and speckled in the
+    SW hall. Same picture as A2.
+  - Overhang candidates went 10,064 → 10,282 cells, in the same places as before: tables A, B, G, the L-column
+    (2, 15.5), D (5.8, 18), the entrance, and outside the west wall.
+  - All six PNGs differ byte-wise from HEAD, including the upper bands the rule cannot touch. The plot extent comes
+    from percentiles of opaque means, which the rule shifted (x max 21.147 → 21.088).
+- 23:46 — **F2 Step 4, case search on the amended scene** (criteria unchanged). Summary
+  `results/height/showcase/case_search_a4.json`; figures `figs/diag/a4_*.png`.
+  - **Table frames** from flat tabletop splats (`a4/table_frames.py`). Opened `a4_table_frames.png`: each
+    table's flat splats form a clean rectangle with items as dark clusters, and G stands against an L-shaped wall.
+
+    | table | centre | size (m) | long axis |
+    |---|---|---|---|
+    | A | (8.96, 7.29) | 2.55 × 0.72 | −22.9° |
+    | B | (−0.45, 10.81) | 2.35 × 0.93 | 60.9° |
+    | C | (13.28, 14.09) | 1.74 × 0.68 | −21.4° |
+    | G | (3.35, 22.53) | 1.64 × 0.62 | 31.5° |
+
+    The 2–98 % extents understate lengths (A's legs span 2.9 m).
+  - **Lines under each table along both axes** (`a4/case_search_table.py`: crossing offsets every 0.1 m, half-lengths
+    1.6/2.2/2.8 m, z_c 1.20–1.60, 6/7/8 m windows at 9 centres). "Pairs" are line–window pairs; the last column is
+    the best min start/goal clearance in the sweeper band, over all pairs.
+
+    | search | lines | crit 1 + valid z_c | pairs | crit 3 | crit 2 | best clearance (m) |
+    |---|---|---|---|---|---|---|
+    | A short | 324 | 270 | 4,828 | 0 | 0 | 0.11 |
+    | A long | 135 | 126 | 2,468 | 0 | 0 | 0.14 |
+    | B short | 270 | 142 | 2,880 | 0 | 0 | 0.45 |
+    | B long | 144 | 0 | 0 | – | – | – |
+    | C short | 216 | 39 | 880 | 0 | 0 | 0.00 |
+    | C long | 117 | 108 | 2,065 | 0 | 0 | 0.05 |
+    | G short | 207 | 0 | 0 | – | – | – |
+    | G long | 117 | 0 | 0 | – | – | – |
+
+  - **Criterion 3 binds everywhere:** start and goal ≥ 0.5 m from any AABB-occupied sweeper-band cell holds for
+    no pair at any table; the best is 0.45 m beside table B. Criterion 2 also holds for no pair.
+  - **Scene-wide** (A2's `pair_breakdown.py`/`pair_search.py` on the amended scene): 95 candidate endpoints,
+    1,296 pairs of 2.5–7.5 m; criterion 1 490, criterion 2 171, **both 0** (A2: 967 / 370 / 167 / 0).
+    `pair_search`: 0.
+  - **`--step case` on A2's best available case (SW bench)** (`a4/step4_case_SWbench.log`).
+    - A first launch ran from the worktree root, where python could not open the script; nothing was written.
+      Relaunched from `gmc/`.
+    - `case.json` is byte-identical to the committed one: `pass: false`, only `cylinder_detour_plausible_raster`
+      false.
+    - Opened `figs/case_overview.png`: table B and bench blocks in the 0.02–1.75 map with the line through the
+      bench; bench leg at s ≈ 1.75, seat 0.38–0.45 over s 1.8–3.66. As in A2.
+  - **Certified maps** (diagnostic, not a criterion; `a4/case_certified_check.py`; opened both figures).
+    - **Table A mid-table line**: start (8.92, 5.17), goal (10.94, 9.08), 8 m window; overhang top 0.905, underside
+      0.713.
+      - Sweeper: 5,699 supports. Start and goal lie inside shadows (clearance 0.025 m); the disc fits in 15.5 %.
+      - Cylinder: 174,392 supports; not connected.
+      - UAV: 25,159 supports; start 0.09 m from the column box; not connected.
+      - The sweeper panel is a field of floor blobs with isolated green patches.
+    - **SW bench:**
+      - Sweeper: 2,796 supports (A2: 2,812); connected.
+      - Cylinder: 200,313 (A2: 200,329); not connected. The start component stops at the table B/bench gap, which
+        halos of small shadows close at ≈(0.5–1.3, 10–11).
+      - UAV: 35,732; connected.
+- 23:46 — **Decision: stop condition 2, no case passes after the searches F2 lists.**
+  - F2 is committed without a passing case. F3 and F4 are not started.
+  - No Slurm job was submitted and A3 was not submitted.
+  - Thresholds and criteria are unchanged.
+  - Numbers and options are in `/scratch/wg2381/claude_jobs/logs/height_A4_done.md`.

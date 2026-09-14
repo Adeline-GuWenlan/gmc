@@ -1,0 +1,634 @@
+{
+ "scene": "amended (floor-surface rule, Amendment 1)",
+ "criteria": "unchanged (spec \u00a75.3, showcase_scene.step_case)",
+ "aid": "a4/case_search_table.py (lines under one table; z_c 1.20-1.60; 6/7/8 m windows at 9 centres) and A2's pair_search/pair_breakdown on the amended scene",
+ "tables": {
+  "A_short": {
+   "tag": "A_short",
+   "lines": 324,
+   "crit1_and_zc_ok": 270,
+   "lines_runs_ge_5_any_zc": 306,
+   "best_runs": 67,
+   "line_window_pairs": 4828,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 3813,
+   "best_min_clearance_over_pairs": {
+    "sweeper": 0.11,
+    "cylinder": 0.11,
+    "uav": 2.19
+   },
+   "pass_lines": 0,
+   "nearest_miss": {
+    "a": -1.58,
+    "L": [
+     2.2,
+     1.6
+    ],
+    "start": [
+     6.784,
+     6.275
+    ],
+    "goal": [
+     8.534,
+     9.648
+    ],
+    "window": [
+     5.08,
+     4.52,
+     11.08,
+     10.52
+    ],
+    "z_c": 1.2,
+    "clear": {
+     "sweeper": [
+      0.15,
+      0.11
+     ],
+     "cylinder": [
+      0.15,
+      0.11
+     ],
+     "uav": [
+      1.62,
+      0.85
+     ]
+    },
+    "crit2": false,
+    "crit3": false
+   },
+   "frame": {
+    "n": 8308,
+    "centre": [
+     8.96,
+     7.286
+    ],
+    "long_axis": [
+     0.9209,
+     -0.3898
+    ],
+    "short_axis": [
+     0.3898,
+     0.9209
+    ],
+    "length": 2.55,
+    "width": 0.72,
+    "long_axis_deg": -22.9
+   }
+  },
+  "A_long": {
+   "tag": "A_long",
+   "lines": 135,
+   "crit1_and_zc_ok": 126,
+   "lines_runs_ge_5_any_zc": 126,
+   "best_runs": 131,
+   "line_window_pairs": 2468,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 2468,
+   "best_min_clearance_over_pairs": {
+    "sweeper": 0.14,
+    "cylinder": 0.1,
+    "uav": 2.39
+   },
+   "pass_lines": 0,
+   "nearest_miss": {
+    "a": -0.23,
+    "L": [
+     2.8,
+     2.8
+    ],
+    "start": [
+     6.539,
+     8.716
+    ],
+    "goal": [
+     11.581,
+     6.278
+    ],
+    "window": [
+     5.45,
+     4.91,
+     12.45,
+     11.91
+    ],
+    "z_c": 1.2,
+    "clear": {
+     "sweeper": [
+      0.1,
+      0.21
+     ],
+     "cylinder": [
+      0.1,
+      0.21
+     ],
+     "uav": [
+      1.05,
+      0.85
+     ]
+    },
+    "crit2": false,
+    "crit3": false
+   },
+   "frame": {
+    "n": 8308,
+    "centre": [
+     8.96,
+     7.286
+    ],
+    "long_axis": [
+     0.9209,
+     -0.3898
+    ],
+    "short_axis": [
+     0.3898,
+     0.9209
+    ],
+    "length": 2.55,
+    "width": 0.72,
+    "long_axis_deg": -22.9
+   }
+  },
+  "B_short": {
+   "tag": "B_short",
+   "lines": 270,
+   "crit1_and_zc_ok": 142,
+   "lines_runs_ge_5_any_zc": 237,
+   "best_runs": 77,
+   "line_window_pairs": 2880,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 1500,
+   "best_min_clearance_over_pairs": {
+    "sweeper": 0.45,
+    "cylinder": 0.45,
+    "uav": 0.81
+   },
+   "pass_lines": 0,
+   "nearest_miss": {
+    "a": -0.58,
+    "L": [
+     2.2,
+     1.6
+    ],
+    "start": [
+     1.187,
+     9.228
+    ],
+    "goal": [
+     -2.132,
+     11.078
+    ],
+    "window": [
+     -3.94,
+     6.93,
+     2.06,
+     12.93
+    ],
+    "z_c": 1.2,
+    "clear": {
+     "sweeper": [
+      0.45,
+      0.45
+     ],
+     "cylinder": [
+      0.45,
+      0.45
+     ],
+     "uav": [
+      0.85,
+      0.69
+     ]
+    },
+    "crit2": false,
+    "crit3": false
+   },
+   "frame": {
+    "n": 11214,
+    "centre": [
+     -0.452,
+     10.806
+    ],
+    "long_axis": [
+     0.4868,
+     0.8735
+    ],
+    "short_axis": [
+     -0.8735,
+     0.4868
+    ],
+    "length": 2.35,
+    "width": 0.93,
+    "long_axis_deg": 60.9
+   }
+  },
+  "B_long": {
+   "tag": "B_long",
+   "lines": 144,
+   "crit1_and_zc_ok": 0,
+   "lines_runs_ge_5_any_zc": 129,
+   "best_runs": 128,
+   "line_window_pairs": 0,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 0,
+   "pass_lines": 0,
+   "nearest_miss": null,
+   "frame": {
+    "n": 11214,
+    "centre": [
+     -0.452,
+     10.806
+    ],
+    "long_axis": [
+     0.4868,
+     0.8735
+    ],
+    "short_axis": [
+     -0.8735,
+     0.4868
+    ],
+    "length": 2.35,
+    "width": 0.93,
+    "long_axis_deg": 60.9
+   }
+  },
+  "C_short": {
+   "tag": "C_short",
+   "lines": 216,
+   "crit1_and_zc_ok": 39,
+   "lines_runs_ge_5_any_zc": 117,
+   "best_runs": 31,
+   "line_window_pairs": 880,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 0,
+   "best_min_clearance_over_pairs": {
+    "sweeper": 0.0,
+    "cylinder": 0.0,
+    "uav": 0.45
+   },
+   "pass_lines": 0,
+   "nearest_miss": {
+    "a": -0.57,
+    "L": [
+     1.6,
+     1.6
+    ],
+    "start": [
+     12.168,
+     12.811
+    ],
+    "goal": [
+     13.334,
+     15.791
+    ],
+    "window": [
+     9.17,
+     10.99,
+     15.17,
+     16.99
+    ],
+    "z_c": 1.25,
+    "clear": {
+     "sweeper": [
+      0.14,
+      0.0
+     ],
+     "cylinder": [
+      0.14,
+      0.0
+     ],
+     "uav": [
+      0.35,
+      1.15
+     ]
+    },
+    "crit2": false,
+    "crit3": false
+   },
+   "frame": {
+    "n": 13041,
+    "centre": [
+     13.282,
+     14.093
+    ],
+    "long_axis": [
+     0.9313,
+     -0.3643
+    ],
+    "short_axis": [
+     0.3643,
+     0.9313
+    ],
+    "length": 1.74,
+    "width": 0.68,
+    "long_axis_deg": -21.4
+   }
+  },
+  "C_long": {
+   "tag": "C_long",
+   "lines": 117,
+   "crit1_and_zc_ok": 108,
+   "lines_runs_ge_5_any_zc": 108,
+   "best_runs": 57,
+   "line_window_pairs": 2065,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 2065,
+   "best_min_clearance_over_pairs": {
+    "sweeper": 0.05,
+    "cylinder": 0.05,
+    "uav": 1.57
+   },
+   "pass_lines": 0,
+   "nearest_miss": {
+    "a": -0.04,
+    "L": [
+     1.6,
+     2.2
+    ],
+    "start": [
+     11.807,
+     14.713
+    ],
+    "goal": [
+     15.345,
+     13.329
+    ],
+    "window": [
+     11.11,
+     11.84,
+     17.11,
+     17.84
+    ],
+    "z_c": 1.25,
+    "clear": {
+     "sweeper": [
+      0.05,
+      0.05
+     ],
+     "cylinder": [
+      0.05,
+      0.05
+     ],
+     "uav": [
+      0.65,
+      1.25
+     ]
+    },
+    "crit2": false,
+    "crit3": false
+   },
+   "frame": {
+    "n": 13041,
+    "centre": [
+     13.282,
+     14.093
+    ],
+    "long_axis": [
+     0.9313,
+     -0.3643
+    ],
+    "short_axis": [
+     0.3643,
+     0.9313
+    ],
+    "length": 1.74,
+    "width": 0.68,
+    "long_axis_deg": -21.4
+   }
+  },
+  "G_short": {
+   "tag": "G_short",
+   "lines": 207,
+   "crit1_and_zc_ok": 0,
+   "lines_runs_ge_5_any_zc": 162,
+   "best_runs": 44,
+   "line_window_pairs": 0,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 0,
+   "pass_lines": 0,
+   "nearest_miss": null,
+   "frame": {
+    "n": 6525,
+    "centre": [
+     3.354,
+     22.525
+    ],
+    "long_axis": [
+     0.8529,
+     0.5221
+    ],
+    "short_axis": [
+     -0.5221,
+     0.8529
+    ],
+    "length": 1.64,
+    "width": 0.62,
+    "long_axis_deg": 31.5
+   }
+  },
+  "G_long": {
+   "tag": "G_long",
+   "lines": 117,
+   "crit1_and_zc_ok": 0,
+   "lines_runs_ge_5_any_zc": 113,
+   "best_runs": 93,
+   "line_window_pairs": 0,
+   "crit3": 0,
+   "crit2": 0,
+   "crit2_and_3": 0,
+   "crit3_sweeper": 0,
+   "crit3_cylinder": 0,
+   "crit3_uav": 0,
+   "pass_lines": 0,
+   "nearest_miss": null,
+   "frame": {
+    "n": 6525,
+    "centre": [
+     3.354,
+     22.525
+    ],
+    "long_axis": [
+     0.8529,
+     0.5221
+    ],
+    "short_axis": [
+     -0.5221,
+     0.8529
+    ],
+    "length": 1.64,
+    "width": 0.62,
+    "long_axis_deg": 31.5
+   }
+  }
+ },
+ "pairs": {
+  "components": {
+   "cyl_free_components": 65,
+   "largest_cyl_components_m2": [
+    1.2,
+    1.2,
+    3.0,
+    3.0,
+    10.5,
+    65.6,
+    89.7,
+    185.1
+   ],
+   "candidate_cyl_labels": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    12,
+    15,
+    16,
+    25,
+    28,
+    37,
+    39,
+    42,
+    56,
+    61
+   ]
+  },
+  "counts": {
+   "pairs_dist_ok": 1296,
+   "crit1": 490,
+   "crit2": 171,
+   "both": 0
+  },
+  "A2_counts_before_rule": {
+   "pairs_dist_ok": 967,
+   "crit1": 370,
+   "crit2": 167,
+   "both": 0
+  },
+  "pair_search": "pairs passing crit1+2+3 (approx): 0"
+ },
+ "certified_check_not_a_criterion": [
+  {
+   "case": "tableA_mid",
+   "robot": "sweeper",
+   "window": [
+    5.93,
+    3.12,
+    13.93,
+    11.12
+   ],
+   "z_c": 1.2,
+   "kept": 5699,
+   "start_clear_m": 0.025,
+   "goal_clear_m": 0.025,
+   "start_goal_same_component_disc_r": false,
+   "disc_free_frac": 0.155
+  },
+  {
+   "case": "tableA_mid",
+   "robot": "cylinder",
+   "window": [
+    5.93,
+    3.12,
+    13.93,
+    11.12
+   ],
+   "z_c": 1.2,
+   "kept": 174392,
+   "start_clear_m": 0.025,
+   "goal_clear_m": 0.025,
+   "start_goal_same_component_disc_r": false,
+   "disc_free_frac": 0.026
+  },
+  {
+   "case": "tableA_mid",
+   "robot": "uav",
+   "window": [
+    5.93,
+    3.12,
+    13.93,
+    11.12
+   ],
+   "z_c": 1.2,
+   "kept": 25159,
+   "start_clear_m": 0.09,
+   "goal_clear_m": 1.778,
+   "start_goal_same_component_disc_r": false,
+   "disc_free_frac": 0.737
+  },
+  {
+   "case": "SWbench",
+   "robot": "sweeper",
+   "window": [
+    -1.5,
+    6.5,
+    5.5,
+    14.2
+   ],
+   "z_c": 1.2,
+   "kept": 2796,
+   "start_clear_m": 0.551,
+   "goal_clear_m": 1.175,
+   "start_goal_same_component_disc_r": true,
+   "disc_free_frac": 0.554
+  },
+  {
+   "case": "SWbench",
+   "robot": "cylinder",
+   "window": [
+    -1.5,
+    6.5,
+    5.5,
+    14.2
+   ],
+   "z_c": 1.2,
+   "kept": 200313,
+   "start_clear_m": 0.551,
+   "goal_clear_m": 1.175,
+   "start_goal_same_component_disc_r": false,
+   "disc_free_frac": 0.3
+  },
+  {
+   "case": "SWbench",
+   "robot": "uav",
+   "window": [
+    -1.5,
+    6.5,
+    5.5,
+    14.2
+   ],
+   "z_c": 1.2,
+   "kept": 35732,
+   "start_clear_m": 1.129,
+   "goal_clear_m": 1.175,
+   "start_goal_same_component_disc_r": true,
+   "disc_free_frac": 0.735
+  }
+ ],
+ "pass": false
+}
