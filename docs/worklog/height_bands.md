@@ -565,3 +565,26 @@ All T1/T2 gates pass. No gate criterion was changed and no gate was rerun in C1.
     and so is the tilt threshold. Neither is mine to change.
   - The case, the evidence and the ready job code are committed. No Slurm job is submitted and A3 is not
     submitted. Options are in the A2 standup.
+
+## Stage A4 (job 17731928, started 2026-09-13 23:04 EDT on cs787)
+
+Executes Amendment 1 (`docs/superpowers/plans/2026-09-13-floor-rule-amendment.md`), Tasks F1–F4.
+
+- 23:09 — Read `_rules.md`, spec, plan (Global Constraints, bookkeeping, Tasks 10–12), README, the
+  amendment, `height_A2_done.md`, `state/A2.json` and the A2 worklog section. There was no `state/A4.json`,
+  so this is a fresh start. HEAD is `8340337` and the tree is clean. C2 17731929 waits on this job.
+  - **Plan review, F1 test 6.** As worded (2° tilt, z offset ≈ 0.035 at x = ±1), the test would also pass
+    under a *vertical* offset check, because 0.035 < 0.05. It therefore does not prove what it claims. The
+    test is kept as written, with two discriminating additions:
+    - on-plane splats at x = ±2 (vertical offset 0.07, normal offset 0) must be removed;
+    - a flat splat at x = −1 with vertical offset 0.025 but normal offset 0.06 must be kept.
+    Thresholds unchanged.
+- 23:22 — **F1 `height/floor.py`** (TDD).
+  - Wrote `tests/unit/test_height_floor.py` first: tests 1–8 of the amendment plus a stats test for
+    `apply_floor_rule`. It failed on collection (`ModuleNotFoundError: gmc.height.floor`), as expected.
+  - Then wrote `floor.py` verbatim from the amendment: 9/9 pass.
+  - **Mutation check** (in-memory patch, not committed):
+    - a vertical-offset variant fails `test_offset_is_measured_along_the_plane_normal` only;
+    - a thickest-axis variant fails three tests (flat floor, tilted plane, chunked).
+    So test 6 now discriminates the normal-offset requirement.
+  - The full `tests/unit` suite printed 189 dots with no F or E (4 m 45 s).
