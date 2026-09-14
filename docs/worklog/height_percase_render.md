@@ -1,0 +1,67 @@
+# Height per-case (Amendment 2): render agent notes
+
+Code: `gmc/src/gmc/height/viz3d.py`, `gmc/experiments/percase_render.py`, `gmc/tests/unit/test_height_viz3d.py`.
+Times are EDT on 2026-09-14.
+
+- 06:06: Wrote the three files. The agent then stopped on a usage limit.
+- 09:55: Resumed. All files were complete. Two first-run test failures, both fixed:
+  - `Line3DCollection` in mplot3d 3.10 rejects segments of unequal length, so the prism outline now uses 2-point segments.
+  - One test expected an unclipped value, but 0.5 + 2·C0 > 1 clips to 1.
+- 10:0x, real-PLY colour sanity check: 1,000 random raw rows read through a memmap in 1.6 s.
+  - All rows: mean RGB [0.431, 0.380, 0.347], p50 [0.502, 0.417, 0.355], p95 [1.0, 0.972, 0.948]. 30% of channel values clip at 0 and 4.8% at 1.
+  - Opaque rows (τ = 0.3, 531 rows): mean [0.501, 0.451, 0.412], p50 [0.594, 0.519, 0.451]. 19.7% of channel values sit at 0.
+  - Raw f_dc piles up at exactly ±1.7725 = ±0.5/C0, so the exporter stored already-clipped colours. The decode is correct.
+  - 242 of 1,000 rows (86 of the 531 opaque) are pure black, so expect some black speckle. The opacity-weighted subsample favours the brighter opaque splats.
+- Toy check, `percase_render.py --toy-check --frames 60 --workers 1`, output in `gmc/results/height/percase/_toy_check/`:
+  - Version 1:
+    - The camera sat 90° to the side of travel and looked edge-on at the wall.
+    - The 3.5 m follow box left f000 and f100 empty, because the table was out of view.
+  - Version 2:
+    - Camera azimuth is now travel − 50°, elevation 35°, orbiting 50° over the clip.
+    - The follow-box centre lies between the path's bounding-box centre and the robot. It moves toward the robot only enough to keep the robot 0.6 m + r inside the box.
+    - Zoom 1.35, focal length 1.5.
+  - Version 3:
+    - Artist clipping is off, because Axes3D is a centred square and would crop the 1280 px frame.
+    - Legend spacing widened.
+  - Key frames now show the wall segments, the tabletop at 0.74 m on four legs, and the prism under the tabletop with the covering leg drawn see-through. The trail runs under the table and the title is readable.
+- Timing on one login-node core, 1280×720:
+  - Toy (42k samples): 0.10–0.13 s per frame per worker.
+  - Synthetic 250k points: 0.52 s/frame with all points in view, 0.23 s/frame with a 2.5 m follow box.
+  - 300 frames on 4 workers therefore take about 40 s at worst for the 3D video. The two-panel video (`viz.robot_video`, serial) and scene loading dominate the job.
+- 15:3x: Session restarted. The orchestrator authorised the uav and sweeper render jobs.
+  - Added `VIEW_PAD` = 0.5 m to the camera framing window. The sweeper window (2 × 3.05 m) is smaller than its follow box, and without the pad the view showed only the case window. Splats are still selected over the window + 1 m.
+  - A dry run of `render_real` hung for more than 600 s. It used a stubbed `load_processed` and a synthetic PLY, run from stdin. The spawned workers could not re-import `<stdin>` as the main module, and `multiprocessing.Pool` respawned them forever.
+  - Switched to `ProcessPoolExecutor`. A dead worker now raises `BrokenProcessPool` within 1.4 s instead of hanging until the Slurm time limit.
+  - Dry run again, from a script file:
+    - It picks `sweeper_b2.json` over an UNKNOWN `sweeper.json`.
+    - Projection matches the run (74 = 74), and both MP4s have 12/12 frames.
+    - The title carries the claims-boundary line.
+    - With no REACHABLE run, it exits with a clear message.
+  - Unit tests: `5 passed in 6.64s`.
+  - Both real runs pass `pick_run` and match their case.json:
+    - uav: lb 0.050 m, 143 supports, 289 samples, so 289 frames.
+    - sweeper: lb 0.027 m, 477 supports, 158 samples, so 158 frames.
+- 15:49: `sbatch` 17801474 `pc_uav_render` and 17801523 `pc_sweeper_render`, each on `percase_render.sbatch` (4 CPU / 32 GB / 4 h). Before submitting, `pc_` jobs queued went 1 → 2 (the cylinder run was also queued) and the ledger 6 → 7. Both IDs were appended to the ledger.
+- 15:52: Both jobs COMPLETED. The ledger holds 8 lines.
+  - **sweeper**, job 17801523: 1 min 25 s, MaxRSS 3.1 GB.
+    - Run file: `sweeper.json`, REACHABLE, certified, replay3d passed, lb 0.0268 m.
+    - Points: 78,465 of 78,465 opaque splats below 2.5 m in window + 1 m, from 230,671 splats in the dilated xy window. Mean RGB [0.47, 0.41, 0.36].
+    - Projection: 477 = run.
+    - Frames: `sweeper_3d.mp4` 158, `sweeper_2panel.mp4` 158.
+    - Timings: 3D video 18 s (0.18 s/frame/worker, 4 workers), two-panel 29 s, load 10 s.
+  - **uav**, job 17801474: 2 min 46 s, MaxRSS 3.2 GB.
+    - Run file: `uav.json`, REACHABLE, certified, replay3d passed, lb 0.050 m (replay3d checked 0 pairs).
+    - Points: 91,684 of 91,684 opaque splats, from 254,551 in the dilated window. Mean RGB [0.51, 0.43, 0.38].
+    - Projection: 143 = run.
+    - Frames: `uav_3d.mp4` 289, `uav_2panel.mp4` 289.
+    - Timings: 3D video 27 s (0.22 s/frame/worker), two-panel 70 s, load 36 s.
+- 15:55: Opened the 3D key frames and overviews (f000/f050/f100 for both robots). Both titles carry "per-robot showcase case, not a morphology comparison · floor rule on".
+  - **sweeper**, 3.5 m follow box:
+    - Scene: table B is a glass-topped display table on legs, with a tall panel behind it. The top of the panel is cut at 2.5 m and runs behind the legend, which stays readable.
+    - The overview shows the straight 2 m path running between the table's legs, so the robot goes under it.
+    - In f050 the prism is between the front legs. At 35° elevation the raised glass top appears above the robot on screen, so "under" reads from the legs, not from the top covering the robot.
+  - **uav**, 5 m follow box:
+    - The prism (band 1.10–1.30 m) sits clearly above display table A.
+    - f050 shows it over the tabletop, and the overview shows six prism poses crossing the table diagonally.
+    - The dashed floor path runs between the table legs, and the trail stays at 1.2 m.
+  - Neither two-panel video was opened.
