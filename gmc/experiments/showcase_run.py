@@ -1,5 +1,8 @@
 # gmc/experiments/showcase_run.py
-"""One robot on the showcase case: project, probe, compile+query, replay3d (spec §5.4)."""
+"""One robot on a showcase case: project, probe, compile+query, replay3d (spec §5.4).
+
+Amendment 2 runs one case per robot: pass --case, --out-dir and --raw-subdir. The defaults reproduce the
+shared-case behaviour (results/height/showcase/case.json)."""
 import argparse
 import json
 import time
@@ -26,9 +29,12 @@ def main():
     ap.add_argument("--tau", type=float, default=0.3)
     ap.add_argument("--budget-scale", type=int, default=1)
     ap.add_argument("--skip-probe", action="store_true")
+    ap.add_argument("--case", default=str(RES / "case.json"))
+    ap.add_argument("--out-dir", default=str(RES), help="directory for <name>.json")
+    ap.add_argument("--raw-subdir", default="", help="subdirectory of RAW for GMC's own output")
     a = ap.parse_args()
     name = a.robot + ("" if a.tau == 0.3 else f"_tau{a.tau:g}") + ("" if a.budget_scale == 1 else f"_b{a.budget_scale}")
-    case = json.loads((RES / "case.json").read_text())
+    case = json.loads(Path(a.case).read_text())
     scene3d, g0 = load_processed()
     robot = robot_table(case["z_c"])[a.robot]
     cfg = load_config("configs/height_showcase.yaml")
@@ -37,7 +43,7 @@ def main():
         cfg = with_overrides(cfg, max_refinement_rounds=cfg.query.max_refinement_rounds * k,
                              max_wall_seconds=cfg.query.max_wall_seconds * k,
                              max_support_calls=cfg.query.max_support_calls * k)
-    out = {"robot": a.robot, "tau": a.tau, "budget_scale": k, "case": case}
+    out = {"robot": a.robot, "tau": a.tau, "budget_scale": k, "case_file": a.case, "case": case}
     s2, stats = project_scene(scene3d, robot, case["window"], z_floor=case["z_floor"], tau=a.tau)
     out["projection"] = stats
     print("projection", json.dumps(stats), flush=True)
@@ -65,14 +71,17 @@ def main():
     if probe["abort"]:
         out["result"] = out["replay3d"] = None
     else:
-        res, _ = compile_and_query(s2, robot, cfg, case["start"], case["goal"], out_dir=RAW / name)
+        res, _ = compile_and_query(s2, robot, cfg, case["start"], case["goal"],
+                                   out_dir=RAW / a.raw_subdir / name)
         out["result"] = res
         out["replay3d"] = None
         if res["curve"] is not None:
             out["replay3d"] = replay_curve(scene3d, robot, curve_from_dict(res["curve"]),
                                            z_floor=case["z_floor"], tau=a.tau)
             res["replay3d"] = out["replay3d"]
-    (RES / f"{name}.json").write_text(json.dumps(out, indent=2, default=str))
+    out_dir = Path(a.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / f"{name}.json").write_text(json.dumps(out, indent=2, default=str))
     r = out["result"] or {}
     print(f"=== {name} status={r.get('status')} verify={r.get('verify')} "
           f"replay3d={(out['replay3d'] or {}).get('passed')} abort={probe['abort']} ===", flush=True)
