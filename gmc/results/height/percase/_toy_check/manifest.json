@@ -1,0 +1,46 @@
+{
+  "toy": "T2-1",
+  "status": "REACHABLE",
+  "certified_and_replayed": true,
+  "projection_kept": 74,
+  "n_points": 42000,
+  "outputs": {
+    "video_3d": "results/height/percase/_toy_check/T2-1_sweeper_3d.mp4",
+    "n_frames_3d": 60,
+    "key_frames_3d": [
+      "results/height/percase/_toy_check/T2-1_sweeper_3d_f000.png",
+      "results/height/percase/_toy_check/T2-1_sweeper_3d_f050.png",
+      "results/height/percase/_toy_check/T2-1_sweeper_3d_f100.png"
+    ],
+    "overview_png": "results/height/percase/_toy_check/T2-1_sweeper_overview.png",
+    "render_3d": {
+      "n_points": 42000,
+      "render_seconds_per_frame": 0.12786158590267102,
+      "workers": 1,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 1.75,
+      "elev": 35.0,
+      "orbit_deg": 50.0
+    },
+    "video_2panel": "results/height/percase/_toy_check/T2-1_sweeper_2panel.mp4",
+    "n_frames_2panel": 60,
+    "key_frames_2panel": [
+      "results/height/percase/_toy_check/T2-1_sweeper_2panel_f000.png",
+      "results/height/percase/_toy_check/T2-1_sweeper_2panel_f050.png",
+      "results/height/percase/_toy_check/T2-1_sweeper_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/percase/_toy_check/T2-1_sweeper_scene.ply",
+    "scene_ply_vertices": 9440,
+    "n_poses": 60
+  },
+  "timings_s": {
+    "video_3d": 9.45,
+    "overview": 0.25,
+    "video_2panel": 6.44,
+    "scene_ply": 0.01
+  },
+  "total_s": 16.5
+}

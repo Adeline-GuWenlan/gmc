@@ -1,0 +1,115 @@
+{
+  "robot": "cylinder",
+  "claims": "per-robot showcase case, not a morphology comparison \u00b7 floor rule on",
+  "title": "cylinder \u00b7 REACHABLE \u00b7 replay3d lb = 0.003 m\nper-robot showcase case, not a morphology comparison \u00b7 floor rule on",
+  "case_json": "results/height/percase/cylinder/case.json",
+  "run_json": "results/height/percase/cylinder/cylinder.json",
+  "status": "REACHABLE",
+  "verify_certified": true,
+  "replay3d_passed": true,
+  "replay3d_min_clearance_lb": 0.0032015007587435917,
+  "scene": {
+    "n_splats": 7247831,
+    "floor_rule": {
+      "n_input": 7319425,
+      "removed": 71594,
+      "removed_opaque_tau0.3": 18414,
+      "params": {
+        "max_offset": 0.05,
+        "max_tilt_deg": 15.0,
+        "max_flatness": 0.5
+      }
+    },
+    "gravity_rotation_is_identity": true
+  },
+  "selection": {
+    "window": [
+      0.5,
+      10.0,
+      3.5,
+      13.0
+    ],
+    "view_window_pad_m": 0.5,
+    "dilate_m": 1.0,
+    "z_max_above_floor_m": 2.5,
+    "tau": 0.3,
+    "n_window_xy_dilated": 121214,
+    "n_opaque_below_zmax": 37872,
+    "n_rendered": 37872,
+    "max_points": 250000,
+    "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"
+  },
+  "colors": {
+    "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+    "mean": [
+      0.5569,
+      0.4785,
+      0.4097
+    ],
+    "p5": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p50": [
+      0.6379,
+      0.5386,
+      0.4534
+    ],
+    "p95": [
+      0.9694,
+      0.8723,
+      0.8044
+    ],
+    "frac_at_0": 0.1411420926630052,
+    "frac_at_1": 0.024081115335868188
+  },
+  "projection": {
+    "kept": 3791,
+    "run_kept": 3791,
+    "matches_run": true
+  },
+  "outputs": {
+    "video_3d": "results/height/percase/cylinder/video/cylinder_3d.mp4",
+    "n_frames_3d": 268,
+    "key_frames_3d": [
+      "results/height/percase/cylinder/video/cylinder_3d_f000.png",
+      "results/height/percase/cylinder/video/cylinder_3d_f050.png",
+      "results/height/percase/cylinder/video/cylinder_3d_f100.png"
+    ],
+    "overview_png": "results/height/percase/cylinder/video/cylinder_overview.png",
+    "render_3d": {
+      "n_points": 37872,
+      "render_seconds_per_frame": 0.09570546414869935,
+      "workers": 4,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 2.5,
+      "elev": 35.0,
+      "orbit_deg": 50.0
+    },
+    "video_2panel": "results/height/percase/cylinder/video/cylinder_2panel.mp4",
+    "n_frames_2panel": 268,
+    "key_frames_2panel": [
+      "results/height/percase/cylinder/video/cylinder_2panel_f000.png",
+      "results/height/percase/cylinder/video/cylinder_2panel_f050.png",
+      "results/height/percase/cylinder/video/cylinder_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/percase/cylinder/video/cylinder_scene.ply",
+    "scene_ply_vertices": 17808,
+    "n_poses": 268
+  },
+  "timings_s": {
+    "load_processed": 10.9,
+    "select": 0.1,
+    "colors": 0.2,
+    "project": 6.1,
+    "video_3d": 18.1,
+    "overview": 0.2,
+    "video_2panel": 152.6,
+    "scene_ply": 0.0
+  }
+}

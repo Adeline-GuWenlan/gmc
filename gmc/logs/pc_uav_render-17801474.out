@@ -1,0 +1,8 @@
+=== percase_render experiments/percase_render.py --robot uav 2026-09-14T15:49:46-04:00 host=cs654.hpc.nyu.edu job=17801474 ===
+loaded 7247831 splats in 36s
+selected 91684 of 91684 splats; colours in 2s
+projected 143 supports (run: 143)
+3d video results/height/percase/uav/video/uav_3d.mp4 frames=289 27s (0.22s/frame/worker)
+2panel video results/height/percase/uav/video/uav_2panel.mp4 70s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [6.0, 5.45, 11.9, 9.1], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 254551, "n_opaque_below_zmax": 91684, "n_rendered": 91684, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 143, "run_kept": 143, "matches_run": true}, "timings_s": {"load_processed": 35.6, "select": 0.1, "colors": 2.4, "project": 13.8, "video_3d": 26.9, "overview": 0.4, "video_2panel": 70.2, "scene_ply": 0.0}}
+=== PERCASE_RENDER_DONE experiments/percase_render.py ===

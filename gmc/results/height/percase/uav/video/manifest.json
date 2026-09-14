@@ -1,0 +1,115 @@
+{
+  "robot": "uav",
+  "claims": "per-robot showcase case, not a morphology comparison \u00b7 floor rule on",
+  "title": "uav \u00b7 REACHABLE \u00b7 replay3d lb = 0.050 m\nper-robot showcase case, not a morphology comparison \u00b7 floor rule on",
+  "case_json": "results/height/percase/uav/case.json",
+  "run_json": "results/height/percase/uav/uav.json",
+  "status": "REACHABLE",
+  "verify_certified": true,
+  "replay3d_passed": true,
+  "replay3d_min_clearance_lb": 0.05,
+  "scene": {
+    "n_splats": 7247831,
+    "floor_rule": {
+      "n_input": 7319425,
+      "removed": 71594,
+      "removed_opaque_tau0.3": 18414,
+      "params": {
+        "max_offset": 0.05,
+        "max_tilt_deg": 15.0,
+        "max_flatness": 0.5
+      }
+    },
+    "gravity_rotation_is_identity": true
+  },
+  "selection": {
+    "window": [
+      6.0,
+      5.45,
+      11.9,
+      9.1
+    ],
+    "view_window_pad_m": 0.5,
+    "dilate_m": 1.0,
+    "z_max_above_floor_m": 2.5,
+    "tau": 0.3,
+    "n_window_xy_dilated": 254551,
+    "n_opaque_below_zmax": 91684,
+    "n_rendered": 91684,
+    "max_points": 250000,
+    "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"
+  },
+  "colors": {
+    "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+    "mean": [
+      0.5128,
+      0.4311,
+      0.378
+    ],
+    "p5": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p50": [
+      0.6163,
+      0.508,
+      0.4285
+    ],
+    "p95": [
+      0.8579,
+      0.8047,
+      0.7937
+    ],
+    "frac_at_0": 0.18137297674621525,
+    "frac_at_1": 0.009405494233817606
+  },
+  "projection": {
+    "kept": 143,
+    "run_kept": 143,
+    "matches_run": true
+  },
+  "outputs": {
+    "video_3d": "results/height/percase/uav/video/uav_3d.mp4",
+    "n_frames_3d": 289,
+    "key_frames_3d": [
+      "results/height/percase/uav/video/uav_3d_f000.png",
+      "results/height/percase/uav/video/uav_3d_f050.png",
+      "results/height/percase/uav/video/uav_3d_f100.png"
+    ],
+    "overview_png": "results/height/percase/uav/video/uav_overview.png",
+    "render_3d": {
+      "n_points": 91684,
+      "render_seconds_per_frame": 0.21689863799777925,
+      "workers": 4,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 2.5,
+      "elev": 35.0,
+      "orbit_deg": 50.0
+    },
+    "video_2panel": "results/height/percase/uav/video/uav_2panel.mp4",
+    "n_frames_2panel": 289,
+    "key_frames_2panel": [
+      "results/height/percase/uav/video/uav_2panel_f000.png",
+      "results/height/percase/uav/video/uav_2panel_f050.png",
+      "results/height/percase/uav/video/uav_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/percase/uav/video/uav_scene.ply",
+    "scene_ply_vertices": 66090,
+    "n_poses": 289
+  },
+  "timings_s": {
+    "load_processed": 35.6,
+    "select": 0.1,
+    "colors": 2.4,
+    "project": 13.8,
+    "video_3d": 26.9,
+    "overview": 0.4,
+    "video_2panel": 70.2,
+    "scene_ply": 0.0
+  }
+}

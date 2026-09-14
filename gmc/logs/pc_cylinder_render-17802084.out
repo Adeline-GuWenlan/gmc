@@ -1,0 +1,8 @@
+=== percase_render experiments/percase_render.py --robot cylinder 2026-09-14T15:54:34-04:00 host=cs658.hpc.nyu.edu job=17802084 ===
+loaded 7247831 splats in 11s
+selected 37872 of 37872 splats; colours in 0s
+projected 3791 supports (run: 3791)
+3d video results/height/percase/cylinder/video/cylinder_3d.mp4 frames=268 18s (0.10s/frame/worker)
+2panel video results/height/percase/cylinder/video/cylinder_2panel.mp4 153s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [0.5, 10.0, 3.5, 13.0], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 121214, "n_opaque_below_zmax": 37872, "n_rendered": 37872, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 3791, "run_kept": 3791, "matches_run": true}, "timings_s": {"load_processed": 10.9, "select": 0.1, "colors": 0.2, "project": 6.1, "video_3d": 18.1, "overview": 0.2, "video_2panel": 152.6, "scene_ply": 0.0}}
+=== PERCASE_RENDER_DONE experiments/percase_render.py ===
