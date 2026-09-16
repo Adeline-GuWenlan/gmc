@@ -22,6 +22,13 @@
     },
     "gravity_rotation_is_identity": true
   },
+  "render": {
+    "renderer": "splat",
+    "n_rendered": 5508799,
+    "scene_radius_m": 14.0,
+    "opacity_threshold": null,
+    "subsampled": false
+  },
   "selection": {
     "window": [
       6.0,
@@ -43,9 +50,9 @@
     "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
     "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
     "mean": [
-      0.5128,
-      0.4311,
-      0.378
+      0.4251,
+      0.3753,
+      0.3441
     ],
     "p5": [
       0.0,
@@ -53,17 +60,17 @@
       0.0
     ],
     "p50": [
-      0.6163,
-      0.508,
-      0.4285
+      0.5105,
+      0.4218,
+      0.3533
     ],
     "p95": [
-      0.8579,
-      0.8047,
-      0.7937
+      1.0,
+      0.9455,
+      0.9129
     ],
-    "frac_at_0": 0.18137297674621525,
-    "frac_at_1": 0.009405494233817606
+    "frac_at_0": 0.3263470555620805,
+    "frac_at_1": 0.04335451943941562
   },
   "projection": {
     "kept": 143,
@@ -80,16 +87,38 @@
     ],
     "overview_png": "results/height/percase/uav/video/uav_overview.png",
     "render_3d": {
-      "n_points": 91684,
-      "render_seconds_per_frame": 0.21689863799777925,
-      "workers": 4,
+      "n_points": 5508799,
+      "render_seconds_per_frame": 0.8272183017199376,
+      "workers": 1,
       "size": [
         1280,
         720
       ],
       "view_half": 2.5,
       "elev": 35.0,
-      "orbit_deg": 50.0
+      "orbit_deg": 50.0,
+      "renderer": "splat",
+      "splat_opts": {
+        "fov_y_deg": 50.0,
+        "fit_z": 0.9,
+        "look_z": 0.55,
+        "fit_scale": 1.0,
+        "fit_cover": 0.85,
+        "near": 0.05,
+        "near_frac": 0.32,
+        "cull_radius_px": 0,
+        "clip_pad": null,
+        "clip_z": 3.0,
+        "bg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "edge_lw": 1.4,
+        "ambient": 0.45,
+        "occlude_slack": 0.1,
+        "ghost_alpha": 0.28
+      }
     },
     "video_2panel": "results/height/percase/uav/video/uav_2panel.mp4",
     "n_frames_2panel": 289,
@@ -103,13 +132,14 @@
     "n_poses": 289
   },
   "timings_s": {
-    "load_processed": 35.6,
+    "load_processed": 9.2,
     "select": 0.1,
-    "colors": 2.4,
-    "project": 13.8,
-    "video_3d": 26.9,
-    "overview": 0.4,
-    "video_2panel": 70.2,
+    "colors": 1.8,
+    "project": 4.8,
+    "splat_pack": 2.9,
+    "video_3d": 241.0,
+    "overview": 0.9,
+    "video_2panel": 64.1,
     "scene_ply": 0.0
   }
 }

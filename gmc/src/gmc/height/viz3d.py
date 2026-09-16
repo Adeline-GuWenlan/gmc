@@ -1,13 +1,24 @@
-"""3D point-cloud videos of a certified run (Amendment 2; spec §6 as amended).
+"""3D videos of a certified run (Amendment 2; spec §6 as amended).
 
-Splat means are drawn with matplotlib mplot3d; frames are rendered in a process pool and encoded to H.264
-MP4 (yuv420p) through imageio-ffmpeg. Real-scene colours are the spherical-harmonic DC term of the raw 3DGS
-PLY, ``rgb = clip(0.5 + C0 * f_dc, 0, 1)``.
+Two renderers, chosen with ``renderer=``; both draw the same overlays (robot prism, certified floor path,
+band mid-height trail, start/goal, title, legend, caption), so the scientific content is identical.
 
-mplot3d orders whole artists, not single points, so every frame splits the cloud at the robot's depth along
-the viewing direction: splats behind the robot are drawn first, then the prism, then the splats in front.
-Front splats that cover the robot on screen (plus a margin) are drawn translucent, so a robot passing under a
-table stays visible; the prism outline is drawn last.
+``renderer="splat"`` (default for real scenes) rasterises the Gaussians themselves through
+:mod:`gmc.height.ewa` -- the EWA splatting of the CUDA rasterisers, on the CPU via numba. Every splat is an
+anisotropic, alpha-blended footprint rather than a dot, nothing is thresholded away by opacity and nothing is
+subsampled, so the frame looks like the photographs the capture was built from. The robot goes into the
+rasteriser as a per-pixel occluder depth buffer, so it is hidden by exactly what is in front of it, and
+splats nearer than the robot are faded by ``xray_alpha`` where they cover it. 2D overlays are then drawn
+with matplotlib in pixel coordinates and hidden where the rasterised surface is nearer than they are, so the
+certified path really does disappear under a table (a ghost of it stays, at low alpha, so no information is
+lost).
+
+``renderer="scatter"`` is the original matplotlib mplot3d fallback: splat means as scatter points. mplot3d
+orders whole artists, not single points, so it splits the cloud at the robot's depth along the viewing
+direction, draws the back half, the prism, then the front half, fading front splats that cover the robot.
+
+Real-scene colours are the spherical-harmonic DC term of the raw 3DGS PLY,
+``rgb = clip(0.5 + C0 * f_dc, 0, 1)``. Frames are encoded to H.264 MP4 (yuv420p) through imageio-ffmpeg.
 """
 import math
 import multiprocessing as mp
@@ -24,6 +35,30 @@ _PLY_TYPES = {"char": "i1", "int8": "i1", "uchar": "u1", "uint8": "u1",
               "short": "<i2", "int16": "<i2", "ushort": "<u2", "uint16": "<u2",
               "int": "<i4", "int32": "<i4", "uint": "<u4", "uint32": "<u4",
               "float": "<f4", "float32": "<f4", "double": "<f8", "float64": "<f8"}
+
+AXES_RECT = (0.0, 0.045, 1.0, 0.865)     # the drawing area inside the figure; the rest is title/caption
+
+# Defaults of the "splat" renderer. Lengths are metres, angles degrees.
+SPLAT_OPTS = {
+    "fov_y_deg": 50.0,      # vertical field of view of the virtual camera
+    "fit_z": 0.90,          # height above the floor the framing is required to contain
+    "look_z": 0.55,         # height above the floor the camera aims at
+    "fit_scale": 1.0,       # >1 pulls the camera back, <1 pushes it in
+    "fit_cover": 0.85,      # fraction of the frame the framed box should cover
+    "near": 0.05,           # absolute near-plane floor (m)
+    "near_frac": 0.32,      # cull splats nearer than this fraction of the camera-to-target distance:
+                            # a third-person camera in a captured room stands inside the geometry, and
+                            # whatever it is embedded in would otherwise smear over the entire frame
+    "cull_radius_px": 0,    # drop Gaussians whose 3-sigma screen radius exceeds this (0 = keep all);
+                            # these are the near-camera blobs that streak across a frame
+    "clip_pad": None,       # m: if set, keep only Gaussians within the camera box grown by this much
+    "clip_z": 3.0,          # m above the floor for the top of that clip box
+    "bg": (1.0, 1.0, 1.0),
+    "edge_lw": 1.4,
+    "ambient": 0.45,        # ambient term of the prism shading
+    "occlude_slack": 0.10,  # an overlay within this much of the visible surface still counts as visible
+    "ghost_alpha": 0.28,    # occluded stretches of the path/trail stay visible this faintly
+}
 
 ROBOT_FACE = (1.0, 0.45, 0.0, 0.55)
 ROBOT_EDGE = (0.80, 0.22, 0.0)
@@ -192,11 +227,19 @@ def _cameras(poses, window, view_half, elev, orbit_deg, azim0, margin=0.8):
 # ----------------------------------------------------------------------------- drawing
 
 def _state(points, colors, robot, poses, z_floor, *, title, window, dpi, z_span, point_size, figsize,
-           path_xy, start, goal, note, zoom, focal_length):
-    P = np.asarray(points, dtype=np.float32)
-    C = np.asarray(colors, dtype=np.float32)
-    if P.ndim != 2 or P.shape[1] != 3 or C.shape != P.shape:
-        raise ValueError("points and colors must both be (N,3)")
+           path_xy, start, goal, note, zoom, focal_length, renderer="scatter", splats=None,
+           splat_opts=None):
+    if renderer not in ("scatter", "splat"):
+        raise ValueError(f"renderer must be 'scatter' or 'splat', not {renderer!r}")
+    if renderer == "splat":
+        if splats is None:
+            raise ValueError("renderer='splat' needs splats=ewa.pack(means, covs, opacity, rgb)")
+        P = C = np.zeros((0, 3), dtype=np.float32)          # the scatter path is unused
+    else:
+        P = np.asarray(points, dtype=np.float32)
+        C = np.asarray(colors, dtype=np.float32)
+        if P.ndim != 2 or P.shape[1] != 3 or C.shape != P.shape:
+            raise ValueError("points and colors must both be (N,3)")
     poses = np.asarray(poses, dtype=float)
     z_lo, z_hi = robot.band_abs(z_floor)
     return {"points": P, "colors": np.clip(C, 0.0, 1.0), "poses": poses, "z_floor": float(z_floor),
@@ -207,7 +250,10 @@ def _state(points, colors, robot, poses, z_floor, *, title, window, dpi, z_span,
             "start": None if start is None else tuple(map(float, start[:2])),
             "goal": None if goal is None else tuple(map(float, goal[:2])),
             "note": note, "zoom": float(zoom), "focal_length": float(focal_length), "grid": 0.5,
-            "xray_alpha": 0.15, "xray_margin": 0.12, "title_size": 13}
+            "xray_alpha": 0.15, "xray_margin": 0.12, "title_size": 13,
+            "renderer": renderer, "splats": splats,
+            "render_size": (int(round(figsize[0] * dpi)), int(round(AXES_RECT[3] * figsize[1] * dpi))),
+            **SPLAT_OPTS, **dict(splat_opts or {})}
 
 
 def _new_fig(st):
@@ -227,12 +273,30 @@ def _rgb(fig):
 
 def _caption(st, k):
     x, y, th = st["poses"][k]
+    grid = "" if st.get("renderer") == "splat" else f"   floor grid {st['grid']:g} m"
     return (f"frame {k + 1}/{len(st['poses'])}   pose x = {x:+.2f} m, y = {y:+.2f} m, "
-            f"θ = {math.degrees(th):+.0f}°   floor grid {st['grid']:g} m   {st['note']}")
+            f"θ = {math.degrees(th):+.0f}°{grid}   {st['note']}")
+
+
+def _titles(fig, st, caption):
+    """Title, legend and caption -- identical for both renderers: this is the scientific content."""
+    from matplotlib.lines import Line2D
+    zf, (z_lo, z_hi), r = st["z_floor"], st["band"], st["r"]
+    fig.suptitle(st["title"], fontsize=st["title_size"], y=0.985, va="top")
+    handles = [Line2D([], [], color=ROBOT_FACE[:3], alpha=0.7, lw=7,
+                      label=f"robot prism: disc r = {r:.3f} m × band "
+                            f"[{z_lo - zf:.2f}, {z_hi - zf:.2f}] m above floor"),
+               Line2D([], [], color=PATH_RGB, lw=2.6, label="trail (band mid-height)"),
+               Line2D([], [], color=(0.12, 0.12, 0.12), lw=1.1, ls=(0, (4, 3)), label="certified path on floor"),
+               Line2D([], [], color="#1a9850", marker="^", ls="none", mec="k", label="start"),
+               Line2D([], [], color="#d73027", marker="*", ms=10, ls="none", mec="k", label="goal")]
+    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 0.925), ncol=len(handles),
+               fontsize=8.5, frameon=False, handlelength=2.6, columnspacing=2.2)
+    if caption:
+        fig.text(0.01, 0.012, caption, fontsize=9, color="0.25")
 
 
 def _draw(fig, st, cam, k=None, ghosts=(), caption=""):
-    from matplotlib.lines import Line2D
     from mpl_toolkits.mplot3d.art3d import Line3DCollection, Poly3DCollection
 
     cx, cy, hx, hy, azim, elev = (float(v) for v in cam)
@@ -243,7 +307,7 @@ def _draw(fig, st, cam, k=None, ghosts=(), caption=""):
     zmid, r = 0.5 * (z_lo + z_hi), st["r"]
     poses = st["poses"]
     fig.clf()
-    ax = fig.add_axes((0.0, 0.045, 1.0, 0.865), projection="3d", computed_zorder=False)
+    ax = fig.add_axes(AXES_RECT, projection="3d", computed_zorder=False)
 
     ax.add_collection3d(Poly3DCollection([[(x0, y0, zf), (x1, y0, zf), (x1, y1, zf), (x0, y1, zf)]],
                                          facecolors=[FLOOR_RGB], edgecolors="none", zorder=0))
@@ -308,18 +372,103 @@ def _draw(fig, st, cam, k=None, ghosts=(), caption=""):
     ax.view_init(elev=elev, azim=azim)
     ax.set_axis_off()
 
-    fig.suptitle(st["title"], fontsize=st["title_size"], y=0.985, va="top")
-    handles = [Line2D([], [], color=ROBOT_FACE[:3], alpha=0.7, lw=7,
-                      label=f"robot prism: disc r = {r:.3f} m × band "
-                            f"[{z_lo - zf:.2f}, {z_hi - zf:.2f}] m above floor"),
-               Line2D([], [], color=PATH_RGB, lw=2.6, label="trail (band mid-height)"),
-               Line2D([], [], color=(0.12, 0.12, 0.12), lw=1.1, ls=(0, (4, 3)), label="certified path on floor"),
-               Line2D([], [], color="#1a9850", marker="^", ls="none", mec="k", label="start"),
-               Line2D([], [], color="#d73027", marker="*", ms=10, ls="none", mec="k", label="goal")]
-    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 0.925), ncol=len(handles),
-               fontsize=8.5, frameon=False, handlelength=2.6, columnspacing=2.2)
-    if caption:
-        fig.text(0.01, 0.012, caption, fontsize=9, color="0.25")
+    _titles(fig, st, caption)
+
+
+# ----------------------------------------------------------------------------- splat renderer
+
+def _screen(cam, pts):
+    """(u, v, depth, in_front) in pixels for world points ``pts`` (N,3)."""
+    from . import ewa
+    u, v, d = ewa.project_points(cam, pts)
+    return u, v, d, d > cam.near
+
+
+def _unoccluded(cam, surface, u, v, d, front, slack):
+    """True where a projected point is on screen and no nearer rasterised surface stands in front."""
+    fin = lambda a: np.nan_to_num(a, nan=0.0, posinf=0.0, neginf=0.0)
+    iu = np.clip(fin(u), 0, cam.width - 1).astype(int)
+    iv = np.clip(fin(v), 0, cam.height - 1).astype(int)
+    on = front & (u >= 0) & (u < cam.width) & (v >= 0) & (v < cam.height)
+    return on & (d <= surface[iv, iu] + slack)
+
+
+def _draw_splat(fig, st, cam_row, k=None, ghosts=(), caption=""):
+    """One frame: EWA-rasterise the Gaussians with the robot as an in-loop occluder, then the overlays.
+
+    Overlays are drawn in *pixel* coordinates of the rasterised image, and each polyline twice: faintly
+    wherever it is in front of the camera, then at full strength only where the rasterised surface does
+    not stand in front of it. So the certified path is really occluded by the table it runs under,
+    without ever vanishing from the figure.
+    """
+    from . import ewa
+    cx, cy, hx, hy, azim, elev = (float(v) for v in cam_row)
+    zf = st["z_floor"]
+    z_lo, z_hi = st["band"]
+    zmid, r = 0.5 * (z_lo + z_hi), st["r"]
+    poses = st["poses"]
+    W, H = st["render_size"]
+
+    target = (cx, cy, zf + st["look_z"])
+    hz = max(abs(-0.02 - st["look_z"]), abs(st["fit_z"] - st["look_z"]))
+    dist = st["fit_scale"] * ewa.frame_distance(hx, hy, hz, elev, W, H, fov_y_deg=st["fov_y_deg"],
+                                                cover=st["fit_cover"])
+    near = max(float(st["near"]), float(st["near_frac"]) * dist)
+    cam = ewa.camera(target, azim, elev, dist, W, H, fov_y_deg=st["fov_y_deg"], near=near)
+    clip = None
+    if st["clip_pad"] is not None:
+        cp = float(st["clip_pad"])
+        clip = (cx - hx - cp, cx + hx + cp, cy - hy - cp, cy + hy + cp, zf - 0.5, zf + st["clip_z"])
+
+    prisms, edges = [], []
+    for j in ([k] if k is not None else list(ghosts)):
+        x, y, th = poses[j]
+        prisms.append((x, y, r, z_lo, z_hi))
+        edges.extend(_prism(x, y, th, r, z_lo, z_hi, azim)[1])
+    occ = ewa.prism_occluder(cam, prisms, face_rgba=ROBOT_FACE, edge_rgb=ROBOT_EDGE,
+                             edges=np.asarray(edges, dtype=float) if edges else (),
+                             line_width=st["edge_lw"], ambient=st["ambient"])
+    out = ewa.render(st["splats"], cam, occ=occ, bg=st["bg"], xray=st["xray_alpha"], clip=clip,
+                     cull_radius_px=st["cull_radius_px"])
+    surface = out["depth"] if occ is None else np.minimum(out["depth"], occ[2])
+
+    fig.clf()
+    ax = fig.add_axes(AXES_RECT)
+    ax.imshow(np.clip(out["rgb"], 0.0, 1.0), extent=(0, W, H, 0), interpolation="nearest",
+              aspect="auto", zorder=0)
+    ax.set_xlim(0, W)
+    ax.set_ylim(H, 0)
+    ax.set_axis_off()
+
+    slack, ghost = st["occlude_slack"], st["ghost_alpha"]
+    nan = lambda m, a: np.where(m, a, np.nan)
+
+    def polyline(xy, z, colour, lw, ls="-", alpha=1.0, zorder=2.0):
+        xy = np.asarray(xy, dtype=float)[:, :2]
+        u, v, d, front = _screen(cam, np.column_stack([xy, np.full(len(xy), z)]))
+        vis = _unoccluded(cam, surface, u, v, d, front, slack)
+        ax.plot(nan(front, u), nan(front, v), color=colour, lw=lw, ls=ls,
+                alpha=alpha * ghost, zorder=zorder)
+        ax.plot(nan(vis, u), nan(vis, v), color=colour, lw=lw, ls=ls, alpha=alpha, zorder=zorder + 0.05)
+
+    path = st["path_xy"]
+    polyline(path, zf + 0.004, (0.12, 0.12, 0.12), 1.3, ls=(0, (4, 3)))
+    polyline(path, zmid, PATH_RGB, 0.9, alpha=0.55)
+    polyline(poses[:k + 1, :2] if k is not None else path, zmid, PATH_RGB,
+             2.6 if k is not None else 2.0, zorder=3.0)
+
+    for pt, mk, col, size in ((st["start"], "^", "#1a9850", 80), (st["goal"], "*", "#d73027", 160)):
+        if pt is None:
+            continue
+        u, v, d, front = _screen(cam, np.array([[pt[0], pt[1], zf + 0.01]]))
+        if not front[0]:
+            continue
+        vis = bool(_unoccluded(cam, surface, u, v, d, front, slack)[0])
+        ax.scatter(u, v, marker=mk, s=size, c=col, edgecolors="k", linewidths=0.6,
+                   alpha=1.0 if vis else min(1.0, ghost + 0.2), zorder=6)
+
+    _titles(fig, st, caption)
+    return out
 
 
 # ----------------------------------------------------------------------------- frame loop
@@ -335,12 +484,15 @@ def _worker_init(st):
 def _worker_frame(k):
     st, fig = _W["st"], _W["fig"]
     t0 = time.perf_counter()
-    _draw(fig, st, st["cams"][k], k=k, caption=_caption(st, k))
+    draw = _draw_splat if st.get("renderer") == "splat" else _draw
+    draw(fig, st, st["cams"][k], k=k, caption=_caption(st, k))
     img = _rgb(fig)
     return k, img, time.perf_counter() - t0
 
 
 def _frame_iter(st, n, workers):
+    if st.get("renderer") == "splat":
+        workers = 1     # numba prange already uses every core; processes would only copy the scene
     if workers <= 1:
         _worker_init(st)
         for k in range(n):
@@ -370,11 +522,14 @@ def _frame_iter(st, n, workers):
 def pointcloud_video(points, colors, robot, poses, z_floor, out_stem, *, title, window, max_frames=300,
                      dpi=100, workers=4, fps=20, view_half=2.5, elev=35.0, orbit_deg=50.0, azim0=None,
                      z_span=2.5, point_size=2.5, figsize=(12.8, 7.2), path_xy=None, start=None, goal=None,
-                     note="", key_fracs=(0.0, 0.5, 1.0), zoom=1.35, focal_length=1.5):
-    """Render the robot prism moving along ``poses`` through a coloured point cloud to ``<out_stem>.mp4``.
+                     note="", key_fracs=(0.0, 0.5, 1.0), zoom=1.35, focal_length=1.5,
+                     renderer="scatter", splats=None, splat_opts=None):
+    """Render the robot prism moving along ``poses`` through the scene to ``<out_stem>.mp4``.
 
-    ``view_half`` (m): half width of a camera box that follows the robot; ``None`` shows the whole window.
-    The azimuth drifts by ``orbit_deg`` over the clip. Returns paths and timing.
+    ``renderer="splat"`` rasterises ``splats`` (an :func:`gmc.height.ewa.pack` dict) as real anisotropic
+    Gaussians and ignores ``points``/``colors``; ``renderer="scatter"`` draws ``points``/``colors`` as
+    mplot3d dots. ``view_half`` (m): half width of a camera box that follows the robot; ``None`` shows the
+    whole window. The azimuth drifts by ``orbit_deg`` over the clip. Returns paths and timing.
     """
     import imageio_ffmpeg
     from matplotlib.image import imsave
@@ -386,7 +541,8 @@ def pointcloud_video(points, colors, robot, poses, z_floor, out_stem, *, title, 
         poses = poses[np.unique(np.linspace(0, len(poses) - 1, max_frames).astype(int))]
     st = _state(points, colors, robot, poses, z_floor, title=title, window=window, dpi=dpi, z_span=z_span,
                 point_size=point_size, figsize=figsize, path_xy=path_xy, start=start, goal=goal, note=note,
-                zoom=zoom, focal_length=focal_length)
+                zoom=zoom, focal_length=focal_length, renderer=renderer, splats=splats,
+                splat_opts=splat_opts)
     st["cams"] = _cameras(poses, window, view_half, elev, orbit_deg, azim0, margin=0.6 + st["r"])
     n = len(poses)
     keys = [(int(round(f * (n - 1))), f) for f in key_fracs]
@@ -413,29 +569,34 @@ def pointcloud_video(points, colors, robot, poses, z_floor, out_stem, *, title, 
     finally:
         if gen is not None:
             gen.close()
-    return {"video": mp4, "frames": frames, "n_frames": written, "n_points": int(len(st["points"])),
+    n_pts = len(st["splats"]["means"]) if st["renderer"] == "splat" else len(st["points"])
+    return {"video": mp4, "frames": frames, "n_frames": written, "n_points": int(n_pts),
             "seconds": time.perf_counter() - t0,
             "render_seconds_per_frame": float(np.mean(dts)) if dts else None,
-            "workers": int(workers), "size": size, "view_half": view_half, "elev": elev,
-            "orbit_deg": orbit_deg}
+            "workers": 1 if st["renderer"] == "splat" else int(workers), "size": size,
+            "view_half": view_half, "elev": elev, "orbit_deg": orbit_deg, "renderer": st["renderer"],
+            "splat_opts": {k: st[k] for k in SPLAT_OPTS} if st["renderer"] == "splat" else None}
 
 
 def overview_png(points, colors, robot, poses, z_floor, out_png, *, title, window, path_xy=None, start=None,
                  goal=None, elev=55.0, azim=None, n_ghosts=6, pad=0.3, z_span=2.5, point_size=1.5, dpi=110,
-                 figsize=(12.8, 8.0), note="", zoom=1.35, focal_length=1.5):
+                 figsize=(12.8, 8.0), note="", zoom=1.35, focal_length=1.5,
+                 renderer="scatter", splats=None, splat_opts=None):
     """Static above-oblique view of the whole window, whole path and the prism at ``n_ghosts`` poses."""
     poses = np.asarray(poses, dtype=float)
     st = _state(points, colors, robot, poses, z_floor, title=title, window=window, dpi=dpi, z_span=z_span,
                 point_size=point_size, figsize=figsize, path_xy=path_xy, start=start, goal=goal, note=note,
-                zoom=zoom, focal_length=focal_length)
+                zoom=zoom, focal_length=focal_length, renderer=renderer, splats=splats,
+                splat_opts=splat_opts)
     xmin, ymin, xmax, ymax = map(float, window)
     azim = _default_azim(poses) if azim is None else float(azim)
     cam = ((xmin + xmax) / 2, (ymin + ymax) / 2, (xmax - xmin) / 2 + pad, (ymax - ymin) / 2 + pad, azim, elev)
     ghosts = np.unique(np.linspace(0, len(poses) - 1, n_ghosts).astype(int))
     fig = _new_fig(st)
-    _draw(fig, st, cam, ghosts=ghosts,
-          caption=f"overview: whole certified path, prism at {len(ghosts)} poses (drawn over the splats)   "
-                  f"floor grid {st['grid']:g} m   {note}")
+    grid = "" if st["renderer"] == "splat" else f"floor grid {st['grid']:g} m   "
+    draw = _draw_splat if st["renderer"] == "splat" else _draw
+    draw(fig, st, cam, ghosts=ghosts,
+         caption=f"overview: whole certified path, prism at {len(ghosts)} poses   {grid}{note}")
     out_png = Path(out_png)
     out_png.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_png, dpi=dpi)

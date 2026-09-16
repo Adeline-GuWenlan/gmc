@@ -1,8 +1,11 @@
 # gmc/experiments/percase_render.py
-"""Amendment 2 videos for one robot: 3D point-cloud MP4, two-panel MP4, scene PLY, manifest.
+"""Amendment 2 videos for one robot: 3D MP4, two-panel MP4, scene PLY, manifest.
 
     --robot R      loads the 7.3 M-splat showcase scene: run only through gmc/hpc/percase_render.sbatch
     --toy-check    renders the toy T2-1 sweeper result on the synthetic table (login-node safe)
+    --renderer     "splat" (default) rasterises the Gaussians themselves through gmc.height.ewa;
+                   "scatter" is the old mplot3d dots of the splat means
+    --stills K     render only K preview frames into <robot>/video/preview/ and stop (no 2-panel, no PLY)
 """
 import argparse
 import json
@@ -16,6 +19,7 @@ from gmc.height.pathio import sample_curve
 from gmc.height.prism import robot_table
 from gmc.height.project import project_scene
 from gmc.height.viz import _frame_poses, robot_video, write_scene_ply
+from gmc.height import ewa
 from gmc.height.viz3d import (height_colors, load_dc_colors, overview_png, pointcloud_video,
                               weighted_subsample)
 
@@ -63,7 +67,8 @@ def frame_count(path):
 
 
 def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, window, start, goal, frames,
-                   workers, view_half, title, title_2panel, note, view_window=None):
+                   workers, view_half, title, title_2panel, note, view_window=None,
+                   renderer="scatter", splats=None, splat_opts=None):
     vdir.mkdir(parents=True, exist_ok=True)
     timings = {}
     vw = window if view_window is None else view_window
@@ -73,14 +78,16 @@ def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, wi
     t = time.time()
     v3 = pointcloud_video(pts, cols, robot, poses, z_f, vdir / f"{name}_3d", title=title, window=vw,
                           max_frames=frames, workers=workers, view_half=view_half, path_xy=path_xy,
-                          start=start, goal=goal, note=note)
+                          start=start, goal=goal, note=note, renderer=renderer, splats=splats,
+                          splat_opts=splat_opts)
     timings["video_3d"] = time.time() - t
     print(f"3d video {v3['video']} frames={v3['n_frames']} {timings['video_3d']:.0f}s "
           f"({v3['render_seconds_per_frame']:.2f}s/frame/worker)", flush=True)
 
     t = time.time()
     ov = overview_png(pts, cols, robot, poses, z_f, vdir / f"{name}_overview.png", title=title,
-                      window=vw, path_xy=path_xy, start=start, goal=goal, note=note)
+                      window=vw, path_xy=path_xy, start=start, goal=goal, note=note,
+                      renderer=renderer, splats=splats, splat_opts=splat_opts)
     timings["overview"] = time.time() - t
 
     t = time.time()
@@ -97,11 +104,47 @@ def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, wi
     outputs = {"video_3d": str(v3["video"]), "n_frames_3d": frame_count(v3["video"]),
                "key_frames_3d": [str(p) for p in v3["frames"]], "overview_png": str(ov),
                "render_3d": {k: v3[k] for k in ("n_points", "render_seconds_per_frame", "workers", "size",
-                                                 "view_half", "elev", "orbit_deg")},
+                                                 "view_half", "elev", "orbit_deg", "renderer",
+                                                 "splat_opts")},
                "video_2panel": str(v2["video"]) if v2["video"] else None, "n_frames_2panel": frame_count(v2["video"]),
                "key_frames_2panel": [str(p) for p in v2["frames"]],
                "scene_ply": str(ply), "scene_ply_vertices": n_ply, "n_poses": int(len(poses))}
     return outputs, timings
+
+
+def parse_splat_opts(pairs):
+    """--splat-opt KEY=VALUE into a dict, checked against the known camera/culling knobs."""
+    import ast
+    from gmc.height.viz3d import SPLAT_OPTS
+    out = {}
+    for item in pairs:
+        if "=" not in item:
+            raise SystemExit(f"--splat-opt expects KEY=VALUE, got {item!r}")
+        key, _, val = item.partition("=")
+        key = key.strip()
+        if key not in SPLAT_OPTS:
+            raise SystemExit(f"--splat-opt: unknown key {key!r}; known: {sorted(SPLAT_OPTS)}")
+        try:
+            out[key] = ast.literal_eval(val.strip())
+        except (ValueError, SyntaxError):
+            raise SystemExit(f"--splat-opt {key}: cannot parse value {val!r}")
+    return out
+
+
+def splat_scene(scene, ply_path, win, radius):
+    """ewa.pack of every Gaussian within ``radius`` m of the case window (``radius <= 0``: whole scene).
+
+    No opacity threshold and no subsample, unlike the scatter path: a real rasteriser alpha-blends the
+    faint splats instead of dropping them, and they are most of what makes a surface read as a surface.
+    """
+    if radius and radius > 0:
+        m = ((scene.means[:, 0] >= win[0] - radius) & (scene.means[:, 0] <= win[2] + radius)
+             & (scene.means[:, 1] >= win[1] - radius) & (scene.means[:, 1] <= win[3] + radius))
+        sub = scene.subset(m)
+    else:
+        sub = scene
+    cols = load_dc_colors(ply_path, sub.ids)
+    return ewa.pack(sub.means, sub.covs, sub.opacity, cols), cols, int(len(sub))
 
 
 def render_real(robot_key, a):
@@ -148,16 +191,50 @@ def render_real(robot_key, a):
     timings["project"] = time.time() - t
     run_kept = (run.get("projection") or {}).get("kept")
     print(f"projected {pstats['kept']} supports (run: {run_kept})", flush=True)
+    splats, n_splat = None, None
+    if a.renderer == "splat":
+        t = time.time()
+        splats, cols, n_splat = splat_scene(scene, ply_path, win, a.scene_radius)
+        timings["splat_pack"] = time.time() - t
+        print(f"packed {n_splat:,} Gaussians for the EWA rasteriser in "
+              f"{timings['splat_pack']:.0f}s", flush=True)
     n_scene = len(scene)
     del scene, m
 
     view_half = VIEW_HALF[robot_key] if a.view_half is None else (a.view_half if a.view_half > 0 else None)
+    vw = [win[0] - VIEW_PAD, win[1] - VIEW_PAD, win[2] + VIEW_PAD, win[3] + VIEW_PAD]
+    title = f"{head}\n{CLAIM}"
+    note = (f"{n_splat:,} Gaussians, EWA splatting, no opacity threshold, no subsample, DC colour"
+            if a.renderer == "splat" else
+            f"{len(pts):,} opaque splats (τ = {TAU}), opacity-weighted subsample, DC colour")
+
+    if a.stills > 0:                 # cheap realism preview: a few frames, no 2-panel and no scene PLY
+        pdir = vdir / "preview"
+        curve, poses = _frame_poses(res, robot, a.stills)
+        path_xy = sample_curve(curve, 0.02, robot.max_radius())[:, :2]
+        t = time.time()
+        v = pointcloud_video(pts, cols, robot, poses, z_f, pdir / f"{robot_key}_preview", title=title,
+                             window=vw, max_frames=a.stills, workers=a.workers, view_half=view_half,
+                             path_xy=path_xy, start=case["start"], goal=case["goal"], note=note,
+                             key_fracs=tuple(np.linspace(0.0, 1.0, a.stills)),
+                             renderer=a.renderer, splats=splats, splat_opts=a.splat_opts)
+        info = {"robot": robot_key, "preview": True, "renderer": v["renderer"],
+                "frames": [str(x) for x in v["frames"]], "video": str(v["video"]),
+                "n_rendered": v["n_points"], "n_scene_after_floor_rule": n_scene,
+                "scene_radius_m": a.scene_radius, "size": v["size"],
+                "seconds_per_frame": v["render_seconds_per_frame"], "splat_opts": v["splat_opts"],
+                "colors": {"rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)", **rgb_stats(cols)},
+                "seconds": round(time.time() - t, 1)}
+        (pdir / "manifest.json").write_text(json.dumps(info, indent=2, default=str))
+        print(json.dumps(info, indent=2, default=str), flush=True)
+        return
+
     outputs, t_out = render_outputs(
         robot_key, vdir, pts=pts, cols=cols, robot=robot, res=res, s2=s2, scene_near=near, z_f=z_f,
-        window=win, view_window=[win[0] - VIEW_PAD, win[1] - VIEW_PAD, win[2] + VIEW_PAD, win[3] + VIEW_PAD],
+        window=win, view_window=vw,
         start=case["start"], goal=case["goal"], frames=a.frames, workers=a.workers,
-        view_half=view_half, title=f"{head}\n{CLAIM}", title_2panel=f"{CLAIM}\n",
-        note=f"{len(pts):,} opaque splats (τ = {TAU}), opacity-weighted subsample, DC colour")
+        view_half=view_half, title=title, title_2panel=f"{CLAIM}\n", note=note,
+        renderer=a.renderer, splats=splats, splat_opts=a.splat_opts)
     timings.update(t_out)
     rep = res.get("replay3d") or {}
     manifest = {
@@ -167,6 +244,10 @@ def render_real(robot_key, a):
         "replay3d_passed": bool(rep.get("passed")), "replay3d_min_clearance_lb": rep.get("min_clearance_lb"),
         "scene": {"n_splats": n_scene, "floor_rule": g0.get("floor_rule"),
                   "gravity_rotation_is_identity": bool(np.allclose(g0["gravity_rotation"], np.eye(3)))},
+        "render": {"renderer": a.renderer, "n_rendered": n_splat if n_splat is not None else int(len(pts)),
+                   "scene_radius_m": a.scene_radius if a.renderer == "splat" else None,
+                   "opacity_threshold": None if a.renderer == "splat" else TAU,
+                   "subsampled": a.renderer != "splat"},
         "selection": {"window": win, "view_window_pad_m": VIEW_PAD, "dilate_m": DILATE, "z_max_above_floor_m": Z_SPAN, "tau": TAU,
                       "n_window_xy_dilated": int(len(near)), "n_opaque_below_zmax": int(len(cand)),
                       "n_rendered": int(len(pick)), "max_points": a.max_points,
@@ -197,6 +278,8 @@ def render_toy(a):
     s2, pstats = project_scene(s3, robot, WORKSPACE, z_floor=Z_FLOOR)
     pts = splat_samples(s3.means, s3.covs, 40)
     cols = height_colors(pts[:, 2], Z_FLOOR, Z_SPAN)
+    splats = (ewa.pack(s3.means, s3.covs, s3.opacity,
+                       height_colors(s3.means[:, 2], Z_FLOOR, Z_SPAN)) if a.renderer == "splat" else None)
     head, ok = headline("sweeper", res)
     t = time.time()
     view_half = VIEW_HALF["sweeper"] if a.view_half is None else (a.view_half if a.view_half > 0 else None)
@@ -204,8 +287,12 @@ def render_toy(a):
         "T2-1_sweeper", vdir, pts=pts, cols=cols, robot=robot, res=res, s2=s2, scene_near=s3, z_f=Z_FLOOR,
         window=WORKSPACE, start=START, goal=GOAL, frames=a.frames, workers=a.workers, view_half=view_half,
         title=f"{head}\nTOY CHECK: synthetic T2-1 table, coloured by height (not a showcase result)",
-        title_2panel="TOY CHECK T2-1\n", note=f"{len(pts):,} samples of {len(s3)} synthetic splats")
+        title_2panel="TOY CHECK T2-1\n", renderer=a.renderer, splats=splats,
+        splat_opts=a.splat_opts,
+        note=(f"{len(s3)} synthetic Gaussians, EWA splatting" if a.renderer == "splat"
+              else f"{len(pts):,} samples of {len(s3)} synthetic splats"))
     manifest = {"toy": "T2-1", "status": res["status"], "certified_and_replayed": ok,
+                "renderer": a.renderer,
                 "projection_kept": pstats["kept"], "n_points": int(len(pts)), "outputs": outputs,
                 "timings_s": {k: round(v, 2) for k, v in timings.items()}, "total_s": round(time.time() - t, 1)}
     (vdir / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str))
@@ -217,12 +304,23 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--robot", choices=["sweeper", "uav", "cylinder"])
     g.add_argument("--toy-check", action="store_true")
+    ap.add_argument("--renderer", choices=["splat", "scatter"], default="splat",
+                    help="splat: real EWA Gaussian rasteriser (gmc.height.ewa); scatter: old mplot3d dots")
+    ap.add_argument("--scene-radius", type=float, default=14.0,
+                    help="metres beyond the case window kept for the splat renderer; <= 0 keeps the "
+                         "whole scene")
+    ap.add_argument("--stills", type=int, default=0,
+                    help="render only this many preview frames into <robot>/video/preview/ and stop")
+    ap.add_argument("--splat-opt", action="append", default=[], metavar="KEY=VALUE",
+                    help="override one gmc.height.viz3d.SPLAT_OPTS entry (camera and culling knobs), "
+                         "e.g. --splat-opt fit_scale=0.8 --splat-opt near_frac=0.45; repeatable")
     ap.add_argument("--max-points", type=int, default=250_000)
     ap.add_argument("--frames", type=int, default=300)
     ap.add_argument("--workers", type=int, default=min(4, len(os.sched_getaffinity(0))))
     ap.add_argument("--view-half", type=float, default=None,
                     help="half width (m) of the follow camera box; <= 0 shows the whole window")
     a = ap.parse_args()
+    a.splat_opts = parse_splat_opts(a.splat_opt)
     if a.toy_check:
         render_toy(a)
     else:

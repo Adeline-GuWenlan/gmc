@@ -1,0 +1,9 @@
+=== percase_render_splat --robot cylinder 2026-09-16T03:00:14-04:00 host=cs744.hpc.nyu.edu job=17887804 cpus=32 ===
+loaded 7247831 splats in 10s
+selected 37872 of 37872 splats; colours in 3s
+projected 3791 supports (run: 3791)
+packed 6,026,217 Gaussians for the EWA rasteriser in 2s
+3d video results/height/percase/cylinder/video/cylinder_3d.mp4 frames=268 193s (0.71s/frame/worker)
+2panel video results/height/percase/cylinder/video/cylinder_2panel.mp4 124s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [0.5, 10.0, 3.5, 13.0], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 121214, "n_opaque_below_zmax": 37872, "n_rendered": 37872, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 3791, "run_kept": 3791, "matches_run": true}, "timings_s": {"load_processed": 9.6, "select": 0.1, "colors": 2.5, "project": 4.9, "splat_pack": 2.5, "video_3d": 192.8, "overview": 0.9, "video_2panel": 124.1, "scene_ply": 0.0}}
+=== PERCASE_RENDER_SPLAT_DONE ===

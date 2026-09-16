@@ -22,6 +22,13 @@
     },
     "gravity_rotation_is_identity": true
   },
+  "render": {
+    "renderer": "splat",
+    "n_rendered": 5305151,
+    "scene_radius_m": 14.0,
+    "opacity_threshold": null,
+    "subsampled": false
+  },
   "selection": {
     "window": [
       -0.85,
@@ -43,9 +50,9 @@
     "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
     "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
     "mean": [
-      0.4722,
-      0.41,
-      0.3639
+      0.4008,
+      0.3512,
+      0.3221
     ],
     "p5": [
       0.0,
@@ -53,17 +60,17 @@
       0.0
     ],
     "p50": [
-      0.5879,
-      0.4958,
-      0.419
+      0.47,
+      0.3854,
+      0.3193
     ],
     "p95": [
-      0.8747,
-      0.8102,
-      0.7537
+      1.0,
+      0.9077,
+      0.8771
     ],
-    "frac_at_0": 0.21890864291934833,
-    "frac_at_1": 0.015386902865396462
+    "frac_at_0": 0.3445053056296921,
+    "frac_at_1": 0.03836359543143384
   },
   "projection": {
     "kept": 477,
@@ -80,16 +87,38 @@
     ],
     "overview_png": "results/height/percase/sweeper/video/sweeper_overview.png",
     "render_3d": {
-      "n_points": 78465,
-      "render_seconds_per_frame": 0.17555943251104106,
-      "workers": 4,
+      "n_points": 5305151,
+      "render_seconds_per_frame": 0.6094286891254538,
+      "workers": 1,
       "size": [
         1280,
         720
       ],
       "view_half": 1.75,
       "elev": 35.0,
-      "orbit_deg": 50.0
+      "orbit_deg": 50.0,
+      "renderer": "splat",
+      "splat_opts": {
+        "fov_y_deg": 50.0,
+        "fit_z": 0.9,
+        "look_z": 0.55,
+        "fit_scale": 1.0,
+        "fit_cover": 0.85,
+        "near": 0.05,
+        "near_frac": 0.32,
+        "cull_radius_px": 0,
+        "clip_pad": null,
+        "clip_z": 3.0,
+        "bg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "edge_lw": 1.4,
+        "ambient": 0.45,
+        "occlude_slack": 0.1,
+        "ghost_alpha": 0.28
+      }
     },
     "video_2panel": "results/height/percase/sweeper/video/sweeper_2panel.mp4",
     "n_frames_2panel": 158,
@@ -103,13 +132,14 @@
     "n_poses": 158
   },
   "timings_s": {
-    "load_processed": 9.6,
+    "load_processed": 9.5,
     "select": 0.1,
-    "colors": 1.7,
+    "colors": 1.5,
     "project": 4.7,
-    "video_3d": 18.0,
-    "overview": 0.3,
-    "video_2panel": 28.9,
+    "splat_pack": 2.5,
+    "video_3d": 97.7,
+    "overview": 0.8,
+    "video_2panel": 28.0,
     "scene_ply": 0.0
   }
 }
