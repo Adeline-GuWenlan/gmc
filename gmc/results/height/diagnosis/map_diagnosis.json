@@ -1,0 +1,151 @@
+{
+  "hall": {
+    "extent": [
+      -4.43357959985733,
+      -0.9637084349989891,
+      21.088036155700674,
+      37.84499740600586
+    ],
+    "cell_m": 0.05,
+    "footprint_m": [
+      25.521615755558003,
+      38.80870584100485
+    ],
+    "area_m2": 990.4608784446053
+  },
+  "band_occupancy_frac": {
+    "occ_0.02_0.10": 0.40699967510143636,
+    "occ_0.10_0.55": 0.1736519857850582,
+    "occ_0.55_1.00": 0.1325157978778331,
+    "occ_1.00_1.75": 0.11684510901732037,
+    "occ_1.75_2.50": 0.11056877397386204
+  },
+  "phantom_test": {
+    "definition": "occupied in [0.02,0.10] m and free in every band above it",
+    "open_floor_cells": 310124,
+    "open_floor_frac_of_hall": 0.7810762957533994,
+    "phantom_cells": 94780,
+    "phantom_m2": 236.95000000000005,
+    "phantom_frac_of_open_floor": 0.30561968760882746,
+    "phantom_frac_of_all_low_band": 0.58651715986584,
+    "phantom_components": 367,
+    "phantom_median_blob_m2": 0.04250000000000001,
+    "phantom_frac_blobs_le_100cm2": 0.2997275204359673,
+    "furniture_band_components": 60,
+    "furniture_band_median_blob_m2": 0.21125000000000005,
+    "furniture_band_frac_blobs_le_100cm2": 0.016666666666666666
+  },
+  "criteria_intersection": {
+    "as_built": {
+      "crit3_m2": 307.39500000000004,
+      "crit3_frac_of_hall": 0.3096812216185993,
+      "crit3_and_near_overhang_m2": {
+        "0.5": 0.9050000000000001,
+        "1.0": 28.707500000000007,
+        "1.5": 62.36250000000001,
+        "2.0": 94.70250000000001,
+        "3.0": 149.90500000000003
+      }
+    },
+    "phantom_removed": {
+      "crit3_m2": 469.2625000000001,
+      "crit3_frac_of_hall": 0.47275259604026726,
+      "crit3_and_near_overhang_m2": {
+        "0.5": 1.2225000000000001,
+        "1.0": 87.78750000000002,
+        "1.5": 183.47750000000005,
+        "2.0": 247.65000000000003,
+        "3.0": 311.77250000000004
+      }
+    },
+    "overhang_m2": 25.705000000000005,
+    "note": "spec 5.3 criterion 1 = straight segment passes under an overhang; criterion 3 = start and goal >= 0.5 m from any obstacle in every band. Repairing the map does not rescue the 0.5 m radius, so the criteria are over-specified for this hall, not only the data."
+  },
+  "a4_case_search": {
+    "pass": false,
+    "per_table": {
+      "A_short": {
+        "lines": 324,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 3813,
+        "best_min_clearance": {
+          "sweeper": 0.11,
+          "cylinder": 0.11,
+          "uav": 2.19
+        }
+      },
+      "A_long": {
+        "lines": 135,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 2468,
+        "best_min_clearance": {
+          "sweeper": 0.14,
+          "cylinder": 0.1,
+          "uav": 2.39
+        }
+      },
+      "B_short": {
+        "lines": 270,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 1500,
+        "best_min_clearance": {
+          "sweeper": 0.45,
+          "cylinder": 0.45,
+          "uav": 0.81
+        }
+      },
+      "B_long": {
+        "lines": 144,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 0,
+        "best_min_clearance": null
+      },
+      "C_short": {
+        "lines": 216,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 0,
+        "best_min_clearance": {
+          "sweeper": 0.0,
+          "cylinder": 0.0,
+          "uav": 0.45
+        }
+      },
+      "C_long": {
+        "lines": 117,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 2065,
+        "best_min_clearance": {
+          "sweeper": 0.05,
+          "cylinder": 0.05,
+          "uav": 1.57
+        }
+      },
+      "G_short": {
+        "lines": 207,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 0,
+        "best_min_clearance": null
+      },
+      "G_long": {
+        "lines": 117,
+        "crit3_sweeper": 0,
+        "crit3_cylinder": 0,
+        "crit3_uav": 0,
+        "best_min_clearance": null
+      }
+    },
+    "pairs": {
+      "pairs_dist_ok": 1296,
+      "crit1": 490,
+      "crit2": 171,
+      "both": 0
+    }
+  }
+}
