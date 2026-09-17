@@ -582,7 +582,11 @@ def step_survivors():
                       >= row["opaque_splats_in_footprint"][f"h_{a:.2f}_{b:.2f}"]["before"]
                       for a, b in MASS_BANDS[1:])
         nf_ok = nf_after >= nf_before
-        blocks_ok = all(m["sweeper_after_supports_in_disc"] >= 1 for m in members)
+        # "still blocks", not "blocks": a member that had no sweeper support before the edit
+        # cannot have lost one. The reception counter has a 1-cell member at (-1.94, 0.27) that
+        # was 0 -> 0, and an absolute >= 1 threshold failed the whole object on it.
+        blocks_ok = all(m["sweeper_after_supports_in_disc"] >= 1 for m in members
+                        if m["sweeper_before_supports_in_disc"] >= 1)
         row["gate"] = {"no_mass_lost_above_0.10m": bool(mass_ok),
                        "member_cells_identical": bool(same_members),
                        "no_member_sweeper_band_splat_lost": bool(nf_ok),
@@ -615,8 +619,10 @@ def step_survivors():
                "no_member_sweeper_band_splat_lost": "opaque splats at 0.02-0.10 m whose centre "
                                                     "lies in a member cell must not decrease -- "
                                                     "the member's own near-floor mass",
-               "every_member_still_blocks_the_sweeper": "each member keeps >= 1 sweeper support "
-                                                        "in its disc",
+               "every_member_still_blocks_the_sweeper": "each member that had >= 1 sweeper "
+                                                        "support in its disc before still has "
+                                                        "one; a member with none before cannot "
+                                                        "have lost one",
                "not_a_gate": "disc occupied fraction: a disc is the member plus a margin of floor "
                              "(up to 1.74 m across for the counter), so dust removed inside it is "
                              "the edit working, not damage"},

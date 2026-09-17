@@ -161,3 +161,44 @@ the rule I checked what the gate was measuring, and it was measuring the wrong t
   **after**, the dust is gone and table C's outline stands out — both ends inside the cyan member
   circles, long edges on the dashed footprint. The edit did not eat the table, it revealed it.
   A sweeper could not have told that table from the floor noise before.
+
+### 2026-09-17 ~21:4x — P1c passes 11/11, and P1d is the number that matters
+
+- Second gate run failed only the **reception counter**, and again on my condition rather than on
+  the scene: the culprit was a **1-cell "member"** at (−1.94, 0.27) with `0 → 0` sweeper supports.
+  It never blocked the sweeper *before* the edit, so it cannot have lost anything; my condition was
+  an absolute `≥ 1` instead of "if it blocked before, it still blocks". Every mass band of the
+  counter was identical (276/218/2250/8532 before and after) and its member cells were unchanged.
+  Fixed the condition, and **11/11 objects now pass all four**: no mass lost above 0.10 m, member
+  cells identical, member near-floor mass kept, every previously-blocking member still blocking.
+- Hall-wide collateral, and this is the reassuring one: of 146,977 removed splats (46,507 opaque),
+  the opaque ones have centre heights **p50 = −0.081 m** (8 cm *below* `z_floor`), p90 = −0.003 m,
+  p99 = +0.031 m, and ρ-tops p50 = **−0.029 m**, p90 = +0.041 m, max **+0.0999 m** (just inside the
+  0.10 m cap, as the rule requires). So the median thing deleted is the floor surface itself and
+  what sits under it; under 10 % of removed opaque splats even reach above floor level. The edit
+  deleted the floor and the dust lying on it, not anything that stands up.
+- **P1d, window A, certified maps** (`project_scene` shadow ellipses → `_support_raster` 0.025 m):
+
+  | | sweeper before | after | cylinder before | after |
+  |---|---|---|---|---|
+  | supports | 3764 | 3028 | 111,941 | 111,162 |
+  | occupied | 17.9 % | **5.8 %** | 26.6 % | **14.5 %** |
+  | disc fits | 17.0 % | **73.3 %** | 3.1 % | **57.7 %** |
+  | free components | 77 | **3** | 11 | **2** |
+  | largest free blob | 2.44 m² | **33.03 m²** | 0.49 m² | **26.22 m²** |
+  | criterion-3 clear (≥ 0.5 m) | 0.1 % | **41.5 %** | 0.1 % | **40.4 %** |
+
+  The shattering the diagnosis blamed for A4's failure is gone: the sweeper's free space goes from
+  77 fragments whose largest is 2.4 m² to 3 whose largest is 33 m².
+- **The edit added nothing to either certified map.** The difference panels show 8,787 (sweeper) and
+  8,786 (cylinder) cells cleared and **0 newly occupied** — the inserted plane is invisible to both,
+  as measured.
+- Certified equal-thickness bands on window A: 0.02–0.10 goes **16.68 % → 4.43 %** while 0.10–0.18
+  (2.98 %) and 0.18–0.26 (3.00 %) are *bit-identical* before and after. Ratio 5.60× → 1.49×.
+- **A finding P2 must act on.** D1's rationale in `height_map_diagnosis.md` §3 (crit1 ∧ crit3 =
+  0.9 m² as built, 1.2 m² with every phantom cell deleted) was computed on the **AABB selection
+  aid**, hall-wide. On the *certified* raster, criterion-3-clear area in window A goes from 0.1 % to
+  41.5 % of the window. Those are not directly comparable — mine is one window and one band at a
+  time — but the premise "0.5 m is not a data problem and cannot be fixed by P1" was derived on the
+  looser rasteriser and **should be re-derived on the certified map before P2 assumes criterion 3 is
+  unreachable.** D1 remains user-approved and available either way.
