@@ -1,0 +1,25 @@
+=== planefloor_step diagnose 2026-09-17T15:30:48-04:00 host=cs608.hpc.nyu.edu job=17925842 ===
+loaded 7,247,831 splats in 11.7s; extent [-4.43357959985733, -0.9637084349989891, 21.088036155700674, 37.84499740600586]
+wrote results/height/plane/p1a_diagnosis_repro.json
+RAW bands -> /scratch/wg2381/splathjb/gmc/outputs/height/plane/p1a_bands.npz
+{
+  "expected": {
+    "phantom_cells": 94780,
+    "phantom_m2": 236.95,
+    "phantom_components": 367
+  },
+  "got": {
+    "phantom_cells": 94780,
+    "phantom_m2": 236.95,
+    "phantom_components": 367
+  },
+  "reproduced": true,
+  "cache_diff": {
+    "occ_0.02_0.10": 0,
+    "occ_0.10_0.55": 0,
+    "occ_0.55_1.00": 0,
+    "occ_1.00_1.75": 0,
+    "occ_1.75_2.50": 0
+  }
+}
+=== PLANEFLOOR_STEP_DONE diagnose ===

@@ -1,0 +1,146 @@
+{
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+  "task": "P1a regression check: reproduce the diagnosis phantom numbers by re-rasterising",
+  "scene": {
+    "loader": "showcase_scene.load_processed() (Amendment 1 floor rule ON)",
+    "n_splats": 7247831,
+    "z_floor": -1.2271749593107995,
+    "cell_m": 0.05,
+    "rho": 2.0,
+    "tau": 0.3,
+    "extent": [
+      -4.43357959985733,
+      -0.9637084349989891,
+      21.088036155700674,
+      37.84499740600586
+    ],
+    "bands": [
+      [
+        0.02,
+        0.1
+      ],
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.55,
+        1.0
+      ],
+      [
+        1.0,
+        1.75
+      ],
+      [
+        1.75,
+        2.5
+      ]
+    ]
+  },
+  "expected": {
+    "phantom_cells": 94780,
+    "phantom_m2": 236.95,
+    "phantom_components": 367
+  },
+  "got": {
+    "phantom_cells": 94780,
+    "phantom_m2": 236.95,
+    "phantom_components": 367
+  },
+  "reproduced": true,
+  "phantom": {
+    "cells": 94780,
+    "area_m2": 236.95000000000005,
+    "components": 367,
+    "median_blob_m2": 0.04250000000000001,
+    "frac_blobs_le_100cm2": 0.2997275204359673
+  },
+  "furniture_band_0.55_1.00": {
+    "cells": 52615,
+    "area_m2": 131.53750000000002,
+    "components": 60,
+    "median_blob_m2": 0.21125000000000005,
+    "frac_blobs_le_100cm2": 0.016666666666666666
+  },
+  "band_occupancy_frac": {
+    "occ_0.02_0.10": 0.40699967510143636,
+    "occ_0.10_0.55": 0.1736519857850582,
+    "occ_0.55_1.00": 0.1325157978778331,
+    "occ_1.00_1.75": 0.11684510901732037,
+    "occ_1.75_2.50": 0.11056877397386204
+  },
+  "open_floor_cells": 310124,
+  "phantom_frac_of_open_floor": 0.30561968760882746,
+  "phantom_frac_of_all_low_band": 0.58651715986584,
+  "recomputed_vs_cached_maps_npz_differing_cells": {
+    "occ_0.02_0.10": 0,
+    "occ_0.10_0.55": 0,
+    "occ_0.55_1.00": 0,
+    "occ_1.00_1.75": 0,
+    "occ_1.75_2.50": 0
+  },
+  "floor_tilt": {
+    "tilt_deg": 0.28499150773301013,
+    "normal": [
+      -0.004939390758035324,
+      -0.0005859098184822146,
+      0.9999876294877973
+    ],
+    "fitted_plane_height_above_z_floor_m": [
+      -0.07379737382891727,
+      0.07489223082466223
+    ],
+    "note": "the bands are horizontal slabs above the scalar z_floor, but the fitted floor is a tilted plane; where the plane rises above z_floor + 0.02 the band contains the floor surface itself",
+    "phantom_rate_by_plane_height": [
+      {
+        "fitted_plane_above_z_floor_m": [
+          -0.08,
+          -0.04
+        ],
+        "open_floor_cells": 53267,
+        "phantom_frac": 0.117971727335874
+      },
+      {
+        "fitted_plane_above_z_floor_m": [
+          -0.04,
+          -0.02
+        ],
+        "open_floor_cells": 51210,
+        "phantom_frac": 0.15625854325327085
+      },
+      {
+        "fitted_plane_above_z_floor_m": [
+          -0.02,
+          0.0
+        ],
+        "open_floor_cells": 53116,
+        "phantom_frac": 0.36049401310339635
+      },
+      {
+        "fitted_plane_above_z_floor_m": [
+          0.0,
+          0.02
+        ],
+        "open_floor_cells": 50544,
+        "phantom_frac": 0.561372269705603
+      },
+      {
+        "fitted_plane_above_z_floor_m": [
+          0.02,
+          0.04
+        ],
+        "open_floor_cells": 44900,
+        "phantom_frac": 0.5558129175946548
+      },
+      {
+        "fitted_plane_above_z_floor_m": [
+          0.04,
+          0.08
+        ],
+        "open_floor_cells": 57087,
+        "phantom_frac": 0.1404172578695675
+      }
+    ]
+  },
+  "seconds": 14.714540719985962
+}
