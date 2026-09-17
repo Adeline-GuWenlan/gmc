@@ -1,0 +1,20 @@
+=== planefloor_step build 2026-09-17T15:47:35-04:00 host=cs602.hpc.nyu.edu job=17926530 ===
+loaded 7,247,831 splats in 9.7s; phantom 94,780 cells, open floor 310,124 cells
+residual diagnostic {"opaque_splats_in_sweeper_band": 79262, "of_those_with_rho_top_below_the_rule_ceiling": 55177, "aabb_footprint_width_m": {"50": 0.15000000000000002, "90": 0.30000000000000004, "99": 0.5, "99.9": 0.8}, "aabb_footprint_cells": {"mean": 10.012722692426193}, "shadow_footprint_width_m": {"50": 0.1, "90": 0.25, "99": 0.4, "99.9": 0.65}, "shadow_footprint_cells": {"mean": 7.007394385341718}, "removable_of_those": {"aabb": 8093, "shadow": 8444, "centre": 10808}}
+[phantom+aabb] replaced 88,750 -> low band 0.2423 (was 0.4070; band above 0.1737), monotone=False, phantom cleared 69.0%, residual S/N 32/42 m2, inserted top 0.0150 m in 4.5s
+[open_floor+aabb] replaced 180,462 -> low band 0.2423 (was 0.4070; band above 0.1737), monotone=False, phantom cleared 69.0%, residual S/N 32/42 m2, inserted top 0.0150 m in 4.7s
+[phantom+shadow] replaced 132,415 -> low band 0.2496 (was 0.4070; band above 0.1737), monotone=False, phantom cleared 65.8%, residual S/N 38/43 m2, inserted top 0.0150 m in 5.0s
+[phantom+centre] replaced 146,977 -> low band 0.1955 (was 0.4070; band above 0.1737), monotone=False, phantom cleared 88.0%, residual S/N 11/18 m2, inserted top 0.0150 m in 4.6s
+wrote /scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz (0.80 GB)
+wrote results/height/plane/p1b_build.json
+wrote results/height/plane/figs/p1b_low_band_before_after.png
+{
+  "chosen": "phantom+centre",
+  "low_band": 0.19545293126506433,
+  "band_above": 0.1736519857850582,
+  "monotone": false,
+  "inserted_top_above_floor": 0.015000000000000124,
+  "replaced": 146977,
+  "inserted": 1014
+}
+=== PLANEFLOOR_STEP_DONE build ===

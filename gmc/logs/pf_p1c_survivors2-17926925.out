@@ -1,0 +1,31 @@
+=== planefloor_step survivors 2026-09-17T16:02:48-04:00 host=cs637.hpc.nyu.edu job=17926925 ===
+before 7,247,831 splats, after 7,101,868 (variant phantom+centre) in 13.5s
+[table_A] members 1 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 30->30 in footprint, window 1137->918 in 7.9s
+[table_B] members 6 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 347->346 in footprint, window 1015->971 in 13.2s
+[table_C] members 2 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 347->347 in footprint, window 1250->784 in 7.3s
+[table_G] members 4 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 57->57 in footprint, window 792->754 in 10.7s
+[SW_hall_bench] members 5 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 163->151 in footprint, window 788->737 in 10.4s
+[plinth_W] members 6 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 406->406 in footprint, window 1343->1304 in 18.2s
+[plinth_SW] members 7 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 247->245 in footprint, window 1071->1041 in 11.1s
+[plinth_S] members 5 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 607->603 in footprint, window 1563->1386 in 9.4s
+[plinth_E] members 5 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 782->767 in footprint, window 2264->1881 in 10.5s
+[plinth_NW] members 7 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': True, 'pass': True} sweeper supports 318->317 in footprint, window 1406->1347 in 14.6s
+[reception_counter] members 12 gate {'no_mass_lost_above_0.10m': True, 'member_cells_identical': True, 'no_member_sweeper_band_splat_lost': True, 'every_member_still_blocks_the_sweeper': False, 'pass': False} sweeper supports 789->760 in footprint, window 1374->1304 in 9.1s
+wrote results/height/plane/p1c_survivors.json
+{
+  "all_objects_pass": false,
+  "by_object": {
+    "table_A": true,
+    "table_B": true,
+    "table_C": true,
+    "table_G": true,
+    "SW_hall_bench": true,
+    "plinth_W": true,
+    "plinth_SW": true,
+    "plinth_S": true,
+    "plinth_E": true,
+    "plinth_NW": true,
+    "reception_counter": false
+  }
+}
+P1c STOP CONDITION: an object lost mass; tighten the rule

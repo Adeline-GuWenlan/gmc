@@ -1,0 +1,15 @@
+=== planefloor_step handoff 2026-09-17T19:55:15-04:00 host=cs616.hpc.nyu.edu job=17931446 ===
+[handoff sweeper] {"supports": 3028, "inserted_plane_splats_in_map": 0, "band_abs_above_floor": [0.02, 0.1]}
+[handoff cylinder] {"supports": 111162, "inserted_plane_splats_in_map": 0, "band_abs_above_floor": [0.02, 1.75]}
+[handoff uav] {"supports": 11012, "inserted_plane_splats_in_map": 0, "band_abs_above_floor": [1.0999999999999999, 1.3]}
+wrote results/height/plane/p1f_handoff.json
+{
+  "meta_keys_missing": [],
+  "timing_stages_recorded": [
+    "project",
+    "scene_load"
+  ],
+  "no_inserted_plane_splat_reaches_any_robot_band": true
+}
+P1f HANDOFF OK
+=== PLANEFLOOR_STEP_DONE handoff ===

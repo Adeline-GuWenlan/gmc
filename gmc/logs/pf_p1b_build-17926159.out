@@ -1,0 +1,17 @@
+=== planefloor_step build 2026-09-17T15:38:13-04:00 host=cs617.hpc.nyu.edu job=17926159 ===
+loaded 7,247,831 splats in 10.7s; phantom 94,780 cells, open floor 310,124 cells
+[phantom] replaced 88,750 splats -> low band 0.2423 (was 0.4070, band above 0.1737), monotone=False, phantom cleared 69.0%, inserted top 0.0150 m above floor in 5.2s
+[open_floor] replaced 180,462 splats -> low band 0.2423 (was 0.4070, band above 0.1737), monotone=False, phantom cleared 69.0%, inserted top 0.0150 m above floor in 5.1s
+wrote /scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz (0.79 GB)
+wrote results/height/plane/p1b_build.json
+wrote results/height/plane/figs/p1b_low_band_before_after.png
+{
+  "chosen": "open_floor",
+  "low_band": 0.24228114051988808,
+  "band_above": 0.1736519857850582,
+  "monotone": false,
+  "inserted_top_above_floor": 0.015000000000000124,
+  "replaced": 180462,
+  "inserted": 1014
+}
+=== PLANEFLOOR_STEP_DONE build ===

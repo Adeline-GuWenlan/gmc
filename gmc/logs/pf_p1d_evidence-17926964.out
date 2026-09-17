@@ -1,0 +1,22 @@
+=== planefloor_step evidence 2026-09-17T16:05:32-04:00 host=cs637.hpc.nyu.edu job=17926964 ===
+before 7,247,831, after 7,101,868 (variant phantom+centre) in 12.2s
+[windowA sweeper before] {"supports": 3764, "occupied_frac": 0.17910714285714285, "disc_fits_frac": 0.17001373626373625, "free_components": 77, "largest_free_component_m2": 2.4381250000000003, "crit3_clear_frac": 0.0012225274725274726}
+[windowA sweeper after] {"supports": 3028, "occupied_frac": 0.058406593406593404, "disc_fits_frac": 0.7329945054945055, "free_components": 3, "largest_free_component_m2": 33.025000000000006, "crit3_clear_frac": 0.4153159340659341}
+[windowA cylinder before] {"supports": 111941, "occupied_frac": 0.2659478021978022, "disc_fits_frac": 0.031098901098901097, "free_components": 11, "largest_free_component_m2": 0.4906250000000001, "crit3_clear_frac": 0.0012225274725274726}
+[windowA cylinder after] {"supports": 111162, "occupied_frac": 0.14526098901098902, "disc_fits_frac": 0.5769642857142857, "free_components": 2, "largest_free_component_m2": 26.222500000000004, "crit3_clear_frac": 0.40442307692307694}
+[certified 0.02-0.10 before] {"n_supports": 3152, "occupied_frac": 0.16679214767720707, "projection_kept": 3152}
+[certified 0.02-0.10 after] {"n_supports": 2491, "occupied_frac": 0.044280854386258436, "projection_kept": 2491}
+[certified 0.10-0.18 before] {"n_supports": 2405, "occupied_frac": 0.029766884167084937, "projection_kept": 2405}
+[certified 0.10-0.18 after] {"n_supports": 2405, "occupied_frac": 0.029766884167084937, "projection_kept": 2405}
+[certified 0.18-0.26 before] {"n_supports": 2706, "occupied_frac": 0.02996207685014779, "projection_kept": 2706}
+[certified 0.18-0.26 after] {"n_supports": 2706, "occupied_frac": 0.02996207685014779, "projection_kept": 2706}
+wrote results/height/plane/p1d_evidence.json
+wrote results/height/plane/figs/p1d_windowA_before_after.png
+wrote results/height/plane/figs/p1d_band_occupancy.png
+{
+  "low_band_before": 0.40699967510143636,
+  "low_band_after": 0.19545293126506433,
+  "band_above": 0.1736519857850582,
+  "strictly_below_the_band_above": false
+}
+=== PLANEFLOOR_STEP_DONE evidence ===
