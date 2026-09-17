@@ -1,0 +1,516 @@
+{
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+  "task": "P1b: replace the phantom near-floor splats with one analytic floor plane",
+  "chosen_variant": "phantom+centre",
+  "chosen_because": "least aggressive (overhead mask, footprint) pair whose low band stops being the most occupied",
+  "monotone_target": {
+    "band_above_0.10_0.55_before": 0.1736519857850582,
+    "low_band_0.02_0.10_before": 0.40699967510143636
+  },
+  "residual_diagnostic": {
+    "opaque_splats_in_sweeper_band": 79262,
+    "of_those_with_rho_top_below_the_rule_ceiling": 55177,
+    "aabb_footprint_width_m": {
+      "50": 0.15000000000000002,
+      "90": 0.30000000000000004,
+      "99": 0.5,
+      "99.9": 0.8
+    },
+    "aabb_footprint_cells": {
+      "mean": 10.012722692426193
+    },
+    "shadow_footprint_width_m": {
+      "50": 0.1,
+      "90": 0.25,
+      "99": 0.4,
+      "99.9": 0.65
+    },
+    "shadow_footprint_cells": {
+      "mean": 7.007394385341718
+    },
+    "removable_of_those": {
+      "aabb": 8093,
+      "shadow": 8444,
+      "centre": 10808
+    }
+  },
+  "scene_npz": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+  "loader": "gmc.height.planefloor.load_plane_scene",
+  "meta": {
+    "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "variant": "phantom+centre",
+    "params": {
+      "cell": 0.05,
+      "max_top": 0.1,
+      "level": 2.0,
+      "spacing": 1.0,
+      "sigma_xy": 0.4,
+      "sigma_n": 0.004,
+      "opacity": 0.95,
+      "z_lo": 0.02,
+      "margin": 0.005,
+      "require_opaque": false,
+      "footprint": "centre",
+      "measure_local_floor": true
+    },
+    "floor": {
+      "z_floor": -1.2271749593107995,
+      "normal": [
+        -0.004939390758035324,
+        -0.0005859098184822146,
+        0.9999876294877973
+      ],
+      "centroid": [
+        8.120587301399752,
+        19.38866848198973,
+        -1.2271749593107995
+      ],
+      "tilt_deg": 0.28499150773301013,
+      "n_inliers": 42709,
+      "peak_z": -1.3206900969743727
+    },
+    "z_floor": -1.2271749593107995,
+    "ceiling_height_m": 5.310000826248441,
+    "extent": [
+      -4.43357959985733,
+      -0.9637084349989891,
+      21.088036155700674,
+      37.84499740600586
+    ],
+    "gravity_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "base_scene": "splatc_atlas/.../showcase/processed.npz via load_processed() (Amendment 1 floor rule ON), then Amendment 3 P1b",
+    "n_splats": 7101868,
+    "replaced": 146977,
+    "inserted": 1014,
+    "first_inserted_id": 7340008,
+    "band_occupancy_frac_after": {
+      "occ_0.02_0.10": 0.19545293126506433,
+      "occ_0.10_0.55": 0.1736519857850582,
+      "occ_0.55_1.00": 0.1325157978778331,
+      "occ_1.00_1.75": 0.11684510901732037,
+      "occ_1.75_2.50": 0.11056877397386204
+    }
+  },
+  "reread_from_disk": {
+    "n_inserted": 1014,
+    "inserted_rho_top_max_above_floor": 0.015000000000000124,
+    "inserted_rho_top_p99_above_floor": 0.015000000000000124,
+    "z_lo": 0.02,
+    "invisible_to_every_robot_band": true
+  },
+  "variants": {
+    "phantom+aabb": {
+      "claims_boundary": "user-approved manual scene edit; sound wrt the edited scene only",
+      "n_input": 7247831,
+      "replaced": 88750,
+      "replaced_opaque_tau": 23178,
+      "kept": 7159081,
+      "inserted": 1014,
+      "n_output": 7160095,
+      "first_inserted_id": 7340008,
+      "params": {
+        "cell": 0.05,
+        "max_top": 0.1,
+        "level": 2.0,
+        "spacing": 1.0,
+        "sigma_xy": 0.4,
+        "sigma_n": 0.004,
+        "opacity": 0.95,
+        "z_lo": 0.02,
+        "margin": 0.005,
+        "require_opaque": false,
+        "footprint": "aabb",
+        "measure_local_floor": true
+      },
+      "z_top_max_budget": -1.2121749593107993,
+      "inserted_rho_top_max": -1.2121749593107993,
+      "inserted_rho_top_max_above_floor": 0.015000000000000124,
+      "inserted_rho_half_height": 0.008934907624863589,
+      "inserted_headroom_below_z_lo": 0.004999999999999893,
+      "tiles_clamped_off_the_fitted_plane": 314,
+      "tile_max_drop_below_target_m": 0.0685132291063486,
+      "fitted_plane_z_above_floor_range": [
+        -0.07117282358804067,
+        0.07457832148148524
+      ],
+      "variant": "phantom+aabb",
+      "overhead_mask": "phantom",
+      "footprint": "aabb",
+      "overhead_mask_cells": 94780,
+      "band_occupancy_frac_before": {
+        "occ_0.02_0.10": 0.40699967510143636,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "band_occupancy_frac_after": {
+        "occ_0.02_0.10": 0.24228114051988808,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "monotone_toward_floor": false,
+      "low_band_after": 0.24228114051988808,
+      "band_above_after": 0.1736519857850582,
+      "phantom_cells_still_occupied": 29379,
+      "phantom_cells_cleared_frac": 0.6900295420974889,
+      "residual": {
+        "cells": 29379,
+        "area_m2": 73.44750000000002,
+        "components": 420,
+        "median_blob_m2": 0.03875000000000001,
+        "frac_blobs_le_100cm2": 0.29523809523809524
+      },
+      "residual_m2_by_region": {
+        "south_m2": 31.565000000000005,
+        "north_m2": 41.88250000000001,
+        "split_at_y": 20.0
+      },
+      "residual_distance_to_real_geometry_m": {
+        "percentiles_m": {
+          "50": 0.1118033988749895,
+          "75": 0.18027756377319948,
+          "90": 0.25,
+          "99": 0.38078865529319544
+        },
+        "frac_within_0.30m": 0.9491813880663059,
+        "definition": "distance from each surviving phantom cell to the nearest cell occupied in some band above 0.10 m"
+      },
+      "removed_component_m2": {
+        "cells": 65401,
+        "area_m2": 163.50250000000003,
+        "components": 273,
+        "median_blob_m2": 0.07500000000000001,
+        "frac_blobs_le_100cm2": 0.1794871794871795
+      },
+      "measured_on_built_scene": {
+        "n_inserted": 1014,
+        "inserted_rho_top_max_above_floor": 0.015000000000000124,
+        "inserted_rho_top_p99_above_floor": 0.015000000000000124,
+        "z_lo": 0.02,
+        "invisible_to_every_robot_band": true
+      },
+      "seconds": 8.011226177215576
+    },
+    "open_floor+aabb": {
+      "claims_boundary": "user-approved manual scene edit; sound wrt the edited scene only",
+      "n_input": 7247831,
+      "replaced": 180462,
+      "replaced_opaque_tau": 53421,
+      "kept": 7067369,
+      "inserted": 1014,
+      "n_output": 7068383,
+      "first_inserted_id": 7340008,
+      "params": {
+        "cell": 0.05,
+        "max_top": 0.1,
+        "level": 2.0,
+        "spacing": 1.0,
+        "sigma_xy": 0.4,
+        "sigma_n": 0.004,
+        "opacity": 0.95,
+        "z_lo": 0.02,
+        "margin": 0.005,
+        "require_opaque": false,
+        "footprint": "aabb",
+        "measure_local_floor": true
+      },
+      "z_top_max_budget": -1.2121749593107993,
+      "inserted_rho_top_max": -1.2121749593107993,
+      "inserted_rho_top_max_above_floor": 0.015000000000000124,
+      "inserted_rho_half_height": 0.008934907624863589,
+      "inserted_headroom_below_z_lo": 0.004999999999999893,
+      "tiles_clamped_off_the_fitted_plane": 309,
+      "tile_max_drop_below_target_m": 0.0685132291063486,
+      "fitted_plane_z_above_floor_range": [
+        -0.07117282358804067,
+        0.07457832148148524
+      ],
+      "variant": "open_floor+aabb",
+      "overhead_mask": "open_floor",
+      "footprint": "aabb",
+      "overhead_mask_cells": 310124,
+      "band_occupancy_frac_before": {
+        "occ_0.02_0.10": 0.40699967510143636,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "band_occupancy_frac_after": {
+        "occ_0.02_0.10": 0.24228114051988808,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "monotone_toward_floor": false,
+      "low_band_after": 0.24228114051988808,
+      "band_above_after": 0.1736519857850582,
+      "phantom_cells_still_occupied": 29379,
+      "phantom_cells_cleared_frac": 0.6900295420974889,
+      "residual": {
+        "cells": 29379,
+        "area_m2": 73.44750000000002,
+        "components": 420,
+        "median_blob_m2": 0.03875000000000001,
+        "frac_blobs_le_100cm2": 0.29523809523809524
+      },
+      "residual_m2_by_region": {
+        "south_m2": 31.565000000000005,
+        "north_m2": 41.88250000000001,
+        "split_at_y": 20.0
+      },
+      "residual_distance_to_real_geometry_m": {
+        "percentiles_m": {
+          "50": 0.1118033988749895,
+          "75": 0.18027756377319948,
+          "90": 0.25,
+          "99": 0.38078865529319544
+        },
+        "frac_within_0.30m": 0.9491813880663059,
+        "definition": "distance from each surviving phantom cell to the nearest cell occupied in some band above 0.10 m"
+      },
+      "removed_component_m2": {
+        "cells": 65401,
+        "area_m2": 163.50250000000003,
+        "components": 273,
+        "median_blob_m2": 0.07500000000000001,
+        "frac_blobs_le_100cm2": 0.1794871794871795
+      },
+      "measured_on_built_scene": {
+        "n_inserted": 1014,
+        "inserted_rho_top_max_above_floor": 0.015000000000000124,
+        "inserted_rho_top_p99_above_floor": 0.015000000000000124,
+        "z_lo": 0.02,
+        "invisible_to_every_robot_band": true
+      },
+      "seconds": 5.993553400039673
+    },
+    "phantom+shadow": {
+      "claims_boundary": "user-approved manual scene edit; sound wrt the edited scene only",
+      "n_input": 7247831,
+      "replaced": 132415,
+      "replaced_opaque_tau": 44143,
+      "kept": 7115416,
+      "inserted": 1014,
+      "n_output": 7116430,
+      "first_inserted_id": 7340008,
+      "params": {
+        "cell": 0.05,
+        "max_top": 0.1,
+        "level": 2.0,
+        "spacing": 1.0,
+        "sigma_xy": 0.4,
+        "sigma_n": 0.004,
+        "opacity": 0.95,
+        "z_lo": 0.02,
+        "margin": 0.005,
+        "require_opaque": false,
+        "footprint": "shadow",
+        "measure_local_floor": true
+      },
+      "z_top_max_budget": -1.2121749593107993,
+      "inserted_rho_top_max": -1.2121749593107993,
+      "inserted_rho_top_max_above_floor": 0.015000000000000124,
+      "inserted_rho_half_height": 0.008934907624863589,
+      "inserted_headroom_below_z_lo": 0.004999999999999893,
+      "tiles_clamped_off_the_fitted_plane": 271,
+      "tile_max_drop_below_target_m": 0.0685132291063486,
+      "fitted_plane_z_above_floor_range": [
+        -0.07117282358804067,
+        0.07457832148148524
+      ],
+      "variant": "phantom+shadow",
+      "overhead_mask": "phantom",
+      "footprint": "shadow",
+      "overhead_mask_cells": 94780,
+      "band_occupancy_frac_before": {
+        "occ_0.02_0.10": 0.40699967510143636,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "band_occupancy_frac_after": {
+        "occ_0.02_0.10": 0.2495623943764844,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "monotone_toward_floor": false,
+      "low_band_after": 0.2495623943764844,
+      "band_above_after": 0.1736519857850582,
+      "phantom_cells_still_occupied": 32459,
+      "phantom_cells_cleared_frac": 0.657533234859675,
+      "residual": {
+        "cells": 32459,
+        "area_m2": 81.14750000000002,
+        "components": 581,
+        "median_blob_m2": 0.05000000000000001,
+        "frac_blobs_le_100cm2": 0.24784853700516352
+      },
+      "residual_m2_by_region": {
+        "south_m2": 38.300000000000004,
+        "north_m2": 42.84750000000001,
+        "split_at_y": 20.0
+      },
+      "residual_distance_to_real_geometry_m": {
+        "percentiles_m": {
+          "50": 0.14142135623730953,
+          "75": 0.25,
+          "90": 0.6000000000000001,
+          "99": 1.3462912017836262
+        },
+        "frac_within_0.30m": 0.7797837271634985,
+        "definition": "distance from each surviving phantom cell to the nearest cell occupied in some band above 0.10 m"
+      },
+      "removed_component_m2": {
+        "cells": 62321,
+        "area_m2": 155.80250000000004,
+        "components": 343,
+        "median_blob_m2": 0.06000000000000001,
+        "frac_blobs_le_100cm2": 0.21865889212827988
+      },
+      "measured_on_built_scene": {
+        "n_inserted": 1014,
+        "inserted_rho_top_max_above_floor": 0.015000000000000124,
+        "inserted_rho_top_p99_above_floor": 0.015000000000000124,
+        "z_lo": 0.02,
+        "invisible_to_every_robot_band": true
+      },
+      "seconds": 6.708265542984009
+    },
+    "phantom+centre": {
+      "claims_boundary": "user-approved manual scene edit; sound wrt the edited scene only",
+      "n_input": 7247831,
+      "replaced": 146977,
+      "replaced_opaque_tau": 46507,
+      "kept": 7100854,
+      "inserted": 1014,
+      "n_output": 7101868,
+      "first_inserted_id": 7340008,
+      "params": {
+        "cell": 0.05,
+        "max_top": 0.1,
+        "level": 2.0,
+        "spacing": 1.0,
+        "sigma_xy": 0.4,
+        "sigma_n": 0.004,
+        "opacity": 0.95,
+        "z_lo": 0.02,
+        "margin": 0.005,
+        "require_opaque": false,
+        "footprint": "centre",
+        "measure_local_floor": true
+      },
+      "z_top_max_budget": -1.2121749593107993,
+      "inserted_rho_top_max": -1.2121749593107993,
+      "inserted_rho_top_max_above_floor": 0.015000000000000124,
+      "inserted_rho_half_height": 0.008934907624863589,
+      "inserted_headroom_below_z_lo": 0.004999999999999893,
+      "tiles_clamped_off_the_fitted_plane": 276,
+      "tile_max_drop_below_target_m": 0.0685132291063486,
+      "fitted_plane_z_above_floor_range": [
+        -0.07117282358804067,
+        0.07457832148148524
+      ],
+      "variant": "phantom+centre",
+      "overhead_mask": "phantom",
+      "footprint": "centre",
+      "overhead_mask_cells": 94780,
+      "band_occupancy_frac_before": {
+        "occ_0.02_0.10": 0.40699967510143636,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "band_occupancy_frac_after": {
+        "occ_0.02_0.10": 0.19545293126506433,
+        "occ_0.10_0.55": 0.1736519857850582,
+        "occ_0.55_1.00": 0.1325157978778331,
+        "occ_1.00_1.75": 0.11684510901732037,
+        "occ_1.75_2.50": 0.11056877397386204
+      },
+      "monotone_toward_floor": false,
+      "low_band_after": 0.19545293126506433,
+      "band_above_after": 0.1736519857850582,
+      "phantom_cells_still_occupied": 11399,
+      "phantom_cells_cleared_frac": 0.8797320109727791,
+      "residual": {
+        "cells": 11399,
+        "area_m2": 28.497500000000006,
+        "components": 623,
+        "median_blob_m2": 0.015000000000000003,
+        "frac_blobs_le_100cm2": 0.420545746388443
+      },
+      "residual_m2_by_region": {
+        "south_m2": 10.932500000000003,
+        "north_m2": 17.565000000000005,
+        "split_at_y": 20.0
+      },
+      "residual_distance_to_real_geometry_m": {
+        "percentiles_m": {
+          "50": 0.05,
+          "75": 0.1,
+          "90": 0.15000000000000002,
+          "99": 0.25
+        },
+        "frac_within_0.30m": 0.9954381963330117,
+        "definition": "distance from each surviving phantom cell to the nearest cell occupied in some band above 0.10 m"
+      },
+      "removed_component_m2": {
+        "cells": 83381,
+        "area_m2": 208.45250000000004,
+        "components": 282,
+        "median_blob_m2": 0.07500000000000001,
+        "frac_blobs_le_100cm2": 0.1524822695035461
+      },
+      "measured_on_built_scene": {
+        "n_inserted": 1014,
+        "inserted_rho_top_max_above_floor": 0.015000000000000124,
+        "inserted_rho_top_p99_above_floor": 0.015000000000000124,
+        "z_lo": 0.02,
+        "invisible_to_every_robot_band": true
+      },
+      "seconds": 8.262648344039917,
+      "equal_thickness_after": {
+        "equal_thickness_bands_0.08m": {
+          "occ_0.02_0.10": 0.19545293126506433,
+          "occ_0.10_0.18": 0.15469705097885136,
+          "occ_0.18_0.26": 0.1184796762096175
+        },
+        "decreases_toward_the_floor": false
+      },
+      "equal_thickness_before": {
+        "equal_thickness_bands_0.08m": {
+          "occ_0.02_0.10": 0.40699967510143636,
+          "occ_0.10_0.18": 0.15469705097885136,
+          "occ_0.18_0.26": 0.1184796762096175
+        },
+        "decreases_toward_the_floor": false
+      }
+    }
+  },
+  "seconds": 56.36993455886841
+}

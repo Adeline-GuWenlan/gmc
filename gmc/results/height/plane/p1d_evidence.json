@@ -1,0 +1,242 @@
+{
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+  "task": "P1d: before/after evidence for the plane floor",
+  "scene": {
+    "before": "showcase_scene.load_processed()",
+    "after": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+    "variant": "phantom+centre",
+    "params": {
+      "cell": 0.05,
+      "max_top": 0.1,
+      "level": 2.0,
+      "spacing": 1.0,
+      "sigma_xy": 0.4,
+      "sigma_n": 0.004,
+      "opacity": 0.95,
+      "z_lo": 0.02,
+      "margin": 0.005,
+      "require_opaque": false,
+      "footprint": "centre",
+      "measure_local_floor": true
+    }
+  },
+  "band_occupancy": {
+    "aid": "showcase_scene._occupancy, xy-AABB of every opaque in-band splat, 0.05 m cells; the same selection aid the 40.7/17.4/13.3/11.7/11.1 column came from",
+    "before_frac": {
+      "occ_0.02_0.10": 0.40699967510143636,
+      "occ_0.10_0.55": 0.1736519857850582,
+      "occ_0.55_1.00": 0.1325157978778331,
+      "occ_1.00_1.75": 0.11684510901732037,
+      "occ_1.75_2.50": 0.11056877397386204
+    },
+    "after_frac": {
+      "occ_0.02_0.10": 0.19545293126506433,
+      "occ_0.10_0.55": 0.1736519857850582,
+      "occ_0.55_1.00": 0.1325157978778331,
+      "occ_1.00_1.75": 0.11684510901732037,
+      "occ_1.75_2.50": 0.11056877397386204
+    },
+    "monotone_before": false,
+    "monotone_after": false,
+    "low_band_vs_band_above": {
+      "before": 2.3437663166444276,
+      "after": 1.1255438881475894
+    },
+    "equal_thickness_0.08m": {
+      "before": {
+        "occ_0.02_0.10": 0.40699967510143636,
+        "occ_0.10_0.18": 0.15469705097885136,
+        "occ_0.18_0.26": 0.1184796762096175,
+        "decreases_toward_the_floor": false,
+        "low_over_next": 2.6309465663768683
+      },
+      "after": {
+        "occ_0.02_0.10": 0.19545293126506433,
+        "occ_0.10_0.18": 0.15469705097885136,
+        "occ_0.18_0.26": 0.1184796762096175,
+        "decreases_toward_the_floor": false,
+        "low_over_next": 1.2634560906515582
+      }
+    }
+  },
+  "window_A": {
+    "window": [
+      5.5,
+      3.5,
+      12.0,
+      10.5
+    ],
+    "raster_cell": 0.025,
+    "sweeper_before": {
+      "supports": 3764,
+      "occupied_frac": 0.17910714285714285,
+      "disc_fits_frac": 0.17001373626373625,
+      "free_components": 77,
+      "largest_free_component_m2": 2.4381250000000003,
+      "crit3_clear_frac": 0.0012225274725274726,
+      "projection": {
+        "n_input": 847260,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          -1.1271749593107994
+        ],
+        "dilate_radius": 0.175,
+        "dropped_opacity": 428998,
+        "floored_3d": 0,
+        "excluded_band": 411165,
+        "outside_window": 3333,
+        "deduplicated": 0,
+        "kept": 3764,
+        "floored_2d": 2,
+        "candidate2": 1883
+      }
+    },
+    "sweeper_after": {
+      "supports": 3028,
+      "occupied_frac": 0.058406593406593404,
+      "disc_fits_frac": 0.7329945054945055,
+      "free_components": 3,
+      "largest_free_component_m2": 33.025000000000006,
+      "crit3_clear_frac": 0.4153159340659341,
+      "projection": {
+        "n_input": 824437,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          -1.1271749593107994
+        ],
+        "dilate_radius": 0.175,
+        "dropped_opacity": 414598,
+        "floored_3d": 0,
+        "excluded_band": 403818,
+        "outside_window": 2993,
+        "deduplicated": 0,
+        "kept": 3028,
+        "floored_2d": 2,
+        "candidate2": 1153
+      }
+    },
+    "cylinder_before": {
+      "supports": 111941,
+      "occupied_frac": 0.2659478021978022,
+      "disc_fits_frac": 0.031098901098901097,
+      "free_components": 11,
+      "largest_free_component_m2": 0.4906250000000001,
+      "crit3_clear_frac": 0.0012225274725274726,
+      "projection": {
+        "n_input": 936034,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          0.5228250406892005
+        ],
+        "dilate_radius": 0.3,
+        "dropped_opacity": 475315,
+        "floored_3d": 0,
+        "excluded_band": 191643,
+        "outside_window": 157135,
+        "deduplicated": 0,
+        "kept": 111941,
+        "floored_2d": 3,
+        "candidate2": 2302
+      }
+    },
+    "cylinder_after": {
+      "supports": 111162,
+      "occupied_frac": 0.14526098901098902,
+      "disc_fits_frac": 0.5769642857142857,
+      "free_components": 2,
+      "largest_free_component_m2": 26.222500000000004,
+      "crit3_clear_frac": 0.40442307692307694,
+      "projection": {
+        "n_input": 912437,
+        "tau": 0.3,
+        "level": 2.0,
+        "window": [
+          5.5,
+          3.5,
+          12.0,
+          10.5
+        ],
+        "band_abs": [
+          -1.2071749593107994,
+          0.5228250406892005
+        ],
+        "dilate_radius": 0.3,
+        "dropped_opacity": 460362,
+        "floored_3d": 0,
+        "excluded_band": 184116,
+        "outside_window": 156797,
+        "deduplicated": 0,
+        "kept": 111162,
+        "floored_2d": 3,
+        "candidate2": 1529
+      }
+    }
+  },
+  "certified_raster_window_A": {
+    "band_0.02_0.10_before": {
+      "n_supports": 3152,
+      "occupied_frac": 0.16679214767720707,
+      "projection_kept": 3152
+    },
+    "band_0.02_0.10_after": {
+      "n_supports": 2491,
+      "occupied_frac": 0.044280854386258436,
+      "projection_kept": 2491
+    },
+    "band_0.10_0.18_before": {
+      "n_supports": 2405,
+      "occupied_frac": 0.029766884167084937,
+      "projection_kept": 2405
+    },
+    "band_0.10_0.18_after": {
+      "n_supports": 2405,
+      "occupied_frac": 0.029766884167084937,
+      "projection_kept": 2405
+    },
+    "band_0.18_0.26_before": {
+      "n_supports": 2706,
+      "occupied_frac": 0.02996207685014779,
+      "projection_kept": 2706
+    },
+    "band_0.18_0.26_after": {
+      "n_supports": 2706,
+      "occupied_frac": 0.02996207685014779,
+      "projection_kept": 2706
+    },
+    "decreases_toward_the_floor_before": false,
+    "low_over_next_before": 5.60327868852459,
+    "decreases_toward_the_floor_after": false,
+    "low_over_next_after": 1.4875878220140515
+  },
+  "verdict_inputs": {
+    "low_band_before": 0.40699967510143636,
+    "low_band_after": 0.19545293126506433,
+    "band_above": 0.1736519857850582,
+    "strictly_below_the_band_above": false
+  },
+  "seconds": 42.68286442756653
+}

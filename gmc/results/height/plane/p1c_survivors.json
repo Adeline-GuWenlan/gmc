@@ -1,0 +1,1982 @@
+{
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+  "task": "P1c: prove nothing real died (Amendment 3 P1c)",
+  "collateral": {
+    "removed_total": 146977,
+    "removed_opaque": 46507,
+    "removed_opaque_centre_height_above_floor_m": {
+      "1": -0.19447117077419201,
+      "50": -0.08103136049816051,
+      "90": -0.0027352236420813943,
+      "99": 0.03132705462864003
+    },
+    "removed_opaque_rho_top_above_floor_m": {
+      "50": -0.028960502476667926,
+      "90": 0.04139586445253573,
+      "99": 0.08055517509896849,
+      "100": 0.0999561173552661
+    },
+    "note": "all removed splats have a rho-top below z_floor + max_top and nothing above the cell they sat in; a real object entirely below that height with nothing over it would be deleted too, and cannot be distinguished from dust here"
+  },
+  "method": "A4 outputs/height/a4/legs_check.py, generalised over the P1c object list",
+  "scene": {
+    "before": "showcase_scene.load_processed()",
+    "after": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+    "variant": "phantom+centre",
+    "params": {
+      "cell": 0.05,
+      "max_top": 0.1,
+      "level": 2.0,
+      "spacing": 1.0,
+      "sigma_xy": 0.4,
+      "sigma_n": 0.004,
+      "opacity": 0.95,
+      "z_lo": 0.02,
+      "margin": 0.005,
+      "require_opaque": false,
+      "footprint": "centre",
+      "measure_local_floor": true
+    }
+  },
+  "gate_definition": {
+    "no_mass_lost_above_0.10m": "opaque splat count in the object footprint, per height band above 0.10 m, must not decrease",
+    "member_cells_identical": "the three-bin column test must find the same member cells on the edited scene as on the original",
+    "no_member_sweeper_band_splat_lost": "opaque splats at 0.02-0.10 m whose centre lies in a member cell must not decrease -- the member's own near-floor mass",
+    "every_member_still_blocks_the_sweeper": "each member that had >= 1 sweeper support in its disc before still has one; a member with none before cannot have lost one",
+    "not_a_gate": "disc occupied fraction: a disc is the member plus a margin of floor (up to 1.74 m across for the counter), so dust removed inside it is the edit working, not damage"
+  },
+  "all_objects_pass": true,
+  "pass_by_object": {
+    "table_A": true,
+    "table_B": true,
+    "table_C": true,
+    "table_G": true,
+    "SW_hall_bench": true,
+    "plinth_W": true,
+    "plinth_SW": true,
+    "plinth_S": true,
+    "plinth_E": true,
+    "plinth_NW": true,
+    "reception_counter": true
+  },
+  "objects": {
+    "table_A": {
+      "centre": [
+        8.96,
+        7.29
+      ],
+      "long_axis_deg": -22.9,
+      "length_m": 2.55,
+      "width_m": 0.72,
+      "window": [
+        7.135150951994908,
+        5.465150951994907,
+        10.784849048005093,
+        9.114849048005093
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.68
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 0,
+          "after": 0
+        },
+        "h_0.10_0.15": {
+          "before": 1,
+          "after": 1
+        },
+        "h_0.15_0.50": {
+          "before": 43,
+          "after": 43
+        },
+        "h_0.50_1.20": {
+          "before": 10441,
+          "after": 10441
+        }
+      },
+      "vertical_members_found": 1,
+      "sweeper_before": {
+        "supports_in_window": 1137,
+        "supports_in_footprint": 30,
+        "window_occupied_frac": 0.13661099643460312,
+        "projection_kept": 1137
+      },
+      "sweeper_after": {
+        "supports_in_window": 918,
+        "supports_in_footprint": 30,
+        "window_occupied_frac": 0.06384875211109026,
+        "projection_kept": 918
+      },
+      "cylinder_before": {
+        "supports_in_window": 32061,
+        "supports_in_footprint": 10515,
+        "window_occupied_frac": 0.3932726590354663,
+        "projection_kept": 32061
+      },
+      "cylinder_after": {
+        "supports_in_window": 31807,
+        "supports_in_footprint": 10515,
+        "window_occupied_frac": 0.32051041471195346,
+        "projection_kept": 31807
+      },
+      "members": [
+        {
+          "xy": [
+            8.809,
+            6.985
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.5,
+          "sweeper_before_supports_in_disc": 32,
+          "sweeper_after_occupied_frac_in_disc": 0.5,
+          "sweeper_after_supports_in_disc": 32,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 200,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 200
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 0,
+        "after": 0
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 5.7710583209991455
+    },
+    "table_B": {
+      "centre": [
+        -0.45,
+        10.81
+      ],
+      "long_axis_deg": 60.9,
+      "length_m": 2.35,
+      "width_m": 0.93,
+      "window": [
+        -2.213665303788942,
+        9.046334696211058,
+        1.3136653037889425,
+        12.573665303788943
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.68
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 188,
+          "after": 188
+        },
+        "h_0.10_0.15": {
+          "before": 106,
+          "after": 106
+        },
+        "h_0.15_0.50": {
+          "before": 969,
+          "after": 969
+        },
+        "h_0.50_1.20": {
+          "before": 24898,
+          "after": 24898
+        }
+      },
+      "vertical_members_found": 6,
+      "sweeper_before": {
+        "supports_in_window": 1015,
+        "supports_in_footprint": 347,
+        "window_occupied_frac": 0.0813330688355485,
+        "projection_kept": 1015
+      },
+      "sweeper_after": {
+        "supports_in_window": 971,
+        "supports_in_footprint": 346,
+        "window_occupied_frac": 0.06769490180519738,
+        "projection_kept": 971
+      },
+      "cylinder_before": {
+        "supports_in_window": 72533,
+        "supports_in_footprint": 26227,
+        "window_occupied_frac": 0.2568438801825035,
+        "projection_kept": 72533
+      },
+      "cylinder_after": {
+        "supports_in_window": 72489,
+        "supports_in_footprint": 26226,
+        "window_occupied_frac": 0.24320571315215236,
+        "projection_kept": 72489
+      },
+      "members": [
+        {
+          "xy": [
+            -0.801,
+            10.96
+          ],
+          "cells": 6,
+          "radius": 0.085,
+          "sweeper_before_occupied_frac_in_disc": 0.2973,
+          "sweeper_before_supports_in_disc": 146,
+          "sweeper_after_occupied_frac_in_disc": 0.2973,
+          "sweeper_after_supports_in_disc": 146,
+          "cylinder_before_occupied_frac_in_disc": 0.8108,
+          "cylinder_before_supports_in_disc": 1100,
+          "cylinder_after_occupied_frac_in_disc": 0.8108,
+          "cylinder_after_supports_in_disc": 1100
+        },
+        {
+          "xy": [
+            -0.091,
+            10.624
+          ],
+          "cells": 5,
+          "radius": 0.091,
+          "sweeper_before_occupied_frac_in_disc": 0.1951,
+          "sweeper_before_supports_in_disc": 73,
+          "sweeper_after_occupied_frac_in_disc": 0.1951,
+          "sweeper_after_supports_in_disc": 73,
+          "cylinder_before_occupied_frac_in_disc": 0.8537,
+          "cylinder_before_supports_in_disc": 1075,
+          "cylinder_after_occupied_frac_in_disc": 0.8537,
+          "cylinder_after_supports_in_disc": 1075
+        },
+        {
+          "xy": [
+            -0.307,
+            11.98
+          ],
+          "cells": 5,
+          "radius": 0.091,
+          "sweeper_before_occupied_frac_in_disc": 0.381,
+          "sweeper_before_supports_in_disc": 86,
+          "sweeper_after_occupied_frac_in_disc": 0.381,
+          "sweeper_after_supports_in_disc": 86,
+          "cylinder_before_occupied_frac_in_disc": 0.881,
+          "cylinder_before_supports_in_disc": 1013,
+          "cylinder_after_occupied_frac_in_disc": 0.881,
+          "cylinder_after_supports_in_disc": 1013
+        },
+        {
+          "xy": [
+            -1.281,
+            9.934
+          ],
+          "cells": 4,
+          "radius": 0.081,
+          "sweeper_before_occupied_frac_in_disc": 0.5429,
+          "sweeper_before_supports_in_disc": 62,
+          "sweeper_after_occupied_frac_in_disc": 0.5429,
+          "sweeper_after_supports_in_disc": 62,
+          "cylinder_before_occupied_frac_in_disc": 0.8857,
+          "cylinder_before_supports_in_disc": 616,
+          "cylinder_after_occupied_frac_in_disc": 0.8857,
+          "cylinder_after_supports_in_disc": 616
+        },
+        {
+          "xy": [
+            0.394,
+            11.668
+          ],
+          "cells": 4,
+          "radius": 0.068,
+          "sweeper_before_occupied_frac_in_disc": 0.3043,
+          "sweeper_before_supports_in_disc": 42,
+          "sweeper_after_occupied_frac_in_disc": 0.3043,
+          "sweeper_after_supports_in_disc": 42,
+          "cylinder_before_occupied_frac_in_disc": 0.8261,
+          "cylinder_before_supports_in_disc": 558,
+          "cylinder_after_occupied_frac_in_disc": 0.8261,
+          "cylinder_after_supports_in_disc": 558
+        },
+        {
+          "xy": [
+            -0.583,
+            9.625
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.5,
+          "sweeper_before_supports_in_disc": 24,
+          "sweeper_after_occupied_frac_in_disc": 0.5,
+          "sweeper_after_supports_in_disc": 24,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 69,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 69
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 177,
+        "after": 177
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 10.066681146621704
+    },
+    "table_C": {
+      "centre": [
+        13.28,
+        14.09
+      ],
+      "long_axis_deg": -21.4,
+      "length_m": 1.74,
+      "width_m": 0.68,
+      "window": [
+        11.845922915386529,
+        12.65592291538653,
+        14.71407708461347,
+        15.52407708461347
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.78
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 137,
+          "after": 137
+        },
+        "h_0.10_0.15": {
+          "before": 64,
+          "after": 64
+        },
+        "h_0.15_0.50": {
+          "before": 465,
+          "after": 465
+        },
+        "h_0.50_1.20": {
+          "before": 22651,
+          "after": 22651
+        }
+      },
+      "vertical_members_found": 2,
+      "sweeper_before": {
+        "supports_in_window": 1250,
+        "supports_in_footprint": 347,
+        "window_occupied_frac": 0.4874102079395085,
+        "projection_kept": 1250
+      },
+      "sweeper_after": {
+        "supports_in_window": 784,
+        "supports_in_footprint": 347,
+        "window_occupied_frac": 0.13444234404536862,
+        "projection_kept": 784
+      },
+      "cylinder_before": {
+        "supports_in_window": 30412,
+        "supports_in_footprint": 23456,
+        "window_occupied_frac": 0.580945179584121,
+        "projection_kept": 30412
+      },
+      "cylinder_after": {
+        "supports_in_window": 29893,
+        "supports_in_footprint": 23456,
+        "window_occupied_frac": 0.22858223062381852,
+        "projection_kept": 29893
+      },
+      "members": [
+        {
+          "xy": [
+            12.529,
+            14.451
+          ],
+          "cells": 36,
+          "radius": 0.364,
+          "sweeper_before_occupied_frac_in_disc": 0.5772,
+          "sweeper_before_supports_in_disc": 312,
+          "sweeper_after_occupied_frac_in_disc": 0.5412,
+          "sweeper_after_supports_in_disc": 310,
+          "cylinder_before_occupied_frac_in_disc": 0.8996,
+          "cylinder_before_supports_in_disc": 7075,
+          "cylinder_after_occupied_frac_in_disc": 0.8651,
+          "cylinder_after_supports_in_disc": 7073
+        },
+        {
+          "xy": [
+            14.035,
+            13.716
+          ],
+          "cells": 29,
+          "radius": 0.373,
+          "sweeper_before_occupied_frac_in_disc": 0.5324,
+          "sweeper_before_supports_in_disc": 413,
+          "sweeper_after_occupied_frac_in_disc": 0.3453,
+          "sweeper_after_supports_in_disc": 407,
+          "cylinder_before_occupied_frac_in_disc": 0.7986,
+          "cylinder_before_supports_in_disc": 7153,
+          "cylinder_after_occupied_frac_in_disc": 0.6115,
+          "cylinder_after_supports_in_disc": 7147
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 132,
+        "after": 132
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 6.066415309906006
+    },
+    "table_G": {
+      "centre": [
+        3.35,
+        22.53
+      ],
+      "long_axis_deg": 31.5,
+      "length_m": 1.64,
+      "width_m": 0.62,
+      "window": [
+        1.9733586822422753,
+        21.153358682242278,
+        4.726641317757725,
+        23.906641317757725
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.68
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 20,
+          "after": 20
+        },
+        "h_0.10_0.15": {
+          "before": 9,
+          "after": 9
+        },
+        "h_0.15_0.50": {
+          "before": 55,
+          "after": 55
+        },
+        "h_0.50_1.20": {
+          "before": 11523,
+          "after": 11523
+        }
+      },
+      "vertical_members_found": 4,
+      "sweeper_before": {
+        "supports_in_window": 792,
+        "supports_in_footprint": 57,
+        "window_occupied_frac": 0.23756188621053487,
+        "projection_kept": 792
+      },
+      "sweeper_after": {
+        "supports_in_window": 754,
+        "supports_in_footprint": 57,
+        "window_occupied_frac": 0.2011200389578768,
+        "projection_kept": 754
+      },
+      "cylinder_before": {
+        "supports_in_window": 61277,
+        "supports_in_footprint": 11648,
+        "window_occupied_frac": 0.5325054784514244,
+        "projection_kept": 61277
+      },
+      "cylinder_after": {
+        "supports_in_window": 61235,
+        "supports_in_footprint": 11648,
+        "window_occupied_frac": 0.49606363119876634,
+        "projection_kept": 61235
+      },
+      "members": [
+        {
+          "xy": [
+            4.161,
+            22.699
+          ],
+          "cells": 2,
+          "radius": 0.085,
+          "sweeper_before_occupied_frac_in_disc": 0.5946,
+          "sweeper_before_supports_in_disc": 65,
+          "sweeper_after_occupied_frac_in_disc": 0.5946,
+          "sweeper_after_supports_in_disc": 65,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 769,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 769
+        },
+        {
+          "xy": [
+            4.005,
+            22.955
+          ],
+          "cells": 2,
+          "radius": 0.08,
+          "sweeper_before_occupied_frac_in_disc": 0.6875,
+          "sweeper_before_supports_in_disc": 13,
+          "sweeper_after_occupied_frac_in_disc": 0.6875,
+          "sweeper_after_supports_in_disc": 13,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 166,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 166
+        },
+        {
+          "xy": [
+            4.088,
+            22.818
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.6667,
+          "sweeper_before_supports_in_disc": 5,
+          "sweeper_after_occupied_frac_in_disc": 0.6667,
+          "sweeper_after_supports_in_disc": 5,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 46,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 46
+        },
+        {
+          "xy": [
+            3.879,
+            23.159
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 9,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 9,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 83,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 83
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 4,
+        "after": 4
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 8.461008071899414
+    },
+    "SW_hall_bench": {
+      "centre": [
+        2.1,
+        10.5
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 2.6,
+      "width_m": 2.6,
+      "window": [
+        -0.23847763108502362,
+        8.161522368914977,
+        4.438477631085024,
+        12.838477631085023
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.3,
+          0.4
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 46,
+          "after": 46
+        },
+        "h_0.10_0.15": {
+          "before": 39,
+          "after": 39
+        },
+        "h_0.15_0.50": {
+          "before": 1761,
+          "after": 1761
+        },
+        "h_0.50_1.20": {
+          "before": 0,
+          "after": 0
+        }
+      },
+      "vertical_members_found": 5,
+      "sweeper_before": {
+        "supports_in_window": 788,
+        "supports_in_footprint": 163,
+        "window_occupied_frac": 0.08728497057492078,
+        "projection_kept": 788
+      },
+      "sweeper_after": {
+        "supports_in_window": 737,
+        "supports_in_footprint": 151,
+        "window_occupied_frac": 0.04747623358985967,
+        "projection_kept": 737
+      },
+      "cylinder_before": {
+        "supports_in_window": 53122,
+        "supports_in_footprint": 1894,
+        "window_occupied_frac": 0.17210842009959257,
+        "projection_kept": 53122
+      },
+      "cylinder_after": {
+        "supports_in_window": 53067,
+        "supports_in_footprint": 1882,
+        "window_occupied_frac": 0.13244114984155728,
+        "projection_kept": 53067
+      },
+      "members": [
+        {
+          "xy": [
+            1.46,
+            9.68
+          ],
+          "cells": 6,
+          "radius": 0.112,
+          "sweeper_before_occupied_frac_in_disc": 0.2951,
+          "sweeper_before_supports_in_disc": 47,
+          "sweeper_after_occupied_frac_in_disc": 0.2951,
+          "sweeper_after_supports_in_disc": 47,
+          "cylinder_before_occupied_frac_in_disc": 0.6393,
+          "cylinder_before_supports_in_disc": 176,
+          "cylinder_after_occupied_frac_in_disc": 0.6393,
+          "cylinder_after_supports_in_disc": 176
+        },
+        {
+          "xy": [
+            2.29,
+            11.45
+          ],
+          "cells": 4,
+          "radius": 0.126,
+          "sweeper_before_occupied_frac_in_disc": 0.3418,
+          "sweeper_before_supports_in_disc": 29,
+          "sweeper_after_occupied_frac_in_disc": 0.3418,
+          "sweeper_after_supports_in_disc": 29,
+          "cylinder_before_occupied_frac_in_disc": 0.5696,
+          "cylinder_before_supports_in_disc": 148,
+          "cylinder_after_occupied_frac_in_disc": 0.5696,
+          "cylinder_after_supports_in_disc": 148
+        },
+        {
+          "xy": [
+            1.68,
+            9.587
+          ],
+          "cells": 3,
+          "radius": 0.107,
+          "sweeper_before_occupied_frac_in_disc": 0.3448,
+          "sweeper_before_supports_in_disc": 12,
+          "sweeper_after_occupied_frac_in_disc": 0.3448,
+          "sweeper_after_supports_in_disc": 12,
+          "cylinder_before_occupied_frac_in_disc": 0.7414,
+          "cylinder_before_supports_in_disc": 47,
+          "cylinder_after_occupied_frac_in_disc": 0.7414,
+          "cylinder_after_supports_in_disc": 47
+        },
+        {
+          "xy": [
+            1.9,
+            9.46
+          ],
+          "cells": 2,
+          "radius": 0.068,
+          "sweeper_before_occupied_frac_in_disc": 0.4167,
+          "sweeper_before_supports_in_disc": 26,
+          "sweeper_after_occupied_frac_in_disc": 0.4167,
+          "sweeper_after_supports_in_disc": 26,
+          "cylinder_before_occupied_frac_in_disc": 0.5833,
+          "cylinder_before_supports_in_disc": 80,
+          "cylinder_after_occupied_frac_in_disc": 0.5833,
+          "cylinder_after_supports_in_disc": 80
+        },
+        {
+          "xy": [
+            2.72,
+            11.22
+          ],
+          "cells": 2,
+          "radius": 0.085,
+          "sweeper_before_occupied_frac_in_disc": 0.4359,
+          "sweeper_before_supports_in_disc": 11,
+          "sweeper_after_occupied_frac_in_disc": 0.4359,
+          "sweeper_after_supports_in_disc": 11,
+          "cylinder_before_occupied_frac_in_disc": 0.7179,
+          "cylinder_before_supports_in_disc": 41,
+          "cylinder_after_occupied_frac_in_disc": 0.7179,
+          "cylinder_after_supports_in_disc": 41
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 30,
+        "after": 30
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 8.355974197387695
+    },
+    "plinth_W": {
+      "centre": [
+        -1.2,
+        9.0
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 1.6,
+      "width_m": 1.6,
+      "window": [
+        -2.831370849898476,
+        7.3686291501015235,
+        0.4313708498984763,
+        10.631370849898476
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 146,
+          "after": 146
+        },
+        "h_0.10_0.15": {
+          "before": 83,
+          "after": 83
+        },
+        "h_0.15_0.50": {
+          "before": 765,
+          "after": 765
+        },
+        "h_0.50_1.20": {
+          "before": 6126,
+          "after": 6126
+        }
+      },
+      "vertical_members_found": 6,
+      "sweeper_before": {
+        "supports_in_window": 1343,
+        "supports_in_footprint": 406,
+        "window_occupied_frac": 0.1918885845813181,
+        "projection_kept": 1343
+      },
+      "sweeper_after": {
+        "supports_in_window": 1304,
+        "supports_in_footprint": 406,
+        "window_occupied_frac": 0.17627177903385582,
+        "projection_kept": 1304
+      },
+      "cylinder_before": {
+        "supports_in_window": 124207,
+        "supports_in_footprint": 51702,
+        "window_occupied_frac": 0.334246256045685,
+        "projection_kept": 124207
+      },
+      "cylinder_after": {
+        "supports_in_window": 124158,
+        "supports_in_footprint": 51702,
+        "window_occupied_frac": 0.3186294504982227,
+        "projection_kept": 124158
+      },
+      "members": [
+        {
+          "xy": [
+            -1.781,
+            9.268
+          ],
+          "cells": 54,
+          "radius": 0.59,
+          "sweeper_before_occupied_frac_in_disc": 0.1851,
+          "sweeper_before_supports_in_disc": 177,
+          "sweeper_after_occupied_frac_in_disc": 0.1851,
+          "sweeper_after_supports_in_disc": 177,
+          "cylinder_before_occupied_frac_in_disc": 0.2506,
+          "cylinder_before_supports_in_disc": 5264,
+          "cylinder_after_occupied_frac_in_disc": 0.2506,
+          "cylinder_after_supports_in_disc": 5264
+        },
+        {
+          "xy": [
+            -0.89,
+            9.646
+          ],
+          "cells": 46,
+          "radius": 0.568,
+          "sweeper_before_occupied_frac_in_disc": 0.2846,
+          "sweeper_before_supports_in_disc": 279,
+          "sweeper_after_occupied_frac_in_disc": 0.2846,
+          "sweeper_after_supports_in_disc": 279,
+          "cylinder_before_occupied_frac_in_disc": 0.7636,
+          "cylinder_before_supports_in_disc": 12897,
+          "cylinder_after_occupied_frac_in_disc": 0.7636,
+          "cylinder_after_supports_in_disc": 12897
+        },
+        {
+          "xy": [
+            -1.967,
+            8.38
+          ],
+          "cells": 3,
+          "radius": 0.082,
+          "sweeper_before_occupied_frac_in_disc": 0.8108,
+          "sweeper_before_supports_in_disc": 9,
+          "sweeper_after_occupied_frac_in_disc": 0.8108,
+          "sweeper_after_supports_in_disc": 9,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 474,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 474
+        },
+        {
+          "xy": [
+            -1.96,
+            8.22
+          ],
+          "cells": 2,
+          "radius": 0.06,
+          "sweeper_before_occupied_frac_in_disc": 0.9412,
+          "sweeper_before_supports_in_disc": 43,
+          "sweeper_after_occupied_frac_in_disc": 0.9412,
+          "sweeper_after_supports_in_disc": 43,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 122,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 122
+        },
+        {
+          "xy": [
+            -0.76,
+            8.9
+          ],
+          "cells": 2,
+          "radius": 0.085,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 5,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 5,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 829,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 829
+        },
+        {
+          "xy": [
+            -0.54,
+            9.22
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 2,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 2,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 544,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 544
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 91,
+        "after": 91
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 14.587736129760742
+    },
+    "plinth_SW": {
+      "centre": [
+        3.8,
+        6.5
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 1.6,
+      "width_m": 1.6,
+      "window": [
+        2.1686291501015234,
+        4.8686291501015235,
+        5.431370849898476,
+        8.131370849898477
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 94,
+          "after": 94
+        },
+        "h_0.10_0.15": {
+          "before": 40,
+          "after": 40
+        },
+        "h_0.15_0.50": {
+          "before": 261,
+          "after": 261
+        },
+        "h_0.50_1.20": {
+          "before": 5863,
+          "after": 5863
+        }
+      },
+      "vertical_members_found": 7,
+      "sweeper_before": {
+        "supports_in_window": 1071,
+        "supports_in_footprint": 247,
+        "window_occupied_frac": 0.24672221898490765,
+        "projection_kept": 1071
+      },
+      "sweeper_after": {
+        "supports_in_window": 1041,
+        "supports_in_footprint": 245,
+        "window_occupied_frac": 0.21391527300273877,
+        "projection_kept": 1041
+      },
+      "cylinder_before": {
+        "supports_in_window": 61776,
+        "supports_in_footprint": 32131,
+        "window_occupied_frac": 0.32375735679738943,
+        "projection_kept": 61776
+      },
+      "cylinder_after": {
+        "supports_in_window": 61743,
+        "supports_in_footprint": 32129,
+        "window_occupied_frac": 0.2910669541402016,
+        "projection_kept": 61743
+      },
+      "members": [
+        {
+          "xy": [
+            4.5,
+            7.071
+          ],
+          "cells": 9,
+          "radius": 0.147,
+          "sweeper_before_occupied_frac_in_disc": 0.7658,
+          "sweeper_before_supports_in_disc": 51,
+          "sweeper_after_occupied_frac_in_disc": 0.7658,
+          "sweeper_after_supports_in_disc": 51,
+          "cylinder_before_occupied_frac_in_disc": 0.8018,
+          "cylinder_before_supports_in_disc": 6618,
+          "cylinder_after_occupied_frac_in_disc": 0.8018,
+          "cylinder_after_supports_in_disc": 6618
+        },
+        {
+          "xy": [
+            3.215,
+            7.035
+          ],
+          "cells": 8,
+          "radius": 0.28,
+          "sweeper_before_occupied_frac_in_disc": 0.4596,
+          "sweeper_before_supports_in_disc": 54,
+          "sweeper_after_occupied_frac_in_disc": 0.4596,
+          "sweeper_after_supports_in_disc": 54,
+          "cylinder_before_occupied_frac_in_disc": 0.7879,
+          "cylinder_before_supports_in_disc": 800,
+          "cylinder_after_occupied_frac_in_disc": 0.7879,
+          "cylinder_after_supports_in_disc": 800
+        },
+        {
+          "xy": [
+            3.04,
+            6.64
+          ],
+          "cells": 4,
+          "radius": 0.122,
+          "sweeper_before_occupied_frac_in_disc": 0.76,
+          "sweeper_before_supports_in_disc": 22,
+          "sweeper_after_occupied_frac_in_disc": 0.76,
+          "sweeper_after_supports_in_disc": 22,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 202,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 202
+        },
+        {
+          "xy": [
+            4.13,
+            6.21
+          ],
+          "cells": 4,
+          "radius": 0.15,
+          "sweeper_before_occupied_frac_in_disc": 0.8407,
+          "sweeper_before_supports_in_disc": 14,
+          "sweeper_after_occupied_frac_in_disc": 0.8407,
+          "sweeper_after_supports_in_disc": 14,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 10835,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 10835
+        },
+        {
+          "xy": [
+            4.26,
+            7.18
+          ],
+          "cells": 2,
+          "radius": 0.085,
+          "sweeper_before_occupied_frac_in_disc": 0.973,
+          "sweeper_before_supports_in_disc": 13,
+          "sweeper_after_occupied_frac_in_disc": 0.973,
+          "sweeper_after_supports_in_disc": 13,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 585,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 585
+        },
+        {
+          "xy": [
+            3.98,
+            7.28
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.7778,
+          "sweeper_before_supports_in_disc": 2,
+          "sweeper_after_occupied_frac_in_disc": 0.7778,
+          "sweeper_after_supports_in_disc": 2,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 24,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 24
+        },
+        {
+          "xy": [
+            4.42,
+            6.84
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 1,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 1,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 100,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 100
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 15,
+        "after": 15
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 8.295516967773438
+    },
+    "plinth_S": {
+      "centre": [
+        8.8,
+        4.2
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 1.6,
+      "width_m": 1.6,
+      "window": [
+        7.168629150101524,
+        2.5686291501015237,
+        10.431370849898476,
+        5.831370849898477
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 215,
+          "after": 215
+        },
+        "h_0.10_0.15": {
+          "before": 98,
+          "after": 98
+        },
+        "h_0.15_0.50": {
+          "before": 1493,
+          "after": 1493
+        },
+        "h_0.50_1.20": {
+          "before": 6858,
+          "after": 6858
+        }
+      },
+      "vertical_members_found": 5,
+      "sweeper_before": {
+        "supports_in_window": 1563,
+        "supports_in_footprint": 607,
+        "window_occupied_frac": 0.2820348464541693,
+        "projection_kept": 1563
+      },
+      "sweeper_after": {
+        "supports_in_window": 1386,
+        "supports_in_footprint": 603,
+        "window_occupied_frac": 0.17761202727113803,
+        "projection_kept": 1386
+      },
+      "cylinder_before": {
+        "supports_in_window": 47285,
+        "supports_in_footprint": 28279,
+        "window_occupied_frac": 0.336110949245382,
+        "projection_kept": 47285
+      },
+      "cylinder_after": {
+        "supports_in_window": 47088,
+        "supports_in_footprint": 28275,
+        "window_occupied_frac": 0.23162985839986014,
+        "projection_kept": 47088
+      },
+      "members": [
+        {
+          "xy": [
+            9.388,
+            3.844
+          ],
+          "cells": 40,
+          "radius": 0.609,
+          "sweeper_before_occupied_frac_in_disc": 0.3877,
+          "sweeper_before_supports_in_disc": 435,
+          "sweeper_after_occupied_frac_in_disc": 0.3877,
+          "sweeper_after_supports_in_disc": 434,
+          "cylinder_before_occupied_frac_in_disc": 0.6702,
+          "cylinder_before_supports_in_disc": 3691,
+          "cylinder_after_occupied_frac_in_disc": 0.6702,
+          "cylinder_after_supports_in_disc": 3690
+        },
+        {
+          "xy": [
+            8.248,
+            3.699
+          ],
+          "cells": 38,
+          "radius": 0.603,
+          "sweeper_before_occupied_frac_in_disc": 0.4102,
+          "sweeper_before_supports_in_disc": 261,
+          "sweeper_after_occupied_frac_in_disc": 0.2985,
+          "sweeper_after_supports_in_disc": 251,
+          "cylinder_before_occupied_frac_in_disc": 0.5257,
+          "cylinder_before_supports_in_disc": 20724,
+          "cylinder_after_occupied_frac_in_disc": 0.414,
+          "cylinder_after_supports_in_disc": 20714
+        },
+        {
+          "xy": [
+            9.219,
+            4.86
+          ],
+          "cells": 30,
+          "radius": 0.456,
+          "sweeper_before_occupied_frac_in_disc": 0.2763,
+          "sweeper_before_supports_in_disc": 171,
+          "sweeper_after_occupied_frac_in_disc": 0.262,
+          "sweeper_after_supports_in_disc": 170,
+          "cylinder_before_occupied_frac_in_disc": 0.3317,
+          "cylinder_before_supports_in_disc": 1199,
+          "cylinder_after_occupied_frac_in_disc": 0.3174,
+          "cylinder_after_supports_in_disc": 1198
+        },
+        {
+          "xy": [
+            8.387,
+            4.553
+          ],
+          "cells": 6,
+          "radius": 0.144,
+          "sweeper_before_occupied_frac_in_disc": 0.699,
+          "sweeper_before_supports_in_disc": 29,
+          "sweeper_after_occupied_frac_in_disc": 0.699,
+          "sweeper_after_supports_in_disc": 29,
+          "cylinder_before_occupied_frac_in_disc": 0.8155,
+          "cylinder_before_supports_in_disc": 3568,
+          "cylinder_after_occupied_frac_in_disc": 0.8155,
+          "cylinder_after_supports_in_disc": 3568
+        },
+        {
+          "xy": [
+            8.56,
+            4.92
+          ],
+          "cells": 4,
+          "radius": 0.157,
+          "sweeper_before_occupied_frac_in_disc": 0.6129,
+          "sweeper_before_supports_in_disc": 33,
+          "sweeper_after_occupied_frac_in_disc": 0.5968,
+          "sweeper_after_supports_in_disc": 33,
+          "cylinder_before_occupied_frac_in_disc": 0.7581,
+          "cylinder_before_supports_in_disc": 2596,
+          "cylinder_after_occupied_frac_in_disc": 0.7419,
+          "cylinder_after_supports_in_disc": 2596
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 85,
+        "after": 85
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 7.020099878311157
+    },
+    "plinth_E": {
+      "centre": [
+        12.3,
+        11.5
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 1.6,
+      "width_m": 1.6,
+      "window": [
+        10.668629150101525,
+        9.868629150101524,
+        13.931370849898476,
+        13.131370849898476
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 368,
+          "after": 368
+        },
+        "h_0.10_0.15": {
+          "before": 90,
+          "after": 90
+        },
+        "h_0.15_0.50": {
+          "before": 758,
+          "after": 758
+        },
+        "h_0.50_1.20": {
+          "before": 7785,
+          "after": 7785
+        }
+      },
+      "vertical_members_found": 5,
+      "sweeper_before": {
+        "supports_in_window": 2264,
+        "supports_in_footprint": 782,
+        "window_occupied_frac": 0.3958394032981761,
+        "projection_kept": 2264
+      },
+      "sweeper_after": {
+        "supports_in_window": 1881,
+        "supports_in_footprint": 767,
+        "window_occupied_frac": 0.17627177903385582,
+        "projection_kept": 1881
+      },
+      "cylinder_before": {
+        "supports_in_window": 54566,
+        "supports_in_footprint": 25840,
+        "window_occupied_frac": 0.4366295670415477,
+        "projection_kept": 54566
+      },
+      "cylinder_after": {
+        "supports_in_window": 54123,
+        "supports_in_footprint": 25825,
+        "window_occupied_frac": 0.21770293106462327,
+        "projection_kept": 54123
+      },
+      "members": [
+        {
+          "xy": [
+            12.662,
+            12.091
+          ],
+          "cells": 49,
+          "radius": 0.539,
+          "sweeper_before_occupied_frac_in_disc": 0.3653,
+          "sweeper_before_supports_in_disc": 265,
+          "sweeper_after_occupied_frac_in_disc": 0.2784,
+          "sweeper_after_supports_in_disc": 251,
+          "cylinder_before_occupied_frac_in_disc": 0.4583,
+          "cylinder_before_supports_in_disc": 7969,
+          "cylinder_after_occupied_frac_in_disc": 0.3748,
+          "cylinder_after_supports_in_disc": 7955
+        },
+        {
+          "xy": [
+            11.729,
+            11.701
+          ],
+          "cells": 39,
+          "radius": 0.68,
+          "sweeper_before_occupied_frac_in_disc": 0.2707,
+          "sweeper_before_supports_in_disc": 198,
+          "sweeper_after_occupied_frac_in_disc": 0.2299,
+          "sweeper_after_supports_in_disc": 189,
+          "cylinder_before_occupied_frac_in_disc": 0.3666,
+          "cylinder_before_supports_in_disc": 1962,
+          "cylinder_after_occupied_frac_in_disc": 0.3257,
+          "cylinder_after_supports_in_disc": 1953
+        },
+        {
+          "xy": [
+            12.951,
+            11.42
+          ],
+          "cells": 38,
+          "radius": 0.404,
+          "sweeper_before_occupied_frac_in_disc": 0.4927,
+          "sweeper_before_supports_in_disc": 263,
+          "sweeper_after_occupied_frac_in_disc": 0.2963,
+          "sweeper_after_supports_in_disc": 246,
+          "cylinder_before_occupied_frac_in_disc": 0.578,
+          "cylinder_before_supports_in_disc": 9850,
+          "cylinder_after_occupied_frac_in_disc": 0.3854,
+          "cylinder_after_supports_in_disc": 9833
+        },
+        {
+          "xy": [
+            11.692,
+            10.785
+          ],
+          "cells": 13,
+          "radius": 0.239,
+          "sweeper_before_occupied_frac_in_disc": 0.7003,
+          "sweeper_before_supports_in_disc": 113,
+          "sweeper_after_occupied_frac_in_disc": 0.7003,
+          "sweeper_after_supports_in_disc": 113,
+          "cylinder_before_occupied_frac_in_disc": 0.8641,
+          "cylinder_before_supports_in_disc": 3168,
+          "cylinder_after_occupied_frac_in_disc": 0.8641,
+          "cylinder_after_supports_in_disc": 3168
+        },
+        {
+          "xy": [
+            12.7,
+            10.875
+          ],
+          "cells": 8,
+          "radius": 0.233,
+          "sweeper_before_occupied_frac_in_disc": 0.6667,
+          "sweeper_before_supports_in_disc": 161,
+          "sweeper_after_occupied_frac_in_disc": 0.6227,
+          "sweeper_after_supports_in_disc": 161,
+          "cylinder_before_occupied_frac_in_disc": 0.8571,
+          "cylinder_before_supports_in_disc": 5840,
+          "cylinder_after_occupied_frac_in_disc": 0.8132,
+          "cylinder_after_supports_in_disc": 5840
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 197,
+        "after": 197
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 7.70072865486145
+    },
+    "plinth_NW": {
+      "centre": [
+        2.2,
+        16.5
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 1.6,
+      "width_m": 1.6,
+      "window": [
+        0.5686291501015239,
+        14.868629150101524,
+        3.8313708498984766,
+        18.131370849898477
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 103,
+          "after": 103
+        },
+        "h_0.10_0.15": {
+          "before": 50,
+          "after": 50
+        },
+        "h_0.15_0.50": {
+          "before": 470,
+          "after": 470
+        },
+        "h_0.50_1.20": {
+          "before": 10052,
+          "after": 10052
+        }
+      },
+      "vertical_members_found": 7,
+      "sweeper_before": {
+        "supports_in_window": 1406,
+        "supports_in_footprint": 318,
+        "window_occupied_frac": 0.23407726822446245,
+        "projection_kept": 1406
+      },
+      "sweeper_after": {
+        "supports_in_window": 1347,
+        "supports_in_footprint": 317,
+        "window_occupied_frac": 0.19818192413029545,
+        "projection_kept": 1347
+      },
+      "cylinder_before": {
+        "supports_in_window": 92330,
+        "supports_in_footprint": 29243,
+        "window_occupied_frac": 0.40020977798496593,
+        "projection_kept": 92330
+      },
+      "cylinder_after": {
+        "supports_in_window": 92265,
+        "supports_in_footprint": 29242,
+        "window_occupied_frac": 0.36460579220325157,
+        "projection_kept": 92265
+      },
+      "members": [
+        {
+          "xy": [
+            2.759,
+            16.261
+          ],
+          "cells": 39,
+          "radius": 0.64,
+          "sweeper_before_occupied_frac_in_disc": 0.2639,
+          "sweeper_before_supports_in_disc": 207,
+          "sweeper_after_occupied_frac_in_disc": 0.2484,
+          "sweeper_after_supports_in_disc": 206,
+          "cylinder_before_occupied_frac_in_disc": 0.3964,
+          "cylinder_before_supports_in_disc": 4956,
+          "cylinder_after_occupied_frac_in_disc": 0.3809,
+          "cylinder_after_supports_in_disc": 4955
+        },
+        {
+          "xy": [
+            1.992,
+            17.164
+          ],
+          "cells": 10,
+          "radius": 0.233,
+          "sweeper_before_occupied_frac_in_disc": 0.5858,
+          "sweeper_before_supports_in_disc": 55,
+          "sweeper_after_occupied_frac_in_disc": 0.5858,
+          "sweeper_after_supports_in_disc": 55,
+          "cylinder_before_occupied_frac_in_disc": 0.8694,
+          "cylinder_before_supports_in_disc": 3424,
+          "cylinder_after_occupied_frac_in_disc": 0.8694,
+          "cylinder_after_supports_in_disc": 3424
+        },
+        {
+          "xy": [
+            2.55,
+            16.84
+          ],
+          "cells": 8,
+          "radius": 0.265,
+          "sweeper_before_occupied_frac_in_disc": 0.3541,
+          "sweeper_before_supports_in_disc": 52,
+          "sweeper_after_occupied_frac_in_disc": 0.3541,
+          "sweeper_after_supports_in_disc": 52,
+          "cylinder_before_occupied_frac_in_disc": 0.864,
+          "cylinder_before_supports_in_disc": 1594,
+          "cylinder_after_occupied_frac_in_disc": 0.864,
+          "cylinder_after_supports_in_disc": 1594
+        },
+        {
+          "xy": [
+            1.62,
+            16.44
+          ],
+          "cells": 2,
+          "radius": 0.097,
+          "sweeper_before_occupied_frac_in_disc": 0.9388,
+          "sweeper_before_supports_in_disc": 6,
+          "sweeper_after_occupied_frac_in_disc": 0.9388,
+          "sweeper_after_supports_in_disc": 6,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 2240,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 2240
+        },
+        {
+          "xy": [
+            1.42,
+            16.12
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 2,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 2,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 1618,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 1618
+        },
+        {
+          "xy": [
+            1.7,
+            16.64
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 3,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 3,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 178,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 178
+        },
+        {
+          "xy": [
+            1.82,
+            16.96
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.875,
+          "sweeper_before_supports_in_disc": 1,
+          "sweeper_after_occupied_frac_in_disc": 0.875,
+          "sweeper_after_supports_in_disc": 1,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 705,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 705
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 37,
+        "after": 37
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 11.054524660110474
+    },
+    "reception_counter": {
+      "centre": [
+        -0.2,
+        1.25
+      ],
+      "long_axis_deg": 0.0,
+      "length_m": 4.0,
+      "width_m": 4.0,
+      "window": [
+        -3.5284271247461905,
+        -2.0784271247461903,
+        3.12842712474619,
+        4.57842712474619
+      ],
+      "member_bins": [
+        [
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ],
+        [
+          0.5,
+          0.7
+        ]
+      ],
+      "opaque_splats_in_footprint": {
+        "h_0.02_0.10": {
+          "before": 276,
+          "after": 276
+        },
+        "h_0.10_0.15": {
+          "before": 218,
+          "after": 218
+        },
+        "h_0.15_0.50": {
+          "before": 2250,
+          "after": 2250
+        },
+        "h_0.50_1.20": {
+          "before": 8532,
+          "after": 8532
+        }
+      },
+      "vertical_members_found": 12,
+      "sweeper_before": {
+        "supports_in_window": 1374,
+        "supports_in_footprint": 789,
+        "window_occupied_frac": 0.18171106341791862,
+        "projection_kept": 1374
+      },
+      "sweeper_after": {
+        "supports_in_window": 1304,
+        "supports_in_footprint": 760,
+        "window_occupied_frac": 0.16814655837506487,
+        "projection_kept": 1304
+      },
+      "cylinder_before": {
+        "supports_in_window": 36811,
+        "supports_in_footprint": 15814,
+        "window_occupied_frac": 0.3475992088541009,
+        "projection_kept": 36811
+      },
+      "cylinder_after": {
+        "supports_in_window": 36734,
+        "supports_in_footprint": 15785,
+        "window_occupied_frac": 0.3340487312208055,
+        "projection_kept": 36734
+      },
+      "members": [
+        {
+          "xy": [
+            -0.093,
+            0.618
+          ],
+          "cells": 197,
+          "radius": 1.74,
+          "sweeper_before_occupied_frac_in_disc": 0.2283,
+          "sweeper_before_supports_in_disc": 696,
+          "sweeper_after_occupied_frac_in_disc": 0.208,
+          "sweeper_after_supports_in_disc": 669,
+          "cylinder_before_occupied_frac_in_disc": 0.4883,
+          "cylinder_before_supports_in_disc": 13371,
+          "cylinder_after_occupied_frac_in_disc": 0.468,
+          "cylinder_after_supports_in_disc": 13344
+        },
+        {
+          "xy": [
+            1.54,
+            -0.317
+          ],
+          "cells": 12,
+          "radius": 0.23,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 17,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 17,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 697,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 697
+        },
+        {
+          "xy": [
+            1.666,
+            0.127
+          ],
+          "cells": 7,
+          "radius": 0.22,
+          "sweeper_before_occupied_frac_in_disc": 0.8058,
+          "sweeper_before_supports_in_disc": 9,
+          "sweeper_after_occupied_frac_in_disc": 0.8058,
+          "sweeper_after_supports_in_disc": 9,
+          "cylinder_before_occupied_frac_in_disc": 0.876,
+          "cylinder_before_supports_in_disc": 664,
+          "cylinder_after_occupied_frac_in_disc": 0.876,
+          "cylinder_after_supports_in_disc": 664
+        },
+        {
+          "xy": [
+            -1.433,
+            0.503
+          ],
+          "cells": 6,
+          "radius": 0.103,
+          "sweeper_before_occupied_frac_in_disc": 0.463,
+          "sweeper_before_supports_in_disc": 18,
+          "sweeper_after_occupied_frac_in_disc": 0.463,
+          "sweeper_after_supports_in_disc": 18,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 164,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 164
+        },
+        {
+          "xy": [
+            -1.95,
+            0.57
+          ],
+          "cells": 4,
+          "radius": 0.094,
+          "sweeper_before_occupied_frac_in_disc": 0.5106,
+          "sweeper_before_supports_in_disc": 15,
+          "sweeper_after_occupied_frac_in_disc": 0.5106,
+          "sweeper_after_supports_in_disc": 15,
+          "cylinder_before_occupied_frac_in_disc": 0.8723,
+          "cylinder_before_supports_in_disc": 76,
+          "cylinder_after_occupied_frac_in_disc": 0.8723,
+          "cylinder_after_supports_in_disc": 76
+        },
+        {
+          "xy": [
+            -0.33,
+            3.0
+          ],
+          "cells": 4,
+          "radius": 0.091,
+          "sweeper_before_occupied_frac_in_disc": 0.5854,
+          "sweeper_before_supports_in_disc": 16,
+          "sweeper_after_occupied_frac_in_disc": 0.5854,
+          "sweeper_after_supports_in_disc": 16,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 167,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 167
+        },
+        {
+          "xy": [
+            -0.247,
+            2.59
+          ],
+          "cells": 3,
+          "radius": 0.088,
+          "sweeper_before_occupied_frac_in_disc": 0.9231,
+          "sweeper_before_supports_in_disc": 6,
+          "sweeper_after_occupied_frac_in_disc": 0.9231,
+          "sweeper_after_supports_in_disc": 6,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 48,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 48
+        },
+        {
+          "xy": [
+            -1.6,
+            0.43
+          ],
+          "cells": 2,
+          "radius": 0.06,
+          "sweeper_before_occupied_frac_in_disc": 0.7222,
+          "sweeper_before_supports_in_disc": 6,
+          "sweeper_after_occupied_frac_in_disc": 0.7222,
+          "sweeper_after_supports_in_disc": 6,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 100,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 100
+        },
+        {
+          "xy": [
+            -1.94,
+            0.27
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 0.75,
+          "sweeper_before_supports_in_disc": 0,
+          "sweeper_after_occupied_frac_in_disc": 0.75,
+          "sweeper_after_supports_in_disc": 0,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 32,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 32
+        },
+        {
+          "xy": [
+            -0.98,
+            -0.73
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 4,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 4,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 68,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 68
+        },
+        {
+          "xy": [
+            -0.3,
+            2.79
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 1,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 1,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 10,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 10
+        },
+        {
+          "xy": [
+            -0.26,
+            2.43
+          ],
+          "cells": 1,
+          "radius": 0.04,
+          "sweeper_before_occupied_frac_in_disc": 1.0,
+          "sweeper_before_supports_in_disc": 3,
+          "sweeper_after_occupied_frac_in_disc": 1.0,
+          "sweeper_after_supports_in_disc": 3,
+          "cylinder_before_occupied_frac_in_disc": 1.0,
+          "cylinder_before_supports_in_disc": 14,
+          "cylinder_after_occupied_frac_in_disc": 1.0,
+          "cylinder_after_supports_in_disc": 14
+        }
+      ],
+      "member_cell_sweeper_band_splats": {
+        "before": 135,
+        "after": 135
+      },
+      "gate": {
+        "no_mass_lost_above_0.10m": true,
+        "member_cells_identical": true,
+        "no_member_sweeper_band_splat_lost": true,
+        "every_member_still_blocks_the_sweeper": true,
+        "pass": true
+      },
+      "disc_occupied_fraction_is_information_not_a_gate": "a member disc includes the floor around the member; dust removed there is the point of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.",
+      "seconds": 6.659998893737793
+    }
+  },
+  "seconds": 107.16147899627686
+}
