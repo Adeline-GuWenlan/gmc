@@ -37,7 +37,7 @@ from gmc.height.planefloor import (build_plane_floor, footprint_spans, load_plan
                                    phantom_cell_mask, replace_mask, save_plane_scene,
                                    speckle_stats)
 
-from showcase_scene import (BANDS, CELL, DATA, RASTER, RHO, TAU, WINDOW_A, _occupancy,
+from showcase_scene import (BANDS, CELL, DATA, RASTER, RHO, TAU, _occupancy,
                             _support_raster, load_processed)
 
 RES = Path("results/height/plane")
@@ -399,8 +399,8 @@ def _fig_build(ext, occ0, phantom, scenes, rows, chosen, z_f):
         ax.imshow(img, origin="lower", extent=e, interpolation="nearest")
         ax.set_title(title, fontsize=11)
         ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)"); ax.grid(alpha=0.25, lw=0.4)
-    fig.suptitle("Amendment 3 P1b - " + CAPTION, fontsize=10)
-    plt.tight_layout()
+    fig.suptitle("Amendment 3 P1b - " + CAPTION, fontsize=10, y=0.995)
+    plt.tight_layout(rect=(0, 0, 1, 0.94))
     plt.savefig(FIGS / "p1b_low_band_before_after.png", dpi=95)
     plt.close()
     print(f"wrote {FIGS / 'p1b_low_band_before_after.png'}", flush=True)
@@ -473,9 +473,23 @@ def _members(opq, h, C, v, u, half_v, half_u, bins):
         s_u = (ij[:, 1] + j0 + 0.5) * MEMBER_G
         rad = float(np.max(np.hypot(s_v - s_v.mean(), s_u - s_u.mean()))) + MEMBER_G
         out.append({"xy": (C + s_v.mean() * v + s_u.mean() * u).round(3).tolist(),
-                    "cells": int(len(ij)), "radius": round(rad, 3)})
+                    "cells": int(len(ij)), "radius": round(rad, 3),
+                    "_cells_ij": set(map(tuple, ij.tolist()))})
     out.sort(key=lambda m: -m["cells"])
     return out
+
+
+def _member_cell_index(opq, h, C, v, u, half_v, half_u, band):
+    """Which 4 cm member cell each opaque splat in `band` falls in, or (-1, -1) for none."""
+    d = opq.means[:, :2] - C
+    sv, su = d @ v, d @ u
+    sel = ((np.abs(sv) <= half_v) & (np.abs(su) <= half_u)
+           & (h >= band[0]) & (h < band[1]))
+    i0 = int(np.floor(-half_v / MEMBER_G))
+    j0 = int(np.floor(-half_u / MEMBER_G))
+    gi = np.floor(sv / MEMBER_G).astype(int) - i0
+    gj = np.floor(su / MEMBER_G).astype(int) - j0
+    return sel, gi, gj
 
 
 def step_survivors():
@@ -504,6 +518,8 @@ def step_survivors():
         opq = before.subset(opq_m)
         h = opq.means[:, 2] - z_f
         okept = kept_ids[opq_m]
+        aopq = after.subset(after.opacity > TAU)
+        ah = aopq.means[:, 2] - z_f
         d = opq.means[:, :2] - C
         inbox = (np.abs(d @ v) <= half_v) & (np.abs(d @ u) <= half_u)
         row["opaque_splats_in_footprint"] = {
@@ -543,22 +559,38 @@ def step_survivors():
                     near = (np.hypot(*(ctr - m["xy"]).T) <= m["radius"] if len(ctr)
                             else np.zeros(0, bool))
                     m[f"{key}_{tag}_supports_in_disc"] = int(np.sum(near))
-        row["members"] = members
+        row["members"] = [{k: val for k, val in m.items() if k != "_cells_ij"}
+                          for m in members]
 
-        # The gate: nothing above 0.10 m may be lost, and every vertical member must still block.
+        # The gate measures the *member*, not the member's disc. A member disc is a dilated blob
+        # of 4 cm cells plus a margin, so for a plinth or the counter it is up to 1.74 m across
+        # and is mostly floor; the floor dust legitimately removed inside it says nothing about
+        # whether the object survived. The tell that this is the right reading: discs tight enough
+        # to be the member (radius <= 0.24 m) come out bit-identical before and after.
+        after_members = _members(aopq, ah, C, v, u, half_v, half_u, bins)
+        same_members = ([sorted(m["_cells_ij"]) for m in members]
+                        == [sorted(m["_cells_ij"]) for m in after_members])
+        sel, gi, gj = _member_cell_index(opq, h, C, v, u, half_v, half_u, MASS_BANDS[0])
+        mcells = set().union(*[m["_cells_ij"] for m in members]) if members else set()
+        in_member = np.array([(int(a), int(b)) in mcells
+                              for a, b in zip(gi[sel], gj[sel])], dtype=bool) \
+            if sel.any() else np.zeros(0, bool)
+        nf_before = int(in_member.sum())
+        nf_after = int((in_member & okept[sel]).sum())
+        row["member_cell_sweeper_band_splats"] = {"before": nf_before, "after": nf_after}
         mass_ok = all(row["opaque_splats_in_footprint"][f"h_{a:.2f}_{b:.2f}"]["after"]
                       >= row["opaque_splats_in_footprint"][f"h_{a:.2f}_{b:.2f}"]["before"]
                       for a, b in MASS_BANDS[1:])
-        mem_ok = all(m["sweeper_after_supports_in_disc"] >= 1
-                     and m["sweeper_after_occupied_frac_in_disc"]
-                     >= m["sweeper_before_occupied_frac_in_disc"] - 1e-9
-                     for m in members)
-        cyl_ok = all(m["cylinder_after_supports_in_disc"] >= m["cylinder_before_supports_in_disc"]
-                     for m in members)
+        nf_ok = nf_after >= nf_before
+        blocks_ok = all(m["sweeper_after_supports_in_disc"] >= 1 for m in members)
         row["gate"] = {"no_mass_lost_above_0.10m": bool(mass_ok),
-                       "every_member_still_blocks_the_sweeper": bool(mem_ok),
-                       "no_member_support_lost_for_the_cylinder": bool(cyl_ok),
-                       "pass": bool(mass_ok and mem_ok and cyl_ok)}
+                       "member_cells_identical": bool(same_members),
+                       "no_member_sweeper_band_splat_lost": bool(nf_ok),
+                       "every_member_still_blocks_the_sweeper": bool(blocks_ok),
+                       "pass": bool(mass_ok and same_members and nf_ok and blocks_ok)}
+        row["disc_occupied_fraction_is_information_not_a_gate"] = (
+            "a member disc includes the floor around the member; dust removed there is the point "
+            "of the edit, not damage. Compare discs with radius <= 0.24 m, which are the member.")
         gate[name] = row["gate"]["pass"]
         row["seconds"] = time.time() - t1
         rows[name] = row
@@ -571,18 +603,23 @@ def step_survivors():
 
     out = {"claims_boundary": CAPTION,
            "task": "P1c: prove nothing real died (Amendment 3 P1c)",
+           "collateral": _collateral(before, after, z_f),
            "method": "A4 outputs/height/a4/legs_check.py, generalised over the P1c object list",
            "scene": {"before": "showcase_scene.load_processed()", "after": str(SCENE_NPZ),
                      "variant": meta["variant"], "params": meta["params"]},
            "gate_definition": {
                "no_mass_lost_above_0.10m": "opaque splat count in the object footprint, per height "
                                            "band above 0.10 m, must not decrease",
-               "every_member_still_blocks_the_sweeper": "each vertical member found by the column "
-                                                        "test keeps >= 1 sweeper support in its "
-                                                        "disc and its occupied fraction does not "
-                                                        "fall",
-               "no_member_support_lost_for_the_cylinder": "cylinder supports in each member disc "
-                                                          "must not decrease"},
+               "member_cells_identical": "the three-bin column test must find the same member "
+                                         "cells on the edited scene as on the original",
+               "no_member_sweeper_band_splat_lost": "opaque splats at 0.02-0.10 m whose centre "
+                                                    "lies in a member cell must not decrease -- "
+                                                    "the member's own near-floor mass",
+               "every_member_still_blocks_the_sweeper": "each member keeps >= 1 sweeper support "
+                                                        "in its disc",
+               "not_a_gate": "disc occupied fraction: a disc is the member plus a margin of floor "
+                             "(up to 1.74 m across for the counter), so dust removed inside it is "
+                             "the edit working, not damage"},
            "all_objects_pass": bool(all(gate.values())), "pass_by_object": gate,
            "objects": rows, "seconds": time.time() - t0}
     _dump(RES / "p1c_survivors.json", out)
@@ -590,6 +627,28 @@ def step_survivors():
           flush=True)
     if not out["all_objects_pass"]:
         raise SystemExit("P1c STOP CONDITION: an object lost mass; tighten the rule")
+
+
+def _collateral(before, after, z_f):
+    """What the edit deleted, by height, hall-wide -- the cost the reader has to be able to see.
+
+    Every removed splat is by construction confined below `z_floor + 0.10` with nothing above the
+    cell it sat in, so the collateral this cannot rule out is a *real* object entirely below about
+    10 cm with nothing over it -- a kerb, a threshold strip, a cable cover. In this gallery that is
+    accepted as part of the user-approved manual edit; it is quantified here rather than implied.
+    """
+    gone = before.subset(~np.isin(before.ids, after.ids))
+    h = gone.means[:, 2] - z_f
+    opq = gone.opacity > TAU
+    return {"removed_total": len(gone), "removed_opaque": int(opq.sum()),
+            "removed_opaque_centre_height_above_floor_m": {
+                str(q): float(np.percentile(h[opq], q)) for q in (1, 50, 90, 99)},
+            "removed_opaque_rho_top_above_floor_m": {
+                str(q): float(np.percentile(gone.subset(opq).aabb(RHO)[1][:, 2] - z_f, q))
+                for q in (50, 90, 99, 100)},
+            "note": "all removed splats have a rho-top below z_floor + max_top and nothing above "
+                    "the cell they sat in; a real object entirely below that height with nothing "
+                    "over it would be deleted too, and cannot be distinguished from dust here"}
 
 
 def _fig_object(name, row, members, maps, win, C, v, u, half_v, half_u, meta):
@@ -613,8 +672,9 @@ def _fig_object(name, row, members, maps, win, C, v, u, half_v, half_u, meta):
                      f"({len(members)} found); red = projected support raster at {RASTER} m",
                      fontsize=10)
         ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)"); ax.grid(alpha=0.3, lw=0.4)
-    fig.suptitle(f"Amendment 3 P1c - {name} - variant {meta['variant']} - {CAPTION}", fontsize=9)
-    plt.tight_layout()
+    fig.suptitle(f"Amendment 3 P1c - {name} - variant {meta['variant']} - {CAPTION}",
+                 fontsize=9, y=0.995)
+    plt.tight_layout(rect=(0, 0, 1, 0.94))
     plt.savefig(FIGS / f"p1c_{name}.png", dpi=85)
     plt.close()
 

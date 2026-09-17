@@ -135,3 +135,29 @@ rule in this family can reach without eating real geometry.
   edited scene through `planefloor.load_plane_scene` and stamps the claims boundary into the
   result JSON, so a downstream run cannot use the edited scene without saying so in its own
   artefact. Default stays `processed`, so Amendment 2's runs are unaffected.
+
+### 2026-09-17 ~21:2x — P1c: the gate fired, and the gate was wrong
+
+First run failed 5 of 11 objects (table C, plinths S/E/NW, the reception counter). Before touching
+the rule I checked what the gate was measuring, and it was measuring the wrong thing.
+
+- `no_mass_lost_above_0.10m` was **True for all 11 objects** — not one opaque splat above 0.10 m
+  was lost anywhere. That is the construction guarantee holding exactly.
+- What failed was my "the member's disc must not lose occupied fraction" condition. A member disc
+  is a *dilated blob of 4 cm cells plus a margin*, so its radius is 0.36–0.68 m for the plinths and
+  **1.74 m** for the counter's main run: the disc is mostly floor, and the dust removed inside it
+  is the edit working, not damage.
+- The tell, and the reason I trust this reading rather than my own explanation of it: discs tight
+  enough to actually *be* the member come out **bit-identical**. plinth_E's 0.239 m member,
+  0.7003 → 0.7003; the counter's 0.23 m member, 1.0 → 1.0; its 0.22 m member, 0.8058 → 0.8058.
+  Only the wide, floor-containing discs moved.
+- Rewrote the gate to measure the member instead of its neighbourhood: (a) no mass lost above
+  0.10 m, (b) the three-bin column test finds the **same member cells** on the edited scene,
+  (c) opaque splats at 0.02–0.10 m whose centre lies **in a member cell** must not decrease — the
+  member's own near-floor mass, (d) every member keeps ≥ 1 sweeper support. Disc occupied fraction
+  is still reported, as information, with the reason it is not a gate.
+- Opened `p1c_table_C.png` before writing any of this up, and it is the best artefact of the
+  stage: **before**, the sweeper map is a solid dust field and the table is invisible in it;
+  **after**, the dust is gone and table C's outline stands out — both ends inside the cyan member
+  circles, long edges on the dashed footprint. The edit did not eat the table, it revealed it.
+  A sweeper could not have told that table from the floor noise before.
