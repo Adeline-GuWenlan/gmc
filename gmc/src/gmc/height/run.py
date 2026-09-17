@@ -15,6 +15,7 @@ from ..spatial.bvh import query_candidate_pairs
 from ..types import Pose2
 from ..verification.path import verify_curve
 from .pathio import curve_to_dict, save_path_json
+from .timing import StageTimer
 
 
 def with_overrides(cfg, *, initial_intervals=None, max_depth=None,
@@ -38,25 +39,45 @@ def _pose(v):
     return Pose2(np.asarray(v[:2], dtype=float), float(v[2]))
 
 
-def compile_and_query(scene2d, robot, cfg, start, goal, *, out_dir=None):
+def compile_and_query(scene2d, robot, cfg, start, goal, *, out_dir=None, timer=None):
+    """Compile and query one projected map.
+
+    ``timer`` is an optional :class:`gmc.height.timing.StageTimer` (Amendment 3 P1e). It adds the
+    ``compile_pairs`` / ``compile_slabs`` / ``compile_mobility`` / ``query`` / ``verify_curve``
+    records and a ``timing`` block in the result; ``compile_seconds`` and ``query_seconds`` keep
+    the meaning they have always had, measured over the same intervals as before.
+    """
     body = robot.footprint
     ledger = WorkLedger()
+    tm = timer if timer is not None else StageTimer()
     t0 = time.time()
-    oracles = list(query_candidate_pairs(scene2d, body, scene2d.workspace).oracles)
+    with tm.stage("compile_pairs", n_supports=len(scene2d.supports)) as rec:
+        oracles = list(query_candidate_pairs(scene2d, body, scene2d.workspace).oracles)
+        rec["sizes"]["n_pairs"] = len(oracles)
     for o in oracles:
         o.ledger = ledger
-    dec = build_slabs(scene2d, body, cfg, oracles, ledger=ledger)
-    mc = compile_mobility(scene2d, body, cfg, oracles, dec, ledger=ledger)
+    with tm.stage("compile_slabs", n_supports=len(scene2d.supports),
+                  n_pairs=len(oracles)) as rec:
+        dec = build_slabs(scene2d, body, cfg, oracles, ledger=ledger)
+        rec["sizes"]["n_slabs"] = len(dec.slabs)
+    with tm.stage("compile_mobility", n_supports=len(scene2d.supports), n_pairs=len(oracles),
+                  n_slabs=len(dec.slabs)):
+        mc = compile_mobility(scene2d, body, cfg, oracles, dec, ledger=ledger)
     compile_s = time.time() - t0
     s, g = _pose(start), _pose(goal)
     t1 = time.time()
-    result = query(s, g, mc)
+    with tm.stage("query", n_slabs=len(dec.slabs), n_safe_nodes=mc.M_safe.number_of_nodes(),
+                  n_safe_edges=mc.M_safe.number_of_edges()) as rec:
+        result = query(s, g, mc)
+        rec["sizes"]["status"] = result.status.name
     query_s = time.time() - t1
     verify = {"ran": False}
     if result.curve is not None:
-        rep = verify_curve(tuple(oracles), scene2d.workspace, result.curve,
-                           cfg.query.eps_clear, cfg.orientation.theta_min,
-                           expected_start=s, expected_goal=g)
+        with tm.stage("verify_curve", n_pairs=len(oracles),
+                      n_segments=len(result.curve.segments)):
+            rep = verify_curve(tuple(oracles), scene2d.workspace, result.curve,
+                               cfg.query.eps_clear, cfg.orientation.theta_min,
+                               expected_start=s, expected_goal=g)
         verify = {"ran": True, "certified": bool(rep.certified),
                   "min_clearance": float(rep.min_clearance), "reason": rep.reason}
     res = {"status": result.status.name,
@@ -72,6 +93,8 @@ def compile_and_query(scene2d, robot, cfg, start, goal, *, out_dir=None):
            "verify": verify,
            "curve": curve_to_dict(result.curve) if result.curve is not None else None,
            "start": list(map(float, start)), "goal": list(map(float, goal))}
+    if timer is not None:
+        res["timing"] = timer.to_dict()
     if out_dir is not None:
         out = Path(out_dir)
         out.mkdir(parents=True, exist_ok=True)

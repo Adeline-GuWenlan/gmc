@@ -117,3 +117,21 @@ rule in this family can reach without eating real geometry.
   +0.075 m about `z_floor`, so **276 of 1014 tiles** are clamped off the fitted plane, the worst
   by **6.9 cm**. In the high quarter of the hall the rendered ground now sits up to 6.9 cm below
   where the reconstruction put the floor. Rendering artefact only — it cannot reach a robot band.
+
+### 2026-09-17 ~21:0x — P1e, the timing module
+
+- `gmc/src/gmc/height/timing.py`: `StageTimer` with the nine stages P1e names, closed list (an
+  unknown name raises — a typo like `compile_paris` would otherwise become a silent tenth stage
+  that P4 aggregates on its own and nobody notices). Every record carries its **input sizes**,
+  because a stage measured without them is one P4 can say nothing about; `stage()` yields the
+  record so a size only known after the work can be added to it (`project`'s support count).
+  Repeats are labelled (`project` runs once per robot) and still sum in `by_stage`.
+- Threaded through `height/run.py` (`compile_pairs` / `compile_slabs` / `compile_mobility` /
+  `query` / `verify_curve`) and `experiments/showcase_run.py` (`scene_load`, `project`,
+  `replay3d`). **No read-only module touched** — the sub-stages wrap calls `run.py` already made.
+- `compile_seconds` and `query_seconds` are measured over exactly the same intervals as before and
+  a caller that passes no timer gets a byte-identical result dict; there is a test for each.
+- `showcase_run.py` also gains `--scene planefloor`, which is the P1→P2 hand-off: it loads the
+  edited scene through `planefloor.load_plane_scene` and stamps the claims boundary into the
+  result JSON, so a downstream run cannot use the edited scene without saying so in its own
+  artefact. Default stays `processed`, so Amendment 2's runs are unaffected.

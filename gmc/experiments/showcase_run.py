@@ -16,11 +16,16 @@ from gmc.height.prism import robot_table
 from gmc.height.project import project_scene
 from gmc.height.replay3d import replay_curve
 from gmc.height.run import compile_and_query, with_overrides
+from gmc.height.timing import StageTimer
 from showcase_scene import RES, load_processed
 
 RAW = Path("/scratch/wg2381/splathjb/gmc/outputs/height/showcase")
+PLANE_SCENE = Path("/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz")
 PROBE_HALF = 1.0          # probe window: 2 m x 2 m around the overhang midpoint
 ABORT_HOURS = 20.0
+CLAIMS_PLANEFLOOR = ("plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a "
+                     "reconstruction method and not a guaranteed outer approximation; results "
+                     "are sound with respect to the edited scene only")
 
 
 def main():
@@ -32,10 +37,22 @@ def main():
     ap.add_argument("--case", default=str(RES / "case.json"))
     ap.add_argument("--out-dir", default=str(RES), help="directory for <name>.json")
     ap.add_argument("--raw-subdir", default="", help="subdirectory of RAW for GMC's own output")
+    ap.add_argument("--scene", default="processed", choices=["processed", "planefloor"],
+                    help="'planefloor' loads the Amendment 3 P1b plane-floor scene "
+                         "(a USER-APPROVED MANUAL SCENE EDIT, see docs/worklog/height_planefloor.md)")
     a = ap.parse_args()
     name = a.robot + ("" if a.tau == 0.3 else f"_tau{a.tau:g}") + ("" if a.budget_scale == 1 else f"_b{a.budget_scale}")
     case = json.loads(Path(a.case).read_text())
-    scene3d, g0 = load_processed()
+    timer = StageTimer()
+    with timer.stage("scene_load", scene=a.scene) as rec:
+        if a.scene == "planefloor":
+            from gmc.height.planefloor import load_plane_scene
+            scene3d, meta = load_plane_scene(PLANE_SCENE)
+            g0 = {"floor": meta["floor"], "ceiling_height_m": meta["ceiling_height_m"],
+                  "gravity_rotation": meta["gravity_rotation"], "planefloor": meta}
+        else:
+            scene3d, g0 = load_processed()
+        rec["sizes"]["n_splats"] = len(scene3d)
     robot = robot_table(case["z_c"])[a.robot]
     cfg = load_config("configs/height_showcase.yaml")
     k = a.budget_scale
@@ -43,8 +60,16 @@ def main():
         cfg = with_overrides(cfg, max_refinement_rounds=cfg.query.max_refinement_rounds * k,
                              max_wall_seconds=cfg.query.max_wall_seconds * k,
                              max_support_calls=cfg.query.max_support_calls * k)
-    out = {"robot": a.robot, "tau": a.tau, "budget_scale": k, "case_file": a.case, "case": case}
-    s2, stats = project_scene(scene3d, robot, case["window"], z_floor=case["z_floor"], tau=a.tau)
+    out = {"robot": a.robot, "tau": a.tau, "budget_scale": k, "case_file": a.case, "case": case,
+           "scene": a.scene}
+    if a.scene == "planefloor":
+        out["claims_boundary"] = CLAIMS_PLANEFLOOR
+        out["planefloor"] = g0["planefloor"]
+    with timer.stage("project", label=a.robot, n_splats=len(scene3d),
+                     window=list(case["window"])) as rec:
+        s2, stats = project_scene(scene3d, robot, case["window"], z_floor=case["z_floor"],
+                                  tau=a.tau)
+        rec["sizes"]["n_supports"] = stats["kept"]
     out["projection"] = stats
     print("projection", json.dumps(stats), flush=True)
 
@@ -72,13 +97,17 @@ def main():
         out["result"] = out["replay3d"] = None
     else:
         res, _ = compile_and_query(s2, robot, cfg, case["start"], case["goal"],
-                                   out_dir=RAW / a.raw_subdir / name)
+                                   out_dir=RAW / a.raw_subdir / name, timer=timer)
         out["result"] = res
         out["replay3d"] = None
         if res["curve"] is not None:
-            out["replay3d"] = replay_curve(scene3d, robot, curve_from_dict(res["curve"]),
-                                           z_floor=case["z_floor"], tau=a.tau)
+            with timer.stage("replay3d", n_splats=len(scene3d),
+                             n_segments=len(curve_from_dict(res["curve"]).segments)):
+                out["replay3d"] = replay_curve(scene3d, robot, curve_from_dict(res["curve"]),
+                                               z_floor=case["z_floor"], tau=a.tau)
             res["replay3d"] = out["replay3d"]
+    out["timing"] = timer.to_dict()
+    print("timing " + json.dumps(out["timing"]["by_stage"]), flush=True)
     out_dir = Path(a.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{name}.json").write_text(json.dumps(out, indent=2, default=str))
