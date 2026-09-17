@@ -30,12 +30,15 @@ import numpy as np
 from scipy import ndimage
 
 from gmc.height.band_shadow import band_overlap_mask
+from gmc.height.prism import robot_table
+from gmc.height.project import project_scene
 from gmc.height.planefloor import (build_plane_floor, footprint_spans, load_plane_scene,
                                    monotone_toward_floor, open_floor_cell_mask,
                                    phantom_cell_mask, replace_mask, save_plane_scene,
                                    speckle_stats)
 
-from showcase_scene import BANDS, CELL, DATA, RHO, TAU, _occupancy, load_processed
+from showcase_scene import (BANDS, CELL, DATA, RASTER, RHO, TAU, WINDOW_A, _occupancy,
+                            _support_raster, load_processed)
 
 RES = Path("results/height/plane")
 FIGS = RES / "figs"
@@ -403,6 +406,219 @@ def _fig_build(ext, occ0, phantom, scenes, rows, chosen, z_f):
     print(f"wrote {FIGS / 'p1b_low_band_before_after.png'}", flush=True)
 
 
+# ----------------------------------------------------------------------------- P1c --
+
+# The objects P1c must prove survive, with the local frame each is checked in. Table frames are
+# the A4 `table_frames.py` 2-98 % extents quoted in percase_search_cylinder.TABLES; the rest are
+# that file's OBJECTS catalogue. `bins` are the three height bands the A4 column test uses to find
+# vertical members (legs, bench end supports): a 4 cm cell is a member iff it holds an opaque
+# splat centre in all three.
+P1C_OBJECTS = [
+    ("table_A", (8.96, 7.29), -22.9, 2.55, 0.72, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.68))),
+    ("table_B", (-0.45, 10.81), 60.9, 2.35, 0.93, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.68))),
+    ("table_C", (13.28, 14.09), -21.4, 1.74, 0.68, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.78))),
+    ("table_G", (3.35, 22.53), 31.5, 1.64, 0.62, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.68))),
+    ("SW_hall_bench", (2.1, 10.5), 0.0, 2.6, 2.6, ((0.10, 0.20), (0.20, 0.30), (0.30, 0.40))),
+    ("plinth_W", (-1.2, 9.0), 0.0, 1.6, 1.6, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+    ("plinth_SW", (3.8, 6.5), 0.0, 1.6, 1.6, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+    ("plinth_S", (8.8, 4.2), 0.0, 1.6, 1.6, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+    ("plinth_E", (12.3, 11.5), 0.0, 1.6, 1.6, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+    ("plinth_NW", (2.2, 16.5), 0.0, 1.6, 1.6, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+    ("reception_counter", (-0.2, 1.25), 0.0, 4.0, 4.0, ((0.10, 0.30), (0.30, 0.50), (0.50, 0.70))),
+]
+# Height bands each object's mass is counted in. The sweeper band is the one the edit can touch;
+# everything from 0.10 m up must come through untouched, and that is the actual gate.
+MASS_BANDS = ((0.02, 0.10), (0.10, 0.15), (0.15, 0.50), (0.50, 1.20))
+MEMBER_G = 0.04          # A4 column-test cell
+FINE = 0.01              # figure raster
+
+
+def _frame(angle_deg):
+    a = np.deg2rad(float(angle_deg))
+    v = np.array([np.cos(a), np.sin(a)])       # long axis
+    return v, np.array([-v[1], v[0]])
+
+
+def _crop_xy(scene, win, pad):
+    """Splats whose rho-AABB can reach `win` grown by `pad`; project_scene would drop the rest."""
+    lo, hi = scene.aabb(RHO)
+    m = ((hi[:, 0] >= win[0] - pad) & (lo[:, 0] <= win[2] + pad)
+         & (hi[:, 1] >= win[1] - pad) & (lo[:, 1] <= win[3] + pad))
+    return scene.subset(m)
+
+
+def _members(opq, h, C, v, u, half_v, half_u, bins):
+    """A4 legs_check.py: 4 cm cells holding an opaque splat centre in each of three height bins."""
+    d = opq.means[:, :2] - C
+    sv, su = d @ v, d @ u
+    box = (np.abs(sv) <= half_v) & (np.abs(su) <= half_u)
+    gi = np.floor(sv / MEMBER_G).astype(int)
+    gj = np.floor(su / MEMBER_G).astype(int)
+    i0 = int(np.floor(-half_v / MEMBER_G))
+    j0 = int(np.floor(-half_u / MEMBER_G))
+    shape = (int(2 * half_v / MEMBER_G) + 2, int(2 * half_u / MEMBER_G) + 2)
+    cols = None
+    for lo, hi in bins:
+        g = np.zeros(shape, bool)
+        m = box & (h >= lo) & (h < hi)
+        g[np.clip(gi[m] - i0, 0, shape[0] - 1), np.clip(gj[m] - j0, 0, shape[1] - 1)] = True
+        cols = g if cols is None else (cols & g)
+    lab, n = ndimage.label(ndimage.binary_dilation(cols, np.ones((2, 2))), np.ones((3, 3)))
+    out = []
+    for k in range(1, n + 1):
+        ij = np.argwhere((lab == k) & cols)
+        if not len(ij):
+            continue
+        s_v = (ij[:, 0] + i0 + 0.5) * MEMBER_G
+        s_u = (ij[:, 1] + j0 + 0.5) * MEMBER_G
+        rad = float(np.max(np.hypot(s_v - s_v.mean(), s_u - s_u.mean()))) + MEMBER_G
+        out.append({"xy": (C + s_v.mean() * v + s_u.mean() * u).round(3).tolist(),
+                    "cells": int(len(ij)), "radius": round(rad, 3)})
+    out.sort(key=lambda m: -m["cells"])
+    return out
+
+
+def step_survivors():
+    t0 = time.time()
+    before, g0 = load_processed()
+    z_f = g0["floor"]["z_floor"]
+    after, meta = load_plane_scene(SCENE_NPZ)
+    assert abs(meta["z_floor"] - z_f) < 1e-12, (meta["z_floor"], z_f)
+    print(f"before {len(before):,} splats, after {len(after):,} "
+          f"(variant {meta['variant']}) in {time.time() - t0:.1f}s", flush=True)
+    robots = robot_table(1.20)
+    kept_ids = np.isin(before.ids, after.ids)
+    rows, gate = {}, {}
+    for name, C, ang, length, width, bins in P1C_OBJECTS:
+        t1 = time.time()
+        C = np.asarray(C, float)
+        v, u = _frame(ang)
+        half_v, half_u = 0.5 * length, 0.5 * width
+        reach = float(np.hypot(half_v, half_u))
+        win = [float(C[0] - reach - 0.5), float(C[1] - reach - 0.5),
+               float(C[0] + reach + 0.5), float(C[1] + reach + 0.5)]
+        row = {"centre": C.tolist(), "long_axis_deg": ang, "length_m": length,
+               "width_m": width, "window": win, "member_bins": [list(b) for b in bins]}
+
+        opq_m = before.opacity > TAU
+        opq = before.subset(opq_m)
+        h = opq.means[:, 2] - z_f
+        okept = kept_ids[opq_m]
+        d = opq.means[:, :2] - C
+        inbox = (np.abs(d @ v) <= half_v) & (np.abs(d @ u) <= half_u)
+        row["opaque_splats_in_footprint"] = {
+            f"h_{a:.2f}_{b:.2f}": {"before": int((inbox & (h >= a) & (h < b)).sum()),
+                                   "after": int((inbox & (h >= a) & (h < b) & okept).sum())}
+            for a, b in MASS_BANDS}
+
+        members = _members(opq, h, C, v, u, half_v, half_u, bins)
+        row["vertical_members_found"] = len(members)
+
+        maps = {}
+        for key in ("sweeper", "cylinder"):
+            rob = robots[key]
+            pad = rob.max_radius() + 1.0
+            for tag, sc in (("before", before), ("after", after)):
+                s2, pst = project_scene(_crop_xy(sc, win, pad), rob, win, z_floor=z_f)
+                occ = _support_raster(s2, win, cell=RASTER)
+                maps[key, tag] = (s2, occ)
+                ctr = np.array([s.mean for s in s2.supports]).reshape(-1, 2)
+                dd = ctr - C if len(ctr) else np.zeros((0, 2))
+                inb = ((np.abs(dd @ v) <= half_v) & (np.abs(dd @ u) <= half_u)
+                       if len(ctr) else np.zeros(0, bool))
+                row[f"{key}_{tag}"] = {"supports_in_window": len(s2.supports),
+                                       "supports_in_footprint": int(inb.sum()),
+                                       "window_occupied_frac": float(occ.mean()),
+                                       "projection_kept": pst["kept"]}
+        for m in members:
+            for key in ("sweeper", "cylinder"):
+                for tag in ("before", "after"):
+                    s2, occ = maps[key, tag]
+                    gx = win[0] + (np.arange(occ.shape[0]) + 0.5) * RASTER
+                    gy = win[1] + (np.arange(occ.shape[1]) + 0.5) * RASTER
+                    XX, YY = np.meshgrid(gx, gy, indexing="ij")
+                    disc = np.hypot(XX - m["xy"][0], YY - m["xy"][1]) <= m["radius"]
+                    m[f"{key}_{tag}_occupied_frac_in_disc"] = round(float(occ[disc].mean()), 4)
+                    ctr = np.array([s.mean for s in s2.supports]).reshape(-1, 2)
+                    near = (np.hypot(*(ctr - m["xy"]).T) <= m["radius"] if len(ctr)
+                            else np.zeros(0, bool))
+                    m[f"{key}_{tag}_supports_in_disc"] = int(np.sum(near))
+        row["members"] = members
+
+        # The gate: nothing above 0.10 m may be lost, and every vertical member must still block.
+        mass_ok = all(row["opaque_splats_in_footprint"][f"h_{a:.2f}_{b:.2f}"]["after"]
+                      >= row["opaque_splats_in_footprint"][f"h_{a:.2f}_{b:.2f}"]["before"]
+                      for a, b in MASS_BANDS[1:])
+        mem_ok = all(m["sweeper_after_supports_in_disc"] >= 1
+                     and m["sweeper_after_occupied_frac_in_disc"]
+                     >= m["sweeper_before_occupied_frac_in_disc"] - 1e-9
+                     for m in members)
+        cyl_ok = all(m["cylinder_after_supports_in_disc"] >= m["cylinder_before_supports_in_disc"]
+                     for m in members)
+        row["gate"] = {"no_mass_lost_above_0.10m": bool(mass_ok),
+                       "every_member_still_blocks_the_sweeper": bool(mem_ok),
+                       "no_member_support_lost_for_the_cylinder": bool(cyl_ok),
+                       "pass": bool(mass_ok and mem_ok and cyl_ok)}
+        gate[name] = row["gate"]["pass"]
+        row["seconds"] = time.time() - t1
+        rows[name] = row
+        print(f"[{name}] members {len(members)} gate {row['gate']} "
+              f"sweeper supports {row['sweeper_before']['supports_in_footprint']}->"
+              f"{row['sweeper_after']['supports_in_footprint']} in footprint, window "
+              f"{row['sweeper_before']['supports_in_window']}->"
+              f"{row['sweeper_after']['supports_in_window']} in {row['seconds']:.1f}s", flush=True)
+        _fig_object(name, row, members, maps, win, C, v, u, half_v, half_u, meta)
+
+    out = {"claims_boundary": CAPTION,
+           "task": "P1c: prove nothing real died (Amendment 3 P1c)",
+           "method": "A4 outputs/height/a4/legs_check.py, generalised over the P1c object list",
+           "scene": {"before": "showcase_scene.load_processed()", "after": str(SCENE_NPZ),
+                     "variant": meta["variant"], "params": meta["params"]},
+           "gate_definition": {
+               "no_mass_lost_above_0.10m": "opaque splat count in the object footprint, per height "
+                                           "band above 0.10 m, must not decrease",
+               "every_member_still_blocks_the_sweeper": "each vertical member found by the column "
+                                                        "test keeps >= 1 sweeper support in its "
+                                                        "disc and its occupied fraction does not "
+                                                        "fall",
+               "no_member_support_lost_for_the_cylinder": "cylinder supports in each member disc "
+                                                          "must not decrease"},
+           "all_objects_pass": bool(all(gate.values())), "pass_by_object": gate,
+           "objects": rows, "seconds": time.time() - t0}
+    _dump(RES / "p1c_survivors.json", out)
+    print(json.dumps({"all_objects_pass": out["all_objects_pass"], "by_object": gate}, indent=2),
+          flush=True)
+    if not out["all_objects_pass"]:
+        raise SystemExit("P1c STOP CONDITION: an object lost mass; tighten the rule")
+
+
+def _fig_object(name, row, members, maps, win, C, v, u, half_v, half_u, meta):
+    fig, axs = plt.subplots(1, 2, figsize=(19, 9.2))
+    for ax, tag in zip(axs, ("before", "after")):
+        s2, occ = maps["sweeper", tag]
+        r = occ.copy()
+        r[0, :] = r[-1, :] = r[:, 0] = r[:, -1] = False      # drop _support_raster's border
+        img = np.ones(r.shape[::-1] + (3,))
+        img[r.T] = (0.80, 0.12, 0.12)
+        ax.imshow(img, origin="lower", extent=[win[0], win[2], win[1], win[3]],
+                  interpolation="nearest")
+        for m in members:
+            ax.add_patch(plt.Circle(m["xy"], m["radius"], fill=False, color="#0b8ec9", lw=1.6))
+        corners = [C + a * half_v * v + b * half_u * u
+                   for a, b in ((-1, -1), (1, -1), (1, 1), (-1, 1), (-1, -1))]
+        ax.plot(*np.array(corners).T, "--", color="#1a1a8c", lw=1.2)
+        ax.set_title(f"{name} sweeper map {tag}: {row[f'sweeper_{tag}']['supports_in_window']} "
+                     f"supports in window, {row[f'sweeper_{tag}']['supports_in_footprint']} in the "
+                     f"dashed footprint\ncyan = vertical members from the 3-bin column test "
+                     f"({len(members)} found); red = projected support raster at {RASTER} m",
+                     fontsize=10)
+        ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)"); ax.grid(alpha=0.3, lw=0.4)
+    fig.suptitle(f"Amendment 3 P1c - {name} - variant {meta['variant']} - {CAPTION}", fontsize=9)
+    plt.tight_layout()
+    plt.savefig(FIGS / f"p1c_{name}.png", dpi=85)
+    plt.close()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--step", required=True,
@@ -417,6 +633,8 @@ def main():
         step_diagnose()
     elif a.step == "build":
         step_build(variant=a.variant, max_top=a.max_top)
+    elif a.step == "survivors":
+        step_survivors()
 
 
 if __name__ == "__main__":
