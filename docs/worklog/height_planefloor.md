@@ -219,3 +219,17 @@ synthetic scenes but had never opened the real 0.8 GB archive. Added `--step han
   splat is in any robot's projected map at all".
 - The timing block records `scene_load` and `project` and lists the other seven stages as missing,
   which is correct for a load-and-project run and is what P4 will see.
+
+### 2026-09-17 ~22:1x — the one region that still looks busy, and what it means for P2
+
+Opened the final `p1b_low_band_before_after.png`. The chosen panel reads as a clean architectural
+plan — walls as crisp outlines, furniture as distinct blocks, floor essentially empty — with the
+red confined to thin rims, which is what the 99.5 %-within-0.30 m attribution predicts.
+
+One region is a visible exception and a reader will ask about it: the **north corridor, x 8–15,
+y 32–37**, stays dense. That is the round-tables cluster at (12.0, 34.0) from the object
+catalogue. It is consistent with the measurement rather than an exception to it — the region
+breakdown puts **18 m² of the 28.5 m² residual in the north** (`residual_m2_by_region`, split at
+y = 20), and in a dense cluster of small round tables nearly every floor cell really is within
+0.30 m of furniture, so the rim covers the floor. **Advice for P2/P3: do not site a window in
+y > 32.** The south half of the hall (y < 20) is where the map is cleanest, and window A sits in it.
