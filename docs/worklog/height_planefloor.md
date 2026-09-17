@@ -202,3 +202,20 @@ the rule I checked what the gate was measuring, and it was measuring the wrong t
   time — but the premise "0.5 m is not a data problem and cannot be fixed by P1" was derived on the
   looser rasteriser and **should be re-derived on the certified map before P2 assumes criterion 3 is
   unreachable.** D1 remains user-approved and available either way.
+
+### 2026-09-17 ~22:0x — P1f: run the hand-off rather than describe it
+
+I had written the P2 hand-off into the standup without ever executing that code path, which is the
+"verified list is not a completeness proof" trap in the README — the loader had unit tests on
+synthetic scenes but had never opened the real 0.8 GB archive. Added `--step handoff` and ran it
+(job 17931446):
+
+- `load_plane_scene` opens the built scene; **all eight meta keys `showcase_run.py --scene
+  planefloor` reads are present** (`meta_keys_missing: []`).
+- `project_scene` runs for all three robots on the loaded scene: sweeper 3,028 supports (identical
+  to P1d's window-A number, so the two paths agree), cylinder 111,162, uav 11,012.
+- **`inserted_plane_splats_in_map: 0` for all three robots**, including the uav. This is the
+  strongest direct form of the P1b trap check: not "the tops are below `z_lo`" but "no inserted
+  splat is in any robot's projected map at all".
+- The timing block records `scene_load` and `project` and lists the other seven stages as missing,
+  which is correct for a load-and-project run and is what P4 will see.

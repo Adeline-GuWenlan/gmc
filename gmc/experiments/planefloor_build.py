@@ -871,10 +871,69 @@ def _fig_bands(table):
     print(f"wrote {FIGS / 'p1d_band_occupancy.png'}", flush=True)
 
 
+# ------------------------------------------------------- P1f: the hand-off P2 actually runs --
+
+
+def step_handoff():
+    """Execute the P2/P3 entry path on the real scene, so P2 does not discover it is broken.
+
+    Everything P1 hands over is exercised here: `load_plane_scene` on the 0.8 GB archive, the meta
+    keys `showcase_run.py --scene planefloor` reads out of it, `project_scene` on the loaded scene
+    for all three robots, and the P1e timing block round-tripping through JSON.
+    """
+    from gmc.height.timing import STAGES, StageTimer
+    t0 = time.time()
+    timer = StageTimer()
+    with timer.stage("scene_load", scene="planefloor") as rec:
+        scene, meta = load_plane_scene(SCENE_NPZ)
+        rec["sizes"]["n_splats"] = len(scene)
+    # exactly the keys experiments/showcase_run.py reads when --scene planefloor is given
+    needed = ("floor", "ceiling_height_m", "gravity_rotation", "variant", "params", "z_floor",
+              "extent", "first_inserted_id")
+    missing = [k for k in needed if k not in meta]
+    z_f = meta["z_floor"]
+    robots = robot_table(1.20)
+    proj = {}
+    for key in ("sweeper", "cylinder", "uav"):
+        rob = robots[key]
+        with timer.stage("project", label=key, n_splats=len(scene)) as rec:
+            s2, pst = project_scene(scene, rob, WINDOW_A, z_floor=z_f)
+            rec["sizes"]["n_supports"] = pst["kept"]
+        ins = np.array([s.primitive_id for s in s2.supports], dtype=np.int64)
+        proj[key] = {"supports": len(s2.supports),
+                     "inserted_plane_splats_in_map": int((ins >= meta["first_inserted_id"]).sum()),
+                     "band_abs_above_floor": [rob.z_lo, rob.z_hi]}
+        print(f"[handoff {key}] " + json.dumps(proj[key]), flush=True)
+    block = json.loads(json.dumps(timer.to_dict(), default=float))
+    out = {"claims_boundary": CAPTION,
+           "task": "P1f: run the P2/P3 entry path end to end on the built scene",
+           "scene_npz": str(SCENE_NPZ), "n_splats": len(scene),
+           "loader": "gmc.height.planefloor.load_plane_scene",
+           "cli": "experiments/showcase_run.py --scene planefloor",
+           "meta_keys_present": sorted(meta.keys()), "meta_keys_missing": missing,
+           "variant": meta["variant"], "params": meta["params"],
+           "projection_window_A": proj,
+           "no_inserted_plane_splat_reaches_any_robot_band": bool(
+               all(v["inserted_plane_splats_in_map"] == 0 for v in proj.values())),
+           "timing_block": block,
+           "timing_stages_recorded": sorted(block["by_stage"]),
+           "timing_stages_missing_as_expected": block["missing_stages"],
+           "seconds": time.time() - t0}
+    _dump(RES / "p1f_handoff.json", out)
+    print(json.dumps({k: out[k] for k in ("meta_keys_missing", "timing_stages_recorded",
+                                          "no_inserted_plane_splat_reaches_any_robot_band")},
+                     indent=2), flush=True)
+    assert not missing, f"meta is missing keys showcase_run.py needs: {missing}"
+    assert out["no_inserted_plane_splat_reaches_any_robot_band"], proj
+    assert set(block["by_stage"]) == {"scene_load", "project"}, block["by_stage"]
+    assert set(STAGES) - set(block["by_stage"]) == set(block["missing_stages"])
+    print("P1f HANDOFF OK", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--step", required=True,
-                    choices=["diagnose", "build", "survivors", "evidence"])
+                    choices=["diagnose", "build", "survivors", "evidence", "handoff"])
     ap.add_argument("--variant", choices=VARIANTS, help="force the P1b (mask, footprint) pair")
     ap.add_argument("--max-top", type=float, help="override the P1b rho-top ceiling (m)")
     a = ap.parse_args()
@@ -889,6 +948,8 @@ def main():
         step_survivors()
     elif a.step == "evidence":
         step_evidence()
+    elif a.step == "handoff":
+        step_handoff()
 
 
 if __name__ == "__main__":
