@@ -37,7 +37,7 @@ from gmc.height.planefloor import (build_plane_floor, footprint_spans, load_plan
                                    phantom_cell_mask, replace_mask, save_plane_scene,
                                    speckle_stats)
 
-from showcase_scene import (BANDS, CELL, DATA, RASTER, RHO, TAU, _occupancy,
+from showcase_scene import (BANDS, CELL, DATA, RASTER, RHO, TAU, WINDOW_A, _occupancy,
                             _support_raster, load_processed)
 
 RES = Path("results/height/plane")
@@ -679,6 +679,192 @@ def _fig_object(name, row, members, maps, win, C, v, u, half_v, half_u, meta):
     plt.close()
 
 
+# ----------------------------------------------------------------------------- P1d --
+
+# Amendment 1 window A, the window every before/after projection comparison in this series uses.
+CRIT3_R = 0.5            # spec 5.3 criterion 3 radius, for the free-area map
+EQUAL_BANDS = ((0.02, 0.10), (0.10, 0.18), (0.18, 0.26))
+
+
+def _certified_band_raster(scene, band, win, z_f, robot_r=0.0):
+    """Occupancy of one height band on the *certified* raster, not the AABB aid.
+
+    The band table P1 is judged by comes from `showcase_scene._occupancy`, which marks the whole
+    xy bounding box of every splat and calls itself "a selection aid only". The map GMC actually
+    consumes is built by `project_scene` from band-clipped outer shadow *ellipses* and rasterised
+    by `_support_raster`. Both are reported, because the difference between them is most of what
+    is left in the low band after P1b.
+    """
+    rob = _band_prism(band, robot_r)
+    s2, pst = project_scene(_crop_xy(scene, win, robot_r + 1.0), rob, win, z_floor=z_f)
+    occ = _support_raster(s2, win, cell=RASTER)
+    inner = occ[1:-1, 1:-1]          # _support_raster forces the window border occupied
+    return {"n_supports": len(s2.supports), "occupied_frac": float(inner.mean()),
+            "projection_kept": pst["kept"]}, s2, occ
+
+
+def _band_prism(band, radius):
+    """A zero-radius prism for the band, so the raster measures the band and not a robot.
+
+    This is a measuring instrument for the evidence table, not a planning robot: the frozen robot
+    table (spec 3.3) is untouched and no run uses this.
+    """
+    from gmc.height.prism import ellipse_prism
+    r = max(float(radius), 1e-3)
+    return ellipse_prism(r, r, float(band[0]), float(band[1]),
+                         f"band_{band[0]:.2f}_{band[1]:.2f}")
+
+
+def step_evidence():
+    t0 = time.time()
+    before, g0 = load_processed()
+    z_f = g0["floor"]["z_floor"]
+    after, meta = load_plane_scene(SCENE_NPZ)
+    ext, occ0, phantom = _p1a_bands()
+    robots = robot_table(1.20)
+    print(f"before {len(before):,}, after {len(after):,} (variant {meta['variant']}) "
+          f"in {time.time() - t0:.1f}s", flush=True)
+
+    # (1) the required band-occupancy table, on the same AABB aid the 40.7/17.4 column came from
+    occ1 = _band_maps(after, z_f, ext)
+    bt0, bt1 = _band_table(occ0), _band_table(occ1)
+    table = {"aid": "showcase_scene._occupancy, xy-AABB of every opaque in-band splat, 0.05 m "
+                    "cells; the same selection aid the 40.7/17.4/13.3/11.7/11.1 column came from",
+             "before_frac": bt0, "after_frac": bt1,
+             "monotone_before": monotone_toward_floor(list(bt0.values())[::-1]),
+             "monotone_after": monotone_toward_floor(list(bt1.values())[::-1]),
+             "low_band_vs_band_above": {
+                 "before": bt0["occ_0.02_0.10"] / bt0["occ_0.10_0.55"],
+                 "after": bt1["occ_0.02_0.10"] / bt1["occ_0.10_0.55"]}}
+    eq = {tag: {f"occ_{a:.2f}_{b:.2f}": float(_occupancy(sc, z_f, (a, b), ext).mean())
+                for a, b in EQUAL_BANDS}
+          for tag, sc in (("before", before), ("after", after))}
+    for tag in eq:
+        v = list(eq[tag].values())
+        eq[tag]["decreases_toward_the_floor"] = bool(v[0] <= v[1])
+        eq[tag]["low_over_next"] = v[0] / v[1]
+    table["equal_thickness_0.08m"] = eq
+
+    # (2) projected support counts on window A, before/after, sweeper and cylinder
+    winA = {"window": WINDOW_A, "raster_cell": RASTER}
+    panels = {}
+    for key in ("sweeper", "cylinder"):
+        rob = robots[key]
+        for tag, sc in (("before", before), ("after", after)):
+            s2, pst = project_scene(_crop_xy(sc, WINDOW_A, rob.max_radius() + 1.0), rob,
+                                    WINDOW_A, z_floor=z_f)
+            occ = _support_raster(s2, WINDOW_A, cell=RASTER)
+            dist = ndimage.distance_transform_edt(~occ) * RASTER
+            r = rob.max_radius()
+            lab, _ = ndimage.label(dist > r)
+            sizes = np.bincount(lab.ravel())[1:] * RASTER ** 2 if lab.max() else np.zeros(0)
+            row = {"supports": len(s2.supports), "occupied_frac": float(occ.mean()),
+                   "disc_fits_frac": float((dist > r).mean()),
+                   "free_components": int(lab.max()),
+                   "largest_free_component_m2": float(sizes.max()) if len(sizes) else 0.0,
+                   "crit3_clear_frac": float((dist >= CRIT3_R).mean()),
+                   "projection": pst}
+            winA[f"{key}_{tag}"] = row
+            panels[key, tag] = (occ, dist > r, dist >= CRIT3_R, row)
+            print(f"[windowA {key} {tag}] " + json.dumps(
+                {k: v for k, v in row.items() if k != "projection"}), flush=True)
+
+    # (3) the same low band on the certified raster rather than the AABB aid, window A
+    cert = {}
+    for a, b in EQUAL_BANDS:
+        for tag, sc in (("before", before), ("after", after)):
+            row, _, _ = _certified_band_raster(sc, (a, b), WINDOW_A, z_f)
+            cert[f"band_{a:.2f}_{b:.2f}_{tag}"] = row
+            print(f"[certified {a:.2f}-{b:.2f} {tag}] " + json.dumps(row), flush=True)
+    for tag in ("before", "after"):
+        v = [cert[f"band_{a:.2f}_{b:.2f}_{tag}"]["occupied_frac"] for a, b in EQUAL_BANDS]
+        cert[f"decreases_toward_the_floor_{tag}"] = bool(v[0] <= v[1])
+        cert[f"low_over_next_{tag}"] = v[0] / v[1] if v[1] else None
+
+    out = {"claims_boundary": CAPTION, "task": "P1d: before/after evidence for the plane floor",
+           "scene": {"before": "showcase_scene.load_processed()", "after": str(SCENE_NPZ),
+                     "variant": meta["variant"], "params": meta["params"]},
+           "band_occupancy": table, "window_A": winA,
+           "certified_raster_window_A": cert,
+           "verdict_inputs": {
+               "low_band_before": bt0["occ_0.02_0.10"], "low_band_after": bt1["occ_0.02_0.10"],
+               "band_above": bt1["occ_0.10_0.55"],
+               "strictly_below_the_band_above": bool(
+                   bt1["occ_0.02_0.10"] <= bt1["occ_0.10_0.55"])},
+           "seconds": time.time() - t0}
+    _dump(RES / "p1d_evidence.json", out)
+    _fig_windowA(panels, robots)
+    _fig_bands(table)
+    print(json.dumps(out["verdict_inputs"], indent=2), flush=True)
+
+
+def _fig_windowA(panels, robots):
+    w = WINDOW_A
+    fig, axs = plt.subplots(2, 3, figsize=(24, 17))
+    for i, key in enumerate(("sweeper", "cylinder")):
+        r = robots[key].max_radius()
+        for j, tag in enumerate(("before", "after")):
+            occ, fit, crit3, row = panels[key, tag]
+            img = np.ones(occ.shape[::-1] + (3,))
+            img[fit.T] = (0.75, 0.95, 0.75)
+            img[crit3.T] = (0.20, 0.70, 0.20)
+            img[occ.T] = (0.80, 0.10, 0.10)
+            ax = axs[i, j]
+            ax.imshow(img, origin="lower", extent=[w[0], w[2], w[1], w[3]],
+                      interpolation="nearest")
+            ax.set_title(f"{key} {tag}: {row['supports']} supports (red)\n"
+                         f"light green = disc r={r:g} fits {row['disc_fits_frac']:.1%}, "
+                         f"dark = criterion-3 clear (>={CRIT3_R} m) {row['crit3_clear_frac']:.1%}",
+                         fontsize=10)
+            ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)"); ax.grid(alpha=0.3, lw=0.4)
+        b, a = panels[key, "before"][0], panels[key, "after"][0]
+        img = np.ones(b.shape[::-1] + (3,))
+        img[(b & a).T] = (0.35, 0.35, 0.35)
+        img[(b & ~a).T] = (0.90, 0.55, 0.10)
+        img[(~b & a).T] = (0.10, 0.25, 0.90)
+        ax = axs[i, 2]
+        ax.imshow(img, origin="lower", extent=[w[0], w[2], w[1], w[3]], interpolation="nearest")
+        nb, na = int(b.sum()), int(a.sum())
+        ax.set_title(f"{key}: grey = occupied in both ({int((b & a).sum()):,} cells)\n"
+                     f"orange = cleared by the edit ({int((b & ~a).sum()):,}), "
+                     f"blue = newly occupied ({int((~b & a).sum()):,} — must be 0)", fontsize=10)
+        ax.set_xlabel("x (m)"); ax.set_ylabel("y (m)"); ax.grid(alpha=0.3, lw=0.4)
+    fig.suptitle("Amendment 3 P1d - window A projected certified maps - " + CAPTION,
+                 fontsize=10, y=0.995)
+    plt.tight_layout(rect=(0, 0, 1, 0.95)); plt.savefig(FIGS / "p1d_windowA_before_after.png", dpi=80); plt.close()
+    print(f"wrote {FIGS / 'p1d_windowA_before_after.png'}", flush=True)
+
+
+def _fig_bands(table):
+    labels = [k.replace("occ_", "").replace("_", "-") for k in table["before_frac"]]
+    x = np.arange(len(labels))
+    fig, axs = plt.subplots(1, 2, figsize=(16, 6))
+    axs[0].bar(x - 0.2, [100 * v for v in table["before_frac"].values()], 0.4,
+               label="as built", color="#b0aca0")
+    axs[0].bar(x + 0.2, [100 * v for v in table["after_frac"].values()], 0.4,
+               label="plane floor", color="#2f6f9f")
+    axs[0].set_xticks(x); axs[0].set_xticklabels(labels, fontsize=9)
+    axs[0].set_ylabel("cells occupied (%)")
+    axs[0].set_title("required column: bands of spec 5.3 (0.08 m against 0.45 m)\n"
+                     f"low/above {table['low_band_vs_band_above']['before']:.2f}x -> "
+                     f"{table['low_band_vs_band_above']['after']:.2f}x")
+    axs[0].legend(); axs[0].grid(alpha=0.3, axis="y")
+    eq = table["equal_thickness_0.08m"]
+    lab2 = [k.replace("occ_", "").replace("_", "-") for k in eq["before"] if k.startswith("occ")]
+    x2 = np.arange(len(lab2))
+    for off, tag, colr in ((-0.2, "before", "#b0aca0"), (0.2, "after", "#2f6f9f")):
+        axs[1].bar(x2 + off, [100 * eq[tag][k] for k in eq[tag] if k.startswith("occ")], 0.4,
+                   label=tag, color=colr)
+    axs[1].set_xticks(x2); axs[1].set_xticklabels(lab2, fontsize=9)
+    axs[1].set_title("supporting check, equal 0.08 m thickness\n"
+                     f"low/next {eq['before']['low_over_next']:.2f}x -> "
+                     f"{eq['after']['low_over_next']:.2f}x")
+    axs[1].legend(); axs[1].grid(alpha=0.3, axis="y")
+    fig.suptitle("Amendment 3 P1d - band occupancy - " + CAPTION, fontsize=9, y=0.995)
+    plt.tight_layout(rect=(0, 0, 1, 0.93)); plt.savefig(FIGS / "p1d_band_occupancy.png", dpi=110); plt.close()
+    print(f"wrote {FIGS / 'p1d_band_occupancy.png'}", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--step", required=True,
@@ -695,6 +881,8 @@ def main():
         step_build(variant=a.variant, max_top=a.max_top)
     elif a.step == "survivors":
         step_survivors()
+    elif a.step == "evidence":
+        step_evidence()
 
 
 if __name__ == "__main__":
