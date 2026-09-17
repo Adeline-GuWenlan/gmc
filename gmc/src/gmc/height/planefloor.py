@@ -28,6 +28,7 @@ from pathlib import Path
 import numpy as np
 from scipy import ndimage
 
+from .band_shadow import band_overlap_mask, outer_shadow_ellipses
 from .ply3d import GaussianScene3D
 
 Z_LO_DEFAULT = 0.02        # robot ground clearance (spec §3.3, frozen)
@@ -116,8 +117,38 @@ def footprint_cell_span(lo_xy, hi_xy, extent, cell, shape):
     return i0, i1, j0, j1
 
 
+FOOTPRINTS = ("aabb", "shadow", "centre")
+
+
+def footprint_spans(scene3d, extent, cell, shape, *, level, mode, band_abs):
+    """Cell spans of the xy region each splat is judged by. See :func:`replace_mask`.
+
+    ``aabb``    the whole ellipsoid's xy box, which is what ``showcase_scene._occupancy`` marks;
+    ``shadow``  the band-clipped outer shadow ellipse's box -- the obstacle ``project_scene``
+                actually builds, and therefore what the robot actually sees;
+    ``centre``  the single cell holding the splat's centre.
+    """
+    if mode not in FOOTPRINTS:
+        raise ValueError(f"footprint must be one of {FOOTPRINTS}, not {mode!r}")
+    if mode == "aabb":
+        lo, hi = scene3d.aabb(float(level))
+        return footprint_cell_span(lo, hi, extent, cell, shape)
+    c = scene3d.means[:, :2].astype(float, copy=True)
+    half = np.zeros_like(c)
+    if mode == "shadow":
+        z0, z1 = (float(v) for v in band_abs)
+        inband = band_overlap_mask(scene3d.means[:, 2], scene3d.covs[:, 2, 2], z0, z1,
+                                   float(level))
+        if inband.any():
+            oe = outer_shadow_ellipses(scene3d.means[inband], scene3d.covs[inband], z0, z1,
+                                       float(level))
+            c[inband] = oe["centre"]
+            half[inband] = np.sqrt(np.stack([oe["Q"][:, 0, 0], oe["Q"][:, 1, 1]], axis=1))
+    return footprint_cell_span(c - half, c + half, extent, cell, shape)
+
+
 def replace_mask(scene3d, footprint_mask, extent, cell, *, z_floor, max_top=0.10, level=2.0,
-                 tau=TAU_DEFAULT, require_opaque=False):
+                 tau=TAU_DEFAULT, require_opaque=False, footprint="aabb", band_lo=Z_LO_DEFAULT):
     """Amendment 3 §P1b: replace a splat iff its rho-footprint lies (in xy) only inside
     ``footprint_mask`` **and** its rho-top is below ``z_floor + max_top``.
 
@@ -141,10 +172,33 @@ def replace_mask(scene3d, footprint_mask, extent, cell, *, z_floor, max_top=0.10
       anywhere over its footprint between 0.10 m and 2.50 m. Anything with mass above 0.10 m --
       every table leg, bench support, plinth and counter -- is therefore kept by construction,
       not by luck.
+
+    On this scene the two are **exactly equivalent**, which is worth stating because it is not
+    obvious: any splat that reaches into the sweeper band marks its whole footprint occupied in
+    the low band, so for a candidate ``footprint subset open_floor`` already implies
+    ``footprint subset (low & open_floor) = phantom``. The same argument shows ``max_top`` is
+    never the binding clause: every splat covering a phantom cell has a rho-top below
+    ``z_floor + 0.10``, or the cell would not have been free in the band above.
+
+    What *is* binding is ``footprint``, i.e. which xy region a splat is judged by:
+
+    * ``aabb`` -- the whole ellipsoid's xy box, the region ``showcase_scene._occupancy`` marks.
+      It is a gross over-approximation of what a splat occludes (that function calls itself a
+      "selection aid only"), and it is why 31 % of the phantom layer survives the rule: a wide
+      floor splat whose box happens to touch one cell under a table leg is protected by a leg
+      half a metre away.
+    * ``shadow`` -- the band-clipped outer shadow ellipse, which is the obstacle
+      ``project_scene`` builds and the robot actually sees. Judging a splat by what it occludes
+      rather than by its bounding box is the accurate test, not a looser one, and it is the one
+      the *certified* pipeline is built on.
+    * ``centre`` -- the single cell holding the splat's centre; the most permissive bound, kept
+      so the sweep has a floor to report against.
     """
     phantom = np.asarray(footprint_mask, dtype=bool)
     lo, hi = scene3d.aabb(float(level))
-    i0, i1, j0, j1 = footprint_cell_span(lo, hi, extent, float(cell), phantom.shape)
+    i0, i1, j0, j1 = footprint_spans(
+        scene3d, extent, float(cell), phantom.shape, level=level, mode=footprint,
+        band_abs=(float(z_floor) + float(band_lo), float(z_floor) + float(max_top)))
 
     # "every cell under the footprint is phantom" <=> the box holds no non-phantom cell, which a
     # summed-area table of ~phantom answers for all splats at once.
@@ -233,7 +287,7 @@ def plane_tiles(extent, *, z_floor, normal, centroid, spacing=1.0, sigma_n=0.004
 def build_plane_floor(scene3d, footprint_mask, extent, cell, *, floor, spacing=1.0, sigma_n=0.004,
                       max_top=0.10, z_lo=Z_LO_DEFAULT, margin=0.005, level=2.0,
                       opacity=0.95, tau=TAU_DEFAULT, require_opaque=False,
-                      measure_local_floor=True):
+                      measure_local_floor=True, footprint="aabb"):
     """Drop the phantom near-floor splats and insert the analytic plane in their place.
 
     Returns ``(scene, stats)``. ``stats["inserted_rho_top_max_above_floor"]`` is measured on the
@@ -241,7 +295,8 @@ def build_plane_floor(scene3d, footprint_mask, extent, cell, *, floor, spacing=1
     inferred from ``sigma_n`` — and must stay below ``z_lo``.
     """
     gone = replace_mask(scene3d, footprint_mask, extent, cell, z_floor=floor["z_floor"],
-                        max_top=max_top, level=level, tau=tau, require_opaque=require_opaque)
+                        max_top=max_top, level=level, tau=tau, require_opaque=require_opaque,
+                        footprint=footprint, band_lo=z_lo)
     kept = scene3d.subset(~gone)
     z_top_max = float(floor["z_floor"]) + float(z_lo) - float(margin)
 
@@ -271,6 +326,7 @@ def build_plane_floor(scene3d, footprint_mask, extent, cell, *, floor, spacing=1
                    "sigma_n": tiles["sigma_n"], "opacity": float(opacity),
                    "z_lo": float(z_lo), "margin": float(margin),
                    "require_opaque": bool(require_opaque),
+                   "footprint": str(footprint),
                    "measure_local_floor": bool(measure_local_floor)},
         "z_top_max_budget": z_top_max,
         "inserted_rho_top_max": ins_top,

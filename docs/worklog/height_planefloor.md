@@ -71,3 +71,49 @@ that and the room is the open research question (`height_map_diagnosis.md` §4).
   scene is written to `gmc/outputs/height/plane/processed_planefloor.npz` with its floor metadata
   inside the archive, and P2/P3 load it with `planefloor.load_plane_scene` (one call, no need to
   reload the unedited scene to find the floor).
+
+### 2026-09-17 ~20:5x — P1b, what the sweep actually found (three wrong guesses, then the data)
+
+Two of my own hypotheses were wrong and the sweep killed both. Recording them because the third
+one is only trustworthy *because* the first two were measured rather than believed.
+
+1. **"`open_floor` will remove far more than `phantom`."** It removes twice as many splats
+   (180,462 vs 88,750) and produces a **bit-identical map** (low band 0.2423 both, phantom cleared
+   69.0 % both). The two rules are *exactly equivalent* on the splats that matter, and the proof
+   is one line: any splat that reaches into the sweeper band marks its whole footprint occupied in
+   the low band, so `footprint ⊆ open_floor` already implies `footprint ⊆ (low & open_floor) =
+   phantom`. The extra 91,712 splats `open_floor` deletes all sit *below* `z_floor + 0.02` and
+   were invisible to the band either way. Same argument shows **`max_top` is never binding**:
+   every splat covering a phantom cell has a ρ-top under `z_floor + 0.10`, or the cell would not
+   have been free in the band above.
+2. **"the shadow footprint is the principled fix."** It is the footprint the *certified* projector
+   builds, so I expected it to win. It came **last** (65.8 % cleared, worse than the literal
+   rule's 69.0 %) while deleting 50 % more splats. Reason: the occupancy map is AABB-based, so
+   clearing a cell needs *every* splat whose AABB covers it gone, and the band-clipped shadow is
+   both smaller *and* displaced off the AABB, so it removes a different set rather than a
+   superset. Its residual is also the worst placed — only 78 % within 0.30 m of real geometry,
+   99th percentile 1.35 m, i.e. it leaves dust out in the open.
+3. **What binds is the footprint, and `centre` wins: 88.0 % of the phantom layer cleared,
+   40.70 % → 19.55 %.** A splat is dust iff nothing at all stands above *the cell it sits in* and
+   it is confined below 0.10 m. That still protects everything with mass above 0.10 m over its own
+   centre — every leg, support, plinth and the counter — which is what P1c has to confirm.
+
+**The honest limit, measured.** 19.55 % is *near* the 17.37 % band above but not below it, so the
+strict monotonicity test fails. The gap is attributed, not hand-waved: the 28.5 m² that survives
+(from 237 m²) is **99.5 % within 0.30 m of geometry that has mass above 0.10 m**, median distance
+0.05 m — one cell — 90th percentile 0.15 m, median blob 0.015 m². It is a thin rim hugging walls
+and furniture feet: the AABB rasteriser over-approximating *real* near-floor objects, not leftover
+phantom. Clearing it means deleting splats at the base of walls and tables, which is precisely the
+P1c failure the stage is forbidden to buy a clean map with. So 19.55 % is the floor of what any
+rule in this family can reach without eating real geometry.
+
+- Supporting check without the band-thickness confound (the required column compares 0.08 m
+  against 0.45 m, which catches every tabletop): at **equal 0.08 m thickness**, 0.02–0.10 goes
+  40.70 % → 19.55 % against 15.47 % in 0.10–0.18. The inversion drops 2.63× → 1.26×.
+- The trap in P1b, measured on the built scene with `aabb(2.0)` and again after a round trip
+  through the npz: inserted ρ-top max **0.0150 m** above the floor, `z_lo` 0.02, headroom
+  0.0050 m. Invisible to every robot band.
+- Cost of clamping the plane flat, and it is a real visual cost: the fitted floor spans −0.071 to
+  +0.075 m about `z_floor`, so **276 of 1014 tiles** are clamped off the fitted plane, the worst
+  by **6.9 cm**. In the high quarter of the hall the rendered ground now sits up to 6.9 cm below
+  where the reconstruction put the floor. Rendering artefact only — it cannot reach a robot band.

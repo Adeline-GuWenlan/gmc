@@ -7,10 +7,10 @@ import numpy as np
 import pytest
 
 from gmc.height.planefloor import (build_plane_floor, footprint_cell_span,
-                                   load_plane_scene, monotone_toward_floor,
-                                   open_floor_cell_mask, phantom_cell_mask,
-                                   plane_tiles, replace_mask, save_plane_scene,
-                                   speckle_stats)
+                                   footprint_spans, load_plane_scene,
+                                   monotone_toward_floor, open_floor_cell_mask,
+                                   phantom_cell_mask, plane_tiles, replace_mask,
+                                   save_plane_scene, speckle_stats)
 from gmc.height.ply3d import GaussianScene3D
 
 
@@ -204,3 +204,58 @@ def test_replaced_splats_never_have_mass_above_the_overhead_test_height():
         m = replace_mask(_scene(rows), openf, EXTENT, CELL,
                          z_floor=0.0, max_top=max_top, level=2.0)
         assert m.tolist() == [False, False, True], f"max_top={max_top}"
+
+
+# ------------------------------------------------------------------ P1b: the footprint test --
+
+
+def test_footprint_modes_are_ordered_by_how_much_they_cover():
+    """aabb >= shadow >= centre, and they are the reason a splat is or is not a candidate."""
+    # a wide flat splat lying in the floor: 0.2 m across in xy, 1 cm thick
+    rows = [([0.5, 0.5, 0.01], np.diag([0.01, 0.01, 2.5e-5]))]
+    scene = _scene(rows)
+    band = (0.02, 0.10)
+    spans = {m: footprint_spans(scene, EXTENT, CELL, (20, 20), level=2.0, mode=m,
+                                band_abs=band) for m in ("aabb", "shadow", "centre")}
+    width = {m: (s[1][0] - s[0][0] + 1, s[3][0] - s[2][0] + 1) for m, s in spans.items()}
+    assert width["centre"] == (1, 1)
+    assert width["shadow"][0] <= width["aabb"][0]
+    assert width["aabb"] == (9, 9)                      # rho=2 -> +-0.2 m -> 9 cells of 5 cm
+
+
+def test_unknown_footprint_mode_is_rejected():
+    with pytest.raises(ValueError, match="footprint must be one of"):
+        footprint_spans(_scene([_flat_splat(0.5, 0.5, 0.01)]), EXTENT, CELL, (20, 20),
+                        level=2.0, mode="bbox", band_abs=(0.02, 0.10))
+
+
+def test_a_wide_floor_splat_is_not_protected_by_a_distant_table_leg():
+    """The defect the sweep exists to find: aabb keeps it, the tighter footprints remove it.
+
+    A wide flat splat lies on the floor and only *grazes* the bottom of the sweeper band -- its
+    rho-extent in z is [-0.012, 0.022] against a band starting at 0.02. Its rho-AABB is 0.44 m
+    across and reaches a table leg 0.2 m away, so the literal footprint test protects it: a floor
+    splat kept by a leg it does not touch. The band-clipped shadow of what it actually puts in
+    the band is less than half as wide, reaches no leg, and calls it dust.
+    """
+    bands_above = [np.zeros((20, 20), dtype=bool)]
+    bands_above[0][14, 10] = True                        # a leg at x in [0.70, 0.75), y 0.50
+    openf = open_floor_cell_mask(bands_above)
+    rows = [([0.5, 0.5, 0.005], np.diag([0.11 ** 2, 0.11 ** 2, 0.0085 ** 2]))]
+    scene = _scene(rows)
+    got = {m: replace_mask(scene, openf, EXTENT, CELL, z_floor=0.0, max_top=0.10,
+                           level=2.0, footprint=m).tolist() for m in ("aabb", "shadow", "centre")}
+    assert got["aabb"] == [False], "the rho-AABB reaches the leg cell, so aabb keeps the splat"
+    assert got["shadow"] == [True]
+    assert got["centre"] == [True]
+
+
+def test_the_footprint_mode_is_recorded_in_the_build_stats():
+    phantom = np.zeros((20, 20), dtype=bool)
+    phantom[4:9, 4:9] = True
+    scene = _scene([_flat_splat(0.32, 0.32, 0.01)])
+    _, st = build_plane_floor(scene, phantom, EXTENT, CELL,
+                              floor={"z_floor": 0.0, "normal": [0, 0, 1],
+                                     "centroid": [0.5, 0.5, 0.0]},
+                              spacing=0.25, sigma_n=0.004, z_lo=0.02, footprint="shadow")
+    assert st["params"]["footprint"] == "shadow"

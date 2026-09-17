@@ -27,12 +27,15 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import ndimage
 
-from gmc.height.planefloor import (build_plane_floor, load_plane_scene,
+from gmc.height.band_shadow import band_overlap_mask
+from gmc.height.planefloor import (build_plane_floor, footprint_spans, load_plane_scene,
                                    monotone_toward_floor, open_floor_cell_mask,
-                                   phantom_cell_mask, save_plane_scene, speckle_stats)
+                                   phantom_cell_mask, replace_mask, save_plane_scene,
+                                   speckle_stats)
 
-from showcase_scene import (BANDS, CELL, DATA, RHO, TAU, _occupancy, load_processed)
+from showcase_scene import BANDS, CELL, DATA, RHO, TAU, _occupancy, load_processed
 
 RES = Path("results/height/plane")
 FIGS = RES / "figs"
@@ -44,11 +47,14 @@ SCENE_NPZ = RAW / "processed_planefloor.npz"
 P1B = {"max_top": 0.10, "level": RHO, "spacing": 1.0, "sigma_n": 0.004,
        "opacity": 0.95, "z_lo": 0.02, "margin": 0.005}
 
-# The two admissible footprint masks, least aggressive first. `phantom` is the literal §P1b
-# wording; `open_floor` drops its "occupied in the low band" half and keeps the overhead-free
-# guarantee that protects real geometry. See planefloor.replace_mask for why the literal wording
-# cannot work on this scene.
-VARIANTS = ("phantom", "open_floor")
+# (overhead-free mask, footprint the splat is judged by), least aggressive first. `phantom` is
+# the literal §P1b wording and `open_floor` its superset -- on this scene they are provably
+# identical, and the second row is kept as the evidence for that. What is actually binding is the
+# footprint: see planefloor.replace_mask.
+SWEEP = (("phantom", "aabb"), ("open_floor", "aabb"), ("phantom", "shadow"),
+         ("phantom", "centre"))
+VARIANTS = tuple(f"{m}+{f}" for m, f in SWEEP)
+NORTH_Y = 20.0       # the hall's two halves behave differently; report them apart
 
 # The numbers `height_map_diagnosis.md` §2 reports, and the stop condition of P1a.
 DIAG_EXPECT = {"phantom_cells": 94780, "phantom_m2": 236.95, "phantom_components": 367}
@@ -199,35 +205,44 @@ def step_build(variant=None, max_top=None):
           f"phantom {int(phantom.sum()):,} cells, open floor {int(openf.sum()):,} cells", flush=True)
 
     masks = {"phantom": phantom, "open_floor": openf}
+    diag = _residual_diagnostic(scene, masks["phantom"], ext, z_f, kw, phantom)
+    print("residual diagnostic " + json.dumps(diag), flush=True)
+
     rows, scenes = {}, {}
-    for name in VARIANTS:
+    for mask_name, fp in SWEEP:
+        name = f"{mask_name}+{fp}"
         t1 = time.time()
-        built, st = build_plane_floor(scene, masks[name], ext, CELL, floor=floor, **kw)
+        built, st = build_plane_floor(scene, masks[mask_name], ext, CELL, floor=floor,
+                                      footprint=fp, **kw)
         occ1 = _band_maps(built, z_f, ext)
         bt = _band_table(occ1)
-        low, above = occ1[BANDS[0]], bt[f"occ_{BANDS[1][0]:.2f}_{BANDS[1][1]:.2f}"]
+        low, above = occ1[BANDS[0]], bt["occ_0.10_0.55"]
+        res = phantom & low
         st.update(
-            footprint_mask=name,
-            footprint_mask_cells=int(masks[name].sum()),
-            band_occupancy_frac_before=before,
-            band_occupancy_frac_after=bt,
+            variant=name, overhead_mask=mask_name, footprint=fp,
+            overhead_mask_cells=int(masks[mask_name].sum()),
+            band_occupancy_frac_before=before, band_occupancy_frac_after=bt,
             # monotone_toward_floor reads top band first, floor band last
             monotone_toward_floor=monotone_toward_floor(list(bt.values())[::-1]),
-            low_band_after=bt[f"occ_{BANDS[0][0]:.2f}_{BANDS[0][1]:.2f}"],
-            band_above_after=above,
-            phantom_cells_still_occupied=int((phantom & low).sum()),
-            phantom_cells_cleared_frac=float(1.0 - (phantom & low).sum() / phantom.sum()),
-            residual=speckle_stats(phantom & low, CELL),
+            low_band_after=bt["occ_0.02_0.10"], band_above_after=above,
+            phantom_cells_still_occupied=int(res.sum()),
+            phantom_cells_cleared_frac=float(1.0 - res.sum() / phantom.sum()),
+            residual=speckle_stats(res, CELL),
+            residual_m2_by_region=_by_region(res, ext),
+            residual_distance_to_real_geometry_m=_dist_to_real(res, openf),
+            removed_component_m2=_removed_morphology(phantom & ~low, CELL),
             measured_on_built_scene=_measure_inserted(built, st["first_inserted_id"], z_f),
             seconds=time.time() - t1)
         rows[name] = st
         scenes[name] = built
-        print(f"[{name}] replaced {st['replaced']:,} splats -> low band "
-              f"{st['low_band_after']:.4f} (was {before['occ_0.02_0.10']:.4f}, band above "
-              f"{above:.4f}), monotone={st['monotone_toward_floor']}, phantom cleared "
-              f"{st['phantom_cells_cleared_frac']:.1%}, inserted top "
+        print(f"[{name}] replaced {st['replaced']:,} -> low band {st['low_band_after']:.4f} "
+              f"(was {before['occ_0.02_0.10']:.4f}; band above {above:.4f}), "
+              f"monotone={st['monotone_toward_floor']}, phantom cleared "
+              f"{st['phantom_cells_cleared_frac']:.1%}, residual S/N "
+              f"{st['residual_m2_by_region']['south_m2']:.0f}/"
+              f"{st['residual_m2_by_region']['north_m2']:.0f} m2, inserted top "
               f"{st['measured_on_built_scene']['inserted_rho_top_max_above_floor']:.4f} m "
-              f"above floor in {st['seconds']:.1f}s", flush=True)
+              f"in {st['seconds']:.1f}s", flush=True)
 
     if variant is None:
         ok = [n for n in VARIANTS if rows[n]["monotone_toward_floor"]]
@@ -244,10 +259,13 @@ def step_build(variant=None, max_top=None):
             "n_splats": len(built), "replaced": st["replaced"], "inserted": st["inserted"],
             "first_inserted_id": st["first_inserted_id"],
             "band_occupancy_frac_after": st["band_occupancy_frac_after"]}
+    st["equal_thickness_after"] = _equal_thickness_check(built, z_f, ext)
+    st["equal_thickness_before"] = _equal_thickness_check(scene, z_f, ext)
+    print("equal-thickness bands before " + json.dumps(st["equal_thickness_before"])
+          + " after " + json.dumps(st["equal_thickness_after"]), flush=True)
     save_plane_scene(SCENE_NPZ, built, meta)
     print(f"wrote {SCENE_NPZ} ({SCENE_NPZ.stat().st_size / 1e9:.2f} GB)", flush=True)
 
-    # Re-open what was written and re-measure the trap on the reloaded scene.
     again, meta2 = load_plane_scene(SCENE_NPZ)
     reread = _measure_inserted(again, meta2["first_inserted_id"], z_f)
     assert reread["n_inserted"] == st["inserted"], (reread, st["inserted"])
@@ -256,10 +274,12 @@ def step_build(variant=None, max_top=None):
     out = {"claims_boundary": CAPTION,
            "task": "P1b: replace the phantom near-floor splats with one analytic floor plane",
            "chosen_variant": chosen,
-           "chosen_because": ("least aggressive footprint mask whose low band stops being the "
-                              "most occupied one" if variant is None else "forced on the CLI"),
+           "chosen_because": ("least aggressive (overhead mask, footprint) pair whose low band "
+                              "stops being the most occupied" if variant is None
+                              else "forced on the CLI"),
            "monotone_target": {"band_above_0.10_0.55_before": before["occ_0.10_0.55"],
                                "low_band_0.02_0.10_before": before["occ_0.02_0.10"]},
+           "residual_diagnostic": diag,
            "scene_npz": str(SCENE_NPZ), "loader": "gmc.height.planefloor.load_plane_scene",
            "meta": meta, "reread_from_disk": reread,
            "variants": rows, "seconds": time.time() - t0}
@@ -274,6 +294,86 @@ def step_build(variant=None, max_top=None):
                       "replaced": st["replaced"], "inserted": st["inserted"]}, indent=2), flush=True)
 
 
+def _dist_to_real(residual, open_floor):
+    """How far is the residual from geometry that has mass above 0.10 m?
+
+    This decides P1's verdict, so it is measured rather than asserted. If what survives the rule
+    hugs real geometry, the residual is the AABB rasteriser over-approximating real near-floor
+    objects (wall bases, furniture feet), not leftover phantom dust -- and no parameter setting
+    can remove it without deleting the real object it belongs to.
+    """
+    if not residual.any():
+        return None
+    d = ndimage.distance_transform_edt(np.asarray(open_floor, dtype=bool)) * CELL
+    v = d[residual]
+    return {"percentiles_m": {str(q): float(np.percentile(v, q)) for q in (50, 75, 90, 99)},
+            "frac_within_0.30m": float((v <= 0.30).mean()),
+            "definition": "distance from each surviving phantom cell to the nearest cell "
+                          "occupied in some band above 0.10 m"}
+
+
+def _equal_thickness_check(scene, z_f, ext):
+    """A monotonicity check without the band-thickness confound, as a supporting diagnostic.
+
+    The required column compares [0.02, 0.10] (0.08 m thick) against [0.10, 0.55] (0.45 m, and so
+    it catches every tabletop in the hall). This compares the sweeper band against the 0.08 m
+    band directly above it, which is the like-for-like question "does occupancy fall toward the
+    floor". It supplements the required column, it does not replace it.
+    """
+    pairs = [(0.02, 0.10), (0.10, 0.18), (0.18, 0.26)]
+    fr = {f"occ_{a:.2f}_{b:.2f}": float(_occupancy(scene, z_f, (a, b), ext).mean())
+          for a, b in pairs}
+    vals = list(fr.values())
+    return {"equal_thickness_bands_0.08m": fr,
+            "decreases_toward_the_floor": bool(vals[0] <= vals[1])}
+
+
+def _by_region(mask, ext):
+    """The hall's north end reconstructs differently from its south; never average over both."""
+    ny_split = int((NORTH_Y - ext[1]) / CELL)
+    a = CELL ** 2
+    return {"south_m2": float(mask[:, :ny_split].sum() * a),
+            "north_m2": float(mask[:, ny_split:].sum() * a),
+            "split_at_y": NORTH_Y}
+
+
+def _removed_morphology(cleared, cell):
+    """Is what we deleted dust or coherent objects? The reader has to be able to judge."""
+    st = speckle_stats(cleared, cell)
+    return {k: st[k] for k in ("cells", "area_m2", "components", "median_blob_m2",
+                               "frac_blobs_le_100cm2")}
+
+
+def _residual_diagnostic(scene, phantom, ext, z_f, kw, phantom_ref):
+    """Why the literal rule leaves 31 % of the phantom layer: measure the footprints it judges by.
+
+    Restricted to the splats that can actually mark the sweeper band -- opaque, in band, rho-top
+    below the rule's ceiling -- this compares the width of the rho-AABB the literal rule uses
+    against the width of the band-clipped shadow the certified projector uses.
+    """
+    band = (z_f + P1B["z_lo"], z_f + kw["max_top"])
+    opq = scene.subset(scene.opacity > TAU)
+    m = band_overlap_mask(opq.means[:, 2], opq.covs[:, 2, 2], band[0], band[1], RHO)
+    sub = opq.subset(m)
+    lo, hi = sub.aabb(RHO)
+    keep = hi[:, 2] < z_f + kw["max_top"]
+    sub = sub.subset(keep)
+    out = {"opaque_splats_in_sweeper_band": int(m.sum()),
+           "of_those_with_rho_top_below_the_rule_ceiling": int(len(sub))}
+    shape = phantom.shape
+    for mode in ("aabb", "shadow"):
+        i0, i1, j0, j1 = footprint_spans(sub, ext, CELL, shape, level=RHO, mode=mode,
+                                         band_abs=band)
+        w = np.maximum(i1 - i0 + 1, j1 - j0 + 1) * CELL
+        out[f"{mode}_footprint_width_m"] = {str(q): float(np.percentile(w, q))
+                                            for q in (50, 90, 99, 99.9)}
+        out[f"{mode}_footprint_cells"] = {"mean": float(((i1 - i0 + 1) * (j1 - j0 + 1)).mean())}
+    gone = {mode: replace_mask(sub, phantom, ext, CELL, z_floor=z_f, max_top=kw["max_top"],
+                               level=RHO, footprint=mode).sum()
+            for mode in ("aabb", "shadow", "centre")}
+    out["removable_of_those"] = {k: int(v) for k, v in gone.items()}
+    return out
+
 def _fig_build(ext, occ0, phantom, scenes, rows, chosen, z_f):
     """Before / after / what is left, on the same axes as diagnosis fig1."""
     e = [ext[0], ext[2], ext[1], ext[3]]
@@ -281,10 +381,10 @@ def _fig_build(ext, occ0, phantom, scenes, rows, chosen, z_f):
     panels = [("sweeper band 0.02-0.10 m, as built\n"
                f"{low0.mean():.1%} occupied; red = phantom ({phantom.sum() * CELL ** 2:.0f} m2)",
                low0 & ~phantom, phantom)]
-    for name in VARIANTS:
+    for name in (VARIANTS[0], chosen):
         low1 = _occupancy(scenes[name], z_f, BANDS[0], ext)
         res = phantom & low1
-        panels.append((f"after the '{name}' rule{' (CHOSEN)' if name == chosen else ''}\n"
+        panels.append((f"after '{name}'{' (CHOSEN)' if name == chosen else ''}\n"
                        f"{low1.mean():.1%} occupied vs {rows[name]['band_above_after']:.1%} in the "
                        f"band above; {res.sum() * CELL ** 2:.0f} m2 phantom left",
                        low1 & ~res, res))
@@ -307,7 +407,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--step", required=True,
                     choices=["diagnose", "build", "survivors", "evidence"])
-    ap.add_argument("--variant", choices=VARIANTS, help="force the P1b footprint mask")
+    ap.add_argument("--variant", choices=VARIANTS, help="force the P1b (mask, footprint) pair")
     ap.add_argument("--max-top", type=float, help="override the P1b rho-top ceiling (m)")
     a = ap.parse_args()
     RES.mkdir(parents=True, exist_ok=True)
