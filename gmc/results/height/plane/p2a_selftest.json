@@ -1,0 +1,177 @@
+{
+ "claims_boundary": "synthetic scene, not the showcase hall",
+ "scene": "gmc.height.synth3d.table_scene('open')",
+ "case": {
+  "window": [
+   -3.0,
+   -2.0,
+   3.0,
+   2.0
+  ],
+  "start": [
+   -2.2,
+   0.0
+  ],
+  "goal": [
+   2.2,
+   0.0
+  ],
+  "z_c": 1.2,
+  "window_side_m": [
+   6.0,
+   4.0
+  ],
+  "window_at_most_8x8": true,
+  "not_through_glass_adjacent_opening": true,
+  "n_supports": {
+   "sweeper": 53,
+   "cylinder": 124,
+   "uav": 71
+  },
+  "supports_per_m2": {
+   "sweeper": 2.2,
+   "cylinder": 5.2,
+   "uav": 3.0
+  },
+  "criterion1": {
+   "runs": 6,
+   "length_m": 4.4,
+   "z_c": 1.2,
+   "straight_line_under_overhang": true,
+   "top": 0.76,
+   "underside": 0.72,
+   "s_interval": [
+    1.98,
+    2.42
+   ],
+   "longest_run_m": 0.02,
+   "ceiling_side_obstacle_above_floor": 2.5,
+   "zc_above_overhang_top_by_0.25": true,
+   "zc_band_below_ceiling_side_by_0.30": true,
+   "ok": true
+  },
+  "separation_m": 1.475,
+  "detour_ratio": 1.276142,
+  "contrast": 1.88231,
+  "criteria": {
+   "window_at_most_8x8": true,
+   "not_through_glass_adjacent_opening": true,
+   "straight_line_under_overhang": true,
+   "zc_above_overhang_top_by_0.25": true,
+   "zc_band_below_ceiling_side_by_0.30": true,
+   "d1_start_clear_sweeper": true,
+   "d1_goal_clear_sweeper": true,
+   "connected_sweeper": true,
+   "d1_start_clear_cylinder": true,
+   "d1_goal_clear_cylinder": true,
+   "connected_cylinder": true,
+   "d1_start_clear_uav": true,
+   "d1_goal_clear_uav": true,
+   "connected_uav": true,
+   "sweeper_line_free": true,
+   "cylinder_line_blocked": true
+  },
+  "failed_criteria": [],
+  "pass": true,
+  "label": "selftest",
+  "region": "synth3d table_open"
+ },
+ "robots": {
+  "sweeper": {
+   "start_clear_m": 0.775,
+   "goal_clear_m": 0.775,
+   "clearance_required_m": 0.225,
+   "disc_r": 0.175,
+   "start_clear_ok": true,
+   "goal_clear_ok": true,
+   "connected": true,
+   "start_cell": [
+    31,
+    80
+   ],
+   "goal_cell": [
+    208,
+    80
+   ],
+   "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+   "ok": true,
+   "line": {
+    "length_m": 4.4,
+    "min_clearance_m": 0.525,
+    "blocked_len_m": 0.0,
+    "blocked_frac": 0.0,
+    "free": true,
+    "disc_r": 0.175
+   },
+   "disc_free_frac": 0.805469,
+   "occupied_frac": 0.033333,
+   "free_components": 1,
+   "path_len_m": 4.425
+  },
+  "cylinder": {
+   "start_clear_m": 0.775,
+   "goal_clear_m": 0.775,
+   "clearance_required_m": 0.35,
+   "disc_r": 0.3,
+   "start_clear_ok": true,
+   "goal_clear_ok": true,
+   "connected": true,
+   "start_cell": [
+    31,
+    80
+   ],
+   "goal_cell": [
+    208,
+    80
+   ],
+   "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+   "ok": true,
+   "line": {
+    "length_m": 4.4,
+    "min_clearance_m": 0.0,
+    "blocked_len_m": 1.1375,
+    "blocked_frac": 0.25779,
+    "free": false,
+    "disc_r": 0.3
+   },
+   "disc_free_frac": 0.644271,
+   "occupied_frac": 0.0625,
+   "free_components": 1,
+   "path_len_m": 5.64693
+  },
+  "uav": {
+   "start_clear_m": 0.775,
+   "goal_clear_m": 0.775,
+   "clearance_required_m": 0.3,
+   "disc_r": 0.25,
+   "start_clear_ok": true,
+   "goal_clear_ok": true,
+   "connected": true,
+   "start_cell": [
+    31,
+    80
+   ],
+   "goal_cell": [
+    208,
+    80
+   ],
+   "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+   "ok": true,
+   "line": {
+    "length_m": 4.4,
+    "min_clearance_m": 0.6,
+    "blocked_len_m": 0.0,
+    "blocked_frac": 0.0,
+    "free": true,
+    "disc_r": 0.25
+   },
+   "disc_free_frac": 0.722344,
+   "occupied_frac": 0.032917,
+   "free_components": 1,
+   "path_len_m": 4.425
+  }
+ },
+ "n_endpoints": 162,
+ "n_contrasting_pairs": 1667,
+ "failures": []
+}
