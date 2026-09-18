@@ -43,3 +43,10 @@ def test_headline_keeps_three_significant_figures_of_the_clearance_bound(lb, sho
            "replay3d": {"passed": True, "min_clearance_lb": lb}}
     head, ok = percase_render.headline("sweeper", res)
     assert ok and f"replay3d lb = {shown}" in head
+
+
+@pytest.mark.parametrize("key", ["p3long", "p3rung"])
+def test_p3_presets_fit_one_title_line_so_the_claims_boundary_is_not_clipped(key):
+    """The 3D title band holds the headline plus ONE caption line (13 pt, 1280 px): about 135 characters.
+    The first P3 render clipped its caption at both frame edges and 'D1' fell off."""
+    assert len(percase_render.claim_for("planefloor", key)) <= 135

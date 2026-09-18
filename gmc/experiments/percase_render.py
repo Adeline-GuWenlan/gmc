@@ -31,11 +31,11 @@ PLANE_BOUNDARY = ("plane floor = USER-APPROVED MANUAL SCENE EDIT, sound w.r.t. t
                   "criterion 3 relaxed by user decision D1 to r + 0.05 m")
 CLAIM_PLANE = "Amendment 3 shared case: one window, one start, one goal, three robots · " + PLANE_BOUNDARY
 # Presets rather than free text: the caption travels through sbatch --export ARGS, which word-splits.
-CLAIM_PRESETS = {
-    "p3long": ("Amendment 3 P3 long case: one window, one start, one goal, sweeper + uav (the cylinder "
-               "runs on a separate ladder, user decision D4) · " + PLANE_BOUNDARY),
-    "p3rung": ("Amendment 3 P3 cylinder ladder rung: the long case's start, a nearer goal, its own "
-               "window (user decision D4) · " + PLANE_BOUNDARY),
+CLAIM_PRESETS = {       # <= 135 chars: the 3D title band holds the headline plus ONE caption line
+    "p3long": ("P3 long case, sweeper + uav (cylinder: separate ladder, D4) · plane floor = "
+               "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
+    "p3rung": ("P3 cylinder ladder rung from the long case's start (D4) · plane floor = "
+               "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
 }
 
 
