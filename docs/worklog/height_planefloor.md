@@ -485,3 +485,24 @@ next step and is **not** run here.
   (149 k) is already the size of P2's 156 k map that ran past the query cap.
 - Submitted **17948811** sweeper (1 CPU / 6 G / 2 h) and **17948812** uav (1 CPU / 9 G / 4 h) on the long
   case. Rungs go next, smallest first, at most two in flight; a rung that returns UNKNOWN stops the climb.
+
+### 2026-09-18 ~15:3x — the core result: sweeper and uav certified at 11.24 m; ladder rung 0 certified
+
+Same window, start and goal for both (`results/height/plane/long/case.json`), plane-floor scene, τ, ρ,
+robots, config, `verify_curve`, `replay3d` untouched.
+
+| run | supports | compile s | query s (cap 7,200) | verify s | status | verify min clr m | replay3d lb m | wall | MaxRSS |
+|---|---|---|---|---|---|---|---|---|---|
+| sweeper 17948811 | 6,436 | 25.0 | 107.5 | 52.3 | **REACHABLE, certified, replay3d passed** | 0.00278 | **0.00015** | 3 m 37 s | 2.76 GB |
+| uav 17948812 | 39,834 | 153.4 | 292.9 | 145.5 | **REACHABLE, certified, replay3d passed** | 0.00704 | 0.01769 | 10 m 44 s | 2.22 GB |
+| cylinder rung 0 17948988 (2.43 m) | 21,144 | 81.0 | 174.8 | 85.2 | **REACHABLE, certified, replay3d passed** | 0.0325 | 0.00144 | 6 m 46 s | 2.24 GB |
+
+- **The clearance lower bound, honestly:** positive in all three, so all three are certified. But the
+  sweeper's is **0.15 mm** at 11.24 m, against 0.027 m (A2, 2.0 m) and 0.0059 m (P2, 2.36 m). GMC finds a
+  certified route, not a max-clearance one. A longer route is constrained by more obstacles, so the
+  minimum over it can only get smaller or stay the same. The uav's did not shrink (0.0127 → 0.0177 m).
+  The certificate holds; the margin is thin, and I report that rather than a wider figure.
+- **MaxRSS is far below my sizing** (2.2–2.8 GB, requested 6–9 GB). The ~73 KB/support I took from P2's
+  156 k cylinder does not hold at 20–40 k supports; that run's 14.2 GB must come from its query, not its
+  compile. Later rungs are sized from these measurements.
+- Rung 1 (**17949332**, 45,572 supports) and rung 2 (**17949336**, 46,835) are running.

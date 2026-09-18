@@ -677,6 +677,11 @@ def step_report(args):
         ax.grid(alpha=0.25, lw=0.5)
         ax.tick_params(labelsize=8)
     axs[0].axvline(144, color="0.4", ls="--", lw=1)
+    for k, dx in (("sweeper", 0.94), ("cylinder", 1.0), ("uav", 1.06)):
+        t = twelve[k]
+        axs[0].plot([144 * dx] * 2, [t["min"], t["max"]], "-", color=COLORS[k], lw=2, alpha=0.6)
+        axs[0].plot(144 * dx, t["median"], marker=MARKERS[k], ms=11, color=COLORS[k], mec="k", mew=1,
+                    ls="none", label=f"{k}: every 12 x 12 window, min-median-max" if k == "cylinder" else None)
     axs[0].text(144, axs[0].get_ylim()[0] * 1.5, " 12 x 12 m", fontsize=8, color="0.3")
     axs[0].set_xlabel("window area (m²)")
     axs[0].set_ylabel("supports (project_scene kept)")
@@ -688,10 +693,11 @@ def step_report(args):
     axs[2].set_ylabel("query seconds")
     for cap, lbl in ((QUERY_CAP_S, "query cap 7,200 s"), (2 * QUERY_CAP_S, "BUDGET=2 cap 14,400 s")):
         axs[2].axhline(cap, color="0.4", ls="--", lw=1)
-        axs[2].text(axs[2].get_xlim()[0] * 1.1, cap * 1.08, lbl, fontsize=8, color="0.3")
+        axs[2].text(axs[2].get_xlim()[1] / 5.0, cap * 1.08, lbl, fontsize=8, color="0.3", ha="right")
     axs[2].set_title("query time vs supports (hollow = UNKNOWN, a lower bound)", fontsize=10)
-    for ax in axs:
-        ax.legend(fontsize=7, loc="upper left")
+    axs[0].legend(fontsize=7, loc="upper left")
+    axs[1].legend(fontsize=7, loc="lower right")
+    axs[2].legend(fontsize=7, loc="lower right")
     fig.suptitle("P3: why only this is doable — Amendment 2, P2 and P3 runs on one set of axes\n" + CLAIMS,
                  fontsize=8)
     fig.tight_layout(rect=(0, 0, 1, 0.92))

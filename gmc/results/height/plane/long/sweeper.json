@@ -1,0 +1,674 @@
+{
+  "robot": "sweeper",
+  "tau": 0.3,
+  "budget_scale": 1,
+  "case_file": "results/height/plane/long/case.json",
+  "case": {
+    "window": [
+      6.45,
+      4.7,
+      14.15,
+      15.6
+    ],
+    "start": [
+      7.35,
+      5.3,
+      0.0
+    ],
+    "goal": [
+      13.35,
+      14.8,
+      0.0
+    ],
+    "z_floor": -1.227175,
+    "z_c": 1.2,
+    "overhang": {},
+    "dist_m": 11.236103,
+    "n_supports": {
+      "sweeper": 6436,
+      "cylinder": 269036,
+      "uav": 39834
+    },
+    "supports_per_m2": {
+      "sweeper": 76.7,
+      "cylinder": 3205.5,
+      "uav": 474.6
+    },
+    "gravity_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene": "planefloor",
+    "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+    "criterion1": "recorded, not required, for P3",
+    "label": "P3-long-0",
+    "pass": true,
+    "criteria": {
+      "dist_at_least_8m": true,
+      "window_at_most_12x12": true,
+      "not_through_glass_adjacent_opening": true,
+      "routes_differ_by_0.5m": true,
+      "d1_start_clear_sweeper": true,
+      "d1_goal_clear_sweeper": true,
+      "connected_sweeper": true,
+      "d1_start_clear_uav": true,
+      "d1_goal_clear_uav": true,
+      "connected_uav": true
+    },
+    "separation_m": 5.727567,
+    "detour_ratio": 1.178215,
+    "precheck": {
+      "sweeper": {
+        "start_clear_m": 0.575,
+        "goal_clear_m": 0.375,
+        "clearance_required_m": 0.225,
+        "disc_r": 0.175,
+        "start_clear_ok": true,
+        "goal_clear_ok": true,
+        "connected": true,
+        "start_cell": [
+          35,
+          23
+        ],
+        "goal_cell": [
+          275,
+          404
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": true,
+        "line": {
+          "length_m": 11.236103,
+          "min_clearance_m": 0.0,
+          "blocked_len_m": 4.036998,
+          "blocked_frac": 0.358889,
+          "free": false,
+          "disc_r": 0.175
+        },
+        "disc_free_frac": 0.68677,
+        "occupied_frac": 0.085153,
+        "free_components": 7,
+        "path_len_m": 14.6666
+      },
+      "cylinder": {
+        "start_clear_m": 0.575,
+        "goal_clear_m": 0.33541,
+        "clearance_required_m": 0.35,
+        "disc_r": 0.3,
+        "start_clear_ok": true,
+        "goal_clear_ok": false,
+        "connected": true,
+        "start_cell": [
+          35,
+          23
+        ],
+        "goal_cell": [
+          275,
+          404
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": false,
+        "line": {
+          "length_m": 11.236103,
+          "min_clearance_m": 0.0,
+          "blocked_len_m": 5.986755,
+          "blocked_frac": 0.532222,
+          "free": false,
+          "disc_r": 0.3
+        },
+        "disc_free_frac": 0.534009,
+        "occupied_frac": 0.174781,
+        "free_components": 8,
+        "path_len_m": 14.976219
+      },
+      "uav": {
+        "start_clear_m": 0.575,
+        "goal_clear_m": 0.654313,
+        "clearance_required_m": 0.3,
+        "disc_r": 0.25,
+        "start_clear_ok": true,
+        "goal_clear_ok": true,
+        "connected": true,
+        "start_cell": [
+          35,
+          23
+        ],
+        "goal_cell": [
+          275,
+          404
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": true,
+        "line": {
+          "length_m": 11.236103,
+          "min_clearance_m": 0.0,
+          "blocked_len_m": 2.049745,
+          "blocked_frac": 0.182222,
+          "free": false,
+          "disc_r": 0.25
+        },
+        "disc_free_frac": 0.754297,
+        "occupied_frac": 0.057258,
+        "free_components": 3,
+        "path_len_m": 12.448149
+      }
+    },
+    "selection": {
+      "search_file": "results/height/plane/long/p3_search.json",
+      "label": "P3-long-0",
+      "method": "project_scene -> _support_raster(0.025) -> EDT; D1 per robot; >= 8 m; window <= 12 x 12 from bbox(start, goal, both routes) + 0.6 m"
+    }
+  },
+  "scene": "planefloor",
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; results are sound with respect to the edited scene only",
+  "planefloor": {
+    "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "variant": "phantom+centre",
+    "params": {
+      "cell": 0.05,
+      "max_top": 0.1,
+      "level": 2.0,
+      "spacing": 1.0,
+      "sigma_xy": 0.4,
+      "sigma_n": 0.004,
+      "opacity": 0.95,
+      "z_lo": 0.02,
+      "margin": 0.005,
+      "require_opaque": false,
+      "footprint": "centre",
+      "measure_local_floor": true
+    },
+    "floor": {
+      "z_floor": -1.2271749593107995,
+      "normal": [
+        -0.004939390758035324,
+        -0.0005859098184822146,
+        0.9999876294877973
+      ],
+      "centroid": [
+        8.120587301399752,
+        19.38866848198973,
+        -1.2271749593107995
+      ],
+      "tilt_deg": 0.28499150773301013,
+      "n_inliers": 42709,
+      "peak_z": -1.3206900969743727
+    },
+    "z_floor": -1.2271749593107995,
+    "ceiling_height_m": 5.310000826248441,
+    "extent": [
+      -4.43357959985733,
+      -0.9637084349989891,
+      21.088036155700674,
+      37.84499740600586
+    ],
+    "gravity_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "base_scene": "splatc_atlas/.../showcase/processed.npz via load_processed() (Amendment 1 floor rule ON), then Amendment 3 P1b",
+    "n_splats": 7101868,
+    "replaced": 146977,
+    "inserted": 1014,
+    "first_inserted_id": 7340008,
+    "band_occupancy_frac_after": {
+      "occ_0.02_0.10": 0.19545293126506433,
+      "occ_0.10_0.55": 0.1736519857850582,
+      "occ_0.55_1.00": 0.1325157978778331,
+      "occ_1.00_1.75": 0.11684510901732037,
+      "occ_1.75_2.50": 0.11056877397386204
+    }
+  },
+  "projection": {
+    "n_input": 7101868,
+    "tau": 0.3,
+    "level": 2.0,
+    "window": [
+      6.45,
+      4.7,
+      14.15,
+      15.6
+    ],
+    "band_abs": [
+      -1.2071749999999999,
+      -1.1271749999999998
+    ],
+    "dilate_radius": 0.175,
+    "dropped_opacity": 3295274,
+    "floored_3d": 0,
+    "excluded_band": 3738140,
+    "outside_window": 62018,
+    "deduplicated": 0,
+    "kept": 6436,
+    "floored_2d": 6,
+    "candidate2": 2417
+  },
+  "probe": {
+    "n_supports_full": 6436,
+    "abort": false,
+    "n_supports_probe": 394,
+    "probe_compile_seconds": 2.2786197662353516,
+    "projected_hours": 0.010339253254012071,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+  },
+  "result": {
+    "status": "REACHABLE",
+    "clearance_lb": 0.00277898814661013,
+    "reason": null,
+    "n_supports": 6436,
+    "n_pairs": 6436,
+    "n_slabs": 1,
+    "compile_seconds": 25.029441118240356,
+    "query_seconds": 107.46286273002625,
+    "safe_nodes": 10,
+    "safe_edges": 0,
+    "possible_nodes": 11,
+    "possible_edges": 0,
+    "verify": {
+      "ran": true,
+      "certified": true,
+      "min_clearance": 0.00277898814661013,
+      "reason": "ok"
+    },
+    "curve": {
+      "schema_version": 2,
+      "query_id": "",
+      "segments": [
+        {
+          "kind": "ROTATION",
+          "q0": [
+            7.35,
+            5.3,
+            0.0
+          ],
+          "q1": [
+            7.35,
+            5.3,
+            3.141592653589793
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        },
+        {
+          "kind": "TRANSLATION",
+          "q0": [
+            7.35,
+            5.3,
+            3.141592653589793
+          ],
+          "q1": [
+            13.35,
+            14.8,
+            3.141592653589793
+          ],
+          "control_points": [
+            [
+              7.11,
+              8.240000000000002,
+              3.141592653589793
+            ],
+            [
+              7.23,
+              12.920000000000007,
+              3.141592653589793
+            ],
+            [
+              7.830000000000001,
+              13.280000000000006,
+              3.141592653589793
+            ],
+            [
+              10.590000000000003,
+              14.600000000000009,
+              3.141592653589793
+            ],
+            [
+              12.630000000000006,
+              15.080000000000009,
+              3.141592653589793
+            ]
+          ],
+          "certificate_ids": []
+        },
+        {
+          "kind": "ROTATION",
+          "q0": [
+            13.35,
+            14.8,
+            3.141592653589793
+          ],
+          "q1": [
+            13.35,
+            14.8,
+            0.0
+          ],
+          "control_points": [],
+          "certificate_ids": []
+        }
+      ]
+    },
+    "start": [
+      7.35,
+      5.3,
+      0.0
+    ],
+    "goal": [
+      13.35,
+      14.8,
+      0.0
+    ],
+    "timing": {
+      "stages": [
+        {
+          "stage": "scene_load",
+          "label": null,
+          "seconds": 0.8033537699957378,
+          "failed": false,
+          "sizes": {
+            "scene": "planefloor",
+            "n_splats": 7101868
+          }
+        },
+        {
+          "stage": "project",
+          "label": "sweeper",
+          "seconds": 5.356950624991441,
+          "failed": false,
+          "sizes": {
+            "n_splats": 7101868,
+            "window": [
+              6.45,
+              4.7,
+              14.15,
+              15.6
+            ],
+            "n_supports": 6436
+          }
+        },
+        {
+          "stage": "compile_pairs",
+          "label": null,
+          "seconds": 0.44375960499746725,
+          "failed": false,
+          "sizes": {
+            "n_supports": 6436,
+            "n_pairs": 6436
+          }
+        },
+        {
+          "stage": "compile_slabs",
+          "label": null,
+          "seconds": 24.10385638201842,
+          "failed": false,
+          "sizes": {
+            "n_supports": 6436,
+            "n_pairs": 6436,
+            "n_slabs": 1
+          }
+        },
+        {
+          "stage": "compile_mobility",
+          "label": null,
+          "seconds": 0.4816482700116467,
+          "failed": false,
+          "sizes": {
+            "n_supports": 6436,
+            "n_pairs": 6436,
+            "n_slabs": 1
+          }
+        },
+        {
+          "stage": "query",
+          "label": null,
+          "seconds": 107.46283509000205,
+          "failed": false,
+          "sizes": {
+            "n_slabs": 1,
+            "n_safe_nodes": 10,
+            "n_safe_edges": 0,
+            "status": "REACHABLE"
+          }
+        },
+        {
+          "stage": "verify_curve",
+          "label": null,
+          "seconds": 52.28806051198626,
+          "failed": false,
+          "sizes": {
+            "n_pairs": 6436,
+            "n_segments": 3
+          }
+        }
+      ],
+      "by_stage": {
+        "scene_load": 0.8033537699957378,
+        "project": 5.356950624991441,
+        "compile_pairs": 0.44375960499746725,
+        "compile_slabs": 24.10385638201842,
+        "compile_mobility": 0.4816482700116467,
+        "query": 107.46283509000205,
+        "verify_curve": 52.28806051198626
+      },
+      "total_seconds": 190.94046425400302,
+      "missing_stages": [
+        "floor_replace",
+        "replay3d"
+      ],
+      "stage_order": [
+        "scene_load",
+        "floor_replace",
+        "project",
+        "compile_pairs",
+        "compile_slabs",
+        "compile_mobility",
+        "query",
+        "verify_curve",
+        "replay3d"
+      ]
+    },
+    "replay3d": {
+      "passed": true,
+      "n_samples": 1539,
+      "n_pairs_checked": 10428,
+      "n_refined": 402,
+      "min_clearance_lb": 0.00014671492565643263,
+      "worst": {
+        "sample_index": 755,
+        "pose": [
+          7.21362473347548,
+          12.281364605543716,
+          3.141592653589793
+        ],
+        "splat_id": 4617841,
+        "gap": 0.00014671492565643263
+      },
+      "collisions": [],
+      "params": {
+        "tau": 0.3,
+        "level": 2.0,
+        "delta": 0.01,
+        "n_coarse": 256,
+        "n_fine": 2048,
+        "margin": 0.05,
+        "band_abs": [
+          -1.2071749999999999,
+          -1.1271749999999998
+        ]
+      }
+    }
+  },
+  "replay3d": {
+    "passed": true,
+    "n_samples": 1539,
+    "n_pairs_checked": 10428,
+    "n_refined": 402,
+    "min_clearance_lb": 0.00014671492565643263,
+    "worst": {
+      "sample_index": 755,
+      "pose": [
+        7.21362473347548,
+        12.281364605543716,
+        3.141592653589793
+      ],
+      "splat_id": 4617841,
+      "gap": 0.00014671492565643263
+    },
+    "collisions": [],
+    "params": {
+      "tau": 0.3,
+      "level": 2.0,
+      "delta": 0.01,
+      "n_coarse": 256,
+      "n_fine": 2048,
+      "margin": 0.05,
+      "band_abs": [
+        -1.2071749999999999,
+        -1.1271749999999998
+      ]
+    }
+  },
+  "timing": {
+    "stages": [
+      {
+        "stage": "scene_load",
+        "label": null,
+        "seconds": 0.8033537699957378,
+        "failed": false,
+        "sizes": {
+          "scene": "planefloor",
+          "n_splats": 7101868
+        }
+      },
+      {
+        "stage": "project",
+        "label": "sweeper",
+        "seconds": 5.356950624991441,
+        "failed": false,
+        "sizes": {
+          "n_splats": 7101868,
+          "window": [
+            6.45,
+            4.7,
+            14.15,
+            15.6
+          ],
+          "n_supports": 6436
+        }
+      },
+      {
+        "stage": "compile_pairs",
+        "label": null,
+        "seconds": 0.44375960499746725,
+        "failed": false,
+        "sizes": {
+          "n_supports": 6436,
+          "n_pairs": 6436
+        }
+      },
+      {
+        "stage": "compile_slabs",
+        "label": null,
+        "seconds": 24.10385638201842,
+        "failed": false,
+        "sizes": {
+          "n_supports": 6436,
+          "n_pairs": 6436,
+          "n_slabs": 1
+        }
+      },
+      {
+        "stage": "compile_mobility",
+        "label": null,
+        "seconds": 0.4816482700116467,
+        "failed": false,
+        "sizes": {
+          "n_supports": 6436,
+          "n_pairs": 6436,
+          "n_slabs": 1
+        }
+      },
+      {
+        "stage": "query",
+        "label": null,
+        "seconds": 107.46283509000205,
+        "failed": false,
+        "sizes": {
+          "n_slabs": 1,
+          "n_safe_nodes": 10,
+          "n_safe_edges": 0,
+          "status": "REACHABLE"
+        }
+      },
+      {
+        "stage": "verify_curve",
+        "label": null,
+        "seconds": 52.28806051198626,
+        "failed": false,
+        "sizes": {
+          "n_pairs": 6436,
+          "n_segments": 3
+        }
+      },
+      {
+        "stage": "replay3d",
+        "label": null,
+        "seconds": 3.3136586690088734,
+        "failed": false,
+        "sizes": {
+          "n_splats": 7101868,
+          "n_segments": 3
+        }
+      }
+    ],
+    "by_stage": {
+      "scene_load": 0.8033537699957378,
+      "project": 5.356950624991441,
+      "compile_pairs": 0.44375960499746725,
+      "compile_slabs": 24.10385638201842,
+      "compile_mobility": 0.4816482700116467,
+      "query": 107.46283509000205,
+      "verify_curve": 52.28806051198626,
+      "replay3d": 3.3136586690088734
+    },
+    "total_seconds": 194.2541229230119,
+    "missing_stages": [
+      "floor_replace"
+    ],
+    "stage_order": [
+      "scene_load",
+      "floor_replace",
+      "project",
+      "compile_pairs",
+      "compile_slabs",
+      "compile_mobility",
+      "query",
+      "verify_curve",
+      "replay3d"
+    ]
+  }
+}

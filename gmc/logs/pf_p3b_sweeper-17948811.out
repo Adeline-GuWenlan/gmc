@@ -1,0 +1,6 @@
+=== planefloor_run --robot sweeper --tau 0.3 --budget-scale 1 --case results/height/plane/long/case.json --scene planefloor --out-dir results/height/plane/long --raw-subdir plane_long 2026-09-18T11:19:37-04:00 host=cs601.hpc.nyu.edu job=17948811 ===
+projection {"n_input": 7101868, "tau": 0.3, "level": 2.0, "window": [6.45, 4.7, 14.15, 15.6], "band_abs": [-1.2071749999999999, -1.1271749999999998], "dilate_radius": 0.175, "dropped_opacity": 3295274, "floored_3d": 0, "excluded_band": 3738140, "outside_window": 62018, "deduplicated": 0, "kept": 6436, "floored_2d": 6, "candidate2": 2417}
+probe {"n_supports_full": 6436, "abort": false, "n_supports_probe": 394, "probe_compile_seconds": 2.2786197662353516, "projected_hours": 0.010339253254012071, "extrapolation": "linear in supports x initial_intervals (rough)"}
+timing {"scene_load": 0.8033537699957378, "project": 5.356950624991441, "compile_pairs": 0.44375960499746725, "compile_slabs": 24.10385638201842, "compile_mobility": 0.4816482700116467, "query": 107.46283509000205, "verify_curve": 52.28806051198626, "replay3d": 3.3136586690088734}
+=== sweeper status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.00277898814661013, 'reason': 'ok'} replay3d=True abort=False ===
+=== PLANEFLOOR_RUN_DONE sweeper ===
