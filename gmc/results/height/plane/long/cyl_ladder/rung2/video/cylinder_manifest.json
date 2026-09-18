@@ -1,0 +1,139 @@
+{
+  "robot": "cylinder",
+  "claims": "P3 cylinder ladder rung from the long case's start (D4) \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "title": "cylinder \u00b7 REACHABLE \u00b7 replay3d lb = 0.00132 m\nP3 cylinder ladder rung from the long case's start (D4) \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "case_json": "results/height/plane/long/cyl_ladder/rung2/case.json",
+  "run_json": "results/height/plane/long/cyl_ladder/rung2/cylinder.json",
+  "status": "REACHABLE",
+  "verify_certified": true,
+  "replay3d_passed": true,
+  "replay3d_min_clearance_lb": 0.0013205192210252736,
+  "scene": {
+    "variant": "planefloor",
+    "n_splats": 7101868,
+    "floor_rule": null,
+    "planefloor": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "gravity_rotation_is_identity": true
+  },
+  "render": {
+    "renderer": "splat",
+    "n_rendered": 5645111,
+    "scene_radius_m": 14.0,
+    "opacity_threshold": null,
+    "subsampled": false
+  },
+  "selection": {
+    "window": [
+      6.438,
+      4.688,
+      10.8,
+      10.562
+    ],
+    "view_window_pad_m": 0.5,
+    "dilate_m": 1.0,
+    "z_max_above_floor_m": 2.5,
+    "tau": 0.3,
+    "n_window_xy_dilated": 364339,
+    "n_opaque_below_zmax": 125491,
+    "n_rendered": 125491,
+    "max_points": 250000,
+    "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"
+  },
+  "colors": {
+    "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+    "n_without_a_ply_row_height_coloured": 676,
+    "mean": [
+      0.4237,
+      0.3762,
+      0.3468
+    ],
+    "p5": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p50": [
+      0.5067,
+      0.424,
+      0.3598
+    ],
+    "p95": [
+      1.0,
+      0.9463,
+      0.9141
+    ],
+    "frac_at_0": 0.32799420005499746,
+    "frac_at_1": 0.04373849631418526
+  },
+  "projection": {
+    "kept": 46835,
+    "run_kept": 46835,
+    "matches_run": true
+  },
+  "outputs": {
+    "video_3d": "results/height/plane/long/cyl_ladder/rung2/video/cylinder_3d.mp4",
+    "n_frames_3d": 300,
+    "key_frames_3d": [
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_3d_f000.png",
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_3d_f050.png",
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_3d_f100.png"
+    ],
+    "overview_png": "results/height/plane/long/cyl_ladder/rung2/video/cylinder_overview.png",
+    "render_3d": {
+      "n_points": 5645111,
+      "render_seconds_per_frame": 1.692754549823391,
+      "workers": 1,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 2.5,
+      "elev": 35.0,
+      "orbit_deg": 50.0,
+      "renderer": "splat",
+      "splat_opts": {
+        "fov_y_deg": 50.0,
+        "fit_z": 0.9,
+        "look_z": 0.55,
+        "fit_scale": 1.0,
+        "fit_cover": 0.85,
+        "near": 0.05,
+        "near_frac": 0.32,
+        "cull_radius_px": 0,
+        "clip_pad": null,
+        "clip_z": 3.0,
+        "bg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "edge_lw": 1.4,
+        "ambient": 0.45,
+        "occlude_slack": 0.1,
+        "ghost_alpha": 0.28
+      }
+    },
+    "video_2panel": "results/height/plane/long/cyl_ladder/rung2/video/cylinder_2panel.mp4",
+    "n_frames_2panel": 300,
+    "key_frames_2panel": [
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_2panel_f000.png",
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_2panel_f050.png",
+      "results/height/plane/long/cyl_ladder/rung2/video/cylinder_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/plane/long/cyl_ladder/rung2/video/cylinder_scene.ply",
+    "scene_ply_vertices": 79010,
+    "n_poses": 300
+  },
+  "timings_s": {
+    "load_processed": 1.5,
+    "select": 0.1,
+    "colors": 1.5,
+    "project": 6.0,
+    "splat_pack": 2.8,
+    "video_3d": 510.1,
+    "overview": 1.8,
+    "video_2panel": 1490.7,
+    "scene_ply": 0.0
+  }
+}
