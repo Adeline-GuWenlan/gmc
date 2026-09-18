@@ -1,0 +1,139 @@
+{
+  "robot": "sweeper",
+  "claims": "P3 long case, sweeper + uav (cylinder: separate ladder, D4) \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "title": "sweeper \u00b7 REACHABLE \u00b7 replay3d lb = 0.000147 m\nP3 long case, sweeper + uav (cylinder: separate ladder, D4) \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "case_json": "results/height/plane/long/case.json",
+  "run_json": "results/height/plane/long/sweeper.json",
+  "status": "REACHABLE",
+  "verify_certified": true,
+  "replay3d_passed": true,
+  "replay3d_min_clearance_lb": 0.00014671492565643263,
+  "scene": {
+    "variant": "planefloor",
+    "n_splats": 7101868,
+    "floor_rule": null,
+    "planefloor": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "gravity_rotation_is_identity": true
+  },
+  "render": {
+    "renderer": "splat",
+    "n_rendered": 6461500,
+    "scene_radius_m": 14.0,
+    "opacity_threshold": null,
+    "subsampled": false
+  },
+  "selection": {
+    "window": [
+      6.45,
+      4.7,
+      14.15,
+      15.6
+    ],
+    "view_window_pad_m": 0.5,
+    "dilate_m": 1.0,
+    "z_max_above_floor_m": 2.5,
+    "tau": 0.3,
+    "n_window_xy_dilated": 1037780,
+    "n_opaque_below_zmax": 418747,
+    "n_rendered": 250000,
+    "max_points": 250000,
+    "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"
+  },
+  "colors": {
+    "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+    "n_without_a_ply_row_height_coloured": 806,
+    "mean": [
+      0.4234,
+      0.3773,
+      0.3488
+    ],
+    "p5": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p50": [
+      0.5055,
+      0.4265,
+      0.3665
+    ],
+    "p95": [
+      1.0,
+      0.9435,
+      0.9121
+    ],
+    "frac_at_0": 0.3240411669117078,
+    "frac_at_1": 0.04361804534550801
+  },
+  "projection": {
+    "kept": 6436,
+    "run_kept": 6436,
+    "matches_run": true
+  },
+  "outputs": {
+    "video_3d": "results/height/plane/long/video/sweeper_3d.mp4",
+    "n_frames_3d": 300,
+    "key_frames_3d": [
+      "results/height/plane/long/video/sweeper_3d_f000.png",
+      "results/height/plane/long/video/sweeper_3d_f050.png",
+      "results/height/plane/long/video/sweeper_3d_f100.png"
+    ],
+    "overview_png": "results/height/plane/long/video/sweeper_overview.png",
+    "render_3d": {
+      "n_points": 6461500,
+      "render_seconds_per_frame": 1.5906911318964558,
+      "workers": 1,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 1.75,
+      "elev": 35.0,
+      "orbit_deg": 50.0,
+      "renderer": "splat",
+      "splat_opts": {
+        "fov_y_deg": 50.0,
+        "fit_z": 0.9,
+        "look_z": 0.55,
+        "fit_scale": 1.0,
+        "fit_cover": 0.85,
+        "near": 0.05,
+        "near_frac": 0.32,
+        "cull_radius_px": 0,
+        "clip_pad": null,
+        "clip_z": 3.0,
+        "bg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "edge_lw": 1.4,
+        "ambient": 0.45,
+        "occlude_slack": 0.1,
+        "ghost_alpha": 0.28
+      }
+    },
+    "video_2panel": "results/height/plane/long/video/sweeper_2panel.mp4",
+    "n_frames_2panel": 300,
+    "key_frames_2panel": [
+      "results/height/plane/long/video/sweeper_2panel_f000.png",
+      "results/height/plane/long/video/sweeper_2panel_f050.png",
+      "results/height/plane/long/video/sweeper_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/plane/long/video/sweeper_scene.ply",
+    "scene_ply_vertices": 390650,
+    "n_poses": 300
+  },
+  "timings_s": {
+    "load_processed": 1.2,
+    "select": 0.2,
+    "colors": 2.7,
+    "project": 4.9,
+    "splat_pack": 3.2,
+    "video_3d": 479.6,
+    "overview": 3.4,
+    "video_2panel": 241.9,
+    "scene_ply": 0.1
+  }
+}
