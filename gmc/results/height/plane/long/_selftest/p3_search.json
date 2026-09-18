@@ -1,0 +1,2697 @@
+{
+ "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+ "task": "P3 (option (a)): long range on the plane floor",
+ "scene_npz": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+ "z_c": 1.2,
+ "domain": [
+  -3.0,
+  -2.0,
+  3.0,
+  2.0
+ ],
+ "d_min_m": 3.5,
+ "max_side_m": 6.5,
+ "caps_screening": {
+  "sweeper": 20000,
+  "uav": 60000
+ },
+ "count_validation": {},
+ "count_validation_all_agree": true,
+ "hall_supports_total": {
+  "sweeper": 58,
+  "cylinder": 126,
+  "uav": 75
+ },
+ "density_0p5m_percentiles_per_m2": {
+  "sweeper": {
+   "50": 0.0,
+   "75": 0.0,
+   "90": 0.0,
+   "99": 40.0
+  },
+  "cylinder": {
+   "50": 0.0,
+   "75": 0.0,
+   "90": 16.0,
+   "99": 60.0
+  },
+  "uav": {
+   "50": 0.0,
+   "75": 0.0,
+   "90": 0.0,
+   "99": 60.0
+  }
+ },
+ "domain_supports": {
+  "sweeper": 53,
+  "uav": 71
+ },
+ "lattice_points_passing_D1_for_sweeper_and_uav": 202,
+ "pairs_at_least_8m_in_12x12_reach": 3620,
+ "pairs_connected_for_both": 3620,
+ "pairs_with_route_window": 984,
+ "pairs_under_support_caps": 984,
+ "pairs_with_routes_differing_by_0.5m": 984,
+ "top_screened": [
+  {
+   "start": [
+    -2.15,
+    1.1
+   ],
+   "goal": [
+    2.35,
+    0.6
+   ],
+   "dist_m": 4.527693,
+   "window": [
+    -2.75,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.955635,
+   "len_uav_m": 5.038478,
+   "separation_m": 1.200001,
+   "detour_ratio": 1.016717,
+   "contrast": 1.220061,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.9,
+    0.35
+   ],
+   "goal": [
+    1.6,
+    1.35
+   ],
+   "dist_m": 3.640055,
+   "window": [
+    -2.5,
+    -0.35,
+    2.2,
+    2.0
+   ],
+   "len_sweeper_m": 3.897056,
+   "len_uav_m": 3.897056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.35
+   ],
+   "goal": [
+    1.6,
+    1.35
+   ],
+   "dist_m": 3.881044,
+   "window": [
+    -2.75,
+    -0.35,
+    2.2,
+    2.0
+   ],
+   "len_sweeper_m": 4.197056,
+   "len_uav_m": 4.197056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.35
+   ],
+   "goal": [
+    2.35,
+    1.35
+   ],
+   "dist_m": 4.609772,
+   "window": [
+    -2.75,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.997056,
+   "len_uav_m": 4.997056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.35
+   ],
+   "goal": [
+    2.1,
+    1.35
+   ],
+   "dist_m": 4.366062,
+   "window": [
+    -2.75,
+    -0.35,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.697056,
+   "len_uav_m": 4.697056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.35
+   ],
+   "goal": [
+    1.85,
+    1.35
+   ],
+   "dist_m": 4.123106,
+   "window": [
+    -2.75,
+    -0.35,
+    2.45,
+    2.0
+   ],
+   "len_sweeper_m": 4.497056,
+   "len_uav_m": 4.497056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.9,
+    0.35
+   ],
+   "goal": [
+    1.85,
+    1.35
+   ],
+   "dist_m": 3.881044,
+   "window": [
+    -2.5,
+    -0.35,
+    2.45,
+    2.0
+   ],
+   "len_sweeper_m": 4.197056,
+   "len_uav_m": 4.197056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.9,
+    0.35
+   ],
+   "goal": [
+    2.1,
+    1.35
+   ],
+   "dist_m": 4.123106,
+   "window": [
+    -2.5,
+    -0.35,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.397056,
+   "len_uav_m": 4.397056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.9,
+    0.35
+   ],
+   "goal": [
+    2.35,
+    1.35
+   ],
+   "dist_m": 4.366062,
+   "window": [
+    -2.5,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.697056,
+   "len_uav_m": 4.697056,
+   "separation_m": 1.200084,
+   "detour_ratio": 1.0,
+   "contrast": 1.200084,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.85
+   ],
+   "goal": [
+    1.35,
+    0.85
+   ],
+   "dist_m": 3.5,
+   "window": [
+    -2.75,
+    -0.35,
+    1.95,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 3.997056,
+   "separation_m": 1.2,
+   "detour_ratio": 1.0,
+   "contrast": 1.2,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.65,
+    0.85
+   ],
+   "goal": [
+    1.85,
+    0.85
+   ],
+   "dist_m": 3.5,
+   "window": [
+    -2.25,
+    -0.35,
+    2.45,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 3.997056,
+   "separation_m": 1.2,
+   "detour_ratio": 1.0,
+   "contrast": 1.2,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    0.35
+   ],
+   "goal": [
+    1.35,
+    1.35
+   ],
+   "dist_m": 3.640055,
+   "window": [
+    -2.75,
+    -0.35,
+    1.95,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 3.997056,
+   "separation_m": 1.131372,
+   "detour_ratio": 1.0,
+   "contrast": 1.131372,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    0.35
+   ],
+   "goal": [
+    1.35,
+    1.35
+   ],
+   "dist_m": 3.881044,
+   "window": [
+    -3.0,
+    -0.35,
+    1.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.197056,
+   "len_uav_m": 4.197056,
+   "separation_m": 1.131372,
+   "detour_ratio": 1.0,
+   "contrast": 1.131372,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.65,
+    0.35
+   ],
+   "goal": [
+    1.85,
+    1.35
+   ],
+   "dist_m": 3.640055,
+   "window": [
+    -2.25,
+    -0.35,
+    2.45,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 3.997056,
+   "separation_m": 1.126816,
+   "detour_ratio": 1.0,
+   "contrast": 1.126816,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.9,
+    -1.4
+   ],
+   "goal": [
+    0.35,
+    1.35
+   ],
+   "dist_m": 3.553168,
+   "window": [
+    -2.5,
+    -2.0,
+    1.05,
+    2.0
+   ],
+   "len_sweeper_m": 4.045584,
+   "len_uav_m": 3.928427,
+   "separation_m": 1.060672,
+   "detour_ratio": 1.029823,
+   "contrast": 1.092304,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.65
+   ],
+   "goal": [
+    0.85,
+    1.35
+   ],
+   "dist_m": 3.605551,
+   "window": [
+    -2.75,
+    -1.25,
+    1.45,
+    2.0
+   ],
+   "len_sweeper_m": 3.969848,
+   "len_uav_m": 4.062742,
+   "separation_m": 1.060835,
+   "detour_ratio": 1.0234,
+   "contrast": 1.085658,
+   "approx_supports": {
+    "sweeper": 40.0,
+    "cylinder": 110.0,
+    "uav": 51.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.9
+   ],
+   "goal": [
+    0.6,
+    1.35
+   ],
+   "dist_m": 3.553168,
+   "window": [
+    -2.75,
+    -1.5,
+    1.25,
+    2.0
+   ],
+   "len_sweeper_m": 3.969848,
+   "len_uav_m": 4.062742,
+   "separation_m": 1.060747,
+   "detour_ratio": 1.0234,
+   "contrast": 1.085569,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    -0.9
+   ],
+   "goal": [
+    0.85,
+    1.35
+   ],
+   "dist_m": 3.952847,
+   "window": [
+    -3.0,
+    -1.5,
+    1.45,
+    2.0
+   ],
+   "len_sweeper_m": 4.252691,
+   "len_uav_m": 4.345584,
+   "separation_m": 1.060835,
+   "detour_ratio": 1.021843,
+   "contrast": 1.084007,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -1.4,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    0.35
+   ],
+   "dist_m": 3.881044,
+   "window": [
+    -2.0,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.197056,
+   "len_uav_m": 4.197056,
+   "separation_m": 1.083681,
+   "detour_ratio": 1.0,
+   "contrast": 1.083681,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.4,
+    1.1
+   ],
+   "goal": [
+    2.1,
+    0.6
+   ],
+   "dist_m": 3.535534,
+   "window": [
+    -2.0,
+    -0.35,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.855635,
+   "len_uav_m": 3.938478,
+   "separation_m": 1.06073,
+   "detour_ratio": 1.021486,
+   "contrast": 1.083521,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -1.4,
+    0.6
+   ],
+   "goal": [
+    2.35,
+    1.1
+   ],
+   "dist_m": 3.783186,
+   "window": [
+    -2.0,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.155635,
+   "len_uav_m": 4.238478,
+   "separation_m": 1.060862,
+   "detour_ratio": 1.019935,
+   "contrast": 1.082011,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -1.15
+   ],
+   "goal": [
+    0.6,
+    1.35
+   ],
+   "dist_m": 3.716517,
+   "window": [
+    -2.75,
+    -1.75,
+    1.25,
+    2.0
+   ],
+   "len_sweeper_m": 4.269848,
+   "len_uav_m": 4.187006,
+   "separation_m": 1.06073,
+   "detour_ratio": 1.019786,
+   "contrast": 1.081717,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -0.65,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    -1.4
+   ],
+   "dist_m": 4.069705,
+   "window": [
+    -1.25,
+    -2.0,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.552691,
+   "len_uav_m": 4.469848,
+   "separation_m": 1.060862,
+   "detour_ratio": 1.018534,
+   "contrast": 1.080524,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -0.9,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    -1.15
+   ],
+   "dist_m": 4.100305,
+   "window": [
+    -1.5,
+    -1.75,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.552691,
+   "len_uav_m": 4.469848,
+   "separation_m": 1.06073,
+   "detour_ratio": 1.018534,
+   "contrast": 1.080389,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    -0.9
+   ],
+   "goal": [
+    0.6,
+    1.1
+   ],
+   "dist_m": 3.605551,
+   "window": [
+    -3.0,
+    -1.5,
+    1.25,
+    2.0
+   ],
+   "len_sweeper_m": 4.135534,
+   "len_uav_m": 4.062742,
+   "separation_m": 1.060835,
+   "detour_ratio": 1.017917,
+   "contrast": 1.079842,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -0.65,
+    1.1
+   ],
+   "goal": [
+    2.35,
+    -0.9
+   ],
+   "dist_m": 3.605551,
+   "window": [
+    -1.25,
+    -1.5,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.135534,
+   "len_uav_m": 4.062742,
+   "separation_m": 1.060666,
+   "detour_ratio": 1.017917,
+   "contrast": 1.07967,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -1.15,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    0.35
+   ],
+   "dist_m": 3.640055,
+   "window": [
+    -1.75,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 4.055635,
+   "separation_m": 1.062566,
+   "detour_ratio": 1.014655,
+   "contrast": 1.078138,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -0.65,
+    1.35
+   ],
+   "goal": [
+    2.1,
+    -0.9
+   ],
+   "dist_m": 3.553168,
+   "window": [
+    -1.25,
+    -1.5,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.928427,
+   "len_uav_m": 3.962742,
+   "separation_m": 1.060862,
+   "detour_ratio": 1.008735,
+   "contrast": 1.070129,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.15
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.579455,
+   "window": [
+    -2.75,
+    -0.75,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.904163,
+   "len_uav_m": 3.938478,
+   "separation_m": 1.060714,
+   "detour_ratio": 1.008789,
+   "contrast": 1.070037,
+   "approx_supports": {
+    "sweeper": 30.0,
+    "cylinder": 100.0,
+    "uav": 36.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    0.1
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.716517,
+   "window": [
+    -3.0,
+    -0.5,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.979899,
+   "len_uav_m": 4.014214,
+   "separation_m": 1.060714,
+   "detour_ratio": 1.008622,
+   "contrast": 1.069859,
+   "approx_supports": {
+    "sweeper": 24.0,
+    "cylinder": 94.0,
+    "uav": 27.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.4
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.691206,
+   "window": [
+    -2.75,
+    -1.0,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.987006,
+   "len_uav_m": 4.02132,
+   "separation_m": 1.060714,
+   "detour_ratio": 1.008607,
+   "contrast": 1.069843,
+   "approx_supports": {
+    "sweeper": 34.0,
+    "cylinder": 104.0,
+    "uav": 42.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    -0.15
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.807887,
+   "window": [
+    -3.0,
+    -0.75,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.104163,
+   "len_uav_m": 4.138478,
+   "separation_m": 1.060714,
+   "detour_ratio": 1.008361,
+   "contrast": 1.069582,
+   "approx_supports": {
+    "sweeper": 30.0,
+    "cylinder": 100.0,
+    "uav": 36.0
+   }
+  },
+  {
+   "start": [
+    -2.4,
+    -0.4
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.913119,
+   "window": [
+    -3.0,
+    -1.0,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.187006,
+   "len_uav_m": 4.22132,
+   "separation_m": 1.060714,
+   "detour_ratio": 1.008195,
+   "contrast": 1.069407,
+   "approx_supports": {
+    "sweeper": 34.0,
+    "cylinder": 104.0,
+    "uav": 42.0
+   }
+  },
+  {
+   "start": [
+    -0.65,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    -1.15
+   ],
+   "dist_m": 3.905125,
+   "window": [
+    -1.25,
+    -1.75,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 4.352691,
+   "len_uav_m": 4.387006,
+   "separation_m": 1.060862,
+   "detour_ratio": 1.007884,
+   "contrast": 1.069226,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.65
+   ],
+   "goal": [
+    1.1,
+    1.35
+   ],
+   "dist_m": 3.816084,
+   "window": [
+    -2.75,
+    -1.25,
+    1.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.169848,
+   "len_uav_m": 4.145584,
+   "separation_m": 1.060835,
+   "detour_ratio": 1.005853,
+   "contrast": 1.067044,
+   "approx_supports": {
+    "sweeper": 40.0,
+    "cylinder": 110.0,
+    "uav": 51.0
+   }
+  },
+  {
+   "start": [
+    -2.15,
+    -0.9
+   ],
+   "goal": [
+    0.85,
+    1.35
+   ],
+   "dist_m": 3.75,
+   "window": [
+    -2.75,
+    -1.5,
+    1.45,
+    2.0
+   ],
+   "len_sweeper_m": 4.169848,
+   "len_uav_m": 4.145584,
+   "separation_m": 1.060747,
+   "detour_ratio": 1.005853,
+   "contrast": 1.066956,
+   "approx_supports": {
+    "sweeper": 44.0,
+    "cylinder": 114.0,
+    "uav": 57.0
+   }
+  },
+  {
+   "start": [
+    -0.4,
+    1.35
+   ],
+   "goal": [
+    1.85,
+    -1.4
+   ],
+   "dist_m": 3.553168,
+   "window": [
+    -1.05,
+    -2.0,
+    2.45,
+    2.0
+   ],
+   "len_sweeper_m": 4.045584,
+   "len_uav_m": 3.928427,
+   "separation_m": 0.989987,
+   "detour_ratio": 1.029823,
+   "contrast": 1.019511,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -0.4,
+    1.35
+   ],
+   "goal": [
+    2.1,
+    -1.15
+   ],
+   "dist_m": 3.535534,
+   "window": [
+    -1.05,
+    -1.75,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 3.928427,
+   "len_uav_m": 4.045584,
+   "separation_m": 0.989987,
+   "detour_ratio": 1.029823,
+   "contrast": 1.019511,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  },
+  {
+   "start": [
+    -1.15,
+    0.85
+   ],
+   "goal": [
+    2.35,
+    0.85
+   ],
+   "dist_m": 3.5,
+   "window": [
+    -1.75,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "len_sweeper_m": 3.997056,
+   "len_uav_m": 3.997056,
+   "separation_m": 1.01304,
+   "detour_ratio": 1.0,
+   "contrast": 1.01304,
+   "approx_supports": {
+    "sweeper": 22.0,
+    "cylinder": 92.0,
+    "uav": 21.0
+   }
+  },
+  {
+   "start": [
+    -0.4,
+    1.35
+   ],
+   "goal": [
+    2.1,
+    -1.4
+   ],
+   "dist_m": 3.716517,
+   "window": [
+    -1.05,
+    -2.0,
+    2.7,
+    2.0
+   ],
+   "len_sweeper_m": 4.128427,
+   "len_uav_m": 4.128427,
+   "separation_m": 0.989987,
+   "detour_ratio": 1.0,
+   "contrast": 0.989987,
+   "approx_supports": {
+    "sweeper": 48.0,
+    "cylinder": 116.0,
+    "uav": 60.0
+   }
+  }
+ ],
+ "finalists": [
+  {
+   "label": "P3-long-0",
+   "window": [
+    -2.75,
+    -0.35,
+    2.95,
+    2.0
+   ],
+   "start": [
+    -2.15,
+    1.1
+   ],
+   "goal": [
+    2.35,
+    0.6
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    5.7,
+    2.35
+   ],
+   "window_m2": 13.395,
+   "dist_m": 4.527693,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 18,
+    "cylinder": 90,
+    "uav": 19
+   },
+   "supports_per_m2": {
+    "sweeper": 1.3,
+    "cylinder": 6.7,
+    "uav": 1.4
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 0,
+    "length_m": 4.527693,
+    "z_c": 1.2,
+    "straight_line_under_overhang": false,
+    "top": null,
+    "underside": null,
+    "s_interval": null,
+    "longest_run_m": 0.0,
+    "ceiling_side_obstacle_above_floor": 2.5,
+    "zc_above_overhang_top_by_0.25": false,
+    "zc_band_below_ceiling_side_by_0.30": false,
+    "ok": false
+   },
+   "separation_m": 1.025003,
+   "detour_ratio": 1.004236,
+   "contrast": 1.029345,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": true,
+    "connected": true,
+    "start_clear_m": 0.6,
+    "goal_clear_m": 0.6,
+    "n_supports": 90
+   },
+   "screened": {
+    "separation_m": 1.200001,
+    "detour_ratio": 1.016717,
+    "contrast": 1.220061,
+    "approx_supports": {
+     "sweeper": 22.0,
+     "cylinder": 92.0,
+     "uav": 21.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 18,
+    "cylinder": 90,
+    "uav": 19
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      58
+     ],
+     "goal_cell": [
+      203,
+      38
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.527693,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.449027,
+      "blocked_frac": 0.098901,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.759052,
+     "occupied_frac": 0.036767,
+     "free_components": 1,
+     "path_len_m": 4.889214
+    },
+    "cylinder": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      58
+     ],
+     "goal_cell": [
+      203,
+      38
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.527693,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.798271,
+      "blocked_frac": 0.175824,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.561124,
+     "occupied_frac": 0.077268,
+     "free_components": 1,
+     "path_len_m": 4.992767
+    },
+    "uav": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      58
+     ],
+     "goal_cell": [
+      203,
+      38
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.527693,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.648595,
+      "blocked_frac": 0.142857,
+      "free": false,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.645763,
+     "occupied_frac": 0.036394,
+     "free_components": 1,
+     "path_len_m": 4.909924
+    }
+   },
+   "chosen": true
+  },
+  {
+   "label": "P3-long-1",
+   "window": [
+    -2.5,
+    -2.0,
+    1.05,
+    2.0
+   ],
+   "start": [
+    -1.9,
+    -1.4
+   ],
+   "goal": [
+    0.35,
+    1.35
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    3.55,
+    4.0
+   ],
+   "window_m2": 14.2,
+   "dist_m": 3.553168,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "supports_per_m2": {
+    "sweeper": 3.7,
+    "cylinder": 8.7,
+    "uav": 5.0
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 2,
+    "length_m": 3.553168,
+    "z_c": 1.2,
+    "straight_line_under_overhang": false,
+    "top": 0.76,
+    "underside": 0.173333,
+    "s_interval": [
+     2.46,
+     2.6
+    ],
+    "longest_run_m": 0.02,
+    "ceiling_side_obstacle_above_floor": 1.3,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": false,
+    "ok": false
+   },
+   "separation_m": 0.901564,
+   "detour_ratio": 1.026573,
+   "contrast": 0.925522,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": true,
+    "connected": true,
+    "start_clear_m": 0.6,
+    "goal_clear_m": 0.360555,
+    "n_supports": 124
+   },
+   "screened": {
+    "separation_m": 1.060672,
+    "detour_ratio": 1.029823,
+    "contrast": 1.092304,
+    "approx_supports": {
+     "sweeper": 48.0,
+     "cylinder": 116.0,
+     "uav": 60.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.360555,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      114,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 3.553168,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.99738,
+      "blocked_frac": 0.27972,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.731602,
+     "occupied_frac": 0.047711,
+     "free_components": 1,
+     "path_len_m": 3.960229
+    },
+    "cylinder": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.360555,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      114,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 3.553168,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 1.421267,
+      "blocked_frac": 0.398601,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.502289,
+     "occupied_frac": 0.097007,
+     "free_components": 1,
+     "path_len_m": 4.166295
+    },
+    "uav": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.360555,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      114,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 3.553168,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.935044,
+      "blocked_frac": 0.262238,
+      "free": false,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.625616,
+     "occupied_frac": 0.047007,
+     "free_components": 1,
+     "path_len_m": 3.857716
+    }
+   }
+  },
+  {
+   "label": "P3-long-2",
+   "window": [
+    -1.25,
+    -2.0,
+    2.95,
+    2.0
+   ],
+   "start": [
+    -0.65,
+    1.35
+   ],
+   "goal": [
+    2.35,
+    -1.4
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    4.2,
+    4.0
+   ],
+   "window_m2": 16.8,
+   "dist_m": 4.069705,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "supports_per_m2": {
+    "sweeper": 3.2,
+    "cylinder": 7.4,
+    "uav": 4.2
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 4,
+    "length_m": 4.069705,
+    "z_c": 1.2,
+    "straight_line_under_overhang": false,
+    "top": 0.76,
+    "underside": 0.173333,
+    "s_interval": [
+     1.06,
+     1.32
+    ],
+    "longest_run_m": 0.02,
+    "ceiling_side_obstacle_above_floor": 1.3,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": false,
+    "ok": false
+   },
+   "separation_m": 0.784482,
+   "detour_ratio": 1.003304,
+   "contrast": 0.787074,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": true,
+    "connected": true,
+    "start_clear_m": 0.6,
+    "goal_clear_m": 0.575,
+    "n_supports": 124
+   },
+   "screened": {
+    "separation_m": 1.060862,
+    "detour_ratio": 1.018534,
+    "contrast": 1.080524,
+    "approx_supports": {
+     "sweeper": 48.0,
+     "cylinder": 116.0,
+     "uav": 60.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      144,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.069705,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.811444,
+      "blocked_frac": 0.198777,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.759598,
+     "occupied_frac": 0.042262,
+     "free_components": 1,
+     "path_len_m": 4.431981
+    },
+    "cylinder": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      144,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.069705,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 1.26086,
+      "blocked_frac": 0.308869,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.556101,
+     "occupied_frac": 0.083929,
+     "free_components": 1,
+     "path_len_m": 4.638047
+    },
+    "uav": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      144,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.069705,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.811444,
+      "blocked_frac": 0.198777,
+      "free": false,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.662277,
+     "occupied_frac": 0.041667,
+     "free_components": 1,
+     "path_len_m": 4.446625
+    }
+   }
+  },
+  {
+   "label": "P3-long-3",
+   "window": [
+    -2.25,
+    -2.0,
+    2.95,
+    1.95
+   ],
+   "start": [
+    -1.65,
+    -1.4
+   ],
+   "goal": [
+    2.35,
+    1.35
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    5.2,
+    3.95
+   ],
+   "window_m2": 20.54,
+   "dist_m": 4.854122,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "supports_per_m2": {
+    "sweeper": 2.6,
+    "cylinder": 6.0,
+    "uav": 3.5
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 28,
+    "length_m": 4.854122,
+    "z_c": 1.2,
+    "straight_line_under_overhang": true,
+    "top": 0.76,
+    "underside": 0.72,
+    "s_interval": [
+     1.66,
+     2.36
+    ],
+    "longest_run_m": 0.18,
+    "ceiling_side_obstacle_above_floor": 2.5,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "ok": true
+   },
+   "separation_m": 0.12375,
+   "detour_ratio": 1.0,
+   "contrast": 0.12375,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": true,
+    "connected": true,
+    "start_clear_m": 0.6,
+    "goal_clear_m": 0.575,
+    "n_supports": 124
+   },
+   "screened": {
+    "separation_m": 0.535757,
+    "detour_ratio": 1.0,
+    "contrast": 0.535757,
+    "approx_supports": {
+     "sweeper": 48.0,
+     "cylinder": 116.0,
+     "uav": 60.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      183,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.854122,
+      "min_clearance_m": 0.070711,
+      "blocked_len_m": 0.311962,
+      "blocked_frac": 0.064103,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.787184,
+     "occupied_frac": 0.036879,
+     "free_components": 1,
+     "path_len_m": 5.114087
+    },
+    "cylinder": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      183,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.854122,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 1.397588,
+      "blocked_frac": 0.287179,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.609177,
+     "occupied_frac": 0.070959,
+     "free_components": 1,
+     "path_len_m": 6.037742
+    },
+    "uav": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.575,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      24
+     ],
+     "goal_cell": [
+      183,
+      134
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.854122,
+      "min_clearance_m": 0.257391,
+      "blocked_len_m": 0.0,
+      "blocked_frac": 0.0,
+      "free": true,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.698333,
+     "occupied_frac": 0.036392,
+     "free_components": 1,
+     "path_len_m": 5.114087
+    }
+   }
+  },
+  {
+   "label": "P3-long-4",
+   "window": [
+    -2.75,
+    -2.0,
+    2.7,
+    0.35
+   ],
+   "start": [
+    -2.15,
+    -0.65
+   ],
+   "goal": [
+    2.1,
+    -1.4
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    5.45,
+    2.35
+   ],
+   "window_m2": 12.808,
+   "dist_m": 4.315669,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 39,
+    "cylinder": 114,
+    "uav": 54
+   },
+   "supports_per_m2": {
+    "sweeper": 3.0,
+    "cylinder": 8.9,
+    "uav": 4.2
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 0,
+    "length_m": 4.315669,
+    "z_c": 1.2,
+    "straight_line_under_overhang": false,
+    "top": null,
+    "underside": null,
+    "s_interval": null,
+    "longest_run_m": 0.0,
+    "ceiling_side_obstacle_above_floor": 2.5,
+    "zc_above_overhang_top_by_0.25": false,
+    "zc_band_below_ceiling_side_by_0.30": false,
+    "ok": false
+   },
+   "separation_m": 0.075008,
+   "detour_ratio": 1.004348,
+   "contrast": 0.075334,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": false,
+    "connected": false,
+    "start_clear_m": 0.6,
+    "goal_clear_m": 0.6,
+    "n_supports": 114
+   },
+   "screened": {
+    "separation_m": 0.535757,
+    "detour_ratio": 1.0,
+    "contrast": 0.535757,
+    "approx_supports": {
+     "sweeper": 38.0,
+     "cylinder": 108.0,
+     "uav": 45.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 39,
+    "cylinder": 114,
+    "uav": 54
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      54
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.315669,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.461502,
+      "blocked_frac": 0.106628,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.737166,
+     "occupied_frac": 0.046652,
+     "free_components": 1,
+     "path_len_m": 4.763478
+    },
+    "cylinder": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": false,
+     "start_cell": [
+      24,
+      54
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": false,
+     "line": {
+      "length_m": 4.315669,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.710963,
+      "blocked_frac": 0.164265,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.537478,
+     "occupied_frac": 0.08901,
+     "free_components": 2
+    },
+    "uav": {
+     "start_clear_m": 0.6,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      54
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 4.315669,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 0.661071,
+      "blocked_frac": 0.152738,
+      "free": false,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.622584,
+     "occupied_frac": 0.046262,
+     "free_components": 1,
+     "path_len_m": 4.784188
+    }
+   }
+  },
+  {
+   "label": "P3-long-5",
+   "window": [
+    -3.0,
+    -2.0,
+    2.45,
+    1.95
+   ],
+   "start": [
+    -2.4,
+    1.35
+   ],
+   "goal": [
+    1.85,
+    -1.4
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    5.45,
+    3.95
+   ],
+   "window_m2": 21.528,
+   "dist_m": 5.062114,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "supports_per_m2": {
+    "sweeper": 2.5,
+    "cylinder": 5.8,
+    "uav": 3.3
+   },
+   "criterion1_recorded_not_required": {
+    "runs": 27,
+    "length_m": 5.062114,
+    "z_c": 1.2,
+    "straight_line_under_overhang": true,
+    "top": 0.76,
+    "underside": 0.72,
+    "s_interval": [
+     2.48,
+     3.2
+    ],
+    "longest_run_m": 0.1,
+    "ceiling_side_obstacle_above_floor": 2.5,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "ok": true
+   },
+   "separation_m": 0.12375,
+   "detour_ratio": 1.0,
+   "contrast": 0.12375,
+   "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "cylinder_info_only": {
+    "d1_ok": true,
+    "connected": true,
+    "start_clear_m": 0.575,
+    "goal_clear_m": 0.6,
+    "n_supports": 124
+   },
+   "screened": {
+    "separation_m": 0.424957,
+    "detour_ratio": 1.0,
+    "contrast": 0.424957,
+    "approx_supports": {
+     "sweeper": 48.0,
+     "cylinder": 116.0,
+     "uav": 60.0
+    }
+   },
+   "exact_supports_count_supports": {
+    "sweeper": 53,
+    "cylinder": 124,
+    "uav": 71
+   },
+   "seconds": 0.0,
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.575,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 5.062114,
+      "min_clearance_m": 0.125,
+      "blocked_len_m": 0.187486,
+      "blocked_frac": 0.036946,
+      "free": false,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.792881,
+     "occupied_frac": 0.035768,
+     "free_components": 1,
+     "path_len_m": 5.364087
+    },
+    "cylinder": {
+     "start_clear_m": 0.575,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 5.062114,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 1.374895,
+      "blocked_frac": 0.270936,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.620137,
+     "occupied_frac": 0.068285,
+     "free_components": 1,
+     "path_len_m": 6.170584
+    },
+    "uav": {
+     "start_clear_m": 0.575,
+     "goal_clear_m": 0.6,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      24,
+      134
+     ],
+     "goal_cell": [
+      193,
+      24
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 5.062114,
+      "min_clearance_m": 0.313249,
+      "blocked_len_m": 0.0,
+      "blocked_frac": 0.0,
+      "free": true,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.705783,
+     "occupied_frac": 0.035304,
+     "free_components": 1,
+     "path_len_m": 5.364087
+    }
+   }
+  }
+ ],
+ "long_case_exists": true,
+ "ladder_file": "results/height/plane/long/_selftest/cyl_ladder.json",
+ "timing": {
+  "stages": [
+   {
+    "stage": "scene_load",
+    "label": null,
+    "seconds": 3e-06,
+    "failed": false,
+    "sizes": {
+     "scene": "synthetic",
+     "n_splats": 725
+    }
+   },
+   {
+    "stage": "project",
+    "label": "domain:sweeper",
+    "seconds": 0.002884,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      3.0,
+      2.0
+     ],
+     "n_supports": 53
+    }
+   },
+   {
+    "stage": "project",
+    "label": "domain:uav",
+    "seconds": 0.003168,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      3.0,
+      2.0
+     ],
+     "n_supports": 71
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final0:sweeper",
+    "seconds": 0.001589,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -0.35,
+      2.95,
+      2.0
+     ],
+     "n_supports": 18
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final0:cylinder",
+    "seconds": 0.003534,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -0.35,
+      2.95,
+      2.0
+     ],
+     "n_supports": 90
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final0:uav",
+    "seconds": 0.001423,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -0.35,
+      2.95,
+      2.0
+     ],
+     "n_supports": 19
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final1:sweeper",
+    "seconds": 0.002471,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.5,
+      -2.0,
+      1.05,
+      2.0
+     ],
+     "n_supports": 53
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final1:cylinder",
+    "seconds": 0.004374,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.5,
+      -2.0,
+      1.05,
+      2.0
+     ],
+     "n_supports": 124
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final1:uav",
+    "seconds": 0.002782,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.5,
+      -2.0,
+      1.05,
+      2.0
+     ],
+     "n_supports": 71
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final2:sweeper",
+    "seconds": 0.002545,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -1.25,
+      -2.0,
+      2.95,
+      2.0
+     ],
+     "n_supports": 53
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final2:cylinder",
+    "seconds": 0.004467,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -1.25,
+      -2.0,
+      2.95,
+      2.0
+     ],
+     "n_supports": 124
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final2:uav",
+    "seconds": 0.002806,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -1.25,
+      -2.0,
+      2.95,
+      2.0
+     ],
+     "n_supports": 71
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final3:sweeper",
+    "seconds": 0.002496,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.25,
+      -2.0,
+      2.95,
+      1.95
+     ],
+     "n_supports": 53
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final3:cylinder",
+    "seconds": 0.004434,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.25,
+      -2.0,
+      2.95,
+      1.95
+     ],
+     "n_supports": 124
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final3:uav",
+    "seconds": 0.002791,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.25,
+      -2.0,
+      2.95,
+      1.95
+     ],
+     "n_supports": 71
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final4:sweeper",
+    "seconds": 0.002162,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -2.0,
+      2.7,
+      0.35
+     ],
+     "n_supports": 39
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final4:cylinder",
+    "seconds": 0.004131,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -2.0,
+      2.7,
+      0.35
+     ],
+     "n_supports": 114
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final4:uav",
+    "seconds": 0.00232,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -2.0,
+      2.7,
+      0.35
+     ],
+     "n_supports": 54
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final5:sweeper",
+    "seconds": 0.002449,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      2.45,
+      1.95
+     ],
+     "n_supports": 53
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final5:cylinder",
+    "seconds": 0.004433,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      2.45,
+      1.95
+     ],
+     "n_supports": 124
+    }
+   },
+   {
+    "stage": "project",
+    "label": "final5:uav",
+    "seconds": 0.002807,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      2.45,
+      1.95
+     ],
+     "n_supports": 71
+    }
+   },
+   {
+    "stage": "project",
+    "label": "ladder_map:cylinder",
+    "seconds": 0.005103,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -3.0,
+      -2.0,
+      3.0,
+      2.0
+     ],
+     "n_supports": 124
+    }
+   },
+   {
+    "stage": "project",
+    "label": "rung0:cylinder",
+    "seconds": 0.002794,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      0.056,
+      -0.137,
+      2.0
+     ],
+     "n_supports": 67
+    }
+   },
+   {
+    "stage": "project",
+    "label": "rung1:cylinder",
+    "seconds": 0.002802,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      0.2,
+      1.113,
+      2.0
+     ],
+     "n_supports": 62
+    }
+   },
+   {
+    "stage": "project",
+    "label": "rung2:cylinder",
+    "seconds": 0.002819,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      0.075,
+      1.863,
+      2.0
+     ],
+     "n_supports": 68
+    }
+   },
+   {
+    "stage": "project",
+    "label": "rung3:cylinder",
+    "seconds": 0.003157,
+    "failed": false,
+    "sizes": {
+     "n_splats": 725,
+     "window": [
+      -2.75,
+      -0.1,
+      2.863,
+      2.0
+     ],
+     "n_supports": 80
+    }
+   }
+  ],
+  "by_stage": {
+   "scene_load": 3e-06,
+   "project": 0.076742
+  },
+  "total_seconds": 0.076745,
+  "missing_stages": [
+   "floor_replace",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ],
+  "stage_order": [
+   "scene_load",
+   "floor_replace",
+   "project",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ]
+ },
+ "seconds": 3.5
+}
