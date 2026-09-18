@@ -1,0 +1,192 @@
+{
+ "note": "sacct snapshot taken by P4 on 2026-09-18; TotalCPU is not reported by this cluster's accounting, so only wall time and MaxRSS are used",
+ "runs": {
+  "results/height/plane/shared/sweeper.json": {
+   "job": 17934071,
+   "name": "pf_p2c_sweeper",
+   "state": "COMPLETED",
+   "elapsed": "00:01:11",
+   "elapsed_s": 71,
+   "alloc_cpus": 8,
+   "node": "gr104",
+   "start": "2026-09-17T20:33:22",
+   "maxrss_gb": 2.702342987060547
+  },
+  "results/height/plane/shared/uav.json": {
+   "job": 17934072,
+   "name": "pf_p2c_uav",
+   "state": "COMPLETED",
+   "elapsed": "00:07:31",
+   "elapsed_s": 451,
+   "alloc_cpus": 8,
+   "node": "gl060",
+   "start": "2026-09-17T20:34:35",
+   "maxrss_gb": 2.7607765197753906
+  },
+  "results/height/plane/shared/cylinder.json": {
+   "job": 17934263,
+   "name": "pf_p2c_cylinder",
+   "state": "COMPLETED",
+   "elapsed": "02:28:02",
+   "elapsed_s": 8882,
+   "alloc_cpus": 8,
+   "node": "cs642",
+   "start": "2026-09-17T20:45:02",
+   "maxrss_gb": 13.501678466796875
+  },
+  "results/height/plane/shared/cylinder_b2.json": {
+   "job": 17944446,
+   "name": "pf_p2c_cylinder_b2",
+   "state": "COMPLETED",
+   "elapsed": "04:27:55",
+   "elapsed_s": 16075,
+   "alloc_cpus": 1,
+   "node": "cl014",
+   "start": "2026-09-18T09:18:45",
+   "maxrss_gb": 13.518867492675781
+  },
+  "results/height/plane/long/sweeper.json": {
+   "job": 17948811,
+   "name": "pf_p3b_sweeper",
+   "state": "COMPLETED",
+   "elapsed": "00:03:37",
+   "elapsed_s": 217,
+   "alloc_cpus": 1,
+   "node": "cs601",
+   "start": "2026-09-18T11:19:28",
+   "maxrss_gb": 2.635101318359375
+  },
+  "results/height/plane/long/uav.json": {
+   "job": 17948812,
+   "name": "pf_p3b_uav",
+   "state": "COMPLETED",
+   "elapsed": "00:10:44",
+   "elapsed_s": 644,
+   "alloc_cpus": 1,
+   "node": "cs601",
+   "start": "2026-09-18T11:19:28",
+   "maxrss_gb": 2.115093231201172
+  },
+  "results/height/plane/long/cyl_ladder/rung0/cylinder.json": {
+   "job": 17948988,
+   "name": "pf_p3c_rung0",
+   "state": "COMPLETED",
+   "elapsed": "00:06:46",
+   "elapsed_s": 406,
+   "alloc_cpus": 1,
+   "node": "cs601",
+   "start": "2026-09-18T11:23:30",
+   "maxrss_gb": 2.1352195739746094
+  },
+  "results/height/plane/long/cyl_ladder/rung1/cylinder.json": {
+   "job": 17949332,
+   "name": "pf_p3c_rung1",
+   "state": "COMPLETED",
+   "elapsed": "00:20:35",
+   "elapsed_s": 1235,
+   "alloc_cpus": 1,
+   "node": "cs601",
+   "start": "2026-09-18T11:30:42",
+   "maxrss_gb": 3.0679588317871094
+  },
+  "results/height/plane/long/cyl_ladder/rung2/cylinder.json": {
+   "job": 17949336,
+   "name": "pf_p3c_rung2",
+   "state": "COMPLETED",
+   "elapsed": "00:16:28",
+   "elapsed_s": 988,
+   "alloc_cpus": 1,
+   "node": "cs601",
+   "start": "2026-09-18T11:31:11",
+   "maxrss_gb": 2.197467803955078
+  },
+  "results/height/plane/long/cyl_ladder/rung3/cylinder.json": {
+   "job": 17949914,
+   "name": "pf_p3c_rung3",
+   "state": "COMPLETED",
+   "elapsed": "00:18:51",
+   "elapsed_s": 1131,
+   "alloc_cpus": 1,
+   "node": "cl011",
+   "start": "2026-09-18T15:04:00",
+   "maxrss_gb": 3.213970184326172
+  },
+  "results/height/plane/long/cyl_ladder/rung3/cylinder_b2.json": {
+   "job": 17960231,
+   "name": "pf_p3c_rung3_b2",
+   "state": "COMPLETED",
+   "elapsed": "00:28:23",
+   "elapsed_s": 1703,
+   "alloc_cpus": 1,
+   "node": "cs620",
+   "start": "2026-09-18T16:06:17",
+   "maxrss_gb": 4.308479309082031
+  },
+  "results/height/plane/long/cyl_ladder/rung4/cylinder.json": {
+   "job": 17949948,
+   "name": "pf_p3c_rung4",
+   "state": "COMPLETED",
+   "elapsed": "00:39:53",
+   "elapsed_s": 2393,
+   "alloc_cpus": 1,
+   "node": "cl011",
+   "start": "2026-09-18T15:04:00",
+   "maxrss_gb": 4.1393585205078125
+  },
+  "results/height/plane/p2a_search.json": {
+   "job": 17932736,
+   "name": "pf_p2a_search",
+   "state": "COMPLETED",
+   "elapsed": "00:06:16",
+   "elapsed_s": 376,
+   "alloc_cpus": 8,
+   "node": "gr102",
+   "start": "2026-09-17T20:22:27",
+   "maxrss_gb": 3.19354248046875
+  },
+  "results/height/plane/long/p3_search.json": {
+   "job": 17948423,
+   "name": "pf_p3a_search",
+   "state": "COMPLETED",
+   "elapsed": "00:05:49",
+   "elapsed_s": 349,
+   "alloc_cpus": 2,
+   "node": "cs614",
+   "start": "2026-09-18T11:12:28",
+   "maxrss_gb": 3.420513153076172
+  },
+  "results/height/plane/p2d_evidence.json": {
+   "job": 17944447,
+   "name": "pf_p2d_evidence2",
+   "state": "COMPLETED",
+   "elapsed": "00:02:20",
+   "elapsed_s": 140,
+   "alloc_cpus": 2,
+   "node": "cs654",
+   "start": "2026-09-18T09:18:45",
+   "maxrss_gb": 3.0311851501464844
+  },
+  "p1b_build3(4 variants)": {
+   "job": 17926685,
+   "name": "pf_p1b_build3",
+   "state": "COMPLETED",
+   "elapsed": "00:01:17",
+   "elapsed_s": 77,
+   "alloc_cpus": 8,
+   "node": "cs636",
+   "start": "2026-09-17T15:52:56",
+   "maxrss_gb": 6.195735931396484
+  },
+  "p1f_handoff": {
+   "job": 17931446,
+   "name": "pf_p1f_handoff",
+   "state": "COMPLETED",
+   "elapsed": "00:00:42",
+   "elapsed_s": 42,
+   "alloc_cpus": 8,
+   "node": "cs616",
+   "start": "2026-09-17T19:55:03",
+   "maxrss_gb": 2.8411636352539062
+  }
+ }
+}
