@@ -1,0 +1,9 @@
+=== planefloor_render experiments/percase_render.py --robot sweeper --case-dir results/height/plane/long --scene planefloor 2026-09-18T16:06:36-04:00 host=cs606.hpc.nyu.edu job=17960232 ===
+loaded 7101868 splats in 1s
+selected 250000 of 418747 splats; colours in 5s
+projected 6436 supports (run: 6436)
+packed 6,461,500 Gaussians for the EWA rasteriser in 5s
+3d video results/height/plane/long/video/sweeper_3d.mp4 frames=300 465s (1.54s/frame/worker)
+2panel video results/height/plane/long/video/sweeper_2panel.mp4 243s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [6.45, 4.7, 14.15, 15.6], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 1037780, "n_opaque_below_zmax": 418747, "n_rendered": 250000, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 6436, "run_kept": 6436, "matches_run": true}, "timings_s": {"load_processed": 1.3, "select": 0.2, "colors": 4.7, "project": 5.8, "splat_pack": 4.6, "video_3d": 464.6, "overview": 3.1, "video_2panel": 242.9, "scene_ply": 0.1}}
+=== PLANEFLOOR_RENDER_DONE experiments/percase_render.py ===

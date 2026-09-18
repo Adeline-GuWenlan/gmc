@@ -1,0 +1,7 @@
+=== planefloor_render experiments/percase_render.py --robot uav --case-dir results/height/plane/long --scene planefloor --claim p3long 2026-09-18T16:35:20-04:00 host=cs608.hpc.nyu.edu job=17961624 ===
+loaded 7101868 splats in 1s
+selected 250000 of 418747 splats; colours in 0s
+projected 39834 supports (run: 39834)
+packed 6,461,500 Gaussians for the EWA rasteriser in 2s
+3d video results/height/plane/long/video/uav_3d.mp4 frames=300 584s (1.94s/frame/worker)
+[2026-09-18T16:55:55.291] error: *** JOB 17961624 ON cs608 CANCELLED AT 2026-09-18T16:55:55 DUE to SIGNAL Terminated ***

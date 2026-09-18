@@ -696,3 +696,16 @@ Resumed at 20:03 after a usage-limit wait. The wrapper started this session only
   edge. That is `viz.robot_video`'s title layout, which P2's videos share; not re-rendered. uav
   (17963528) and cylinder rung 2 (17963359) are still on their 2-panel stage. The watchdog is 7 min out,
   so the rest goes to `state/P3.continue`.
+
+### 2026-09-18 ~21:3x — uav and rung 2 videos checked; P3 done
+
+- uav (17963528, 32 min, 2.9 GB) and cylinder rung 2 (17963359, 34 min, 3.8 GB). The 2-panel stage is
+  the slow part: 22–25 min each.
+- Opened the uav's 3D frame 151 and 2-panel frame 100, and the cylinder's 3D frame 300 and 2-panel frame 50.
+  - **uav side view:** table A + bench (0.75–0.90 m) and the display case (~0.9 m) pass under its
+    1.10–1.30 m band. That is the long case's morphology, seen from the side.
+  - **cylinder:** it goes round table A (one solid block in its 0.02–1.75 m band) and stops at the rung
+    goal (10.20, 9.95).
+  - Captions are full on the 3D frames. The 2-panel titles lose their first ~20 characters, as recorded
+    above.
+- P3 standup finalized: `claude_jobs/logs/plane_P3_done.md`.
