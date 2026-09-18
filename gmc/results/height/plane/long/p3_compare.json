@@ -1,0 +1,443 @@
+{
+ "long": {
+  "sweeper": {
+   "label": "P3 long sweeper",
+   "robot": "sweeper",
+   "file": "results/height/plane/long/sweeper.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_side_m": [
+    7.7,
+    10.9
+   ],
+   "window_m2": 83.93,
+   "dist_m": 11.236103,
+   "supports": 6436,
+   "supports_per_m2": 76.7,
+   "compile_s": 25.029441,
+   "query_s": 107.462863,
+   "query_cap_s": 7200.0,
+   "status": "REACHABLE",
+   "reason": null,
+   "verify_certified": true,
+   "verify_min_clearance_m": 0.002779,
+   "replay3d_passed": true,
+   "clearance_lb_m": 0.000147,
+   "success": true,
+   "timing_by_stage_s": {
+    "scene_load": 0.803354,
+    "project": 5.356951,
+    "compile_pairs": 0.44376,
+    "compile_slabs": 24.103856,
+    "compile_mobility": 0.481648,
+    "query": 107.462835,
+    "verify_curve": 52.288061,
+    "replay3d": 3.313659
+   },
+   "probe_projected_h": 0.010339,
+   "probe_underestimate_x": 3.559582,
+   "probe_underestimate_is_lower_bound": false,
+   "certified_route_len_m": 14.258682
+  },
+  "uav": {
+   "label": "P3 long uav",
+   "robot": "uav",
+   "file": "results/height/plane/long/uav.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_side_m": [
+    7.7,
+    10.9
+   ],
+   "window_m2": 83.93,
+   "dist_m": 11.236103,
+   "supports": 39834,
+   "supports_per_m2": 474.6,
+   "compile_s": 153.372354,
+   "query_s": 292.907205,
+   "query_cap_s": 7200.0,
+   "status": "REACHABLE",
+   "reason": null,
+   "verify_certified": true,
+   "verify_min_clearance_m": 0.007045,
+   "replay3d_passed": true,
+   "clearance_lb_m": 0.017685,
+   "success": true,
+   "timing_by_stage_s": {
+    "scene_load": 1.781601,
+    "project": 6.736892,
+    "compile_pairs": 2.883915,
+    "compile_slabs": 147.395044,
+    "compile_mobility": 3.092624,
+    "query": 292.907179,
+    "verify_curve": 145.507813,
+    "replay3d": 3.916091
+   },
+   "probe_projected_h": 0.060699,
+   "probe_underestimate_x": 2.042304,
+   "probe_underestimate_is_lower_bound": false,
+   "certified_route_len_m": 12.125449
+  },
+  "certified_route_separation_m": 5.731457
+ },
+ "rungs": [
+  {
+   "rung": 0,
+   "target_m": 2.5,
+   "dist_m": 2.433105,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "n_supports": 21144,
+   "status": "REACHABLE",
+   "label": "P3 rung 0",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung0/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window_side_m": [
+    2.0,
+    3.624
+   ],
+   "window_m2": 7.248,
+   "supports": 21144,
+   "supports_per_m2": 2917.2,
+   "compile_s": 80.959523,
+   "query_s": 174.812834,
+   "query_cap_s": 7200.0,
+   "reason": null,
+   "verify_certified": true,
+   "verify_min_clearance_m": 0.032496,
+   "replay3d_passed": true,
+   "clearance_lb_m": 0.001443,
+   "success": true,
+   "timing_by_stage_s": {
+    "scene_load": 1.871381,
+    "project": 6.705803,
+    "compile_pairs": 1.433858,
+    "compile_slabs": 77.977441,
+    "compile_mobility": 1.547781,
+    "query": 174.812809,
+    "verify_curve": 85.217659,
+    "replay3d": 2.746001
+   },
+   "probe_projected_h": 0.042854,
+   "probe_underestimate_x": 1.657911,
+   "probe_underestimate_is_lower_bound": false
+  },
+  {
+   "rung": 1,
+   "target_m": 4.0,
+   "dist_m": 3.996248,
+   "window": [
+    6.438,
+    4.688,
+    10.05,
+    9.812
+   ],
+   "n_supports": 45572,
+   "status": "REACHABLE",
+   "label": "P3 rung 1",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung1/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window_side_m": [
+    3.612,
+    5.124
+   ],
+   "window_m2": 18.508,
+   "supports": 45572,
+   "supports_per_m2": 2462.3,
+   "compile_s": 174.671,
+   "query_s": 628.78339,
+   "query_cap_s": 7200.0,
+   "reason": null,
+   "verify_certified": true,
+   "verify_min_clearance_m": 0.002898,
+   "replay3d_passed": true,
+   "clearance_lb_m": 0.001443,
+   "success": true,
+   "timing_by_stage_s": {
+    "scene_load": 0.863914,
+    "project": 6.866557,
+    "compile_pairs": 3.088979,
+    "compile_slabs": 168.33814,
+    "compile_mobility": 3.243024,
+    "query": 628.78336,
+    "verify_curve": 312.148401,
+    "replay3d": 4.38594
+   },
+   "probe_projected_h": 0.048447,
+   "probe_underestimate_x": 4.606763,
+   "probe_underestimate_is_lower_bound": false
+  },
+  {
+   "rung": 2,
+   "target_m": 5.5,
+   "dist_m": 5.453898,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "label": "P3 rung 2",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung2/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window_side_m": [
+    4.362,
+    5.874
+   ],
+   "window_m2": 25.622,
+   "supports": 46835,
+   "supports_per_m2": 1827.9,
+   "compile_s": 184.997464,
+   "query_s": 445.005655,
+   "query_cap_s": 7200.0,
+   "reason": null,
+   "verify_certified": true,
+   "verify_min_clearance_m": 0.002898,
+   "replay3d_passed": true,
+   "clearance_lb_m": 0.001321,
+   "success": true,
+   "timing_by_stage_s": {
+    "scene_load": 1.426889,
+    "project": 7.489261,
+    "compile_pairs": 3.355488,
+    "compile_slabs": 178.100626,
+    "compile_mobility": 3.540443,
+    "query": 445.005626,
+    "verify_curve": 219.758591,
+    "replay3d": 4.239543
+   },
+   "probe_projected_h": 0.051047,
+   "probe_underestimate_x": 3.428215,
+   "probe_underestimate_is_lower_bound": false
+  },
+  {
+   "rung": 3,
+   "target_m": 7.0,
+   "dist_m": 6.90163,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "n_supports": 73178,
+   "status": "UNKNOWN",
+   "label": "P3 rung 3",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung3/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window_side_m": [
+    6.325,
+    5.874
+   ],
+   "window_m2": 37.153,
+   "supports": 73178,
+   "supports_per_m2": 1969.6,
+   "compile_s": 283.867242,
+   "query_s": 722.540665,
+   "query_cap_s": 7200.0,
+   "reason": "query_support_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 0.795429,
+    "project": 6.630428,
+    "compile_pairs": 5.338389,
+    "compile_slabs": 272.798685,
+    "compile_mobility": 5.728842,
+    "query": 722.540628
+   },
+   "probe_projected_h": 0.077355,
+   "probe_underestimate_x": 3.613965,
+   "probe_underestimate_is_lower_bound": true
+  },
+  {
+   "rung": 4,
+   "target_m": 8.5,
+   "dist_m": 8.583851,
+   "window": [
+    6.438,
+    4.688,
+    12.313,
+    13.912
+   ],
+   "n_supports": 149303,
+   "status": "UNKNOWN",
+   "label": "P3 rung 4",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung4/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window_side_m": [
+    5.875,
+    9.224
+   ],
+   "window_m2": 54.191,
+   "supports": 149303,
+   "supports_per_m2": 2755.1,
+   "compile_s": 581.049614,
+   "query_s": 1713.889905,
+   "query_cap_s": 7200.0,
+   "reason": "query_support_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 0.877137,
+    "project": 8.522628,
+    "compile_pairs": 11.320753,
+    "compile_slabs": 557.602685,
+    "compile_mobility": 12.123499,
+    "query": 1713.889861
+   },
+   "probe_projected_h": 0.443498,
+   "probe_underestimate_x": 1.437398,
+   "probe_underestimate_is_lower_bound": true
+  },
+  {
+   "rung": 5,
+   "target_m": 10.0,
+   "dist_m": 9.827004,
+   "window": [
+    6.738,
+    4.688,
+    14.537,
+    14.312
+   ],
+   "n_supports": 235620,
+   "status": "not run"
+  },
+  {
+   "rung": 6,
+   "target_m": 11.236103,
+   "dist_m": 11.284724,
+   "window": [
+    6.438,
+    4.688,
+    13.813,
+    15.688
+   ],
+   "n_supports": 259588,
+   "status": "not run"
+  }
+ ],
+ "timing": {
+  "stages": [
+   {
+    "stage": "scene_load",
+    "label": null,
+    "seconds": 2.918123,
+    "failed": false,
+    "sizes": {
+     "scene": "planefloor",
+     "n_splats": 7101868
+    }
+   },
+   {
+    "stage": "project",
+    "label": "long:sweeper",
+    "seconds": 7.57769,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      6.45,
+      4.7,
+      14.15,
+      15.6
+     ],
+     "n_supports": 6436
+    }
+   },
+   {
+    "stage": "project",
+    "label": "long:uav",
+    "seconds": 8.648354,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      6.45,
+      4.7,
+      14.15,
+      15.6
+     ],
+     "n_supports": 39834
+    }
+   },
+   {
+    "stage": "project",
+    "label": "ladder_map:cylinder",
+    "seconds": 30.617942,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      3.45,
+      1.7,
+      17.15,
+      18.6
+     ],
+     "n_supports": 703015
+    }
+   }
+  ],
+  "by_stage": {
+   "scene_load": 2.918123,
+   "project": 46.843986
+  },
+  "total_seconds": 49.76211,
+  "missing_stages": [
+   "floor_replace",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ],
+  "stage_order": [
+   "scene_load",
+   "floor_replace",
+   "project",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ]
+ },
+ "figure": "results/height/plane/long/figs/p3_long_compare.png",
+ "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged."
+}
