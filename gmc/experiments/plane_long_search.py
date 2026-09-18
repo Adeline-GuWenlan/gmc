@@ -638,6 +638,17 @@ def step_report(args):
     extrap = {"cylinder_supports_12x12": twelve["cylinder"], "fits": fits,
               "n_cylinder_runs_with_compile": len(cyl), "n_cylinder_runs_with_finished_query": len(fin),
               "rule": "no fit on fewer than 4 points"}
+    # A query that hit the cap is a lower bound the fit must respect; if it does not, the fit is not
+    # predictive and every extrapolation from it is flagged as such.
+    if fits["query"]:
+        f = fits["query"]
+        extrap["query_fit_checked_against_unknown_runs"] = [
+            {"label": r["label"], "supports": r["supports"], "fit_predicts_s": f["a"] * r["supports"] ** f["b"],
+             "measured_at_least_s": r["query_s"],
+             "fit_under_by_at_least_x": r["query_s"] / (f["a"] * r["supports"] ** f["b"])}
+            for r in cyl if r["status"] == "UNKNOWN"]
+        extrap["query_fit_predictive"] = not any(
+            c["fit_under_by_at_least_x"] > 1.0 for c in extrap["query_fit_checked_against_unknown_runs"])
     for key in ("compile", "query"):
         f = fits[key]
         if f:
