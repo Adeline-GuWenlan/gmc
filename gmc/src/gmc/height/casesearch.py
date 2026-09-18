@@ -115,17 +115,14 @@ def line_clearance(dist, window, cell, p0, p1, r=0.0, step=None):
 
 
 # ------------------------------------------------------------------------------------ geodesics
-def geodesic_path(dist, r, cs, cg, cell):
-    """8-connected shortest path through ``dist > r`` (Dijkstra, true step lengths in metres).
+def free_graph(dist, r, cell):
+    """The 8-connected graph over ``dist > r``, with true step lengths in metres.
 
-    Returns ``(ij, length_m)`` or ``None`` if either endpoint is not free or they are disconnected.
-    This is the route a reader compares between robots; it is a *selection aid*, not GMC's certified
-    curve.
+    Returned once and reused for every source in a region, which is why the P2 search can afford a
+    geodesic for hundreds of candidate pairs: ``(G, idx, flat)`` where ``idx`` maps a raster cell to its
+    node id (-1 when the cell is not free) and ``flat`` maps a node id back to a raveled cell.
     """
     free = np.asarray(dist, float) > float(r)
-    cs, cg = tuple(cs), tuple(cg)
-    if not (free[cs] and free[cg]):
-        return None
     nx, ny = free.shape
     flat = np.flatnonzero(free.ravel())
     idx = np.full(nx * ny, -1, dtype=np.int64)
@@ -140,17 +137,38 @@ def geodesic_path(dist, r, cs, cg, cell):
         rows.append(idx[i_s, j_s][m])
         cols.append(idx[i_t, j_t][m])
         wts.append(np.full(int(m.sum()), float(cell) * math.hypot(di, dj)))
-    n = len(flat)
     G = coo_matrix((np.concatenate(wts), (np.concatenate(rows), np.concatenate(cols))),
-                   shape=(n, n)).tocsr()
+                   shape=(len(flat), len(flat))).tocsr()
+    return G, idx, flat
+
+
+def path_from_predecessors(pred, flat, shape, s, g):
+    """Walk a scipy ``dijkstra`` predecessor row back from node ``g`` to node ``s`` -> raster cells."""
+    seq = [int(g)]
+    while seq[-1] != int(s):
+        nxt = int(pred[seq[-1]])
+        if nxt < 0:
+            return None
+        seq.append(nxt)
+    return np.stack(np.unravel_index(flat[np.array(seq[::-1])], shape), axis=1)
+
+
+def geodesic_path(dist, r, cs, cg, cell):
+    """8-connected shortest path through ``dist > r`` (Dijkstra, true step lengths in metres).
+
+    Returns ``(ij, length_m)`` or ``None`` if either endpoint is not free or they are disconnected.
+    This is the route a reader compares between robots; it is a *selection aid*, not GMC's certified
+    curve.
+    """
+    cs, cg = tuple(cs), tuple(cg)
+    G, idx, flat = free_graph(dist, r, cell)
+    if idx[cs] < 0 or idx[cg] < 0:
+        return None
     s, g = int(idx[cs]), int(idx[cg])
     d, pred = dijkstra(G, directed=False, indices=s, return_predecessors=True)
     if not np.isfinite(d[g]):
         return None
-    seq = [g]
-    while seq[-1] != s:
-        seq.append(int(pred[seq[-1]]))
-    ij = np.stack(np.unravel_index(flat[np.array(seq[::-1])], (nx, ny)), axis=1)
+    ij = path_from_predecessors(pred, flat, dist.shape, s, g)
     return ij, float(d[g])
 
 

@@ -1,0 +1,39 @@
+=== planefloor_search experiments/plane_case_search.py --step search 2026-09-17T20:22:37-04:00 host=gr102.hpc.nyu.edu job=17932736 ===
+[    1.0s] scene 7101868 z_floor -1.2271749593107995 ceiling 5.310000826248441
+[    1.9s] section selfcheck vs showcase_scene._section: {"n_mine": 2379, "n_section": 2379, "agree": true}
+[   28.0s] A {"box": [4.5, 2.5, 13.5, 11.5], "note": "table A (8.96,7.29) top 0.80 with a bench along its NE side", "area_m2": 81.0, "n_supports": {"sweeper": 6081, "cylinder": 271848, "uav": 50867}, "supports_per_m2": {"sweeper": 75.1, "cylinder": 3356.1, "uav": 628.0}, "disc_free_frac": {"sweeper": 0.701543, "cylinder": 0.563441, "uav": 0.738426}, "free_components": {"sweeper": 11, "cylinder": 9, "uav": 4}}
+[   40.3s] A endpoints 608 pairs 7356 with routes 359 (38s)
+[   40.3s] A best pair {"start": [9.0, 5.75], "goal": [10.5, 7.75], "dist_m": 2.5, "line_sweeper": {"length_m": 2.5, "min_clearance_m": 0.212132, "blocked_len_m": 0.0, "blocked_frac": 0.0, "free": true, "disc_r": 0.175}, "line_cylinder": {"length_m": 2.5, "min_clearance_m": 0.0, "blocked_len_m": 1.5125, "blocked_frac": 0.60199, "free": false, "disc_r": 0.3}, "cyl_blocked_m": 1.5125, "separation_m": 0.941745, "detour_ratio": 1.326181, "contrast": 1.248925}
+[   46.3s] A passing criterion 1: 120
+[   81.5s] SW {"box": [-2.5, 5.5, 6.5, 16.0], "note": "SW bench (2.1,10.5) seat 0.43; table B (-0.45,10.81) top ~0.8", "area_m2": 94.5, "n_supports": {"sweeper": 4676, "cylinder": 357631, "uav": 72121}, "supports_per_m2": {"sweeper": 49.5, "cylinder": 3784.5, "uav": 763.2}, "disc_free_frac": {"sweeper": 0.729087, "cylinder": 0.553108, "uav": 0.707183}, "free_components": {"sweeper": 8, "cylinder": 3, "uav": 6}}
+[   96.7s] SW endpoints 675 pairs 10516 with routes 366 (45s)
+[   96.7s] SW best pair {"start": [-1.25, 11.25], "goal": [0.0, 9.25], "dist_m": 2.358495, "line_sweeper": {"length_m": 2.358495, "min_clearance_m": 0.180278, "blocked_len_m": 0.0, "blocked_frac": 0.0, "free": true, "disc_r": 0.175}, "line_cylinder": {"length_m": 2.358495, "min_clearance_m": 0.0, "blocked_len_m": 2.021567, "blocked_frac": 0.852632, "free": false, "disc_r": 0.3}, "cyl_blocked_m": 2.021567, "separation_m": 1.962911, "detour_ratio": 2.271794, "contrast": 4.459329}
+[  103.0s] SW passing criterion 1: 120
+[  142.7s] E {"box": [6.5, 10.5, 16.5, 19.5], "note": "hall bench (10,16) seat 0.43; table C (13.28,14.09) top 0.93", "area_m2": 90.0, "n_supports": {"sweeper": 10005, "cylinder": 439242, "uav": 90433}, "supports_per_m2": {"sweeper": 111.2, "cylinder": 4880.5, "uav": 1004.8}, "disc_free_frac": {"sweeper": 0.673167, "cylinder": 0.534049, "uav": 0.712125}, "free_components": {"sweeper": 8, "cylinder": 5, "uav": 5}}
+[  156.4s] E endpoints 615 pairs 9337 with routes 322 (48s)
+[  156.4s] E best pair {"start": [13.0, 15.0], "goal": [14.75, 14.0], "dist_m": 2.015564, "line_sweeper": {"length_m": 2.015564, "min_clearance_m": 0.190394, "blocked_len_m": 0.0, "blocked_frac": 0.0, "free": true, "disc_r": 0.175}, "line_cylinder": {"length_m": 2.015564, "min_clearance_m": 0.190394, "blocked_len_m": 1.169525, "blocked_frac": 0.576687, "free": false, "disc_r": 0.3}, "cyl_blocked_m": 1.169525, "separation_m": 0.875, "detour_ratio": 1.399519, "contrast": 1.224579}
+[  162.6s] E passing criterion 1: 4
+[  184.8s] G {"box": [-0.5, 18.5, 7.5, 26.5], "note": "table G (3.35,22.53) top 0.95; object D (5.8,18)", "area_m2": 64.0, "n_supports": {"sweeper": 2773, "cylinder": 161560, "uav": 37334}, "supports_per_m2": {"sweeper": 43.3, "cylinder": 2524.4, "uav": 583.3}, "disc_free_frac": {"sweeper": 0.70418, "cylinder": 0.478721, "uav": 0.579834}, "free_components": {"sweeper": 3, "cylinder": 8, "uav": 6}}
+[  187.3s] G endpoints 361 pairs 914 with routes 399 (23s)
+[  187.3s] G best pair {"start": [0.25, 20.75], "goal": [1.25, 22.5], "dist_m": 2.015564, "line_sweeper": {"length_m": 2.015564, "min_clearance_m": 0.425, "blocked_len_m": 0.0, "blocked_frac": 0.0, "free": true, "disc_r": 0.175}, "line_cylinder": {"length_m": 2.015564, "min_clearance_m": 0.0, "blocked_len_m": 1.181967, "blocked_frac": 0.582822, "free": false, "disc_r": 0.3}, "cyl_blocked_m": 1.181967, "separation_m": 0.848531, "detour_ratio": 1.278879, "contrast": 1.085168}
+[  193.5s] G passing criterion 1: 0
+[  224.3s] N {"box": [3.5, 24.5, 12.5, 32.0], "note": "north bench (7.8,28.5); object E (11,28); clipped at y=32 (P1)", "area_m2": 67.5, "n_supports": {"sweeper": 11949, "cylinder": 275694, "uav": 32882}, "supports_per_m2": {"sweeper": 177.0, "cylinder": 4084.4, "uav": 487.1}, "disc_free_frac": {"sweeper": 0.611037, "cylinder": 0.439213, "uav": 0.653981}, "free_components": {"sweeper": 8, "cylinder": 7, "uav": 3}}
+[  227.8s] N endpoints 344 pairs 1092 with routes 398 (29s)
+[  227.8s] N best pair {"start": [6.0, 29.75], "goal": [7.5, 31.25], "dist_m": 2.12132, "line_sweeper": {"length_m": 2.12132, "min_clearance_m": 0.195256, "blocked_len_m": 0.0, "blocked_frac": 0.0, "free": true, "disc_r": 0.175}, "line_cylinder": {"length_m": 2.12132, "min_clearance_m": 0.035355, "blocked_len_m": 0.923398, "blocked_frac": 0.432749, "free": false, "disc_r": 0.3}, "cyl_blocked_m": 0.923398, "separation_m": 0.2475, "detour_ratio": 1.09665, "contrast": 0.271421}
+[  233.8s] N passing criterion 1: 0
+[  239.5s] candidate windows 311 passing (screened) 87
+[  259.5s] finalist 0 P2-SW-0 pass True contrast 4.537739840016065 supports {"sweeper": 1779, "cylinder": 156426, "uav": 19867} failed []
+[  259.9s] figure results/height/plane/figs/p2a_finalist0_SW.png
+[  259.9s] WROTE results/height/plane/case_shared.json
+[  279.5s] finalist 1 P2-SW-1 pass True contrast 3.6734808790709823 supports {"sweeper": 1725, "cylinder": 153506, "uav": 19308} failed []
+[  279.9s] figure results/height/plane/figs/p2a_finalist1_SW.png
+[  299.8s] finalist 2 P2-SW-2 pass True contrast 3.597242407808096 supports {"sweeper": 1817, "cylinder": 156876, "uav": 19867} failed []
+[  300.2s] figure results/height/plane/figs/p2a_finalist2_SW.png
+[  320.0s] finalist 3 P2-SW-3 pass True contrast 3.393095138710914 supports {"sweeper": 1758, "cylinder": 153968, "uav": 19308} failed []
+[  320.4s] figure results/height/plane/figs/p2a_finalist3_SW.png
+[  340.4s] finalist 4 P2-SW-4 pass True contrast 3.257376721888532 supports {"sweeper": 1850, "cylinder": 157719, "uav": 20031} failed []
+[  340.7s] figure results/height/plane/figs/p2a_finalist4_SW.png
+[  360.8s] finalist 5 P2-SW-5 pass True contrast 3.1554855408018825 supports {"sweeper": 1908, "cylinder": 158603, "uav": 20241} failed []
+[  361.1s] figure results/height/plane/figs/p2a_finalist5_SW.png
+[  361.2s] done. shared_case_exists = True
+=== PLANEFLOOR_SEARCH_DONE experiments/plane_case_search.py ===

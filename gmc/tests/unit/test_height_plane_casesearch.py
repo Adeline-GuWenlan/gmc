@@ -254,3 +254,24 @@ def test_overhang_on_line_matches_step_case_criterion_1_bin_for_bin():
     assert out["runs"] == len(expect)
     if len(expect):
         assert out["s_interval"] == [expect.min() * 0.02, expect.max() * 0.02]
+
+
+# --------------------------------------------------------------------------- graph reuse (P2 scale)
+def test_free_graph_reused_over_many_sources_agrees_with_geodesic_path():
+    """The search runs one Dijkstra per source over a graph built once; it must match the simple call."""
+    from scipy.sparse.csgraph import dijkstra
+
+    from gmc.height.casesearch import free_graph, path_from_predecessors
+    win = [0.0, 0.0, 4.0, 3.0]
+    occ = box(empty(win), win, (1.5, 1.2), (2.5, 1.8))
+    dist = edt_clearance(with_border(occ), CELL)
+    G, idx, flat = free_graph(dist, 0.30, CELL)
+    srcs = [cell_of(p, win, dist.shape, CELL) for p in ((0.6, 1.5), (0.6, 0.6))]
+    goal = cell_of((3.4, 1.5), win, dist.shape, CELL)
+    d, pred = dijkstra(G, directed=False, indices=[int(idx[c]) for c in srcs],
+                       return_predecessors=True)
+    for row, (src, prow) in enumerate(zip(srcs, pred)):
+        ij, length = geodesic_path(dist, 0.30, src, goal, CELL)
+        assert d[row][int(idx[goal])] == pytest.approx(length)
+        again = path_from_predecessors(prow, flat, dist.shape, int(idx[src]), int(idx[goal]))
+        assert np.array_equal(again, ij)

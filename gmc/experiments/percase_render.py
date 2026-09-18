@@ -21,11 +21,15 @@ from gmc.height.project import project_scene
 from gmc.height.viz import _frame_poses, robot_video, write_scene_ply
 from gmc.height import ewa
 from gmc.height.viz3d import (height_colors, load_dc_colors, overview_png, pointcloud_video,
-                              weighted_subsample)
+                              ply_vertex_layout, weighted_subsample)
 
 PERCASE = Path("results/height/percase")
+PLANE_SCENE = Path("/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz")
 TAU, DILATE, Z_SPAN = 0.3, 1.0, 2.5
 CLAIM = "per-robot showcase case, not a morphology comparison · floor rule on"
+CLAIM_PLANE = ("Amendment 3 shared case: one window, one start, one goal, three robots · plane floor = "
+               "USER-APPROVED MANUAL SCENE EDIT, sound w.r.t. the edited scene only · criterion 3 "
+               "relaxed by user decision D1 to r + 0.05 m")
 VIEW_HALF = {"sweeper": 1.75, "uav": 2.5, "cylinder": 2.5}
 VIEW_PAD = 0.5       # camera framing: case window + 0.5 m (splats are selected over window + 1 m)
 
@@ -131,7 +135,28 @@ def parse_splat_opts(pairs):
     return out
 
 
-def splat_scene(scene, ply_path, win, radius):
+def dc_colors(ply_path, ids, z=None, z_floor=None):
+    """DC colours for splat ``ids``, tolerating ids the PLY does not have.
+
+    The Amendment 3 plane floor inserts analytic tiles whose ids continue past the end of the source
+    PLY; they are real geometry in the edited scene and must still be drawn. They get the height colour
+    map instead of a DC colour, and the count is reported so a manifest never hides them.
+    """
+    ids = np.asarray(ids, dtype=np.int64).reshape(-1)
+    n = ply_vertex_layout(ply_path)[0]
+    known = ids < n
+    rgb = np.empty((len(ids), 3), dtype=float)
+    if known.any():
+        rgb[known] = load_dc_colors(ply_path, ids[known])
+    if (~known).any():
+        if z is not None and z_floor is not None:
+            rgb[~known] = height_colors(np.asarray(z)[~known], z_floor, z_span=Z_SPAN)[:, :3]
+        else:
+            rgb[~known] = 0.5
+    return rgb, int((~known).sum())
+
+
+def splat_scene(scene, ply_path, win, radius, z_floor=None):
     """ewa.pack of every Gaussian within ``radius`` m of the case window (``radius <= 0``: whole scene).
 
     No opacity threshold and no subsample, unlike the scatter path: a real rasteriser alpha-blends the
@@ -143,13 +168,13 @@ def splat_scene(scene, ply_path, win, radius):
         sub = scene.subset(m)
     else:
         sub = scene
-    cols = load_dc_colors(ply_path, sub.ids)
-    return ewa.pack(sub.means, sub.covs, sub.opacity, cols), cols, int(len(sub))
+    cols, n_inserted = dc_colors(ply_path, sub.ids, sub.means[:, 2], z_floor)
+    return ewa.pack(sub.means, sub.covs, sub.opacity, cols), cols, int(len(sub)), n_inserted
 
 
 def render_real(robot_key, a):
     from showcase_scene import DATA, load_processed
-    rdir = PERCASE / robot_key
+    rdir = Path(a.case_dir) if a.case_dir else PERCASE / robot_key
     vdir = rdir / "video"
     case = json.loads((rdir / "case.json").read_text())
     run_path, run = pick_run(rdir, robot_key)
@@ -167,7 +192,13 @@ def render_real(robot_key, a):
     timings = {}
 
     t = time.time()
-    scene, g0 = load_processed()
+    if a.scene == "planefloor":
+        from gmc.height.planefloor import load_plane_scene
+        scene, meta = load_plane_scene(PLANE_SCENE)
+        g0 = {"floor": meta["floor"], "ceiling_height_m": meta["ceiling_height_m"],
+              "gravity_rotation": meta["gravity_rotation"], "planefloor": meta}
+    else:
+        scene, g0 = load_processed()
     timings["load_processed"] = time.time() - t
     print(f"loaded {len(scene)} splats in {timings['load_processed']:.0f}s", flush=True)
 
@@ -182,7 +213,7 @@ def render_real(robot_key, a):
 
     t = time.time()
     ply_path = DATA / "raw" / "point_cloud.ply"
-    cols = load_dc_colors(ply_path, near.ids[pick])
+    cols, n_inserted_pts = dc_colors(ply_path, near.ids[pick], pts[:, 2], z_f)
     timings["colors"] = time.time() - t
     print(f"selected {len(pick)} of {len(cand)} splats; colours in {timings['colors']:.0f}s", flush=True)
 
@@ -194,7 +225,7 @@ def render_real(robot_key, a):
     splats, n_splat = None, None
     if a.renderer == "splat":
         t = time.time()
-        splats, cols, n_splat = splat_scene(scene, ply_path, win, a.scene_radius)
+        splats, cols, n_splat, n_inserted_pts = splat_scene(scene, ply_path, win, a.scene_radius, z_f)
         timings["splat_pack"] = time.time() - t
         print(f"packed {n_splat:,} Gaussians for the EWA rasteriser in "
               f"{timings['splat_pack']:.0f}s", flush=True)
@@ -203,7 +234,8 @@ def render_real(robot_key, a):
 
     view_half = VIEW_HALF[robot_key] if a.view_half is None else (a.view_half if a.view_half > 0 else None)
     vw = [win[0] - VIEW_PAD, win[1] - VIEW_PAD, win[2] + VIEW_PAD, win[3] + VIEW_PAD]
-    title = f"{head}\n{CLAIM}"
+    claim = CLAIM_PLANE if a.scene == "planefloor" else CLAIM
+    title = f"{head}\n{claim}"
     note = (f"{n_splat:,} Gaussians, EWA splatting, no opacity threshold, no subsample, DC colour"
             if a.renderer == "splat" else
             f"{len(pts):,} opaque splats (τ = {TAU}), opacity-weighted subsample, DC colour")
@@ -233,16 +265,17 @@ def render_real(robot_key, a):
         robot_key, vdir, pts=pts, cols=cols, robot=robot, res=res, s2=s2, scene_near=near, z_f=z_f,
         window=win, view_window=vw,
         start=case["start"], goal=case["goal"], frames=a.frames, workers=a.workers,
-        view_half=view_half, title=title, title_2panel=f"{CLAIM}\n", note=note,
+        view_half=view_half, title=title, title_2panel=f"{claim}\n", note=note,
         renderer=a.renderer, splats=splats, splat_opts=a.splat_opts)
     timings.update(t_out)
     rep = res.get("replay3d") or {}
     manifest = {
-        "robot": robot_key, "claims": CLAIM, "title": f"{head}\n{CLAIM}",
+        "robot": robot_key, "claims": claim, "title": f"{head}\n{claim}",
         "case_json": str(rdir / "case.json"), "run_json": str(run_path), "status": res["status"],
         "verify_certified": bool((res.get("verify") or {}).get("certified")),
         "replay3d_passed": bool(rep.get("passed")), "replay3d_min_clearance_lb": rep.get("min_clearance_lb"),
-        "scene": {"n_splats": n_scene, "floor_rule": g0.get("floor_rule"),
+        "scene": {"variant": a.scene, "n_splats": n_scene, "floor_rule": g0.get("floor_rule"),
+                  "planefloor": (g0.get("planefloor") or {}).get("claims_boundary"),
                   "gravity_rotation_is_identity": bool(np.allclose(g0["gravity_rotation"], np.eye(3)))},
         "render": {"renderer": a.renderer, "n_rendered": n_splat if n_splat is not None else int(len(pts)),
                    "scene_radius_m": a.scene_radius if a.renderer == "splat" else None,
@@ -252,7 +285,8 @@ def render_real(robot_key, a):
                       "n_window_xy_dilated": int(len(near)), "n_opaque_below_zmax": int(len(cand)),
                       "n_rendered": int(len(pick)), "max_points": a.max_points,
                       "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"},
-        "colors": {"source": str(ply_path), "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)", **rgb_stats(cols)},
+        "colors": {"source": str(ply_path), "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+                   "n_without_a_ply_row_height_coloured": int(n_inserted_pts), **rgb_stats(cols)},
         "projection": {"kept": pstats["kept"], "run_kept": run_kept, "matches_run": pstats["kept"] == run_kept},
         "outputs": outputs, "timings_s": {k: round(v, 1) for k, v in timings.items()}}
     (vdir / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str))
@@ -304,6 +338,11 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--robot", choices=["sweeper", "uav", "cylinder"])
     g.add_argument("--toy-check", action="store_true")
+    ap.add_argument("--case-dir", default="",
+                    help="directory holding case.json and <robot>.json; default results/height/percase/<robot>")
+    ap.add_argument("--scene", default="processed", choices=["processed", "planefloor"],
+                    help="'planefloor' renders the Amendment 3 P1b plane-floor scene (a USER-APPROVED "
+                         "MANUAL SCENE EDIT)")
     ap.add_argument("--renderer", choices=["splat", "scatter"], default="splat",
                     help="splat: real EWA Gaussian rasteriser (gmc.height.ewa); scatter: old mplot3d dots")
     ap.add_argument("--scene-radius", type=float, default=14.0,
