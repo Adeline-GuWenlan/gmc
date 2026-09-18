@@ -709,3 +709,51 @@ Resumed at 20:03 after a usage-limit wait. The wrapper started this session only
   - Captions are full on the 3D frames. The 2-panel titles lose their first ~20 characters, as recorded
     above.
 - P3 standup finalized: `claude_jobs/logs/plane_P3_done.md`.
+
+## P4 — where the wall clock goes
+
+**Standing caveats, as for P1–P3:** the plane floor is a **user-approved manual scene-definition change**
+(results sound w.r.t. the edited scene only); the case pairs P4 reuses come from P3, whose criterion 3 is
+**relaxed by user decision D1** (crit1 ∧ crit3 = **0.9 m²** as built, **1.2 m²** with every phantom cell
+deleted). P4 changes nothing it times: τ, ρ, robots, config, GMC, `verify_curve`, `replay3d` untouched.
+
+### 2026-09-18 ~21:4x — what the existing records can and cannot say
+
+- 12 runs carry `timing.py` blocks (P2 ×4 incl. the cylinder retry, P3 ×8); the three Amendment 2 runs
+  carry only `compile_seconds` / `query_seconds`. P2's cylinder `BUDGET=2` result
+  (`results/height/plane/shared/cylinder_b2.json`) is **still untracked** in git — P2's continuation
+  wrote it but never committed it; P4 reads it and leaves the commit to P5 (it is P2's directory).
+- **`compile_slabs` is the compile.** On rung 0 it is 78.0 of 81.0 s; `compile_pairs` and
+  `compile_mobility` are ~1–2 % each.
+- **`floor_replace` was never timed by `StageTimer`**: P1b ran before P1e existed, and every later run
+  loads the finished npz. The only P1 number is `sacct` of a 4-variant sweep job (1 m 17 s).
+- **The query is not a lookup.** Reading `mobility/query.py` (read-only, not touched): on an UNKNOWN
+  attempt `query()` calls `refine_compiler(mc, …)`, which bisects an orientation slab and rebuilds the
+  derived graph *in place*. With `initial_intervals: 1` a first query can therefore carry compile work.
+  **Every P1–P3 run was one compile followed by one query**, so "compile once, query cheaply" has never
+  been measured. And `run.compile_and_query` drops `result.report`, so no existing run says how many
+  refinement rounds or support calls its query used.
+- The runs landed on four node families (cs6xx, cl01x, gr10x, gl060) — cross-run timing noise the fits
+  inherit. `sacct` `TotalCPU` reads 0 for every job, so CPU time is not available; wall time is.
+
+### 2026-09-18 ~21:5x — the one timing sweep (17965980)
+
+`experiments/plane_timing.py` (cfca4dc), `hpc/planefloor_timing.sbatch`: one job, four single-core lanes
+(4 CPU / 48 G / 6 h; lane memory from `sacct` of the runs each repeats, worst case ~39 GB):
+- **prep** — PLY decode → floor fit/rotate/crop (showcase `step_decode`, no writes), npz load, the
+  Amendment 1 floor rule, 5 band rasters + phantom test, the P1b replacement (`phantom`+`centre`), the
+  npz write (to a temp file, deleted), the plane-floor npz load; hall-wide projections; then compile-only
+  on 51 k / 422 k / 703 k-support maps (memory- and time-guarded) to push the compile curve past 156 k.
+  Counts are checked against P1's (7,319,425 → 7,247,831; 94,780 phantom cells; 7,101,868).
+- **cyl** — the cylinder on **one** short pair (rung 0, 2.43 m) while the window grows 7 → 116 m².
+  P3's ladder grew window and distance together; this separates them. Stops at the first UNKNOWN.
+- **sweeper**, **uav** — the long case's window, 7 goals 2.43 → 11.24 m (the ladder's rung goals + the
+  long goal): **warm** (compile once, query all 7, then all 7 again) and **cold** (fresh compile per
+  goal; the 11.24 m goal first, as a calibration against P3's own run). Then the rung-0 pair on a
+  growing window. The sweeper lane ends with the **cylinder warm** experiment (rung 2's window, rung 0–2
+  goals) — the robot whose query dominates.
+- Every query row records GMC's own `refinement_rounds`, `query_support_calls` and graph revision
+  before/after, which the P1–P3 JSONs never kept.
+- Self-test on `synth3d.table_scene("open")` passes in 25 s: all lanes certified + replayed; warm rows
+  carry no compile stage. On that scene no query refined (0 rounds) and warm ≈ cold, i.e. the query's own
+  cost there is certified path lifting, not deferred compile work.
