@@ -1,0 +1,153 @@
+{
+ "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), sound w.r.t. the edited scene only \u00b7 criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m\u00b2 as built / 1.2 m\u00b2 with every phantom cell deleted) \u00b7 criterion 1 unchanged",
+ "task": "P2: scene-wide context for the shared case",
+ "backdrop": "showcase/maps.npz occ_0.55_1.00, unchanged by the P1b edit (it removes only splats whose rho-top is below floor + 0.10 m, which cannot reach a band starting at 0.55 m; P1d measured the 0.10-0.18 and 0.18-0.26 m certified bands bit-identical before and after)",
+ "a4_scene_wide_funnel_on_the_unedited_scene": {
+  "pairs_dist_ok": 1296,
+  "crit1": 490,
+  "crit2": 171,
+  "all_three": 0
+ },
+ "regions": {
+  "A": {
+   "box": [
+    4.5,
+    2.5,
+    13.5,
+    11.5
+   ],
+   "area_m2": 81.0,
+   "supports_per_m2": {
+    "sweeper": 75.1,
+    "cylinder": 3356.1,
+    "uav": 628.0
+   },
+   "free_components": {
+    "sweeper": 11,
+    "cylinder": 9,
+    "uav": 4
+   },
+   "lattice_points_passing_D1_for_all_three": 608,
+   "pairs_connected_and_contrasting": 7356,
+   "pairs_with_two_routes": 359,
+   "pairs_passing_criterion1": 120
+  },
+  "SW": {
+   "box": [
+    -2.5,
+    5.5,
+    6.5,
+    16.0
+   ],
+   "area_m2": 94.5,
+   "supports_per_m2": {
+    "sweeper": 49.5,
+    "cylinder": 3784.5,
+    "uav": 763.2
+   },
+   "free_components": {
+    "sweeper": 8,
+    "cylinder": 3,
+    "uav": 6
+   },
+   "lattice_points_passing_D1_for_all_three": 675,
+   "pairs_connected_and_contrasting": 10516,
+   "pairs_with_two_routes": 366,
+   "pairs_passing_criterion1": 120
+  },
+  "E": {
+   "box": [
+    6.5,
+    10.5,
+    16.5,
+    19.5
+   ],
+   "area_m2": 90.0,
+   "supports_per_m2": {
+    "sweeper": 111.2,
+    "cylinder": 4880.5,
+    "uav": 1004.8
+   },
+   "free_components": {
+    "sweeper": 8,
+    "cylinder": 5,
+    "uav": 5
+   },
+   "lattice_points_passing_D1_for_all_three": 615,
+   "pairs_connected_and_contrasting": 9337,
+   "pairs_with_two_routes": 322,
+   "pairs_passing_criterion1": 4
+  },
+  "G": {
+   "box": [
+    -0.5,
+    18.5,
+    7.5,
+    26.5
+   ],
+   "area_m2": 64.0,
+   "supports_per_m2": {
+    "sweeper": 43.3,
+    "cylinder": 2524.4,
+    "uav": 583.3
+   },
+   "free_components": {
+    "sweeper": 3,
+    "cylinder": 8,
+    "uav": 6
+   },
+   "lattice_points_passing_D1_for_all_three": 361,
+   "pairs_connected_and_contrasting": 914,
+   "pairs_with_two_routes": 399,
+   "pairs_passing_criterion1": 0
+  },
+  "N": {
+   "box": [
+    3.5,
+    24.5,
+    12.5,
+    32.0
+   ],
+   "area_m2": 67.5,
+   "supports_per_m2": {
+    "sweeper": 177.0,
+    "cylinder": 4084.4,
+    "uav": 487.1
+   },
+   "free_components": {
+    "sweeper": 8,
+    "cylinder": 7,
+    "uav": 3
+   },
+   "lattice_points_passing_D1_for_all_three": 344,
+   "pairs_connected_and_contrasting": 1092,
+   "pairs_with_two_routes": 398,
+   "pairs_passing_criterion1": 0
+  }
+ },
+ "chosen": {
+  "search_file": "results/height/plane/p2a_search.json",
+  "label": "P2-SW-0",
+  "region": "SW",
+  "method": "project_scene -> _support_raster(0.025) -> EDT; D1 pre-check per robot; criterion 1 unchanged",
+  "window": [
+   -2.5,
+   7.45,
+   1.8,
+   13.05
+  ],
+  "start": [
+   -1.25,
+   11.25,
+   0.0
+  ],
+  "goal": [
+   0.0,
+   9.25,
+   0.0
+  ],
+  "window_m2": 24.08,
+  "hall_m2": 990
+ },
+ "figure": "results/height/plane/figs/p2_scene_wide.png"
+}

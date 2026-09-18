@@ -45,6 +45,7 @@ from gmc.height.casesearch import (cell_of, contrast, d1_precheck, edt_clearance
                                    free_graph, geodesic_path, line_clearance, overhang_on_line,
                                    path_from_predecessors, path_polyline, path_separation,
                                    same_component, with_border)
+from gmc.height.pathio import curve_from_dict, sample_curve
 from gmc.height.planefloor import load_plane_scene
 from gmc.height.prism import robot_table
 from gmc.height.project import project_scene
@@ -545,7 +546,15 @@ def step_evidence(args):
     search = json.loads((OUT / "p2a_search.json").read_text())
     out = {"claims_boundary": CLAIMS, "task": "P2d: per-robot evidence for the best candidate windows",
            "windows": []}
-    src = search["finalists"] or search["candidates"]
+    # Both sides of the argument: the windows that pass, and the best of the ones that do not, with
+    # the criterion that kills each. A reader should be able to see for themselves where the free space
+    # of one robot dies while another's survives -- that was P2d's whole point when it was the fallback.
+    passing = [c for c in search["finalists"] if c["pass"]]
+    failing = [c for c in search["candidates"] if not c["pass"]]
+    failing.sort(key=lambda c: -(c.get("contrast") or 0.0))
+    src = passing[:1] + failing[:max(0, args.n - 1)] or search["candidates"][:args.n]
+    out["selection"] = {"passing_shown": len(passing[:1]), "failing_shown": len(failing[:args.n - 1]),
+                        "n_passing_finalists": len(passing), "n_failing_candidates": len(failing)}
     for i, c in enumerate(src[:args.n]):
         w = c["window"]
         maps = {k: certified(scene, robots[k], w, z_f, timer, f"ev{i}:{k}") for k in ROBOTS}
@@ -634,13 +643,121 @@ def step_selftest(args):
     log("SELFTEST PASSED")
 
 
+def step_compare(args):
+    """P2c: the three certified routes over the three maps, on the one window they all ran on.
+
+    Reads the three showcase_run.py results and refuses to draw anything until it has checked that they
+    really did share a window, a start and a goal -- that check is the whole claim, so it is an assert,
+    not a caption.
+    """
+    sdir = Path(args.run_dir)
+    runs = {k: json.loads((sdir / f"{k}.json").read_text()) for k in ROBOTS}
+    case = json.loads((sdir / "case.json").read_text())
+    shared, mismatch = {}, {}
+    for field in ("window", "start", "goal", "z_floor", "z_c"):
+        vals = {k: runs[k]["case"][field] for k in ROBOTS}
+        vals["case.json"] = case[field]
+        if not all(np.allclose(v, vals["case.json"]) for v in vals.values()):
+            mismatch[field] = vals
+        shared[field] = case[field]
+    if mismatch:
+        raise SystemExit("P2c: the three runs did NOT share the case: " + json.dumps(clean(mismatch)))
+    log("shared case confirmed identical across all three runs:", json.dumps(clean(shared)))
+
+    win = [float(v) for v in case["window"]]
+    z_f = float(case["z_floor"])
+    robots = robot_table(case["z_c"])
+    timer = StageTimer()
+    with timer.stage("scene_load", scene="planefloor") as rec:
+        scene, meta = load_plane_scene(SCENE_NPZ)
+        rec["sizes"]["n_splats"] = len(scene)
+    sec = Sections(scene, z_f)
+    maps = {k: certified(scene, robots[k], win, z_f, timer, k) for k in ROBOTS}
+    ev = evaluate(maps, win, robots, case["start"][:2], case["goal"][:2], case["z_c"], sec,
+                  meta["ceiling_height_m"], exact_label=case["selection"]["label"])
+
+    curves, summary = {}, {}
+    for k in ROBOTS:
+        res = runs[k].get("result") or {}
+        rep = runs[k].get("replay3d") or {}
+        ver = res.get("verify") or {}
+        summary[k] = {"status": res.get("status"), "certified": bool(ver.get("certified")),
+                      "min_clearance": ver.get("min_clearance"), "replay3d_passed": bool(rep.get("passed")),
+                      "replay3d_min_clearance_lb": rep.get("min_clearance_lb"),
+                      "n_supports": (runs[k].get("projection") or {}).get("kept"),
+                      "compile_seconds": res.get("compile_seconds"), "query_seconds": res.get("query_seconds"),
+                      "probe": runs[k].get("probe"), "timing": (runs[k].get("timing") or {}).get("by_stage")}
+        if res.get("curve") is not None:
+            xy = sample_curve(curve_from_dict(res["curve"]), 0.02, robots[k].max_radius())[:, :2]
+            curves[k] = np.asarray(xy)
+            summary[k]["certified_route_len_m"] = float(
+                np.hypot(*np.diff(curves[k], axis=0).T).sum())
+        log(k, json.dumps(clean(summary[k])))
+    if "sweeper" in curves and "cylinder" in curves:
+        summary["certified_route_separation_m"] = path_separation(curves["sweeper"], curves["cylinder"])
+        summary["certified_detour_ratio"] = (summary["cylinder"]["certified_route_len_m"]
+                                             / summary["sweeper"]["certified_route_len_m"])
+
+    fig, axs = plt.subplots(1, 4, figsize=(32, 9))
+    for ax, key in zip(axs, ROBOTS):
+        panel(ax, maps, win, robots, key, case["start"][:2], case["goal"][:2], ev)
+        if key in curves:
+            ax.plot(curves[key][:, 0], curves[key][:, 1], "-", color="darkorange", lw=3.0,
+                    label=f"GMC certified route {summary[key]['certified_route_len_m']:.2f} m")
+            ax.legend(fontsize=6, loc="upper right")
+        s = summary[key]
+        ax.set_xlabel(f"{s['status']} · verify.certified={s['certified']} · replay3d={s['replay3d_passed']}"
+                      f" · clearance lb {s['replay3d_min_clearance_lb']}", fontsize=7)
+    ax = axs[3]
+    ax.imshow(np.ones(maps["sweeper"]["occ"].shape[::-1] + (3,)), origin="lower",
+              extent=[win[0], win[2], win[1], win[3]], interpolation="nearest")
+    ax.imshow(np.ma.masked_where(~maps["cylinder"]["occ"].T, maps["cylinder"]["occ"].T), origin="lower",
+              extent=[win[0], win[2], win[1], win[3]], cmap="Greys", alpha=0.35, interpolation="nearest")
+    ax.imshow(np.ma.masked_where(~maps["sweeper"]["occ"].T, maps["sweeper"]["occ"].T), origin="lower",
+              extent=[win[0], win[2], win[1], win[3]], cmap="autumn_r", alpha=0.9, interpolation="nearest")
+    for key, colr in (("sweeper", "tab:green"), ("cylinder", "tab:red"), ("uav", "tab:blue")):
+        if key in curves:
+            ax.plot(curves[key][:, 0], curves[key][:, 1], "-", color=colr, lw=3.0,
+                    label=f"{key} {summary[key]['certified_route_len_m']:.2f} m")
+    ax.plot([case["start"][0], case["goal"][0]], [case["start"][1], case["goal"][1]], "k--", lw=1.2)
+    ax.plot(case["start"][0], case["start"][1], "go", ms=10)
+    ax.plot(case["goal"][0], case["goal"][1], "bs", ms=10)
+    ax.set_title("the three certified routes, one window, one start, one goal\n"
+                 "grey = what the cylinder sees, red = what the sweeper sees", fontsize=9)
+    ax.set_xticks(np.arange(np.ceil(win[0] * 2) / 2, win[2], 0.5))
+    ax.set_yticks(np.arange(np.ceil(win[1] * 2) / 2, win[3], 0.5))
+    ax.tick_params(labelsize=6)
+    ax.grid(alpha=0.3, lw=0.4)
+    ax.legend(fontsize=8, loc="upper right")
+    sep = summary.get("certified_route_separation_m")
+    fig.suptitle(f"Amendment 3 P2c: the shared three-robot case {case['selection']['label']} · "
+                 f"start {tuple(round(v, 2) for v in case['start'][:2])} goal "
+                 f"{tuple(round(v, 2) for v in case['goal'][:2])} · window {win} · "
+                 f"certified routes separate by {sep:.2f} m\n" + CLAIMS, fontsize=9)
+    fig.tight_layout(rect=(0, 0.01, 1, 0.93))
+    FIGS.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGS / "p2c_three_routes.png", dpi=80)
+    plt.close(fig)
+    log("figure", FIGS / "p2c_three_routes.png")
+
+    out = {"claims_boundary": CLAIMS, "task": "P2c: three robots, one window, one start, one goal",
+           "case": case["selection"], "window": win, "start": case["start"], "goal": case["goal"],
+           "shared_case_confirmed_identical_in_all_three_runs": True,
+           "runs": summary, "precheck_recomputed": {k: v for k, v in ev.items() if k != "robots"},
+           "figure": str(FIGS / "p2c_three_routes.png"), "timing": timer.to_dict()}
+    (OUT / "p2c_shared_case.json").write_text(json.dumps(clean(out), indent=1))
+    log("wrote", OUT / "p2c_shared_case.json")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--step", required=True, choices=["search", "evidence", "selftest"])
+    ap.add_argument("--step", required=True, choices=["search", "evidence", "selftest", "compare"])
+    ap.add_argument("--run-dir", default="results/height/plane/shared")
     ap.add_argument("--region", default="", help="comma-separated region names, default all")
     ap.add_argument("--n", type=int, default=3, help="windows for --step evidence")
     args = ap.parse_args()
-    {"search": step_search, "evidence": step_evidence, "selftest": step_selftest}[args.step](args)
+    {"search": step_search, "evidence": step_evidence, "selftest": step_selftest,
+     "compare": step_compare}[args.step](args)
 
 
 if __name__ == "__main__":
