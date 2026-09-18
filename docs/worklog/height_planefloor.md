@@ -372,3 +372,21 @@ from the previous commit, re-ran the self-test (passes) and the 34 P2 tests (pas
 
 The sweeper video (17938424) is queued now that its run is certified; the uav video waits for a queue
 slot; the cylinder video, and the three-routes figure (`--step compare`), wait for 17938411.
+
+### 2026-09-18 ~13:2x — maintenance restart; the three queued jobs resubmitted as they were
+
+Cluster maintenance cancelled all three of P2's queued jobs at 07:24 before any of them started:
+17938411 (cylinder `BUDGET=2`), 17938423 (evidence), 17938424 (sweeper video). The user restarted the
+chain on 09-18 and recorded the resource decisions in the plan's "Update 2026-09-18" section, D5.
+Per that section this is **not a failure and not a used retry**, so all three were resubmitted
+unchanged. Only their sizing changed, and every size comes from `sacct` on the 09-17 runs:
+
+| job | was | now | measured basis |
+|---|---|---|---|
+| cylinder `BUDGET=2` → **17944446** | 8 CPU / 64 G / 10 h | **1 CPU / 22 G / 8 h** | first cylinder run: MaxRSS 14.2 GB, TotalCPU 2 h 27 m over 2 h 28 m, i.e. one core |
+| evidence → **17944447** | 2 CPU / 16 G | **2 CPU / 8 G** (template) | the whole five-region search peaked at 3.3 GB |
+| sweeper video → **17944448** | 4 CPU / 32 G | **4 CPU / 12 G / 2 h** | Amendment 2 renders peaked at 2.3–3.3 GB; the EWA splat pack at scene radius 14 m is unmeasured, hence the margin. The uav render will be sized from this job's MaxRSS. |
+
+Also new from the rules: this agent's own allocation is 1 CPU / 2 GB and only orchestrates, so the full
+test suite runs as its own sbatch job instead of in-allocation. P3 now commits in this worktree
+concurrently, so every P2 commit stages named paths only.
