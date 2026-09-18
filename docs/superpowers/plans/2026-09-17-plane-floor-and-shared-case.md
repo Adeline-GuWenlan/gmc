@@ -172,3 +172,40 @@ continuation sentinel and it will resubmit you at the next refresh slot.
 - `scancel` only job IDs you yourself appended to your own `jobids/<STAGE>.txt`. Never `--all`,
   never a wildcard.
 - Install nothing. Python is `/scratch/wg2381/.conda/envs/gmc-venv/bin/python`.
+
+---
+
+## Update 2026-09-18 — user decisions after P1/P2 (supersedes the lines it names)
+
+**Where things stood.** P1 (plane floor) done. P2 found a shared case (P2-SW-0, beside table B):
+sweeper and uav REACHABLE + certified + replay3d; cylinder UNKNOWN — 156,426 supports, 676 s compile,
+7,968 s query against the 7,200 s cap. Its one budget-only retry (BUDGET=2) and the figure/video jobs
+were cancelled by cluster maintenance at 07:24 before starting. **That is not a failure and not a
+used retry**: resubmit them as they were.
+
+**D4 — P3 scope is option (a).** Supersedes D2 for the cylinder only.
+- **Sweeper and uav:** target ‖goal − start‖ ≥ 8 m, window ≤ 12 × 12 m, as D2 said.
+- **Cylinder:** run it on the **largest window it can actually certify**, not at 12 × 12. Its map
+  density is ~6,500 supports/m² here, so 12 × 12 ≈ 900 k supports — about 6× the 156 k map that already
+  ran past the query cap. Pick the window by measuring, e.g. step the window up from P2's and stop at
+  the last size that certifies.
+- **The report must say why only this is doable.** A dedicated section, with numbers, not prose:
+  supports vs window area per robot, compile and query time per run, the query cap, the extrapolation to
+  12 × 12 for the cylinder and the range of points it rests on, and the probe's known ≥ 13× underestimate
+  for the cylinder. State plainly that (b) — all three at ≥ 8 m via the Amendment 1 grid coreset — is the
+  next step and was not run. The user asked for (a) *first*; do not start (b).
+
+**D5 — resources, measured, not guessed.** Supersedes the compute envelope table.
+- **Agent jobs: 1 CPU / 2 GB / 2 h on `cpu_short`.** The agent orchestrates; it computes nothing.
+  So nothing heavier than reading files and small plots runs in the agent allocation — **including the
+  test suite**: run pytest as its own small sbatch job (2 CPU / 8 GB / 1 h).
+- **Compute jobs: size from measurement.** On 09-17/18 GMC used ~1 core (the cylinder used 0.99 of 8 over
+  2.5 h), and peak RSS was 2.8–6.5 GB (14.2 GB for the 156 k cylinder map). Templates now default to
+  `planefloor_run` 1 CPU / 20 GB, `planefloor_search` 2 CPU / 8 GB. For anything new or bigger, check
+  `sacct -j <similar job> --format=MaxRSS,TotalCPU,Elapsed` first and request ~1.5× the measured peak.
+- Concurrency cap unchanged: at most 3 `pf_*` queued at once.
+
+**Concurrency.** P2's continuation and P3 now run **at the same time** in this worktree. Commit only
+your own files (`git add <paths>`, never `-A` or `.`), write only under your own results directory, and
+if git reports `index.lock`, wait 30 s and retry. P3 hands off to P4 only once P2 is also done; the
+wrapper enforces that.
