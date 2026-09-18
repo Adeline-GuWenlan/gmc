@@ -681,7 +681,7 @@ def step_report(args):
             if bad:
                 ax.scatter([r["supports"] for r in bad], [r[key] for r in bad], s=90, marker=MARKERS[k],
                            facecolors="none", edgecolors=COLORS[k], lw=2,
-                           label=f"{k}: UNKNOWN (query hit the cap)" if key == "query_s" else f"{k}: UNKNOWN run")
+                           label=f"{k}: UNKNOWN (a query budget ran out)" if key == "query_s" else f"{k}: UNKNOWN run")
     for ax in axs:
         ax.set_xscale("log")
         ax.set_yscale("log")
@@ -705,7 +705,7 @@ def step_report(args):
     for cap, lbl in ((QUERY_CAP_S, "query cap 7,200 s"), (2 * QUERY_CAP_S, "BUDGET=2 cap 14,400 s")):
         axs[2].axhline(cap, color="0.4", ls="--", lw=1)
         axs[2].text(axs[2].get_xlim()[1] / 5.0, cap * 1.08, lbl, fontsize=8, color="0.3", ha="right")
-    axs[2].set_title("query time vs supports (hollow = UNKNOWN, a lower bound)", fontsize=10)
+    axs[2].set_title("query time vs supports\nhollow = UNKNOWN: the wall cap (P2) or the 50 M / 100 M support-call cap (rungs 3-4) ran out; a lower bound", fontsize=9)
     axs[0].legend(fontsize=7, loc="upper left")
     axs[1].legend(fontsize=7, loc="lower right")
     axs[2].legend(fontsize=7, loc="lower right")

@@ -193,6 +193,48 @@
    "probe_underestimate_is_lower_bound": true
   },
   {
+   "label": "P2 shared cylinder_b2",
+   "robot": "cylinder",
+   "file": "results/height/plane/shared/cylinder_b2.json",
+   "scene": "planefloor",
+   "budget_scale": 2,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_side_m": [
+    4.3,
+    5.6
+   ],
+   "window_m2": 24.08,
+   "dist_m": 2.358495,
+   "supports": 156426,
+   "supports_per_m2": 6496.1,
+   "compile_s": 766.4022,
+   "query_s": 15026.755948,
+   "query_cap_s": 14400.0,
+   "status": "UNKNOWN",
+   "reason": "query_wall_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 1.271634,
+    "project": 11.00864,
+    "compile_pairs": 15.265237,
+    "compile_slabs": 734.624171,
+    "compile_mobility": 16.508698,
+    "query": 15026.755896
+   },
+   "probe_projected_h": 0.214674,
+   "probe_underestimate_x": 20.435626,
+   "probe_underestimate_is_lower_bound": true
+  },
+  {
    "label": "P2 shared uav",
    "robot": "uav",
    "file": "results/height/plane/shared/uav.json",
@@ -455,6 +497,132 @@
    "probe_projected_h": 0.051047,
    "probe_underestimate_x": 3.428215,
    "probe_underestimate_is_lower_bound": false
+  },
+  {
+   "label": "P3 rung 3",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung3/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_side_m": [
+    6.325,
+    5.874
+   ],
+   "window_m2": 37.153,
+   "dist_m": 6.90163,
+   "supports": 73178,
+   "supports_per_m2": 1969.6,
+   "compile_s": 283.867242,
+   "query_s": 722.540665,
+   "query_cap_s": 7200.0,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 0.795429,
+    "project": 6.630428,
+    "compile_pairs": 5.338389,
+    "compile_slabs": 272.798685,
+    "compile_mobility": 5.728842,
+    "query": 722.540628
+   },
+   "probe_projected_h": 0.077355,
+   "probe_underestimate_x": 3.613965,
+   "probe_underestimate_is_lower_bound": true
+  },
+  {
+   "label": "P3 rung 3_b2",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung3/cylinder_b2.json",
+   "scene": "planefloor",
+   "budget_scale": 2,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_side_m": [
+    6.325,
+    5.874
+   ],
+   "window_m2": 37.153,
+   "dist_m": 6.90163,
+   "supports": 73178,
+   "supports_per_m2": 1969.6,
+   "compile_s": 293.825531,
+   "query_s": 1289.017493,
+   "query_cap_s": 14400.0,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 1.129369,
+    "project": 7.281213,
+    "compile_pairs": 5.39278,
+    "compile_slabs": 282.263281,
+    "compile_mobility": 6.168195,
+    "query": 1289.01746
+   },
+   "probe_projected_h": 0.080545,
+   "probe_underestimate_x": 5.458828,
+   "probe_underestimate_is_lower_bound": true
+  },
+  {
+   "label": "P3 rung 4",
+   "robot": "cylinder",
+   "file": "results/height/plane/long/cyl_ladder/rung4/cylinder.json",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    12.313,
+    13.912
+   ],
+   "window_side_m": [
+    5.875,
+    9.224
+   ],
+   "window_m2": 54.191,
+   "dist_m": 8.583851,
+   "supports": 149303,
+   "supports_per_m2": 2755.1,
+   "compile_s": 581.049614,
+   "query_s": 1713.889905,
+   "query_cap_s": 7200.0,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "verify_certified": false,
+   "verify_min_clearance_m": null,
+   "replay3d_passed": false,
+   "clearance_lb_m": null,
+   "success": false,
+   "timing_by_stage_s": {
+    "scene_load": 0.877137,
+    "project": 8.522628,
+    "compile_pairs": 11.320753,
+    "compile_slabs": 557.602685,
+    "compile_mobility": 12.123499,
+    "query": 1713.889861
+   },
+   "probe_projected_h": 0.443498,
+   "probe_underestimate_x": 1.437398,
+   "probe_underestimate_is_lower_bound": true
   }
  ],
  "projections": [
@@ -836,9 +1004,9 @@
   },
   "fits": {
    "compile": {
-    "a": 0.005076,
-    "b": 0.979073,
-    "n": 5,
+    "a": 0.004258,
+    "b": 0.996904,
+    "n": 9,
     "x_range": [
      3791.0,
      156426.0
@@ -854,7 +1022,7 @@
     ]
    }
   },
-  "n_cylinder_runs_with_compile": 5,
+  "n_cylinder_runs_with_compile": 9,
   "n_cylinder_runs_with_finished_query": 4,
   "rule": "no fit on fewer than 4 points",
   "query_fit_checked_against_unknown_runs": [
@@ -864,14 +1032,42 @@
     "fit_predicts_s": 453.618933,
     "measured_at_least_s": 7968.107318,
     "fit_under_by_at_least_x": 17.565641
+   },
+   {
+    "label": "P2 shared cylinder_b2",
+    "supports": 156426,
+    "fit_predicts_s": 453.618933,
+    "measured_at_least_s": 15026.755948,
+    "fit_under_by_at_least_x": 33.126386
+   },
+   {
+    "label": "P3 rung 3",
+    "supports": 73178,
+    "fit_predicts_s": 423.078404,
+    "measured_at_least_s": 722.540665,
+    "fit_under_by_at_least_x": 1.707817
+   },
+   {
+    "label": "P3 rung 3_b2",
+    "supports": 73178,
+    "fit_predicts_s": 423.078404,
+    "measured_at_least_s": 1289.017493,
+    "fit_under_by_at_least_x": 3.046758
+   },
+   {
+    "label": "P3 rung 4",
+    "supports": 149303,
+    "fit_predicts_s": 451.683424,
+    "measured_at_least_s": 1713.889905,
+    "fit_under_by_at_least_x": 3.794449
    }
   ],
   "query_fit_predictive": false,
-  "compile_s_at_12x12_min": 472.402428,
+  "compile_s_at_12x12_min": 488.066686,
   "compile_extrapolation_factor_beyond_range_min": 0.759823,
-  "compile_s_at_12x12_median": 1844.277279,
+  "compile_s_at_12x12_median": 1953.287647,
   "compile_extrapolation_factor_beyond_range_median": 3.054003,
-  "compile_s_at_12x12_max": 2879.056607,
+  "compile_s_at_12x12_max": 3074.064132,
   "compile_extrapolation_factor_beyond_range_max": 4.813132,
   "query_s_at_12x12_min": 442.330348,
   "query_extrapolation_factor_beyond_range_min": 2.53776,
@@ -923,6 +1119,15 @@
    "supports": 156426,
    "probe_projected_h": 0.183768,
    "probe_underestimate_x": 13.065674,
+   "probe_underestimate_is_lower_bound": true,
+   "status": "UNKNOWN"
+  },
+  {
+   "label": "P2 shared cylinder_b2",
+   "robot": "cylinder",
+   "supports": 156426,
+   "probe_projected_h": 0.214674,
+   "probe_underestimate_x": 20.435626,
    "probe_underestimate_is_lower_bound": true,
    "status": "UNKNOWN"
   },
@@ -979,6 +1184,33 @@
    "probe_underestimate_x": 3.428215,
    "probe_underestimate_is_lower_bound": false,
    "status": "REACHABLE"
+  },
+  {
+   "label": "P3 rung 3",
+   "robot": "cylinder",
+   "supports": 73178,
+   "probe_projected_h": 0.077355,
+   "probe_underestimate_x": 3.613965,
+   "probe_underestimate_is_lower_bound": true,
+   "status": "UNKNOWN"
+  },
+  {
+   "label": "P3 rung 3_b2",
+   "robot": "cylinder",
+   "supports": 73178,
+   "probe_projected_h": 0.080545,
+   "probe_underestimate_x": 5.458828,
+   "probe_underestimate_is_lower_bound": true,
+   "status": "UNKNOWN"
+  },
+  {
+   "label": "P3 rung 4",
+   "robot": "cylinder",
+   "supports": 149303,
+   "probe_projected_h": 0.443498,
+   "probe_underestimate_x": 1.437398,
+   "probe_underestimate_is_lower_bound": true,
+   "status": "UNKNOWN"
   }
  ],
  "option_b": "all three robots at >= 8 m via the Amendment 1 grid coreset: NOT RUN (D4: the user asked for option (a) first); it is the next step."
