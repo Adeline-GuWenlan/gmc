@@ -125,3 +125,41 @@ def test_stage_groups_follow_the_users_four_questions():
     assert stage_group("verify_curve") == stage_group("replay3d") == "prove"
     with pytest.raises(ValueError):
         stage_group("compile_paris")
+
+
+# ------------------------------------------------------------------------------------ sweep rows
+from gmc.height.timingreport import compile_total, row_from_sweep  # noqa: E402
+
+
+def _unit(mode="cold", status="REACHABLE", stages=None):
+    return {"kind": "unit", "source": "P4-sweep", "lane": "sweeper", "experiment": "dist", "mode": mode,
+            "robot": "sweeper", "window": [0.0, 0.0, 2.0, 3.0], "window_area_m2": 6.0,
+            "start": [0.0, 0.0], "goal": [3.0, 4.0], "ab_dist_m": 5.0, "n_supports": 99,
+            "stages": stages if stages is not None else
+            {"compile_pairs": 1.0, "compile_slabs": 10.0, "compile_mobility": 1.0, "query": 5.0,
+             "verify_curve": 2.0, "replay3d": 0.5},
+            "status": status, "certified": status == "REACHABLE", "replay3d_passed": status == "REACHABLE",
+            "success": status == "REACHABLE", "query_is_lower_bound": status == "UNKNOWN",
+            "query_report": {"refinement_rounds": 2}}
+
+
+def test_compile_total_sums_the_three_compile_stages_and_is_none_without_them():
+    assert compile_total({"compile_pairs": 1.0, "compile_slabs": 10.0, "compile_mobility": 1.0}) == 12.0
+    assert compile_total({"query": 5.0}) is None
+    assert compile_total(None) is None
+
+
+def test_a_cold_sweep_row_has_compile_and_query_like_a_run_row():
+    r = row_from_sweep(_unit())
+    assert r["source"] == "P4-sweep" and r["mode"] == "cold" and r["has_stage_timing"]
+    assert r["compile_seconds"] == 12.0 and r["query_seconds"] == 5.0
+    assert r["success"] and r["refinement_rounds"] == 2
+
+
+def test_a_warm_sweep_row_has_a_query_but_no_compile():
+    r = row_from_sweep(_unit(mode="warm1", stages={"query": 3.0, "verify_curve": 1.0}))
+    assert r["compile_seconds"] is None and r["query_seconds"] == 3.0
+
+
+def test_a_run_row_is_mode_single():
+    assert row_from_run(_run(), source="P3", label="x")["mode"] == "single"

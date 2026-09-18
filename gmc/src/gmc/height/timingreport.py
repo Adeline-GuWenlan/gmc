@@ -147,7 +147,7 @@ def row_from_run(d, *, source, label, path=None):
     certified = bool(ver.get("certified", False))
     replay_ok = bool(rep.get("passed", False))
     return {
-        "source": source, "label": label, "path": path, "robot": d.get("robot"),
+        "source": source, "label": label, "path": path, "robot": d.get("robot"), "mode": "single",
         "scene": d.get("scene", "processed"), "budget_scale": d.get("budget_scale", 1),
         "window": case.get("window"),
         "window_area_m2": _area(case["window"]) if case.get("window") else None,
@@ -163,4 +163,38 @@ def row_from_run(d, *, source, label, path=None):
         "query_is_lower_bound": status == "UNKNOWN",
         "has_stage_timing": timing is not None,
         "stages": dict(timing["by_stage"]) if timing is not None else None,
+    }
+
+
+def compile_total(stages):
+    """``compile_pairs + compile_slabs + compile_mobility``: what ``compile_seconds`` measures."""
+    if not stages or not any(k in stages for k in COMPILE_STAGES):
+        return None
+    return float(sum(stages.get(k, 0.0) for k in COMPILE_STAGES))
+
+
+def row_from_sweep(u):
+    """One normalized row from a ``plane_timing.py`` sweep unit (same fields as :func:`row_from_run`).
+
+    A warm query has no compile of its own (``compile_seconds`` is ``None``): its map was compiled once,
+    in the unit whose ``mode`` is ``warm_compile``.
+    """
+    st = u.get("stages") or {}
+    qr = u.get("query_report") or {}
+    return {
+        "source": u.get("source", "P4-sweep"), "label": f"{u.get('experiment')}:{u.get('mode')}",
+        "path": None, "robot": u.get("robot"), "mode": u.get("mode"), "experiment": u.get("experiment"),
+        "lane": u.get("lane"), "scene": "planefloor", "budget_scale": 1,
+        "window": u.get("window"), "window_area_m2": u.get("window_area_m2"),
+        "start": u.get("start"), "goal": u.get("goal"), "ab_dist_m": u.get("ab_dist_m"),
+        "n_supports": u.get("n_supports"), "status": u.get("status"), "reason": u.get("reason"),
+        "certified": bool(u.get("certified", False)), "replay3d_passed": bool(u.get("replay3d_passed", False)),
+        "success": bool(u.get("success", False)), "clearance_lb": u.get("clearance_lb"),
+        "replay3d_lb": u.get("replay3d_lb"),
+        "compile_seconds": compile_total(st), "query_seconds": st.get("query"),
+        "query_is_lower_bound": bool(u.get("query_is_lower_bound", False)),
+        "has_stage_timing": True, "stages": dict(st),
+        "refinement_rounds": qr.get("refinement_rounds"),
+        "query_support_calls": qr.get("query_support_calls"),
+        "order": u.get("order"),
     }
