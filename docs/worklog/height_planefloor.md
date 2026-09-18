@@ -664,3 +664,30 @@ Resumed at 20:03 after a usage-limit wait. The wrapper started this session only
   overwrites. Tested (`test_height_plane_render_claims.py`); P2's and A2's defaults are unchanged.
   Cancelled the in-flight uav render (17960233, my own) and re-rendered both: uav **17961624**,
   sweeper (see jobids).
+
+### 2026-09-18 ~20:5x — compare figure, suite, and the video captions (second fix)
+
+- **Compare figure** (17963195, 95 s, 3.1 GB) → `figs/p3_long_compare.png` + `p3_compare.json`. Opened.
+  - Sweeper's GMC-certified route: **14.26 m**, north along x ≈ 7.2, round the west end of the display
+    wall, then NE.
+  - uav's: **12.13 m**, SE diagonal, then north along x ≈ 13.5.
+  - Certified routes **5.73 m apart**. Not a copy of the pre-check's 5.728 m: that came from other
+    curves, and the farthest points sit at the same corner.
+  - Cylinder panel: rungs 0–2 solid (certified), rungs 3–4 dashed (UNKNOWN), rungs 5–6 not run.
+- **Full suite** (17961361, 22 min, 0.55 GB): **555 tests, 530 passed, 25 failed**.
+  - The 25: `test_atlas_benchmark.py` 10 and `test_atlas_gate_intervals.py` 15. All are
+    `AtlasAssetError` / `FileNotFoundError`: the sealed Atlas package is absent from this worktree.
+    Same class P2 reported; neither file nor `src/gmc/benchmarking/` was touched by P3.
+  - Why there is no totals line: `pyproject.toml` already sets `addopts = "-ra -q"`, so an extra `-q`
+    makes `-qq`, which suppresses pytest's final totals line. That is also why P2's suite log has none.
+    I counted the progress characters instead.
+  - The suite collected before `test_height_plane_render_claims.py` existed. Those tests (pure
+    string/format checks) were run red → green during TDD.
+- **Captions, second fix** (6657ab3). With the `p3long` preset, the first corrected sweeper render
+  (17961697) got the right caption and `lb = 0.000147 m`. I opened frame 150. The caption is **clipped at
+  both frame edges**, and "D1" falls off: the 3D title band holds the headline plus one caption line,
+  ~135 characters at 13 pt on 1280 px. P2's own "three robots" caption is clipped the same way. The
+  presets are now 129 / 125 characters, and a test pins the limit. Wrapping to a third line would
+  collide with the legend row.
+- Renders: sweeper **17963352**, uav **17963528**, cylinder rung 2 (the largest certified rung,
+  `--claim p3rung`) **17963359**. Cancelled my own superseded uav render 17961624.
