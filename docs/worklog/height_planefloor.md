@@ -576,3 +576,26 @@ applied to the whole window. Measured, the densest 12 × 12 window holds 753 k.
 **4. Option (b)**: all three robots at ≥ 8 m via the Amendment 1 grid coreset would shrink the
 cylinder's map itself, so the 12 × 12 support count is no longer the obstacle. **It was not run** (D4:
 the user asked for (a) first). It is the next step.
+
+### 2026-09-18 ~20:0x — rungs 3 and 4: UNKNOWN on the support-call budget, not the wall clock
+
+Resumed at 20:03 after a usage-limit wait. The wrapper started this session only once both rungs had ended.
+
+| rung | sep m | supports | compile s | query s | status | reason | MaxRSS |
+|---|---|---|---|---|---|---|---|
+| 3 (17949914) | 6.90 | 73,178 | 283.9 | 722.5 | **UNKNOWN** | `query_support_budget_exhausted` | 3.37 GB |
+| 4 (17949948) | 8.58 | 149,303 | 581.0 | 1,713.9 | **UNKNOWN** | `query_support_budget_exhausted` | 4.34 GB |
+
+- **This is a different cap from P2's.** Both rungs spent the config's 50,000,000 support calls
+  (`query.max_support_calls`) well inside the 7,200 s wall budget: 10 % and 24 % of it. P2's 156 k map
+  hit the *wall* budget instead, at 7,968 s. Its `BUDGET=2` retry (P2's job 17944446) is now back,
+  **UNKNOWN again** on the wall budget: 15,027 s against 14,400 s. So P2's point is a lower bound of
+  **≥ 15,027 s**.
+- **At `BUDGET=1` the ladder stops between rung 2 (5.45 m, 46,835 supports, certified) and rung 3
+  (6.90 m, 73,178, UNKNOWN).** The support budget doubles, not the semantics, under the frozen rule's
+  one budget-only retry. That is exactly the question this retry answers, so rung 3 gets it:
+  **17960231** `pf_p3c_rung3_b2`. Rung 4 gets its own retry only if rung 3's certifies; otherwise the
+  climb stops at rung 2.
+- MaxRSS stays small (3.4 / 4.3 GB). The 21 G I requested for rung 4 was 5× too much; P2's 14.2 GB at
+  156 k must come from the length of its query, not from its support count.
+- Videos for the two certified long runs: **17960232** sweeper, **17960233** uav.

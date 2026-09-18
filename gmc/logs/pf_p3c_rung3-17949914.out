@@ -1,0 +1,6 @@
+=== planefloor_run --robot cylinder --tau 0.3 --budget-scale 1 --case results/height/plane/long/cyl_ladder/rung3/case.json --scene planefloor --out-dir results/height/plane/long/cyl_ladder/rung3 --raw-subdir plane_long/rung3 2026-09-18T15:04:19-04:00 host=cl011.hpc.nyu.edu job=17949914 ===
+projection {"n_input": 7101868, "tau": 0.3, "level": 2.0, "window": [6.738, 4.688, 13.063, 10.562], "band_abs": [-1.2071749999999999, 0.5228250000000001], "dilate_radius": 0.3, "dropped_opacity": 3295274, "floored_3d": 0, "excluded_band": 1500978, "outside_window": 2232438, "deduplicated": 0, "kept": 73178, "floored_2d": 1, "candidate2": 1073}
+probe {"n_supports_full": 73178, "abort": false, "n_supports_probe": 20411, "probe_compile_seconds": 77.6736752986908, "projected_hours": 0.07735486054643186, "extrapolation": "linear in supports x initial_intervals (rough)"}
+timing {"scene_load": 0.7954288810142316, "project": 6.6304283280042, "compile_pairs": 5.338389478012687, "compile_slabs": 272.79868518700823, "compile_mobility": 5.72884243298904, "query": 722.5406280629977}
+=== cylinder status=UNKNOWN verify={'ran': False} replay3d=None abort=False ===
+=== PLANEFLOOR_RUN_DONE cylinder ===
