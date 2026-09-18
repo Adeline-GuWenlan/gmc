@@ -673,7 +673,15 @@ def step_compare(args):
     not a caption.
     """
     sdir = Path(args.run_dir)
-    runs = {k: json.loads((sdir / f"{k}.json").read_text()) for k in ROBOTS}
+    runs, run_files = {}, {}
+    for k in ROBOTS:
+        # Amendment 3 allows one budget-only retry on UNKNOWN; showcase_run names it <robot>_b2.json.
+        # Prefer a REACHABLE retry, otherwise report the first run as it stands.
+        cands = [sdir / f"{k}.json", sdir / f"{k}_b2.json"]
+        got = [(c, json.loads(c.read_text())) for c in cands if c.exists()]
+        ok = [(c, r) for c, r in got if (r.get("result") or {}).get("status") == "REACHABLE"]
+        run_files[k], runs[k] = ok[-1] if ok else got[0]
+        run_files[k] = str(run_files[k])
     case = json.loads((sdir / "case.json").read_text())
     shared, mismatch = {}, {}
     for field in ("window", "start", "goal", "z_floor", "z_c"):
@@ -755,7 +763,8 @@ def step_compare(args):
     fig.suptitle(f"Amendment 3 P2c: the shared three-robot case {case['selection']['label']} · "
                  f"start {tuple(round(v, 2) for v in case['start'][:2])} goal "
                  f"{tuple(round(v, 2) for v in case['goal'][:2])} · window {win} · "
-                 f"certified routes separate by {sep:.2f} m\n" + CLAIMS, fontsize=9)
+                 + (f"certified routes separate by {sep:.2f} m" if sep is not None else
+                    "the cylinder has no certified route (see its status)") + "\n" + CLAIMS, fontsize=9)
     fig.tight_layout(rect=(0, 0.01, 1, 0.93))
     FIGS.mkdir(parents=True, exist_ok=True)
     fig.savefig(FIGS / "p2c_three_routes.png", dpi=80)
@@ -764,7 +773,7 @@ def step_compare(args):
 
     out = {"claims_boundary": CLAIMS, "task": "P2c: three robots, one window, one start, one goal",
            "case": case["selection"], "window": win, "start": case["start"], "goal": case["goal"],
-           "shared_case_confirmed_identical_in_all_three_runs": True,
+           "shared_case_confirmed_identical_in_all_three_runs": True, "run_files": run_files,
            "runs": summary, "precheck_recomputed": {k: v for k, v in ev.items() if k != "robots"},
            "figure": str(FIGS / "p2c_three_routes.png"), "timing": timer.to_dict()}
     (OUT / "p2c_shared_case.json").write_text(json.dumps(clean(out), indent=1))

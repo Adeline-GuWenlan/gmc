@@ -337,3 +337,38 @@ density band (153–159 k), because the contrast needs a table in the window and
 [0.02, 1.75] takes the whole of it plus the wall behind it. Submitted all three to `showcase_run.py`
 with the probe **on** (jobs 17934013/14/15) rather than guessing: if the 20-projected-hour probe aborts,
 the answer is to shrink the window, never the semantics.
+
+### 2026-09-18 ~00:4x — P2c: two of three certified, the cylinder ran out of query budget
+
+All three ran on the **identical** window, start and goal (`results/height/plane/shared/case.json`),
+plane-floor scene, config and gates untouched.
+
+| | supports | status | compile | query | verify / replay3d |
+|---|---|---|---|---|---|
+| sweeper (17934071) | 1,779 | **REACHABLE** | 7.0 s | 11.3 s | certified, replay3d passed, lb 0.0059 m |
+| uav (17934072) | 19,867 | **REACHABLE** | 108 s | 172 s | certified (verify 85 s), replay3d passed |
+| cylinder (17934263) | 156,426 | **UNKNOWN** `query_wall_budget_exhausted` | 676 s | 7,968 s | not run |
+
+The cylinder hit the config's 7,200 s query cap. Amendment 3 allows exactly one budget-only retry on
+UNKNOWN (`BUDGET=2`, which doubles the query wall to 14,400 s and nothing else); submitted as
+**17938411**. If that is UNKNOWN too, the case is reported as it stands — two certified routes and a
+cylinder that the planner could neither route nor refute within budget — and the window is **not**
+shrunk after the fact to rescue it: the window was chosen, pre-checked and run; changing it now would
+be changing a case to fit a result.
+
+**The probe under-estimated by at least 13×, and P3 needs to know.** `showcase_run.py`'s probe put
+45,288 supports in its 2 × 2 m window (29 % of the full 156,426), compiled them in 192 s, and projected
+**0.18 h** by multiplying by the support ratio (3.5×). The real run took **2.4 h** and still did not
+finish. At this density the probe window already holds a large share of the supports, so the ratio it
+extrapolates over is small, and the query is not linear in supports. The 20 h abort is frozen and I
+left it alone; the lesson is only that a sub-hour projection at ~6,500 cylinder supports/m² is not an
+assurance. For sizing: sweeper 74, uav 825, cylinder 6,496 supports/m² in this window.
+
+**My own bug, recorded because it cost a job:** the first evidence job (17934271) died in 18 s with
+`NameError: step_selftest`. When I rewrote `step_evidence` into the window-shrink series I replaced the
+text from `def step_evidence` to `def step_compare`, and `step_selftest` sat between them. Restored it
+from the previous commit, re-ran the self-test (passes) and the 34 P2 tests (pass), resubmitted as
+17938423. The lesson is the obvious one: after a slice-replace, `grep '^def '` before submitting.
+
+The sweeper video (17938424) is queued now that its run is certified; the uav video waits for a queue
+slot; the cylinder video, and the three-routes figure (`--step compare`), wait for 17938411.
