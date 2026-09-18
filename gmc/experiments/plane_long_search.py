@@ -35,6 +35,7 @@ from scipy.sparse.csgraph import dijkstra
 from gmc.height.casesearch import (cell_of, d1_precheck, edt_clearance, free_components, free_graph,
                                    geodesic_path, line_clearance, overhang_on_line,
                                    path_from_predecessors, path_polyline, path_separation)
+from gmc.height.pathio import curve_from_dict, sample_curve
 from gmc.height.longrange import (count_supports, density_grid, ladder_goals, min_pool_dist,
                                   route_window, shadow_table)
 from gmc.height.planefloor import load_plane_scene
@@ -699,6 +700,129 @@ def step_report(args):
     plt.close(fig)
     log("wrote", OUT / "p3_report.json", FIGS / "p3_scaling.png")
 
+# ------------------------------------------------------------------------------------ compare (loads the scene)
+def _best_run(d, robot):
+    """<robot>.json or its one BUDGET=2 retry: a REACHABLE one if there is one, else the first."""
+    got = [(f, json.loads(f.read_text())) for f in (d / f"{robot}.json", d / f"{robot}_b2.json") if f.exists()]
+    ok = [(f, r) for f, r in got if (r.get("result") or {}).get("status") == "REACHABLE"]
+    return (ok[-1] if ok else got[0]) if got else (None, None)
+
+
+def _curve_xy(run, robot):
+    res = (run or {}).get("result") or {}
+    if res.get("curve") is None:
+        return None
+    return np.asarray(sample_curve(curve_from_dict(res["curve"]), 0.02, robot.max_radius())[:, :2])
+
+
+def step_compare(args):
+    """The long case's certified sweeper and uav routes, and every certified cylinder rung, on the maps they
+    were certified on. Refuses to draw if a run was not made on the case it claims."""
+    case = json.loads((OUT / "case.json").read_text())
+    lad = json.loads((OUT / "cyl_ladder.json").read_text())
+    robots = robot_table(case["z_c"])
+    win, big = case["window"], lad["ladder_map_window"]
+    st, gl = case["start"][:2], case["goal"][:2]
+    runs, summary = {}, {"long": {}, "rungs": []}
+    for k in PAIR:
+        f, r = _best_run(OUT, k)
+        if r is None:
+            summary["long"][k] = {"status": "not run"}
+            continue
+        for field in ("window", "start", "goal", "z_floor", "z_c"):
+            if not np.allclose(r["case"][field], case[field]):
+                raise SystemExit(f"P3 compare: {f} was not run on case.json ({field})")
+        runs[k] = r
+        row = run_row(f, f"P3 long {k}")
+        xy = _curve_xy(r, robots[k])
+        row["certified_route_len_m"] = float(np.hypot(*np.diff(xy, axis=0).T).sum()) if xy is not None else None
+        row["curve_xy"] = xy
+        summary["long"][k] = row
+    if all(summary["long"].get(k, {}).get("curve_xy") is not None for k in PAIR):
+        summary["long"]["certified_route_separation_m"] = path_separation(
+            summary["long"]["sweeper"]["curve_xy"], summary["long"]["uav"]["curve_xy"])
+    for rg in lad["rungs"]:
+        d = OUT / "cyl_ladder" / f"rung{rg['rung']}"
+        f, r = _best_run(d, "cylinder")
+        row = {"rung": rg["rung"], "target_m": rg["target_m"], "dist_m": rg.get("dist_m"),
+               "window": rg.get("window"), "n_supports": rg.get("n_supports"), "status": "not run"}
+        if r is not None:
+            row.update(run_row(f, f"P3 rung {rg['rung']}"))
+            row["curve_xy"] = _curve_xy(r, robots["cylinder"])
+        summary["rungs"].append(row)
+
+    timer = StageTimer()
+    with timer.stage("scene_load", scene="planefloor") as rec:
+        scene, meta = load_plane_scene(SCENE_NPZ)
+        rec["sizes"]["n_splats"] = len(scene)
+    z_f = case["z_floor"]
+    maps = {k: certified(scene, robots[k], win, z_f, timer, f"long:{k}") for k in PAIR}
+    cy = certified(scene, robots["cylinder"], big, z_f, timer, "ladder_map:cylinder")
+
+    def base(ax, m, w, r):
+        img = np.ones(m["occ"].shape[::-1] + (3,))
+        img[(m["dist"] > r).T] = (0.80, 0.95, 0.80)
+        img[m["occ"].T] = (0.80, 0.10, 0.10)
+        ax.imshow(img, origin="lower", extent=[w[0], w[2], w[1], w[3]], interpolation="nearest")
+        ax.plot([st[0], gl[0]], [st[1], gl[1]], "k--", lw=1)
+        ax.plot(*st, "go", ms=9)
+        ax.plot(*gl, "bs", ms=9)
+        ax.tick_params(labelsize=7)
+
+    fig, axs = plt.subplots(1, 3, figsize=(27, 11))
+    for ax, k in zip(axs[:2], PAIR):
+        base(ax, maps[k], win, robots[k].max_radius())
+        row = summary["long"].get(k, {})
+        if row.get("curve_xy") is not None:
+            xy = row["curve_xy"]
+            ax.plot(xy[:, 0], xy[:, 1], "-", color="darkorange", lw=3,
+                    label=f"GMC certified route {row['certified_route_len_m']:.2f} m")
+            ax.legend(fontsize=8, loc="upper left")
+        ax.set_title(f"{k}: {row.get('status')} · verify.certified={row.get('verify_certified')} · "
+                     f"replay3d={row.get('replay3d_passed')} · clearance lb {row.get('clearance_lb_m')}\n"
+                     f"{maps[k]['n_supports']:,} supports · compile {row.get('compile_s') or 0:.0f} s · "
+                     f"query {row.get('query_s') or 0:.0f} s (cap 7,200 s)", fontsize=9)
+    ax = axs[2]
+    base(ax, cy, big, robots["cylinder"].max_radius())
+    ax.add_patch(Rectangle((win[0], win[1]), win[2] - win[0], win[3] - win[1], fill=False, ec="blue",
+                           lw=2, ls=":"))
+    cmap = plt.get_cmap("viridis")
+    for i, row in enumerate(summary["rungs"]):
+        w = row.get("window")
+        if not w:
+            continue
+        col = cmap(i / max(1, len(summary["rungs"]) - 1))
+        ok = row.get("success")
+        ax.add_patch(Rectangle((w[0], w[1]), w[2] - w[0], w[3] - w[1], fill=False, ec=col, lw=1.5,
+                               ls="-" if ok else "--"))
+        lbl = (f"rung {row['rung']}: {row['dist_m']:.1f} m, {row['n_supports']:,} sup, "
+               + (f"CERTIFIED, query {row['query_s']:.0f} s" if ok else f"{row.get('status')}"
+                  + (f" (query {row['query_s']:.0f} s)" if row.get("query_s") else "")))
+        if row.get("curve_xy") is not None:
+            xy = row["curve_xy"]
+            ax.plot(xy[:, 0], xy[:, 1], "-", color=col, lw=2.5, label=lbl)
+        else:
+            ax.plot([], [], "--", color=col, label=lbl)
+    ax.legend(fontsize=7, loc="upper left")
+    ax.set_title("cylinder ladder: same start, separation stepping up; solid = certified, dashed = not\n"
+                 "(blue dotted = the long sweeper/uav window)", fontsize=9)
+    sep = summary["long"].get("certified_route_separation_m")
+    fig.suptitle(f"Amendment 3 P3: long range. {case['label']}: start {tuple(st)} goal {tuple(gl)}, "
+                 f"{case['dist_m']:.2f} m apart, window {win} "
+                 + (f"· sweeper and uav certified routes run {sep:.2f} m apart" if sep is not None else "")
+                 + "\n" + CLAIMS, fontsize=9)
+    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    FIGS.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGS / "p3_long_compare.png", dpi=75)
+    plt.close(fig)
+    for row in [summary["long"].get(k, {}) for k in PAIR] + summary["rungs"]:
+        row.pop("curve_xy", None)
+    summary["timing"] = timer.to_dict()
+    summary["figure"] = str(FIGS / "p3_long_compare.png")
+    summary["claims_boundary"] = CLAIMS
+    (OUT / "p3_compare.json").write_text(json.dumps(clean(summary), indent=1))
+    log("wrote", OUT / "p3_compare.json", FIGS / "p3_long_compare.png")
+
 def step_selftest(args):
     """Every code path of --step search on synth3d's table scene, before a Slurm job is spent on the hall.
 
@@ -738,9 +862,9 @@ def step_selftest(args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--step", required=True, choices=["search", "selftest", "report"])
+    ap.add_argument("--step", required=True, choices=["search", "selftest", "report", "compare"])
     args = ap.parse_args()
-    {"search": step_search, "selftest": step_selftest, "report": step_report}[args.step](args)
+    {"search": step_search, "selftest": step_selftest, "report": step_report, "compare": step_compare}[args.step](args)
 
 
 if __name__ == "__main__":
