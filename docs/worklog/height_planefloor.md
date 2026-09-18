@@ -691,3 +691,8 @@ Resumed at 20:03 after a usage-limit wait. The wrapper started this session only
   collide with the legend row.
 - Renders: sweeper **17963352**, uav **17963528**, cylinder rung 2 (the largest certified rung,
   `--claim p3rung`) **17963359**. Cancelled my own superseded uav render 17961624.
+- 21:2x: the final sweeper render (17963352) has the full caption on its 3D frames. On the 2-panel frame
+  the claims part (manual scene edit, D1, D4) is visible, but the first ~20 characters run off the left
+  edge. That is `viz.robot_video`'s title layout, which P2's videos share; not re-rendered. uav
+  (17963528) and cylinder rung 2 (17963359) are still on their 2-panel stage. The watchdog is 7 min out,
+  so the rest goes to `state/P3.continue`.
