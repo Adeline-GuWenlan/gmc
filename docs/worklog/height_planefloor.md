@@ -506,3 +506,12 @@ robots, config, `verify_curve`, `replay3d` untouched.
   156 k cylinder does not hold at 20–40 k supports; that run's 14.2 GB must come from its query, not its
   compile. Later rungs are sized from these measurements.
 - Rung 1 (**17949332**, 45,572 supports) and rung 2 (**17949336**, 46,835) are running.
+
+### 2026-09-18 ~15:4x — rung 2 certified; rung 1, same size, still running
+
+- **Rung 2** (17949336, 5.45 m, 46,835 supports, window 4.36 × 5.87 m): **REACHABLE, certified, replay3d
+  passed**. Compile 185 s, query 445 s, verify 220 s; 16 m 28 s; MaxRSS 2.30 GB.
+- **Rung 1** (17949332, 4.00 m, 45,572 supports) is still running at 17 min. It has fewer supports and
+  a shorter separation than rung 2, and it is slower. Same lesson as A2's 3,791-support cylinder that
+  queried for 409 s: supports bound the compile, not the query.
+- Submitted **rung 3** (17949914, 6.90 m, 73,178 supports, 1 CPU / 10 G / 3 h).
