@@ -390,3 +390,98 @@ unchanged. Only their sizing changed, and every size comes from `sacct` on the 0
 Also new from the rules: this agent's own allocation is 1 CPU / 2 GB and only orchestrates, so the full
 test suite runs as its own sbatch job instead of in-allocation. P3 now commits in this worktree
 concurrently, so every P2 commit stages named paths only.
+
+## P3 — longer range, option (a)
+
+**Standing caveats, repeated on every P3 artefact:** the plane floor is a **user-approved manual
+scene-definition change** (results are sound w.r.t. the edited scene only). **Criterion 3 is relaxed by
+user decision D1** to `r + 0.05` m on each robot's own certified map, plus start and goal in one component
+of `dist > r` (crit1 ∧ crit3 = **0.9 m²** as built, **1.2 m²** with every phantom cell deleted,
+`height_map_diagnosis.md` §3). **Criterion 1 is recorded, not required**, for the long case. Scope is
+**D4, option (a)**: sweeper and uav at ‖goal − start‖ ≥ 8 m in ≤ 12 × 12 m; the cylinder on the largest
+window it actually certifies. Option (b) (all three at ≥ 8 m via the Amendment 1 grid coreset) is the
+next step and is **not** run here.
+
+### 2026-09-18 ~15:1x — sizing before submitting anything
+
+- First session (13:15, job 17944389) read the rules, both plans, the diagnosis, P1/P2 standups and
+  state, then died on the usage limit before submitting anything. Resumed as 17944654.
+- **What is already measured**, from the result JSONs, not from the standups:
+
+| run | robot | window (m) | supports | sup/m² | compile s | query s | status |
+|---|---|---|---|---|---|---|---|
+| A2 (unedited scene) | sweeper | 2.00 × 3.05 | 477 | 78 | 2.0 | 3.4 | REACHABLE, lb 0.027 |
+| A2 (unedited scene) | cylinder | 3.00 × 3.00 | 3,791 | 421 | 17.3 | 409 | REACHABLE, lb 0.0032 |
+| A2 (unedited scene) | uav | 5.90 × 3.65 | 143 | 7 | 0.6 | 0.3 | REACHABLE, lb 0.05 |
+| P2 shared | sweeper | 4.30 × 5.60 | 1,779 | 74 | 7.0 | 11.3 | REACHABLE, lb 0.0059 |
+| P2 shared | uav | 4.30 × 5.60 | 19,867 | 825 | 108.5 | 171.9 | REACHABLE, lb 0.0127 |
+| P2 shared | cylinder | 4.30 × 5.60 | 156,426 | 6,496 | 675.7 | 7,968 (cap 7,200) | UNKNOWN |
+
+  Compile is close to linear in supports for every robot (3.9–5.4 ms per support). Query is not: per
+  support it ranges 0.0064 s (sweeper) to 0.108 s (A2 cylinder), and the A2 cylinder's 409 s on only
+  3,791 supports goes with the tightest clearance of all (lb 0.0032 m). So supports bound the compile,
+  and they bound the query only loosely. A 12 × 12 window can't be priced from one number.
+- **The density varies 15× within a few metres.** A2's cylinder window [0.5, 10.0, 3.5, 13.0] (421/m²)
+  overlaps P2's shared window (6,496/m²). So region averages (2,500–4,900/m²) do not size a window;
+  exact counts do.
+- **Sizing tool, instead of the probe.** `gmc/height/longrange.py`: `shadow_table` does
+  `project_scene`'s window-independent half once per robot (opacity, eigen floor, band, certified outer
+  shadow, de-dup); `count_supports` applies its two window tests. It is pinned to `project_scene`'s
+  `kept` count for 3 robots × 6 windows on the synthetic scene (unit test). On the hall it is checked
+  again against P2's three known counts and two P2 regions before anything uses it.
+- **Where the cylinder ladder sits, and why not literally on P2's window.** The prompt says to step the
+  window up from P2's shared case. P2's window is the densest the cylinder has been measured on (6,496/m²),
+  and it already runs past the query cap at its own size. Every bigger window around it holds more
+  supports, so a ladder there cannot certify at `BUDGET=1`; it would only say so again. So the ladder
+  **shares the long case's start** instead. Its separations **step up from P2's ~2.4 m**: 2.5, 4, 5.5,
+  7, 8.5 … up to the long case's own distance. Every rung is sized by its exact count, one `pf_` job
+  each, run smallest first. Its map is the long window grown by 3 m. That way, if the cylinder cannot
+  use the sweeper/uav corridor (say a table it cannot pass under), the ladder is stopped by compute and
+  not by the crop.
+- `plane_long_search.py --step selftest` runs every code path on `synth3d.table_scene("open")` in 3.5 s.
+  The first attempt failed on my own self-test parameters: a 0.3 m margin is below the cylinder's
+  0.35 m D1 need. That failure also exposed the crop problem above, which is why the ladder map is now
+  grown by 3 m. Now it passes: a long case, plus 4 rungs whose counts equal `count_supports`. I opened
+  both figures before trusting them.
+- Submitted **17948423** `pf_p3a_search` (2 CPU / 12 G / 3 h; P2's region search peaked at 3.3 GB, this
+  one also projects the uav over the whole hall and a grown cylinder map).
+
+### 2026-09-18 ~15:2x — the search (17948423, 5 m 49 s, MaxRSS 3.6 GB): a long shared case exists
+
+- **Sizing tool validated on the hall:** `count_supports` equals `project_scene`'s `kept` **exactly** on
+  all 9 checks (P2's window and P2 regions A and SW × 3 robots; e.g. cylinder 156,426 / 271,848 /
+  357,631). Hall-wide, below and above y = 32: sweeper **68,454**, uav **449,602**, cylinder
+  **2,305,616** supports.
+- Screening funnel (0.1 m block-min graph, lattice 0.5 m): 1,940 endpoints pass D1 for sweeper and uav →
+  351 k pairs ≥ 8 m in 12 × 12 reach → 181 k connected for both → 16,459 whose two routes fit a
+  ≤ 12 × 12 window → 13,438 under the screening caps (uav ≤ 60 k, sweeper ≤ 20 k) → **7,547 with routes
+  ≥ 0.5 m apart**. Of 6 finalists re-checked on their own projection, **5 pass**; they all sit around
+  table A and the long display wall (region A), so they are one place, not five.
+- **The long case, P3-long-0** (`results/height/plane/long/case.json`): window `[6.45, 4.7, 14.15,
+  15.6]` (**7.70 × 10.90 m, 83.9 m²**), start **(7.35, 5.30)**, goal **(13.35, 14.80)**, **11.24 m**
+  apart. Supports: sweeper **6,436**, uav **39,834**, cylinder 269,036 (not run, D4). Free-space routes:
+  sweeper 14.67 m, uav 12.45 m, **5.73 m apart**. Criterion 1 not met (recorded, not required).
+- **Opened `p3_long_finalist0.png` before writing this.** The uav's map has neither table A nor the low
+  clutter north-east of the display case, so it cuts diagonally south-east of the display case. The
+  sweeper's map is speckled with floor-level clutter there, so it goes round the north-west end of the
+  long display wall instead. The cylinder's map agrees with the sweeper on the NE clutter and adds
+  table A as a solid block.
+- **The cylinder ladder** (`cyl_ladder.json`, `figs/p3_cyl_ladder.png`, opened): anchor = the long
+  case's start (cylinder clearance 0.575 m). The long goal itself fails the cylinder's D1 (0.335 m <
+  0.35 m), so the top rung ends at the nearest admissible point, 11.28 m out. All 7 rungs pass their own
+  pre-check:
+
+| rung | separation m | window m | supports | sup/m² |
+|---|---|---|---|---|
+| 0 | 2.43 | 2.00 × 3.62 | 21,144 | 2,920 |
+| 1 | 4.00 | 3.61 × 5.12 | 45,572 | 2,464 |
+| 2 | 5.45 | 4.36 × 5.87 | 46,835 | 1,826 |
+| 3 | 6.90 | 6.33 × 5.87 | 73,178 | 1,969 |
+| 4 | 8.58 | 5.88 × 9.22 | 149,303 | 2,755 |
+| 5 | 9.83 | 7.80 × 9.62 | 235,620 | 3,140 |
+| 6 | 11.28 | 7.38 × 11.00 | 259,588 | 3,198 |
+
+  Rung 3's window takes in the dense curved structure at (13, 6.5), which is why it jumps to 73 k. Rung 4
+  (149 k) is already the size of P2's 156 k map that ran past the query cap.
+- Submitted **17948811** sweeper (1 CPU / 6 G / 2 h) and **17948812** uav (1 CPU / 9 G / 4 h) on the long
+  case. Rungs go next, smallest first, at most two in flight; a rung that returns UNKNOWN stops the climb.

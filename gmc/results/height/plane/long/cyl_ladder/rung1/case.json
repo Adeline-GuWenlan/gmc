@@ -1,0 +1,72 @@
+{
+  "window": [
+    6.438,
+    4.688,
+    10.05,
+    9.812
+  ],
+  "start": [
+    7.35,
+    5.3,
+    0.0
+  ],
+  "goal": [
+    9.45,
+    8.7,
+    0.0
+  ],
+  "z_floor": -1.227175,
+  "z_c": 1.2,
+  "overhang": {},
+  "dist_m": 3.996248,
+  "n_supports": {
+    "cylinder": 45572
+  },
+  "gravity_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "scene": "planefloor",
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+  "label": "P3-cyl-rung1",
+  "ladder": {
+    "rung": 1,
+    "target_m": 4.0,
+    "anchor_is_long_case": "start",
+    "long_case": "results/height/plane/long/case.json"
+  },
+  "precheck": {
+    "cylinder": {
+      "start_clear_m": 0.6,
+      "goal_clear_m": 0.436606,
+      "clearance_required_m": 0.35,
+      "disc_r": 0.3,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        36,
+        24
+      ],
+      "goal_cell": [
+        120,
+        160
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true
+    }
+  }
+}

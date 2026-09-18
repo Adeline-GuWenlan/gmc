@@ -523,6 +523,182 @@ def step_search(args, scene=None, meta=None, validate=True):
     log("done")
 
 
+# ------------------------------------------------------------------------------------ report (JSON only)
+COLORS = {"sweeper": "#2a78d6", "cylinder": "#eb6834", "uav": "#1baf7a"}     # fixed per robot, validated
+MARKERS = {"sweeper": "o", "cylinder": "s", "uav": "^"}                      # second encoding (aqua < 3:1)
+QUERY_CAP_S = 7200.0                                                         # configs/height_showcase.yaml
+
+
+def run_row(path, label):
+    d = json.loads(Path(path).read_text())
+    c, r = d["case"], d.get("result") or {}
+    ver, rep, pr = r.get("verify") or {}, d.get("replay3d") or {}, d.get("probe") or {}
+    w = c["window"]
+    k = int(d.get("budget_scale", 1))
+    row = {"label": label, "robot": d["robot"], "file": str(path), "scene": d.get("scene", "processed"),
+           "budget_scale": k, "window": w, "window_side_m": [round(w[2] - w[0], 3), round(w[3] - w[1], 3)],
+           "window_m2": round(area(w), 3),
+           "dist_m": float(np.hypot(c["goal"][0] - c["start"][0], c["goal"][1] - c["start"][1])),
+           "supports": d["projection"]["kept"], "supports_per_m2": round(d["projection"]["kept"] / area(w), 1),
+           "compile_s": r.get("compile_seconds"), "query_s": r.get("query_seconds"),
+           "query_cap_s": QUERY_CAP_S * k, "status": r.get("status"), "reason": r.get("reason"),
+           "verify_certified": bool(ver.get("certified")), "verify_min_clearance_m": ver.get("min_clearance"),
+           "replay3d_passed": bool(rep.get("passed")), "clearance_lb_m": rep.get("min_clearance_lb"),
+           "success": bool(r.get("status") == "REACHABLE" and ver.get("certified") and rep.get("passed")),
+           "timing_by_stage_s": (d.get("timing") or {}).get("by_stage"),
+           "probe_projected_h": pr.get("projected_hours")}
+    if row["compile_s"] is not None and row["query_s"] is not None and row["probe_projected_h"]:
+        actual = (row["compile_s"] + row["query_s"]) / 3600.0
+        row["probe_underestimate_x"] = actual / row["probe_projected_h"]
+        row["probe_underestimate_is_lower_bound"] = row["status"] == "UNKNOWN"
+    return row
+
+
+def power_fit(x, y):
+    """log-log least squares: y = a * x**b. Only called with >= 4 points."""
+    b, la = np.polyfit(np.log(x), np.log(y), 1)
+    return {"a": float(np.exp(la)), "b": float(b), "n": int(len(x)),
+            "x_range": [float(min(x)), float(max(x))]}
+
+
+def step_report(args):
+    runs = []
+    for k in ROBOTS:
+        runs.append(run_row(f"results/height/percase/{k}/{k}.json", f"A2 {k}"))
+    for k in ROBOTS:
+        for suf in ("", "_b2"):
+            f = Path(f"results/height/plane/shared/{k}{suf}.json")
+            if f.exists():
+                runs.append(run_row(f, f"P2 shared {k}{suf}"))
+    for k in PAIR:
+        for suf in ("", "_b2"):
+            f = OUT / f"{k}{suf}.json"
+            if f.exists():
+                runs.append(run_row(f, f"P3 long {k}{suf}"))
+    lad = json.loads((OUT / "cyl_ladder.json").read_text()) if (OUT / "cyl_ladder.json").exists() else {"rungs": []}
+    for rg in lad["rungs"]:
+        for suf in ("", "_b2"):
+            f = OUT / "cyl_ladder" / f"rung{rg['rung']}" / f"cylinder{suf}.json"
+            if f.exists():
+                runs.append(run_row(f, f"P3 rung {rg['rung']}{suf}"))
+
+    # supports vs window area: every GMC run plus every exact projection we have
+    proj = []
+    srch = json.loads((OUT / "p3_search.json").read_text())
+    for f in srch.get("finalists", []):
+        for k in ROBOTS:
+            proj.append({"src": f"P3 {f['label']}", "robot": k, "window_m2": f["window_m2"],
+                         "supports": f["n_supports"][k]})
+    for rg in lad["rungs"]:
+        if rg.get("n_supports") is not None:
+            proj.append({"src": f"P3 rung {rg['rung']}", "robot": "cylinder", "window_m2": rg["window_m2"],
+                         "supports": rg["n_supports"]})
+    if lad.get("ladder_map_window"):
+        proj.append({"src": "P3 ladder map", "robot": "cylinder", "window_m2": round(area(lad["ladder_map_window"]), 3),
+                     "supports": lad["ladder_map_supports"]})
+    ev2 = Path("results/height/plane/p2d_evidence.json")
+    if ev2.exists():
+        for w in json.loads(ev2.read_text()).get("windows", []):
+            if w.get("window"):
+                for k in ROBOTS:
+                    proj.append({"src": f"P2 shrink margin {w['margin']}", "robot": k,
+                                 "window_m2": round(area(w["window"]), 3), "supports": w["n_supports"][k]})
+    p2a = json.loads(Path("results/height/plane/p2a_search.json").read_text())["regions"]
+    for name, rg in p2a.items():
+        for k in ROBOTS:
+            proj.append({"src": f"P2 region {name}", "robot": k, "window_m2": rg["area_m2"],
+                         "supports": rg["n_supports"][k]})
+
+    # the cylinder at 12 x 12, from the hall density grid (0.5 m bins by shadow centre)
+    dz = np.load(OUT / "p3_density_0p5m.npz")
+    ext, cell = [float(v) for v in dz["extent"]], float(dz["cell"])
+    twelve = {}
+    for k in ROBOTS:
+        g = dz[k].astype(float) * cell * cell                  # supports per bin
+        j_max = int(round((DOMAIN[3] - ext[1]) / cell))        # windows inside the search domain only
+        g = g[:, :j_max]
+        n = int(round(12.0 / cell))
+        S = np.zeros((g.shape[0] + 1, g.shape[1] + 1))
+        S[1:, 1:] = g.cumsum(0).cumsum(1)
+        tot = S[n:, n:] - S[:-n, n:] - S[n:, :-n] + S[:-n, :-n]
+        twelve[k] = {"windows": int(tot.size), "min": float(tot.min()), "p10": float(np.percentile(tot, 10)),
+                     "median": float(np.median(tot)), "p90": float(np.percentile(tot, 90)),
+                     "max": float(tot.max()),
+                     "note": "every 12 x 12 m window on a 0.5 m step inside y <= 32, counted by shadow "
+                             "centre (omits the r-dilated rim, so slightly under project_scene's kept)"}
+    cyl = [r for r in runs if r["robot"] == "cylinder" and r["compile_s"] is not None]
+    fits = {"compile": None, "query": None}
+    xs = [r["supports"] for r in cyl]
+    if len(cyl) >= 4:
+        fits["compile"] = power_fit(xs, [r["compile_s"] for r in cyl])
+    fin = [r for r in cyl if r["status"] in ("REACHABLE", "UNREACHABLE")]
+    if len(fin) >= 4:
+        fits["query"] = power_fit([r["supports"] for r in fin], [r["query_s"] for r in fin])
+    extrap = {"cylinder_supports_12x12": twelve["cylinder"], "fits": fits,
+              "n_cylinder_runs_with_compile": len(cyl), "n_cylinder_runs_with_finished_query": len(fin),
+              "rule": "no fit on fewer than 4 points"}
+    for key in ("compile", "query"):
+        f = fits[key]
+        if f:
+            for q in ("min", "median", "max"):
+                N = twelve["cylinder"][q]
+                extrap[f"{key}_s_at_12x12_{q}"] = f["a"] * N ** f["b"]
+                extrap[f"{key}_extrapolation_factor_beyond_range_{q}"] = N / f["x_range"][1]
+    out = {"claims_boundary": CLAIMS, "runs": runs, "projections": proj, "supports_12x12": twelve,
+           "cylinder_extrapolation": extrap,
+           "probe": [{k: r.get(k) for k in ("label", "robot", "supports", "probe_projected_h",
+                                            "probe_underestimate_x", "probe_underestimate_is_lower_bound",
+                                            "status")} for r in runs if r.get("probe_projected_h")],
+           "option_b": "all three robots at >= 8 m via the Amendment 1 grid coreset: NOT RUN (D4: the user "
+                       "asked for option (a) first); it is the next step."}
+    (OUT / "p3_report.json").write_text(json.dumps(clean(out), indent=1))
+
+    fig, axs = plt.subplots(1, 3, figsize=(21, 6.5))
+    for k in ROBOTS:
+        pp = [p for p in proj if p["robot"] == k and p["supports"]]
+        axs[0].scatter([p["window_m2"] for p in pp], [p["supports"] for p in pp], s=40, marker=MARKERS[k],
+                       facecolors="none", edgecolors=COLORS[k], lw=1.2, label=f"{k}: projection only")
+        rr = [r for r in runs if r["robot"] == k]
+        axs[0].scatter([r["window_m2"] for r in rr], [r["supports"] for r in rr], s=70, marker=MARKERS[k],
+                       color=COLORS[k], edgecolors="white", lw=1.5, label=f"{k}: GMC run")
+        for ax, key in ((axs[1], "compile_s"), (axs[2], "query_s")):
+            ok = [r for r in rr if r[key] is not None and r["status"] != "UNKNOWN"]
+            bad = [r for r in rr if r[key] is not None and r["status"] == "UNKNOWN"]
+            ax.scatter([r["supports"] for r in ok], [r[key] for r in ok], s=70, marker=MARKERS[k],
+                       color=COLORS[k], edgecolors="white", lw=1.5, label=f"{k}")
+            if bad:
+                ax.scatter([r["supports"] for r in bad], [r[key] for r in bad], s=90, marker=MARKERS[k],
+                           facecolors="none", edgecolors=COLORS[k], lw=2,
+                           label=f"{k}: UNKNOWN (query hit the cap)" if key == "query_s" else f"{k}: UNKNOWN run")
+    for ax in axs:
+        ax.set_xscale("log")
+        ax.set_yscale("log")
+        ax.grid(alpha=0.25, lw=0.5)
+        ax.tick_params(labelsize=8)
+    axs[0].axvline(144, color="0.4", ls="--", lw=1)
+    axs[0].text(144, axs[0].get_ylim()[0] * 1.5, " 12 x 12 m", fontsize=8, color="0.3")
+    axs[0].set_xlabel("window area (m²)")
+    axs[0].set_ylabel("supports (project_scene kept)")
+    axs[0].set_title("supports vs window area, per robot", fontsize=10)
+    axs[1].set_xlabel("supports")
+    axs[1].set_ylabel("compile seconds")
+    axs[1].set_title("compile time vs supports (every GMC run)", fontsize=10)
+    axs[2].set_xlabel("supports")
+    axs[2].set_ylabel("query seconds")
+    for cap, lbl in ((QUERY_CAP_S, "query cap 7,200 s"), (2 * QUERY_CAP_S, "BUDGET=2 cap 14,400 s")):
+        axs[2].axhline(cap, color="0.4", ls="--", lw=1)
+        axs[2].text(axs[2].get_xlim()[0] * 1.1, cap * 1.08, lbl, fontsize=8, color="0.3")
+    axs[2].set_title("query time vs supports (hollow = UNKNOWN, a lower bound)", fontsize=10)
+    for ax in axs:
+        ax.legend(fontsize=7, loc="upper left")
+    fig.suptitle("P3: why only this is doable — Amendment 2, P2 and P3 runs on one set of axes\n" + CLAIMS,
+                 fontsize=8)
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
+    FIGS.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGS / "p3_scaling.png", dpi=90)
+    plt.close(fig)
+    log("wrote", OUT / "p3_report.json", FIGS / "p3_scaling.png")
+
 def step_selftest(args):
     """Every code path of --step search on synth3d's table scene, before a Slurm job is spent on the hall.
 
@@ -562,9 +738,9 @@ def step_selftest(args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--step", required=True, choices=["search", "selftest"])
+    ap.add_argument("--step", required=True, choices=["search", "selftest", "report"])
     args = ap.parse_args()
-    {"search": step_search, "selftest": step_selftest}[args.step](args)
+    {"search": step_search, "selftest": step_selftest, "report": step_report}[args.step](args)
 
 
 if __name__ == "__main__":

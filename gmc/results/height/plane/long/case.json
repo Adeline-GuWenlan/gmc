@@ -1,0 +1,168 @@
+{
+  "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+  ],
+  "start": [
+    7.35,
+    5.3,
+    0.0
+  ],
+  "goal": [
+    13.35,
+    14.8,
+    0.0
+  ],
+  "z_floor": -1.227175,
+  "z_c": 1.2,
+  "overhang": {},
+  "dist_m": 11.236103,
+  "n_supports": {
+    "sweeper": 6436,
+    "cylinder": 269036,
+    "uav": 39834
+  },
+  "supports_per_m2": {
+    "sweeper": 76.7,
+    "cylinder": 3205.5,
+    "uav": 474.6
+  },
+  "gravity_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "scene": "planefloor",
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+  "criterion1": "recorded, not required, for P3",
+  "label": "P3-long-0",
+  "pass": true,
+  "criteria": {
+    "dist_at_least_8m": true,
+    "window_at_most_12x12": true,
+    "not_through_glass_adjacent_opening": true,
+    "routes_differ_by_0.5m": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true
+  },
+  "separation_m": 5.727567,
+  "detour_ratio": 1.178215,
+  "precheck": {
+    "sweeper": {
+      "start_clear_m": 0.575,
+      "goal_clear_m": 0.375,
+      "clearance_required_m": 0.225,
+      "disc_r": 0.175,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        35,
+        23
+      ],
+      "goal_cell": [
+        275,
+        404
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true,
+      "line": {
+        "length_m": 11.236103,
+        "min_clearance_m": 0.0,
+        "blocked_len_m": 4.036998,
+        "blocked_frac": 0.358889,
+        "free": false,
+        "disc_r": 0.175
+      },
+      "disc_free_frac": 0.68677,
+      "occupied_frac": 0.085153,
+      "free_components": 7,
+      "path_len_m": 14.6666
+    },
+    "cylinder": {
+      "start_clear_m": 0.575,
+      "goal_clear_m": 0.33541,
+      "clearance_required_m": 0.35,
+      "disc_r": 0.3,
+      "start_clear_ok": true,
+      "goal_clear_ok": false,
+      "connected": true,
+      "start_cell": [
+        35,
+        23
+      ],
+      "goal_cell": [
+        275,
+        404
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": false,
+      "line": {
+        "length_m": 11.236103,
+        "min_clearance_m": 0.0,
+        "blocked_len_m": 5.986755,
+        "blocked_frac": 0.532222,
+        "free": false,
+        "disc_r": 0.3
+      },
+      "disc_free_frac": 0.534009,
+      "occupied_frac": 0.174781,
+      "free_components": 8,
+      "path_len_m": 14.976219
+    },
+    "uav": {
+      "start_clear_m": 0.575,
+      "goal_clear_m": 0.654313,
+      "clearance_required_m": 0.3,
+      "disc_r": 0.25,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        35,
+        23
+      ],
+      "goal_cell": [
+        275,
+        404
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true,
+      "line": {
+        "length_m": 11.236103,
+        "min_clearance_m": 0.0,
+        "blocked_len_m": 2.049745,
+        "blocked_frac": 0.182222,
+        "free": false,
+        "disc_r": 0.25
+      },
+      "disc_free_frac": 0.754297,
+      "occupied_frac": 0.057258,
+      "free_components": 3,
+      "path_len_m": 12.448149
+    }
+  },
+  "selection": {
+    "search_file": "results/height/plane/long/p3_search.json",
+    "label": "P3-long-0",
+    "method": "project_scene -> _support_raster(0.025) -> EDT; D1 per robot; >= 8 m; window <= 12 x 12 from bbox(start, goal, both routes) + 0.6 m"
+  }
+}

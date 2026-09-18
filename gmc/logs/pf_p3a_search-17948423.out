@@ -1,0 +1,36 @@
+=== planefloor_search experiments/plane_long_search.py --step search 2026-09-18T11:12:37-04:00 host=cs614.hpc.nyu.edu job=17948423 ===
+[    5.4s] shadow table sweeper 68454 (4s)
+[   12.7s] shadow table cylinder 2305616 (7s)
+[   17.5s] shadow table uav 449602 (5s)
+[   17.7s] count validation {"P2_shared_window": {"sweeper": {"count": 1779, "kept": 1779, "agree": true}, "cylinder": {"count": 156426, "kept": 156426, "agree": true}, "uav": {"count": 19867, "kept": 19867, "agree": true}}, "P2_region_A": {"sweeper": {"count": 6081, "kept": 6081, "agree": true}, "cylinder": {"count": 271848, "kept": 271848, "agree": true}, "uav": {"count": 50867, "kept": 50867, "agree": true}}, "P2_region_SW": {"sweeper": {"count": 4676, "kept": 4676, "agree": true}, "cylinder": {"count": 357631, "kept": 357631, "agree": true}, "uav": {"count": 72121, "kept": 72121, "agree": true}}}
+[   24.7s] domain map sweeper supports 51499 (7s)
+[   46.0s] domain map uav supports 421853 (21s)
+[   46.1s] lattice points passing D1 for sweeper and uav: 1940
+[   46.6s] starts 40/1940: geometric pairs 11562, connected 5048, with a <= 12x12 route window 475
+[   52.3s] starts 440/1940: geometric pairs 118753, connected 64525, with a <= 12x12 route window 4754
+[   58.4s] starts 840/1940: geometric pairs 218909, connected 129520, with a <= 12x12 route window 8033
+[   65.6s] starts 1240/1940: geometric pairs 315257, connected 170826, with a <= 12x12 route window 11986
+[   70.9s] starts 1640/1940: geometric pairs 351112, connected 180668, with a <= 12x12 route window 15185
+[   72.5s] pairs: route window 16459 under caps 13438 routes differ 7547
+[   99.3s] finalist 0 pass True dist 11.24 window [6.45, 4.7, 14.15, 15.6] supports {"sweeper": 6436, "cylinder": 269036, "uav": 39834} sep 5.7275667084442805 failed []
+[   99.8s] figure results/height/plane/long/figs/p3_long_finalist0.png
+[  127.6s] finalist 1 pass True dist 11.07 window [6.45, 5.7, 14.15, 17.4] supports {"sweeper": 6432, "cylinder": 295822, "uav": 45381} sep 5.727567044404146 failed []
+[  128.1s] figure results/height/plane/long/figs/p3_long_finalist1.png
+[  153.9s] finalist 2 pass True dist 9.62 window [6.45, 6.2, 14.15, 15.9] supports {"sweeper": 5854, "cylinder": 250198, "uav": 36494} sep 5.727567044404145 failed []
+[  154.3s] figure results/height/plane/long/figs/p3_long_finalist2.png
+[  182.5s] finalist 3 pass False dist 10.05 window [6.55, 6.7, 14.15, 17.9] supports {"sweeper": 6337, "cylinder": 303597, "uav": 45622} sep 4.457407966629628 failed ['d1_start_clear_sweeper']
+[  182.9s] figure results/height/plane/long/figs/p3_long_finalist3.png
+[  210.2s] finalist 4 pass True dist 11.24 window [6.45, 4.2, 14.15, 15.9] supports {"sweeper": 6938, "cylinder": 285770, "uav": 42997} sep 5.505113292045698 failed []
+[  210.6s] figure results/height/plane/long/figs/p3_long_finalist4.png
+[  236.0s] finalist 5 pass True dist 8.08 window [6.65, 7.7, 14.15, 16.4] supports {"sweeper": 5289, "cylinder": 244332, "uav": 37162} sep 2.100000088498081 failed []
+[  236.5s] figure results/height/plane/long/figs/p3_long_finalist5.png
+[  236.5s] WROTE results/height/plane/long/case.json
+[  274.9s] rung 0 target 2.5 dist 2.43 window [6.15, 4.688, 8.15, 8.312] supports 21144 precheck True
+[  281.4s] rung 1 target 4.0 dist 4.0 window [6.438, 4.688, 10.05, 9.812] supports 45572 precheck True
+[  288.0s] rung 2 target 5.5 dist 5.45 window [6.438, 4.688, 10.8, 10.562] supports 46835 precheck True
+[  295.7s] rung 3 target 7.0 dist 6.9 window [6.738, 4.688, 13.063, 10.562] supports 73178 precheck True
+[  306.4s] rung 4 target 8.5 dist 8.58 window [6.438, 4.688, 12.313, 13.912] supports 149303 precheck True
+[  320.5s] rung 5 target 10.0 dist 9.83 window [6.738, 4.688, 14.537, 14.312] supports 235620 precheck True
+[  335.6s] rung 6 target 11.236102527122116 dist 11.28 window [6.438, 4.688, 13.813, 15.688] supports 259588 precheck True
+[  336.3s] done
+=== PLANEFLOOR_SEARCH_DONE experiments/plane_long_search.py ===
