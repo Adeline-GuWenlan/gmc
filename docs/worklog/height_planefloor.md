@@ -599,3 +599,23 @@ Resumed at 20:03 after a usage-limit wait. The wrapper started this session only
 - MaxRSS stays small (3.4 / 4.3 GB). The 21 G I requested for rung 4 was 5× too much; P2's 14.2 GB at
   156 k must come from the length of its query, not from its support count.
 - Videos for the two certified long runs: **17960232** sweeper, **17960233** uav.
+
+### 2026-09-18 ~20:3x — rung 3's one budget retry is UNKNOWN too: the ladder stops at rung 2
+
+- **Rung 3 at `BUDGET=2`** (17960231): **UNKNOWN**, `query_support_budget_exhausted` again. The doubled
+  100 M support calls ran out after a 1,289 s query (compile 294 s, MaxRSS 4.5 GB). The budget-only
+  retry does not rescue it, so this is not a matter of a slightly-too-small budget. Doubling the calls
+  also doubled the query time (723 → 1,289 s) and still ended short. Rung 4 does not get its retry: the
+  plan was to retry it only if rung 3's certified.
+- **Result for the cylinder, option (a): the largest window it certifies is rung 2** — 4.36 × 5.87 m
+  (25.6 m²), 46,835 supports, **5.45 m** of separation, from the long case's start. The next rung, at
+  6.90 m / 37.2 m² / 73,178 supports, fails at `BUDGET=1` and at `BUDGET=2`.
+- **Video captions.** The first sweeper render (17960232) finished, and its title read "one window, one
+  start, one goal, **three robots**". That is P2's caption, hard-wired for every plane-floor video, and
+  it is wrong for P3's two-robot long case. The title also printed `replay3d lb = 0.000 m` for a
+  certified 0.00015 m bound. Fixed in `percase_render.py` (6bdd6db): `--claim p3long|p3rung` presets
+  (free text would be word-split by the sbatch `ARGS` export), and the bound at 3 significant figures.
+  Each robot also gets its own manifest now, next to the shared `manifest.json` that the last render
+  overwrites. Tested (`test_height_plane_render_claims.py`); P2's and A2's defaults are unchanged.
+  Cancelled the in-flight uav render (17960233, my own) and re-rendered both: uav **17961624**,
+  sweeper (see jobids).
