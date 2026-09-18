@@ -1,0 +1,6 @@
+=== planefloor_run --robot cylinder --tau 0.3 --budget-scale 1 --case results/height/plane/long/cyl_ladder/rung1/case.json --scene planefloor --out-dir results/height/plane/long/cyl_ladder/rung1 --raw-subdir plane_long/rung1 2026-09-18T11:30:52-04:00 host=cs601.hpc.nyu.edu job=17949332 ===
+projection {"n_input": 7101868, "tau": 0.3, "level": 2.0, "window": [6.438, 4.688, 10.05, 9.812], "band_abs": [-1.2071749999999999, 0.5228250000000001], "dilate_radius": 0.3, "dropped_opacity": 3295274, "floored_3d": 0, "excluded_band": 1500978, "outside_window": 2260044, "deduplicated": 0, "kept": 45572, "floored_2d": 0, "candidate2": 449}
+probe {"n_supports_full": 45572, "abort": false, "n_supports_probe": 21824, "probe_compile_seconds": 83.5221335887909, "projected_hours": 0.04844654549410917, "extrapolation": "linear in supports x initial_intervals (rough)"}
+timing {"scene_load": 0.863913784007309, "project": 6.866557423985796, "compile_pairs": 3.0889793499954976, "compile_slabs": 168.3381396549812, "compile_mobility": 3.2430241009860765, "query": 628.7833602199971, "verify_curve": 312.1484006259998, "replay3d": 4.385940114007099}
+=== cylinder status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.0028982782857939326, 'reason': 'ok'} replay3d=True abort=False ===
+=== PLANEFLOOR_RUN_DONE cylinder ===
