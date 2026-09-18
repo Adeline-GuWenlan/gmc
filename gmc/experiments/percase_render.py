@@ -27,9 +27,23 @@ PERCASE = Path("results/height/percase")
 PLANE_SCENE = Path("/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz")
 TAU, DILATE, Z_SPAN = 0.3, 1.0, 2.5
 CLAIM = "per-robot showcase case, not a morphology comparison · floor rule on"
-CLAIM_PLANE = ("Amendment 3 shared case: one window, one start, one goal, three robots · plane floor = "
-               "USER-APPROVED MANUAL SCENE EDIT, sound w.r.t. the edited scene only · criterion 3 "
-               "relaxed by user decision D1 to r + 0.05 m")
+PLANE_BOUNDARY = ("plane floor = USER-APPROVED MANUAL SCENE EDIT, sound w.r.t. the edited scene only · "
+                  "criterion 3 relaxed by user decision D1 to r + 0.05 m")
+CLAIM_PLANE = "Amendment 3 shared case: one window, one start, one goal, three robots · " + PLANE_BOUNDARY
+# Presets rather than free text: the caption travels through sbatch --export ARGS, which word-splits.
+CLAIM_PRESETS = {
+    "p3long": ("Amendment 3 P3 long case: one window, one start, one goal, sweeper + uav (the cylinder "
+               "runs on a separate ladder, user decision D4) · " + PLANE_BOUNDARY),
+    "p3rung": ("Amendment 3 P3 cylinder ladder rung: the long case's start, a nearer goal, its own "
+               "window (user decision D4) · " + PLANE_BOUNDARY),
+}
+
+
+def claim_for(scene, key=None):
+    """The caption a video carries: a named preset, else the scene's default (unchanged for P2 / A2)."""
+    if key:
+        return CLAIM_PRESETS[key]
+    return CLAIM_PLANE if scene == "planefloor" else CLAIM
 VIEW_HALF = {"sweeper": 1.75, "uav": 2.5, "cylinder": 2.5}
 VIEW_PAD = 0.5       # camera framing: case window + 0.5 m (splats are selected over window + 1 m)
 
@@ -53,7 +67,7 @@ def headline(robot, res):
     rep = res.get("replay3d") or {}
     lb = rep.get("min_clearance_lb")
     ok = bool((res.get("verify") or {}).get("certified")) and bool(rep.get("passed"))
-    head = f"{robot} · {res['status']} · replay3d lb = " + (f"{lb:.3f} m" if lb is not None else "n/a")
+    head = f"{robot} · {res['status']} · replay3d lb = " + (f"{lb:.3g} m" if lb is not None else "n/a")
     return head + ("" if ok else " · WARNING: verify.certified / replay3d.passed not both true"), ok
 
 
@@ -234,7 +248,7 @@ def render_real(robot_key, a):
 
     view_half = VIEW_HALF[robot_key] if a.view_half is None else (a.view_half if a.view_half > 0 else None)
     vw = [win[0] - VIEW_PAD, win[1] - VIEW_PAD, win[2] + VIEW_PAD, win[3] + VIEW_PAD]
-    claim = CLAIM_PLANE if a.scene == "planefloor" else CLAIM
+    claim = claim_for(a.scene, a.claim)
     title = f"{head}\n{claim}"
     note = (f"{n_splat:,} Gaussians, EWA splatting, no opacity threshold, no subsample, DC colour"
             if a.renderer == "splat" else
@@ -290,6 +304,8 @@ def render_real(robot_key, a):
         "projection": {"kept": pstats["kept"], "run_kept": run_kept, "matches_run": pstats["kept"] == run_kept},
         "outputs": outputs, "timings_s": {k: round(v, 1) for k, v in timings.items()}}
     (vdir / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str))
+    # manifest.json is shared by every robot rendered into one case directory; keep each robot's own too
+    (vdir / f"{robot_key}_manifest.json").write_text(json.dumps(manifest, indent=2, default=str))
     print(json.dumps({k: manifest[k] for k in ("status", "verify_certified", "replay3d_passed",
                                                "selection", "projection", "timings_s")}, default=str), flush=True)
 
@@ -343,6 +359,8 @@ def main():
     ap.add_argument("--scene", default="processed", choices=["processed", "planefloor"],
                     help="'planefloor' renders the Amendment 3 P1b plane-floor scene (a USER-APPROVED "
                          "MANUAL SCENE EDIT)")
+    ap.add_argument("--claim", default=None, choices=sorted(CLAIM_PRESETS),
+                    help="caption preset for the video title; default: the scene's own claim")
     ap.add_argument("--renderer", choices=["splat", "scatter"], default="splat",
                     help="splat: real EWA Gaussian rasteriser (gmc.height.ewa); scatter: old mplot3d dots")
     ap.add_argument("--scene-radius", type=float, default=14.0,
