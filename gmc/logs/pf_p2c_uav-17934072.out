@@ -1,0 +1,6 @@
+=== planefloor_run --robot uav --tau 0.3 --budget-scale 1 --case results/height/plane/shared/case.json --scene planefloor --out-dir results/height/plane/shared --raw-subdir plane/shared 2026-09-17T20:34:49-04:00 host=gl060.hpc.nyu.edu job=17934072 ===
+projection {"n_input": 7101868, "tau": 0.3, "level": 2.0, "window": [-2.5, 7.45, 1.8, 13.05], "band_abs": [-0.12717500000000004, 0.07282500000000014], "dilate_radius": 0.25, "dropped_opacity": 3295274, "floored_3d": 0, "excluded_band": 3356992, "outside_window": 429735, "deduplicated": 0, "kept": 19867, "floored_2d": 20, "candidate2": 1739}
+probe {"n_supports_full": 19867, "abort": false, "n_supports_probe": 2721, "probe_compile_seconds": 41.30373191833496, "projected_hours": 0.08377039099407496, "extrapolation": "linear in supports x initial_intervals (rough)"}
+timing {"scene_load": 1.875379011995392, "project": 8.034840687003452, "compile_pairs": 2.1067643529968336, "compile_slabs": 104.28348820899555, "compile_mobility": 2.1434495719877305, "query": 171.94098385500547, "verify_curve": 84.78170254599536, "replay3d": 2.6740399169939337}
+=== uav status=REACHABLE verify={'ran': True, 'certified': True, 'min_clearance': 0.007042607804650534, 'reason': 'ok'} replay3d=True abort=False ===
+=== PLANEFLOOR_RUN_DONE uav ===

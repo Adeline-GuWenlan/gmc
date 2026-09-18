@@ -1,0 +1,520 @@
+{
+  "robot": "cylinder",
+  "tau": 0.3,
+  "budget_scale": 1,
+  "case_file": "results/height/plane/shared/case.json",
+  "case": {
+    "window": [
+      -2.5,
+      7.45,
+      1.8,
+      13.05
+    ],
+    "start": [
+      -1.25,
+      11.25,
+      0.0
+    ],
+    "goal": [
+      0.0,
+      9.25,
+      0.0
+    ],
+    "z_floor": -1.227175,
+    "z_c": 1.2,
+    "overhang": {
+      "top": 0.861152,
+      "underside": 0.279912,
+      "s_interval": [
+        0.48,
+        1.72
+      ],
+      "object": "SW bench (2.1,10.5) seat 0.43; table B (-0.45,10.81) top ~0.8",
+      "longest_run_m": 0.76
+    },
+    "criteria": {
+      "window_at_most_8x8": true,
+      "not_through_glass_adjacent_opening": true,
+      "straight_line_under_overhang": true,
+      "zc_above_overhang_top_by_0.25": true,
+      "zc_band_below_ceiling_side_by_0.30": true,
+      "d1_start_clear_sweeper": true,
+      "d1_goal_clear_sweeper": true,
+      "connected_sweeper": true,
+      "d1_start_clear_cylinder": true,
+      "d1_goal_clear_cylinder": true,
+      "connected_cylinder": true,
+      "d1_start_clear_uav": true,
+      "d1_goal_clear_uav": true,
+      "connected_uav": true,
+      "sweeper_line_free": true,
+      "cylinder_line_blocked": true
+    },
+    "pass": true,
+    "n_supports": {
+      "sweeper": 1779,
+      "cylinder": 156426,
+      "uav": 19867
+    },
+    "supports_per_m2": {
+      "sweeper": 73.9,
+      "cylinder": 6496.1,
+      "uav": 825.0
+    },
+    "precheck": {
+      "sweeper": {
+        "start_clear_m": 0.450694,
+        "goal_clear_m": 0.437321,
+        "clearance_required_m": 0.225,
+        "disc_r": 0.175,
+        "start_clear_ok": true,
+        "goal_clear_ok": true,
+        "connected": true,
+        "start_cell": [
+          50,
+          151
+        ],
+        "goal_cell": [
+          100,
+          71
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": true,
+        "line": {
+          "length_m": 2.358495,
+          "min_clearance_m": 0.180278,
+          "blocked_len_m": 0.0,
+          "blocked_frac": 0.0,
+          "free": true,
+          "disc_r": 0.175
+        },
+        "disc_free_frac": 0.661675,
+        "occupied_frac": 0.088948,
+        "free_components": 5,
+        "path_len_m": 2.517767
+      },
+      "cylinder": {
+        "start_clear_m": 0.450694,
+        "goal_clear_m": 0.437321,
+        "clearance_required_m": 0.35,
+        "disc_r": 0.3,
+        "start_clear_ok": true,
+        "goal_clear_ok": true,
+        "connected": true,
+        "start_cell": [
+          50,
+          151
+        ],
+        "goal_cell": [
+          100,
+          71
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": true,
+        "line": {
+          "length_m": 2.358495,
+          "min_clearance_m": 0.0,
+          "blocked_len_m": 2.021567,
+          "blocked_frac": 0.852632,
+          "free": false,
+          "disc_r": 0.3
+        },
+        "disc_free_frac": 0.429662,
+        "occupied_frac": 0.207745,
+        "free_components": 1,
+        "path_len_m": 5.769848
+      },
+      "uav": {
+        "start_clear_m": 1.25,
+        "goal_clear_m": 0.458939,
+        "clearance_required_m": 0.3,
+        "disc_r": 0.25,
+        "start_clear_ok": true,
+        "goal_clear_ok": true,
+        "connected": true,
+        "start_cell": [
+          50,
+          151
+        ],
+        "goal_cell": [
+          100,
+          71
+        ],
+        "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+        "ok": true,
+        "line": {
+          "length_m": 2.358495,
+          "min_clearance_m": 0.195256,
+          "blocked_len_m": 0.324449,
+          "blocked_frac": 0.136842,
+          "free": false,
+          "disc_r": 0.25
+        },
+        "disc_free_frac": 0.619887,
+        "occupied_frac": 0.074336,
+        "free_components": 5,
+        "path_len_m": 2.517767
+      }
+    },
+    "contrast": 4.53774,
+    "separation_m": 1.980116,
+    "detour_ratio": 2.291653,
+    "gravity_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene": "planefloor",
+    "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+    "selection": {
+      "search_file": "results/height/plane/p2a_search.json",
+      "label": "P2-SW-0",
+      "region": "SW",
+      "method": "project_scene -> _support_raster(0.025) -> EDT; D1 pre-check per robot; criterion 1 unchanged"
+    }
+  },
+  "scene": "planefloor",
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; results are sound with respect to the edited scene only",
+  "planefloor": {
+    "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "variant": "phantom+centre",
+    "params": {
+      "cell": 0.05,
+      "max_top": 0.1,
+      "level": 2.0,
+      "spacing": 1.0,
+      "sigma_xy": 0.4,
+      "sigma_n": 0.004,
+      "opacity": 0.95,
+      "z_lo": 0.02,
+      "margin": 0.005,
+      "require_opaque": false,
+      "footprint": "centre",
+      "measure_local_floor": true
+    },
+    "floor": {
+      "z_floor": -1.2271749593107995,
+      "normal": [
+        -0.004939390758035324,
+        -0.0005859098184822146,
+        0.9999876294877973
+      ],
+      "centroid": [
+        8.120587301399752,
+        19.38866848198973,
+        -1.2271749593107995
+      ],
+      "tilt_deg": 0.28499150773301013,
+      "n_inliers": 42709,
+      "peak_z": -1.3206900969743727
+    },
+    "z_floor": -1.2271749593107995,
+    "ceiling_height_m": 5.310000826248441,
+    "extent": [
+      -4.43357959985733,
+      -0.9637084349989891,
+      21.088036155700674,
+      37.84499740600586
+    ],
+    "gravity_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "base_scene": "splatc_atlas/.../showcase/processed.npz via load_processed() (Amendment 1 floor rule ON), then Amendment 3 P1b",
+    "n_splats": 7101868,
+    "replaced": 146977,
+    "inserted": 1014,
+    "first_inserted_id": 7340008,
+    "band_occupancy_frac_after": {
+      "occ_0.02_0.10": 0.19545293126506433,
+      "occ_0.10_0.55": 0.1736519857850582,
+      "occ_0.55_1.00": 0.1325157978778331,
+      "occ_1.00_1.75": 0.11684510901732037,
+      "occ_1.75_2.50": 0.11056877397386204
+    }
+  },
+  "projection": {
+    "n_input": 7101868,
+    "tau": 0.3,
+    "level": 2.0,
+    "window": [
+      -2.5,
+      7.45,
+      1.8,
+      13.05
+    ],
+    "band_abs": [
+      -1.2071749999999999,
+      0.5228250000000001
+    ],
+    "dilate_radius": 0.3,
+    "dropped_opacity": 3295274,
+    "floored_3d": 0,
+    "excluded_band": 1500978,
+    "outside_window": 2149190,
+    "deduplicated": 0,
+    "kept": 156426,
+    "floored_2d": 2,
+    "candidate2": 1123
+  },
+  "probe": {
+    "n_supports_full": 156426,
+    "abort": false,
+    "n_supports_probe": 45288,
+    "probe_compile_seconds": 191.5345549583435,
+    "projected_hours": 0.18376823081607244,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+  },
+  "result": {
+    "status": "UNKNOWN",
+    "clearance_lb": null,
+    "reason": "query_wall_budget_exhausted",
+    "n_supports": 156426,
+    "n_pairs": 156426,
+    "n_slabs": 1,
+    "compile_seconds": 675.693427324295,
+    "query_seconds": 7968.107317686081,
+    "safe_nodes": 6,
+    "safe_edges": 6,
+    "possible_nodes": 6,
+    "possible_edges": 6,
+    "verify": {
+      "ran": false
+    },
+    "curve": null,
+    "start": [
+      -1.25,
+      11.25,
+      0.0
+    ],
+    "goal": [
+      0.0,
+      9.25,
+      0.0
+    ],
+    "timing": {
+      "stages": [
+        {
+          "stage": "scene_load",
+          "label": null,
+          "seconds": 0.79075327499595,
+          "failed": false,
+          "sizes": {
+            "scene": "planefloor",
+            "n_splats": 7101868
+          }
+        },
+        {
+          "stage": "project",
+          "label": "cylinder",
+          "seconds": 9.656653778991313,
+          "failed": false,
+          "sizes": {
+            "n_splats": 7101868,
+            "window": [
+              -2.5,
+              7.45,
+              1.8,
+              13.05
+            ],
+            "n_supports": 156426
+          }
+        },
+        {
+          "stage": "compile_pairs",
+          "label": null,
+          "seconds": 12.9852076239913,
+          "failed": false,
+          "sizes": {
+            "n_supports": 156426,
+            "n_pairs": 156426
+          }
+        },
+        {
+          "stage": "compile_slabs",
+          "label": null,
+          "seconds": 648.5282845510083,
+          "failed": false,
+          "sizes": {
+            "n_supports": 156426,
+            "n_pairs": 156426,
+            "n_slabs": 1
+          }
+        },
+        {
+          "stage": "compile_mobility",
+          "label": null,
+          "seconds": 14.176697103001061,
+          "failed": false,
+          "sizes": {
+            "n_supports": 156426,
+            "n_pairs": 156426,
+            "n_slabs": 1
+          }
+        },
+        {
+          "stage": "query",
+          "label": null,
+          "seconds": 7968.107282048004,
+          "failed": false,
+          "sizes": {
+            "n_slabs": 1,
+            "n_safe_nodes": 2,
+            "n_safe_edges": 0,
+            "status": "UNKNOWN"
+          }
+        }
+      ],
+      "by_stage": {
+        "scene_load": 0.79075327499595,
+        "project": 9.656653778991313,
+        "compile_pairs": 12.9852076239913,
+        "compile_slabs": 648.5282845510083,
+        "compile_mobility": 14.176697103001061,
+        "query": 7968.107282048004
+      },
+      "total_seconds": 8654.244878379992,
+      "missing_stages": [
+        "floor_replace",
+        "verify_curve",
+        "replay3d"
+      ],
+      "stage_order": [
+        "scene_load",
+        "floor_replace",
+        "project",
+        "compile_pairs",
+        "compile_slabs",
+        "compile_mobility",
+        "query",
+        "verify_curve",
+        "replay3d"
+      ]
+    }
+  },
+  "replay3d": null,
+  "timing": {
+    "stages": [
+      {
+        "stage": "scene_load",
+        "label": null,
+        "seconds": 0.79075327499595,
+        "failed": false,
+        "sizes": {
+          "scene": "planefloor",
+          "n_splats": 7101868
+        }
+      },
+      {
+        "stage": "project",
+        "label": "cylinder",
+        "seconds": 9.656653778991313,
+        "failed": false,
+        "sizes": {
+          "n_splats": 7101868,
+          "window": [
+            -2.5,
+            7.45,
+            1.8,
+            13.05
+          ],
+          "n_supports": 156426
+        }
+      },
+      {
+        "stage": "compile_pairs",
+        "label": null,
+        "seconds": 12.9852076239913,
+        "failed": false,
+        "sizes": {
+          "n_supports": 156426,
+          "n_pairs": 156426
+        }
+      },
+      {
+        "stage": "compile_slabs",
+        "label": null,
+        "seconds": 648.5282845510083,
+        "failed": false,
+        "sizes": {
+          "n_supports": 156426,
+          "n_pairs": 156426,
+          "n_slabs": 1
+        }
+      },
+      {
+        "stage": "compile_mobility",
+        "label": null,
+        "seconds": 14.176697103001061,
+        "failed": false,
+        "sizes": {
+          "n_supports": 156426,
+          "n_pairs": 156426,
+          "n_slabs": 1
+        }
+      },
+      {
+        "stage": "query",
+        "label": null,
+        "seconds": 7968.107282048004,
+        "failed": false,
+        "sizes": {
+          "n_slabs": 1,
+          "n_safe_nodes": 2,
+          "n_safe_edges": 0,
+          "status": "UNKNOWN"
+        }
+      }
+    ],
+    "by_stage": {
+      "scene_load": 0.79075327499595,
+      "project": 9.656653778991313,
+      "compile_pairs": 12.9852076239913,
+      "compile_slabs": 648.5282845510083,
+      "compile_mobility": 14.176697103001061,
+      "query": 7968.107282048004
+    },
+    "total_seconds": 8654.244878379992,
+    "missing_stages": [
+      "floor_replace",
+      "verify_curve",
+      "replay3d"
+    ],
+    "stage_order": [
+      "scene_load",
+      "floor_replace",
+      "project",
+      "compile_pairs",
+      "compile_slabs",
+      "compile_mobility",
+      "query",
+      "verify_curve",
+      "replay3d"
+    ]
+  }
+}

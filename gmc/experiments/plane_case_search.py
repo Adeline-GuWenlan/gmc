@@ -534,8 +534,18 @@ def step_search(args):
 
 
 def step_evidence(args):
-    """P2d: why no subspace admits a route for both, in pictures. Also run when a case passes, as the
-    scene-wide context for it."""
+    """P2d: per robot, the map, the free space dist > r, its components, and the criterion that fails.
+
+    A shared case passed, so P2d is no longer the fallback deliverable. The version that earns its
+    compute is the **window-shrink series** on the chosen start/goal pair: hold the case fixed, shrink
+    the window, and watch where each robot's free space dies. That answers the question the passing
+    figure cannot -- why the window has to be 4.3 x 5.6 m when the cylinder pays 156 k supports for it --
+    and it hands P3 the smallest window this case survives in.
+
+    The sweeper's straight route needs almost nothing; the cylinder's detour needs room to exist, and the
+    window border is certified-occupied, so shrinking the window really does remove the route rather than
+    merely cropping the picture.
+    """
     timer = StageTimer()
     with timer.stage("scene_load", scene="planefloor") as rec:
         scene, meta = load_plane_scene(SCENE_NPZ)
@@ -543,35 +553,47 @@ def step_evidence(args):
     z_f, ceil_h = meta["z_floor"], meta["ceiling_height_m"]
     robots = robot_table(Z_C)
     sec = Sections(scene, z_f)
-    search = json.loads((OUT / "p2a_search.json").read_text())
-    out = {"claims_boundary": CLAIMS, "task": "P2d: per-robot evidence for the best candidate windows",
-           "windows": []}
-    # Both sides of the argument: the windows that pass, and the best of the ones that do not, with
-    # the criterion that kills each. A reader should be able to see for themselves where the free space
-    # of one robot dies while another's survives -- that was P2d's whole point when it was the fallback.
-    passing = [c for c in search["finalists"] if c["pass"]]
-    failing = [c for c in search["candidates"] if not c["pass"]]
-    failing.sort(key=lambda c: -(c.get("contrast") or 0.0))
-    src = passing[:1] + failing[:max(0, args.n - 1)] or search["candidates"][:args.n]
-    out["selection"] = {"passing_shown": len(passing[:1]), "failing_shown": len(failing[:args.n - 1]),
-                        "n_passing_finalists": len(passing), "n_failing_candidates": len(failing)}
-    for i, c in enumerate(src[:args.n]):
-        w = c["window"]
-        maps = {k: certified(scene, robots[k], w, z_f, timer, f"ev{i}:{k}") for k in ROBOTS}
-        ev = evaluate(maps, w, robots, c["start"], c["goal"], Z_C, sec, ceil_h,
-                      exact_label=c.get("label", f"cand{i}"))
-        ev["region"] = c.get("region")
-        figure(maps, w, robots, c["start"], c["goal"], ev, FIGS / f"p2d_window{i}.png",
-               f"P2d window {i} ({c.get('region')}): "
-               f"{'PASSES' if ev['pass'] else 'FAILS ' + ','.join(ev['failed_criteria'])} | "
-               f"per robot: certified map (red), free space dist > r (green), start's component (blue)")
+    case = json.loads((OUT / "case_shared.json").read_text())
+    st, gl = case["start"][:2], case["goal"][:2]
+    region = [r[1] for r in REGIONS if r[0] == case["selection"]["region"]][0]
+    out = {"claims_boundary": CLAIMS,
+           "task": "P2d: per-robot evidence, as a window-shrink series on the shared case",
+           "case": case["selection"], "start": st, "goal": gl,
+           "chosen_window": case["window"], "windows": []}
+    margins = [float(m) for m in args.margins.split(",")]
+    for i, m in enumerate(margins):
+        w = window_for(st, gl, m, region)
+        if w is None:
+            log("margin", m, "gives no admissible window (side outside [%.1f, %.1f] m)" % (MIN_SIDE, MAX_SIDE))
+            out["windows"].append({"margin": m, "window": None,
+                                   "why": f"window side outside [{MIN_SIDE}, {MAX_SIDE}] m"})
+            continue
+        maps = {k: certified(scene, robots[k], w, z_f, timer, f"m{m}:{k}") for k in ROBOTS}
+        ev = evaluate(maps, w, robots, st, gl, Z_C, sec, ceil_h, exact_label=f"margin{m}")
+        ev["margin"] = m
+        ev["is_the_chosen_window"] = bool(np.allclose(w, case["window"]))
+        log("margin", m, "window", w, "area", round((w[2] - w[0]) * (w[3] - w[1]), 2),
+            "pass", ev["pass"], "supports", json.dumps(ev["n_supports"]),
+            "cylinder route", ev["robots"]["cylinder"].get("path_len_m"),
+            "failed", ev["failed_criteria"])
+        figure(maps, w, robots, st, gl, ev,
+               FIGS / f"p2d_shrink_{str(m).replace('.', 'p')}.png",
+               f"P2d window-shrink series, margin {m} m -> {w[2] - w[0]:.2f} x {w[3] - w[1]:.2f} m "
+               f"({'THE CHOSEN WINDOW' if ev['is_the_chosen_window'] else 'variant'}): "
+               f"{'passes' if ev['pass'] else 'FAILS ' + ','.join(ev['failed_criteria'])} · "
+               f"cylinder supports {ev['n_supports']['cylinder']:,} · same start, same goal throughout")
         out["windows"].append({k: v for k, v in ev.items() if k != "robots"} | {
             "robots": {k: {kk: vv for kk, vv in ev["robots"][k].items() if kk != "path_xy"}
                        for k in ROBOTS}})
-        log("evidence window", i, ev["pass"], ev["failed_criteria"])
         (OUT / "p2d_evidence.json").write_text(json.dumps(clean(out), indent=1))
+    ok = [w for w in out["windows"] if w.get("pass")]
+    out["smallest_window_the_case_survives"] = min(
+        (w for w in ok), key=lambda w: (w["window"][2] - w["window"][0]) * (w["window"][3] - w["window"][1]),
+        default=None)
     out["timing"] = timer.to_dict()
     (OUT / "p2d_evidence.json").write_text(json.dumps(clean(out), indent=1))
+    log("smallest surviving window:",
+        json.dumps(clean((out["smallest_window_the_case_survives"] or {}).get("window"))))
 
 
 def step_selftest(args):
@@ -754,7 +776,9 @@ def main():
     ap.add_argument("--step", required=True, choices=["search", "evidence", "selftest", "compare"])
     ap.add_argument("--run-dir", default="results/height/plane/shared")
     ap.add_argument("--region", default="", help="comma-separated region names, default all")
-    ap.add_argument("--n", type=int, default=3, help="windows for --step evidence")
+    ap.add_argument("--n", type=int, default=3, help="unused; kept for older invocations")
+    ap.add_argument("--margins", default="0.3,0.45,0.6,0.9,1.3,1.8",
+                    help="window margins (m) for the --step evidence shrink series")
     args = ap.parse_args()
     {"search": step_search, "evidence": step_evidence, "selftest": step_selftest,
      "compare": step_compare}[args.step](args)

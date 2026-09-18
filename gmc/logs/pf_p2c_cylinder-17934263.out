@@ -1,0 +1,6 @@
+=== planefloor_run --robot cylinder --tau 0.3 --budget-scale 1 --case results/height/plane/shared/case.json --scene planefloor --out-dir results/height/plane/shared --raw-subdir plane/shared 2026-09-17T20:45:11-04:00 host=cs642.hpc.nyu.edu job=17934263 ===
+projection {"n_input": 7101868, "tau": 0.3, "level": 2.0, "window": [-2.5, 7.45, 1.8, 13.05], "band_abs": [-1.2071749999999999, 0.5228250000000001], "dilate_radius": 0.3, "dropped_opacity": 3295274, "floored_3d": 0, "excluded_band": 1500978, "outside_window": 2149190, "deduplicated": 0, "kept": 156426, "floored_2d": 2, "candidate2": 1123}
+probe {"n_supports_full": 156426, "abort": false, "n_supports_probe": 45288, "probe_compile_seconds": 191.5345549583435, "projected_hours": 0.18376823081607244, "extrapolation": "linear in supports x initial_intervals (rough)"}
+timing {"scene_load": 0.79075327499595, "project": 9.656653778991313, "compile_pairs": 12.9852076239913, "compile_slabs": 648.5282845510083, "compile_mobility": 14.176697103001061, "query": 7968.107282048004}
+=== cylinder status=UNKNOWN verify={'ran': False} replay3d=None abort=False ===
+=== PLANEFLOOR_RUN_DONE cylinder ===

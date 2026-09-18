@@ -1,0 +1,9 @@
+=== planefloor_search experiments/plane_case_search.py --step evidence --n 4 2026-09-17T20:44:37-04:00 host=gl062.hpc.nyu.edu job=17934271 ===
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-plane/gmc/experiments/plane_case_search.py", line 719, in <module>
+    main()
+    ~~~~^^
+  File "/scratch/wg2381/splathjb-plane/gmc/experiments/plane_case_search.py", line 714, in main
+    {"search": step_search, "evidence": step_evidence, "selftest": step_selftest,
+                                                                   ^^^^^^^^^^^^^
+NameError: name 'step_selftest' is not defined
