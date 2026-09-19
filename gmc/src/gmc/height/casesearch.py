@@ -214,6 +214,33 @@ def contrast(sweeper_len, cylinder_len, separation_m):
     return float(separation_m) * float(cylinder_len) / float(sweeper_len)
 
 
+def first_affordable(candidates, cylinder_supports, exact_check, cap, max_checks=None):
+    """The first candidate, in the order given, whose cylinder map fits under ``cap`` and passes exactly.
+
+    ``candidates`` is a ranked list (P2's own order). ``cylinder_supports(c)`` is called on every candidate
+    tried; ``exact_check(c)`` -- the unchanged per-window verdict, a dict with ``pass`` and
+    ``failed_criteria`` -- only on those with at most ``cap`` supports. The filter can only remove
+    candidates, never admit one the exact check rejects. Returns ``(verdict_or_None, tried)``; ``tried``
+    records every candidate walked, so a reader sees what was skipped and why.
+    """
+    tried = []
+    for c in candidates:
+        if max_checks is not None and len(tried) >= max_checks:
+            break
+        n = int(cylinder_supports(c))
+        row = {"window": list(c["window"]), "start": list(c["start"]), "goal": list(c["goal"]),
+               "cylinder_supports": n}
+        tried.append(row)
+        if n > cap:
+            row["verdict"] = "over_cap"
+            continue
+        ev = exact_check(c)
+        row["verdict"] = "pass" if ev.get("pass") else "fails:" + ",".join(ev.get("failed_criteria", []))
+        if ev.get("pass"):
+            return ev, tried
+    return None, tried
+
+
 # ------------------------------------------------------------------------------------ criterion 1
 def overhang_on_line(s, zb, zt, L, *, z_c, ceiling_height_m, bin_m=SEC_BIN, low_top=LOW_TOP):
     """Spec §5.3 criterion 1, bin for bin as ``showcase_scene.step_case`` computes it. Unchanged.

@@ -36,6 +36,8 @@ CLAIM_PRESETS = {       # <= 135 chars: the 3D title band holds the headline plu
                "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
     "p3rung": ("P3 cylinder ladder rung from the long case's start (D4) · plane floor = "
                "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
+    "p5shared": ("P5 shared case: one window, start, goal, three robots · plane floor = "
+                 "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
 }
 
 

@@ -41,7 +41,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.sparse.csgraph import dijkstra
 
-from gmc.height.casesearch import (cell_of, contrast, d1_precheck, edt_clearance, free_components,
+from gmc.height.casesearch import (cell_of, contrast, d1_precheck, edt_clearance, first_affordable,
+                                   free_components,
                                    free_graph, geodesic_path, line_clearance, overhang_on_line,
                                    path_from_predecessors, path_polyline, path_separation,
                                    same_component, with_border)
@@ -325,6 +326,34 @@ def evaluate(maps, win, robots, st, gl, z_c, sec, ceil_h, exact_label=None):
     return out
 
 
+def make_case(ev, c, w, z_f, meta, search_file):
+    """The case.json showcase_run.py consumes, from one exact per-window verdict that passed."""
+    return {"window": w, "start": [c["start"][0], c["start"][1], 0.0],
+            "goal": [c["goal"][0], c["goal"][1], 0.0], "z_floor": z_f, "z_c": Z_C,
+            "overhang": {"top": ev["criterion1"]["top"],
+                         "underside": ev["criterion1"]["underside"],
+                         "s_interval": ev["criterion1"]["s_interval"],
+                         "object": c["overhang_note"],
+                         "longest_run_m": ev["criterion1"]["longest_run_m"]},
+            "criteria": ev["criteria"], "pass": True,
+            "n_supports": ev["n_supports"], "supports_per_m2": ev["supports_per_m2"],
+            "precheck": {k: {kk: vv for kk, vv in ev["robots"][k].items() if kk != "path_xy"}
+                         for k in ROBOTS},
+            "contrast": ev["contrast"], "separation_m": ev["separation_m"],
+            "detour_ratio": ev.get("detour_ratio"),
+            "gravity_rotation": meta["gravity_rotation"],
+            "scene": "planefloor", "claims_boundary": CLAIMS,
+            "selection": {"search_file": str(search_file),
+                          "label": ev["label"], "region": c["region"],
+                          "method": "project_scene -> _support_raster(0.025) -> EDT; D1 "
+                                    "pre-check per robot; criterion 1 unchanged"}}
+
+
+def compare_names(tag):
+    """Figure and JSON names of --step compare; 'p2c' is P2's, kept for its existing artefacts."""
+    return f"{tag}_three_routes.png", f"{tag}_shared_case.json"
+
+
 # ------------------------------------------------------------------------------------ figures
 def panel(ax, maps, win, robots, key, st, gl, ev):
     r = robots[key].max_radius()
@@ -504,25 +533,7 @@ def step_search(args):
                f" | one window, one start, one goal, three robots")
         if ev["pass"] and not any(f.get("chosen") for f in res["finalists"]):
             res["finalists"][-1]["chosen"] = True
-            case = {"window": w, "start": [c["start"][0], c["start"][1], 0.0],
-                    "goal": [c["goal"][0], c["goal"][1], 0.0], "z_floor": z_f, "z_c": Z_C,
-                    "overhang": {"top": ev["criterion1"]["top"],
-                                 "underside": ev["criterion1"]["underside"],
-                                 "s_interval": ev["criterion1"]["s_interval"],
-                                 "object": c["overhang_note"],
-                                 "longest_run_m": ev["criterion1"]["longest_run_m"]},
-                    "criteria": ev["criteria"], "pass": True,
-                    "n_supports": ev["n_supports"], "supports_per_m2": ev["supports_per_m2"],
-                    "precheck": {k: {kk: vv for kk, vv in ev["robots"][k].items() if kk != "path_xy"}
-                                 for k in ROBOTS},
-                    "contrast": ev["contrast"], "separation_m": ev["separation_m"],
-                    "detour_ratio": ev.get("detour_ratio"),
-                    "gravity_rotation": meta["gravity_rotation"],
-                    "scene": "planefloor", "claims_boundary": CLAIMS,
-                    "selection": {"search_file": str(OUT / "p2a_search.json"),
-                                  "label": ev["label"], "region": c["region"],
-                                  "method": "project_scene -> _support_raster(0.025) -> EDT; D1 "
-                                            "pre-check per robot; criterion 1 unchanged"}}
+            case = make_case(ev, c, w, z_f, meta, OUT / "p2a_search.json")
             (OUT / "case_shared.json").write_text(json.dumps(clean(case), indent=2))
             log("WROTE", OUT / "case_shared.json")
         save()
@@ -665,6 +676,95 @@ def step_selftest(args):
     log("SELFTEST PASSED")
 
 
+CAP_RUN = Path("results/height/plane/long/cyl_ladder/rung2/cylinder.json")   # P3 ladder rung 2
+
+
+def step_affordable(args):
+    """P5: P2's own ranked candidates, walked in P2's order, with one filter added.
+
+    P2-SW-0 (156,426 cylinder supports) never certified for the cylinder: UNKNOWN at 7,968 s and again at
+    BUDGET=2 after 15,027 s. P3's ladder measured where the cylinder certifies -- every map up to 46,835
+    supports did, every map from 73,178 up did not -- the same measure-then-size rule the user approved for
+    P3's cylinder (D4). So: the first candidate whose exact cylinder map is no larger than the largest map
+    that certified, and whose exact pre-check passes every P2 criterion unchanged (crit 1 unchanged, D1,
+    connectivity, sweeper line free, cylinder line blocked). The cap only removes candidates; P2-SW-0 is
+    still reported as it stands.
+    """
+    cap_run = json.loads(CAP_RUN.read_text())
+    cap_res = cap_run["result"]
+    assert cap_res["status"] == "REACHABLE" and cap_res["verify"]["certified"] and cap_run["replay3d"]["passed"]
+    cap = int(cap_res["n_supports"])
+    search = json.loads((OUT / "p2a_search.json").read_text())
+    cands = search["candidates"]
+
+    timer = StageTimer()
+    with timer.stage("scene_load", scene="planefloor") as rec:
+        scene, meta = load_plane_scene(SCENE_NPZ)
+        rec["sizes"]["n_splats"] = len(scene)
+    z_f, ceil_h = meta["z_floor"], meta["ceiling_height_m"]
+    robots = robot_table(Z_C)
+    sec = Sections(scene, z_f)
+    cyl_maps, exact_maps, checked = {}, {}, []
+
+    def cyl_count(c):
+        key = tuple(c["window"])
+        if key not in cyl_maps:
+            cyl_maps[key] = certified(scene, robots["cylinder"], c["window"], z_f, timer, f"cyl:{key}")
+        log("cylinder", key, cyl_maps[key]["n_supports"], "cap", cap)
+        return cyl_maps[key]["n_supports"]
+
+    def exact(c):
+        w = c["window"]
+        maps = {"cylinder": cyl_maps[tuple(w)]}
+        for k in ("sweeper", "uav"):
+            maps[k] = certified(scene, robots[k], w, z_f, timer, f"exact{len(checked)}:{k}")
+        label = f"P5-{c['region']}-{len(checked)}"
+        ev = evaluate(maps, w, robots, c["start"], c["goal"], Z_C, sec, ceil_h, exact_label=label)
+        ev.update(region=c["region"], margin=c["margin"], screened="EXACT: own projection per robot",
+                  screened_contrast=c["contrast"], overhang_note=c["overhang_note"])
+        figure(maps, w, robots, c["start"], c["goal"], ev, FIGS / f"p5_affordable{len(checked)}_{c['region']}.png",
+               f"P5 affordable re-selection {label}: {'PASSES' if ev['pass'] else 'FAILS ' + ','.join(ev['failed_criteria'])}"
+               f" | cylinder {maps['cylinder']['n_supports']} supports (cap {cap}, P3 rung 2)"
+               f" | contrast {ev['contrast'] if ev['contrast'] else 0:.2f}"
+               f" | separation {ev['separation_m'] if ev['separation_m'] else 0:.2f} m"
+               f" | one window, one start, one goal, three robots")
+        log("exact", label, "pass", ev["pass"], "supports", json.dumps(ev["n_supports"]),
+            "failed", ev["failed_criteria"])
+        checked.append({k: v for k, v in ev.items() if k != "robots"} | {
+            "robots": {k: {kk: vv for kk, vv in ev["robots"][k].items() if kk != "path_xy"} for k in ROBOTS}})
+        exact_maps[tuple(w)] = (c, ev)
+        return ev
+
+    chosen, tried = first_affordable(cands, cyl_count, exact, cap)
+    out = {"claims_boundary": CLAIMS,
+           "task": "P5: task 1 re-selection -- P2's ranked candidates with an affordability filter",
+           "rule": "walk p2a_search.json candidates in P2's order; skip a window whose exact cylinder map "
+                   "exceeds the cap; take the first whose exact pre-check passes every P2 criterion",
+           "cap_supports": cap, "cap_source": str(CAP_RUN),
+           "cap_why": "largest cylinder map certified in this chain (P3 ladder rung 2); every map >= 73,178 "
+                      "supports ran out of the frozen budget, and P2-SW-0 (156,426) did so twice",
+           "p2_chosen_case_kept": {"label": "P2-SW-0", "cylinder": "UNKNOWN twice (7,968 s; 15,027 s at "
+                                   "BUDGET=2)", "reported_as_it_stands": True},
+           "n_candidates_in_p2_list": len(cands), "tried": tried, "exact_checked": checked,
+           "chosen": None}
+    if chosen is not None:
+        c, ev = exact_maps[tuple(chosen["window"])]
+        case = make_case(ev, c, chosen["window"], z_f, meta, OUT / "p5_affordable_search.json")
+        case["selection"]["rule"] = out["rule"]
+        case["selection"]["cap_supports"] = cap
+        cdir = Path(args.case_dir)
+        cdir.mkdir(parents=True, exist_ok=True)
+        (cdir / "case.json").write_text(json.dumps(clean(case), indent=2))
+        out["chosen"] = {"label": ev["label"], "case_file": str(cdir / "case.json"),
+                         "window": chosen["window"], "start": c["start"], "goal": c["goal"],
+                         "n_supports": ev["n_supports"], "contrast": ev["contrast"],
+                         "separation_m": ev["separation_m"], "detour_ratio": ev.get("detour_ratio")}
+        log("WROTE", cdir / "case.json", json.dumps(clean(out["chosen"])))
+    out["timing"] = timer.to_dict()
+    (OUT / "p5_affordable_search.json").write_text(json.dumps(clean(out), indent=1))
+    log("done. chosen =", out["chosen"] and out["chosen"]["label"])
+
+
 def step_compare(args):
     """P2c: the three certified routes over the three maps, on the one window they all ran on.
 
@@ -760,29 +860,34 @@ def step_compare(args):
     ax.grid(alpha=0.3, lw=0.4)
     ax.legend(fontsize=8, loc="upper right")
     sep = summary.get("certified_route_separation_m")
-    fig.suptitle(f"Amendment 3 P2c: the shared three-robot case {case['selection']['label']} · "
+    fig.suptitle(f"Amendment 3 {args.tag}: the shared three-robot case {case['selection']['label']} · "
                  f"start {tuple(round(v, 2) for v in case['start'][:2])} goal "
                  f"{tuple(round(v, 2) for v in case['goal'][:2])} · window {win} · "
                  + (f"certified routes separate by {sep:.2f} m" if sep is not None else
                     "the cylinder has no certified route (see its status)") + "\n" + CLAIMS, fontsize=9)
     fig.tight_layout(rect=(0, 0.01, 1, 0.93))
+    fig_name, json_name = compare_names(args.tag)
     FIGS.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIGS / "p2c_three_routes.png", dpi=80)
+    fig.savefig(FIGS / fig_name, dpi=80)
     plt.close(fig)
-    log("figure", FIGS / "p2c_three_routes.png")
+    log("figure", FIGS / fig_name)
 
     out = {"claims_boundary": CLAIMS, "task": "P2c: three robots, one window, one start, one goal",
            "case": case["selection"], "window": win, "start": case["start"], "goal": case["goal"],
            "shared_case_confirmed_identical_in_all_three_runs": True, "run_files": run_files,
            "runs": summary, "precheck_recomputed": {k: v for k, v in ev.items() if k != "robots"},
-           "figure": str(FIGS / "p2c_three_routes.png"), "timing": timer.to_dict()}
-    (OUT / "p2c_shared_case.json").write_text(json.dumps(clean(out), indent=1))
-    log("wrote", OUT / "p2c_shared_case.json")
+           "figure": str(FIGS / fig_name), "timing": timer.to_dict()}
+    (OUT / json_name).write_text(json.dumps(clean(out), indent=1))
+    log("wrote", OUT / json_name)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--step", required=True, choices=["search", "evidence", "selftest", "compare"])
+    ap.add_argument("--step", required=True,
+                    choices=["search", "evidence", "selftest", "compare", "affordable"])
+    ap.add_argument("--tag", default="p2c", help="--step compare: output name prefix (p2c = P2's)")
+    ap.add_argument("--case-dir", default="results/height/plane/shared_a",
+                    help="--step affordable: where the re-selected case.json goes")
     ap.add_argument("--run-dir", default="results/height/plane/shared")
     ap.add_argument("--region", default="", help="comma-separated region names, default all")
     ap.add_argument("--n", type=int, default=3, help="unused; kept for older invocations")
@@ -790,7 +895,7 @@ def main():
                     help="window margins (m) for the --step evidence shrink series")
     args = ap.parse_args()
     {"search": step_search, "evidence": step_evidence, "selftest": step_selftest,
-     "compare": step_compare}[args.step](args)
+     "compare": step_compare, "affordable": step_affordable}[args.step](args)
 
 
 if __name__ == "__main__":
