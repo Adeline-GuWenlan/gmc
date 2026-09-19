@@ -915,3 +915,16 @@ frame 193 the goal beside the enclosure; the uav's prism floats at 1.10–1.30 m
 frame is covered by a wall any more. The `p2shared` caption loses its first and last character at the
 frame edges (131 characters; the 135-character test bound is not tight enough for this font) — the
 claims part is readable, so it was not re-rendered.
+
+### 2026-09-19 ~03:3x — cylinder video, full suite, P5 closed
+
+- **Cylinder video on P5-A-0** (18010613, `--azim 65`, 25.6 min, MaxRSS 3.7 GB): frame 135/270 at
+  (10.56, 6.22) has the 1.75 m cylinder passing the vitrine's SE end (≈ 0.45 m from its edge by P1c's
+  measured footprint, so ≈ 0.15 m of daylight at r = 0.30; its foot seen through the corner in x-ray);
+  frame 270 ends at the goal. The 2-panel's top view shows the disc skirting the SE corner of the
+  vitrine-plus-bench block and nothing overhead in the side view. Consistent with the certified verdict.
+- **Full suite** (18010744, own job, 2 CPU / 8 G): `25 failed, 576 passed in 1284.01s (0:21:24)`. All 25
+  are `AtlasAssetError` / `FileNotFoundError` for the sealed Atlas package absent from this worktree
+  (`test_atlas_benchmark.py` 10, `test_atlas_gate_intervals.py` 15), the same 25 as P3's and P4's runs;
+  the 18 tests P5 added (`test_height_plane_affordable.py`, `_render_camera.py`, `_camera_scan.py`) pass.
+- User-facing summary: `/scratch/wg2381/claude_jobs/logs/plane_P5_done.md`.

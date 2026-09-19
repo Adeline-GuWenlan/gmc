@@ -1,0 +1,9 @@
+=== planefloor_render experiments/percase_render.py --robot cylinder --case-dir results/height/plane/shared_a --scene planefloor --claim p5shared --azim 65 2026-09-19T03:09:06-04:00 host=cs643.hpc.nyu.edu job=18010613 ===
+loaded 7101868 splats in 1s
+selected 68786 of 68786 splats; colours in 2s
+projected 38473 supports (run: 38473)
+packed 5,329,025 Gaussians for the EWA rasteriser in 3s
+3d video results/height/plane/shared_a/video/cylinder_3d.mp4 frames=270 377s (1.39s/frame/worker)
+2panel video results/height/plane/shared_a/video/cylinder_2panel.mp4 1122s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [8.1, 4.85, 11.4, 8.65], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 213068, "n_opaque_below_zmax": 68786, "n_rendered": 68786, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 38473, "run_kept": 38473, "matches_run": true}, "timings_s": {"load_processed": 1.0, "select": 0.1, "colors": 1.8, "project": 5.7, "splat_pack": 3.4, "video_3d": 376.9, "overview": 1.5, "video_2panel": 1122.3, "scene_ply": 0.0}}
+=== PLANEFLOOR_RENDER_DONE experiments/percase_render.py ===
