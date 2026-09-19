@@ -1,0 +1,287 @@
+{
+ "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+ "task": "P2c: three robots, one window, one start, one goal",
+ "case": {
+  "search_file": "results/height/plane/p5_affordable_search.json",
+  "label": "P5-A-0",
+  "region": "A",
+  "method": "project_scene -> _support_raster(0.025) -> EDT; D1 pre-check per robot; criterion 1 unchanged",
+  "rule": "walk p2a_search.json candidates in P2's order; skip a window whose exact cylinder map exceeds the cap; take the first whose exact pre-check passes every P2 criterion",
+  "cap_supports": 46835
+ },
+ "window": [
+  8.1,
+  4.85,
+  11.4,
+  8.65
+ ],
+ "start": [
+  9.0,
+  5.75,
+  0.0
+ ],
+ "goal": [
+  10.5,
+  7.75,
+  0.0
+ ],
+ "shared_case_confirmed_identical_in_all_three_runs": true,
+ "run_files": {
+  "sweeper": "results/height/plane/shared_a/sweeper.json",
+  "cylinder": "results/height/plane/shared_a/cylinder.json",
+  "uav": "results/height/plane/shared_a/uav.json"
+ },
+ "runs": {
+  "sweeper": {
+   "status": "REACHABLE",
+   "certified": true,
+   "min_clearance": 0.008029,
+   "replay3d_passed": true,
+   "replay3d_min_clearance_lb": 0.000781,
+   "n_supports": 915,
+   "compile_seconds": 3.477402,
+   "query_seconds": 3.668818,
+   "probe": {
+    "n_supports_full": 915,
+    "abort": false,
+    "n_supports_probe": 548,
+    "probe_compile_seconds": 2.237642,
+    "projected_hours": 0.001038,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+   },
+   "timing": {
+    "scene_load": 0.611,
+    "project": 4.681183,
+    "compile_pairs": 0.056929,
+    "compile_slabs": 3.364963,
+    "compile_mobility": 0.055455,
+    "query": 3.668793,
+    "verify_curve": 2.01059,
+    "replay3d": 2.591873
+   },
+   "certified_route_len_m": 2.5
+  },
+  "cylinder": {
+   "status": "REACHABLE",
+   "certified": true,
+   "min_clearance": 0.004181,
+   "replay3d_passed": true,
+   "replay3d_min_clearance_lb": 0.000962,
+   "n_supports": 38473,
+   "compile_seconds": 152.544322,
+   "query_seconds": 419.620756,
+   "probe": {
+    "n_supports_full": 38473,
+    "abort": false,
+    "n_supports_probe": 20874,
+    "probe_compile_seconds": 80.934979,
+    "projected_hours": 0.041437,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+   },
+   "timing": {
+    "scene_load": 0.600909,
+    "project": 5.845688,
+    "compile_pairs": 2.759077,
+    "compile_slabs": 146.633824,
+    "compile_mobility": 3.150692,
+    "query": 419.620726,
+    "verify_curve": 195.963892,
+    "replay3d": 10.563418
+   },
+   "certified_route_len_m": 3.436724
+  },
+  "uav": {
+   "status": "REACHABLE",
+   "certified": true,
+   "min_clearance": 0.003682,
+   "replay3d_passed": true,
+   "replay3d_min_clearance_lb": 0.05,
+   "n_supports": 1856,
+   "compile_seconds": 6.932298,
+   "query_seconds": 2.649507,
+   "probe": {
+    "n_supports_full": 1856,
+    "abort": false,
+    "n_supports_probe": 0,
+    "probe_compile_seconds": 0.022492,
+    "projected_hours": 0.011596,
+    "extrapolation": "linear in supports x initial_intervals (rough)"
+   },
+   "timing": {
+    "scene_load": 0.595774,
+    "project": 4.799094,
+    "compile_pairs": 0.111126,
+    "compile_slabs": 6.677501,
+    "compile_mobility": 0.143605,
+    "query": 2.649485,
+    "verify_curve": 1.399141,
+    "replay3d": 0.801155
+   },
+   "certified_route_len_m": 2.5
+  },
+  "certified_route_separation_m": 1.007983,
+  "certified_detour_ratio": 1.37469
+ },
+ "precheck_recomputed": {
+  "window": [
+   8.1,
+   4.85,
+   11.4,
+   8.65
+  ],
+  "start": [
+   9.0,
+   5.75
+  ],
+  "goal": [
+   10.5,
+   7.75
+  ],
+  "z_c": 1.2,
+  "window_side_m": [
+   3.3,
+   3.8
+  ],
+  "window_at_most_8x8": true,
+  "not_through_glass_adjacent_opening": true,
+  "n_supports": {
+   "sweeper": 915,
+   "cylinder": 38473,
+   "uav": 1856
+  },
+  "supports_per_m2": {
+   "sweeper": 73.0,
+   "cylinder": 3068.0,
+   "uav": 148.0
+  },
+  "criterion1": {
+   "runs": 49,
+   "length_m": 2.5,
+   "z_c": 1.2,
+   "straight_line_under_overhang": true,
+   "top": 0.905098,
+   "underside": 0.712462,
+   "s_interval": [
+    0.92,
+    1.88
+   ],
+   "longest_run_m": 0.98,
+   "ceiling_side_obstacle_above_floor": 4.585627,
+   "zc_above_overhang_top_by_0.25": true,
+   "zc_band_below_ceiling_side_by_0.30": true,
+   "ok": true
+  },
+  "separation_m": 0.941745,
+  "detour_ratio": 1.326181,
+  "contrast": 1.248925,
+  "criteria": {
+   "window_at_most_8x8": true,
+   "not_through_glass_adjacent_opening": true,
+   "straight_line_under_overhang": true,
+   "zc_above_overhang_top_by_0.25": true,
+   "zc_band_below_ceiling_side_by_0.30": true,
+   "d1_start_clear_sweeper": true,
+   "d1_goal_clear_sweeper": true,
+   "connected_sweeper": true,
+   "d1_start_clear_cylinder": true,
+   "d1_goal_clear_cylinder": true,
+   "connected_cylinder": true,
+   "d1_start_clear_uav": true,
+   "d1_goal_clear_uav": true,
+   "connected_uav": true,
+   "sweeper_line_free": true,
+   "cylinder_line_blocked": true
+  },
+  "failed_criteria": [],
+  "pass": true,
+  "label": "P5-A-0"
+ },
+ "figure": "results/height/plane/figs/p5a_three_routes.png",
+ "timing": {
+  "stages": [
+   {
+    "stage": "scene_load",
+    "label": null,
+    "seconds": 1.332957,
+    "failed": false,
+    "sizes": {
+     "scene": "planefloor",
+     "n_splats": 7101868
+    }
+   },
+   {
+    "stage": "project",
+    "label": "sweeper",
+    "seconds": 5.931096,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 915
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cylinder",
+    "seconds": 6.164625,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 38473
+    }
+   },
+   {
+    "stage": "project",
+    "label": "uav",
+    "seconds": 5.069528,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 1856
+    }
+   }
+  ],
+  "by_stage": {
+   "scene_load": 1.332957,
+   "project": 17.165249
+  },
+  "total_seconds": 18.498207,
+  "missing_stages": [
+   "floor_replace",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ],
+  "stage_order": [
+   "scene_load",
+   "floor_replace",
+   "project",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ]
+ }
+}

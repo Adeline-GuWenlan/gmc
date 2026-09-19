@@ -889,3 +889,29 @@ P1's 14 figures opened: all match `p1b_build.json` / `p1c_survivors.json` / `p1d
 (only nit: p1b's suptitle overlaps its panel titles). P2d's five shrink figures match `p2d_evidence.json`
 (64,294 → 156,426 cylinder supports; every shrink fails `connected_cylinder`, table B's block cuts start
 from goal once the window cannot reach round it).
+
+### 2026-09-18 ~23:1x → 09-19 03:0x — P5-A-0's cylinder certifies: task 1 has three certified routes
+
+(The session hit a usage limit at ~23:08 and resumed at 03:03 in a new allocation, 17990543.)
+
+Cylinder 17988323 on P5-A-0: **REACHABLE, verify.certified, replay3d passed** (lb 0.00096 m, 109,725
+pairs checked). 38,473 supports; project 5.8 s, compile 152.5 s (`build_slabs` 146.6), query 419.6 s,
+verify 196.0 s, replay3d 10.6 s. The probe projected 0.04 h against ~0.16 h of compile + query, a ~4×
+under-estimate, in line with P2/P3's cylinder record. Certified routes on the one window, start and goal:
+
+| robot | supports | certified route | replay3d lb | how |
+|---|---|---|---|---|
+| sweeper | 915 | 2.50 m | 0.00078 m | straight, **under** table A's vitrine |
+| uav | 1,856 | 2.50 m | ≥ 0.05 m ¹ | straight, **over** it |
+| cylinder | 38,473 | **3.44 m** | 0.00096 m | **round** the vitrine's SE end |
+
+¹ 0.05 m is `replay_curve`'s search margin, the value `min_lb` starts at: the replay checked 0 pairs
+because no opaque splat's ρ-AABB comes within 5 cm of the uav's 1.10–1.30 m band on this route. It is a
+floor, not a measured clearance (A2's uav shows the same 0.0500).
+
+P2-SW-0's re-rendered videos (17990174, 17990377, `--azim -20`) opened: table B is a glass-topped vitrine
+on four legs; frame 1 has the sweeper's start beneath it, frame 97 the sweeper emerging from under it,
+frame 193 the goal beside the enclosure; the uav's prism floats at 1.10–1.30 m above the vitrine. No
+frame is covered by a wall any more. The `p2shared` caption loses its first and last character at the
+frame edges (131 characters; the 135-character test bound is not tight enough for this font) — the
+claims part is readable, so it was not re-rendered.

@@ -1,0 +1,140 @@
+{
+  "robot": "sweeper",
+  "claims": "P5 shared case: one window, start, goal, three robots \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "title": "sweeper \u00b7 REACHABLE \u00b7 replay3d lb = 0.000781 m\nP5 shared case: one window, start, goal, three robots \u00b7 plane floor = USER-APPROVED MANUAL SCENE EDIT \u00b7 crit 3 relaxed (D1)",
+  "case_json": "results/height/plane/shared_a/case.json",
+  "run_json": "results/height/plane/shared_a/sweeper.json",
+  "status": "REACHABLE",
+  "verify_certified": true,
+  "replay3d_passed": true,
+  "replay3d_min_clearance_lb": 0.0007814787745161755,
+  "scene": {
+    "variant": "planefloor",
+    "n_splats": 7101868,
+    "floor_rule": null,
+    "planefloor": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation",
+    "gravity_rotation_is_identity": true
+  },
+  "render": {
+    "renderer": "splat",
+    "n_rendered": 5329025,
+    "scene_radius_m": 14.0,
+    "opacity_threshold": null,
+    "subsampled": false
+  },
+  "selection": {
+    "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+    ],
+    "view_window_pad_m": 0.5,
+    "dilate_m": 1.0,
+    "z_max_above_floor_m": 2.5,
+    "tau": 0.3,
+    "n_window_xy_dilated": 213068,
+    "n_opaque_below_zmax": 68786,
+    "n_rendered": 68786,
+    "max_points": 250000,
+    "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"
+  },
+  "colors": {
+    "source": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "rule": "clip(0.5 + 0.28209479 * f_dc, 0, 1)",
+    "n_without_a_ply_row_height_coloured": 624,
+    "mean": [
+      0.4224,
+      0.3743,
+      0.3446
+    ],
+    "p5": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p50": [
+      0.5043,
+      0.4191,
+      0.3539
+    ],
+    "p95": [
+      1.0,
+      0.9474,
+      0.9146
+    ],
+    "frac_at_0": 0.33105499286142087,
+    "frac_at_1": 0.04385336279463254
+  },
+  "projection": {
+    "kept": 915,
+    "run_kept": 915,
+    "matches_run": true
+  },
+  "outputs": {
+    "video_3d": "results/height/plane/shared_a/video/sweeper_3d.mp4",
+    "n_frames_3d": 182,
+    "key_frames_3d": [
+      "results/height/plane/shared_a/video/sweeper_3d_f000.png",
+      "results/height/plane/shared_a/video/sweeper_3d_f050.png",
+      "results/height/plane/shared_a/video/sweeper_3d_f100.png"
+    ],
+    "overview_png": "results/height/plane/shared_a/video/sweeper_overview.png",
+    "render_3d": {
+      "n_points": 5329025,
+      "render_seconds_per_frame": 1.3688217306040755,
+      "workers": 1,
+      "size": [
+        1280,
+        720
+      ],
+      "view_half": 1.75,
+      "elev": 35.0,
+      "orbit_deg": 50.0,
+      "renderer": "splat",
+      "splat_opts": {
+        "fov_y_deg": 50.0,
+        "fit_z": 0.9,
+        "look_z": 0.55,
+        "fit_scale": 1.0,
+        "fit_cover": 0.85,
+        "near": 0.05,
+        "near_frac": 0.32,
+        "cull_radius_px": 0,
+        "clip_pad": null,
+        "clip_z": 3.0,
+        "bg": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "edge_lw": 1.4,
+        "ambient": 0.45,
+        "occlude_slack": 0.1,
+        "ghost_alpha": 0.28
+      },
+      "azim0": 65.0
+    },
+    "video_2panel": "results/height/plane/shared_a/video/sweeper_2panel.mp4",
+    "n_frames_2panel": 182,
+    "key_frames_2panel": [
+      "results/height/plane/shared_a/video/sweeper_2panel_f000.png",
+      "results/height/plane/shared_a/video/sweeper_2panel_f050.png",
+      "results/height/plane/shared_a/video/sweeper_2panel_f100.png"
+    ],
+    "scene_ply": "results/height/plane/shared_a/video/sweeper_scene.ply",
+    "scene_ply_vertices": 54534,
+    "n_poses": 182
+  },
+  "timings_s": {
+    "load_processed": 0.7,
+    "select": 0.1,
+    "colors": 1.8,
+    "project": 6.0,
+    "splat_pack": 3.2,
+    "video_3d": 253.0,
+    "overview": 1.4,
+    "video_2panel": 43.4,
+    "scene_ply": 0.0
+  }
+}

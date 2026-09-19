@@ -1,0 +1,9 @@
+=== planefloor_render experiments/percase_render.py --robot sweeper --case-dir results/height/plane/shared_a --scene planefloor --claim p5shared --azim 65 2026-09-18T22:55:48-04:00 host=cs611.hpc.nyu.edu job=17989102 ===
+loaded 7101868 splats in 1s
+selected 68786 of 68786 splats; colours in 2s
+projected 915 supports (run: 915)
+packed 5,329,025 Gaussians for the EWA rasteriser in 3s
+3d video results/height/plane/shared_a/video/sweeper_3d.mp4 frames=182 253s (1.37s/frame/worker)
+2panel video results/height/plane/shared_a/video/sweeper_2panel.mp4 43s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [8.1, 4.85, 11.4, 8.65], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 213068, "n_opaque_below_zmax": 68786, "n_rendered": 68786, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 915, "run_kept": 915, "matches_run": true}, "timings_s": {"load_processed": 0.7, "select": 0.1, "colors": 1.8, "project": 6.0, "splat_pack": 3.2, "video_3d": 253.0, "overview": 1.4, "video_2panel": 43.4, "scene_ply": 0.0}}
+=== PLANEFLOOR_RENDER_DONE experiments/percase_render.py ===
