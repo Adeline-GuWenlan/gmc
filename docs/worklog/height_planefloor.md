@@ -757,3 +757,35 @@ deleted). P4 changes nothing it times: τ, ρ, robots, config, GMC, `verify_curv
 - Self-test on `synth3d.table_scene("open")` passes in 25 s: all lanes certified + replayed; warm rows
   carry no compile stage. On that scene no query refined (0 rounds) and warm ≈ cold, i.e. the query's own
   cost there is certified path lifting, not deferred compile work.
+
+### 2026-09-19 ~02:0x — the sweep is back (17965980: COMPLETED, 4 h 08 m, MaxRSS 18.5 GB)
+
+Judged by its rows, not its exit code: all four lanes wrote `lane_done`; the cylinder window series
+stopped at its first UNKNOWN by design (98,037 supports, 49,999,993 of 50 M support calls).
+- **Warm = cold.** 61 of 63 sweep queries refined nothing, and their support-call counts are
+  identical whether the map is fresh or has served 13 earlier queries. The query's cost is its own
+  certified lifting, not deferred compile work. The one pair that refined (uav, 8.58 m: 1 round,
+  2,214–2,454 s) re-queried in 1,323 s on the kept refinement.
+- **The query is linear in the whole map.** At a fixed 2.43 m pair, calls per support stay constant
+  as the window grows (248–252 sweeper, 124–133 uav, 993 cylinder); time ∝ N^0.98–1.00, R² 1.000.
+  This is the mechanism behind D4. The cylinder's 50 M budget allows ≈ 50 k supports on that pair,
+  and P3's ladder stopped between 46,835 and 73,178. Its limit is map size, not distance.
+- **Compile linear to 703 k** (n = 50 in total). Compile-only memory is 0.47–1.32 GiB per 100 k
+  supports: 3 points, no fit.
+- **Calibration:** 1.11–1.30× slower than P3's cs601 for the identical runs; cold-compile CV 0.5–1.4 %.
+
+**My own error, caught before it shipped:** the first draft of the final report said "43 of 44 hall
+queries refined nothing". I had counted in my head. A recount from `records.json` gives 63 sweep
+queries, 2 of which refined, both on the same pair. The earlier commit message (497a93d) carries
+the wrong "43 of 44"; the report and this worklog are corrected. Also corrected before commit:
+- the `compile_slabs` share over all 47 compiles is 95.7–96.8 %, not the 15-run 96.0–96.7 %;
+- the uav warm ÷ cold range is 0.95–1.13, not 0.98–1.13.
+
+Figures opened and fixed before any number was quoted from them:
+- the prep title was clipped and the grid drew over the bars;
+- the distance figure had an empty `project` panel (a projection has no A–B);
+- the refinement label floated away from its point;
+- a legend clipped a line.
+
+`verify_curve ÷ query` is 0.47–0.52 in 66 of 69 finished units. The three outliers (0.14–0.26) are
+the refining pair, where the query does work verification does not repeat.
