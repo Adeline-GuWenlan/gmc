@@ -36,6 +36,8 @@ CLAIM_PRESETS = {       # <= 135 chars: the 3D title band holds the headline plu
                "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
     "p3rung": ("P3 cylinder ladder rung from the long case's start (D4) · plane floor = "
                "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
+    "p2shared": ("P2 shared case P2-SW-0: sweeper + uav certified, cylinder UNKNOWN · plane floor = "
+                 "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
     "p5shared": ("P5 shared case: one window, start, goal, three robots · plane floor = "
                  "USER-APPROVED MANUAL SCENE EDIT · crit 3 relaxed (D1)"),
 }
@@ -88,7 +90,7 @@ def frame_count(path):
 
 def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, window, start, goal, frames,
                    workers, view_half, title, title_2panel, note, view_window=None,
-                   renderer="scatter", splats=None, splat_opts=None):
+                   renderer="scatter", splats=None, splat_opts=None, azim0=None):
     vdir.mkdir(parents=True, exist_ok=True)
     timings = {}
     vw = window if view_window is None else view_window
@@ -99,7 +101,7 @@ def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, wi
     v3 = pointcloud_video(pts, cols, robot, poses, z_f, vdir / f"{name}_3d", title=title, window=vw,
                           max_frames=frames, workers=workers, view_half=view_half, path_xy=path_xy,
                           start=start, goal=goal, note=note, renderer=renderer, splats=splats,
-                          splat_opts=splat_opts)
+                          splat_opts=splat_opts, azim0=azim0)
     timings["video_3d"] = time.time() - t
     print(f"3d video {v3['video']} frames={v3['n_frames']} {timings['video_3d']:.0f}s "
           f"({v3['render_seconds_per_frame']:.2f}s/frame/worker)", flush=True)
@@ -107,7 +109,7 @@ def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, wi
     t = time.time()
     ov = overview_png(pts, cols, robot, poses, z_f, vdir / f"{name}_overview.png", title=title,
                       window=vw, path_xy=path_xy, start=start, goal=goal, note=note,
-                      renderer=renderer, splats=splats, splat_opts=splat_opts)
+                      renderer=renderer, splats=splats, splat_opts=splat_opts, azim=azim0)
     timings["overview"] = time.time() - t
 
     t = time.time()
@@ -125,7 +127,7 @@ def render_outputs(name, vdir, *, pts, cols, robot, res, s2, scene_near, z_f, wi
                "key_frames_3d": [str(p) for p in v3["frames"]], "overview_png": str(ov),
                "render_3d": {k: v3[k] for k in ("n_points", "render_seconds_per_frame", "workers", "size",
                                                  "view_half", "elev", "orbit_deg", "renderer",
-                                                 "splat_opts")},
+                                                 "splat_opts")} | {"azim0": azim0},
                "video_2panel": str(v2["video"]) if v2["video"] else None, "n_frames_2panel": frame_count(v2["video"]),
                "key_frames_2panel": [str(p) for p in v2["frames"]],
                "scene_ply": str(ply), "scene_ply_vertices": n_ply, "n_poses": int(len(poses))}
@@ -265,7 +267,7 @@ def render_real(robot_key, a):
                              window=vw, max_frames=a.stills, workers=a.workers, view_half=view_half,
                              path_xy=path_xy, start=case["start"], goal=case["goal"], note=note,
                              key_fracs=tuple(np.linspace(0.0, 1.0, a.stills)),
-                             renderer=a.renderer, splats=splats, splat_opts=a.splat_opts)
+                             renderer=a.renderer, splats=splats, splat_opts=a.splat_opts, azim0=a.azim)
         info = {"robot": robot_key, "preview": True, "renderer": v["renderer"],
                 "frames": [str(x) for x in v["frames"]], "video": str(v["video"]),
                 "n_rendered": v["n_points"], "n_scene_after_floor_rule": n_scene,
@@ -282,7 +284,7 @@ def render_real(robot_key, a):
         window=win, view_window=vw,
         start=case["start"], goal=case["goal"], frames=a.frames, workers=a.workers,
         view_half=view_half, title=title, title_2panel=f"{claim}\n", note=note,
-        renderer=a.renderer, splats=splats, splat_opts=a.splat_opts)
+        renderer=a.renderer, splats=splats, splat_opts=a.splat_opts, azim0=a.azim)
     timings.update(t_out)
     rep = res.get("replay3d") or {}
     manifest = {
@@ -373,6 +375,10 @@ def main():
     ap.add_argument("--splat-opt", action="append", default=[], metavar="KEY=VALUE",
                     help="override one gmc.height.viz3d.SPLAT_OPTS entry (camera and culling knobs), "
                          "e.g. --splat-opt fit_scale=0.8 --splat-opt near_frac=0.45; repeatable")
+    ap.add_argument("--azim", type=float, default=None,
+                    help="3D camera azimuth (deg, direction from the target to the camera) at mid-clip; "
+                         "default: travel direction - 50. Use it when that puts a wall between camera "
+                         "and route, as it did on P2-SW-0")
     ap.add_argument("--max-points", type=int, default=250_000)
     ap.add_argument("--frames", type=int, default=300)
     ap.add_argument("--workers", type=int, default=min(4, len(os.sched_getaffinity(0))))
