@@ -186,6 +186,14 @@ def fits_and_tables(R):
     F["query_vs_supports_fixed_pair"] = {rb: power_fit(*_xy(
         [r for r in sw if r["robot"] == rb and r["experiment"] == "win"], "n_supports", "query_seconds"))
         for rb in ROBOT}
+    # window area moves alone only in the fixed-pair series; elsewhere it is confounded with density
+    winr = [r for r in runs if r["source"] == "P4-sweep" and r.get("experiment") == "win" and r["status"] == "REACHABLE"]
+    F["compile_vs_area_fixed_pair"] = {rb: power_fit(*_xy([r for r in winr if r["robot"] == rb], "window_area_m2",
+                                                          "compile_seconds")) for rb in ROBOT}
+    F["query_vs_area_fixed_pair"] = {rb: power_fit(*_xy([r for r in winr if r["robot"] == rb], "window_area_m2",
+                                                        "query_seconds")) for rb in ROBOT}
+    F["supports_vs_area_fixed_pair"] = {rb: power_fit(*_xy([r for r in winr if r["robot"] == rb], "window_area_m2",
+                                                           "n_supports")) for rb in ROBOT}
     # -- prove
     ver = [dict(r, y=r["stages"]["verify_curve"]) for r in timed if (r["stages"] or {}).get("verify_curve")]
     rpl = [dict(r, y=r["stages"]["replay3d"]) for r in timed if (r["stages"] or {}).get("replay3d")]
@@ -251,7 +259,8 @@ def fits_and_tables(R):
     # -- where the wall clock goes, per timed run (single runs + sweep cold units)
     T["where_time_goes"] = []
     for r in timed:
-        if r["source"] == "P4-sweep" and r["mode"] != "cold":
+        # single-job runs, plus the sweep's fixed-pair window series: how the shares move with map size
+        if r["source"] == "P4-sweep" and r.get("experiment") != "win":
             continue
         g = defaultdict(float)
         for st, s in (r["stages"] or {}).items():
@@ -273,6 +282,43 @@ def fits_and_tables(R):
         if (p.get("label") or "").startswith("hall:") and p["robot"] not in seen:
             seen.add(p["robot"])
             T["project_hall"].append(p)
+
+    # -- the query's support-call budget: calls per support at one fixed pair, and the map it allows
+    SUPPORT_BUDGET = 50_000_000            # configs/height_showcase.yaml query.max_support_calls (frozen)
+    T["query_budget"] = []
+    hall = {p["robot"]: p["n_supports"] for p in T["project_hall"]}
+    for rb in ROBOT:
+        w = sorted([r for r in runs if r["source"] == "P4-sweep" and r.get("experiment") == "win"
+                    and r["robot"] == rb and r.get("query_support_calls")], key=lambda r: r["n_supports"])
+        fin = [r for r in w if r["status"] == "REACHABLE"]
+        if not fin:
+            continue
+        c = [r["query_support_calls"] / r["n_supports"] for r in fin]
+        ms = [r["query_seconds"] / r["n_supports"] * 1e3 for r in fin]
+        n_max = SUPPORT_BUDGET / float(np.median(c))
+        T["query_budget"].append({
+            "robot": rb, "pair": "ladder rung 0, 2.43 m", "n_finished": len(fin),
+            "supports_range": [fin[0]["n_supports"], fin[-1]["n_supports"]],
+            "calls_per_support": [float(min(c)), float(max(c))],
+            "query_ms_per_support": [float(min(ms)), float(max(ms))],
+            "n_max_at_budget": n_max, "extrapolation": n_max > fin[-1]["n_supports"],
+            "first_unknown": next(({"n_supports": r["n_supports"], "reason": r["reason"],
+                                    "support_calls": r["query_support_calls"]}
+                                   for r in w if r["status"] != "REACHABLE"), None),
+            "hall_supports": hall.get(rb),
+            "hall_calls_extrapolated": float(np.median(c)) * hall[rb] if hall.get(rb) else None,
+            "hall_query_h_extrapolated": float(np.median(ms)) * hall[rb] / 3.6e6 if hall.get(rb) else None})
+    vq = [r["stages"]["verify_curve"] / r["stages"]["query"] for r in timed
+          if r["status"] == "REACHABLE" and (r["stages"] or {}).get("verify_curve") and r["stages"].get("query")]
+    # the pairs whose query refined the map at least once (any mode): their queries do work verify does not
+    refined = {(r["robot"], round(r["ab_dist_m"] or 0, 2), r.get("experiment")) for r in timed
+               if (r.get("refinement_rounds") or 0) > 0}
+    clean_vq = [r["stages"]["verify_curve"] / r["stages"]["query"] for r in timed
+                if r["status"] == "REACHABLE" and (r["stages"] or {}).get("verify_curve") and r["stages"].get("query")
+                and (r["robot"], round(r["ab_dist_m"] or 0, 2), r.get("experiment")) not in refined]
+    T["verify_over_query"] = {"n": len(vq), "min": min(vq), "max": max(vq),
+                              "refined_pairs": sorted([list(k) for k in refined]),
+                              "n_other_pairs": len(clean_vq), "min_other": min(clean_vq), "max_other": max(clean_vq)}
 
     # -- the day: compile capacity (extrapolation), with the hall's own support counts beside it
     cf = F["compile_vs_supports_all"]["power"]
@@ -335,6 +381,13 @@ def fig_axis(R, rep, xkey, xlabel, fname, title):
               ("query_seconds", "query"), ("verify_curve", "verify_curve"), ("replay3d", "replay3d")]
     fig, axs = plt.subplots(2, 3, figsize=(13, 7.6))
     for ax, (key, lab) in zip(axs.flat, panels):
+        if key == "project" and xkey == "ab_dist_m":
+            ax.axis("off")
+            ax.text(0.0, 0.9, "project: no A–B distance.\nA projection depends on the robot and the window\n"
+                    "(≈ 4–5 s + ~30 µs per support), not on\nwhere start and goal are.",
+                    transform=ax.transAxes, va="top", fontsize=8.5, color=INK2)
+            ax.set_title(lab, fontsize=9.5, loc="left", color=INK)
+            continue
         if key == "project":
             rows = [dict(p, source=p["source"] if p["source"] == "P4 sweep" else "run", y=p["seconds"])
                     for p in R["project"]]
@@ -349,6 +402,18 @@ def fig_axis(R, rep, xkey, xlabel, fname, title):
         else:
             rows = [dict(r, y=r["stages"][key]) for r in fin if r["has_stage_timing"] and (r["stages"] or {}).get(key)]
             _mark(ax, rows, xkey, "y")
+        if xkey == "n_supports" and key in ("query_seconds", "verify_curve"):
+            fits = rep["fits"]["query_vs_supports_fixed_pair" if key == "query_seconds"
+                               else "verify_vs_supports_fixed_pair"]
+            yy = 0.97
+            for rb, f in fits.items():
+                if f.get("exponent") is None:
+                    continue
+                xs = np.geomspace(*f["x_range"], 30)
+                ax.plot(xs, f["coef"] * xs ** f["exponent"], color=ROBOT[rb][0], lw=1.4, ls="--", zorder=2)
+                ax.text(0.03, yy, f"{rb}, one pair (2.43 m): ∝ N^{f['exponent']:.2f}  (n={f['n']})",
+                        transform=ax.transAxes, va="top", fontsize=7.5, color=INK2)
+                yy -= 0.07
         ax.set_xscale("log")
         ax.set_yscale("log")
         ax.set_title(lab, fontsize=9.5, loc="left", color=INK)
@@ -378,8 +443,9 @@ def fig_where(rep):
             if ww >= 0.09:
                 ax.text(l + ww / 2, yi, f"{ww:.0%}", ha="center", va="center", fontsize=7,
                         color="#ffffff" if g in ("query", "prove") else INK)
-    ax.set_yticks(y, [f"{r['label']}  ({r['robot']}, {r['n_supports']:,} sup, {r['ab_dist_m']:.1f} m)"
-                      for r in rows], fontsize=7.5)
+    ax.set_yticks(y, [("P4 sweep, rung-0 pair" if r["source"] == "P4-sweep" else r["label"])
+                      + f"  ({r['robot']}, {r['n_supports']:,} sup, {r['ab_dist_m']:.1f} m)" for r in rows],
+                  fontsize=7.5)
     for yi, r in enumerate(rows):
         tag = f"{r['total_s']:,.0f} s" + ("  UNKNOWN (query = lower bound)" if r["status"] == "UNKNOWN" else "")
         ax.text(1.01, yi, tag, va="center", fontsize=7.5, color=INK2, transform=ax.get_yaxis_transform())
@@ -410,6 +476,7 @@ def fig_warm_cold(rep):
         for m, lab in (("cold", "query on a fresh compile"), ("warm1", "warm, pass 1"), ("warm2", "warm, pass 2")):
             pts = sorted([(z["ab_dist_m"], z["query_s"], z.get("lower_bound")) for z in v["rows"]
                           if z["mode"] == m and z.get("query_s")])
+
             if not pts:
                 continue
             ax.plot([p[0] for p in pts], [p[1] for p in pts], color=MODE_COLOR[m], lw=2, marker="o", ms=5,
@@ -417,12 +484,21 @@ def fig_warm_cold(rep):
             for p in pts:
                 if p[2]:
                     ax.plot([p[0]], [p[1]], marker="o", ms=9, mfc="none", mec=MODE_COLOR[m], mew=1.4)
+        ref = defaultdict(list)
+        for z in v["rows"]:
+            if (z.get("rounds") or 0) > 0:
+                ref[z["ab_dist_m"]].append(z)
+        for d, zs in ref.items():
+            top = max(zs, key=lambda z: z["query_s"])
+            ax.annotate(f"{top['rounds']} refinement round here ({', '.join(z['mode'] for z in zs)});\n"
+                        "warm pass 2 reuses the refined map", (d, top["query_s"]), textcoords="offset points",
+                        xytext=(8, -4), fontsize=7, color=INK2, va="top")
         ax.set_yscale("log")
         ax.set_xlabel("A–B distance (m), same compiled map")
         ax.set_ylabel("seconds")
         ax.set_title(k.split(":")[1] + (" (rung 2 window)" if k.startswith("cyl") else " (long-case window)"),
                      loc="left", fontsize=9.5)
-        ax.legend(frameon=False, fontsize=7.5, loc="lower right")
+        ax.legend(frameon=False, fontsize=7.5, loc="upper left")
     fig.suptitle("Compile once, query many: the query is paid per pair, the compile once per map\n" + CLAIMS,
                  fontsize=9.5, x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0, 1, 0.88))
@@ -504,6 +580,7 @@ def md_tables(R, rep):
     for st in COMPILE_STAGES:
         L.append(f"| {st}_vs_supports | {_fit_txt(F[f'{st}_vs_supports'])} |")
     for grp in ("compile_per_robot", "query_vs_supports_single_runs", "query_vs_supports_fixed_pair",
+                "supports_vs_area_fixed_pair", "compile_vs_area_fixed_pair", "query_vs_area_fixed_pair",
                 "verify_vs_supports_fixed_pair", "verify_vs_distance_fixed_map"):
         for rb, f in F[grp].items():
             L.append(f"| {grp} [{rb}] | {_fit_txt(f)} |")
@@ -540,6 +617,26 @@ def md_tables(R, rep):
         L.append(f"| {r['label']} | {r['robot']} | {r['n_supports']:,} | {_f(st.get('compile_pairs'))} | "
                  f"{_f(st.get('compile_slabs'))} | {_f(st.get('compile_mobility'))} | {_f(r['compile_seconds'])} | "
                  f"{_f(r.get('peak_growth_gib'), 2)} |")
+    L += ["", "## The query's support-call budget (50 M, frozen) at one fixed pair (rung 0, 2.43 m)\n",
+          "| robot | finished | supports | calls per support | query ms per support | map the budget allows | "
+          "first UNKNOWN | hall supports | hall: calls / query h (EXTRAPOLATED) |", "|" + "---|" * 9]
+    for b in T["query_budget"]:
+        fu = b["first_unknown"]
+        L.append(f"| {b['robot']} | {b['n_finished']} | {b['supports_range'][0]:,}–{b['supports_range'][1]:,} | "
+                 f"{b['calls_per_support'][0]:.0f}–{b['calls_per_support'][1]:.0f} | "
+                 f"{b['query_ms_per_support'][0]:.2f}–{b['query_ms_per_support'][1]:.2f} | "
+                 f"≈ {b['n_max_at_budget']:,.0f}{' (extrapolated)' if b['extrapolation'] else ''} | "
+                 + (f"{fu['n_supports']:,} ({fu['reason']}, {fu['support_calls']:,} calls)" if fu else "none") + " | "
+                 f"{_f(b['hall_supports'])} | {_f(b['hall_calls_extrapolated'])} / {_f(b['hall_query_h_extrapolated'], 2)} |")
+    vq = T["verify_over_query"]
+    L += ["", f"verify_curve ÷ query over {vq['n']} finished timed units: {vq['min']:.2f}–{vq['max']:.2f}. "
+          f"Pairs whose query refined the map (every mode of them excluded below): {vq['refined_pairs']}. "
+          f"The other {vq['n_other_pairs']} units: {vq['min_other']:.2f}–{vq['max_other']:.2f}.", ""]
+    L += ["## Compile memory (P4 sweep compile-only units; peak RSS growth of the compile, one process)\n",
+          "| robot | supports | peak growth GiB | GiB per 100 k supports |", "|---|---|---|---|"]
+    for m in rep["day"]["compile_memory_gib_per_100k"]:
+        L.append(f"| {m['robot']} | {m['n_supports']:,} | {m['gib_per_100k'] * m['n_supports'] / 1e5:.2f} | "
+                 f"{m['gib_per_100k']:.2f} |")
     L += ["", "## Calibration: the sweep's cold long-goal unit vs P3's own run\n",
           "| robot | P3 node | P3 compile s | sweep compile s | ratio | P3 query s | sweep query s | ratio |",
           "|---|---|---|---|---|---|---|---|"]

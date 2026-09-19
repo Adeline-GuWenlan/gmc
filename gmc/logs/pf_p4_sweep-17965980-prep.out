@@ -1,0 +1,10 @@
+17:52:39 ROW {"kind": "lane_meta", "experiment": null, "mode": null, "robot": null, "n_supports": null, "ab_dist_m": null, "status": null, "success": null} null
+17:53:06 ROW {"kind": "unit", "experiment": "prep", "mode": "per_scene", "robot": null, "n_supports": null, "ab_dist_m": null, "status": null, "success": null} {"scene_load": 8.775631850963691, "floor_replace": 16.94029107800452}
+17:53:14 ROW {"kind": "unit", "experiment": "project", "mode": "hall", "robot": "sweeper", "n_supports": 51499, "ab_dist_m": null, "status": null, "success": null} {"project": 7.429007928993087}
+17:53:33 ROW {"kind": "unit", "experiment": "project", "mode": "hall", "robot": "uav", "n_supports": 421853, "ab_dist_m": null, "status": null, "success": null} {"project": 19.355858636990888}
+17:54:49 ROW {"kind": "unit", "experiment": "project", "mode": "hall", "robot": "cylinder", "n_supports": 2148885, "ab_dist_m": null, "status": null, "success": null} {"project": 75.80837710597552}
+17:59:25 ROW {"kind": "unit", "experiment": "compile_only", "mode": "compile", "robot": "sweeper", "n_supports": 51499, "ab_dist_m": null, "status": null, "success": null} {"project": 7.258578064996982, "compile_pairs": 4.55836967000505, "compile_slabs": 258.9167918639723, "compile_mobility": 4.7684018180007115}
+18:35:03 ROW {"kind": "unit", "experiment": "compile_only", "mode": "compile", "robot": "uav", "n_supports": 421853, "ab_dist_m": null, "status": null, "success": null} {"project": 19.3362045979884, "compile_pairs": 39.40062412401312, "compile_slabs": 2036.1926632329996, "compile_mobility": 42.24880030899658}
+19:28:17 ROW {"kind": "unit", "experiment": "compile_only", "mode": "compile", "robot": "cylinder", "n_supports": 703015, "ab_dist_m": null, "status": null, "success": null} {"project": 28.36470314898179, "compile_pairs": 71.04387936097919, "compile_slabs": 3027.2023068550043, "compile_mobility": 63.9369204530085}
+19:28:23 ROW {"kind": "lane_done", "experiment": null, "mode": null, "robot": null, "n_supports": null, "ab_dist_m": null, "status": null, "success": null} null
+19:28:23 LANE prep DONE in 5744s -> results/height/timing/sweep/prep.jsonl

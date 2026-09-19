@@ -1,0 +1,2480 @@
+{
+ "claims_boundary": "plane floor = user-approved manual scene edit (sound wrt the edited scene only); P2/P3 cases use criterion 3 relaxed by user decision D1",
+ "fits": {
+  "compile_vs_supports_runs_only": {
+   "power": {
+    "n": 15,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     143.0,
+     156426.0
+    ],
+    "y_range": [
+     0.6417562961578369,
+     766.4022002220154
+    ],
+    "exponent": 0.9954828850907087,
+    "coef": 0.004358924001327595,
+    "r2": 0.9976025570176955,
+    "refused": null
+   },
+   "linear": {
+    "n": 15,
+    "model": "y = intercept + slope * x",
+    "x_range": [
+     143.0,
+     156426.0
+    ],
+    "slope": 0.00436986335313389,
+    "intercept": -7.737266356168472,
+    "r2": 0.983310044590825,
+    "refused": null
+   }
+  },
+  "compile_vs_supports_all": {
+   "power": {
+    "n": 50,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     143.0,
+     703015.0
+    ],
+    "y_range": [
+     0.6417562961578369,
+     3162.183106668992
+    ],
+    "exponent": 0.9940586937752065,
+    "coef": 0.00480665991951013,
+    "r2": 0.9968468424548643,
+    "refused": null
+   },
+   "linear": {
+    "n": 50,
+    "model": "y = intercept + slope * x",
+    "x_range": [
+     143.0,
+     703015.0
+    ],
+    "slope": 0.0046119905962072865,
+    "intercept": -4.191482648563511,
+    "r2": 0.9952920160064201,
+    "refused": null
+   }
+  },
+  "compile_pairs_vs_supports": {
+   "n": 47,
+   "model": "y = coef * x^exponent (log-log least squares)",
+   "x_range": [
+    462.0,
+    703015.0
+   ],
+   "y_range": [
+    0.03424186600022949,
+    71.04387936097919
+   ],
+   "exponent": 1.0250626085770713,
+   "coef": 6.369391164557004e-05,
+   "r2": 0.9961713959395049,
+   "refused": null
+  },
+  "compile_slabs_vs_supports": {
+   "n": 47,
+   "model": "y = coef * x^exponent (log-log least squares)",
+   "x_range": [
+    462.0,
+    703015.0
+   ],
+   "y_range": [
+    2.123312112002168,
+    3027.2023068550043
+   ],
+   "exponent": 0.9867637704122612,
+   "coef": 0.004995392931988312,
+   "r2": 0.9958071034227539,
+   "refused": null
+  },
+  "compile_mobility_vs_supports": {
+   "n": 47,
+   "model": "y = coef * x^exponent (log-log least squares)",
+   "x_range": [
+    462.0,
+    703015.0
+   ],
+   "y_range": [
+    0.03539617598289624,
+    63.9369204530085
+   ],
+   "exponent": 1.0318006301421472,
+   "coef": 6.176936649221942e-05,
+   "r2": 0.9968251652620028,
+   "refused": null
+  },
+  "compile_per_robot": {
+   "sweeper": {
+    "n": 18,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     462.0,
+     51499.0
+    ],
+    "y_range": [
+     1.962113380432129,
+     268.2435633519781
+    ],
+    "exponent": 1.0398005699455903,
+    "coef": 0.0034232605057742493,
+    "r2": 0.9954584523533956,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 14,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     3791.0,
+     703015.0
+    ],
+    "y_range": [
+     17.308266401290894,
+     3162.183106668992
+    ],
+    "exponent": 0.9990861902196342,
+    "coef": 0.004396851382483037,
+    "r2": 0.9918635848556979,
+    "refused": null
+   },
+   "uav": {
+    "n": 18,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     143.0,
+     421853.0
+    ],
+    "y_range": [
+     0.6417562961578369,
+     2117.8420876660093
+    ],
+    "exponent": 1.0073348859889613,
+    "coef": 0.004130294350270142,
+    "r2": 0.9981365782788455,
+    "refused": null
+   }
+  },
+  "compile_distinct_supports": 30,
+  "project_vs_supports": {
+   "sweeper": {
+    "n": 34,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     462.0,
+     51499.0
+    ],
+    "y_range": [
+     4.274218,
+     7.429007928993087
+    ],
+    "exponent": 0.03378956297983405,
+    "coef": 3.8966178081561966,
+    "r2": 0.05772600722148047,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 44,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     21144.0,
+     2148885.0
+    ],
+    "y_range": [
+     5.220538,
+     75.80837710597552
+    ],
+    "exponent": 0.41130962775291047,
+    "coef": 0.07545394240946365,
+    "r2": 0.760865258142686,
+    "refused": null
+   },
+   "uav": {
+    "n": 34,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     1160.0,
+     421853.0
+    ],
+    "y_range": [
+     4.734128,
+     19.355858636990888
+    ],
+    "exponent": 0.1951113497317596,
+    "coef": 0.8590494030808423,
+    "r2": 0.4674643158804922,
+    "refused": null
+   }
+  },
+  "project_vs_supports_linear": {
+   "sweeper": {
+    "n": 34,
+    "model": "y = intercept + slope * x",
+    "x_range": [
+     462.0,
+     51499.0
+    ],
+    "slope": 3.4568407842095374e-05,
+    "intercept": 4.932349390125638,
+    "r2": 0.2960503228299147,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 44,
+    "model": "y = intercept + slope * x",
+    "x_range": [
+     21144.0,
+     2148885.0
+    ],
+    "slope": 3.1894804736447425e-05,
+    "intercept": 4.2354711149341,
+    "r2": 0.977428539443685,
+    "refused": null
+   },
+   "uav": {
+    "n": 34,
+    "model": "y = intercept + slope * x",
+    "x_range": [
+     1160.0,
+     421853.0
+    ],
+    "slope": 3.0378779579053058e-05,
+    "intercept": 4.921421334607636,
+    "r2": 0.9144127064910369,
+    "refused": null
+   }
+  },
+  "query_vs_supports_single_runs": {
+   "sweeper": {
+    "n": 3,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     477.0,
+     6436.0
+    ],
+    "y_range": [
+     3.4448888301849365,
+     107.46286273002625
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 3 < 4: no fit, give the table instead"
+   },
+   "cylinder": {
+    "n": 4,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     3791.0,
+     46835.0
+    ],
+    "y_range": [
+     174.81283354759216,
+     628.7833902835846
+    ],
+    "exponent": 0.09174813111902343,
+    "coef": 151.39900972972978,
+    "r2": 0.03959304729493551,
+    "refused": null
+   },
+   "uav": {
+    "n": 3,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     143.0,
+     39834.0
+    ],
+    "y_range": [
+     0.2754087448120117,
+     292.9072051048279
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 3 < 4: no fit, give the table instead"
+   }
+  },
+  "query_vs_distance_fixed_map": {
+   "sweeper:cold": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     19.805196547997184,
+     146.16311502599274
+    ],
+    "exponent": 1.2535915717246613,
+    "coef": 7.438399254497592,
+    "r2": 0.9258782678791234,
+    "refused": null
+   },
+   "sweeper:warm1": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     19.933986226998968,
+     146.5477543939778
+    ],
+    "exponent": 1.2731222971469118,
+    "coef": 7.268081209430065,
+    "r2": 0.9313296223219472,
+    "refused": null
+   },
+   "sweeper:warm2": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     19.588352411985397,
+     145.65840023901546
+    ],
+    "exponent": 1.2806273720890466,
+    "coef": 7.136496266512368,
+    "r2": 0.931453490125474,
+    "refused": null
+   },
+   "cylinder:cold": {
+    "n": 0,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": null,
+    "y_range": null,
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 0 < 4: no fit, give the table instead"
+   },
+   "cylinder:warm1": {
+    "n": 3,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     5.453897688809352
+    ],
+    "y_range": [
+     451.15318382999976,
+     732.095397401019
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 3 < 4: no fit, give the table instead"
+   },
+   "cylinder:warm2": {
+    "n": 3,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     5.453897688809352
+    ],
+    "y_range": [
+     434.8215637690155,
+     736.1252846829884
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 3 < 4: no fit, give the table instead"
+   },
+   "uav:cold": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     58.40529526400496,
+     2213.9405089879874
+    ],
+    "exponent": 1.7538265560295931,
+    "coef": 8.298193694958064,
+    "r2": 0.5358780309155833,
+    "refused": null
+   },
+   "uav:warm1": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     65.96854734097724,
+     2454.4611660349765
+    ],
+    "exponent": 1.6828597912154395,
+    "coef": 10.251392256243783,
+    "r2": 0.5057131350121971,
+    "refused": null
+   },
+   "uav:warm2": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     57.24021269500372,
+     1322.8690885329852
+    ],
+    "exponent": 1.6453866237724515,
+    "coef": 8.569903599736978,
+    "r2": 0.5815926374907208,
+    "refused": null
+   }
+  },
+  "query_vs_supports_fixed_pair": {
+   "sweeper": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     462.0,
+     9682.0
+    ],
+    "y_range": [
+     1.3894611439900473,
+     26.846042743010912
+    ],
+    "exponent": 0.9793073890259513,
+    "coef": 0.003378357306979138,
+    "r2": 0.9999153582706345,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 2,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     21144.0,
+     44883.0
+    ],
+    "y_range": [
+     229.06084503201419,
+     486.88394176898873
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 2 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     1160.0,
+     91381.0
+    ],
+    "y_range": [
+     1.654600693989778,
+     134.7991467899992
+    ],
+    "exponent": 0.9950650118066459,
+    "coef": 0.0015066268295960525,
+    "r2": 0.9997281195046461,
+    "refused": null
+   }
+  },
+  "compile_vs_area_fixed_pair": {
+   "sweeper": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     2.1929501539852936,
+     46.29300979396794
+    ],
+    "exponent": 1.007312298612507,
+    "coef": 0.33590176579456416,
+    "r2": 0.9950137245177675,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 2,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     14.500776959999996
+    ],
+    "y_range": [
+     105.93157247398631,
+     226.4656141680025
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 2 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     4.8814313799957745,
+     399.79896272098995
+    ],
+    "exponent": 1.4980382626125328,
+    "coef": 0.29943579538105675,
+    "r2": 0.9827789426251521,
+    "refused": null
+   }
+  },
+  "query_vs_area_fixed_pair": {
+   "sweeper": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     1.3894611439900473,
+     26.846042743010912
+    ],
+    "exponent": 0.9837228129794857,
+    "coef": 0.2202136744185475,
+    "r2": 0.9954907970548054,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 2,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     14.500776959999996
+    ],
+    "y_range": [
+     229.06084503201419,
+     486.88394176898873
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 2 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     1.654600693989778,
+     134.7991467899992
+    ],
+    "exponent": 1.4856259115528436,
+    "coef": 0.10571638976520374,
+    "r2": 0.983971602532427,
+    "refused": null
+   }
+  },
+  "supports_vs_area_fixed_pair": {
+   "sweeper": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     462.0,
+     9682.0
+    ],
+    "exponent": 1.0041897118277314,
+    "coef": 71.28114786460264,
+    "r2": 0.994942820237671,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 2,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     14.500776959999996
+    ],
+    "y_range": [
+     21144.0,
+     44883.0
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 2 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     7.247999999999999,
+     143.99900676
+    ],
+    "y_range": [
+     1160.0,
+     91381.0
+    ],
+    "exponent": 1.4913422015816693,
+    "coef": 72.09403657553614,
+    "r2": 0.9820627832236074,
+    "refused": null
+   }
+  },
+  "verify_vs_distance_fixed_map": {
+   "sweeper": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     9.848691229999531,
+     72.68837681101286
+    ],
+    "exponent": 1.2580839083582769,
+    "coef": 3.6797140600566407,
+    "r2": 0.9279203623845651,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 0,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": null,
+    "y_range": null,
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 0 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 7,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     2.433105012119288,
+     11.236102527122116
+    ],
+    "y_range": [
+     28.631441053992603,
+     356.34508342598565
+    ],
+    "exponent": 1.552046316054109,
+    "coef": 5.008733867725904,
+    "r2": 0.7188063077188812,
+    "refused": null
+   }
+  },
+  "verify_vs_supports_fixed_pair": {
+   "sweeper": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     462.0,
+     9682.0
+    ],
+    "y_range": [
+     0.6886845639965031,
+     13.166981545975432
+    ],
+    "exponent": 0.9820345471697813,
+    "coef": 0.0016365205301481236,
+    "r2": 0.9994353679291673,
+    "refused": null
+   },
+   "cylinder": {
+    "n": 2,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     21144.0,
+     44883.0
+    ],
+    "y_range": [
+     111.74086217599688,
+     236.0776565010019
+    ],
+    "exponent": null,
+    "coef": null,
+    "r2": null,
+    "refused": "n = 2 < 4: no fit, give the table instead"
+   },
+   "uav": {
+    "n": 6,
+    "model": "y = coef * x^exponent (log-log least squares)",
+    "x_range": [
+     1160.0,
+     91381.0
+    ],
+    "y_range": [
+     0.829040247015655,
+     65.19059938300052
+    ],
+    "exponent": 0.9945463362179913,
+    "coef": 0.0007423354803382672,
+    "r2": 0.999915053103536,
+    "refused": null
+   }
+  },
+  "replay3d_vs_distance": {
+   "n": 69,
+   "model": "y = coef * x^exponent (log-log least squares)",
+   "x_range": [
+    2.358495283014151,
+    11.236102527122116
+   ],
+   "y_range": [
+    0.7621896160126198,
+    7.141264144011075
+   ],
+   "exponent": 0.6633734406617096,
+   "coef": 0.8478133603576359,
+   "r2": 0.30685914644208123,
+   "refused": null
+  }
+ },
+ "tables": {
+  "compile_once_query_many": {
+   "dist:sweeper": {
+    "compile_once_s": 32.97147569601657,
+    "cold_compile_s": [
+     32.71688073099358,
+     32.87117816100363,
+     32.750357846030965,
+     32.465362757007824,
+     32.424984379002126,
+     32.67663431199617,
+     32.47532616194803
+    ],
+    "cold_compile_cv": 0.004850631382646894,
+    "median_query_s": {
+     "cold": 55.41010742451181,
+     "warm1": 55.29334808400017,
+     "warm2": 55.247822070508846
+    },
+    "query_over_compile_median": {
+     "cold": 1.6805467833884715,
+     "warm1": 1.6770055606179741,
+     "warm2": 1.6756247909517614
+    },
+    "rows": [
+     {
+      "mode": "cold",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 19.805196547997184,
+      "compile_s": 32.71688073099358,
+      "rounds": 0,
+      "support_calls": 1597926,
+      "verify_s": 9.848691229999531,
+      "replay3d_s": 1.859065222000936,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 55.68137099299929,
+      "compile_s": 32.87117816100363,
+      "rounds": 0,
+      "support_calls": 812386,
+      "verify_s": 27.619663505000062,
+      "replay3d_s": 3.76954836997902,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 55.13884385602432,
+      "compile_s": 32.750357846030965,
+      "rounds": 0,
+      "support_calls": 811084,
+      "verify_s": 27.686412546987412,
+      "replay3d_s": 3.6429360170150176,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 74.48566130900872,
+      "compile_s": 32.465362757007824,
+      "rounds": 0,
+      "support_calls": 1605180,
+      "verify_s": 36.89352293097181,
+      "replay3d_s": 3.267158039001515,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 146.16311502599274,
+      "compile_s": 32.424984379002126,
+      "rounds": 0,
+      "support_calls": 1621796,
+      "verify_s": 72.68837681101286,
+      "replay3d_s": 5.033459210011642,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 122.68566922401078,
+      "compile_s": 32.67663431199617,
+      "rounds": 0,
+      "support_calls": 1617332,
+      "verify_s": 61.91755230398849,
+      "replay3d_s": 4.440256458998192,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 136.72315398498904,
+      "compile_s": 32.47532616194803,
+      "rounds": 0,
+      "support_calls": 1613550,
+      "verify_s": 68.17594193501282,
+      "replay3d_s": 4.171184952982003,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 19.933986226998968,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1597926,
+      "verify_s": 9.695869390008738,
+      "replay3d_s": 1.8466536329942755,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 55.35619152401341,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 812386,
+      "verify_s": 27.542267632001312,
+      "replay3d_s": 3.873306452995166,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 55.23050464398693,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 811084,
+      "verify_s": 27.946002440003213,
+      "replay3d_s": 3.606657132972032,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 74.7479014909768,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1605180,
+      "verify_s": 37.38442758101155,
+      "replay3d_s": 3.2590390739787836,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 146.5477543939778,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1621796,
+      "verify_s": 73.14206174798892,
+      "replay3d_s": 5.021700579003664,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 132.113788837014,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1617332,
+      "verify_s": 66.23182018499938,
+      "replay3d_s": 4.781816931994399,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 137.34516208601417,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1613550,
+      "verify_s": 68.45920186000876,
+      "replay3d_s": 4.15864032600075,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 19.588352411985397,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1597926,
+      "verify_s": 9.657576736004557,
+      "replay3d_s": 1.8066308799898252,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 55.26902631201665,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 812386,
+      "verify_s": 27.67809768000734,
+      "replay3d_s": 3.7566471610043664,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 55.22661782900104,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 811084,
+      "verify_s": 27.591815391002456,
+      "replay3d_s": 3.5656318120018113,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 74.39405034101219,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1605180,
+      "verify_s": 37.33160914899781,
+      "replay3d_s": 3.251111463003326,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 145.65840023901546,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1621796,
+      "verify_s": 72.79307867298485,
+      "replay3d_s": 5.004857988998992,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 132.05709344800562,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1617332,
+      "verify_s": 65.93944827100495,
+      "replay3d_s": 4.725777653977275,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 137.10454805000336,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 1613550,
+      "verify_s": 68.38789371500025,
+      "replay3d_s": 4.15003587200772,
+      "success": true,
+      "status": "REACHABLE"
+     }
+    ]
+   },
+   "cyl_warm:cylinder": {
+    "compile_once_s": 210.45915089396294,
+    "cold_compile_s": [],
+    "cold_compile_cv": null,
+    "median_query_s": {
+     "cold": null,
+     "warm1": 478.55783327299287,
+     "warm2": 477.9726507279847
+    },
+    "query_over_compile_median": {
+     "cold": null,
+     "warm1": 2.273875149834221,
+     "warm2": 2.2710946456721426
+    },
+    "rows": [
+     {
+      "mode": "warm1",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 451.15318382999976,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 46489212,
+      "verify_s": 211.80512619100045,
+      "replay3d_s": 2.918794982979307,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 732.095397401019,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 23335684,
+      "verify_s": 366.60350268901675,
+      "replay3d_s": 4.690389044000767,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 478.55783327299287,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5891302,
+      "verify_s": 237.9224895600055,
+      "replay3d_s": 4.6101001590141095,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 434.8215637690155,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 46489212,
+      "verify_s": 216.2647051019885,
+      "replay3d_s": 3.0653892529953737,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 736.1252846829884,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 23335684,
+      "verify_s": 365.77479839802254,
+      "replay3d_s": 4.66808492798009,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 477.9726507279847,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5891302,
+      "verify_s": 248.27777184001752,
+      "replay3d_s": 4.891976651997538,
+      "success": true,
+      "status": "REACHABLE"
+     }
+    ]
+   },
+   "dist:uav": {
+    "compile_once_s": 197.3785695359984,
+    "cold_compile_s": [
+     178.03429881398915,
+     177.04284959600773,
+     175.39589823398273,
+     176.7939397339651,
+     177.8412528350309,
+     177.84568054796546,
+     170.74395032200846
+    ],
+    "cold_compile_cv": 0.01360275678531675,
+    "median_query_s": {
+     "cold": 141.53861933600274,
+     "warm1": 157.9002737159899,
+     "warm2": 94.31191930350906
+    },
+    "query_over_compile_median": {
+     "cold": 0.7170921324880135,
+     "warm1": 0.799986918981048,
+     "warm2": 0.4778224886583151
+    },
+    "rows": [
+     {
+      "mode": "cold",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 58.40529526400496,
+      "compile_s": 178.03429881398915,
+      "rounds": 0,
+      "support_calls": 4968618,
+      "verify_s": 28.631441053992603,
+      "replay3d_s": 0.8029748660046607,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 65.49883479002165,
+      "compile_s": 177.04284959600773,
+      "rounds": 0,
+      "support_calls": 4964588,
+      "verify_s": 32.72848585998872,
+      "replay3d_s": 0.8094392049824819,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 70.74857003800571,
+      "compile_s": 175.39589823398273,
+      "rounds": 0,
+      "support_calls": 4965084,
+      "verify_s": 33.627725286001805,
+      "replay3d_s": 0.8107562889927067,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 212.32866863399977,
+      "compile_s": 176.7939397339651,
+      "rounds": 0,
+      "support_calls": 19791888,
+      "verify_s": 102.94132472897763,
+      "replay3d_s": 0.8520775910001248,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 2213.9405089879874,
+      "compile_s": 177.8412528350309,
+      "rounds": 1,
+      "support_calls": 1352158,
+      "verify_s": 356.34508342598565,
+      "replay3d_s": 6.759456208994379,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 338.32933606699225,
+      "compile_s": 177.84568054796546,
+      "rounds": 0,
+      "support_calls": 5134778,
+      "verify_s": 162.7007548600086,
+      "replay3d_s": 3.795739708992187,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "cold",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 327.71877458301606,
+      "compile_s": 170.74395032200846,
+      "rounds": 0,
+      "support_calls": 5123618,
+      "verify_s": 166.88295484200353,
+      "replay3d_s": 3.8177060789894313,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 65.96854734097724,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4968618,
+      "verify_s": 32.30208830701304,
+      "replay3d_s": 0.9574975069845095,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 74.09448036100366,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4964588,
+      "verify_s": 36.39280397898983,
+      "replay3d_s": 0.9655235999962315,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 77.85184152898728,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4965084,
+      "verify_s": 38.41985089398804,
+      "replay3d_s": 0.9918814889970236,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 237.94870590299251,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 19791888,
+      "verify_s": 117.52871689898893,
+      "replay3d_s": 1.0187137289904058,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 2454.4611660349765,
+      "compile_s": null,
+      "rounds": 1,
+      "support_calls": 1352158,
+      "verify_s": 353.3791351589898,
+      "replay3d_s": 6.412983349000569,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 343.1908665529918,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5134778,
+      "verify_s": 164.50401084998157,
+      "replay3d_s": 3.8376506349886768,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm1",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 328.4563644899754,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5123618,
+      "verify_s": 165.1711102600093,
+      "replay3d_s": 3.823191825998947,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 2.433105012119288,
+      "query_s": 57.24021269500372,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4968618,
+      "verify_s": 28.165807818993926,
+      "replay3d_s": 0.8128726980066858,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 3.9962482405376165,
+      "query_s": 64.11812568901223,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4964588,
+      "verify_s": 31.958165191987064,
+      "replay3d_s": 0.811354712001048,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 5.453897688809352,
+      "query_s": 67.49178601402673,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 4965084,
+      "verify_s": 33.763331956986804,
+      "replay3d_s": 0.8080685499880929,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 6.901630242196404,
+      "query_s": 121.13205259299139,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 9913056,
+      "verify_s": 60.02521382900886,
+      "replay3d_s": 0.8436328489915468,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 8.583851117068608,
+      "query_s": 1322.8690885329852,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 34006225,
+      "verify_s": 344.7010621940135,
+      "replay3d_s": 7.141264144011075,
+      "success": false,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 9.827003612495519,
+      "query_s": 337.9314236319915,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5134778,
+      "verify_s": 166.9817338429857,
+      "replay3d_s": 3.855878133996157,
+      "success": true,
+      "status": "REACHABLE"
+     },
+     {
+      "mode": "warm2",
+      "ab_dist_m": 11.236102527122116,
+      "query_s": 330.40771059700637,
+      "compile_s": null,
+      "rounds": 0,
+      "support_calls": 5123618,
+      "verify_s": 164.82623181998497,
+      "replay3d_s": 3.791111709026154,
+      "success": true,
+      "status": "REACHABLE"
+     }
+    ]
+   }
+  },
+  "calibration": [
+   {
+    "robot": "sweeper",
+    "p3_node": "cs601",
+    "p3_compile_s": 25.029441118240356,
+    "p3_query_s": 107.46286273002625,
+    "sweep_compile_s": 32.47532616194803,
+    "sweep_query_s": 136.72315398498904,
+    "compile_ratio": 1.297485070023455,
+    "query_ratio": 1.272282819493391
+   },
+   {
+    "robot": "uav",
+    "p3_node": "cs601",
+    "p3_compile_s": 153.37235355377197,
+    "p3_query_s": 292.9072051048279,
+    "sweep_compile_s": 170.74395032200846,
+    "sweep_query_s": 327.71877458301606,
+    "compile_ratio": 1.113264198962338,
+    "query_ratio": 1.1188484573663169
+   }
+  ],
+  "where_time_goes": [
+   {
+    "label": "P2 sweeper",
+    "source": "P2 shared",
+    "robot": "sweeper",
+    "n_supports": 1779,
+    "ab_dist_m": 2.358495283014151,
+    "status": "REACHABLE",
+    "total_s": 31.237151713008643,
+    "seconds": {
+     "prep": 5.256935039011296,
+     "compile": 6.998057135991985,
+     "query": 11.332696835001116,
+     "prove": 7.649462703004247
+    },
+    "share": {
+     "prep": 0.16829111332907018,
+     "compile": 0.22402993718142553,
+     "query": 0.36279546032622556,
+     "prove": 0.24488348916327876
+    },
+    "stages": {
+     "scene_load": 0.8225748080003541,
+     "project": 4.434360231010942,
+     "compile_pairs": 0.11729978400398977,
+     "compile_slabs": 6.7679985579889035,
+     "compile_mobility": 0.11275879399909172,
+     "query": 11.332696835001116,
+     "verify_curve": 5.566938960997504,
+     "replay3d": 2.0825237420067424
+    }
+   },
+   {
+    "label": "P2 uav",
+    "source": "P2 shared",
+    "robot": "uav",
+    "n_supports": 19867,
+    "ab_dist_m": 2.358495283014151,
+    "status": "REACHABLE",
+    "total_s": 377.8406481509737,
+    "seconds": {
+     "prep": 9.910219698998844,
+     "compile": 108.53370213398011,
+     "query": 171.94098385500547,
+     "prove": 87.45574246298929
+    },
+    "share": {
+     "prep": 0.026228569497475082,
+     "compile": 0.28724728973737446,
+     "query": 0.455062166276782,
+     "prove": 0.23146197448836847
+    },
+    "stages": {
+     "scene_load": 1.875379011995392,
+     "project": 8.034840687003452,
+     "compile_pairs": 2.1067643529968336,
+     "compile_slabs": 104.28348820899555,
+     "compile_mobility": 2.1434495719877305,
+     "query": 171.94098385500547,
+     "verify_curve": 84.78170254599536,
+     "replay3d": 2.6740399169939337
+    }
+   },
+   {
+    "label": "P2 cylinder",
+    "source": "P2 shared",
+    "robot": "cylinder",
+    "n_supports": 156426,
+    "ab_dist_m": 2.358495283014151,
+    "status": "UNKNOWN",
+    "total_s": 8654.244878379992,
+    "seconds": {
+     "prep": 10.447407053987263,
+     "compile": 675.6901892780006,
+     "query": 7968.107282048004
+    },
+    "share": {
+     "prep": 0.0012072003046836523,
+     "compile": 0.07807615785936538,
+     "query": 0.9207166418359509
+    },
+    "stages": {
+     "scene_load": 0.79075327499595,
+     "project": 9.656653778991313,
+     "compile_pairs": 12.9852076239913,
+     "compile_slabs": 648.5282845510083,
+     "compile_mobility": 14.176697103001061,
+     "query": 7968.107282048004
+    }
+   },
+   {
+    "label": "P2 cylinder b2",
+    "source": "P2 shared",
+    "robot": "cylinder",
+    "n_supports": 156426,
+    "ab_dist_m": 2.358495283014151,
+    "status": "UNKNOWN",
+    "total_s": 15805.434276234999,
+    "seconds": {
+     "prep": 12.280273863987532,
+     "compile": 766.3981063899992,
+     "query": 15026.755895981012
+    },
+    "share": {
+     "prep": 0.00077696529240276,
+     "compile": 0.04848953170128029,
+     "query": 0.950733503006317
+    },
+    "stages": {
+     "scene_load": 1.2716341599880252,
+     "project": 11.008639703999506,
+     "compile_pairs": 15.265237135987263,
+     "compile_slabs": 734.6241710110044,
+     "compile_mobility": 16.50869824300753,
+     "query": 15026.755895981012
+    }
+   },
+   {
+    "label": "P3 sweeper",
+    "source": "P3 long",
+    "robot": "sweeper",
+    "n_supports": 6436,
+    "ab_dist_m": 11.236102527122116,
+    "status": "REACHABLE",
+    "total_s": 194.2541229230119,
+    "seconds": {
+     "prep": 6.160304394987179,
+     "compile": 25.029264257027535,
+     "query": 107.46283509000205,
+     "prove": 55.60171918099513
+    },
+    "share": {
+     "prep": 0.03171260564404428,
+     "compile": 0.1288480464682199,
+     "query": 0.5532074865283165,
+     "prove": 0.2862318613594193
+    },
+    "stages": {
+     "scene_load": 0.8033537699957378,
+     "project": 5.356950624991441,
+     "compile_pairs": 0.44375960499746725,
+     "compile_slabs": 24.10385638201842,
+     "compile_mobility": 0.4816482700116467,
+     "query": 107.46283509000205,
+     "verify_curve": 52.28806051198626,
+     "replay3d": 3.3136586690088734
+    }
+   },
+   {
+    "label": "P3 uav",
+    "source": "P3 long",
+    "robot": "uav",
+    "n_supports": 39834,
+    "ab_dist_m": 11.236102527122116,
+    "status": "REACHABLE",
+    "total_s": 604.2211588739883,
+    "seconds": {
+     "prep": 8.51849278298323,
+     "compile": 153.37158356700093,
+     "query": 292.9071786830027,
+     "prove": 149.42390384100145
+    },
+    "share": {
+     "prep": 0.014098302679201244,
+     "compile": 0.253833519919793,
+     "query": 0.48476815877957224,
+     "prove": 0.24730001862143353
+    },
+    "stages": {
+     "scene_load": 1.781601241993485,
+     "project": 6.736891540989745,
+     "compile_pairs": 2.883914893027395,
+     "compile_slabs": 147.3950442969799,
+     "compile_mobility": 3.0926243769936264,
+     "query": 292.9071786830027,
+     "verify_curve": 145.5078127179877,
+     "replay3d": 3.916091123013757
+    }
+   },
+   {
+    "label": "P3 rung 0",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 21144,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 352.3127334820165,
+    "seconds": {
+     "prep": 8.577184246008983,
+     "compile": 80.95907997700851,
+     "query": 174.81280888599576,
+     "prove": 87.96366037300322
+    },
+    "share": {
+     "prep": 0.024345371117410374,
+     "compile": 0.22979322710497777,
+     "query": 0.49618646240306535,
+     "prove": 0.2496749393745465
+    },
+    "stages": {
+     "scene_load": 1.8713810280023608,
+     "project": 6.705803218006622,
+     "compile_pairs": 1.4338583610078786,
+     "compile_slabs": 77.9774410270038,
+     "compile_mobility": 1.5477805889968295,
+     "query": 174.81280888599576,
+     "verify_curve": 85.21765907699591,
+     "replay3d": 2.7460012960073072
+    }
+   },
+   {
+    "label": "P3 rung 1",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 45572,
+    "ab_dist_m": 3.9962482405376165,
+    "status": "REACHABLE",
+    "total_s": 1127.71831527396,
+    "seconds": {
+     "prep": 7.730471207993105,
+     "compile": 174.67014310596278,
+     "query": 628.7833602199971,
+     "prove": 316.5343407400069
+    },
+    "share": {
+     "prep": 0.00685496644267511,
+     "compile": 0.1548880963802824,
+     "query": 0.5575712939159323,
+     "prove": 0.2806856432611102
+    },
+    "stages": {
+     "scene_load": 0.863913784007309,
+     "project": 6.866557423985796,
+     "compile_pairs": 3.0889793499954976,
+     "compile_slabs": 168.3381396549812,
+     "compile_mobility": 3.2430241009860765,
+     "query": 628.7833602199971,
+     "verify_curve": 312.1484006259998,
+     "replay3d": 4.385940114007099
+    }
+   },
+   {
+    "label": "P3 rung 2",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 46835,
+    "ab_dist_m": 5.453897688809352,
+    "status": "REACHABLE",
+    "total_s": 862.916467100993,
+    "seconds": {
+     "prep": 8.916149228985887,
+     "compile": 184.99655737000285,
+     "query": 445.00562612499925,
+     "prove": 223.99813437700504
+    },
+    "share": {
+     "prep": 0.010332575132028822,
+     "compile": 0.21438524402194706,
+     "query": 0.5156995411386873,
+     "prove": 0.2595826397073368
+    },
+    "stages": {
+     "scene_load": 1.4268886329955421,
+     "project": 7.489260595990345,
+     "compile_pairs": 3.355488008004613,
+     "compile_slabs": 178.10062640099204,
+     "compile_mobility": 3.5404429610061925,
+     "query": 445.00562612499925,
+     "verify_curve": 219.75859104900155,
+     "replay3d": 4.239543328003492
+    }
+   },
+   {
+    "label": "P3 rung 3",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 73178,
+    "ab_dist_m": 6.901630242196404,
+    "status": "UNKNOWN",
+    "total_s": 1013.8324023700261,
+    "seconds": {
+     "prep": 7.425857209018432,
+     "compile": 283.86591709800996,
+     "query": 722.5406280629977
+    },
+    "share": {
+     "prep": 0.007324541207855537,
+     "compile": 0.2799929420626322,
+     "query": 0.7126825167295122
+    },
+    "stages": {
+     "scene_load": 0.7954288810142316,
+     "project": 6.6304283280042,
+     "compile_pairs": 5.338389478012687,
+     "compile_slabs": 272.79868518700823,
+     "compile_mobility": 5.72884243298904,
+     "query": 722.5406280629977
+    }
+   },
+   {
+    "label": "P3 rung 4",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 149303,
+    "ab_dist_m": 8.583851117068608,
+    "status": "UNKNOWN",
+    "total_s": 2304.336561259959,
+    "seconds": {
+     "prep": 9.399764385976596,
+     "compile": 581.0469359609997,
+     "query": 1713.8898609129828
+    },
+    "share": {
+     "prep": 0.00407916297645211,
+     "compile": 0.25215367656332993,
+     "query": 0.743767160460218
+    },
+    "stages": {
+     "scene_load": 0.87713657997665,
+     "project": 8.522627805999946,
+     "compile_pairs": 11.320752575004008,
+     "compile_slabs": 557.6026847629983,
+     "compile_mobility": 12.123498622997431,
+     "query": 1713.8898609129828
+    }
+   },
+   {
+    "label": "P3 rung 3 b2",
+    "source": "P3 ladder",
+    "robot": "cylinder",
+    "n_supports": 73178,
+    "ab_dist_m": 6.901630242196404,
+    "status": "UNKNOWN",
+    "total_s": 1591.2522972860606,
+    "seconds": {
+     "prep": 8.410581961012213,
+     "compile": 293.8242557240301,
+     "query": 1289.0174596010183
+    },
+    "share": {
+     "prep": 0.00528551127646871,
+     "compile": 0.18464969774130613,
+     "query": 0.8100647909822252
+    },
+    "stages": {
+     "scene_load": 1.1293690399907064,
+     "project": 7.281212921021506,
+     "compile_pairs": 5.392779852991225,
+     "compile_slabs": 282.2632809840143,
+     "compile_mobility": 6.168194887024583,
+     "query": 1289.0174596010183
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "cylinder",
+    "n_supports": 21144,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 457.18363949199556,
+    "seconds": {
+     "prep": 6.886990606988547,
+     "compile": 105.93157247398631,
+     "query": 229.06084503201419,
+     "prove": 115.30423137900652
+    },
+    "share": {
+     "prep": 0.015063948077059582,
+     "compile": 0.23170464409376787,
+     "query": 0.501025901291082,
+     "prove": 0.25220550653809054
+    },
+    "stages": {
+     "project": 6.886990606988547,
+     "compile_pairs": 1.9558892569912132,
+     "compile_slabs": 101.96001742599765,
+     "compile_mobility": 2.0156657909974456,
+     "query": 229.06084503201419,
+     "verify_curve": 111.74086217599688,
+     "replay3d": 3.5633692030096427
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "cylinder",
+    "n_supports": 44883,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 960.6453249070037,
+    "seconds": {
+     "prep": 7.6494400200026575,
+     "compile": 226.4656141680025,
+     "query": 486.88394176898873,
+     "prove": 239.64632895000977
+    },
+    "share": {
+     "prep": 0.007962813976889098,
+     "compile": 0.2357432116685997,
+     "query": 0.5068300746855996,
+     "prove": 0.24946389966891164
+    },
+    "stages": {
+     "project": 7.6494400200026575,
+     "compile_pairs": 4.3914624960161746,
+     "compile_slabs": 217.5956078619929,
+     "compile_mobility": 4.478543809993425,
+     "query": 486.88394176898873,
+     "verify_curve": 236.0776565010019,
+     "replay3d": 3.568672449007863
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "cylinder",
+    "n_supports": 98037,
+    "ab_dist_m": 2.433105012119288,
+    "status": "UNKNOWN",
+    "total_s": 1060.3897606579703,
+    "seconds": {
+     "prep": 9.394592928991187,
+     "compile": 495.3201033810037,
+     "query": 555.6750643479754
+    },
+    "share": {
+     "prep": 0.008859565866763798,
+     "compile": 0.467111360141443,
+     "query": 0.5240290739917932
+    },
+    "stages": {
+     "project": 9.394592928991187,
+     "compile_pairs": 9.326191216998268,
+     "compile_slabs": 476.3760551000014,
+     "compile_mobility": 9.617857064004056,
+     "query": 555.6750643479754
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 462,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 11.712135153997224,
+    "seconds": {
+     "prep": 5.690467392007122,
+     "compile": 2.1929501539852936,
+     "query": 1.3894611439900473,
+     "prove": 2.439256464014761
+    },
+    "share": {
+     "prep": 0.4858608031060013,
+     "compile": 0.1872374358006673,
+     "query": 0.11863431609358088,
+     "prove": 0.2082674449997505
+    },
+    "stages": {
+     "project": 5.690467392007122,
+     "compile_pairs": 0.03424186600022949,
+     "compile_slabs": 2.123312112002168,
+     "compile_mobility": 0.03539617598289624,
+     "query": 1.3894611439900473,
+     "verify_curve": 0.6886845639965031,
+     "replay3d": 1.750571900018258
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 1152,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 17.64532357105054,
+    "seconds": {
+     "prep": 5.58822410000721,
+     "compile": 5.441043000028003,
+     "query": 3.323242280021077,
+     "prove": 3.2928141909942497
+    },
+    "share": {
+     "prep": 0.3166971734752103,
+     "compile": 0.3083560909562886,
+     "query": 0.18833558175568343,
+     "prove": 0.18661115381281768
+    },
+    "stages": {
+     "project": 5.58822410000721,
+     "compile_pairs": 0.09687281100195833,
+     "compile_slabs": 5.24946166301379,
+     "compile_mobility": 0.09470852601225488,
+     "query": 3.323242280021077,
+     "verify_curve": 1.606910869013518,
+     "replay3d": 1.6859033219807316
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 2244,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 27.65585965901846,
+    "seconds": {
+     "prep": 5.535782938008197,
+     "compile": 10.675257066002814,
+     "query": 6.420242573018186,
+     "prove": 5.024577081989264
+    },
+    "share": {
+     "prep": 0.20016672800127552,
+     "compile": 0.3860034436688233,
+     "query": 0.2321476407595441,
+     "prove": 0.1816821875703571
+    },
+    "stages": {
+     "project": 5.535782938008197,
+     "compile_pairs": 0.17583982599899173,
+     "compile_slabs": 10.3157743109914,
+     "compile_mobility": 0.18364292901242152,
+     "query": 6.420242573018186,
+     "verify_curve": 3.263565444998676,
+     "replay3d": 1.7610116369905882
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 4325,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 46.84284696000395,
+    "seconds": {
+     "prep": 5.937443862989312,
+     "compile": 20.967425588984042,
+     "query": 12.300455562013667,
+     "prove": 7.637521946016932
+    },
+    "share": {
+     "prep": 0.12675241255210015,
+     "compile": 0.44761211048693855,
+     "query": 0.2625898373025069,
+     "prove": 0.16304563965845442
+    },
+    "stages": {
+     "project": 5.937443862989312,
+     "compile_pairs": 0.3493179679790046,
+     "compile_slabs": 20.278011485992465,
+     "compile_mobility": 0.34009613501257263,
+     "query": 12.300455562013667,
+     "verify_curve": 5.972614421014441,
+     "replay3d": 1.6649075250024907
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 8486,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 83.90883719801786,
+    "seconds": {
+     "prep": 5.64327590999892,
+     "compile": 40.236390457022935,
+     "query": 24.12132902999292,
+     "prove": 13.907841801003087
+    },
+    "share": {
+     "prep": 0.0672548458356211,
+     "compile": 0.47952506315953836,
+     "query": 0.28747066263197757,
+     "prove": 0.16574942837286302
+    },
+    "stages": {
+     "project": 5.64327590999892,
+     "compile_pairs": 0.6277051420183852,
+     "compile_slabs": 38.89777900301851,
+     "compile_mobility": 0.7109063119860366,
+     "query": 24.12132902999292,
+     "verify_curve": 12.22806805401342,
+     "replay3d": 1.6797737469896674
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "sweeper",
+    "n_supports": 9682,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 93.74007636893657,
+    "seconds": {
+     "prep": 5.782607114000712,
+     "compile": 46.29300979396794,
+     "query": 26.846042743010912,
+     "prove": 14.818416717957007
+    },
+    "share": {
+     "prep": 0.06168767231682075,
+     "compile": 0.49384437891612853,
+     "query": 0.28638810403089354,
+     "prove": 0.15807984473615716
+    },
+    "stages": {
+     "project": 5.782607114000712,
+     "compile_pairs": 0.7957067629904486,
+     "compile_slabs": 44.62011104100384,
+     "compile_mobility": 0.8771919899736531,
+     "query": 26.846042743010912,
+     "verify_curve": 13.166981545975432,
+     "replay3d": 1.651435171981575
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 1160,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 13.478016097011277,
+    "seconds": {
+     "prep": 5.338827434025006,
+     "compile": 4.8814313799957745,
+     "query": 1.654600693989778,
+     "prove": 1.6031565890007187
+    },
+    "share": {
+     "prep": 0.39611374519792125,
+     "compile": 0.36217729262678516,
+     "query": 0.12276292609241521,
+     "prove": 0.11894603608287835
+    },
+    "stages": {
+     "project": 5.338827434025006,
+     "compile_pairs": 0.08999407300143503,
+     "compile_slabs": 4.704001006990438,
+     "compile_mobility": 0.08743630000390112,
+     "query": 1.654600693989778,
+     "verify_curve": 0.829040247015655,
+     "replay3d": 0.7741163419850636
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 4254,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 33.509828912006924,
+    "seconds": {
+     "prep": 5.47655369900167,
+     "compile": 17.895713606994832,
+     "query": 6.343772611988243,
+     "prove": 3.7937889940221794
+    },
+    "share": {
+     "prep": 0.16343126410410777,
+     "compile": 0.5340437175608083,
+     "query": 0.1893108027691303,
+     "prove": 0.1132142155659537
+    },
+    "stages": {
+     "project": 5.47655369900167,
+     "compile_pairs": 0.30467278297874145,
+     "compile_slabs": 17.27663694700459,
+     "compile_mobility": 0.3144038770115003,
+     "query": 6.343772611988243,
+     "verify_curve": 3.0315993780095596,
+     "replay3d": 0.7621896160126198
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 10605,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 74.8236306659528,
+    "seconds": {
+     "prep": 5.62208626998472,
+     "compile": 45.54818017495563,
+     "query": 15.383734125003684,
+     "prove": 8.269630096008768
+    },
+    "share": {
+     "prep": 0.0751378437526549,
+     "compile": 0.6087405779372524,
+     "query": 0.20559994199805365,
+     "prove": 0.11052163631203905
+    },
+    "stages": {
+     "project": 5.62208626998472,
+     "compile_pairs": 0.8302507129847072,
+     "compile_slabs": 43.8799530119868,
+     "compile_mobility": 0.8379764499841258,
+     "query": 15.383734125003684,
+     "verify_curve": 7.492003936989931,
+     "replay3d": 0.7776261590188369
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 46450,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 301.40248391596833,
+    "seconds": {
+     "prep": 6.652055627986556,
+     "compile": 198.24222542601638,
+     "query": 64.1205099549843,
+     "prove": 32.3876929069811
+    },
+    "share": {
+     "prep": 0.02207034109858618,
+     "compile": 0.6577325536616571,
+     "query": 0.21274048283179126,
+     "prove": 0.1074566224079655
+    },
+    "stages": {
+     "project": 6.652055627986556,
+     "compile_pairs": 3.7352758240012918,
+     "compile_slabs": 190.66557471599663,
+     "compile_mobility": 3.841374886018457,
+     "query": 64.1205099549843,
+     "verify_curve": 31.617575723998016,
+     "replay3d": 0.7701171829830855
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 83978,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 535.6471949029947,
+    "seconds": {
+     "prep": 7.577364349010168,
+     "compile": 351.4049030219903,
+     "query": 117.30319125700044,
+     "prove": 59.361736274993746
+    },
+    "share": {
+     "prep": 0.014146185065680075,
+     "compile": 0.6560379786654712,
+     "query": 0.21899338290802392,
+     "prove": 0.11082245336082477
+    },
+    "stages": {
+     "project": 7.577364349010168,
+     "compile_pairs": 6.860178150993306,
+     "compile_slabs": 337.3942308179976,
+     "compile_mobility": 7.15049405299942,
+     "query": 117.30319125700044,
+     "verify_curve": 58.559498221002286,
+     "replay3d": 0.8022380539914593
+    }
+   },
+   {
+    "label": "win:cold:",
+    "source": "P4-sweep",
+    "robot": "uav",
+    "n_supports": 91381,
+    "ab_dist_m": 2.433105012119288,
+    "status": "REACHABLE",
+    "total_s": 608.590966186981,
+    "seconds": {
+     "prep": 8.007907638006145,
+     "compile": 399.79896272098995,
+     "query": 134.7991467899992,
+     "prove": 65.98494903798564
+    },
+    "share": {
+     "prep": 0.013158111248640896,
+     "compile": 0.6569255623787182,
+     "query": 0.22149383457753147,
+     "prove": 0.1084224917951094
+    },
+    "stages": {
+     "project": 8.007907638006145,
+     "compile_pairs": 7.9159468410070986,
+     "compile_slabs": 383.8845319739776,
+     "compile_mobility": 7.998483906005276,
+     "query": 134.7991467899992,
+     "verify_curve": 65.19059938300052,
+     "replay3d": 0.7943496549851261
+    }
+   }
+  ],
+  "prep_per_scene": [
+   {
+    "source": "P4 sweep",
+    "stage": "scene_load",
+    "label": "ply_decode",
+    "seconds": 5.203445495979395,
+    "sizes": {
+     "path": "raw/point_cloud.ply",
+     "n_splats": 7340008
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "scene_load",
+    "label": "floor_fit_rotate_crop",
+    "seconds": 2.1043393239961006,
+    "sizes": {
+     "n_splats": 7319425
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "scene_load",
+    "label": "processed_npz",
+    "seconds": 0.7792064209934324,
+    "sizes": {
+     "n_splats": 7319425
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "floor_replace",
+    "label": "amendment1_floor_rule",
+    "seconds": 10.581055860995548,
+    "sizes": {
+     "n_splats": 7319425,
+     "removed": 71594
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "floor_replace",
+    "label": "band_rasters_and_phantom",
+    "seconds": 3.529194409988122,
+    "sizes": {
+     "n_splats": 7247831,
+     "n_bands": 5,
+     "cell": 0.05,
+     "n_cells": 397047,
+     "phantom_cells": 94780
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "floor_replace",
+    "label": "replace_and_plane",
+    "seconds": 2.1098558790108655,
+    "sizes": {
+     "n_splats": 7247831,
+     "footprint": "centre",
+     "replaced": 146977,
+     "inserted": 1014,
+     "n_output": 7101868
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "floor_replace",
+    "label": "save_npz",
+    "seconds": 0.720184928009985,
+    "sizes": {
+     "n_splats": 7101868,
+     "bytes": 795411828
+    }
+   },
+   {
+    "source": "P4 sweep",
+    "stage": "scene_load",
+    "label": "planefloor_npz",
+    "seconds": 0.6886406099947635,
+    "sizes": {
+     "n_splats": 7101868
+    }
+   }
+  ],
+  "project_hall": [
+   {
+    "source": "P4 sweep",
+    "robot": "sweeper",
+    "label": "hall:sweeper",
+    "n_supports": 51499,
+    "window": [
+     -4.4,
+     -0.95,
+     21.05,
+     32.0
+    ],
+    "window_area_m2": 838.5775000000002,
+    "seconds": 7.429007928993087
+   },
+   {
+    "source": "P4 sweep",
+    "robot": "uav",
+    "label": "hall:uav",
+    "n_supports": 421853,
+    "window": [
+     -4.4,
+     -0.95,
+     21.05,
+     32.0
+    ],
+    "window_area_m2": 838.5775000000002,
+    "seconds": 19.355858636990888
+   },
+   {
+    "source": "P4 sweep",
+    "robot": "cylinder",
+    "label": "hall:cylinder",
+    "n_supports": 2148885,
+    "window": [
+     -4.4,
+     -0.95,
+     21.05,
+     32.0
+    ],
+    "window_area_m2": 838.5775000000002,
+    "seconds": 75.80837710597552
+   }
+  ],
+  "query_budget": [
+   {
+    "robot": "sweeper",
+    "pair": "ladder rung 0, 2.43 m",
+    "n_finished": 6,
+    "supports_range": [
+     462,
+     9682
+    ],
+    "calls_per_support": [
+     248.18570543276184,
+     251.8917748917749
+    ],
+    "query_ms_per_support": [
+     2.7727786348906127,
+     3.0074916536581107
+    ],
+    "n_max_at_budget": 201119.44275878082,
+    "extrapolation": true,
+    "first_unknown": null,
+    "hall_supports": 51499,
+    "hall_calls_extrapolated": 12803088.37713095,
+    "hall_query_h_extrapolated": 0.04080656757155454
+   },
+   {
+    "robot": "cylinder",
+    "pair": "ladder rung 0, 2.43 m",
+    "n_finished": 2,
+    "supports_range": [
+     21144,
+     44883
+    ],
+    "calls_per_support": [
+     992.6437181115344,
+     993.3664396519107
+    ],
+    "query_ms_per_support": [
+     10.833373298903433,
+     10.847847554062534
+    ],
+    "n_max_at_budget": 50352.20973522889,
+    "extrapolation": true,
+    "first_unknown": {
+     "n_supports": 98037,
+     "reason": "query_support_budget_exhausted",
+     "support_calls": 49999993
+    },
+    "hall_supports": 2148885,
+    "hall_calls_extrapolated": 2133853718.9327502,
+    "hall_query_h_extrapolated": 6.4708958711980245
+   },
+   {
+    "robot": "uav",
+    "pair": "ladder rung 0, 2.43 m",
+    "n_finished": 6,
+    "supports_range": [
+     1160,
+     91381
+    ],
+    "calls_per_support": [
+     124.2910670708353,
+     132.87241379310345
+    ],
+    "query_ms_per_support": [
+     1.3804200205594037,
+     1.491248850961035
+    ],
+    "n_max_at_budget": 398278.35744360875,
+    "extrapolation": true,
+    "first_unknown": null,
+    "hall_supports": 421853,
+    "hall_calls_extrapolated": 52959568.61775111,
+    "hall_query_h_extrapolated": 0.16856491994187978
+   }
+  ],
+  "verify_over_query": {
+   "n": 69,
+   "min": 0.14397422132771037,
+   "max": 0.5194392847830804,
+   "refined_pairs": [
+    [
+     "uav",
+     8.58,
+     "dist"
+    ]
+   ],
+   "n_other_pairs": 66,
+   "min_other": 0.46947496722268794,
+   "max_other": 0.5194392847830804
+  }
+ },
+ "day": {
+  "compile_capacity": {
+   "seconds": 86400.0,
+   "extrapolation": true,
+   "fit_n": 50,
+   "fit_x_range": [
+    143.0,
+    703015.0
+   ],
+   "n_supports": 19862329.333426263,
+   "beyond_largest_measured_x": 28.25306619834038
+  },
+  "hall_supports": {
+   "sweeper": 51499,
+   "uav": 421853,
+   "cylinder": 2148885
+  },
+  "hall_compile_hours_extrapolated": {
+   "sweeper": 0.06446818623291813,
+   "uav": 0.5215323259282951,
+   "cylinder": 2.6310702991073676
+  },
+  "compile_memory_gib_per_100k": [
+   {
+    "robot": "sweeper",
+    "n_supports": 51499,
+    "gib_per_100k": 0.4704242683262054
+   },
+   {
+    "robot": "uav",
+    "n_supports": 421853,
+    "gib_per_100k": 1.3213878098369907
+   },
+   {
+    "robot": "cylinder",
+    "n_supports": 703015,
+    "gib_per_100k": 0.7685051024857555
+   }
+  ]
+ }
+}

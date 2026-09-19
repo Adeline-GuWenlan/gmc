@@ -1,0 +1,6338 @@
+{
+ "claims_boundary": "plane floor = user-approved manual scene edit (sound wrt the edited scene only); P2/P3 cases use criterion 3 relaxed by user decision D1",
+ "runs": [
+  {
+   "source": "P2 shared",
+   "label": "P2 sweeper",
+   "path": "results/height/plane/shared/sweeper.json",
+   "robot": "sweeper",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "start": [
+    -1.25,
+    11.25,
+    0.0
+   ],
+   "goal": [
+    0.0,
+    9.25,
+    0.0
+   ],
+   "ab_dist_m": 2.358495283014151,
+   "n_supports": 1779,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.006058521388240328,
+   "replay3d_lb": 0.0058773839858596855,
+   "compile_seconds": 6.99814248085022,
+   "query_seconds": 11.33273196220398,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.8225748080003541,
+    "project": 4.434360231010942,
+    "compile_pairs": 0.11729978400398977,
+    "compile_slabs": 6.7679985579889035,
+    "compile_mobility": 0.11275879399909172,
+    "query": 11.332696835001116,
+    "verify_curve": 5.566938960997504,
+    "replay3d": 2.0825237420067424
+   },
+   "node": "gr104",
+   "maxrss_gib": 2.702342987060547,
+   "job": 17934071,
+   "elapsed_s": 71
+  },
+  {
+   "source": "P2 shared",
+   "label": "P2 uav",
+   "path": "results/height/plane/shared/uav.json",
+   "robot": "uav",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "start": [
+    -1.25,
+    11.25,
+    0.0
+   ],
+   "goal": [
+    0.0,
+    9.25,
+    0.0
+   ],
+   "ab_dist_m": 2.358495283014151,
+   "n_supports": 19867,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007042607804650534,
+   "replay3d_lb": 0.012659706736994458,
+   "compile_seconds": 108.53430914878845,
+   "query_seconds": 171.94102597236633,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.875379011995392,
+    "project": 8.034840687003452,
+    "compile_pairs": 2.1067643529968336,
+    "compile_slabs": 104.28348820899555,
+    "compile_mobility": 2.1434495719877305,
+    "query": 171.94098385500547,
+    "verify_curve": 84.78170254599536,
+    "replay3d": 2.6740399169939337
+   },
+   "node": "gl060",
+   "maxrss_gib": 2.7607765197753906,
+   "job": 17934072,
+   "elapsed_s": 451
+  },
+  {
+   "source": "P2 shared",
+   "label": "P2 cylinder",
+   "path": "results/height/plane/shared/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "start": [
+    -1.25,
+    11.25,
+    0.0
+   ],
+   "goal": [
+    0.0,
+    9.25,
+    0.0
+   ],
+   "ab_dist_m": 2.358495283014151,
+   "n_supports": 156426,
+   "status": "UNKNOWN",
+   "reason": "query_wall_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 675.693427324295,
+   "query_seconds": 7968.107317686081,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.79075327499595,
+    "project": 9.656653778991313,
+    "compile_pairs": 12.9852076239913,
+    "compile_slabs": 648.5282845510083,
+    "compile_mobility": 14.176697103001061,
+    "query": 7968.107282048004
+   },
+   "node": "cs642",
+   "maxrss_gib": 13.501678466796875,
+   "job": 17934263,
+   "elapsed_s": 8882
+  },
+  {
+   "source": "P2 shared",
+   "label": "P2 cylinder b2",
+   "path": "results/height/plane/shared/cylinder_b2.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 2,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "start": [
+    -1.25,
+    11.25,
+    0.0
+   ],
+   "goal": [
+    0.0,
+    9.25,
+    0.0
+   ],
+   "ab_dist_m": 2.358495283014151,
+   "n_supports": 156426,
+   "status": "UNKNOWN",
+   "reason": "query_wall_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 766.4022002220154,
+   "query_seconds": 15026.755948066711,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.2716341599880252,
+    "project": 11.008639703999506,
+    "compile_pairs": 15.265237135987263,
+    "compile_slabs": 734.6241710110044,
+    "compile_mobility": 16.50869824300753,
+    "query": 15026.755895981012
+   },
+   "node": "cl014",
+   "maxrss_gib": 13.518867492675781,
+   "job": 17944446,
+   "elapsed_s": 16075
+  },
+  {
+   "source": "P3 long",
+   "label": "P3 sweeper",
+   "path": "results/height/plane/long/sweeper.json",
+   "robot": "sweeper",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    13.35,
+    14.8,
+    0.0
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.00277898814661013,
+   "replay3d_lb": 0.00014671492565643263,
+   "compile_seconds": 25.029441118240356,
+   "query_seconds": 107.46286273002625,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.8033537699957378,
+    "project": 5.356950624991441,
+    "compile_pairs": 0.44375960499746725,
+    "compile_slabs": 24.10385638201842,
+    "compile_mobility": 0.4816482700116467,
+    "query": 107.46283509000205,
+    "verify_curve": 52.28806051198626,
+    "replay3d": 3.3136586690088734
+   },
+   "node": "cs601",
+   "maxrss_gib": 2.635101318359375,
+   "job": 17948811,
+   "elapsed_s": 217
+  },
+  {
+   "source": "P3 long",
+   "label": "P3 uav",
+   "path": "results/height/plane/long/uav.json",
+   "robot": "uav",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    13.35,
+    14.8,
+    0.0
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": 153.37235355377197,
+   "query_seconds": 292.9072051048279,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.781601241993485,
+    "project": 6.736891540989745,
+    "compile_pairs": 2.883914893027395,
+    "compile_slabs": 147.3950442969799,
+    "compile_mobility": 3.0926243769936264,
+    "query": 292.9071786830027,
+    "verify_curve": 145.5078127179877,
+    "replay3d": 3.916091123013757
+   },
+   "node": "cs601",
+   "maxrss_gib": 2.115093231201172,
+   "job": 17948812,
+   "elapsed_s": 644
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 0",
+   "path": "results/height/plane/long/cyl_ladder/rung0/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    6.95,
+    7.7,
+    0.0
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 21144,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.03249602744773536,
+   "replay3d_lb": 0.0014433346185676044,
+   "compile_seconds": 80.95952320098877,
+   "query_seconds": 174.81283354759216,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.8713810280023608,
+    "project": 6.705803218006622,
+    "compile_pairs": 1.4338583610078786,
+    "compile_slabs": 77.9774410270038,
+    "compile_mobility": 1.5477805889968295,
+    "query": 174.81280888599576,
+    "verify_curve": 85.21765907699591,
+    "replay3d": 2.7460012960073072
+   },
+   "node": "cs601",
+   "maxrss_gib": 2.1352195739746094,
+   "job": 17948988,
+   "elapsed_s": 406
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 1",
+   "path": "results/height/plane/long/cyl_ladder/rung1/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.05,
+    9.812
+   ],
+   "window_area_m2": 18.507888000000005,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    9.45,
+    8.7,
+    0.0
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 45572,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0014433346180908746,
+   "compile_seconds": 174.67100024223328,
+   "query_seconds": 628.7833902835846,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.863913784007309,
+    "project": 6.866557423985796,
+    "compile_pairs": 3.0889793499954976,
+    "compile_slabs": 168.3381396549812,
+    "compile_mobility": 3.2430241009860765,
+    "query": 628.7833602199971,
+    "verify_curve": 312.1484006259998,
+    "replay3d": 4.385940114007099
+   },
+   "node": "cs601",
+   "maxrss_gib": 3.0679588317871094,
+   "job": 17949332,
+   "elapsed_s": 1235
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 2",
+   "path": "results/height/plane/long/cyl_ladder/rung2/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    10.2,
+    9.95,
+    0.0
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0013205192210252736,
+   "compile_seconds": 184.9974639415741,
+   "query_seconds": 445.00565457344055,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.4268886329955421,
+    "project": 7.489260595990345,
+    "compile_pairs": 3.355488008004613,
+    "compile_slabs": 178.10062640099204,
+    "compile_mobility": 3.5404429610061925,
+    "query": 445.00562612499925,
+    "verify_curve": 219.75859104900155,
+    "replay3d": 4.239543328003492
+   },
+   "node": "cs601",
+   "maxrss_gib": 2.197467803955078,
+   "job": 17949336,
+   "elapsed_s": 988
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 3",
+   "path": "results/height/plane/long/cyl_ladder/rung3/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_area_m2": 37.15305,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    12.45,
+    9.95,
+    0.0
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 73178,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 283.86724185943604,
+   "query_seconds": 722.5406653881073,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.7954288810142316,
+    "project": 6.6304283280042,
+    "compile_pairs": 5.338389478012687,
+    "compile_slabs": 272.79868518700823,
+    "compile_mobility": 5.72884243298904,
+    "query": 722.5406280629977
+   },
+   "node": "cl011",
+   "maxrss_gib": 3.213970184326172,
+   "job": 17949914,
+   "elapsed_s": 1131
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 4",
+   "path": "results/height/plane/long/cyl_ladder/rung4/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    12.313,
+    13.912
+   ],
+   "window_area_m2": 54.19100000000001,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    11.7,
+    12.7,
+    0.0
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 149303,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 581.0496141910553,
+   "query_seconds": 1713.889904975891,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 0.87713657997665,
+    "project": 8.522627805999946,
+    "compile_pairs": 11.320752575004008,
+    "compile_slabs": 557.6026847629983,
+    "compile_mobility": 12.123498622997431,
+    "query": 1713.8898609129828
+   },
+   "node": "cl011",
+   "maxrss_gib": 4.1393585205078125,
+   "job": 17949948,
+   "elapsed_s": 2393
+  },
+  {
+   "source": "P3 ladder",
+   "label": "P3 rung 3 b2",
+   "path": "results/height/plane/long/cyl_ladder/rung3/cylinder_b2.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "planefloor",
+   "budget_scale": 2,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_area_m2": 37.15305,
+   "start": [
+    7.35,
+    5.3,
+    0.0
+   ],
+   "goal": [
+    12.45,
+    9.95,
+    0.0
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 73178,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 293.8255305290222,
+   "query_seconds": 1289.01749253273,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "scene_load": 1.1293690399907064,
+    "project": 7.281212921021506,
+    "compile_pairs": 5.392779852991225,
+    "compile_slabs": 282.2632809840143,
+    "compile_mobility": 6.168194887024583,
+    "query": 1289.0174596010183
+   },
+   "node": "cs620",
+   "maxrss_gib": 4.308479309082031,
+   "job": 17960231,
+   "elapsed_s": 1703
+  },
+  {
+   "source": "A2",
+   "label": "A2 sweeper",
+   "path": "results/height/percase/sweeper/sweeper.json",
+   "robot": "sweeper",
+   "mode": "single",
+   "scene": "processed",
+   "budget_scale": 1,
+   "window": [
+    -0.85,
+    9.75,
+    1.15,
+    12.8
+   ],
+   "window_area_m2": 6.100000000000001,
+   "start": [
+    0.2625,
+    10.2625,
+    0.0
+   ],
+   "goal": [
+    0.0125,
+    12.2625,
+    0.0
+   ],
+   "ab_dist_m": 2.0155644370746373,
+   "n_supports": 477,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.01716309406573232,
+   "replay3d_lb": 0.0267957952393596,
+   "compile_seconds": 1.962113380432129,
+   "query_seconds": 3.4448888301849365,
+   "query_is_lower_bound": false,
+   "has_stage_timing": false,
+   "stages": null,
+   "node": null,
+   "maxrss_gib": null,
+   "job": null,
+   "elapsed_s": null
+  },
+  {
+   "source": "A2",
+   "label": "A2 cylinder",
+   "path": "results/height/percase/cylinder/cylinder.json",
+   "robot": "cylinder",
+   "mode": "single",
+   "scene": "processed",
+   "budget_scale": 1,
+   "window": [
+    0.5,
+    10.0,
+    3.5,
+    13.0
+   ],
+   "window_area_m2": 9.0,
+   "start": [
+    1.2125,
+    10.5125,
+    0.0
+   ],
+   "goal": [
+    3.0125,
+    12.5125,
+    0.0
+   ],
+   "ab_dist_m": 2.6907248094147422,
+   "n_supports": 3791,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.006602353302799337,
+   "replay3d_lb": 0.0032015007587435917,
+   "compile_seconds": 17.308266401290894,
+   "query_seconds": 409.4180679321289,
+   "query_is_lower_bound": false,
+   "has_stage_timing": false,
+   "stages": null,
+   "node": null,
+   "maxrss_gib": null,
+   "job": null,
+   "elapsed_s": null
+  },
+  {
+   "source": "A2",
+   "label": "A2 uav",
+   "path": "results/height/percase/uav/uav.json",
+   "robot": "uav",
+   "mode": "single",
+   "scene": "processed",
+   "budget_scale": 1,
+   "window": [
+    6.0,
+    5.45,
+    11.9,
+    9.1
+   ],
+   "window_area_m2": 21.534999999999997,
+   "start": [
+    7.049,
+    8.097,
+    0.0
+   ],
+   "goal": [
+    10.871,
+    6.483,
+    0.0
+   ],
+   "ab_dist_m": 4.148816698770868,
+   "n_supports": 143,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.4563342746640041,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 0.6417562961578369,
+   "query_seconds": 0.2754087448120117,
+   "query_is_lower_bound": false,
+   "has_stage_timing": false,
+   "stages": null,
+   "node": null,
+   "maxrss_gib": null,
+   "job": null,
+   "elapsed_s": null
+  },
+  {
+   "source": "P4-sweep",
+   "label": "compile_only:compile:hall",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "compile",
+   "experiment": "compile_only",
+   "lane": "prep",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 51499,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 268.2435633519781,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 7.258578064996982,
+    "compile_pairs": 4.55836967000505,
+    "compile_slabs": 258.9167918639723,
+    "compile_mobility": 4.7684018180007115
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": 0.2422637939453125,
+   "mem": {
+    "rss_gb": 1.7322616577148438,
+    "peak_gb": 1.7432060241699219
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "compile_only:compile:hall",
+   "path": null,
+   "robot": "uav",
+   "mode": "compile",
+   "experiment": "compile_only",
+   "lane": "prep",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 421853,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 2117.8420876660093,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 19.3362045979884,
+    "compile_pairs": 39.40062412401312,
+    "compile_slabs": 2036.1926632329996,
+    "compile_mobility": 42.24880030899658
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": 5.574314117431641,
+   "mem": {
+    "rss_gb": 7.1180267333984375,
+    "peak_gb": 7.193397521972656
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "compile_only:compile:ladder_map",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "compile",
+   "experiment": "compile_only",
+   "lane": "prep",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    3.45,
+    1.7,
+    17.15,
+    18.6
+   ],
+   "window_area_m2": 231.53000000000003,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 703015,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 3162.183106668992,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 28.36470314898179,
+    "compile_pairs": 71.04387936097919,
+    "compile_slabs": 3027.2023068550043,
+    "compile_mobility": 63.9369204530085
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": 5.402706146240234,
+   "mem": {
+    "rss_gb": 10.511917114257812,
+    "peak_gb": 10.800743103027344
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "cyl",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 21144,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.03249602744773536,
+   "replay3d_lb": 0.0014433346185676044,
+   "compile_seconds": 105.93157247398631,
+   "query_seconds": 229.06084503201419,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 6.886990606988547,
+    "compile_pairs": 1.9558892569912132,
+    "compile_slabs": 101.96001742599765,
+    "compile_mobility": 2.0156657909974456,
+    "query": 229.06084503201419,
+    "verify_curve": 111.74086217599688,
+    "replay3d": 3.5633692030096427
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 21003740,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.5100288391113281,
+    "peak_gb": 2.1246414184570312
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "cyl",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 44883,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.03249602744773536,
+   "replay3d_lb": 0.0014433346185676044,
+   "compile_seconds": 226.4656141680025,
+   "query_seconds": 486.88394176898873,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 7.6494400200026575,
+    "compile_pairs": 4.3914624960161746,
+    "compile_slabs": 217.5956078619929,
+    "compile_mobility": 4.478543809993425,
+    "query": 486.88394176898873,
+    "verify_curve": 236.0776565010019,
+    "replay3d": 3.568672449007863
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 44552828,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.3992042541503906,
+    "peak_gb": 3.1408309936523438
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "cyl",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 98037,
+   "status": "UNKNOWN",
+   "reason": "query_support_budget_exhausted",
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 495.3201033810037,
+   "query_seconds": 555.6750643479754,
+   "query_is_lower_bound": true,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 9.394592928991187,
+    "compile_pairs": 9.326191216998268,
+    "compile_slabs": 476.3760551000014,
+    "compile_mobility": 9.617857064004056,
+    "query": 555.6750643479754
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 49999993,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 4.166240692138672,
+    "peak_gb": 4.166240692138672
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm_compile:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm_compile",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 6436,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 32.97147569601657,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5520959530258551,
+    "compile_slabs": 31.81278272299096,
+    "compile_mobility": 0.6065970199997537
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 0.979095458984375,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": null,
+   "query_seconds": 19.933986226998968,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 19.933986226998968,
+    "verify_curve": 9.695869390008738,
+    "replay3d": 1.8466536329942755
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1597926,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.07904052734375,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": null,
+   "query_seconds": 55.35619152401341,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 55.35619152401341,
+    "verify_curve": 27.542267632001312,
+    "replay3d": 3.873306452995166
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 812386,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1109619140625,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": null,
+   "query_seconds": 55.23050464398693,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 55.23050464398693,
+    "verify_curve": 27.946002440003213,
+    "replay3d": 3.606657132972032
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 811084,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0024457045200656437,
+   "replay3d_lb": -0.0016253928459564193,
+   "compile_seconds": null,
+   "query_seconds": 74.7479014909768,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 74.7479014909768,
+    "verify_curve": 37.38442758101155,
+    "replay3d": 3.2590390739787836
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1605180,
+   "order": 3,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0031352169261927936,
+   "replay3d_lb": -0.00025215929944000237,
+   "compile_seconds": null,
+   "query_seconds": 146.5477543939778,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 146.5477543939778,
+    "verify_curve": 73.14206174798892,
+    "replay3d": 5.021700579003664
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1621796,
+   "order": 4,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0026289557830818404,
+   "replay3d_lb": -0.005297925821079019,
+   "compile_seconds": null,
+   "query_seconds": 132.113788837014,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 132.113788837014,
+    "verify_curve": 66.23182018499938,
+    "replay3d": 4.781816931994399
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1617332,
+   "order": 5,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.00277898814661013,
+   "replay3d_lb": 0.00014671492565643263,
+   "compile_seconds": null,
+   "query_seconds": 137.34516208601417,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 137.34516208601417,
+    "verify_curve": 68.45920186000876,
+    "replay3d": 4.15864032600075
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1613550,
+   "order": 6,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": null,
+   "query_seconds": 19.588352411985397,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 19.588352411985397,
+    "verify_curve": 9.657576736004557,
+    "replay3d": 1.8066308799898252
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1597926,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": null,
+   "query_seconds": 55.26902631201665,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 55.26902631201665,
+    "verify_curve": 27.67809768000734,
+    "replay3d": 3.7566471610043664
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 812386,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": null,
+   "query_seconds": 55.22661782900104,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 55.22661782900104,
+    "verify_curve": 27.591815391002456,
+    "replay3d": 3.5656318120018113
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 811084,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0024457045200656437,
+   "replay3d_lb": -0.0016253928459564193,
+   "compile_seconds": null,
+   "query_seconds": 74.39405034101219,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 74.39405034101219,
+    "verify_curve": 37.33160914899781,
+    "replay3d": 3.251111463003326
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1605180,
+   "order": 3,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0031352169261927936,
+   "replay3d_lb": -0.00025215929944000237,
+   "compile_seconds": null,
+   "query_seconds": 145.65840023901546,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 145.65840023901546,
+    "verify_curve": 72.79307867298485,
+    "replay3d": 5.004857988998992
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1621796,
+   "order": 4,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0026289557830818404,
+   "replay3d_lb": -0.005297925821079019,
+   "compile_seconds": null,
+   "query_seconds": 132.05709344800562,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 132.05709344800562,
+    "verify_curve": 65.93944827100495,
+    "replay3d": 4.725777653977275
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1617332,
+   "order": 5,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.00277898814661013,
+   "replay3d_lb": 0.00014671492565643263,
+   "compile_seconds": null,
+   "query_seconds": 137.10454805000336,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 137.10454805000336,
+    "verify_curve": 68.38789371500025,
+    "replay3d": 4.15003587200772
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1613550,
+   "order": 6,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1227684020996094,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.00277898814661013,
+   "replay3d_lb": 0.00014671492565643263,
+   "compile_seconds": 32.47532616194803,
+   "query_seconds": 136.72315398498904,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5353466869855765,
+    "compile_slabs": 31.400371223979164,
+    "compile_mobility": 0.5396082509832922,
+    "query": 136.72315398498904,
+    "verify_curve": 68.17594193501282,
+    "replay3d": 4.171184952982003
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1613550,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1184539794921875,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 32.71688073099358,
+   "query_seconds": 19.805196547997184,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.543922519980697,
+    "compile_slabs": 31.634282729995903,
+    "compile_mobility": 0.5386754810169805,
+    "query": 19.805196547997184,
+    "verify_curve": 9.848691229999531,
+    "replay3d": 1.859065222000936
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1597926,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1236915588378906,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": 32.87117816100363,
+   "query_seconds": 55.68137099299929,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5412415099854115,
+    "compile_slabs": 31.784474003012292,
+    "compile_mobility": 0.5454626480059233,
+    "query": 55.68137099299929,
+    "verify_curve": 27.619663505000062,
+    "replay3d": 3.76954836997902
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 812386,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1169624328613281,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0041497491141162125,
+   "replay3d_lb": 0.0007814787765472175,
+   "compile_seconds": 32.750357846030965,
+   "query_seconds": 55.13884385602432,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5378182310087141,
+    "compile_slabs": 31.672868972003926,
+    "compile_mobility": 0.5396706430183258,
+    "query": 55.13884385602432,
+    "verify_curve": 27.686412546987412,
+    "replay3d": 3.6429360170150176
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 811084,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1169624328613281,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0024457045200656437,
+   "replay3d_lb": -0.0016253928459564193,
+   "compile_seconds": 32.465362757007824,
+   "query_seconds": 74.48566130900872,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5327051820058841,
+    "compile_slabs": 31.403273723000893,
+    "compile_mobility": 0.5293838520010468,
+    "query": 74.48566130900872,
+    "verify_curve": 36.89352293097181,
+    "replay3d": 3.267158039001515
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1605180,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1185150146484375,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0031352169261927936,
+   "replay3d_lb": -0.00025215929944000237,
+   "compile_seconds": 32.424984379002126,
+   "query_seconds": 146.16311502599274,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5285149099945556,
+    "compile_slabs": 31.3612417409895,
+    "compile_mobility": 0.5352277280180715,
+    "query": 146.16311502599274,
+    "verify_curve": 72.68837681101286,
+    "replay3d": 5.033459210011642
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1621796,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1185951232910156,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 6436,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0026289557830818404,
+   "replay3d_lb": -0.005297925821079019,
+   "compile_seconds": 32.67663431199617,
+   "query_seconds": 122.68566922401078,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 0.5276476939907297,
+    "compile_slabs": 31.61483008900541,
+    "compile_mobility": 0.534156529000029,
+    "query": 122.68566922401078,
+    "verify_curve": 61.91755230398849,
+    "replay3d": 4.440256458998192
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1617332,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1185493469238281,
+    "peak_gb": 1.918060302734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 462,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 2.1929501539852936,
+   "query_seconds": 1.3894611439900473,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.690467392007122,
+    "compile_pairs": 0.03424186600022949,
+    "compile_slabs": 2.123312112002168,
+    "compile_mobility": 0.03539617598289624,
+    "query": 1.3894611439900473,
+    "verify_curve": 0.6886845639965031,
+    "replay3d": 1.750571900018258
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 116374,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1051101684570312,
+    "peak_gb": 2.0678062438964844
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 1152,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 5.441043000028003,
+   "query_seconds": 3.323242280021077,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.58822410000721,
+    "compile_pairs": 0.09687281100195833,
+    "compile_slabs": 5.24946166301379,
+    "compile_mobility": 0.09470852601225488,
+    "query": 3.323242280021077,
+    "verify_curve": 1.606910869013518,
+    "replay3d": 1.6859033219807316
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 287494,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1051101684570312,
+    "peak_gb": 2.0678062438964844
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 2244,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 10.675257066002814,
+   "query_seconds": 6.420242573018186,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.535782938008197,
+    "compile_pairs": 0.17583982599899173,
+    "compile_slabs": 10.3157743109914,
+    "compile_mobility": 0.18364292901242152,
+    "query": 6.420242573018186,
+    "verify_curve": 3.263565444998676,
+    "replay3d": 1.7610116369905882
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 558310,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1051101684570312,
+    "peak_gb": 2.0678062438964844
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    3.7265,
+    2.2645,
+    10.5735,
+    10.7355
+   ],
+   "window_area_m2": 58.00093699999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 4325,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 20.967425588984042,
+   "query_seconds": 12.300455562013667,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.937443862989312,
+    "compile_pairs": 0.3493179679790046,
+    "compile_slabs": 20.278011485992465,
+    "compile_mobility": 0.34009613501257263,
+    "query": 12.300455562013667,
+    "verify_curve": 5.972614421014441,
+    "replay3d": 1.6649075250024907
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1074398,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1212387084960938,
+    "peak_gb": 2.0678062438964844
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    2.1556,
+    0.6936,
+    12.1444,
+    12.3064
+   ],
+   "window_area_m2": 115.99793663999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 8486,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 40.236390457022935,
+   "query_seconds": 24.12132902999292,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.64327590999892,
+    "compile_pairs": 0.6277051420183852,
+    "compile_slabs": 38.89777900301851,
+    "compile_mobility": 0.7109063119860366,
+    "query": 24.12132902999292,
+    "verify_curve": 12.22806805401342,
+    "replay3d": 1.6797737469896674
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 2106326,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1249122619628906,
+    "peak_gb": 2.0820274353027344
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "sweeper",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    1.5423,
+    0.0803,
+    12.7577,
+    12.9197
+   ],
+   "window_area_m2": 143.99900676,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 9682,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.08199488787445249,
+   "replay3d_lb": 0.0014433346186211171,
+   "compile_seconds": 46.29300979396794,
+   "query_seconds": 26.846042743010912,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.782607114000712,
+    "compile_pairs": 0.7957067629904486,
+    "compile_slabs": 44.62011104100384,
+    "compile_mobility": 0.8771919899736531,
+    "query": 26.846042743010912,
+    "verify_curve": 13.166981545975432,
+    "replay3d": 1.651435171981575
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 2402934,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.1613426208496094,
+    "peak_gb": 2.143268585205078
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm_compile:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm_compile",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 46835,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 210.45915089396294,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 6.8735909780079965,
+    "compile_pairs": 3.7886741439870093,
+    "compile_slabs": 202.5825467739778,
+    "compile_mobility": 4.087929975998122
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.5405616760253906,
+    "peak_gb": 2.3287200927734375
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm1:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm1",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.03249602744773536,
+   "replay3d_lb": 0.0014433346185676044,
+   "compile_seconds": null,
+   "query_seconds": 451.15318382999976,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 451.15318382999976,
+    "verify_curve": 211.80512619100045,
+    "replay3d": 2.918794982979307
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 46489212,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9825820922851562,
+    "peak_gb": 2.722858428955078
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm1:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm1",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0014433346180908746,
+   "compile_seconds": null,
+   "query_seconds": 732.095397401019,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 732.095397401019,
+    "verify_curve": 366.60350268901675,
+    "replay3d": 4.690389044000767
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 23335684,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9835548400878906,
+    "peak_gb": 2.7238311767578125
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm1:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm1",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0013205192210252736,
+   "compile_seconds": null,
+   "query_seconds": 478.55783327299287,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 478.55783327299287,
+    "verify_curve": 237.9224895600055,
+    "replay3d": 4.6101001590141095
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5891302,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9835548400878906,
+    "peak_gb": 2.7238311767578125
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm2:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm2",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.03249602744773536,
+   "replay3d_lb": 0.0014433346185676044,
+   "compile_seconds": null,
+   "query_seconds": 434.8215637690155,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 434.8215637690155,
+    "verify_curve": 216.2647051019885,
+    "replay3d": 3.0653892529953737
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 46489212,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9835548400878906,
+    "peak_gb": 2.7238311767578125
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm2:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm2",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0014433346180908746,
+   "compile_seconds": null,
+   "query_seconds": 736.1252846829884,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 736.1252846829884,
+    "verify_curve": 365.77479839802254,
+    "replay3d": 4.66808492798009
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 23335684,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9835548400878906,
+    "peak_gb": 2.7238311767578125
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "cyl_warm:warm2:",
+   "path": null,
+   "robot": "cylinder",
+   "mode": "warm2",
+   "experiment": "cyl_warm",
+   "lane": "sweeper",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 46835,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0028982782857939326,
+   "replay3d_lb": 0.0013205192210252736,
+   "compile_seconds": null,
+   "query_seconds": 477.9726507279847,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 477.9726507279847,
+    "verify_curve": 248.27777184001752,
+    "replay3d": 4.891976651997538
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5891302,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.9835548400878906,
+    "peak_gb": 2.7238311767578125
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm_compile:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm_compile",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": null,
+   "goal": null,
+   "ab_dist_m": null,
+   "n_supports": 39834,
+   "status": null,
+   "reason": null,
+   "certified": false,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": null,
+   "replay3d_lb": null,
+   "compile_seconds": 197.3785695359984,
+   "query_seconds": null,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.778282944986131,
+    "compile_slabs": 189.71429007299594,
+    "compile_mobility": 3.885996518016327
+   },
+   "refinement_rounds": null,
+   "query_support_calls": null,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.4521903991699219,
+    "peak_gb": 1.9494209289550781
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 65.96854734097724,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 65.96854734097724,
+    "verify_curve": 32.30208830701304,
+    "replay3d": 0.9574975069845095
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4968618,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.4524497985839844,
+    "peak_gb": 2.160381317138672
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 74.09448036100366,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 74.09448036100366,
+    "verify_curve": 36.39280397898983,
+    "replay3d": 0.9655235999962315
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4964588,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.4524574279785156,
+    "peak_gb": 2.160381317138672
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 77.85184152898728,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 77.85184152898728,
+    "verify_curve": 38.41985089398804,
+    "replay3d": 0.9918814889970236
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4965084,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.4524574279785156,
+    "peak_gb": 2.160388946533203
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.037647596840002275,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 237.94870590299251,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 237.94870590299251,
+    "verify_curve": 117.52871689898893,
+    "replay3d": 1.0187137289904058
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 19791888,
+   "order": 3,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 1.5764503479003906,
+    "peak_gb": 2.284381866455078
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0034981816995781683,
+   "replay3d_lb": -0.0005154714318962306,
+   "compile_seconds": null,
+   "query_seconds": 2454.4611660349765,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 2454.4611660349765,
+    "verify_curve": 353.3791351589898,
+    "replay3d": 6.412983349000569
+   },
+   "refinement_rounds": 1,
+   "query_support_calls": 1352158,
+   "order": 4,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.177043914794922,
+    "peak_gb": 3.709136962890625
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": null,
+   "query_seconds": 343.1908665529918,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 343.1908665529918,
+    "verify_curve": 164.50401084998157,
+    "replay3d": 3.8376506349886768
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5134778,
+   "order": 5,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.1538658142089844,
+    "peak_gb": 3.7191696166992188
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm1:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm1",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": null,
+   "query_seconds": 328.4563644899754,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 328.4563644899754,
+    "verify_curve": 165.1711102600093,
+    "replay3d": 3.823191825998947
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5123618,
+   "order": 6,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.1538658142089844,
+    "peak_gb": 3.7191696166992188
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 57.24021269500372,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 57.24021269500372,
+    "verify_curve": 28.165807818993926,
+    "replay3d": 0.8128726980066858
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4968618,
+   "order": 0,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 64.11812568901223,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 64.11812568901223,
+    "verify_curve": 31.958165191987064,
+    "replay3d": 0.811354712001048
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4964588,
+   "order": 1,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 67.49178601402673,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 67.49178601402673,
+    "verify_curve": 33.763331956986804,
+    "replay3d": 0.8080685499880929
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4965084,
+   "order": 2,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.1538658142089844,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.0376475968400023,
+   "replay3d_lb": 0.05,
+   "compile_seconds": null,
+   "query_seconds": 121.13205259299139,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 121.13205259299139,
+    "verify_curve": 60.02521382900886,
+    "replay3d": 0.8436328489915468
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 9913056,
+   "order": 3,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0034981816995781683,
+   "replay3d_lb": -0.0005154714318962306,
+   "compile_seconds": null,
+   "query_seconds": 1322.8690885329852,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 1322.8690885329852,
+    "verify_curve": 344.7010621940135,
+    "replay3d": 7.141264144011075
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 34006225,
+   "order": 4,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": null,
+   "query_seconds": 337.9314236319915,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 337.9314236319915,
+    "verify_curve": 166.9817338429857,
+    "replay3d": 3.855878133996157
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5134778,
+   "order": 5,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:warm2:",
+   "path": null,
+   "robot": "uav",
+   "mode": "warm2",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": null,
+   "query_seconds": 330.40771059700637,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "query": 330.40771059700637,
+    "verify_curve": 164.82623181998497,
+    "replay3d": 3.791111709026154
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5123618,
+   "order": 6,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.154827117919922,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    13.35,
+    14.8
+   ],
+   "ab_dist_m": 11.236102527122116,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": 170.74395032200846,
+   "query_seconds": 327.71877458301606,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.172134260996245,
+    "compile_slabs": 164.21180703199934,
+    "compile_mobility": 3.360009029012872,
+    "query": 327.71877458301606,
+    "verify_curve": 166.88295484200353,
+    "replay3d": 3.8177060789894313
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5123618,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.3127479553222656,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 178.03429881398915,
+   "query_seconds": 58.40529526400496,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.217734787001973,
+    "compile_slabs": 171.45310139399953,
+    "compile_mobility": 3.3634626329876482,
+    "query": 58.40529526400496,
+    "verify_curve": 28.631441053992603,
+    "replay3d": 0.8029748660046607
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4968618,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.3127517700195312,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    9.45,
+    8.7
+   ],
+   "ab_dist_m": 3.9962482405376165,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 177.04284959600773,
+   "query_seconds": 65.49883479002165,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.3414645579759963,
+    "compile_slabs": 170.23054745001718,
+    "compile_mobility": 3.470837588014547,
+    "query": 65.49883479002165,
+    "verify_curve": 32.72848585998872,
+    "replay3d": 0.8094392049824819
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4964588,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.312763214111328,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    10.2,
+    9.95
+   ],
+   "ab_dist_m": 5.453897688809352,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 175.39589823398273,
+   "query_seconds": 70.74857003800571,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.230786453001201,
+    "compile_slabs": 168.6785969880002,
+    "compile_mobility": 3.4865147929813247,
+    "query": 70.74857003800571,
+    "verify_curve": 33.627725286001805,
+    "replay3d": 0.8107562889927067
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 4965084,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.312755584716797,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    9.95
+   ],
+   "ab_dist_m": 6.901630242196404,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.037647596840002275,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 176.7939397339651,
+   "query_seconds": 212.32866863399977,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.3478604499832727,
+    "compile_slabs": 170.11698737400002,
+    "compile_mobility": 3.3290919099817984,
+    "query": 212.32866863399977,
+    "verify_curve": 102.94132472897763,
+    "replay3d": 0.8520775910001248
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 19791888,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.4367218017578125,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    11.7,
+    12.7
+   ],
+   "ab_dist_m": 8.583851117068608,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": false,
+   "success": false,
+   "clearance_lb": 0.0034981816995781683,
+   "replay3d_lb": -0.0005154714318962306,
+   "compile_seconds": 177.8412528350309,
+   "query_seconds": 2213.9405089879874,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.3425855910172686,
+    "compile_slabs": 170.94101034200867,
+    "compile_mobility": 3.5576569020049646,
+    "query": 2213.9405089879874,
+    "verify_curve": 356.34508342598565,
+    "replay3d": 6.759456208994379
+   },
+   "refinement_rounds": 1,
+   "query_support_calls": 1352158,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.150043487548828,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "dist:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "dist",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    12.45,
+    13.7
+   ],
+   "ab_dist_m": 9.827003612495519,
+   "n_supports": 39834,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.007044868356650515,
+   "replay3d_lb": 0.017685007908589068,
+   "compile_seconds": 177.84568054796546,
+   "query_seconds": 338.32933606699225,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "compile_pairs": 3.3163978809898254,
+    "compile_slabs": 171.1185922329896,
+    "compile_mobility": 3.4106904339860193,
+    "query": 338.32933606699225,
+    "verify_curve": 162.7007548600086,
+    "replay3d": 3.795739708992187
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5134778,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.3127593994140625,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 1160,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 4.8814313799957745,
+   "query_seconds": 1.654600693989778,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.338827434025006,
+    "compile_pairs": 0.08999407300143503,
+    "compile_slabs": 4.704001006990438,
+    "compile_mobility": 0.08743630000390112,
+    "query": 1.654600693989778,
+    "verify_curve": 0.829040247015655,
+    "replay3d": 0.7741163419850636
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 154132,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.1800994873046875,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 4254,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 17.895713606994832,
+   "query_seconds": 6.343772611988243,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.47655369900167,
+    "compile_pairs": 0.30467278297874145,
+    "compile_slabs": 17.27663694700459,
+    "compile_mobility": 0.3144038770115003,
+    "query": 6.343772611988243,
+    "verify_curve": 3.0315993780095596,
+    "replay3d": 0.7621896160126198
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 551924,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.179149627685547,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 10605,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 45.54818017495563,
+   "query_seconds": 15.383734125003684,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 5.62208626998472,
+    "compile_pairs": 0.8302507129847072,
+    "compile_slabs": 43.8799530119868,
+    "compile_mobility": 0.8379764499841258,
+    "query": 15.383734125003684,
+    "verify_curve": 7.492003936989931,
+    "replay3d": 0.7776261590188369
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 1341618,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.1995697021484375,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    3.7265,
+    2.2645,
+    10.5735,
+    10.7355
+   ],
+   "window_area_m2": 58.00093699999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 46450,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 198.24222542601638,
+   "query_seconds": 64.1205099549843,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 6.652055627986556,
+    "compile_pairs": 3.7352758240012918,
+    "compile_slabs": 190.66557471599663,
+    "compile_mobility": 3.841374886018457,
+    "query": 64.1205099549843,
+    "verify_curve": 31.617575723998016,
+    "replay3d": 0.7701171829830855
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 5786398,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.382946014404297,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    2.1556,
+    0.6936,
+    12.1444,
+    12.3064
+   ],
+   "window_area_m2": 115.99793663999999,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 83978,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 351.4049030219903,
+   "query_seconds": 117.30319125700044,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 7.577364349010168,
+    "compile_pairs": 6.860178150993306,
+    "compile_slabs": 337.3942308179976,
+    "compile_mobility": 7.15049405299942,
+    "query": 117.30319125700044,
+    "verify_curve": 58.559498221002286,
+    "replay3d": 0.8022380539914593
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 10439870,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 2.7428321838378906,
+    "peak_gb": 3.7201309204101562
+   }
+  },
+  {
+   "source": "P4-sweep",
+   "label": "win:cold:",
+   "path": null,
+   "robot": "uav",
+   "mode": "cold",
+   "experiment": "win",
+   "lane": "uav",
+   "scene": "planefloor",
+   "budget_scale": 1,
+   "window": [
+    1.5423,
+    0.0803,
+    12.7577,
+    12.9197
+   ],
+   "window_area_m2": 143.99900676,
+   "start": [
+    7.35,
+    5.3
+   ],
+   "goal": [
+    6.95,
+    7.7
+   ],
+   "ab_dist_m": 2.433105012119288,
+   "n_supports": 91381,
+   "status": "REACHABLE",
+   "reason": null,
+   "certified": true,
+   "replay3d_passed": true,
+   "success": true,
+   "clearance_lb": 0.20970437688231064,
+   "replay3d_lb": 0.05,
+   "compile_seconds": 399.79896272098995,
+   "query_seconds": 134.7991467899992,
+   "query_is_lower_bound": false,
+   "has_stage_timing": true,
+   "stages": {
+    "project": 8.007907638006145,
+    "compile_pairs": 7.9159468410070986,
+    "compile_slabs": 383.8845319739776,
+    "compile_mobility": 7.998483906005276,
+    "query": 134.7991467899992,
+    "verify_curve": 65.19059938300052,
+    "replay3d": 0.7943496549851261
+   },
+   "refinement_rounds": 0,
+   "query_support_calls": 11357842,
+   "order": null,
+   "node": "cs616.hpc.nyu.edu",
+   "peak_growth_gib": null,
+   "mem": {
+    "rss_gb": 3.1469802856445312,
+    "peak_gb": 3.7406539916992188
+   }
+  }
+ ],
+ "project": [
+  {
+   "source": "P2 shared",
+   "robot": "sweeper",
+   "label": "sweeper",
+   "n_supports": 1779,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 4.434360231010942
+  },
+  {
+   "source": "P2 shared",
+   "robot": "uav",
+   "label": "uav",
+   "n_supports": 19867,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 8.034840687003452
+  },
+  {
+   "source": "P2 shared",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 156426,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 9.656653778991313
+  },
+  {
+   "source": "P2 shared",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 156426,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 11.008639703999506
+  },
+  {
+   "source": "P3 long",
+   "robot": "sweeper",
+   "label": "sweeper",
+   "n_supports": 6436,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 5.356950624991441
+  },
+  {
+   "source": "P3 long",
+   "robot": "uav",
+   "label": "uav",
+   "n_supports": 39834,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 6.736891540989745
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 21144,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "seconds": 6.705803218006622
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 45572,
+   "window": [
+    6.438,
+    4.688,
+    10.05,
+    9.812
+   ],
+   "window_area_m2": 18.507888000000005,
+   "seconds": 6.866557423985796
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 46835,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "seconds": 7.489260595990345
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 73178,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_area_m2": 37.15305,
+   "seconds": 6.6304283280042
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 149303,
+   "window": [
+    6.438,
+    4.688,
+    12.313,
+    13.912
+   ],
+   "window_area_m2": 54.19100000000001,
+   "seconds": 8.522627805999946
+  },
+  {
+   "source": "P3 ladder",
+   "robot": "cylinder",
+   "label": "cylinder",
+   "n_supports": 73178,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_area_m2": 37.15305,
+   "seconds": 7.281212921021506
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "A:sweeper",
+   "n_supports": 6081,
+   "window": [
+    4.5,
+    2.5,
+    13.5,
+    11.5
+   ],
+   "window_area_m2": 81.0,
+   "seconds": 4.492793
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "A:cylinder",
+   "n_supports": 271848,
+   "window": [
+    4.5,
+    2.5,
+    13.5,
+    11.5
+   ],
+   "window_area_m2": 81.0,
+   "seconds": 11.455054
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "A:uav",
+   "n_supports": 50867,
+   "window": [
+    4.5,
+    2.5,
+    13.5,
+    11.5
+   ],
+   "window_area_m2": 81.0,
+   "seconds": 5.580163
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "SW:sweeper",
+   "n_supports": 4676,
+   "window": [
+    -2.5,
+    5.5,
+    6.5,
+    16.0
+   ],
+   "window_area_m2": 94.5,
+   "seconds": 4.41115
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "SW:cylinder",
+   "n_supports": 357631,
+   "window": [
+    -2.5,
+    5.5,
+    6.5,
+    16.0
+   ],
+   "window_area_m2": 94.5,
+   "seconds": 13.412126
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "SW:uav",
+   "n_supports": 72121,
+   "window": [
+    -2.5,
+    5.5,
+    6.5,
+    16.0
+   ],
+   "window_area_m2": 94.5,
+   "seconds": 6.127045
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "E:sweeper",
+   "n_supports": 10005,
+   "window": [
+    6.5,
+    10.5,
+    16.5,
+    19.5
+   ],
+   "window_area_m2": 90.0,
+   "seconds": 4.491754
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "E:cylinder",
+   "n_supports": 439242,
+   "window": [
+    6.5,
+    10.5,
+    16.5,
+    19.5
+   ],
+   "window_area_m2": 90.0,
+   "seconds": 15.586873
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "E:uav",
+   "n_supports": 90433,
+   "window": [
+    6.5,
+    10.5,
+    16.5,
+    19.5
+   ],
+   "window_area_m2": 90.0,
+   "seconds": 6.518212
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "G:sweeper",
+   "n_supports": 2773,
+   "window": [
+    -0.5,
+    18.5,
+    7.5,
+    26.5
+   ],
+   "window_area_m2": 64.0,
+   "seconds": 4.298296
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "G:cylinder",
+   "n_supports": 161560,
+   "window": [
+    -0.5,
+    18.5,
+    7.5,
+    26.5
+   ],
+   "window_area_m2": 64.0,
+   "seconds": 8.518425
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "G:uav",
+   "n_supports": 37334,
+   "window": [
+    -0.5,
+    18.5,
+    7.5,
+    26.5
+   ],
+   "window_area_m2": 64.0,
+   "seconds": 5.176976
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "N:sweeper",
+   "n_supports": 11949,
+   "window": [
+    3.5,
+    24.5,
+    12.5,
+    32.0
+   ],
+   "window_area_m2": 67.5,
+   "seconds": 4.58286
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "N:cylinder",
+   "n_supports": 275694,
+   "window": [
+    3.5,
+    24.5,
+    12.5,
+    32.0
+   ],
+   "window_area_m2": 67.5,
+   "seconds": 11.348432
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "N:uav",
+   "n_supports": 32882,
+   "window": [
+    3.5,
+    24.5,
+    12.5,
+    32.0
+   ],
+   "window_area_m2": 67.5,
+   "seconds": 5.139755
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final0:sweeper",
+   "n_supports": 1779,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 4.322507
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final0:cylinder",
+   "n_supports": 156426,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 8.370814
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final0:uav",
+   "n_supports": 19867,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 4.748863
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final1:sweeper",
+   "n_supports": 1725,
+   "window": [
+    -2.5,
+    7.7,
+    1.55,
+    12.8
+   ],
+   "window_area_m2": 20.655,
+   "seconds": 4.274218
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final1:cylinder",
+   "n_supports": 153506,
+   "window": [
+    -2.5,
+    7.7,
+    1.55,
+    12.8
+   ],
+   "window_area_m2": 20.655,
+   "seconds": 8.196482
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final1:uav",
+   "n_supports": 19308,
+   "window": [
+    -2.5,
+    7.7,
+    1.55,
+    12.8
+   ],
+   "window_area_m2": 20.655,
+   "seconds": 4.734128
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final2:sweeper",
+   "n_supports": 1817,
+   "window": [
+    -2.5,
+    6.7,
+    2.3,
+    13.05
+   ],
+   "window_area_m2": 30.48,
+   "seconds": 4.277152
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final2:cylinder",
+   "n_supports": 156876,
+   "window": [
+    -2.5,
+    6.7,
+    2.3,
+    13.05
+   ],
+   "window_area_m2": 30.48,
+   "seconds": 8.324205
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final2:uav",
+   "n_supports": 19867,
+   "window": [
+    -2.5,
+    6.7,
+    2.3,
+    13.05
+   ],
+   "window_area_m2": 30.48,
+   "seconds": 4.786208
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final3:sweeper",
+   "n_supports": 1758,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    12.8
+   ],
+   "window_area_m2": 23.005000000000003,
+   "seconds": 4.286687
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final3:cylinder",
+   "n_supports": 153968,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    12.8
+   ],
+   "window_area_m2": 23.005000000000003,
+   "seconds": 8.295159
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final3:uav",
+   "n_supports": 19308,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    12.8
+   ],
+   "window_area_m2": 23.005000000000003,
+   "seconds": 4.741496
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final4:sweeper",
+   "n_supports": 1850,
+   "window": [
+    -2.5,
+    6.2,
+    2.55,
+    13.05
+   ],
+   "window_area_m2": 34.5925,
+   "seconds": 4.285724
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final4:cylinder",
+   "n_supports": 157719,
+   "window": [
+    -2.5,
+    6.2,
+    2.55,
+    13.05
+   ],
+   "window_area_m2": 34.5925,
+   "seconds": 8.441556
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final4:uav",
+   "n_supports": 20031,
+   "window": [
+    -2.5,
+    6.2,
+    2.55,
+    13.05
+   ],
+   "window_area_m2": 34.5925,
+   "seconds": 4.758639
+  },
+  {
+   "source": "P2 search",
+   "robot": "sweeper",
+   "label": "final5:sweeper",
+   "n_supports": 1908,
+   "window": [
+    -2.5,
+    5.95,
+    2.8,
+    13.05
+   ],
+   "window_area_m2": 37.63,
+   "seconds": 4.286125
+  },
+  {
+   "source": "P2 search",
+   "robot": "cylinder",
+   "label": "final5:cylinder",
+   "n_supports": 158603,
+   "window": [
+    -2.5,
+    5.95,
+    2.8,
+    13.05
+   ],
+   "window_area_m2": 37.63,
+   "seconds": 8.389787
+  },
+  {
+   "source": "P2 search",
+   "robot": "uav",
+   "label": "final5:uav",
+   "n_supports": 20241,
+   "window": [
+    -2.5,
+    5.95,
+    2.8,
+    13.05
+   ],
+   "window_area_m2": 37.63,
+   "seconds": 4.784701
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "sweeper",
+   "label": "m0.45:sweeper",
+   "n_supports": 700,
+   "window": [
+    -1.7,
+    8.8,
+    0.45,
+    11.7
+   ],
+   "window_area_m2": 6.234999999999997,
+   "seconds": 6.264436
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "cylinder",
+   "label": "m0.45:cylinder",
+   "n_supports": 64294,
+   "window": [
+    -1.7,
+    8.8,
+    0.45,
+    11.7
+   ],
+   "window_area_m2": 6.234999999999997,
+   "seconds": 8.316568
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "uav",
+   "label": "m0.45:uav",
+   "n_supports": 4749,
+   "window": [
+    -1.7,
+    8.8,
+    0.45,
+    11.7
+   ],
+   "window_area_m2": 6.234999999999997,
+   "seconds": 6.228026
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "sweeper",
+   "label": "m0.6:sweeper",
+   "n_supports": 828,
+   "window": [
+    -1.85,
+    8.65,
+    0.6,
+    11.85
+   ],
+   "window_area_m2": 7.839999999999999,
+   "seconds": 6.057504
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "cylinder",
+   "label": "m0.6:cylinder",
+   "n_supports": 76563,
+   "window": [
+    -1.85,
+    8.65,
+    0.6,
+    11.85
+   ],
+   "window_area_m2": 7.839999999999999,
+   "seconds": 8.692613
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "uav",
+   "label": "m0.6:uav",
+   "n_supports": 6112,
+   "window": [
+    -1.85,
+    8.65,
+    0.6,
+    11.85
+   ],
+   "window_area_m2": 7.839999999999999,
+   "seconds": 6.252056
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "sweeper",
+   "label": "m0.9:sweeper",
+   "n_supports": 1084,
+   "window": [
+    -2.15,
+    8.35,
+    0.9,
+    12.15
+   ],
+   "window_area_m2": 11.590000000000002,
+   "seconds": 6.05361
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "cylinder",
+   "label": "m0.9:cylinder",
+   "n_supports": 97606,
+   "window": [
+    -2.15,
+    8.35,
+    0.9,
+    12.15
+   ],
+   "window_area_m2": 11.590000000000002,
+   "seconds": 9.37365
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "uav",
+   "label": "m0.9:uav",
+   "n_supports": 8637,
+   "window": [
+    -2.15,
+    8.35,
+    0.9,
+    12.15
+   ],
+   "window_area_m2": 11.590000000000002,
+   "seconds": 6.285894
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "sweeper",
+   "label": "m1.3:sweeper",
+   "n_supports": 1647,
+   "window": [
+    -2.5,
+    7.95,
+    1.3,
+    12.55
+   ],
+   "window_area_m2": 17.48,
+   "seconds": 6.028729
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "cylinder",
+   "label": "m1.3:cylinder",
+   "n_supports": 150542,
+   "window": [
+    -2.5,
+    7.95,
+    1.3,
+    12.55
+   ],
+   "window_area_m2": 17.48,
+   "seconds": 11.024088
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "uav",
+   "label": "m1.3:uav",
+   "n_supports": 18673,
+   "window": [
+    -2.5,
+    7.95,
+    1.3,
+    12.55
+   ],
+   "window_area_m2": 17.48,
+   "seconds": 6.592103
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "sweeper",
+   "label": "m1.8:sweeper",
+   "n_supports": 1779,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 6.025722
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "cylinder",
+   "label": "m1.8:cylinder",
+   "n_supports": 156426,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 11.186304
+  },
+  {
+   "source": "P2 evidence",
+   "robot": "uav",
+   "label": "m1.8:uav",
+   "n_supports": 19867,
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "window_area_m2": 24.080000000000002,
+   "seconds": 6.650822
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "domain:sweeper",
+   "n_supports": 51499,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 5.861453
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "domain:uav",
+   "n_supports": 421853,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 15.129916
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final0:sweeper",
+   "n_supports": 6436,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 4.744838
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final0:cylinder",
+   "n_supports": 269036,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 11.440605
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final0:uav",
+   "n_supports": 39834,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 5.592372
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final1:sweeper",
+   "n_supports": 6432,
+   "window": [
+    6.45,
+    5.7,
+    14.15,
+    17.4
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 4.72818
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final1:cylinder",
+   "n_supports": 295822,
+   "window": [
+    6.45,
+    5.7,
+    14.15,
+    17.4
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 12.057666
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final1:uav",
+   "n_supports": 45381,
+   "window": [
+    6.45,
+    5.7,
+    14.15,
+    17.4
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 5.719896
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final2:sweeper",
+   "n_supports": 5854,
+   "window": [
+    6.45,
+    6.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 74.69,
+   "seconds": 4.73482
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final2:cylinder",
+   "n_supports": 250198,
+   "window": [
+    6.45,
+    6.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 74.69,
+   "seconds": 11.036396
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final2:uav",
+   "n_supports": 36494,
+   "window": [
+    6.45,
+    6.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 74.69,
+   "seconds": 5.516566
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final3:sweeper",
+   "n_supports": 6337,
+   "window": [
+    6.55,
+    6.7,
+    14.15,
+    17.9
+   ],
+   "window_area_m2": 85.12,
+   "seconds": 4.742498
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final3:cylinder",
+   "n_supports": 303597,
+   "window": [
+    6.55,
+    6.7,
+    14.15,
+    17.9
+   ],
+   "window_area_m2": 85.12,
+   "seconds": 12.373268
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final3:uav",
+   "n_supports": 45622,
+   "window": [
+    6.55,
+    6.7,
+    14.15,
+    17.9
+   ],
+   "window_area_m2": 85.12,
+   "seconds": 5.743802
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final4:sweeper",
+   "n_supports": 6938,
+   "window": [
+    6.45,
+    4.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 4.764613
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final4:cylinder",
+   "n_supports": 285770,
+   "window": [
+    6.45,
+    4.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 11.818223
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final4:uav",
+   "n_supports": 42997,
+   "window": [
+    6.45,
+    4.2,
+    14.15,
+    15.9
+   ],
+   "window_area_m2": 90.09,
+   "seconds": 5.614798
+  },
+  {
+   "source": "P3 search",
+   "robot": "sweeper",
+   "label": "final5:sweeper",
+   "n_supports": 5289,
+   "window": [
+    6.65,
+    7.7,
+    14.15,
+    16.4
+   ],
+   "window_area_m2": 65.25,
+   "seconds": 4.68971
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "final5:cylinder",
+   "n_supports": 244332,
+   "window": [
+    6.65,
+    7.7,
+    14.15,
+    16.4
+   ],
+   "window_area_m2": 65.25,
+   "seconds": 10.830656
+  },
+  {
+   "source": "P3 search",
+   "robot": "uav",
+   "label": "final5:uav",
+   "n_supports": 37162,
+   "window": [
+    6.65,
+    7.7,
+    14.15,
+    16.4
+   ],
+   "window_area_m2": 65.25,
+   "seconds": 5.54162
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "ladder_map:cylinder",
+   "n_supports": 703015,
+   "window": [
+    3.45,
+    1.7,
+    17.15,
+    18.6
+   ],
+   "window_area_m2": 231.53000000000003,
+   "seconds": 22.51844
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung0:cylinder",
+   "n_supports": 21144,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "seconds": 5.220538
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung1:cylinder",
+   "n_supports": 45572,
+   "window": [
+    6.438,
+    4.688,
+    10.05,
+    9.812
+   ],
+   "window_area_m2": 18.507888000000005,
+   "seconds": 5.799251
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung2:cylinder",
+   "n_supports": 46835,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "seconds": 5.871258
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung3:cylinder",
+   "n_supports": 73178,
+   "window": [
+    6.738,
+    4.688,
+    13.063,
+    10.562
+   ],
+   "window_area_m2": 37.15305,
+   "seconds": 6.544679
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung4:cylinder",
+   "n_supports": 149303,
+   "window": [
+    6.438,
+    4.688,
+    12.313,
+    13.912
+   ],
+   "window_area_m2": 54.19100000000001,
+   "seconds": 8.480246
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung5:cylinder",
+   "n_supports": 235620,
+   "window": [
+    6.738,
+    4.688,
+    14.537,
+    14.312
+   ],
+   "window_area_m2": 75.057576,
+   "seconds": 10.603755
+  },
+  {
+   "source": "P3 search",
+   "robot": "cylinder",
+   "label": "rung6:cylinder",
+   "n_supports": 259588,
+   "window": [
+    6.438,
+    4.688,
+    13.813,
+    15.688
+   ],
+   "window_area_m2": 81.12500000000001,
+   "seconds": 11.25137
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "hall:sweeper",
+   "n_supports": 51499,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 7.429007928993087
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "hall:uav",
+   "n_supports": 421853,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 19.355858636990888
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "hall:cylinder",
+   "n_supports": 2148885,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 75.80837710597552
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "hall:sweeper",
+   "n_supports": 51499,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 7.258578064996982
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "hall:uav",
+   "n_supports": 421853,
+   "window": [
+    -4.4,
+    -0.95,
+    21.05,
+    32.0
+   ],
+   "window_area_m2": 838.5775000000002,
+   "seconds": 19.3362045979884
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "ladder_map:cylinder",
+   "n_supports": 703015,
+   "window": [
+    3.45,
+    1.7,
+    17.15,
+    18.6
+   ],
+   "window_area_m2": 231.53000000000003,
+   "seconds": 28.36470314898179
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "win:cylinder",
+   "n_supports": 21144,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "seconds": 6.886990606988547
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "win:cylinder",
+   "n_supports": 44883,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "seconds": 7.6494400200026575
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "win:cylinder",
+   "n_supports": 98037,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "seconds": 9.394592928991187
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "dist:sweeper",
+   "n_supports": 6436,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 6.1947761829942465
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 462,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "seconds": 5.690467392007122
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 1152,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "seconds": 5.58822410000721
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 2244,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "seconds": 5.535782938008197
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 4325,
+   "window": [
+    3.7265,
+    2.2645,
+    10.5735,
+    10.7355
+   ],
+   "window_area_m2": 58.00093699999999,
+   "seconds": 5.937443862989312
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 8486,
+   "window": [
+    2.1556,
+    0.6936,
+    12.1444,
+    12.3064
+   ],
+   "window_area_m2": 115.99793663999999,
+   "seconds": 5.64327590999892
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "sweeper",
+   "label": "win:sweeper",
+   "n_supports": 9682,
+   "window": [
+    1.5423,
+    0.0803,
+    12.7577,
+    12.9197
+   ],
+   "window_area_m2": 143.99900676,
+   "seconds": 5.782607114000712
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "cylinder",
+   "label": "cylwarm:cylinder",
+   "n_supports": 46835,
+   "window": [
+    6.438,
+    4.688,
+    10.8,
+    10.562
+   ],
+   "window_area_m2": 25.622388000000004,
+   "seconds": 6.8735909780079965
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "dist:uav",
+   "n_supports": 39834,
+   "window": [
+    6.45,
+    4.7,
+    14.15,
+    15.6
+   ],
+   "window_area_m2": 83.92999999999999,
+   "seconds": 7.422197278006934
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 1160,
+   "window": [
+    6.15,
+    4.688,
+    8.15,
+    8.312
+   ],
+   "window_area_m2": 7.247999999999999,
+   "seconds": 5.338827434025006
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 4254,
+   "window": [
+    5.6092,
+    4.1472,
+    8.6908,
+    8.8528
+   ],
+   "window_area_m2": 14.500776959999996,
+   "seconds": 5.47655369900167
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 10605,
+   "window": [
+    4.833,
+    3.371,
+    9.467,
+    9.629
+   ],
+   "window_area_m2": 28.999571999999997,
+   "seconds": 5.62208626998472
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 46450,
+   "window": [
+    3.7265,
+    2.2645,
+    10.5735,
+    10.7355
+   ],
+   "window_area_m2": 58.00093699999999,
+   "seconds": 6.652055627986556
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 83978,
+   "window": [
+    2.1556,
+    0.6936,
+    12.1444,
+    12.3064
+   ],
+   "window_area_m2": 115.99793663999999,
+   "seconds": 7.577364349010168
+  },
+  {
+   "source": "P4 sweep",
+   "robot": "uav",
+   "label": "win:uav",
+   "n_supports": 91381,
+   "window": [
+    1.5423,
+    0.0803,
+    12.7577,
+    12.9197
+   ],
+   "window_area_m2": 143.99900676,
+   "seconds": 8.007907638006145
+  }
+ ],
+ "prep": [
+  {
+   "source": "P2 shared",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.8225748080003541,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P2 shared",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.875379011995392,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P2 shared",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.79075327499595,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P2 shared",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.2716341599880252,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 long",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.8033537699957378,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 long",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.781601241993485,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.8713810280023608,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.863913784007309,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.4268886329955421,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.7954288810142316,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.87713657997665,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 ladder",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.1293690399907064,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P2 search",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.898245,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P2 evidence",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 1.652674,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P3 search",
+   "stage": "scene_load",
+   "label": null,
+   "seconds": 0.857252,
+   "sizes": {
+    "scene": "planefloor",
+    "n_splats": 7101868
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "scene_load",
+   "label": "ply_decode",
+   "seconds": 5.203445495979395,
+   "sizes": {
+    "path": "raw/point_cloud.ply",
+    "n_splats": 7340008
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "scene_load",
+   "label": "floor_fit_rotate_crop",
+   "seconds": 2.1043393239961006,
+   "sizes": {
+    "n_splats": 7319425
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "scene_load",
+   "label": "processed_npz",
+   "seconds": 0.7792064209934324,
+   "sizes": {
+    "n_splats": 7319425
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "floor_replace",
+   "label": "amendment1_floor_rule",
+   "seconds": 10.581055860995548,
+   "sizes": {
+    "n_splats": 7319425,
+    "removed": 71594
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "floor_replace",
+   "label": "band_rasters_and_phantom",
+   "seconds": 3.529194409988122,
+   "sizes": {
+    "n_splats": 7247831,
+    "n_bands": 5,
+    "cell": 0.05,
+    "n_cells": 397047,
+    "phantom_cells": 94780
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "floor_replace",
+   "label": "replace_and_plane",
+   "seconds": 2.1098558790108655,
+   "sizes": {
+    "n_splats": 7247831,
+    "footprint": "centre",
+    "replaced": 146977,
+    "inserted": 1014,
+    "n_output": 7101868
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "floor_replace",
+   "label": "save_npz",
+   "seconds": 0.720184928009985,
+   "sizes": {
+    "n_splats": 7101868,
+    "bytes": 795411828
+   }
+  },
+  {
+   "source": "P4 sweep",
+   "stage": "scene_load",
+   "label": "planefloor_npz",
+   "seconds": 0.6886406099947635,
+   "sizes": {
+    "n_splats": 7101868
+   }
+  }
+ ],
+ "hosts": {
+  "prep": {
+   "host": "cs616.hpc.nyu.edu",
+   "cpu_model": "INTEL(R) XEON(R) PLATINUM 8592+",
+   "job": "17965980",
+   "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+   }
+  },
+  "cyl": {
+   "host": "cs616.hpc.nyu.edu",
+   "cpu_model": "INTEL(R) XEON(R) PLATINUM 8592+",
+   "job": "17965980",
+   "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+   }
+  },
+  "sweeper": {
+   "host": "cs616.hpc.nyu.edu",
+   "cpu_model": "INTEL(R) XEON(R) PLATINUM 8592+",
+   "job": "17965980",
+   "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+   }
+  },
+  "uav": {
+   "host": "cs616.hpc.nyu.edu",
+   "cpu_model": "INTEL(R) XEON(R) PLATINUM 8592+",
+   "job": "17965980",
+   "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+   }
+  }
+ },
+ "sacct_note": "sacct snapshot taken by P4 on 2026-09-18; TotalCPU is not reported by this cluster's accounting, so only wall time and MaxRSS are used",
+ "counts": {
+  "runs": 84,
+  "project": 112,
+  "prep": 23,
+  "sweep_rows": 69
+ }
+}

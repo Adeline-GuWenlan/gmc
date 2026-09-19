@@ -1,0 +1,8 @@
+17:52:40 scene 7,101,868 splats in 0.8s
+17:52:40 ROW {"kind": "lane_meta", "experiment": null, "mode": null, "robot": null, "n_supports": null, "ab_dist_m": null, "status": null, "success": null} null
+18:00:17 ROW {"kind": "unit", "experiment": "win", "mode": "cold", "robot": "cylinder", "n_supports": 21144, "ab_dist_m": 2.433105012119288, "status": "REACHABLE", "success": true} {"project": 6.886990606988547, "compile_pairs": 1.9558892569912132, "compile_slabs": 101.96001742599765, "compile_mobility": 2.0156657909974456, "query": 229.06084503201419, "verify_curve": 111.74086217599688, "replay3d": 3.5633692030096427}
+18:16:18 ROW {"kind": "unit", "experiment": "win", "mode": "cold", "robot": "cylinder", "n_supports": 44883, "ab_dist_m": 2.433105012119288, "status": "REACHABLE", "success": true} {"project": 7.6494400200026575, "compile_pairs": 4.3914624960161746, "compile_slabs": 217.5956078619929, "compile_mobility": 4.478543809993425, "query": 486.88394176898873, "verify_curve": 236.0776565010019, "replay3d": 3.568672449007863}
+18:33:59 ROW {"kind": "unit", "experiment": "win", "mode": "cold", "robot": "cylinder", "n_supports": 98037, "ab_dist_m": 2.433105012119288, "status": "UNKNOWN", "success": false} {"project": 9.394592928991187, "compile_pairs": 9.326191216998268, "compile_slabs": 476.3760551000014, "compile_mobility": 9.617857064004056, "query": 555.6750643479754}
+18:34:01 win cylinder: UNKNOWN at 98037 supports -> stop (as P3's ladder did)
+18:34:03 ROW {"kind": "lane_done", "experiment": null, "mode": null, "robot": null, "n_supports": null, "ab_dist_m": null, "status": null, "success": null} null
+18:34:03 LANE cyl DONE in 2483s -> results/height/timing/sweep/cyl.jsonl
