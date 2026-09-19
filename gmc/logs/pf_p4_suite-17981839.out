@@ -1,0 +1,63 @@
+=== planefloor_search -m pytest -p no:cacheprovider --tb=line tests 2026-09-18T22:06:08-04:00 host=cs620.hpc.nyu.edu job=17981839 ===
+FFFFFFFFFFFFFFFFFFFFFFF......FF......................................... [ 12%]
+........................................................................ [ 24%]
+........................................................................ [ 37%]
+........................................................................ [ 49%]
+........................................................................ [ 61%]
+........................................................................ [ 74%]
+........................................................................ [ 86%]
+........................................................................ [ 98%]
+.......                                                                  [100%]
+=================================== FAILURES ===================================
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/share/apps/anaconda3/2025.06/lib/python3.13/pathlib/_local.py:537: FileNotFoundError: [Errno 2] No such file or directory: '/scratch/wg2381/splathjb-plane/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py'
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+/scratch/wg2381/splathjb-plane/gmc/src/gmc/benchmarking/atlas.py:315: gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+=========================== short test summary info ============================
+FAILED tests/integration/test_atlas_benchmark.py::test_blind_is_forbidden_without_explicit_opt_in
+FAILED tests/integration/test_atlas_benchmark.py::test_blind_opt_in_keeps_withheld_manifest_scope_explicit
+FAILED tests/integration/test_atlas_benchmark.py::test_oracle_record_analytic_truth_is_cross_checked_against_manifest
+FAILED tests/integration/test_atlas_benchmark.py::test_one_sealed_atlas_case_runs_both_arms_at_equal_cap
+FAILED tests/integration/test_atlas_benchmark.py::test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details
+FAILED tests/integration/test_atlas_benchmark.py::test_split_manifest_is_hashed_and_parsed_from_one_read
+FAILED tests/integration/test_atlas_benchmark.py::test_split_manifest_tamper_is_rejected
+FAILED tests/integration/test_atlas_benchmark.py::test_package_inventory_cannot_reseal_pinned_generator
+FAILED tests/integration/test_atlas_benchmark.py::test_selected_oracle_record_is_checked_against_package_inventory
+FAILED tests/integration/test_atlas_benchmark.py::test_runtime_guard_rejects_new_legacy_import_only
+FAILED tests/integration/test_atlas_gate_intervals.py::test_full_s1_truth_is_recomputed_with_four_partial_gate_events
+FAILED tests/integration/test_atlas_gate_intervals.py::test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_report_from_different_scene_binding_is_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_fake_report_numeric_budget_overflows_fail_postcheck
+FAILED tests/integration/test_atlas_gate_intervals.py::test_runner_rejects_a_non_support_budget_stop_reason
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_stop_keeps_leaf_resolution_without_claiming_completion
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_stopped_report_cannot_forge_resolution_completion
+FAILED tests/integration/test_atlas_gate_intervals.py::test_report_completion_flag_must_be_a_strict_bool
+FAILED tests/integration/test_atlas_gate_intervals.py::test_fifty_two_degree_brackets_cannot_pass_five_degree_gate
+FAILED tests/integration/test_atlas_gate_intervals.py::test_four_degree_partial_brackets_satisfy_strict_acceptance
+FAILED tests/integration/test_atlas_gate_intervals.py::test_four_representative_cases_use_all_supports_and_full_compiler
+FAILED tests/integration/test_atlas_gate_intervals.py::test_staged_report_keeps_initial_and_refined_aggregates_separate
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_exception_keeps_finally_timing_and_fails_acceptance
+FAILED tests/integration/test_atlas_gate_intervals.py::test_case_deadline_skips_connectivity_and_builder_gets_all_pairs
+25 failed, 558 passed in 1491.89s (0:24:51)

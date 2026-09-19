@@ -1,0 +1,1203 @@
+FFFFFFFFFFFFFFFFFFFFFFF......FF......................................... [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 40%]
+........................................................................ [ 54%]
+........................................................................ [ 67%]
+........................................................................ [ 81%]
+........................................................................ [ 95%]
+..........................                                               [100%]
+=================================== FAILURES ===================================
+_______________ test_blind_is_forbidden_without_explicit_opt_in ________________
+
+    def test_blind_is_forbidden_without_explicit_opt_in():
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+___________ test_blind_opt_in_keeps_withheld_manifest_scope_explicit ___________
+
+    def test_blind_opt_in_keeps_withheld_manifest_scope_explicit():
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_____ test_oracle_record_analytic_truth_is_cross_checked_against_manifest ______
+
+    def test_oracle_record_analytic_truth_is_cross_checked_against_manifest():
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+____________ test_one_sealed_atlas_case_runs_both_arms_at_equal_cap ____________
+
+    def test_one_sealed_atlas_case_runs_both_arms_at_equal_cap():
+        spec = {
+            "name": "atlas-integration-smoke",
+            "kind": "atlas_g1_paired_event",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "robot_ids": ["R_long_ellipse"],
+            "partial_gate_only": True,
+            "case_ids": ["dev_001"],
+            "budget": {
+                "currency": "support_value_evals",
+                "cap_per_arm_per_case": 1024,
+            },
+            "search": {"event_tolerance_deg": 0.5, "initial_intervals": 8},
+        }
+>       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_benchmark.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:94: in run_benchmark_spec
+    store = AtlasAssetStore(_resolve(base, spec["atlas_root"]))
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_____ test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details _____
+
+    def test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details():
+        caps = [64, 128, 256]
+        spec = {
+            "name": "atlas-scaling-smoke",
+            "kind": "atlas_g1_paired_event",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "robot_ids": ["R_long_ellipse"],
+            "partial_gate_only": True,
+            "case_ids": ["dev_001"],
+            "budget": {
+                "currency": "support_value_evals",
+                "caps_per_arm_per_case": caps,
+            },
+            "search": {"event_tolerance_deg": 0.5, "initial_intervals": 8},
+        }
+>       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_benchmark.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:94: in run_benchmark_spec
+    store = AtlasAssetStore(_resolve(base, spec["atlas_root"]))
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+____________ test_split_manifest_is_hashed_and_parsed_from_one_read ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e4ec180>
+
+    def test_split_manifest_is_hashed_and_parsed_from_one_read(monkeypatch):
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+____________________ test_split_manifest_tamper_is_rejected ____________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e4ec2b0>
+
+    def test_split_manifest_tamper_is_rejected(monkeypatch):
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+____________ test_package_inventory_cannot_reseal_pinned_generator _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e7ddeb0>
+
+    def test_package_inventory_cannot_reseal_pinned_generator(monkeypatch):
+        package = ATLAS / "outputs" / "round4_final_package"
+        inventory = (package / "MANIFEST.sha256").resolve()
+        generator = (
+            package / "src_snapshot" / "src" / "splatc" / "datasets"
+            / "g1_gate.py"
+        ).resolve()
+        original_read_bytes = Path.read_bytes
+>       original_generator = original_read_bytes(generator)
+
+tests/integration/test_atlas_benchmark.py:244: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/share/apps/anaconda3/2025.06/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/scratch/wg2381/splathjb-plane/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py'
+
+/share/apps/anaconda3/2025.06/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_______ test_selected_oracle_record_is_checked_against_package_inventory _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e80ead0>
+
+    def test_selected_oracle_record_is_checked_against_package_inventory(
+            monkeypatch):
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:268: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+______________ test_runtime_guard_rejects_new_legacy_import_only _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e80dae0>
+
+    def test_runtime_guard_rejects_new_legacy_import_only(monkeypatch):
+>       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+________ test_full_s1_truth_is_recomputed_with_four_partial_gate_events ________
+
+    def test_full_s1_truth_is_recomputed_with_four_partial_gate_events():
+>       case = _case("val_004")
+
+tests/integration/test_atlas_gate_intervals.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+______ test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e87d350>
+
+    def test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected(
+            monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+________ test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e87d650>
+
+    def test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected(
+            monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:202: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_____________ test_report_from_different_scene_binding_is_rejected _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e6f1b80>
+
+    def test_report_from_different_scene_binding_is_rejected(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+___________ test_fake_report_numeric_budget_overflows_fail_postcheck ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e90b200>
+
+    def test_fake_report_numeric_budget_overflows_fail_postcheck(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:254: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_____________ test_runner_rejects_a_non_support_budget_stop_reason _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e822270>
+
+    def test_runner_rejects_a_non_support_budget_stop_reason(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:325: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+______ test_budget_stop_keeps_leaf_resolution_without_claiming_completion ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e823850>
+
+    def test_budget_stop_keeps_leaf_resolution_without_claiming_completion(
+            monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:383: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+________ test_budget_stopped_report_cannot_forge_resolution_completion _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e4f0390>
+
+    def test_budget_stopped_report_cannot_forge_resolution_completion(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:419: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+______________ test_report_completion_flag_must_be_a_strict_bool _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e3c4590>
+
+    def test_report_completion_flag_must_be_a_strict_bool(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_________ test_fifty_two_degree_brackets_cannot_pass_five_degree_gate __________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e3c4b90>
+
+    def test_fifty_two_degree_brackets_cannot_pass_five_degree_gate(monkeypatch):
+>       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:466: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_________ test_four_degree_partial_brackets_satisfy_strict_acceptance __________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e82bb70>
+
+    def test_four_degree_partial_brackets_satisfy_strict_acceptance(monkeypatch):
+        for query_id in ("dev_007", "val_004"):
+>           case = _case(query_id)
+
+tests/integration/test_atlas_gate_intervals.py:489: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+______ test_four_representative_cases_use_all_supports_and_full_compiler _______
+
+    def test_four_representative_cases_use_all_supports_and_full_compiler():
+        spec = {
+            "name": "atlas-full-compiler-four-case-smoke",
+            "kind": "atlas_g1_full_gate_intervals",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev", "validation"],
+            "families": ["G1"],
+            "partial_gate_only": False,
+            "event_tolerance_deg": 5.0,
+            "case_ids": ["dev_000", "dev_002", "dev_007", "val_004"],
+            "expected": {
+                "expected_n_cases": 4,
+                "expected_case_ids": [
+                    "dev_000", "dev_002", "dev_007", "val_004",
+                ],
+                "acceptance_policy": "all_cases_containment",
+            },
+            "compiler": {
+                "geometry": {
+                    "support_level_scene": 1.0,
+                    "support_level_robot": 1.0,
+                },
+                "pair_approx": {
+                    "initial_directions": 8,
+                    "max_directions": 8,
+                    "eps_pair": 0.25,
+                    "certificate_mode": "theorem",
+                },
+                "orientation": {
+                    "initial_intervals": 1,
+                    "theta_min": 0.1,
+                    "max_depth": 0,
+                },
+                "query": {
+                    "max_support_calls": 1_000_000,
+                    "max_wall_seconds": 120,
+                    "eps_clear": 2e-3,
+                    "max_refinement_rounds": 0,
+                },
+            },
+            "budget": {
+                "limits_per_case": {
+                    "support_value_evals": 1_000_000,
+                    "support_point_evals": 1_000_000,
+                },
+                "max_refinements_per_case": 1,
+                "wall_warning_seconds_per_case": 120,
+            },
+        }
+>       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_gate_intervals.py:559: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:84: in run_benchmark_spec
+    return run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1461: in run_atlas_gate_interval_spec
+    return _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1542: in _run_atlas_gate_interval_spec
+    store = AtlasAssetStore(atlas_path)
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_______ test_staged_report_keeps_initial_and_refined_aggregates_separate _______
+
+    def test_staged_report_keeps_initial_and_refined_aggregates_separate():
+        common_compiler = {
+            "geometry": {
+                "support_level_scene": 1.0,
+                "support_level_robot": 1.0,
+            },
+            "pair_approx": {
+                "initial_directions": 8,
+                "max_directions": 8,
+                "eps_pair": 0.25,
+                "certificate_mode": "theorem",
+            },
+            "orientation": {
+                "initial_intervals": 1,
+                "theta_min": 0.1,
+                "max_depth": 0,
+            },
+            "query": {
+                "max_support_calls": 1_000_000,
+                "max_wall_seconds": 120,
+                "eps_clear": 2e-3,
+            },
+        }
+        common_budget = {
+            "limits_per_case": {
+                "support_value_evals": 1_000_000,
+                "support_point_evals": 1_000_000,
+            },
+            "max_refinements_per_case": 1,
+        }
+>       report = run_benchmark_spec({
+            "name": "two-stage-smoke",
+            "kind": "atlas_g1_full_gate_intervals",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "partial_gate_only": False,
+            "event_tolerance_deg": 5.0,
+            "compiler": common_compiler,
+            "budget": common_budget,
+            "stages": [
+                {
+                    "stage": "initial",
+                    "case_ids": ["dev_000"],
+                    "expected": {
+                        "expected_n_cases": 1,
+                        "expected_case_ids": ["dev_000"],
+                        "acceptance_policy": "all_cases_containment",
+                    },
+                },
+                {
+                    "stage": "refined",
+                    "case_ids": ["dev_002"],
+                    "expected": {
+                        "expected_n_cases": 1,
+                        "expected_case_ids": ["dev_002"],
+                        "acceptance_policy": "all_cases_containment",
+                    },
+                },
+            ],
+        })
+
+tests/integration/test_atlas_gate_intervals.py:622: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:84: in run_benchmark_spec
+    return run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1461: in run_atlas_gate_interval_spec
+    return _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1489: in _run_atlas_gate_interval_spec
+    result = _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1542: in _run_atlas_gate_interval_spec
+    store = AtlasAssetStore(atlas_path)
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_______ test_budget_exception_keeps_finally_timing_and_fails_acceptance ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e41da70>
+
+    def test_budget_exception_keeps_finally_timing_and_fails_acceptance(
+            monkeypatch):
+>       case = _case("dev_000")
+
+tests/integration/test_atlas_gate_intervals.py:1020: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+_______ test_case_deadline_skips_connectivity_and_builder_gets_all_pairs _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14734e7759f0>
+
+    def test_case_deadline_skips_connectivity_and_builder_gets_all_pairs(
+            monkeypatch):
+>       case = _case("dev_000")
+
+tests/integration/test_atlas_gate_intervals.py:1070: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-plane/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -> tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+>       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-plane/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError
+=========================== short test summary info ============================
+FAILED tests/integration/test_atlas_benchmark.py::test_blind_is_forbidden_without_explicit_opt_in
+FAILED tests/integration/test_atlas_benchmark.py::test_blind_opt_in_keeps_withheld_manifest_scope_explicit
+FAILED tests/integration/test_atlas_benchmark.py::test_oracle_record_analytic_truth_is_cross_checked_against_manifest
+FAILED tests/integration/test_atlas_benchmark.py::test_one_sealed_atlas_case_runs_both_arms_at_equal_cap
+FAILED tests/integration/test_atlas_benchmark.py::test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details
+FAILED tests/integration/test_atlas_benchmark.py::test_split_manifest_is_hashed_and_parsed_from_one_read
+FAILED tests/integration/test_atlas_benchmark.py::test_split_manifest_tamper_is_rejected
+FAILED tests/integration/test_atlas_benchmark.py::test_package_inventory_cannot_reseal_pinned_generator
+FAILED tests/integration/test_atlas_benchmark.py::test_selected_oracle_record_is_checked_against_package_inventory
+FAILED tests/integration/test_atlas_benchmark.py::test_runtime_guard_rejects_new_legacy_import_only
+FAILED tests/integration/test_atlas_gate_intervals.py::test_full_s1_truth_is_recomputed_with_four_partial_gate_events
+FAILED tests/integration/test_atlas_gate_intervals.py::test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_report_from_different_scene_binding_is_rejected
+FAILED tests/integration/test_atlas_gate_intervals.py::test_fake_report_numeric_budget_overflows_fail_postcheck
+FAILED tests/integration/test_atlas_gate_intervals.py::test_runner_rejects_a_non_support_budget_stop_reason
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_stop_keeps_leaf_resolution_without_claiming_completion
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_stopped_report_cannot_forge_resolution_completion
+FAILED tests/integration/test_atlas_gate_intervals.py::test_report_completion_flag_must_be_a_strict_bool
+FAILED tests/integration/test_atlas_gate_intervals.py::test_fifty_two_degree_brackets_cannot_pass_five_degree_gate
+FAILED tests/integration/test_atlas_gate_intervals.py::test_four_degree_partial_brackets_satisfy_strict_acceptance
+FAILED tests/integration/test_atlas_gate_intervals.py::test_four_representative_cases_use_all_supports_and_full_compiler
+FAILED tests/integration/test_atlas_gate_intervals.py::test_staged_report_keeps_initial_and_refined_aggregates_separate
+FAILED tests/integration/test_atlas_gate_intervals.py::test_budget_exception_keeps_finally_timing_and_fails_acceptance
+FAILED tests/integration/test_atlas_gate_intervals.py::test_case_deadline_skips_connectivity_and_builder_gets_all_pairs

@@ -1,0 +1,14 @@
+=== planefloor_search experiments/plane_case_search.py --step evidence 2026-09-18T09:18:54-04:00 host=cs654.hpc.nyu.edu job=17944447 ===
+[    2.2s] margin 0.3 gives no admissible window (side outside [2.0, 8.0] m)
+[   24.3s] margin 0.45 window [-1.7, 8.8, 0.45, 11.7] area 6.23 pass False supports {"sweeper": 700, "cylinder": 64294, "uav": 4749} cylinder route None failed ['connected_cylinder']
+[   24.7s] figure results/height/plane/figs/p2d_shrink_0p45.png
+[   47.2s] margin 0.6 window [-1.85, 8.65, 0.6, 11.85] area 7.84 pass False supports {"sweeper": 828, "cylinder": 76563, "uav": 6112} cylinder route None failed ['connected_cylinder']
+[   47.6s] figure results/height/plane/figs/p2d_shrink_0p6.png
+[   71.3s] margin 0.9 window [-2.15, 8.35, 0.9, 12.15] area 11.59 pass False supports {"sweeper": 1084, "cylinder": 97606, "uav": 8637} cylinder route None failed ['connected_cylinder']
+[   71.6s] figure results/height/plane/figs/p2d_shrink_0p9.png
+[   98.2s] margin 1.3 window [-2.5, 7.95, 1.3, 12.55] area 17.48 pass False supports {"sweeper": 1647, "cylinder": 150542, "uav": 18673} cylinder route None failed ['connected_cylinder']
+[   98.6s] figure results/height/plane/figs/p2d_shrink_1p3.png
+[  125.7s] margin 1.8 window [-2.5, 7.45, 1.8, 13.05] area 24.08 pass True supports {"sweeper": 1779, "cylinder": 156426, "uav": 19867} cylinder route 5.7698484809835 failed []
+[  126.1s] figure results/height/plane/figs/p2d_shrink_1p8.png
+[  126.1s] smallest surviving window: [-2.5, 7.45, 1.8, 13.05]
+=== PLANEFLOOR_SEARCH_DONE experiments/plane_case_search.py ===
