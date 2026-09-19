@@ -1,0 +1,9 @@
+=== planefloor_render experiments/percase_render.py --robot uav --case-dir results/height/plane/shared --scene planefloor --claim p2shared --azim -20 2026-09-18T23:04:02-04:00 host=cs623.hpc.nyu.edu job=17990377 ===
+loaded 7101868 splats in 1s
+selected 250000 of 268172 splats; colours in 0s
+projected 19867 supports (run: 19867)
+packed 5,522,552 Gaussians for the EWA rasteriser in 4s
+3d video results/height/plane/shared/video/uav_3d.mp4 frames=201 360s (1.78s/frame/worker)
+2panel video results/height/plane/shared/video/uav_2panel.mp4 507s
+{"status": "REACHABLE", "verify_certified": true, "replay3d_passed": true, "selection": {"window": [-2.5, 7.45, 1.8, 13.05], "view_window_pad_m": 0.5, "dilate_m": 1.0, "z_max_above_floor_m": 2.5, "tau": 0.3, "n_window_xy_dilated": 677555, "n_opaque_below_zmax": 268172, "n_rendered": 250000, "max_points": 250000, "subsample": "opacity-weighted without replacement (Efraimidis-Spirakis), seed 0"}, "projection": {"kept": 19867, "run_kept": 19867, "matches_run": true}, "timings_s": {"load_processed": 0.9, "select": 0.2, "colors": 0.1, "project": 6.9, "splat_pack": 3.7, "video_3d": 360.5, "overview": 2.4, "video_2panel": 506.6, "scene_ply": 0.1}}
+=== PLANEFLOOR_RENDER_DONE experiments/percase_render.py ===
