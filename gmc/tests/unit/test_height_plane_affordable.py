@@ -142,3 +142,14 @@ def test_step_affordable_skips_a_window_over_the_cap(tmp_path, monkeypatch):
     out = json.loads((tmp_path / "p5_affordable_search.json").read_text())
     assert out["chosen"] is None and out["tried"][0]["verdict"] == "over_cap"
     assert not (tmp_path / "shared_a" / "case.json").exists()
+
+
+def test_overlay_layer_paints_occupied_cells_in_its_colour_and_leaves_the_rest_clear():
+    """The compare figure's overlay panel said 'grey = cylinder, red = sweeper' but drew yellow and no
+    grey: imshow normalised the constant masked array to 0. The layer is now explicit RGBA."""
+    import numpy as np
+    occ = np.array([[True, False], [False, True]])
+    rgba = plane_case_search.mask_rgba(occ, (0.8, 0.1, 0.1), 0.9)
+    assert rgba.shape == (2, 2, 4)
+    assert np.allclose(rgba[0, 0], (0.8, 0.1, 0.1, 0.9)) and np.allclose(rgba[1, 1], (0.8, 0.1, 0.1, 0.9))
+    assert rgba[0, 1, 3] == 0 and rgba[1, 0, 3] == 0

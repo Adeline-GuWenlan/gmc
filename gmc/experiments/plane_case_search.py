@@ -349,6 +349,20 @@ def make_case(ev, c, w, z_f, meta, search_file):
                                     "pre-check per robot; criterion 1 unchanged"}}
 
 
+def mask_rgba(occ, rgb, alpha):
+    """An RGBA layer: occupied cells in ``rgb`` at ``alpha``, the rest fully clear.
+
+    Not imshow on a masked boolean array with a colormap: all unmasked values are True, the norm collapses
+    to a constant, and the layer comes out in the colormap's zero colour (white for Greys, yellow for
+    autumn_r) -- which is how the first p2c figure lost its grey and turned its red yellow.
+    """
+    occ = np.asarray(occ, dtype=bool)
+    out = np.zeros(occ.shape + (4,))
+    out[occ, :3] = rgb
+    out[occ, 3] = alpha
+    return out
+
+
 def compare_names(tag):
     """Figure and JSON names of --step compare; 'p2c' is P2's, kept for its existing artefacts."""
     return f"{tag}_three_routes.png", f"{tag}_shared_case.json"
@@ -841,10 +855,10 @@ def step_compare(args):
     ax = axs[3]
     ax.imshow(np.ones(maps["sweeper"]["occ"].shape[::-1] + (3,)), origin="lower",
               extent=[win[0], win[2], win[1], win[3]], interpolation="nearest")
-    ax.imshow(np.ma.masked_where(~maps["cylinder"]["occ"].T, maps["cylinder"]["occ"].T), origin="lower",
-              extent=[win[0], win[2], win[1], win[3]], cmap="Greys", alpha=0.35, interpolation="nearest")
-    ax.imshow(np.ma.masked_where(~maps["sweeper"]["occ"].T, maps["sweeper"]["occ"].T), origin="lower",
-              extent=[win[0], win[2], win[1], win[3]], cmap="autumn_r", alpha=0.9, interpolation="nearest")
+    ax.imshow(mask_rgba(maps["cylinder"]["occ"].T, (0.35, 0.35, 0.35), 0.45), origin="lower",
+              extent=[win[0], win[2], win[1], win[3]], interpolation="nearest")
+    ax.imshow(mask_rgba(maps["sweeper"]["occ"].T, (0.85, 0.1, 0.1), 0.9), origin="lower",
+              extent=[win[0], win[2], win[1], win[3]], interpolation="nearest")
     for key, colr in (("sweeper", "tab:green"), ("cylinder", "tab:red"), ("uav", "tab:blue")):
         if key in curves:
             ax.plot(curves[key][:, 0], curves[key][:, 1], "-", color=colr, lw=3.0,
