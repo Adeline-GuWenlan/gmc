@@ -1,0 +1,935 @@
+{
+ "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+ "task": "P5: task 1 re-selection -- P2's ranked candidates with an affordability filter",
+ "rule": "walk p2a_search.json candidates in P2's order; skip a window whose exact cylinder map exceeds the cap; take the first whose exact pre-check passes every P2 criterion",
+ "cap_supports": 46835,
+ "cap_source": "results/height/plane/long/cyl_ladder/rung2/cylinder.json",
+ "cap_why": "largest cylinder map certified in this chain (P3 ladder rung 2); every map >= 73,178 supports ran out of the frozen budget, and P2-SW-0 (156,426) did so twice",
+ "p2_chosen_case_kept": {
+  "label": "P2-SW-0",
+  "cylinder": "UNKNOWN twice (7,968 s; 15,027 s at BUDGET=2)",
+  "reported_as_it_stands": true
+ },
+ "n_candidates_in_p2_list": 40,
+ "tried": [
+  {
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    0.0,
+    9.25
+   ],
+   "cylinder_supports": 156426,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.7,
+    1.55,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    0.25,
+    9.0
+   ],
+   "cylinder_supports": 153506,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.2,
+    2.05,
+    13.3
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    0.25,
+    9.0
+   ],
+   "cylinder_supports": 159666,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.7,
+    2.3,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    0.5,
+    8.5
+   ],
+   "cylinder_supports": 156876,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    0.5,
+    8.75
+   ],
+   "cylinder_supports": 153968,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.95,
+    2.3,
+    13.3
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    0.5,
+    8.75
+   ],
+   "cylinder_supports": 159801,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.2,
+    2.55,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    0.75,
+    8.0
+   ],
+   "cylinder_supports": 157719,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    5.95,
+    2.8,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    1.0,
+    7.75
+   ],
+   "cylinder_supports": 158603,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.95,
+    1.3,
+    13.3
+   ],
+   "start": [
+    -1.75,
+    12.0
+   ],
+   "goal": [
+    0.0,
+    9.25
+   ],
+   "cylinder_supports": 158410,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.45,
+    1.8,
+    13.8
+   ],
+   "start": [
+    -1.75,
+    12.0
+   ],
+   "goal": [
+    0.0,
+    9.25
+   ],
+   "cylinder_supports": 165023,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.7,
+    2.3,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    1.0,
+    8.0
+   ],
+   "cylinder_supports": 154418,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.2,
+    2.8,
+    13.3
+   ],
+   "start": [
+    -1.5,
+    11.5
+   ],
+   "goal": [
+    1.0,
+    8.0
+   ],
+   "cylinder_supports": 161525,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    7.2,
+    4.05,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.0
+   ],
+   "goal": [
+    2.25,
+    9.0
+   ],
+   "cylinder_supports": 170913,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    5.5,
+    3.05,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    1.25,
+    7.25
+   ],
+   "cylinder_supports": 159528,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.95,
+    4.3,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.0
+   ],
+   "goal": [
+    2.5,
+    8.75
+   ],
+   "cylinder_supports": 191116,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    5.5,
+    3.3,
+    13.05
+   ],
+   "start": [
+    -1.25,
+    11.25
+   ],
+   "goal": [
+    1.5,
+    7.0
+   ],
+   "cylinder_supports": 160416,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    -2.5,
+    6.95,
+    4.55,
+    12.8
+   ],
+   "start": [
+    -1.5,
+    11.0
+   ],
+   "goal": [
+    2.75,
+    8.75
+   ],
+   "cylinder_supports": 200792,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    7.2,
+    3.95,
+    12.3,
+    9.55
+   ],
+   "start": [
+    9.0,
+    5.75
+   ],
+   "goal": [
+    10.5,
+    7.75
+   ],
+   "cylinder_supports": 61394,
+   "verdict": "over_cap"
+  },
+  {
+   "window": [
+    8.1,
+    4.85,
+    11.4,
+    8.65
+   ],
+   "start": [
+    9.0,
+    5.75
+   ],
+   "goal": [
+    10.5,
+    7.75
+   ],
+   "cylinder_supports": 38473,
+   "verdict": "pass"
+  }
+ ],
+ "exact_checked": [
+  {
+   "window": [
+    8.1,
+    4.85,
+    11.4,
+    8.65
+   ],
+   "start": [
+    9.0,
+    5.75
+   ],
+   "goal": [
+    10.5,
+    7.75
+   ],
+   "z_c": 1.2,
+   "window_side_m": [
+    3.3,
+    3.8
+   ],
+   "window_at_most_8x8": true,
+   "not_through_glass_adjacent_opening": true,
+   "n_supports": {
+    "sweeper": 915,
+    "cylinder": 38473,
+    "uav": 1856
+   },
+   "supports_per_m2": {
+    "sweeper": 73.0,
+    "cylinder": 3068.0,
+    "uav": 148.0
+   },
+   "criterion1": {
+    "runs": 49,
+    "length_m": 2.5,
+    "z_c": 1.2,
+    "straight_line_under_overhang": true,
+    "top": 0.905098,
+    "underside": 0.712462,
+    "s_interval": [
+     0.92,
+     1.88
+    ],
+    "longest_run_m": 0.98,
+    "ceiling_side_obstacle_above_floor": 4.585627,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "ok": true
+   },
+   "separation_m": 0.941745,
+   "detour_ratio": 1.326181,
+   "contrast": 1.248925,
+   "criteria": {
+    "window_at_most_8x8": true,
+    "not_through_glass_adjacent_opening": true,
+    "straight_line_under_overhang": true,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_cylinder": true,
+    "d1_goal_clear_cylinder": true,
+    "connected_cylinder": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true,
+    "sweeper_line_free": true,
+    "cylinder_line_blocked": true
+   },
+   "failed_criteria": [],
+   "pass": true,
+   "label": "P5-A-0",
+   "region": "A",
+   "margin": 0.9,
+   "screened": "EXACT: own projection per robot",
+   "screened_contrast": 1.25818,
+   "overhang_note": "table A (8.96,7.29) top 0.80 with a bench along its NE side",
+   "robots": {
+    "sweeper": {
+     "start_clear_m": 0.65192,
+     "goal_clear_m": 0.679154,
+     "clearance_required_m": 0.225,
+     "disc_r": 0.175,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      36,
+      36
+     ],
+     "goal_cell": [
+      96,
+      116
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 2.5,
+      "min_clearance_m": 0.212132,
+      "blocked_len_m": 0.0,
+      "blocked_frac": 0.0,
+      "free": true,
+      "disc_r": 0.175
+     },
+     "disc_free_frac": 0.59428,
+     "occupied_frac": 0.066391,
+     "free_components": 2,
+     "path_len_m": 2.62132
+    },
+    "cylinder": {
+     "start_clear_m": 0.614919,
+     "goal_clear_m": 0.637377,
+     "clearance_required_m": 0.35,
+     "disc_r": 0.3,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      36,
+      36
+     ],
+     "goal_cell": [
+      96,
+      116
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 2.5,
+      "min_clearance_m": 0.0,
+      "blocked_len_m": 1.5125,
+      "blocked_frac": 0.60199,
+      "free": false,
+      "disc_r": 0.3
+     },
+     "disc_free_frac": 0.335938,
+     "occupied_frac": 0.290235,
+     "free_components": 1,
+     "path_len_m": 3.476346
+    },
+    "uav": {
+     "start_clear_m": 0.65192,
+     "goal_clear_m": 0.9,
+     "clearance_required_m": 0.3,
+     "disc_r": 0.25,
+     "start_clear_ok": true,
+     "goal_clear_ok": true,
+     "connected": true,
+     "start_cell": [
+      36,
+      36
+     ],
+     "goal_cell": [
+      96,
+      116
+     ],
+     "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+     "ok": true,
+     "line": {
+      "length_m": 2.5,
+      "min_clearance_m": 0.65192,
+      "blocked_len_m": 0.0,
+      "blocked_frac": 0.0,
+      "free": true,
+      "disc_r": 0.25
+     },
+     "disc_free_frac": 0.698118,
+     "occupied_frac": 0.035972,
+     "free_components": 1,
+     "path_len_m": 2.62132
+    }
+   }
+  }
+ ],
+ "chosen": {
+  "label": "P5-A-0",
+  "case_file": "results/height/plane/shared_a/case.json",
+  "window": [
+   8.1,
+   4.85,
+   11.4,
+   8.65
+  ],
+  "start": [
+   9.0,
+   5.75
+  ],
+  "goal": [
+   10.5,
+   7.75
+  ],
+  "n_supports": {
+   "sweeper": 915,
+   "cylinder": 38473,
+   "uav": 1856
+  },
+  "contrast": 1.248925,
+  "separation_m": 0.941745,
+  "detour_ratio": 1.326181
+ },
+ "timing": {
+  "stages": [
+   {
+    "stage": "scene_load",
+    "label": null,
+    "seconds": 0.829672,
+    "failed": false,
+    "sizes": {
+     "scene": "planefloor",
+     "n_splats": 7101868
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.45, 1.8, 13.05)",
+    "seconds": 8.600326,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.45,
+      1.8,
+      13.05
+     ],
+     "n_supports": 156426
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.7, 1.55, 12.8)",
+    "seconds": 8.405616,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.7,
+      1.55,
+      12.8
+     ],
+     "n_supports": 153506
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.2, 2.05, 13.3)",
+    "seconds": 8.62462,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.2,
+      2.05,
+      13.3
+     ],
+     "n_supports": 159666
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.7, 2.3, 13.05)",
+    "seconds": 8.492257,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.7,
+      2.3,
+      13.05
+     ],
+     "n_supports": 156876
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.45, 1.8, 12.8)",
+    "seconds": 8.426388,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.45,
+      1.8,
+      12.8
+     ],
+     "n_supports": 153968
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.95, 2.3, 13.3)",
+    "seconds": 8.538498,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.95,
+      2.3,
+      13.3
+     ],
+     "n_supports": 159801
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.2, 2.55, 13.05)",
+    "seconds": 8.451444,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.2,
+      2.55,
+      13.05
+     ],
+     "n_supports": 157719
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 5.95, 2.8, 13.05)",
+    "seconds": 8.523522,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      5.95,
+      2.8,
+      13.05
+     ],
+     "n_supports": 158603
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.95, 1.3, 13.3)",
+    "seconds": 8.544474,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.95,
+      1.3,
+      13.3
+     ],
+     "n_supports": 158410
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.45, 1.8, 13.8)",
+    "seconds": 8.78946,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.45,
+      1.8,
+      13.8
+     ],
+     "n_supports": 165023
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.7, 2.3, 12.8)",
+    "seconds": 8.383978,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.7,
+      2.3,
+      12.8
+     ],
+     "n_supports": 154418
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.2, 2.8, 13.3)",
+    "seconds": 8.537828,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.2,
+      2.8,
+      13.3
+     ],
+     "n_supports": 161525
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 7.2, 4.05, 12.8)",
+    "seconds": 8.794052,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      7.2,
+      4.05,
+      12.8
+     ],
+     "n_supports": 170913
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 5.5, 3.05, 13.05)",
+    "seconds": 8.887641,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      5.5,
+      3.05,
+      13.05
+     ],
+     "n_supports": 159528
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.95, 4.3, 12.8)",
+    "seconds": 9.549977,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.95,
+      4.3,
+      12.8
+     ],
+     "n_supports": 191116
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 5.5, 3.3, 13.05)",
+    "seconds": 8.566703,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      5.5,
+      3.3,
+      13.05
+     ],
+     "n_supports": 160416
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(-2.5, 6.95, 4.55, 12.8)",
+    "seconds": 9.525653,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      -2.5,
+      6.95,
+      4.55,
+      12.8
+     ],
+     "n_supports": 200792
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(7.2, 3.95, 12.3, 9.55)",
+    "seconds": 6.179117,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      7.2,
+      3.95,
+      12.3,
+      9.55
+     ],
+     "n_supports": 61394
+    }
+   },
+   {
+    "stage": "project",
+    "label": "cyl:(8.1, 4.85, 11.4, 8.65)",
+    "seconds": 5.618036,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 38473
+    }
+   },
+   {
+    "stage": "project",
+    "label": "exact0:sweeper",
+    "seconds": 4.590103,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 915
+    }
+   },
+   {
+    "stage": "project",
+    "label": "exact0:uav",
+    "seconds": 4.613428,
+    "failed": false,
+    "sizes": {
+     "n_splats": 7101868,
+     "window": [
+      8.1,
+      4.85,
+      11.4,
+      8.65
+     ],
+     "n_supports": 1856
+    }
+   }
+  ],
+  "by_stage": {
+   "scene_load": 0.829672,
+   "project": 168.643122
+  },
+  "total_seconds": 169.472794,
+  "missing_stages": [
+   "floor_replace",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ],
+  "stage_order": [
+   "scene_load",
+   "floor_replace",
+   "project",
+   "compile_pairs",
+   "compile_slabs",
+   "compile_mobility",
+   "query",
+   "verify_curve",
+   "replay3d"
+  ]
+ }
+}

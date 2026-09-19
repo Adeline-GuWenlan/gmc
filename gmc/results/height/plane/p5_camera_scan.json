@@ -1,0 +1,169 @@
+{
+ "what": "frames of the 3D follow camera whose sight line crosses a >= 1.1 m obstacle (> 500 uav-band supports per m\u00b2 in a 0.5 m bin), out of 60",
+ "density": "results/height/plane/long/p3_density_0p5m.npz",
+ "elev": 35.0,
+ "orbit_deg": 50.0,
+ "runs": [
+  {
+   "case": "P2-SW-0",
+   "robot": "sweeper",
+   "run": "results/height/plane/shared/sweeper.json",
+   "default_azim0": -108.0,
+   "blocked": {
+    "default": 60,
+    "-150": 52,
+    "-120": 60,
+    "-90": 60,
+    "-60": 45,
+    "-30": 9,
+    "-20": 0,
+    "0": 0,
+    "30": 0,
+    "60": 0,
+    "65": 0,
+    "90": 0,
+    "120": 3,
+    "150": 23,
+    "180": 26
+   }
+  },
+  {
+   "case": "P2-SW-0",
+   "robot": "uav",
+   "run": "results/height/plane/shared/uav.json",
+   "default_azim0": -108.0,
+   "blocked": {
+    "default": 60,
+    "-150": 60,
+    "-120": 60,
+    "-90": 60,
+    "-60": 46,
+    "-30": 11,
+    "-20": 0,
+    "0": 0,
+    "30": 0,
+    "60": 0,
+    "65": 0,
+    "90": 8,
+    "120": 42,
+    "150": 60,
+    "180": 60
+   }
+  },
+  {
+   "case": "P3-long-0",
+   "robot": "sweeper",
+   "run": "results/height/plane/long/sweeper.json",
+   "default_azim0": 7.7,
+   "blocked": {
+    "default": 8,
+    "-150": 16,
+    "-120": 23,
+    "-90": 27,
+    "-60": 22,
+    "-30": 13,
+    "-20": 10,
+    "0": 8,
+    "30": 12,
+    "60": 14,
+    "65": 15,
+    "90": 13,
+    "120": 12,
+    "150": 9,
+    "180": 19
+   }
+  },
+  {
+   "case": "P3-long-0",
+   "robot": "uav",
+   "run": "results/height/plane/long/uav.json",
+   "default_azim0": 7.7,
+   "blocked": {
+    "default": 18,
+    "-150": 19,
+    "-120": 18,
+    "-90": 28,
+    "-60": 31,
+    "-30": 28,
+    "-20": 24,
+    "0": 18,
+    "30": 24,
+    "60": 32,
+    "65": 33,
+    "90": 34,
+    "120": 27,
+    "150": 17,
+    "180": 21
+   }
+  },
+  {
+   "case": "P3-cyl-rung2",
+   "robot": "cylinder",
+   "run": "results/height/plane/long/cyl_ladder/rung2/cylinder.json",
+   "default_azim0": 8.5,
+   "blocked": {
+    "default": 0,
+    "-150": 0,
+    "-120": 15,
+    "-90": 16,
+    "-60": 20,
+    "-30": 10,
+    "-20": 0,
+    "0": 0,
+    "30": 9,
+    "60": 12,
+    "65": 0,
+    "90": 0,
+    "120": 0,
+    "150": 0,
+    "180": 0
+   }
+  },
+  {
+   "case": "P5-A-0",
+   "robot": "sweeper",
+   "run": "results/height/plane/shared_a/sweeper.json",
+   "default_azim0": 3.1,
+   "blocked": {
+    "default": 0,
+    "-150": 10,
+    "-120": 24,
+    "-90": 22,
+    "-60": 8,
+    "-30": 0,
+    "-20": 0,
+    "0": 0,
+    "30": 0,
+    "60": 0,
+    "65": 0,
+    "90": 0,
+    "120": 0,
+    "150": 0,
+    "180": 0
+   }
+  },
+  {
+   "case": "P5-A-0",
+   "robot": "uav",
+   "run": "results/height/plane/shared_a/uav.json",
+   "default_azim0": 3.1,
+   "blocked": {
+    "default": 0,
+    "-150": 9,
+    "-120": 25,
+    "-90": 22,
+    "-60": 7,
+    "-30": 7,
+    "-20": 8,
+    "0": 0,
+    "30": 0,
+    "60": 0,
+    "65": 0,
+    "90": 0,
+    "120": 0,
+    "150": 0,
+    "180": 0
+   }
+  }
+ ]
+}

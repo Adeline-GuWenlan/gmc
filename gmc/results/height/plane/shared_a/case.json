@@ -1,0 +1,184 @@
+{
+  "window": [
+    8.1,
+    4.85,
+    11.4,
+    8.65
+  ],
+  "start": [
+    9.0,
+    5.75,
+    0.0
+  ],
+  "goal": [
+    10.5,
+    7.75,
+    0.0
+  ],
+  "z_floor": -1.227175,
+  "z_c": 1.2,
+  "overhang": {
+    "top": 0.905098,
+    "underside": 0.712462,
+    "s_interval": [
+      0.92,
+      1.88
+    ],
+    "object": "table A (8.96,7.29) top 0.80 with a bench along its NE side",
+    "longest_run_m": 0.98
+  },
+  "criteria": {
+    "window_at_most_8x8": true,
+    "not_through_glass_adjacent_opening": true,
+    "straight_line_under_overhang": true,
+    "zc_above_overhang_top_by_0.25": true,
+    "zc_band_below_ceiling_side_by_0.30": true,
+    "d1_start_clear_sweeper": true,
+    "d1_goal_clear_sweeper": true,
+    "connected_sweeper": true,
+    "d1_start_clear_cylinder": true,
+    "d1_goal_clear_cylinder": true,
+    "connected_cylinder": true,
+    "d1_start_clear_uav": true,
+    "d1_goal_clear_uav": true,
+    "connected_uav": true,
+    "sweeper_line_free": true,
+    "cylinder_line_blocked": true
+  },
+  "pass": true,
+  "n_supports": {
+    "sweeper": 915,
+    "cylinder": 38473,
+    "uav": 1856
+  },
+  "supports_per_m2": {
+    "sweeper": 73.0,
+    "cylinder": 3068.0,
+    "uav": 148.0
+  },
+  "precheck": {
+    "sweeper": {
+      "start_clear_m": 0.65192,
+      "goal_clear_m": 0.679154,
+      "clearance_required_m": 0.225,
+      "disc_r": 0.175,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        36,
+        36
+      ],
+      "goal_cell": [
+        96,
+        116
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true,
+      "line": {
+        "length_m": 2.5,
+        "min_clearance_m": 0.212132,
+        "blocked_len_m": 0.0,
+        "blocked_frac": 0.0,
+        "free": true,
+        "disc_r": 0.175
+      },
+      "disc_free_frac": 0.59428,
+      "occupied_frac": 0.066391,
+      "free_components": 2,
+      "path_len_m": 2.62132
+    },
+    "cylinder": {
+      "start_clear_m": 0.614919,
+      "goal_clear_m": 0.637377,
+      "clearance_required_m": 0.35,
+      "disc_r": 0.3,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        36,
+        36
+      ],
+      "goal_cell": [
+        96,
+        116
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true,
+      "line": {
+        "length_m": 2.5,
+        "min_clearance_m": 0.0,
+        "blocked_len_m": 1.5125,
+        "blocked_frac": 0.60199,
+        "free": false,
+        "disc_r": 0.3
+      },
+      "disc_free_frac": 0.335938,
+      "occupied_frac": 0.290235,
+      "free_components": 1,
+      "path_len_m": 3.476346
+    },
+    "uav": {
+      "start_clear_m": 0.65192,
+      "goal_clear_m": 0.9,
+      "clearance_required_m": 0.3,
+      "disc_r": 0.25,
+      "start_clear_ok": true,
+      "goal_clear_ok": true,
+      "connected": true,
+      "start_cell": [
+        36,
+        36
+      ],
+      "goal_cell": [
+        96,
+        116
+      ],
+      "criterion": "D1 (user-approved): spec crit3's 0.5 m -> r + 0.05 m on the certified map, plus start/goal in one component of dist > r",
+      "ok": true,
+      "line": {
+        "length_m": 2.5,
+        "min_clearance_m": 0.65192,
+        "blocked_len_m": 0.0,
+        "blocked_frac": 0.0,
+        "free": true,
+        "disc_r": 0.25
+      },
+      "disc_free_frac": 0.698118,
+      "occupied_frac": 0.035972,
+      "free_components": 1,
+      "path_len_m": 2.62132
+    }
+  },
+  "contrast": 1.248925,
+  "separation_m": 0.941745,
+  "detour_ratio": 1.326181,
+  "gravity_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "scene": "planefloor",
+  "claims_boundary": "plane floor = USER-APPROVED MANUAL SCENE EDIT (Amendment 3 P1), not a reconstruction method and not a guaranteed outer approximation; sound w.r.t. the edited scene only. Criterion 3 relaxed by user decision D1 to r + 0.05 m (crit1 & crit3 = 0.9 m2 as built / 1.2 m2 with every phantom cell deleted, height_map_diagnosis.md section 3). Criterion 1 unchanged.",
+  "selection": {
+    "search_file": "results/height/plane/p5_affordable_search.json",
+    "label": "P5-A-0",
+    "region": "A",
+    "method": "project_scene -> _support_raster(0.025) -> EDT; D1 pre-check per robot; criterion 1 unchanged",
+    "rule": "walk p2a_search.json candidates in P2's order; skip a window whose exact cylinder map exceeds the cap; take the first whose exact pre-check passes every P2 criterion",
+    "cap_supports": 46835
+  }
+}

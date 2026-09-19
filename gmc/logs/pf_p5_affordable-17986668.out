@@ -1,0 +1,25 @@
+=== planefloor_search experiments/plane_case_search.py --step affordable --case-dir results/height/plane/shared_a 2026-09-18T22:46:57-04:00 host=cs611.hpc.nyu.edu job=17986668 ===
+[   11.9s] cylinder (-2.5, 7.45, 1.8, 13.05) 156426 cap 46835
+[   22.4s] cylinder (-2.5, 7.7, 1.55, 12.8) 153506 cap 46835
+[   33.1s] cylinder (-2.5, 7.2, 2.05, 13.3) 159666 cap 46835
+[   43.7s] cylinder (-2.5, 6.7, 2.3, 13.05) 156876 cap 46835
+[   54.1s] cylinder (-2.5, 7.45, 1.8, 12.8) 153968 cap 46835
+[   64.8s] cylinder (-2.5, 6.95, 2.3, 13.3) 159801 cap 46835
+[   75.3s] cylinder (-2.5, 6.2, 2.55, 13.05) 157719 cap 46835
+[   86.0s] cylinder (-2.5, 5.95, 2.8, 13.05) 158603 cap 46835
+[   96.6s] cylinder (-2.5, 7.95, 1.3, 13.3) 158410 cap 46835
+[  107.5s] cylinder (-2.5, 7.45, 1.8, 13.8) 165023 cap 46835
+[  117.9s] cylinder (-2.5, 6.7, 2.3, 12.8) 154418 cap 46835
+[  128.6s] cylinder (-2.5, 6.2, 2.8, 13.3) 161525 cap 46835
+[  139.6s] cylinder (-2.5, 7.2, 4.05, 12.8) 170913 cap 46835
+[  150.7s] cylinder (-2.5, 5.5, 3.05, 13.05) 159528 cap 46835
+[  162.7s] cylinder (-2.5, 6.95, 4.3, 12.8) 191116 cap 46835
+[  173.4s] cylinder (-2.5, 5.5, 3.3, 13.05) 160416 cap 46835
+[  185.5s] cylinder (-2.5, 6.95, 4.55, 12.8) 200792 cap 46835
+[  192.5s] cylinder (7.2, 3.95, 12.3, 9.55) 61394 cap 46835
+[  198.7s] cylinder (8.1, 4.85, 11.4, 8.65) 38473 cap 46835
+[  208.4s] figure results/height/plane/figs/p5_affordable0_A.png
+[  208.4s] exact P5-A-0 pass True supports {"sweeper": 915, "cylinder": 38473, "uav": 1856} failed []
+[  208.5s] WROTE results/height/plane/shared_a/case.json {"label": "P5-A-0", "case_file": "results/height/plane/shared_a/case.json", "window": [8.1, 4.85, 11.4, 8.65], "start": [9.0, 5.75], "goal": [10.5, 7.75], "n_supports": {"sweeper": 915, "cylinder": 38473, "uav": 1856}, "contrast": 1.248925, "separation_m": 0.941745, "detour_ratio": 1.326181}
+[  208.5s] done. chosen = P5-A-0
+=== PLANEFLOOR_SEARCH_DONE experiments/plane_case_search.py ===

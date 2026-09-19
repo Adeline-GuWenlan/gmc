@@ -8,7 +8,7 @@ B -- the thing the sweeper passes under -- never appears. The route is fine; the
 This scan replays the renderer's own follow camera (``viz3d._cameras`` and ``ewa.frame_distance``, same
 elevation 35 deg, orbit 50 deg, fov 50 deg, near-cull 0.32 x distance) over 60 poses of each certified
 curve, and counts the frames whose horizontal sight line from the look point to the camera crosses a
-0.5 m cell holding more than ``BLOCK`` uav-band supports -- i.e. something at least 1.1 m tall, which at
+0.5 m bin whose uav-band density exceeds ``BLOCK`` supports per m² -- i.e. something at least 1.1 m tall, which at
 35 deg elevation hides a floor robot within ~2.5 m of it. The density raster is P3's hall-wide
 ``p3_density_0p5m.npz``; nothing here loads the 7.3 M-splat scene, so it runs on the login node.
 
@@ -33,7 +33,7 @@ DENSITY = Path("results/height/plane/long/p3_density_0p5m.npz")
 OUT = Path("results/height/plane/p5_camera_scan.json")
 VIEW_HALF = {"sweeper": 1.75, "uav": 2.5, "cylinder": 2.5}    # percase_render.VIEW_HALF
 VIEW_PAD, ELEV, ORBIT, W, H = 0.5, 35.0, 50.0, 1280, 720      # percase_render / pointcloud_video defaults
-BLOCK = 500          # uav-band supports per 0.5 m cell that count as a wall
+BLOCK = 500          # uav-band supports per m² (0.5 m bins, as stored) that count as a wall
 N_POSES = 60
 AZIMS = (-150, -120, -90, -60, -30, -20, 0, 30, 60, 65, 90, 120, 150, 180)
 RUNS = [("P2-SW-0", "results/height/plane/shared/sweeper.json", "sweeper"),
@@ -79,7 +79,7 @@ def main():
     d = np.load(DENSITY)
     extent, cell, dens = d["extent"], float(d["cell"]), d["uav"]
     out = {"what": "frames of the 3D follow camera whose sight line crosses a >= 1.1 m obstacle "
-                   f"(> {BLOCK} uav-band supports per 0.5 m cell), out of {N_POSES}",
+                   f"(> {BLOCK} uav-band supports per m² in a 0.5 m bin), out of {N_POSES}",
            "density": str(DENSITY), "elev": ELEV, "orbit_deg": ORBIT, "runs": []}
     for label, path, key in RUNS:
         if not Path(path).exists():

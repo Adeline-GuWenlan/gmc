@@ -789,3 +789,103 @@ Figures opened and fixed before any number was quoted from them:
 
 `verify_curve ÷ query` is 0.47–0.52 in 66 of 69 finished units. The three outliers (0.14–0.26) are
 the refining pair, where the query does work verification does not repeat.
+
+## P5 — final sweep
+
+**Standing caveats, repeated on every P5 artefact:** the plane floor is a **user-approved manual
+scene-definition change**; results are sound with respect to the edited scene only. **Criterion 3 is
+relaxed by user decision D1** to `r + 0.05` m on each robot's own certified map, plus start and goal in
+one component of `dist > r` (crit1 ∧ crit3 = **0.9 m²** as built, **1.2 m²** with every phantom cell
+deleted, `height_map_diagnosis.md` §3). Criterion 1 is **unchanged** for the shared cases.
+
+### 2026-09-18 ~22:4x — the checklist, judged from artefacts
+
+No `state/P5.json` existed; the two earlier P5 jobs (17982321, 17982482's first minutes) only waited
+on P4's suite. Read the rules, Amendment 3 incl. Update 09-18, the main plan's constraints, the
+diagnosis, the README, all four standups, all state and jobid files and every agent log.
+
+What the artefacts say, not the exit codes:
+- **Task 1 is not done.** P2's standup is still the *interim* one; P2's continuation never ran to the
+  end (usage limit, then P3/P4 took the slots). Its jobs did finish: the cylinder's one budget retry
+  (17944446) is **UNKNOWN again** — `query_wall_budget_exhausted` after **15,027 s** — so P2-SW-0 has two
+  certified routes, not three. The compare figure (`--step compare`) was never run. The retry JSON,
+  the P2d shrink series, both P2 videos and five P2 job logs were left **untracked**.
+- Tasks 2, 3 and 4 are done and committed (P1, P3, P4 standups; commits listed there).
+- P4's suite 17981839 is "FAILED" by exit code: **558 passed, 25 failed**, all 25 the missing sealed
+  Atlas package (`test_atlas_benchmark.py` 10, `test_atlas_gate_intervals.py` 15), as in P3's run.
+
+### ~22:5x — finishing task 1: P2's ranking again, with one measured filter
+
+P2-SW-0's cylinder map is 156,426 supports. P3's ladder measured where the cylinder certifies: every
+map up to **46,835** supports (rung 2) did, every map from **73,178** up did not, and doubling the budget
+rescued neither map it was tried on. The user already approved sizing the cylinder's window by that
+measurement for P3 (D4). So `plane_case_search.py --step affordable` walks **P2's own ranked candidate
+list** (`p2a_search.json`, the 40 windows P2 screened, in P2's order) and takes the first window whose
+exact cylinder map is ≤ 46,835 supports **and** whose exact pre-check passes every P2 criterion,
+unchanged. The filter only removes candidates. P2-SW-0 stays reported as it stands.
+
+Job 17986668, 3 m 48 s: the 18 SW windows all hold 153–171 k cylinder supports (over the cap); the
+first region-A window over the cap too; the next, **P5-A-0**, passes on its first exact check:
+
+| | sweeper | cylinder | uav |
+|---|---|---|---|
+| window `[8.1, 4.85, 11.4, 8.65]` (3.3 × 3.8 m), start (9.00, 5.75), goal (10.50, 7.75), 2.50 m | | | |
+| supports | 915 | **38,473** | 1,856 |
+| start / goal clearance (D1 needs) | 0.652 / 0.679 (0.225) | 0.615 / 0.637 (0.350) | 0.652 / 0.900 (0.300) |
+| straight line unusable | **0.00 m** | **1.51 m** | 0.00 m |
+| free-space route | 2.62 m | **3.48 m** | 2.62 m |
+
+Opened `figs/p5_affordable0_A.png` first: the sweeper's map shows table A as leg dots and the route
+goes straight under it; the cylinder's map shows the same table as one solid diagonal block and its
+route swings round the table's SE end; the uav's map has no table at all. Criterion 1 passes (the
+straight line runs under table A's top). Separation 0.94 m, detour ratio 1.33.
+
+Sweeper (17988324) and uav (17988325) on P5-A-0: **REACHABLE, verify.certified, replay3d passed**,
+46 s and 48 s wall. Cylinder 17988323 running.
+
+### ~23:0x — P2-SW-0's compare figure, and a colour bug in its key panel
+
+`--step compare` for P2-SW-0 (17986669, 40 s) confirms the three runs shared window, start and goal,
+and draws the sweeper's certified 2.69 m route and the uav's 2.37 m; the cylinder panel shows its map and
+"UNKNOWN". The fourth panel promised "grey = what the cylinder sees, red = what the sweeper sees" and
+drew **yellow and no grey**: `imshow` of a masked all-True boolean array normalises the constant to 0,
+the colormaps' zero colour (white for Greys, yellow for autumn_r). Fixed with explicit RGBA layers
+(51c1b40, test pins the colours); the figure is re-run.
+
+### ~23:1x — P2's 3D videos never show table B: the camera is behind a wall
+
+Opened every P2 video frame (they had never been checked; P2 died before its continuation). The
+2-panel frames are right: the side view shows table B's top at 0.68–0.86 m over 0.45–1.95 m of the
+sweeper's path and the sweeper under it; the uav at 1.10–1.30 m over it. **The 3D frames are not:**
+at frames 0, 97 and 193 the trail and the robot are drawn over a tall white gallery wall hung with
+prints, the robot in x-ray, and table B never appears.
+
+Investigated rather than excused. The renderer depth-tests its overlays (ghost where occluded, x-ray
+robot), so the frames are consistent with a camera that has a wall between it and the route, not a robot
+inside a wall. The route itself is clear: the certified maps, the 2-panel side view and replay3d
+(lb 0.0059 m) agree, and a floor-to-ceiling wall on the route would be in the uav's 1.10–1.30 m band,
+which is empty there. The default azimuth is travel − 50° = **−108°**, i.e. the camera stands SSW of the
+route, behind the tall square enclosure at (−2.2…−0.3, 7.9…9.9) — the same enclosure f193 shows, with
+the goal just east of its corner.
+
+`experiments/plane_camera_scan.py` (15d19fb) replays the renderer's own follow camera over 60 poses of
+each certified curve and counts frames whose sight line crosses a ≥ 1.1 m obstacle (P3's hall density
+raster, uav band). It reproduces what the frames show — P2 default **60/60** blocked; P3 long sweeper
+8/60, whose mid-clip frame (pose 7.22, 12.42) shows the robot behind the long display wall — and says:
+
+| clip | default | chosen | why |
+|---|---|---|---|
+| P2-SW-0 sweeper, uav | 60/60 | **−20° → 0/60** | perpendicular to table B's long side (≈ 58°) |
+| P5-A-0 sweeper, uav, cylinder | 0/60 | **+65° → 0/60** | perpendicular to table A's long side (≈ −25°) |
+| P3 long sweeper / uav | 8/60 / 18/60 | not re-rendered | no azimuth does better than 8/60 / 17/60 on an 11 m route through partitions |
+| P3 rung 2 cylinder | 0/60 | not re-rendered | already clear |
+
+`percase_render.py --azim` (d7614c7) exposes the azimuth `pointcloud_video` always accepted; default
+None leaves every earlier render unchanged. P2's re-render also gets its own caption, preset `p2shared`
+("sweeper + uav certified, cylinder UNKNOWN") instead of the clipped "three robots" line. The superseded
+P2 frames are kept in `shared/video/superseded_default_camera/` as the evidence for this entry.
+
+P1's 14 figures opened: all match `p1b_build.json` / `p1c_survivors.json` / `p1d_evidence.json`
+(only nit: p1b's suptitle overlaps its panel titles). P2d's five shrink figures match `p2d_evidence.json`
+(64,294 → 156,426 cylinder supports; every shrink fails `connected_cylinder`, table B's block cuts start
+from goal once the window cannot reach round it).
