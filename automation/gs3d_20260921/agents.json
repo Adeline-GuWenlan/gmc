@@ -1,0 +1,19 @@
+{
+  "base_commit": "9ff0d5c2a59c95a4444e45878ef878c8d9837108",
+  "repo": "/scratch/wg2381/splathjb",
+  "branch_prefix": "codex/gs3d-20260921",
+  "max_agents": 2,
+  "max_compute": 2,
+  "max_compute_total": 48,
+  "horizon_days": 14,
+  "agents": {
+    "A0": {"name": "architecture", "model": "gpt-6-astra", "effort": "high", "deps": []},
+    "A1": {"name": "3d_core", "model": "gpt-6-astra", "effort": "xhigh", "deps": ["A0"]},
+    "A2": {"name": "scene", "model": "gpt-5.6-terra", "effort": "high", "deps": ["A0"]},
+    "A3": {"name": "robots_goals", "model": "gpt-5.6-sol", "effort": "high", "deps": ["A1"]},
+    "A4": {"name": "timing", "model": "gpt-5.6-terra", "effort": "medium", "deps": ["A1"]},
+    "A5": {"name": "integration", "model": "gpt-5.6-sol", "effort": "high", "deps": ["A2", "A3", "A4"]},
+    "A6": {"name": "smoothing", "model": "gpt-5.6-sol", "effort": "high", "deps": ["A5"]},
+    "A7": {"name": "final_review", "model": "gpt-6-astra", "effort": "high", "deps": ["A6"]}
+  }
+}
