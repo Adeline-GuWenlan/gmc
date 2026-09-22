@@ -1,0 +1,18 @@
+{
+  "opened": true,
+  "files": [
+    "under_over_perspective.png",
+    "under_over_side.png",
+    "under_over_overhead.png"
+  ],
+  "observations": [
+    "Side camera shows upright red finite cylinders below the hanging orange support, ascending in the gap, then above the brown low support.",
+    "Perspective shows physical body height and radius, matching the exported trajectory and the original full 3D supports.",
+    "High camera confirms lateral obstacle extent across the narrow green declared domain; perspective occlusion alone is not used as clearance evidence."
+  ],
+  "scope": "Synthetic direct 3D Gaussian supports, not the real showcase. Images are analytic 3D ray renders; accompanying PLY and interactive HTML retain 3D geometry. Numerical continuous safety comes from oracle verification, not visual gaps.",
+  "compute_job": 18234289,
+  "job_state": "COMPLETED",
+  "elapsed_s": 31,
+  "max_rss_kib": 276112
+}

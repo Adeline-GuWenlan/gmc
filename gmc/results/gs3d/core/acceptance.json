@@ -1,0 +1,197 @@
+{
+  "stage": "A1",
+  "tested_code_commit": "cbff7b329cf4949747a5e3b59d63f7a16329170c",
+  "base_commit": "1bac9e2b206957d0f8a494df6c192d36a6b52a17",
+  "tests": {
+    "passed": 49,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "wall_s": 64.23,
+    "names": [
+      "test_endpoints_free_but_whole_edge_crosses_obstacle[False]",
+      "test_endpoints_free_but_whole_edge_crosses_obstacle[True]",
+      "test_tangency_and_margin[0.45-False]",
+      "test_tangency_and_margin[0.499-False]",
+      "test_tangency_and_margin[0.501-True]",
+      "test_tangency_and_margin[0.8-True]",
+      "test_rotated_anisotropy_changes_actual_collision",
+      "test_conservative_broadphase_matches_brute_force_with_distant_large_support",
+      "test_large_support_center_outside_workspace_still_blocks",
+      "test_body_extent_and_ground_support_are_not_points",
+      "test_coverage_hole_swept_body_and_bounds",
+      "test_missing_ground_footprint_support_not_just_centre",
+      "test_invalid_pose_body_and_margin_fail_closed[nan]",
+      "test_invalid_pose_body_and_margin_fail_closed[inf]",
+      "test_invalid_pose_body_and_margin_fail_closed[-1]",
+      "test_covariance_validation_and_counted_outward_floor",
+      "test_zero_edge_and_bounded_solver_failure",
+      "test_budget_caps_inside_geometry",
+      "test_random_pose_bounds_never_exceed_exact_sphere_cylinder_distance",
+      "test_rotated_support_normal_witness_has_known_exact_distance",
+      "test_high_condition_covariance_support_cancellation_fails_closed",
+      "test_prepared_snapshot_and_opacity_filter",
+      "test_projection_trap_and_same_xy_different_z",
+      "test_under_over_impossible_for_fixed_z[0.2]",
+      "test_under_over_impossible_for_fixed_z[0.1]",
+      "test_under_over_impossible_for_fixed_z[0.05]",
+      "test_supported_ground_paths_have_stopped_turns[body0]",
+      "test_supported_ground_paths_have_stopped_turns[body1]",
+      "test_relaxed_goal_preserves_unsafe_original_and_reaches_safe_candidate[False]",
+      "test_relaxed_goal_preserves_unsafe_original_and_reaches_safe_candidate[True]",
+      "test_goal_candidate_reachability_not_nearest_free_selection",
+      "test_distinct_bounded_failure_with_no_executable_path[budget0-max_expansions]",
+      "test_distinct_bounded_failure_with_no_executable_path[budget1-max_oracle_calls]",
+      "test_distinct_bounded_failure_with_no_executable_path[budget2-max_narrowphase_pairs]",
+      "test_distinct_bounded_failure_with_no_executable_path[budget3-max_wall_s]",
+      "test_invalid_goal_tolerance_json_serializable[-0.1]",
+      "test_invalid_goal_tolerance_json_serializable[0.51]",
+      "test_invalid_goal_tolerance_json_serializable[nan]",
+      "test_invalid_goal_tolerance_json_serializable[inf]",
+      "test_singleton_path_timing_and_warm_reset",
+      "test_ground_validator_rejects_sideways_motion_and_bad_timing",
+      "test_timer_hooks_include_endpoint_search_verify",
+      "test_no_path_on_coarse_lattice_is_not_map_unknown_or_budget",
+      "test_invalid_config_cannot_enter_search[change0]",
+      "test_invalid_config_cannot_enter_search[change1]",
+      "test_invalid_config_cannot_enter_search[change2]",
+      "test_invalid_config_cannot_enter_search[change3]",
+      "test_invalid_config_cannot_enter_search[change4]",
+      "test_invalid_config_cannot_enter_search[change5]"
+    ]
+  },
+  "numerical": {
+    "under_over": [
+      {
+        "resolution_m": 0.2,
+        "clearance_lower_m": 0.0808909524823122,
+        "altitude_range_m": 0.9999999999999999,
+        "expansions": 46,
+        "wall_s": 0.14321214699884877
+      },
+      {
+        "resolution_m": 0.1,
+        "clearance_lower_m": 0.05502601634591602,
+        "altitude_range_m": 0.9999999999999999,
+        "expansions": 463,
+        "wall_s": 6.483751419000328
+      },
+      {
+        "resolution_m": 0.05,
+        "clearance_lower_m": 0.054603592256733106,
+        "altitude_range_m": 0.9999999999999999,
+        "expansions": 4194,
+        "wall_s": 52.990142612950876
+      }
+    ],
+    "scaling_sizes": [
+      1000,
+      10000,
+      100000
+    ],
+    "visual_review": {
+      "opened": true,
+      "files": [
+        "under_over_perspective.png",
+        "under_over_side.png",
+        "under_over_overhead.png"
+      ],
+      "observations": [
+        "Side camera shows upright red finite cylinders below the hanging orange support, ascending in the gap, then above the brown low support.",
+        "Perspective shows physical body height and radius, matching the exported trajectory and the original full 3D supports.",
+        "High camera confirms lateral obstacle extent across the narrow green declared domain; perspective occlusion alone is not used as clearance evidence."
+      ],
+      "scope": "Synthetic direct 3D Gaussian supports, not the real showcase. Images are analytic 3D ray renders; accompanying PLY and interactive HTML retain 3D geometry. Numerical continuous safety comes from oracle verification, not visual gaps.",
+      "compute_job": 18234289,
+      "job_state": "COMPLETED",
+      "elapsed_s": 31,
+      "max_rss_kib": 276112
+    },
+    "production_projection_calls": 0,
+    "reviewed_visual_route_unchanged_after_numerical_hardening": true,
+    "fixed_z_impossible": {
+      "low_centre_upper_bound_m": 0.8550125628933801,
+      "high_centre_lower_bound_m": 1.395238065251289
+    },
+    "safety_scope": "numerical continuous separating bounds; declared synthetic map/body; no dynamics or physical certification"
+  },
+  "scaling": [
+    {
+      "supports": 1000,
+      "preparation_wall_s": 0.00651604903396219,
+      "twenty_queries_wall_s": 0.0042550970101729035,
+      "oracle_stats": {
+        "oracle_calls": 20,
+        "narrowphase_pairs": 20,
+        "candidate_count": 20,
+        "bvh_nodes_visited": 220,
+        "gjk_iterations": 0
+      },
+      "planner_algorithm_wall_s": 0.0012811989872716367,
+      "bvh_nodes": 63
+    },
+    {
+      "supports": 10000,
+      "preparation_wall_s": 0.019547461008187383,
+      "twenty_queries_wall_s": 0.004885911999735981,
+      "oracle_stats": {
+        "oracle_calls": 20,
+        "narrowphase_pairs": 20,
+        "candidate_count": 20,
+        "bvh_nodes_visited": 380,
+        "gjk_iterations": 0
+      },
+      "planner_algorithm_wall_s": 0.001352584979031235,
+      "bvh_nodes": 1023
+    },
+    {
+      "supports": 100000,
+      "preparation_wall_s": 0.21201499499147758,
+      "twenty_queries_wall_s": 0.005938189045991749,
+      "oracle_stats": {
+        "oracle_calls": 20,
+        "narrowphase_pairs": 20,
+        "candidate_count": 20,
+        "bvh_nodes_visited": 500,
+        "gjk_iterations": 0
+      },
+      "planner_algorithm_wall_s": 0.0015399139956571162,
+      "bvh_nodes": 8191
+    }
+  ],
+  "scaling_scope": "Fixed-density sparse synthetic scenes with one local support, not dense-scene search performance. All input supports indexed.",
+  "production_projection_static_references": [],
+  "runtime_root": "/scratch/wg2381/codex_jobs/gs3d_20260921",
+  "runtime_evidence_sha256": {
+    "core.xml": "176e78ec23bc9fd3b261d4cdf45c527991155408a8b9b482cbce344cde2ededa",
+    "core.log": "e0eb830c4af3d48110e52d0e47767c61424b25df67902dd50947a512c2f6b201",
+    "numerical_acceptance.json": "878e7a3cd1ad10cb20a5d4713c63322a4e5f3243071bb66a2aa2ecfc0f27f920",
+    "scaling.json": "0d4ed4a73a16a56408d513bd2c2a0b361a9d3e05e60e3513daf32a81dd02e548",
+    "visual_plan.json": "53ee616753edf2568ded7ece3d184b6df85b91e64721cf8e015614ea31ff70f4",
+    "synthetic_scene.json": "45000e4ce57d6f55f77bd96b76e1e805b6ec936f93ca3c2fa9b95356f6ab7ad3",
+    "visual_review.json": "f63bcd6f63b6dced6adeaf42340912ef2126eec31b2fb1355173aa2325d60f21",
+    "under_over_perspective.png": "c5569a10aefcfb097799d1722b67b170ed29348b652f98396d40afc4a86881f1",
+    "under_over_side.png": "c7575efa37f4f2cd03e70e3ca778248948b87a8797106171ff96b9532762399d",
+    "under_over_overhead.png": "b4c9234d835cb402c007b2665a063d1c942c1f064ff847eec8ad0d722498032a",
+    "under_over_mesh.ply": "cdd327d3acb53e04b73c08b27e7a00cc9554e2c4643cb16c9e6e3b5578bc347e",
+    "under_over_3d.html": "3fabfca182bd272ab50bfd274d97cdf818111b8994d466a382940027d058dbe1",
+    "under_over_0.20.json": "475c655e178eeecfa6aa421776b3825ee1a4772f8d5e85aa646152a838c67aff",
+    "under_over_0.10.json": "b1cdc5dc4fde40552dfdd6b050cc187b70bf94bac79905bd217cbd9350a481cc",
+    "under_over_0.05.json": "ba1b890b82c0bd6d52c0f0befe0e4542ee2b964d61c8eaf00a902ce783cd9146",
+    "roundoff_unit.log": "0086682b2877c5bdf22cbcb8c2d971deedb798fde258cc6d0b809e3327f8c749"
+  },
+  "compute": [
+    {
+      "job": 18234289,
+      "state": "COMPLETED",
+      "elapsed_s": 31,
+      "max_rss_kib": 276112
+    },
+    {
+      "job": 18243546,
+      "state": "COMPLETED",
+      "elapsed_s": 132,
+      "max_rss_kib": 101372
+    }
+  ]
+}
