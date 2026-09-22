@@ -1,7 +1,7 @@
 # GS3D architecture decision record
 
-Status: A0 draft; interfaces frozen, baseline classified, revised fixture audit pending.
-Date: 2026-09-21. Scope: implementation and simulation in a static edited GS map,
+Status: A0 accepted design; interfaces frozen, baseline classified, feasible geometric fixture audited.
+Date: 2026-09-21; finalized 2026-09-22. Scope: implementation and simulation in a static edited GS map,
 not a physical flight certification. Authoritative requirements: `docs/gs3d_agent_plan.md`.
 
 ## 1. Baseline and provenance
@@ -12,7 +12,7 @@ No applicable AGENTS.md was found in the worktree or its ancestors.
 Runtime: `/scratch/wg2381/codex_jobs/gs3d_20260921`; stage worktrees are independent.
 Python `/scratch/wg2381/.conda/envs/gmc-venv/bin/python`, cwd `gmc`,
 `PYTHONPATH=src:experiments MPLBACKEND=Agg`. No installation, GPU or training required.
-Baseline full-suite reproduction runs via the bounded compute helper. Its log and
+Baseline full-suite reproduction ran via the bounded compute helper. Its log and
 JUnit report, rather than its process exit status, determine the classification.
 
 Audit of the exact base:
@@ -96,7 +96,7 @@ Visual audit: opened `results/height/plane/shared_a/video/uav_3d_f050.png` in an
 viewer. The splat render shows a suspended orange cylindrical UAV above the display
 table, beside the bench; legend explicitly fixes 1.10–1.30 m. It supports the legacy
 fixed-height interpretation, not a new under-then-over claim. The first A0 fixture audit found unresolved low-approach intervals; the revised
-fixture remains subject to compute audit and A2's scene render before planning.
+fixture passed geometric feasibility (§6). A2 still builds and inspects the scene before planning.
 
 ## 2. Focused primary-source research and decisions
 
@@ -149,7 +149,8 @@ measured terrain surface. A3 declares a contact manifold, checks it against floo
 (with explicit support-travel and slope bounds), and reports chassis/contact assumptions.
 Use the fitted plane initially only where floor evidence agrees within declared contact
 travel (maximum .05 m, slope <=5 degrees); otherwise use a supported heightfield or fail
-closed. The support provider must conservatively bound heights over each whole footprint. Wheels or
+closed. The support provider supplies `height_bounds(lower_xy, upper_xy)` over the closed footprint
+box, and `supports_segment` validates the swept footprint and contact-travel/slope limits. Wheels or
 support contacts bridge the chassis gap and may touch the designated support surface;
 this contact exemption never applies to chassis penetration or other obstacles.
 All Gaussians remain chassis collision obstacles. Ground runners explicitly use a
@@ -250,6 +251,20 @@ occupancy even when relaxed success occurs; collision at the original is not gro
 skip a requested relaxed search. Numerical equality at exact goal permits only stated
 roundoff, not an unreported grid-cell tolerance. Goal yaw may be reached by safe rotation.
 
+`robot` serializes all BodySpec fields plus a `limits` object with keys
+`max_speed_mps`, `max_vertical_speed_mps`, `max_yaw_rate_radps`,
+`max_acceleration_mps2`, `max_yaw_acceleration_radps2`. Initial simulation bounds:
+UAV .5/.3/1.0/.5/1.0 respectively; ground .3/0/1.0/.3/1.0, where zero vertical speed
+means no independently commanded climb (support-induced z motion is reported separately).
+A3 enforces speed/yaw-rate limits and explicit stopped turns; linear geometric segments
+are not permission for lateral-slip turns. Its initial piecewise-linear replay has velocity
+discontinuities at knots and must disclose that limitation. Acceleration constraints and
+continuous smooth timing become A6 acceptance obligations; finite differences alone do not
+prove continuous acceleration bounds. A6 preserves the declared speed/yaw-rate limits.
+Diagnostics require `seed`, `expansions`, `oracle_calls`, `narrowphase_pairs`,
+`termination`, `resolution_m`, `margin_m`, `coverage_policy`, and `config`; values on
+failure are still recorded. Coverage provenance cannot be inferred from `scene_id` alone.
+
 A4 implements `TimingSink.stage` in `gs3d/timing.py`; A1 records hooks through the protocol.
 `algorithm_wall_s` starts on entry to `Planner.plan`, before endpoint checks/candidate
 selection, and ends after verification/result assembly (before file serialization).
@@ -282,23 +297,26 @@ A1 implements these synthetic fixtures before the real scene; document exact inp
 | goal region | Original in unknown/occupied cell, safe candidate within .25 reachable; another nearer candidate disconnected. Preserve original, select reachable candidate, reject outside .25 and outside coverage. |
 
 Real-scene fixture uses the **existing** edited showcase, table A and added airborne
-Gaussian light (plus suspension/ceiling attachment if visible). Do not remove existing
+Gaussian light with suspension and ceiling attachment. Do not remove existing
 obstacles. Start from the inspected P5-A-0 area: reference p=(9.0,5.75), forward
 u=(0.6,0.8), lateral v=(−0.8,0.6), table along the old centreline s≈[.92,1.88],
 reported top .905098 m above reference floor. That sectional top is not a whole-body
 clearance proof; A2 measures all supports intersecting the swept volume.
 
-Initial fixture proposal (must be checked by A0 compute, then frozen in A2 manifest before planning):
+Audited v2 fixture (A2 records it in the scene manifest before planner evaluation):
 
 - Local coordinates xy=p+s*u+t*v. Candidate start s=−.25,t=0,height=.65; low traverse
   through s=0 to s=.50, then vertical rise at s=.50 to height=1.40, then traverse
-  to s=2.50. Expand known workspace to contain the entire swept body.
+  to s=2.50. Declare the task domain in route coordinates as
+  [−.75,−1.00,.20]–[3.00,1.00,2.00] m, an assumed map domain containing the whole
+  swept body with margin. Existing and added obstacle supports outside the domain
+  still participate whenever they overlap it; ceiling/rod render outside it as context.
 - Hanging shade ellipsoid centre s=0,t=0,height=1.20; semiaxes along (u,v,z)
   (.18,.65,.15), opacity .95. Its underside is 1.05 m; suspension stays above it.
   Suspension ellipsoid centre (s,t,height)=(0,0,3.25), semiaxes (.025,.025,1.95);
   ceiling attachment centre (0,0,5.20), semiaxes (.45,.85,.10); both opacity .95.
   Record support IDs, covariance and rendering color in the same scene manifest.
-- UAV r=.25, half-height=.10. Required altitude range **>=.50 m**, proposed .75 m.
+- UAV r=.25, half-height=.10. Required altitude range **>=.50 m**, witness .75 m.
   Required obstacle clearance lower bound **>.05 m** over all edges. No reducing this
   margin to obtain the flight. The low central crossing must span at least .20 m
   horizontally inside the light footprint; its body top <= light underside−.05 m.
@@ -312,6 +330,45 @@ Initial fixture proposal (must be checked by A0 compute, then frozen in A2 manif
   location within the unchanged scene, record the failed audit and new placement, and
   freeze it **before** planner evaluation. The altitude and .05 m margin gates stay fixed.
   Existing table cannot be lowered/removed; any additional table is labelled an edit.
+
+### Feasibility evidence and its scope
+
+Runtime job **18231762**, `compute/A0_fixture_v2.sh` / `A0_fixture_v2.py`, completed
+in 10 s with MaxRSS 3,743,388 KiB. Its `logs/A0/fixture_v2/scene_audit.json` records
+45,841 original opaque support candidates selected by full ellipsoid AABB overlap,
+plus the three proposed light supports. All selected covariance matrices are symmetric
+positive definite (smallest eigenvalue 2.0611536e−9 m²). Both audits reproduced all
+three source hashes. Original source and edited-floor datasets remain unchanged.
+
+The fixed route-frame crop is [−1.5,−1.5,−.1]–[3.5,1.5,2.5] m. It encloses the
+entire swept body with at least .65 m to its boundary. Thus omitted ellipsoid boxes
+cannot reduce the reported .07 m bound. Within it, each closed motion subinterval
+(length <=.02 m) is enclosed by a swept body box and tested against complete support
+boxes. Box-to-box distance is a conservative bound throughout that interval; subtract
+1e−8 m numerical slack. This is continuous enclosure validation, not waypoint sampling.
+It is an audit calculation, not the production collision oracle or a formal numerical proof.
+
+| Leg | World endpoints (x,y,z) m | Clearance lower bound |
+|---|---|---:|
+| Under light | (8.85,5.55,−.5771749593) → (9.30,6.15,−.5771749593) | .0804868341 m |
+| Rise | (9.30,6.15,−.5771749593) → (9.30,6.15,.1728250407) | .0699999900 m |
+| Above table | (9.30,6.15,.1728250407) → (10.50,7.75,.1728250407) | .0699999900 m |
+
+This new UAV task explicitly starts at (8.85,5.55), replacing the **unaccepted fixture
+proposal** (8.64,5.27); it does not rewrite any legacy comparison or cylinder goal.
+The first attempt remains in `logs/A0/scene_audit.json`: low approach unresolved,
+other legs passed. Exact light covariances follow `Rᵀ diag((axes/2)^2) R` for the
+world-to-route rotation R above. Audit-only negative sentinel IDs must be replaced
+by unique IDs in A2's manifest. The table is retained original geometry, not a new edit.
+The top .905098 m is only the historical section observation; A2 must still identify
+full tabletop support extents for the ordered-over-table gate.
+
+Opened `logs/A0/fixture_v2/fixture_3d.png`: the shade is below its long suspension and
+ceiling attachment; blue path passes below it, rises beyond its forward extent and
+continues high; red body rings have different low/high heights. It is explicitly a
+3D design schematic without the original table/map, so cannot establish visual agreement
+with the GS scene. The earlier opened P5-A-0 splat frame supplies scene context only.
+A2's real-scene visualization and A1/A5's production validation remain required.
 
 A2 first exports/render-inspects the edited scene and a candidate feasibility witness;
 A5 then plans on that frozen scene. Geometry may be visualized with support meshes plus

@@ -56,7 +56,7 @@ class SearchBudget:
 @dataclass(frozen=True)
 class PlannerConfig:
     resolution_m: float = 0.10
-    margin_m: float = 0.05
+    margin_m: float = 0.05  # UAV default; ground runner explicitly selects 0.001
     seed: int = 0
     budget: SearchBudget = SearchBudget()
 
@@ -84,6 +84,11 @@ class SupportSurface(Protocol):
     """Ground support height; None means absent/unknown support."""
 
     def height(self, x: float, y: float) -> float | None: ...
+
+    def height_bounds(self, lower_xy: tuple[float, float],
+                      upper_xy: tuple[float, float]) -> tuple[float, float] | None:
+        """Conservative min/max over the whole closed footprint box, or unknown."""
+        ...
 
     def supports_segment(self, a: Vec3, b: Vec3, radius_m: float) -> bool: ...
 
