@@ -1,0 +1,11 @@
+{
+  "schema_version": "gs3d.scene.v1",
+  "scene_id": "showcase_planefloor_airborne_v1",
+  "source": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+  "derivative_relative_path": "results/gs3d_scene/showcase_airborne_v1.npz",
+  "manifest_relative_path": "results/gs3d_scene/showcase_airborne_v1.manifest.json",
+  "tau": 0.3,
+  "level": 2.0,
+  "uav": {"radius_m": 0.25, "half_height_m": 0.1, "margin_m": 0.05},
+  "candidate_note": "Ordered low-under-light then high-over-table feasibility witness only; planner validation is downstream."
+}
