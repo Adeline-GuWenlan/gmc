@@ -1,0 +1,75 @@
+{
+  "scene_id": "synthetic_under_over",
+  "means": [
+    [
+      -0.7,
+      0.0,
+      2.0
+    ],
+    [
+      0.8,
+      0.0,
+      0.3
+    ]
+  ],
+  "covariances": [
+    [
+      [
+        0.030624999999999996,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.25
+      ]
+    ],
+    [
+      [
+        0.030624999999999996,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.225625
+      ]
+    ]
+  ],
+  "ids": [
+    0,
+    1
+  ],
+  "level": 2.0,
+  "tau": 0.3,
+  "bounds_min": [
+    -2.2,
+    -0.5,
+    0.0
+  ],
+  "bounds_max": [
+    2.2,
+    0.5,
+    2.8
+  ],
+  "body": {
+    "name": "uav",
+    "radius_m": 0.25,
+    "half_height_m": 0.1,
+    "motion": "uav_translation",
+    "ground_clearance_m": 0.02
+  },
+  "coverage_policy": "synthetic_declared_known_box"
+}
