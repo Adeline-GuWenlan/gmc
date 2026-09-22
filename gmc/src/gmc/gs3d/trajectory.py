@@ -80,7 +80,10 @@ def write_plan(path, result: dict) -> Path:
 
 
 def read_plan(path) -> dict:
-    result = json.loads(Path(path).read_text())
+    def reject_constant(value):
+        raise ValueError(f"non-finite JSON constant is forbidden: {value}")
+
+    result = json.loads(Path(path).read_text(), parse_constant=reject_constant)
     validate_plan_result(result)
     return result
 

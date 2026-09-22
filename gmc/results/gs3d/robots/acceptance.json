@@ -1,0 +1,54 @@
+{
+  "schema_version": "gs3d.a3-acceptance.v1",
+  "compute_job": {
+    "job_id": 18244075,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:03:20",
+    "max_rss_kib": 1714200,
+    "allocated_cpus": 2
+  },
+  "focused_tests": {
+    "tests": 58,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 62.788,
+    "junit_sha256": "805d9e9cc6913ea7dd7c0c92cb7a06504f8d07a5d848644290e8a618ac3201d0"
+  },
+  "synthetic": {
+    "all_three_robots_success": true,
+    "all_three_replays_pass": true,
+    "uav_altitude_range_m": 0.6000000000000001,
+    "artifact_sha256": "4b0e1f5ddaf941c2e521c33aef3579de1502cb19f2beec90fcb31d5aff9df6dc"
+  },
+  "real_long_cylinder": {
+    "source_endpoint_distance_m": 8.583851117068608,
+    "original_goal_unchanged": true,
+    "exact_success": true,
+    "exact_attained_position_error_m": 0.0,
+    "exact_route_length_m": 12.812741699796954,
+    "exact_algorithm_wall_s": 31.170258297002874,
+    "exact_expansions": 686,
+    "exact_oracle_calls": 1532,
+    "exact_narrowphase_pairs": 84466,
+    "exact_clearance_lower_m": 0.001001107221452633,
+    "required_margin_m": 0.001,
+    "active_full_3d_supports": 224289,
+    "tolerances_m": [0.0, 0.1, 0.25, 0.5],
+    "statuses": ["success", "success", "success", "success"],
+    "all_successful_replays_pass": true,
+    "artifact_sha256": "f5f25019040651a58309aafd41b7089f128c9b4e5f03e6388a9645e5c1b8ff50"
+  },
+  "visual_review": {
+    "opened": true,
+    "artifact": "runtime logs/A3/cylinder_long_routes.png",
+    "sha256": "1719663e775c8df0dd1f80c249d1c1b12e5e0bb0f361682ff460242a5913a953",
+    "observation": "All four routes share the long west/north detour and terminate at the red original-goal marker; this is route-only, not obstacle-render evidence."
+  },
+  "limitations": [
+    "Real-scene coverage is a declared assumed map domain, not sensor-observed free space.",
+    "The floor is the existing user-approved manual edit, not a reconstruction guarantee.",
+    "Piecewise-linear knots do not establish acceleration bounds; A6 owns smoothing.",
+    "A5 owns same-scene obstacle rendering and visual reconciliation."
+  ]
+}

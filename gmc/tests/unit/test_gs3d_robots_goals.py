@@ -101,6 +101,9 @@ def test_uav_variable_z_survives_serialization_sampling_and_replay(tmp_path):
     path.write_text(json.dumps(bad))
     with pytest.raises(ValueError, match="legacy Pose2"):
         read_plan(path)
+    path.write_text('{"schema_version":"gs3d.v1","original_goal":[NaN,0,0,0]}')
+    with pytest.raises(ValueError, match="non-finite JSON"):
+        read_plan(path)
 
 
 def test_goal_policy_preserves_original_and_records_attained_error():
