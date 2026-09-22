@@ -3,6 +3,7 @@ import copy
 import json
 from pathlib import Path
 import subprocess
+import sqlite3
 import tempfile
 import time
 import unittest
@@ -10,6 +11,7 @@ from unittest.mock import patch
 
 import quota
 import scheduler as s
+from runtime_state import SessionDatabase
 
 
 class QuotaTests(unittest.TestCase):
@@ -133,6 +135,23 @@ class SchedulerTests(unittest.TestCase):
                  'artifacts': ['missing'], 'checks': [{'passed': True, 'evidence': 'missing'}]})
         self.assertIsNone(s.accepted('A0', self.data))
 
+    def test_missing_evidence_reports_resolved_path(self):
+        s.atomic(s.STATE / 'A0.done.json', {'accepted': True, 'commit': 'fake',
+                 'artifacts': ['logs/missing.out'],
+                 'checks': [{'passed': True, 'evidence': 'logs/missing.out'}]})
+        errors = []
+        self.assertIsNone(s.accepted('A0', self.data, errors))
+        self.assertIn(str(s.LOGS / 'missing.out'), errors[0])
+
+    def test_runtime_relative_and_worktree_relative_evidence(self):
+        self.assertEqual(s.evidence_path('A2', 'worktrees/A2/result.json'),
+                         s.worktree('A2') / 'result.json')
+        self.assertEqual(s.evidence_path('A2', 'logs/compute.out'), s.LOGS / 'compute.out')
+        self.assertEqual(s.evidence_path('A2', 'docs/worklog.md'),
+                         s.worktree('A2') / 'docs/worklog.md')
+        with self.assertRaises(ValueError):
+            s.evidence_path('A2', '../outside')
+
     def test_continuation_overrides_done(self):
         (s.STATE / 'A0.continue').write_text('not finished')
         s.atomic(s.STATE / 'A0.done.json', {'accepted': True})
@@ -154,6 +173,11 @@ class SchedulerTests(unittest.TestCase):
 
         with patch.object(s, 'git', side_effect=fake_git):
             self.assertIsNotNone(s.accepted('A0', self.data))
+            proof['artifacts'] = ['worktrees/A0/' + report]
+            (s.LOGS / 'compute.out').write_text('passed')
+            proof['checks'][0]['evidence'] = 'logs/compute.out'
+            s.atomic(s.STATE / 'A0.done.json', proof)
+            self.assertIsNotNone(s.accepted('A0', self.data))
             proof['commit'] = 'wrong-head'
             s.atomic(s.STATE / 'A0.done.json', proof)
             self.assertIsNone(s.accepted('A0', self.data))
@@ -164,6 +188,26 @@ class SchedulerTests(unittest.TestCase):
         for stage, spec in s.AGENTS.items():
             self.assertNotIn(stage, spec['deps'])
             self.assertTrue(set(spec['deps']) < final_ancestors)
+
+
+class RuntimeStateTests(unittest.TestCase):
+    def test_checkpoint_includes_wal_and_survives_new_node_directory(self):
+        with tempfile.TemporaryDirectory() as root:
+            first = SessionDatabase(Path(root) / 'persistent')
+            conn = sqlite3.connect(first.path / 'state_5.sqlite')
+            conn.execute('PRAGMA journal_mode=WAL')
+            conn.execute('CREATE TABLE threads (id TEXT)')
+            conn.execute("INSERT INTO threads VALUES ('session-123')")
+            conn.commit()
+            first.checkpoint()
+            second = SessionDatabase(Path(root) / 'persistent')
+            self.assertNotEqual(first.path, second.path)
+            restored = sqlite3.connect(second.path / 'state_5.sqlite')
+            self.assertEqual(restored.execute('SELECT id FROM threads').fetchone(), ('session-123',))
+            restored.close()
+            second.close()
+            conn.close()
+            first.close()
 
 
 if __name__ == '__main__':
