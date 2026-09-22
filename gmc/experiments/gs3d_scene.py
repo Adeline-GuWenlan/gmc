@@ -86,7 +86,8 @@ def render(out: Path) -> None:
     rendered = {}
     for name, (target, azim, elev, dist) in views.items():
         cam = ewa.camera(target, azim, elev, dist, 900, 620, fov_y_deg=43.)
-        rgb, _, _ = ewa.render(splats, cam, bg=(.96, .96, .96), xray=.2)
+        frame = ewa.render(splats, cam, bg=(.96, .96, .96), xray=.2)
+        rgb = frame["rgb"]
         fig, ax = plt.subplots(figsize=(10, 7))
         ax.imshow(rgb)
         u, v, depth = ewa.project_points(cam, path)
@@ -96,7 +97,9 @@ def render(out: Path) -> None:
         ax.set_title(f"A2 {name}: actual EWA Gaussian render + candidate witness\nmanual light is gold; original table remains source geometry")
         ax.legend(loc="lower right"); ax.axis("off"); fig.tight_layout()
         p = out / f"showcase_airborne_{name}.png"; fig.savefig(p, dpi=140); plt.close(fig)
-        rendered[name] = {"path": str(p), "camera": cam.as_dict()}
+        rendered[name] = {"path": str(p), "camera": cam.as_dict(),
+                          "n_visible": frame["n_visible"], "n_drawn": frame["n_drawn"],
+                          "tile_gaussian_pairs": frame["n_pairs"]}
     review = {"scene_id": SCENE_ID, "archive_sha256": doc["derivative"]["sha256"], "n_rendered_gaussians": int(len(sub)),
               "selection": "2-sigma world Gaussian AABB overlaps route-frame render crop", "views": rendered,
               "note": "Actual EWA render of the same derivative archive validated by manifest; blue path is a feasibility witness, not planner output."}
