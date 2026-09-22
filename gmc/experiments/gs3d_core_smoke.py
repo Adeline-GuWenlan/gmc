@@ -182,6 +182,14 @@ def visual(output):
 
 
 def checks(output):
+    import gmc.height.project
+    projection_calls = []
+
+    def forbidden_projection(*args, **kwargs):
+        projection_calls.append(1)
+        raise AssertionError("production 3D check called legacy projection")
+
+    gmc.height.project.project_scene = forbidden_projection
     review = json.loads((output / "visual_review.json").read_text())
     if not review.get("opened"):
         raise RuntimeError("Open actual 3D render artifacts before scalar acceptance")
@@ -222,12 +230,16 @@ def checks(output):
         result = LatticePlanner().plan(scene, UAV, start, GoalRegion(goal), PlannerConfig(resolution_m=resolution))
         write_json(output / f"under_over_{resolution:.2f}.json", result)
         assert result["status"] == "success", result["reason"]
+        if resolution == .2:
+            assert result["trajectory"]["poses"] == plan["trajectory"]["poses"], "Changed path needs new visual inspection"
         sensitivities.append({"resolution_m": resolution, "clearance_lower_m": result["clearance_lower_m"],
                               "altitude_range_m": result["diagnostics"]["altitude_range_m"],
                               "expansions": result["diagnostics"]["expansions"],
                               "wall_s": result["timings"]["algorithm_wall_s"]})
     write_json(output / "numerical_acceptance.json", {"under_over": sensitivities,
         "scaling_sizes": [r["supports"] for r in scaling], "visual_review": review,
+        "production_projection_calls": len(projection_calls),
+        "reviewed_visual_route_unchanged_after_numerical_hardening": True,
         "fixed_z_impossible": {"low_centre_upper_bound_m": 2 - np.sqrt(.99) - .1 - .05,
                                 "high_centre_lower_bound_m": .3 + .95 * np.sqrt(.99) + .1 + .05},
         "safety_scope": "numerical continuous separating bounds; declared synthetic map/body; no dynamics or physical certification"})

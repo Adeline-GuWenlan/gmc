@@ -69,6 +69,13 @@ def verify_path(oracle: BodyOracle, poses: list[Pose3], body: BodySpec, *, margi
 def verify_linear_trajectory(trajectory, body: BodySpec, limits: dict) -> dict:
     """Check timing, declared speed and yaw-rate; acceleration is explicitly unproven."""
     try:
+        validate_body(body)
+        if (not np.isfinite(list(limits.values())).all()
+                or limits["max_speed_mps"] <= 0 or limits["max_yaw_rate_radps"] <= 0
+                or limits["max_vertical_speed_mps"] < 0
+                or limits["max_acceleration_mps2"] < 0
+                or limits["max_yaw_acceleration_radps2"] < 0):
+            raise ValueError("invalid kinematic limits")
         rows = np.asarray(trajectory["poses"], dtype=float)
         times = np.asarray(trajectory["time_s"], dtype=float)
         dt = trajectory["control_dt_s"]

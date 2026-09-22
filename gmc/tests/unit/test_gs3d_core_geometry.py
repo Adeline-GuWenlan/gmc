@@ -152,3 +152,60 @@ def test_budget_caps_inside_geometry():
     with pytest.raises(BudgetExceeded, match="max_oracle_calls"):
         oracle.pose(Pose3((0, 0, 1)), UAV, margin_m=.05)
     assert budget.oracle_calls == 1
+
+
+def test_random_pose_bounds_never_exceed_exact_sphere_cylinder_distance():
+    rng = np.random.default_rng(8401)
+    for _ in range(40):
+        centre = rng.uniform(-1.2, 1.2, 3)
+        sphere_radius, radius, half_height = rng.uniform(.02, .4, 3)
+        axis_gap = [max(np.linalg.norm(centre[:2]) - radius, 0.),
+                    max(abs(centre[2]) - half_height, 0.)]
+        exact = max(float(np.linalg.norm(axis_gap)) - sphere_radius, 0.)
+        result = cylinder_ellipsoid_bound(centre, centre, radius, half_height,
+            np.zeros(3), np.eye(3) * (sphere_radius / 2) ** 2, 2., margin_m=.02)
+        assert result.clearance_lower_m <= exact + 1e-10
+        if result.overlap:
+            assert exact == 0.
+        if result.clearance_lower_m > .02:
+            assert exact > .02
+
+
+def test_rotated_support_normal_witness_has_known_exact_distance():
+    rng = np.random.default_rng(541)
+    for _ in range(12):
+        rotation, _ = np.linalg.qr(rng.normal(size=(3, 3)))
+        covariance = rotation @ np.diag((np.array([.8, .08, .008]) / 2) ** 2) @ rotation.T
+        n = rng.normal(size=3)
+        n /= np.linalg.norm(n)
+        cylinder_point = np.r_[.25 * n[:2] / np.linalg.norm(n[:2]), .1 * np.sign(n[2])]
+        ellipse_point = 2 * covariance @ n / np.sqrt(n @ covariance @ n)
+        exact = .07
+        centre = ellipse_point + cylinder_point + exact * n
+        result = cylinder_ellipsoid_bound(centre, centre, .25, .1, np.zeros(3), covariance, 2., margin_m=.05)
+        assert result.clearance_lower_m <= exact + 1e-9
+        assert not result.overlap
+
+
+def test_high_condition_covariance_support_cancellation_fails_closed():
+    # Opposing terms near 1e12 cancel to order one in this minor-axis direction.
+    # Use long-double arithmetic only for the independent test construction.
+    c = np.array([[5e11 + .5, 5e11 - .5, 0],
+                  [5e11 - .5, 5e11 + .5, 0], [0, 0, 1.]])
+    n = np.array([1., -1., 0.]) / np.sqrt(2.)
+    nl, cl = n.astype(np.longdouble), c.astype(np.longdouble)
+    point = np.asarray(cl @ nl / np.sqrt(nl @ cl @ nl), float)
+    centre = point + .25 * n + .001 * n
+    result = cylinder_ellipsoid_bound(centre, centre, .25, .1, np.zeros(3), c, 1., margin_m=0.)
+    assert result.clearance_lower_m <= .001 + 1e-7
+    assert not result.overlap
+
+
+def test_prepared_snapshot_and_opacity_filter():
+    scene = make_scene([(0, 0, 1), (1, 0, 1)], [(.1, .1, .1), (.1, .1, .1)])
+    scene.gaussians.opacity[0] = .3  # exactly tau is excluded, as in the frozen contract
+    prepared = PreparedScene(scene)
+    assert prepared.ids.tolist() == [1]
+    scene.gaussians.means[:] = 100.
+    assert prepared.means.tolist() == [[1., 0., 1.]]
+    assert not prepared.means.flags.writeable

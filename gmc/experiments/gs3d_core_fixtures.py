@@ -64,7 +64,7 @@ def z_distinction(z=.7):
 
 def under_over():
     # Both supports span the available lateral corridor. At x=-.7 all free
-    # centres have z<.853; at x=.8 all free centres have z>1.397 (r=.25,
+    # centres have z<.856; at x=.8 all free centres have z>1.395 (r=.25,
     # margin=.05). Thus no single fixed-z traversal can satisfy both gates.
     return make_scene([(-.7, 0., 2.), (.8, 0., .3)],
                       [(.35, 2., 1.), (.35, 2., .95)],

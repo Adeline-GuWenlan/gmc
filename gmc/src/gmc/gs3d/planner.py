@@ -114,8 +114,9 @@ class LatticePlanner:
                 diagnostics.update(oracle.stats)
                 diagnostics["preparation"] = oracle.prepared.stats
             # Result assembly is included. External export/render are not.
-            result["timings"]["algorithm_wall_s"] = perf_counter() - entered
-            return _json_finite(result)
+            assembled = _json_finite(result)
+            assembled["timings"]["algorithm_wall_s"] = perf_counter() - entered
+            return assembled
 
         def observe(report):
             if report.occupancy == "free" and report.safety == "continuous_bound":

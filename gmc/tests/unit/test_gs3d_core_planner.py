@@ -157,6 +157,8 @@ def test_ground_validator_rejects_sideways_motion_and_bad_timing():
     q = Pose3((0, 0, 1))
     result = LatticePlanner().plan(scene, UAV, q, GoalRegion(Pose3((.5, 0, 1))), PlannerConfig())
     trajectory = result["trajectory"]
+    invalid_limits = {**result["robot"]["limits"], "max_speed_mps": float("nan")}
+    assert not verify_linear_trajectory(trajectory, UAV, invalid_limits)["passed"]
     trajectory["time_s"][-1] = 0.
     assert not verify_linear_trajectory(trajectory, UAV, result["robot"]["limits"])["passed"]
 
@@ -179,3 +181,27 @@ def test_timer_hooks_include_endpoint_search_verify():
                                    GoalRegion(Pose3((1, 0, 1))), PlannerConfig(), timer=timer)
     assert result["status"] == "success"
     assert {"index_build", "endpoint_check", "edge_validation", "trajectory_build", "verify"} <= set(timer.stages)
+
+
+def test_no_path_on_coarse_lattice_is_not_map_unknown_or_budget():
+    scene = make_scene([(0, 0, 1)], [(.025, .2, .2)],
+                       lower=(-.3, -.1, .85), upper=(.3, .1, 1.15))
+    body = replace(UAV, radius_m=.05, half_height_m=.05)
+    result = LatticePlanner().plan(scene, body, Pose3((-.15, 0, 1)),
+        GoalRegion(Pose3((.15, 0, 1))), PlannerConfig(resolution_m=.5, margin_m=.01))
+    assert result["status"] == "no_path_on_lattice", result["reason"]
+    assert result["trajectory"] is None
+    assert result["diagnostics"]["expansions"] == 1
+
+
+@pytest.mark.parametrize("change", [
+    {"resolution_m": 0}, {"resolution_m": np.nan}, {"margin_m": -1},
+    {"budget": SearchBudget(max_expansions=0)}, {"budget": SearchBudget(max_oracle_calls=1.5)},
+    {"budget": SearchBudget(max_wall_s=np.inf)}])
+def test_invalid_config_cannot_enter_search(change):
+    result = LatticePlanner().plan(make_scene(), UAV, Pose3((-.5, 0, 1)),
+        GoalRegion(Pose3((.5, 0, 1))), replace(PlannerConfig(), **change))
+    assert result["status"] == "invalid_input"
+    assert result["diagnostics"]["expansions"] == 0
+    assert result["trajectory"] is None
+    json.dumps(result, allow_nan=False)

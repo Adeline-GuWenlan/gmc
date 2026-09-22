@@ -54,6 +54,8 @@ def _cylinder_support(n, radius, half_height):
 
 def _centre_in_sweep(a, b, radius, half_height, slack):
     """Strict witness that the ellipsoid centre (origin) lies in swept body."""
+    if min(radius, half_height) <= slack:
+        return False
     v = b - a
     lo, hi = 0., 1.
     if abs(v[2]) > slack:
@@ -126,10 +128,26 @@ def cylinder_ellipsoid_bound(a, b, radius, half_height, mean, covariance, level,
     if _centre_in_sweep(a, b, radius, half_height, slack):
         return PairBound(0., True, 0, "ellipsoid_centre_in_swept_body")
 
+    # A plain n.T @ C @ n can cancel badly for highly anisotropic rotated C.
+    # Bound its absolute evaluation error before taking the support square root.
+    # The same upper denominator makes support proposals slightly interior.
+    absolute_covariance = np.abs(covariance)
+    epsilon = np.finfo(float).eps
+    vertex_error = 0.
+
+    def quadratic_upper(n):
+        absolute_sum = float(np.abs(n) @ absolute_covariance @ np.abs(n))
+        return max(float(n @ covariance @ n) + 32 * epsilon * absolute_sum, 0.)
+
     def support_min(n):
+        nonlocal vertex_error
         cn = covariance @ n
-        den = np.sqrt(max(float(n @ cn), 0.))
+        den = np.sqrt(quadratic_upper(n))
         ellipsoid = level * cn / den if den else np.zeros(3)
+        if den:
+            error_cn = 8 * epsilon * (absolute_covariance @ np.abs(n))
+            error = level * (np.linalg.norm(error_cn) + 16 * epsilon * np.linalg.norm(cn)) / den
+            vertex_error = max(vertex_error, float(error))
         centre = a if a @ n <= b @ n else b
         return centre + _cylinder_support(-n, radius, half_height) - ellipsoid
 
@@ -137,7 +155,7 @@ def cylinder_ellipsoid_bound(a, b, radius, half_height, mean, covariance, level,
         # Evaluate the analytic supports independently of the simplex solver.
         return (min(float(a @ n), float(b @ n))
                 - radius * np.linalg.norm(n[:2]) - half_height * abs(n[2])
-                - level * np.sqrt(max(float(n @ covariance @ n), 0.)) - slack)
+                - level * np.sqrt(quadratic_upper(n)) - slack)
 
     delta = b - a
     t = np.clip(-float(a @ delta) / float(delta @ delta), 0., 1.) if delta @ delta else 0.
@@ -167,7 +185,7 @@ def cylinder_ellipsoid_bound(a, b, radius, half_height, mean, covariance, level,
             break
         vertices = np.vstack((simplex, vertex))
         for ids in combinations(range(len(vertices)), 4):
-            if _tetra_contains_origin(vertices[list(ids)], slack):
+            if _tetra_contains_origin(vertices[list(ids)], slack + vertex_error):
                 return PairBound(0., True, iteration, "minkowski_interior_witness")
         point, simplex = _closest_hull(vertices)
     return PairBound(best, False, iteration, "unresolved_contact_or_margin")

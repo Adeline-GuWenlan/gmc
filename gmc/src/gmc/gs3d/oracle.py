@@ -91,7 +91,7 @@ class PreparedScene:
         if not np.isfinite(raw.opacity).all() or np.any((raw.opacity < 0) | (raw.opacity > 1)):
             raise ValueError("opacity must be finite and in [0,1]")
         selected_means, selected_covs, selected_ids = [], [], []
-        floored, symmetrized = 0, 0
+        floored, symmetrized, maximum_floor_added = 0, 0, 0.
         for start in range(0, n, 16384):
             if check:
                 check()
@@ -109,7 +109,12 @@ class PreparedScene:
             if np.any(eigen[:, 0] < 0):
                 raise ValueError("negative covariance eigenvalue")
             adjustment = np.maximum(1e-12 - eigen[:, 0], 0.)
+            # Make the outward addition representable even if a huge principal
+            # variance would swallow a 1e-12 diagonal increment in float64.
+            adjustment = np.where(adjustment > 0,
+                np.maximum(adjustment, 32 * np.finfo(float).eps * scale), 0.)
             floored += int(np.count_nonzero(adjustment))
+            maximum_floor_added = max(maximum_floor_added, float(adjustment.max(initial=0.)))
             c += adjustment[:, None, None] * np.eye(3)
             keep = raw.opacity[start:start + 16384] > scene.tau
             selected_means.append(np.array(m[keep], dtype=float, copy=True))
@@ -123,6 +128,7 @@ class PreparedScene:
             arr.flags.writeable = False
         self.stats = {"input_supports": n, "active_supports": len(self.ids),
                       "outward_floored_covariances": floored,
+                      "covariance_floor_max_added_m2": maximum_floor_added,
                       "roundoff_symmetrized_covariances": symmetrized,
                       "bvh_nodes": len(self.index.nodes),
                       "index_build_wall_s": perf_counter() - started}
