@@ -16,6 +16,7 @@ import time
 import uuid
 
 from quota import next_allowed, read_quota
+from runtime_state import SessionDatabase
 
 ROOT = Path(os.environ.get('GS3D_ROOT', Path(__file__).resolve().parent))
 CONFIG = json.loads((ROOT / 'agents.json').read_text())
@@ -53,7 +54,9 @@ def cmd(args, cwd=None, check=True, timeout=90):
 
 
 def git(*args, cwd=REPO, check=True):
-    return cmd(['git', *args], cwd=cwd, check=check)
+    # A checkout on shared cluster storage can take several minutes.
+    return cmd(['git', *args], cwd=cwd, check=check,
+               timeout=600 if args and args[0] in ('worktree', 'merge') else 90)
 
 
 def ledger(job, kind, stage=None):
@@ -112,45 +115,61 @@ def compute_jobs(stage, live):
     return sorted(set(own + [job for job in capacity_wait if job in live]))
 
 
-def accepted(stage, data):
+def evidence_path(stage, filename):
+    path = Path(filename)
+    if path.is_absolute():
+        return path
+    if '..' in path.parts:
+        raise ValueError('Evidence paths must not contain parent traversal')
+    root = ROOT if path.parts and path.parts[0] in ('worktrees', 'logs', 'state') else worktree(stage)
+    return root / path
+
+
+def accepted(stage, data, errors=None):
     """A zero process status is insufficient. Require pinned commits and evidence files."""
     wt = worktree(stage)
+    def reject(reason):
+        if errors is not None:
+            errors.append(reason)
+        return None
     path = STATE / (stage + '.done.json')
     if not path.exists() or (STATE / (stage + '.continue')).exists():
-        return None
+        return reject('Missing done manifest or an unfinished .continue marker exists')
     try:
         item = load(path)
         if item.get('accepted') is not True or not item.get('checks') or not item.get('artifacts'):
-            return None
+            return reject('Manifest needs accepted=true, nonempty checks and artifacts')
         if any(c.get('passed') is not True or not c.get('evidence') for c in item['checks']):
-            return None
+            return reject('Every check needs passed=true and an evidence file')
         files = item['artifacts'] + [c['evidence'] for c in item['checks']]
         for filename in files:
-            fp = Path(filename)
-            if not (fp if fp.is_absolute() else wt / fp).is_file():
-                return None
+            fp = evidence_path(stage, filename)
+            if not fp.is_file():
+                return reject('Evidence file missing: ' + str(fp))
         report = LOGS / (stage + '_done.md')
         if not report.is_file() or not report.stat().st_size:
-            return None
+            return reject('Missing or empty external stage handoff report')
         head = git('rev-parse', 'HEAD', cwd=wt).stdout.strip()
         if item.get('commit') != head or git('status', '--porcelain', cwd=wt).stdout.strip():
-            return None
+            return reject('Manifest commit differs from HEAD or worktree is dirty')
         if git('branch', '--show-current', cwd=wt).stdout.strip() != CONFIG['branch_prefix'] + '/' + stage:
-            return None
+            return reject('Worktree is on the wrong branch')
         if git('ls-files', '--error-unmatch', 'docs/worklog/gs3d_' + stage + '.md',
                cwd=wt, check=False).returncode:
-            return None
+            return reject('Stage worklog is not tracked by Git')
         required = [CONFIG['base_commit'], data['plan_commit']]
         required += [data['stages'][d]['commit'] for d in AGENTS[stage]['deps']]
+        if stage in ('A5', 'A6', 'A7') and data.get('ops_commit'):
+            required.append(data['ops_commit'])
         if any(git('merge-base', '--is-ancestor', rev, head, cwd=wt, check=False).returncode
                for rev in required):
-            return None
+            return reject('Missing required base, plan, predecessor or operations ancestry')
         if stage == 'A7' and any(item.get('requirements', {}).get(f'R{i}') is not True
                                  for i in range(1, 9)):
-            return None
+            return reject('Final review must accept requirements R1 through R8')
         return item
-    except (OSError, ValueError, TypeError, KeyError, RuntimeError):
-        return None
+    except (OSError, ValueError, TypeError, KeyError, RuntimeError) as exc:
+        return reject(str(exc))
 
 
 def wake(data, *, at=None, dependencies=()):
@@ -259,8 +278,10 @@ def prepare(stage, data):
     with lock('git'):
         if not wt.exists():
             git('worktree', 'add', '-b', branch, str(wt), initial)
-        for dep in deps:
-            sha = data['stages'][dep]['commit']
+        merges = [(dep, data['stages'][dep]['commit']) for dep in deps]
+        if stage in ('A5', 'A6', 'A7') and data.get('ops_commit'):
+            merges.append(('operations-repair', data['ops_commit']))
+        for dep, sha in merges:
             if git('merge-base', '--is-ancestor', sha, 'HEAD', cwd=wt, check=False).returncode == 0:
                 continue
             merge_head = git('rev-parse', '--git-path', 'MERGE_HEAD', cwd=wt).stdout.strip()
@@ -310,6 +331,7 @@ def fresh_quota(force=False):
 
 def model_turn(stage, wt):
     spec = AGENTS[stage]
+    database = SessionDatabase(STATE / 'sqlite' / stage)
     session_file = STATE / (stage + '.session')
     session = session_file.read_text().strip() if session_file.exists() else None
     job = os.environ.get('SLURM_JOB_ID', 'manual')
@@ -319,6 +341,7 @@ def model_turn(stage, wt):
             '--add-dir', str(ROOT), '--add-dir', str((wt / common_git).resolve()),
             '-m', spec['model'], '-c', 'model_reasoning_effort=' + json.dumps(spec['effort']),
             '-c', 'sandbox_workspace_write.network_access=true',
+            '-c', 'sqlite_home=' + json.dumps(str(database.path)),
             '-c', 'features.multi_agent=false', 'exec']
     if session:
         args += ['resume', session]
@@ -331,6 +354,9 @@ def model_turn(stage, wt):
                f'Authoritative plan: {ROOT / "PLAN.md"}\n'
                'The user requested start now, automatically resume at actual quota reset, and '
                'push completed work to GitHub. You are authorized to perform this stage.\n')
+    rejection = load(STATE / (stage + '.acceptance_rejection.json'))
+    if rejection:
+        prompt += '\nSCHEDULER ACCEPTANCE REJECTION: ' + json.dumps(rejection) + '\nFix these concrete errors; a success message alone cannot pass acceptance.\n'
     env = os.environ.copy()
     env.update(GS3D_ROOT=str(ROOT), GS3D_STAGE=stage, GS3D_WORKTREE=str(wt),
                MPLBACKEND='Agg', PYTHONUNBUFFERED='1')
@@ -340,6 +366,7 @@ def model_turn(stage, wt):
         previous[signum] = signal.signal(signum, lambda *_: interrupted.__setitem__(0, True))
     tail = []
     started = time.monotonic()
+    checkpoint_at = started + 60
     proc = subprocess.Popen(args, cwd=wt, env=env, stdin=subprocess.PIPE,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                             start_new_session=True)
@@ -372,6 +399,9 @@ def model_turn(stage, wt):
     try:
         with log_path.open('ab') as stream:
             while True:
+                if time.monotonic() >= checkpoint_at:
+                    database.checkpoint()
+                    checkpoint_at = time.monotonic() + 60
                 if (interrupted[0] or time.monotonic() - started >= 6000) and stop_time is None:
                     stop_time = time.monotonic()
                     os.killpg(proc.pid, signal.SIGTERM)
@@ -402,6 +432,7 @@ def model_turn(stage, wt):
                 proc.wait()
         for signum, handler in previous.items():
             signal.signal(signum, handler)
+        database.close()
 
 
 def run_stage(stage):
@@ -439,16 +470,23 @@ def run_stage(stage):
         continuation = STATE / (stage + '.continue')
         if continuation.exists():
             os.replace(continuation, STATE / (stage + '.previous_continue'))
+        errors = []
+        accepted(stage, data, errors)
+        if errors and (STATE / (stage + '.done.json')).exists():
+            atomic(STATE / (stage + '.acceptance_rejection.json'), errors)
         rc, tail, timed_out = model_turn(stage, wt)
         data = machine()
         live = queue()
-        proof = accepted(stage, data) if not compute_jobs(stage, live) else None
+        errors = []
+        proof = accepted(stage, data, errors) if not compute_jobs(stage, live) else None
+        if errors and (STATE / (stage + '.done.json')).exists():
+            atomic(STATE / (stage + '.acceptance_rejection.json'), errors)
         if proof:
             set_stage(stage, status='done', commit=proof['commit'], completed_at=time.time(), job=None)
         elif (STATE / (stage + '.blocked')).exists():
             set_stage(stage, status='blocked', job=None,
                       last_reason=(STATE / (stage + '.blocked')).read_text()[:1500])
-        elif re.search(r'usage.limit|rate.limit|quota.exceeded|usage_limit|rate_limit', tail, re.I):
+        elif rc != 0 and re.search(r'usage.limit|rate.limit|quota.exceeded|usage_limit|rate_limit', tail, re.I):
             try:
                 snapshot = fresh_quota(force=True)
             except Exception:
@@ -473,6 +511,8 @@ def publish():
         if not all(st['status'] == 'done' for st in data['stages'].values()):
             return
         refs = {CONFIG['branch_prefix'] + '/plan': data['plan_commit']}
+        if data.get('ops_commit'):
+            refs[CONFIG['branch_prefix'] + '/ops'] = data['ops_commit']
         refs.update({CONFIG['branch_prefix'] + '/' + name: st['commit']
                      for name, st in data['stages'].items()})
         refs[CONFIG['branch_prefix'] + '/integration'] = data['stages']['A7']['commit']

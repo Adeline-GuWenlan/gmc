@@ -4,13 +4,17 @@ import os
 import selectors
 import shutil
 import subprocess
+import tempfile
 import time
 
 
 def read_quota(timeout=60):
-    proc = subprocess.Popen([shutil.which('codex') or 'codex', 'app-server', '--stdio'],
+    errors = tempfile.TemporaryFile()
+    local_state = tempfile.TemporaryDirectory(prefix='gs3d-quota-', dir='/tmp')
+    proc = subprocess.Popen([shutil.which('codex') or 'codex', '-c',
+                            'sqlite_home=' + json.dumps(local_state.name), 'app-server', '--stdio'],
                             stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                            stderr=subprocess.DEVNULL, start_new_session=True)
+                            stderr=errors, start_new_session=True)
     selector = selectors.DefaultSelector()
     selector.register(proc.stdout, selectors.EVENT_READ)
 
@@ -57,7 +61,9 @@ def read_quota(timeout=60):
                             'primary': bucket.get('primary'), 'secondary': bucket.get('secondary'),
                             'limit_reached': bucket.get('rateLimitReachedType'),
                             'spend_control_reached': bucket.get('spendControlReached')}
-        raise RuntimeError('Codex quota metadata unavailable (timeout or app-server exit)')
+        errors.seek(0)
+        detail = errors.read().decode(errors='replace')[-1800:]
+        raise RuntimeError(f'Codex quota metadata unavailable (app-server rc={proc.poll()}): {detail}')
     finally:
         selector.close()
         proc.terminate()
@@ -66,6 +72,8 @@ def read_quota(timeout=60):
         except subprocess.TimeoutExpired:
             proc.kill()
             proc.wait()
+        errors.close()
+        local_state.cleanup()
 
 
 def next_allowed(snapshot, now=None):
