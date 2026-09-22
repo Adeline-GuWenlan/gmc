@@ -102,24 +102,51 @@ def replay_linear_mission(trajectory: dict, oracle, body: BodySpec, *, margin_m:
 
 
 def _crossing_interval(local_rows: np.ndarray, times: np.ndarray, s_interval,
-                       *, expected_z: float, lateral_tolerance_m: float = 1e-7) -> dict | None:
-    """Analytically locate a horizontal centreline crossing on linear segments."""
+                       *, expected_z: float,
+                       lateral_bounds_m: tuple[float, float]) -> dict | None:
+    """Analytically locate a crossing, merging consecutive linear segments.
+
+    A lattice route may cross the required forward interval using several
+    short diagonal/lateral segments.  Each accepted segment is clipped in
+    route ``s`` and the resulting closed intervals are unioned.  This is not a
+    sampled collision claim; collision is independently certified by replay.
+    """
     target_lo, target_hi = map(float, s_interval)
+    lateral_lo, lateral_hi = map(float, lateral_bounds_m)
+    clipped = []
     for a, b, ta, tb in zip(local_rows, local_rows[1:], times, times[1:]):
-        if (abs(a[1]) > lateral_tolerance_m or abs(b[1]) > lateral_tolerance_m
+        if (a[1] < lateral_lo - 1e-10 or a[1] > lateral_hi + 1e-10
+                or b[1] < lateral_lo - 1e-10 or b[1] > lateral_hi + 1e-10
                 or abs(a[2] - expected_z) > 1e-7 or abs(b[2] - expected_z) > 1e-7
                 or abs(b[0] - a[0]) < 1e-12):
             continue
         segment_lo, segment_hi = sorted((float(a[0]), float(b[0])))
         overlap_lo, overlap_hi = max(segment_lo, target_lo), min(segment_hi, target_hi)
-        if overlap_hi - overlap_lo < .2 - 1e-10:
+        if overlap_hi <= overlap_lo + 1e-12:
             continue
         fractions = [(value - a[0]) / (b[0] - a[0]) for value in (overlap_lo, overlap_hi)]
         crossing_times = [float(ta + fraction * (tb - ta)) for fraction in fractions]
-        return {"route_s_m": [overlap_lo, overlap_hi],
-                "horizontal_span_m": overlap_hi - overlap_lo,
-                "time_s": sorted(crossing_times), "centre_height_above_floor_m": expected_z,
-                "source": "analytic clipping of exported linear xyz trajectory"}
+        clipped.append({"s": [overlap_lo, overlap_hi], "time": sorted(crossing_times)})
+    clipped.sort(key=lambda row: row["s"][0])
+    components = []
+    for row in clipped:
+        if not components or row["s"][0] > components[-1]["s"][1] + 1e-9:
+            components.append({"s": list(row["s"]), "time": list(row["time"]),
+                               "segments": 1})
+        else:
+            component = components[-1]
+            component["s"][1] = max(component["s"][1], row["s"][1])
+            component["time"] = [min(component["time"][0], row["time"][0]),
+                                 max(component["time"][1], row["time"][1])]
+            component["segments"] += 1
+    for component in components:
+        span = component["s"][1] - component["s"][0]
+        if span >= .2 - 1e-10:
+            return {"route_s_m": component["s"], "horizontal_span_m": span,
+                    "time_s": component["time"], "merged_linear_segments": component["segments"],
+                    "lateral_centre_bounds_m": [lateral_lo, lateral_hi],
+                    "centre_height_above_floor_m": expected_z,
+                    "source": "analytic union of clipped exported linear xyz segments"}
     return None
 
 
@@ -137,8 +164,14 @@ def ordered_uav_gate_evidence(trajectory: dict, scene_manifest: dict,
     table_top = float(scene_manifest["existing_table_arrangement"]["top_height_above_floor_m"])
     body = .10
     margin = float(scene_manifest["configuration"]["body_clearance_margin_m"])
-    low = _crossing_interval(local, times, (-.20, .20), expected_z=.65)
-    high = _crossing_interval(local, times, (.92, 1.88), expected_z=1.40)
+    light_lateral = float(light["semiaxes_route_m"][1]) - .25
+    table_envelope = scene_manifest["existing_table_arrangement"]["route_envelope_m"]
+    table_lateral = (float(table_envelope["lower"][1]) + .25,
+                     float(table_envelope["upper"][1]) - .25)
+    low = _crossing_interval(local, times, (-.20, .20), expected_z=.65,
+                             lateral_bounds_m=(-light_lateral, light_lateral))
+    high = _crossing_interval(local, times, (.92, 1.88), expected_z=1.40,
+                              lateral_bounds_m=table_lateral)
     altitude_range = float(np.ptp(local[:, 2]))
     clearance = replay.get("geometry", {}).get("clearance_lower_m")
     gates = {

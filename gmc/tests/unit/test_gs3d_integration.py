@@ -61,6 +61,9 @@ def test_ordered_gate_evidence_uses_exported_linear_path():
                 "manual_geometry": edits,
                 "configuration": {"body_clearance_margin_m": .05},
                 "existing_table_arrangement": {"top_height_above_floor_m": .905,
+                                                "route_envelope_m": {
+                                                    "lower": [.65, -1.2, .15],
+                                                    "upper": [2.15, 1.2, 1.25]},
                                                 "count": 10}}
     replay = {"passed": True, "geometry": {"clearance_lower_m": .069}}
     evidence = ordered_uav_gate_evidence(trajectory, manifest, replay)
@@ -68,3 +71,34 @@ def test_ordered_gate_evidence_uses_exported_linear_path():
     assert evidence["low_crossing"]["time_s"][1] < evidence["high_crossing"]["time_s"][0]
     reversed_trajectory = dict(trajectory, poses=list(reversed(trajectory["poses"])))
     assert not ordered_uav_gate_evidence(reversed_trajectory, manifest, replay)["all_pass"]
+
+
+def test_ordered_high_gate_merges_safe_lattice_staircase():
+    z_floor = -1.2271749593107995
+    origin, rotation = route_frame(z_floor)
+    route = np.array([[-.25, 0., .65], [.5, 0., .65], [.5, 0., 1.4],
+                      [.7, -.05, 1.4], [.9, -.10, 1.4], [1.1, -.15, 1.4],
+                      [1.3, -.10, 1.4], [1.5, -.05, 1.4], [1.7, 0., 1.4],
+                      [1.9, .05, 1.4], [2.5, 0., 1.4]])
+    world = route @ rotation + origin
+    trajectory = {"poses": [[*point, 0.] for point in world],
+                  "time_s": np.linspace(0., 10., len(world)).tolist(),
+                  "interpolation": "linear_xyz_yaw", "segments": [], "control_dt_s": .05}
+    edits = []
+    for index, edit in enumerate(manual_edits(z_floor), 100):
+        local = (np.asarray(edit.mean_world_m) - origin) @ rotation.T
+        edits.append({"role": edit.role, "gaussian_id": index,
+                      "mean_route_m": local.tolist(),
+                      "semiaxes_route_m": list(edit.semiaxes_route_m)})
+    manifest = {"route_frame": {"origin_world_m": origin.tolist(),
+                                 "world_to_route": rotation.tolist()},
+                "manual_geometry": edits,
+                "configuration": {"body_clearance_margin_m": .05},
+                "existing_table_arrangement": {
+                    "top_height_above_floor_m": .905, "count": 10,
+                    "route_envelope_m": {"lower": [.65, -1.2, .15],
+                                         "upper": [2.15, 1.2, 1.25]}}}
+    evidence = ordered_uav_gate_evidence(
+        trajectory, manifest, {"passed": True, "geometry": {"clearance_lower_m": .06}})
+    assert evidence["all_pass"]
+    assert evidence["high_crossing"]["merged_linear_segments"] >= 5

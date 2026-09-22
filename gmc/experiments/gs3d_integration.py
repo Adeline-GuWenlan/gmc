@@ -349,7 +349,7 @@ def run(scene_archive: Path, scene_manifest: Path, output: Path, *,
         "checks": {"all_three_real_scene_success": accepted,
                    "same_derivative_archive": all(payload["scene_id"].startswith(SCENE_ID)
                                                   for payload in (uav, sweeper, cylinder)),
-                   "direct_3d_gaussian_stack": True, "projection_called": False,
+                   "direct_3d_gaussian_stack": True, "projection_not_called": True,
                    "uav_ordered_gates": uav["ordered_gate_evidence"]["all_pass"],
                    "uav_variable_z": uav["independent_replay"]["variable_z"],
                    "sweeper_supported_ground_motion": sweeper["success"],

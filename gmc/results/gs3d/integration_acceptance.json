@@ -1,0 +1,104 @@
+{
+  "schema_version": "gs3d.a5-acceptance.v1",
+  "accepted": true,
+  "scene": {
+    "scene_id": "showcase_planefloor_airborne_v1",
+    "archive_sha256": "1103b6a5124d4e858bbd03ff751b52bc10a0fd095d7b0212d3c7ac28a893044d",
+    "output_gaussians": 7101871,
+    "manual_edit_ids": [7341022, 7341023, 7341024],
+    "generated_before_uav_planning": true,
+    "source_unchanged": true,
+    "coverage_policy": "assumed_map_domain; not sensor-observed free space"
+  },
+  "robots": {
+    "uav": {
+      "status": "success",
+      "independent_replay_passed": true,
+      "altitude_range_m": 0.7499999999999999,
+      "floor_relative_centre_z_range_m": [0.65, 1.4],
+      "continuous_clearance_lower_m": 0.05277596569558337,
+      "required_margin_m": 0.05,
+      "low_crossing_route_s_m": [-0.2, 0.2],
+      "low_crossing_time_s": [0.10000000000000066, 0.9000000000000007],
+      "high_crossing_route_s_m": [0.920000000000001, 1.88],
+      "high_crossing_time_s": [4.84852813742386, 6.826396615835748],
+      "raw_trajectory_duration_s": 8.19411254969543,
+      "raw_pose_rows": 18,
+      "control_dt_s": 0.05
+    },
+    "sweeper": {
+      "status": "success",
+      "independent_replay_passed": true,
+      "path_length_m": 1.6000000000000005,
+      "continuous_clearance_lower_m": 0.0014433553070445338,
+      "required_margin_m": 0.001,
+      "ground_z_range_m": 0.0,
+      "motion": "supported_ground_unicycle",
+      "control_dt_s": 0.05
+    },
+    "cylinder": {
+      "status": "success",
+      "independent_replay_passed": true,
+      "start_to_original_goal_m": 8.583851117068608,
+      "path_length_m": 12.812741699796954,
+      "continuous_clearance_lower_m": 0.001001107221452633,
+      "required_margin_m": 0.001,
+      "exact_goal_error_m": 0.0,
+      "tolerances_m": [0.0, 0.1, 0.25, 0.5],
+      "all_comparisons_reached_exact_original_goal": true,
+      "legacy_budget_failure_rungs_retained": [3, 4],
+      "control_dt_s": 0.05
+    }
+  },
+  "timing": {
+    "algorithm_entry_is_planner_entry": true,
+    "rendering_and_scheduler_queue_excluded": true,
+    "stage_spans_not_summed": true,
+    "uav_preparation_wall_s": 4.591123063932173,
+    "ground_preparation_wall_s": 1.612746602972038,
+    "uav_calls": 18,
+    "uav_call_p50_s": 0.00657377892639488,
+    "uav_call_p95_s": 0.4813347040908411,
+    "uav_warm_missions": 5,
+    "uav_warm_mission_p50_s": 0.48745817004237324,
+    "uav_warm_mission_p95_s": 0.4901775718899444,
+    "sweeper_calls": 6,
+    "sweeper_p50_s": 0.0069319469621405005,
+    "sweeper_p95_s": 0.007318209041841328,
+    "cylinder_calls": 9,
+    "cylinder_p50_s": 25.406653700978495,
+    "cylinder_p95_s": 25.989439973956905
+  },
+  "verification": {
+    "focused_tests": 67,
+    "focused_failures": 0,
+    "focused_errors": 0,
+    "focused_junit_sha256": "65e4d16847a843ee9fdc88d03b7f9a9ac5cbce627992a0e508460f8e1c57fa10",
+    "projection_called": false,
+    "same_archive_for_planner_and_renderer": true,
+    "same_trajectory_json_for_replay_and_renderer": true,
+    "raw_artifact_hashes": {
+      "manifest": "92f83539c7d718dc88c00df02510f5a5dbd35921d8747539f1af74e12df3c5b5",
+      "uav": "9d998bdb6136a321d95d41ba3109683996a8549ae29c72bd08abec1fc28e2a24",
+      "sweeper": "c89e079ae62f39398911d133e93c56c0ba1902d69937223021109ea840ef94ae",
+      "cylinder": "4ef6ca641314b897c5a59b5248294c47816dcc3628a9d3dc22cf7c402f905e82",
+      "render_manifest": "3f444b936c67c831b786074c9bcc59f0bd2051faf0bd0e06142b96c3d05c7e39"
+    }
+  },
+  "visual_review": {
+    "opened": true,
+    "side_non_occluding_acceptance_view": "results/gs3d/integration/render/uav_side.png",
+    "side_sha256": "7e2a1ac383476b719c1bea1c70af620bd354426d8ec4f989432eadb9166d03be",
+    "oblique_sha256": "1061dc00adaae1bd8a2bcdde45a966baabbb18573e335428843320703826a3f1",
+    "high_sha256": "febea26f8911a945860250d310a9a1f5848aa89a35f822d12e86918e34514ee0",
+    "ground_sha256": "706914a85c2ae7066b02aa4a2025ae7b06279e0c1aa9ff961a766ae9a179e90d",
+    "interactive_3d_sha256": "20a6faf70d61b84b379c3bfc204198e9e3b70d5ae69bd430a2a13904bd697743",
+    "finding": "Side view clearly shows low orange body below the gold hanging light, a real vertical rise, and later high magenta body above the retained table. Ground overview shows both supported routes. Oblique/high context retains the nearby source wall; it was not removed."
+  },
+  "limitations": [
+    "This is the verified raw piecewise-linear 3-D baseline; it is not claimed smooth.",
+    "A6 owns turn/acceleration smoothing and must revalidate safety.",
+    "The assumed map domain is not sensor-observed coverage.",
+    "The upright UAV envelope does not model roll, pitch, wind or tracking error."
+  ]
+}
