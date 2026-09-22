@@ -35,3 +35,31 @@ passed with xyz preservation and original/attained-goal and physical-time field 
 log `logs/A0/contracts_smoke.log` under runtime root. The first smoke attempt incorrectly
 asserted a hardcoded total field count and failed; replaced that test-script assertion
 with checks of the semantically required fields. No production change was needed.
+
+## Resume: baseline classified, 2026-09-22
+
+Compute 18230541 is finished (Slurm 20m13s, MaxRSS 3,843,544 KiB). Inspected JUnit
+and all 25 failure messages: 601 tests, **576 passed / 25 failed**, no errors/skips;
+24 missing-package AtlasAssetError plus one missing sealed generator FileNotFoundError.
+Counts agree with exact-base historical result, with no unexpected failures.
+Classification: runtime `logs/A0/baseline_classification.json`; raw XML/log retained.
+Input hashes and environment are recorded in `logs/A0/assets.json` and the ADR.
+
+The first conservative scene audit did NOT pass: initial low approach s=−.60 through
+−.28 had unresolved body/support-box overlap; the rise and high leg both exceeded
+.05 m with a .06999999 m lower bound. No collision is inferred from box overlap.
+Revised proposal begins at s=−.25, keeping all source obstacles and the original high
+endpoint. Added explicit suspension and ceiling-attachment dimensions to the audit.
+Submit only `compute/A0_fixture_v2.sh`, not the already-classified full suite again.
+It will produce `logs/A0/fixture_v2/scene_audit.json` and `fixture_3d.png`.
+
+Found and corrected a design inconsistency before implementation: ground chassis gap
+is .02 m, so UAV's .05 m margin cannot apply to ground support. Ground chassis margin
+is explicitly .001 m; all Gaussians remain collision obstacles, while permitted wheel
+support contact has a separate nonpenetration test. Also documented that edited floor
+tiles use local heights and a top clamp; the fitted plane is not alone terrain evidence.
+A3 must check footprint support against that evidence and declare contact travel/slope.
+
+Next: inspect revised audit and OPEN its 3D schematic (not a real-scene render); finalize
+fixture manifest inputs in ADR. A2 still owns building/rendering actual edited GS scene,
+and A1 owns production oracle; A0 audit is conservative design feasibility only.

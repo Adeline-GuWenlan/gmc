@@ -1,6 +1,6 @@
 # GS3D architecture decision record
 
-Status: A0 draft; interfaces frozen, baseline reproduction and fixture audit pending.
+Status: A0 draft; interfaces frozen, baseline classified, revised fixture audit pending.
 Date: 2026-09-21. Scope: implementation and simulation in a static edited GS map,
 not a physical flight certification. Authoritative requirements: `docs/gs3d_agent_plan.md`.
 
@@ -48,6 +48,26 @@ of the original capture. Guarantees apply only to the declared edited map and su
 `level=2.0` is a geometric convention, not a 99% confidence claim or occupancy probability.
 Opacity is a visibility filter, not observed-free-space evidence.
 
+### Reproduced baseline and input hashes
+
+Compute 18230541 produced 601 tests in 1200.486 s: **576 passed, 25 failed**, no
+errors/skips. Independently inspected all failure messages: 24 `AtlasAssetError` for
+missing sealed `round4_final_package`, one `FileNotFoundError` for its
+`src_snapshot/src/splatc/datasets/g1_gate.py`. Counts: benchmark file 10, gate-interval
+file 15. No unexpected failure. This is a classified baseline, not an all-green suite.
+Evidence: runtime `logs/A0/baseline.xml`, `baseline.log`, `baseline_classification.json`.
+The unchanged legacy source/tests match the exact base; new interface files are not
+imported by the baseline tests. Environment: Python 3.13.5, NumPy 2.1.3, cs612.hpc.nyu.edu;
+2 CPU/8 GiB requested, MaxRSS 3,843,544 KiB, elapsed 20m13s including input audit.
+
+| Input | SHA-256 |
+|---|---|
+| Decoded original NPZ | `c9318d253676209b43fd0159786b74df2b628954f524c20ad1cc06d0f58c88ae` |
+| Original copied PLY | `98af4928cc67523015bd32c4f438d334adb86db59bc20ef1c97227bf367cc3c2` |
+| Existing edited floor NPZ | `a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60` |
+
+Read-only hash evidence: runtime `logs/A0/assets.json`. Inputs were not copied or modified.
+
 ### Cylinder failures: what the artifacts establish
 
 Sources: `results/height/plane/long/cyl_ladder/rung*/cylinder*.json`, their `case.json`,
@@ -75,8 +95,8 @@ retain all original goals, including the longer-case goal, in comparisons.
 Visual audit: opened `results/height/plane/shared_a/video/uav_3d_f050.png` in an image
 viewer. The splat render shows a suspended orange cylindrical UAV above the display
 table, beside the bench; legend explicitly fixes 1.10–1.30 m. It supports the legacy
-fixed-height interpretation, not a new under-then-over claim. A0's new fixture remains
-subject to the compute audit and A2's scene render before planning.
+fixed-height interpretation, not a new under-then-over claim. The first A0 fixture audit found unresolved low-approach intervals; the revised
+fixture remains subject to compute audit and A2's scene render before planning.
 
 ## 2. Focused primary-source research and decisions
 
@@ -122,10 +142,21 @@ Ground chassis stays upright and its bottom follows the support height plus 0.02
 Sweeper half-height 0.04 m (centre support+0.06), cylinder half-height 0.865 m
 (centre support+0.885). UAV half-height 0.10 m and radius 0.25 m. Preserve these
 physical sizes; a radius-only sphere is not an acceptable cylinder replacement.
-The existing floor's small tilt must be explicit: A2 exports the fitted plane equation,
-A3 computes support height from it, and reports chassis/contact assumptions. Wheels or
+The existing floor's small tilt must be explicit: A2 exports the fitted plane equation
+AND the actual replacement-tile metadata. `plane_tiles` follows local measured heights
+and clamps tops below reference floor +.015 m, so the fitted plane alone is not a
+measured terrain surface. A3 declares a contact manifold, checks it against floor evidence
+(with explicit support-travel and slope bounds), and reports chassis/contact assumptions.
+Use the fitted plane initially only where floor evidence agrees within declared contact
+travel (maximum .05 m, slope <=5 degrees); otherwise use a supported heightfield or fail
+closed. The support provider must conservatively bound heights over each whole footprint. Wheels or
 support contacts bridge the chassis gap and may touch the designated support surface;
-this exemption never applies to other obstacles. Whole swept footprint must have support.
+this contact exemption never applies to chassis penetration or other obstacles.
+All Gaussians remain chassis collision obstacles. Ground runners explicitly use a
+**.001 m chassis clearance margin**, preserving the legacy millimetre-scale route scope;
+UAV uses **.05 m**. Ground support contact itself has zero separation and a separate
+nonpenetration/support test; it must not be tested against the UAV clearance margin.
+Whole swept footprint must have support.
 No ground z search, teleportation, lateral slip, or flight. Use unicycle rotate-in-place
 then forward translations initially, with finite yaw/translation times. A6 may use
 curved primitives only with corresponding kinematic and continuous collision verification.
@@ -259,11 +290,13 @@ clearance proof; A2 measures all supports intersecting the swept volume.
 
 Initial fixture proposal (must be checked by A0 compute, then frozen in A2 manifest before planning):
 
-- Local coordinates xy=p+s*u+t*v. Candidate start s=−.60,t=0,height=.65; low traverse
+- Local coordinates xy=p+s*u+t*v. Candidate start s=−.25,t=0,height=.65; low traverse
   through s=0 to s=.50, then vertical rise at s=.50 to height=1.40, then traverse
   to s=2.50. Expand known workspace to contain the entire swept body.
 - Hanging shade ellipsoid centre s=0,t=0,height=1.20; semiaxes along (u,v,z)
   (.18,.65,.15), opacity .95. Its underside is 1.05 m; suspension stays above it.
+  Suspension ellipsoid centre (s,t,height)=(0,0,3.25), semiaxes (.025,.025,1.95);
+  ceiling attachment centre (0,0,5.20), semiaxes (.45,.85,.10); both opacity .95.
   Record support IDs, covariance and rendering color in the same scene manifest.
 - UAV r=.25, half-height=.10. Required altitude range **>=.50 m**, proposed .75 m.
   Required obstacle clearance lower bound **>.05 m** over all edges. No reducing this
