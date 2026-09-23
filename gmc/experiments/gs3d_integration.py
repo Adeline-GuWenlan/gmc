@@ -115,7 +115,10 @@ def _plan_uav_mission(planner, scene, points: list[Pose3], timer: PlanTiming,
 
 
 def _run_uav(full, document, timer: PlanTiming, *, warm_calls: int) -> dict:
-    scene, prepared = _uav_scene(full, document, timer)
+    # Loading and indexing are separate preparation spans. Both must precede
+    # planner entry and contribute to the reported cold preparation wall.
+    with timer.preparation():
+        scene, prepared = _uav_scene(full, document, timer)
     planner = LatticePlanner(prepared)
     points = [Pose3(tuple(map(float, row)))
               for row in document["configuration"]["candidate_path_world_m"]]

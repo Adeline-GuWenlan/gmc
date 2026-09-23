@@ -13,6 +13,7 @@ import numpy as np
 
 from gmc.gs3d.robots import crop_by_support_aabb
 from gmc.gs3d.scene import LEVEL, TAU, load_showcase_derivative
+from gmc.gs3d.trajectory import sample_linear_trajectory
 from gmc.height import ewa
 
 
@@ -70,6 +71,27 @@ def _overlay_path(ax, camera, path, keyframes=()):
     return projected
 
 
+def _trajectory_keyframes(trajectory, origin, rotation):
+    """Place finite bodies at actual replay poses, never ideal fixture centres."""
+    replay = (sample_linear_trajectory(trajectory)
+              if trajectory["interpolation"] == "linear_xyz_yaw" else trajectory)
+    rows, times = np.asarray(replay["poses"], float), np.asarray(replay["time_s"], float)
+    local = (rows[:, :3] - origin) @ rotation.T
+    frames, evidence = [], []
+    for label, target_s, height, color in (("low body under light", 0., .65, "orange"),
+                                           ("high body over table", 1.4, 1.4, "magenta")):
+        eligible = np.flatnonzero(np.abs(local[:, 2] - height) <= 1e-7)
+        if not len(eligible):
+            raise ValueError("exported trajectory has no required keyframe altitude")
+        index = int(eligible[np.argmin(np.abs(local[eligible, 0] - target_s))])
+        frames.append((label, rows[index, :3], color))
+        evidence.append({"label": label, "replay_row": index,
+                         "time_s": float(times[index]), "world_xyz": rows[index, :3].tolist(),
+                         "route_xyz": local[index].tolist(),
+                         "source": "exported trajectory replay"})
+    return frames, evidence
+
+
 def _uav_renders(full, document, uav, output: Path):
     origin = np.asarray(document["route_frame"]["origin_world_m"], float)
     rotation = np.asarray(document["route_frame"]["world_to_route"], float)
@@ -84,10 +106,7 @@ def _uav_renders(full, document, uav, output: Path):
     splats = ewa.pack(scene.means, scene.covs, scene.opacity,
                       _colours(scene, z_floor, document["manual_geometry"]))
     path = np.asarray(uav["trajectory"]["poses"], float)[:, :3]
-    low = np.array([0., 0., .65]) @ rotation + origin
-    high = np.array([1.40, 0., 1.40]) @ rotation + origin
-    keyframes = (("low body under light", low, "orange"),
-                 ("high body over table", high, "magenta"))
+    keyframes, keyframe_evidence = _trajectory_keyframes(uav["trajectory"], origin, rotation)
     views = {"side": (np.array([9.6, 6.4, z_floor + 1.55]), -52., 4., 6.),
              "oblique": (np.array([9.6, 6.4, z_floor + 1.55]), -130., 16., 6.),
              "high": (np.array([9.6, 6.4, z_floor + 1.55]), -130., 38., 6.)}
@@ -106,7 +125,8 @@ def _uav_renders(full, document, uav, output: Path):
         rendered[name] = {"path": str(destination), "sha256": _sha256(destination),
                           "camera": camera.as_dict(), "n_selected_gaussians": int(len(scene)),
                           "n_visible": frame["n_visible"], "n_drawn": frame["n_drawn"],
-                          "projected_keyframes": projected}
+                          "projected_keyframes": projected,
+                          "trajectory_keyframes": keyframe_evidence}
     return rendered, scene
 
 

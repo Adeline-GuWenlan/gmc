@@ -150,6 +150,49 @@ def _crossing_interval(local_rows: np.ndarray, times: np.ndarray, s_interval,
     return None
 
 
+def _bezier_crossing_interval(trajectory, origin, rotation, s_interval, *,
+                              expected_z, lateral_bounds_m):
+    """Prove a crossing from controls, never chords between replay samples.
+
+    Constant-height, laterally enclosed, forward-monotone control hulls
+    continuously cover their endpoint s interval. Whole-section time bounds
+    deliberately overestimate the crossing time, preserving a strict order test.
+    """
+    offset, component = 0., None
+    for segment in trajectory["segments"]:
+        end_time = offset + float(segment["duration_s"])
+        valid = segment["type"] == "cubic_bezier_ease5"
+        if valid:
+            control = (np.asarray(segment["control_points_xyz"], float) - origin) @ rotation.T
+            valid = bool(control.shape == (4, 3) and np.isfinite(control).all()
+                         and np.all(np.abs(control[:, 2] - expected_z) <= 1e-7)
+                         and np.all(control[:, 1] >= lateral_bounds_m[0] - 1e-10)
+                         and np.all(control[:, 1] <= lateral_bounds_m[1] + 1e-10)
+                         and np.all(np.diff(control[:, 0]) >= -1e-12))
+        if valid:
+            lo = max(float(control[0, 0]), s_interval[0])
+            hi = min(float(control[-1, 0]), s_interval[1])
+            valid = hi > lo + 1e-12
+        if valid:
+            if component is None or lo > component["route_s_m"][1] + 1e-9:
+                component = {"route_s_m": [lo, hi], "time_s": [offset, end_time],
+                             "verified_bezier_sections": 1}
+            else:
+                component["route_s_m"][1] = hi
+                component["time_s"][1] = end_time
+                component["verified_bezier_sections"] += 1
+            span = component["route_s_m"][1] - component["route_s_m"][0]
+            if span >= .2 - 1e-10:
+                return {**component, "horizontal_span_m": span,
+                        "lateral_centre_bounds_m": list(lateral_bounds_m),
+                        "centre_height_above_floor_m": expected_z,
+                        "source": "continuous monotone Bezier control hull; conservative whole-section time bounds"}
+        else:
+            component = None
+        offset = end_time
+    return None
+
+
 def ordered_uav_gate_evidence(trajectory: dict, scene_manifest: dict,
                               replay: dict) -> dict:
     """Reconcile the frozen ordered light/table gates with an exported mission."""
@@ -168,10 +211,19 @@ def ordered_uav_gate_evidence(trajectory: dict, scene_manifest: dict,
     table_envelope = scene_manifest["existing_table_arrangement"]["route_envelope_m"]
     table_lateral = (float(table_envelope["lower"][1]) + .25,
                      float(table_envelope["upper"][1]) - .25)
-    low = _crossing_interval(local, times, (-.20, .20), expected_z=.65,
-                             lateral_bounds_m=(-light_lateral, light_lateral))
-    high = _crossing_interval(local, times, (.92, 1.88), expected_z=1.40,
-                              lateral_bounds_m=table_lateral)
+    if trajectory.get("interpolation") == "piecewise_bezier":
+        low = _bezier_crossing_interval(trajectory, origin, rotation, (-.20, .20),
+                                        expected_z=.65,
+                                        lateral_bounds_m=(-light_lateral, light_lateral))
+        high = _bezier_crossing_interval(trajectory, origin, rotation, (.92, 1.88),
+                                         expected_z=1.40, lateral_bounds_m=table_lateral)
+    elif trajectory.get("interpolation") == "linear_xyz_yaw":
+        low = _crossing_interval(local, times, (-.20, .20), expected_z=.65,
+                                 lateral_bounds_m=(-light_lateral, light_lateral))
+        high = _crossing_interval(local, times, (.92, 1.88), expected_z=1.40,
+                                  lateral_bounds_m=table_lateral)
+    else:
+        raise ValueError("unsupported ordered-gate trajectory interpolation")
     altitude_range = float(np.ptp(local[:, 2]))
     clearance = replay.get("geometry", {}).get("clearance_lower_m")
     gates = {

@@ -2,3 +2,5 @@
 results/gs3d_scene/
 # A5 raw full-scene trajectories/renders are reproducible and retained as runtime evidence.
 results/gs3d/integration/
+# A7 raw reproductions stay on HPC; compact hashes/reports are committed separately.
+results/gs3d/final/

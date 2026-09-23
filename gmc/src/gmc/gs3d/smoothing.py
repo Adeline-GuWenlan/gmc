@@ -15,7 +15,9 @@ from typing import Iterable
 import numpy as np
 
 from .contracts import BodySpec, GoalRegion, Pose3
-from .validation import angle_delta, verify_linear_trajectory, verify_path
+from .robots import EvidenceBoundedPlaneSupport
+from .validation import angle_delta, validate_goal, verify_linear_trajectory, verify_path
+from .oracle import validate_body
 
 
 EASE_D1_MAX = 15.0 / 8.0
@@ -157,6 +159,12 @@ def _curve_domain(control: np.ndarray, prepared, body: BodySpec, margin_m: float
         bounds = support.height_bounds(tuple(xy_lower), tuple(xy_upper))
         if bounds is None:
             return False, "curve_ground_footprint_support_unproven"
+        # Control-point heights imply an entire Bezier lies on a surface only
+        # for an affine plane (or a provider proving constant height throughout
+        # this whole footprint). Arbitrary nonlinear supports need a curve API.
+        if (not isinstance(support, EvidenceBoundedPlaneSupport)
+                and bounds[0] != bounds[1]):
+            return False, "curve_nonaffine_support_unproven"
         max_travel = getattr(support, "max_travel_m", 0.)
         if bounds[1] - bounds[0] > max_travel + 1e-10:
             return False, "curve_ground_support_travel_exceeded"
@@ -405,9 +413,43 @@ def verify_piecewise_bezier(trajectory: dict, oracle, body: BodySpec, limits: di
     if trajectory.get("interpolation") != "piecewise_bezier" or not isinstance(segments, list) or not segments:
         return {"passed": False, "reason": "invalid_piecewise_bezier_schema"}
     try:
+        validate_body(body)
+        validate_goal(goal)
+        required_limits = ("max_speed_mps", "max_vertical_speed_mps",
+                           "max_acceleration_mps2", "max_yaw_rate_radps",
+                           "max_yaw_acceleration_radps2")
+        if (not np.isfinite([limits[key] for key in required_limits]).all()
+                or any(limits[key] < 0 for key in required_limits)
+                or not math.isfinite(margin_m) or margin_m < 0):
+            raise ValueError("invalid smooth limits or margin")
         dt_s = float(trajectory["control_dt_s"])
         if not math.isfinite(dt_s) or dt_s <= 0:
             raise ValueError("invalid control dt")
+        previous_yaw = None
+        for segment in segments:
+            duration = float(segment["duration_s"])
+            if not math.isfinite(duration) or duration <= 0:
+                raise ValueError("invalid_smooth_segment_duration")
+            if segment["type"] == "rotate_ease5":
+                yaw_start = float(segment["yaw_start_rad"])
+                yaw_end = yaw_start + float(segment["yaw_delta_rad"])
+            elif segment["type"] == "cubic_bezier_ease5":
+                control = np.asarray(segment["control_points_xyz"], float)
+                if control.shape != (4, 3) or not np.isfinite(control).all():
+                    raise ValueError("invalid_bezier_controls_or_yaw_profile")
+                if body.motion == "ground_unicycle":
+                    _geometry_bounds(control, tangent_yaw=True)
+                    first, last = control[1] - control[0], control[-1] - control[-2]
+                    yaw_start, yaw_end = math.atan2(first[1], first[0]), math.atan2(last[1], last[0])
+                else:
+                    yaw_start = yaw_end = float(segment["yaw_start_rad"])
+            else:
+                raise ValueError("unknown_smooth_segment_type")
+            if not np.isfinite([yaw_start, yaw_end]).all():
+                raise ValueError("invalid_smooth_segment_yaw")
+            if previous_yaw is not None and abs(angle_delta(yaw_start, previous_yaw)) > 1e-9:
+                raise ValueError("smooth_segment_yaw_discontinuity")
+            previous_yaw = yaw_end
         replay_rows, replay_times = _sample_segments(segments, dt_s)
         stored_rows, stored_times = _rows(trajectory)
         if (replay_rows.shape != stored_rows.shape or replay_times.shape != stored_times.shape
