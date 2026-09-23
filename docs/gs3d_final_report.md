@@ -1,8 +1,8 @@
 # GS3D 最终审查报告
 
 状态：**A7 的 R1–R8 发布就绪检查通过；679 项不同测试均有通过证据。**
-本报告不代表已推送 GitHub。A7 完成干净提交验收后，runner 推送各阶段与 integration
-分支并核对远端 SHA；`main` 不在修改范围内。
+**已推送 GitHub（2026-09-23）**：plan、ops 与 A0–A7 共十个 `codex/gs3d-20260921/*`
+分支，远端 SHA 已逐一核对，见文末「发布记录」。`main` 与原有 height-* 分支未移动。
 
 三种机器人均在同一个已有 GS 展示厅的衍生场景中规划并通过独立回放检查。
 无人机真实改变 xyz 中的 z，先从新增吊灯下方经过，再上升并越过原有桌面。
@@ -171,7 +171,7 @@ JUnit SHA-256：`d3efb058bcddc154efceaa074dc527ff358ba25f71287ae013ece8fb4a4d85b
 | R5 | 原 8.583851 m 目标、四种容差、精确终点及独立诊断 |
 | R6 | 修复准备边界；各次／各阶段 wall、5 warm 分布、独立 trajectory dt |
 | R7 | 成功原始输入后平滑；总转向改善、连续安全／动力学界和原始回退 |
-| R8 | 主套件＋受影响文件重跑共 679 个不同测试通过；图像、报告、证据与历史审查完成；发布就绪，远端推送／SHA 验证由 runner 完成 |
+| R8 | 主套件＋受影响文件重跑共 679 个不同测试通过；图像、报告、证据与历史审查完成；已推送并核对远端 SHA（见「发布记录」） |
 
 已核对 A0–A6 accepted commit 都是当前 HEAD 的祖先，没有 reset/rebase。
 对基线之后的全部新增历史 blob 检查：没有 >1 MiB blob，
@@ -222,8 +222,7 @@ python3 "$R/submit_compute.py" --stage A7 \
 
 上述链接属于本机资产配置，未提交到 Git；其他机器需要提供相同 pinned 资产。
 核心实现提交 `0f738d1`，证据提交 `d4fc858`，最后报告/验收提交的完整 SHA 由
-`state/A7.done.json` 记录，避免报告自引用 hash。发布证明最终写入
-`state/publication.json`；该文件远端验证成功前不宣称整条链完成。
+`git log codex/gs3d-20260921/A7` 给出，避免报告自引用 hash。
 
 ## 相关工作与适用边界
 
@@ -238,3 +237,25 @@ unknown holes 在有明确 coverage 证据时失败关闭，但场景的 box 覆
 clearance 下界接近 1 mm 门槛；不得据此声称对地图噪声有宽裕。
 未建模 UAV roll/pitch、风、跟踪误差、执行器、jerk，或地面轮胎力矩／牵引力。
 未实现动态障碍在线闭环执行，五次 warm 是静态重复规划；无实机实时性承诺。
+
+## 发布记录
+
+A7 在最终提交 `6efd973` 后因 Codex 额度上限中止，runner 的自动发布没有执行；
+调度链随后按用户要求以 `state/PAUSE` 暂停。A0–A4、ops 已于 2026-09-22 18:53 由
+ops 修复会话推送；A5–A7 于 2026-09-23 手工推送（fast-forward 新建分支，无 force）。
+推送后 `git ls-remote` 核对的远端 SHA：
+
+| 分支 | commit | 内容 |
+|---|---|---|
+| `codex/gs3d-20260921/plan` | `1d5891a` | 计划与调度器 |
+| `codex/gs3d-20260921/ops` | `244a74b` | 验收判定与 SQLite 状态修复 |
+| `codex/gs3d-20260921/A0` | `1bac9e2` | 架构与接口 |
+| `codex/gs3d-20260921/A1` | `3cfa80d` | 三维 Gaussian 几何与规划核心 |
+| `codex/gs3d-20260921/A2` | `70ab219` | 吊灯／顶板场景编辑 |
+| `codex/gs3d-20260921/A3` | `c0f3db4` | 机器人、目标容差、长距离 cylinder |
+| `codex/gs3d-20260921/A4` | `70f5dc4` | 计时与 benchmark |
+| `codex/gs3d-20260921/A5` | `b2c74a6` | 三机器人真实场景集成 |
+| `codex/gs3d-20260921/A6` | `726dc09` | 平滑与连续安全复检 |
+| `codex/gs3d-20260921/A7` | 本报告所在 HEAD | 最终审查；包含 A0–A6 与 ops 的全部历史 |
+
+计划中的 `codex/gs3d-20260921/integration` 分支未单独创建；A7 分支即完整集成结果。
