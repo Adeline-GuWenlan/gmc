@@ -1,0 +1,13 @@
+{
+  "tests": 31,
+  "passed": 31,
+  "failures": [],
+  "skipped": [],
+  "all_25_prior_failures_exercised": true,
+  "unexpected_failures": [],
+  "all_passed": true,
+  "junit_sha256": "501d1240f9777b5e78620265b5af2b4e0d155b5fce9279b7324c14d929f7f774",
+  "read_only_asset_root": "/scratch/wg2381/splathjb/splatc_atlas",
+  "access": "local ignored symlinks to package and splatc_gates; PYTHONDONTWRITEBYTECODE=1",
+  "suite_seconds": 18.889
+}

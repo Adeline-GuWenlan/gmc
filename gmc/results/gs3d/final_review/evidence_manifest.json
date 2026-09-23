@@ -1,0 +1,25 @@
+{
+  "final_commit_receipt": "/scratch/wg2381/codex_jobs/gs3d_20260921/state/A7.done.json",
+  "implementation_commit": "0f738d1f45d1d17d58c28abf8796a51e189641a8",
+  "publication_owner": "runner",
+  "remote_publication_verified_by_a7": false,
+  "schema_version": "gs3d.a7-evidence-manifest.v1",
+  "sha256": {
+    "docs/gs3d_final_report.md": "ea4e277b17d67eb3ba92584b2a75e6ba2a048b73863b46c51e25a21ca62dbe17",
+    "docs/worklog/gs3d_A7.md": "1f703b5bf9453e658814c302d3d702afffea23ca274d5302130e23879c55eea3",
+    "gmc/results/gs3d/final_review/atlas_recheck_summary.json": "e7ff195783a40af5c43fc31b55ab71e92500c1b8b78fcf6c5f67509606d58aa0",
+    "gmc/results/gs3d/final_review/checks.json": "cf685f78455fee95de3ccc0bc884e21c3ca2a7519542d9a7cf96366467961088",
+    "gmc/results/gs3d/final_review/external_atlas_probe.json": "399e97f422e690919aaf2ee7913683039af9732932a67197ea604525b5609dea",
+    "gmc/results/gs3d/final_review/full_suite_classification.json": "b2ceb07ec5a60b5d5f10e12c140fce38aa21378ac38f377c361e6442ca2b6291",
+    "gmc/results/gs3d/final_review/git_audit.json": "6c976ebc7ea626f0f5afee71c1047529d1f14c144029c5fc4cf47c86f6a3f818",
+    "gmc/results/gs3d/final_review/metrics.json": "b4582c05d8b8bb471e7449061f972fcf8a988176d9a6bdafd64d909f976a6136",
+    "gmc/results/gs3d/final_review/raw_vs_smoothed_3d.png": "c977855053d85381bfd1a4e3737250892dad4c01cf618a63d54c5d351000d260",
+    "gmc/results/gs3d/final_review/reproduction.json": "33d2d546957d2c91cd2666caf7969e3464b5511923b103816702af30fff834f5",
+    "gmc/results/gs3d/final_review/resolved_regressions.json": "159b4ff5ec219bc9e496edb0e979aac2cd00667e9b71272d542f2c74c72ff88f",
+    "gmc/results/gs3d/final_review/sources.json": "b77a81ac1ac8034e6a785cbdbb9786daa4895b72c14c70b1a12a3cc168789f12",
+    "gmc/results/gs3d/final_review/trajectory_profiles.png": "db309fea5adbeb1f069ebefae86f231b0f72debf0dcb705a726043270b1c260f",
+    "gmc/results/gs3d/final_review/uav_side.png": "2823bc9914e5e9d8d71ee7c3b2be7db3b2027ebdccf887becf66cf62ede117fa",
+    "gmc/results/gs3d/final_review/visual_review.json": "67aec3142d9455c3f1a465d33a3903d574557e8d1dfb97306d4c1aeb7b9c8dea"
+  },
+  "tested_algorithm_source_unchanged": true
+}

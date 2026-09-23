@@ -1,9 +1,30 @@
 {
+  "all_prior_failures_resolved": true,
   "all_raw_artifact_hashes_recomputed": true,
+  "atlas_affected_suite_passed": 31,
   "bezier_continuous_and_dynamics_verified": true,
-  "final_acceptance_pending": "Atlas supplementary tests and final report/Git commit",
   "full_suite_gs3d_passed": 78,
+  "publication": {
+    "owner": "runner",
+    "proof_path": "/scratch/wg2381/codex_jobs/gs3d_20260921/state/publication.json",
+    "pushed_by_a7": false,
+    "verified_remote_refs": false
+  },
   "render_keyframes_match_export": true,
+  "requirement_scope": {
+    "R8": "Publication readiness: regressions, evidence, report and history. Runner must push and verify remote SHAs after A7 final clean-commit audit."
+  },
+  "requirements": {
+    "R1": true,
+    "R2": true,
+    "R3": true,
+    "R4": true,
+    "R5": true,
+    "R6": true,
+    "R7": true,
+    "R8": true
+  },
+  "resolved_distinct_tests_passed": 679,
   "same_original_goals": true,
   "source_hashes_match_tested_commit": true,
   "three_robots_reproduced": true

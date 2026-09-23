@@ -1,7 +1,7 @@
 # GS3D 最终审查报告
 
-状态：**算法、真实场景复现和图像核对已完成；Atlas 补充回归与发布验收待完成。**
-本报告不代表已推送 GitHub。只有 A7 验收后，runner 才推送各阶段与 integration
+状态：**A7 的 R1–R8 发布就绪检查通过；679 项不同测试均有通过证据。**
+本报告不代表已推送 GitHub。A7 完成干净提交验收后，runner 推送各阶段与 integration
 分支并核对远端 SHA；`main` 不在修改范围内。
 
 三种机器人均在同一个已有 GS 展示厅的衍生场景中规划并通过独立回放检查。
@@ -148,12 +148,19 @@ cylinder 绕行转弯变缓，sweeper 的两条直线重合。
 均因工作树没有 sealed package 路径；没有新的 GS3D 失败。
 **A7 进一步发现原 checkout 的 sealed package 实际可读**，且 dev_001 的 pinned
 source／manifest／oracle record 验证通过。因此不能继续笼统说资产不可用：
-已在本工作树创建 ignored 的只读使用 symlink，禁用 Python bytecode 写入，
-准备对两个受影响 Atlas 测试文件作补充运行。最终结果待补充；目前不授予 R8 验收。
+已在本工作树创建 ignored 的只读使用 symlink，禁用 Python bytecode 写入。
+补充作业 **18301714** 对两个受影响 Atlas 测试文件运行 **31/31 passed**，
+18.889 s 测试时间（作业 25 s，峰值 RSS 83,152 KiB），其中包含全部 25 个原失败。
+实现和测试代码未改；六个原通过项重复通过，25 个路径失败全部消除。
+逐测试身份合并得到 **679 个不同测试全部通过，零剩余失败／跳过**。
+这是完整首跑加受影响文件重跑的证据，不声称一次 monolithic 全绿运行。
 
 JUnit SHA-256：`d3efb058bcddc154efceaa074dc527ff358ba25f71287ae013ece8fb4a4d85bb`。
 [完整失败分类](../gmc/results/gs3d/final_review/full_suite_classification.json)、
 [外部资产探测](../gmc/results/gs3d/final_review/external_atlas_probe.json) 均保留。
+补充 JUnit SHA-256：`501d1240f9777b5e78620265b5af2b4e0d155b5fce9279b7324c14d929f7f774`。
+[合并回归证据与全部测试名](../gmc/results/gs3d/final_review/resolved_regressions.json)
+保留两个原始 JUnit 路径和散列，未覆盖首跑失败记录。
 
 | 要求 | 已核对的证据 |
 |---|---|
@@ -164,13 +171,15 @@ JUnit SHA-256：`d3efb058bcddc154efceaa074dc527ff358ba25f71287ae013ece8fb4a4d85b
 | R5 | 原 8.583851 m 目标、四种容差、精确终点及独立诊断 |
 | R6 | 修复准备边界；各次／各阶段 wall、5 warm 分布、独立 trajectory dt |
 | R7 | 成功原始输入后平滑；总转向改善、连续安全／动力学界和原始回退 |
-| R8 | 主套件与图像完成；补充 Atlas 回归、最终干净提交和 runner 发布仍待完成 |
+| R8 | 主套件＋受影响文件重跑共 679 个不同测试通过；图像、报告、证据与历史审查完成；发布就绪，远端推送／SHA 验证由 runner 完成 |
 
 已核对 A0–A6 accepted commit 都是当前 HEAD 的祖先，没有 reset/rebase。
-对基线之后的全部 121 个历史 blob 检查：最大 217,603 bytes，没有 >1 MiB blob，
+对基线之后的全部新增历史 blob 检查：没有 >1 MiB blob，
 没有 private-key／常见 GitHub、OpenAI、AWS token pattern 匹配；这不是对任意秘密格式的
-绝对保证。原数据和大媒体未进入 Git。本报告新增少量紧凑 PNG/JSON，最终提交后会再次
-核对大小与干净状态。[Git 检查](../gmc/results/gs3d/final_review/git_audit.json)。
+绝对保证。原数据和大媒体未进入 Git。本报告包含三个 PNG，每个小于 1 MiB；
+体积最大的约 761 KiB，其余证据为小型 JSON。最终提交后的干净状态、commit 和
+compute 终态记录在运行时 `logs/A7/final_audit.json` 与 `state/A7.done.json`。
+[Git 内容与历史检查](../gmc/results/gs3d/final_review/git_audit.json)。
 
 ## 复现命令与证据位置
 
@@ -199,6 +208,22 @@ A5 的原始 trajectory（含位置、yaw 和物理时间），仅 wall 时间�
 所有原始证据及源码 hash 见 [reproduction.json](../gmc/results/gs3d/final_review/reproduction.json)。
 对应文件中的 `human_visual_review_pending` 是计算作业当时状态，后续人工核对记录
 单独保存在 visual_review，未篡改原始 receipt。
+
+Atlas 补充运行脚本 `$R/compute/A7_atlas_recheck.sh` 使用相同解释器，并设
+`PYTHONDONTWRITEBYTECODE=1`。工作树内 ignored symlink 为
+`splatc_atlas/outputs/round4_final_package` → 原 checkout 对应 package，
+`splatc_atlas/data/splatc_gates` → 原 checkout 对应 gates；测试只读原文件，
+篡改检验通过内存 monkeypatch 完成。复现命令：
+
+```bash
+python3 "$R/submit_compute.py" --stage A7 \
+  --script "$R/compute/A7_atlas_recheck.sh" --cpus 2 --mem-gb 8 --hours 1
+```
+
+上述链接属于本机资产配置，未提交到 Git；其他机器需要提供相同 pinned 资产。
+核心实现提交 `0f738d1`，证据提交 `d4fc858`，最后报告/验收提交的完整 SHA 由
+`state/A7.done.json` 记录，避免报告自引用 hash。发布证明最终写入
+`state/publication.json`；该文件远端验证成功前不宣称整条链完成。
 
 ## 相关工作与适用边界
 

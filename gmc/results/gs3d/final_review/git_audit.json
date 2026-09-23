@@ -1,12 +1,27 @@
 {
   "base": "9ff0d5c2a59c95a4444e45878ef878c8d9837108",
-  "reviewed_head": "0f738d1f45d1d17d58c28abf8796a51e189641a8",
-  "introduced_blob_count": 121,
+  "reviewed_head": "d4fc858a0d5532ab1e450320bfca4344986a1f1b",
+  "introduced_blob_count": 134,
   "largest_introduced_blobs": [
+    {
+      "object": "062cfba8ac8f286b719540c817c0e6efc8912066",
+      "bytes": 778866,
+      "path": "gmc/results/gs3d/final_review/raw_vs_smoothed_3d.png"
+    },
+    {
+      "object": "2cbcadca0873fddb20ff32f7c9645b40ae72c1f6",
+      "bytes": 331021,
+      "path": "gmc/results/gs3d/final_review/uav_side.png"
+    },
     {
       "object": "7e4986bad5b26a09a1b7c6ab4f43561542c36719",
       "bytes": 217603,
       "path": "gmc/results/gs3d/benchmark/timing.json"
+    },
+    {
+      "object": "674e55a055c71ae3ed65380595a759a1cd86ceb7",
+      "bytes": 200818,
+      "path": "gmc/results/gs3d/final_review/trajectory_profiles.png"
     },
     {
       "object": "e9a0bd30272e44ecf4d992c6e02c9ff630ddd867",
@@ -37,21 +52,6 @@
       "object": "445afb09dde68fe8b9d7ca3db4dc0907eb577bae",
       "bytes": 25071,
       "path": "automation/gs3d_20260921/scheduler.py"
-    },
-    {
-      "object": "7971b46194c89e71125dc8b85564a94260c6a9f7",
-      "bytes": 24558,
-      "path": "docs/gs3d_architecture.md"
-    },
-    {
-      "object": "be420c7778751ee47df5fa9c17cb43a05bd65206",
-      "bytes": 22520,
-      "path": "automation/gs3d_20260921/scheduler.py"
-    },
-    {
-      "object": "f568d93f9282104b918aa2232ceed55bdf519fc9",
-      "bytes": 22217,
-      "path": "gmc/experiments/gs3d_integration.py"
     }
   ],
   "blobs_over_1MiB": [],
@@ -89,5 +89,22 @@
   },
   "legacy_src_and_tests_unchanged": true,
   "unmerged_paths": [],
-  "status": []
+  "pending_final_files_scanned": [
+    "docs/gs3d_final_report.md",
+    "docs/worklog/gs3d_A7.md",
+    "gmc/results/gs3d/final_review/atlas_recheck_summary.json",
+    "gmc/results/gs3d/final_review/checks.json",
+    "gmc/results/gs3d/final_review/external_atlas_probe.json",
+    "gmc/results/gs3d/final_review/full_suite_classification.json",
+    "gmc/results/gs3d/final_review/git_audit.json",
+    "gmc/results/gs3d/final_review/metrics.json",
+    "gmc/results/gs3d/final_review/raw_vs_smoothed_3d.png",
+    "gmc/results/gs3d/final_review/reproduction.json",
+    "gmc/results/gs3d/final_review/resolved_regressions.json",
+    "gmc/results/gs3d/final_review/sources.json",
+    "gmc/results/gs3d/final_review/trajectory_profiles.png",
+    "gmc/results/gs3d/final_review/uav_side.png",
+    "gmc/results/gs3d/final_review/visual_review.json"
+  ],
+  "final_commit_state_evidence": "/scratch/wg2381/codex_jobs/gs3d_20260921/logs/A7/final_audit.json"
 }
