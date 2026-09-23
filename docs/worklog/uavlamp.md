@@ -90,3 +90,37 @@ walls. That is the pattern to reproduce — but in the real hall the side walls 
   P3c/d probes mis-placed (goal body outside box). v2: box faces behind surfaces, face-logging
   coverage wrapper, nearer goal (.8,.55,1.5), start u=-2.0, 20 000 s budgets. Jobs 18329380-90.
 - v2 results 11:15Z: M1/M5 success under the lamp (replay passed); N2 exhausted, unknown only at u_min (3648); B6/B6h identical routes; C4 same as M1 (low start = geodesic), C4h over. Route overlay render 18331738.
+
+## L2 log
+
+- 11:22Z L2 start. Review of L1 by artefacts: archive SHA-256 `2a3a72d6…96cc` recomputed = manifest;
+  manifest copy in git identical; looked at `v2_M1_side`, `v2_N2_top`, `booth_v2_routes_cutaway_side`,
+  `booth_v2_entrance` — consistent with L1's claims. `uavlamp_query.run_one` calls
+  `LatticePlanner(prepared).plan(scene, UAV, start, GoalRegion(goal), config)`: start + goal + box
+  (SceneSpec bounds/known space) + resolution/margin/budget only. Note: L1's runner loads with the
+  plain `np.load` + spec hash check, not the manifest loader; L2's `uavlamp_run.py` uses
+  `load_uavlamp_derivative`.
+- Timing constraint: one M1 call ≈ 1.6 h, so cold + 3 warm sequentially ≈ 6.5 h > cpu_short's
+  usable limit. Resolution: one job, one timed index preparation, then 4 forked processes (1 cold
+  with unprepared planner, 3 warm with the prepared index), one CPU each, same node. Recorded as
+  concurrent in the result JSON.
+- First synthetic slice for the unit test was infeasible (lamp→table gap .45 m < body .6 m) and ran
+  into the 120 s budget; lengthened the corridor. 9/9 new tests pass locally (71 s).
+- 11:38Z submitted 18332115 (M1 cold+3 warm), 18332116 (M5), 18332117 (N2), 18332118 (N2h: plug,
+  high start — so the necessity figure has one start/goal for all three panels), 18332119 (C4h),
+  18332120 (pytest).
+- 11:38Z C4h (18332119) done in 10 s: lamp-only scene, high start → direct edge OVER the lamp
+  (z 1.50–1.55, replay passed) — reproduces L1. pytest 18332120: 98 passed / 0 failed (181 s;
+  run on the uncommitted working tree containing uavlamp_run.py + test_uavlamp_run.py).
+- Viz dry runs on L1's result files (18332187, 18332276; output in ignored `outputs/uavlamp/l2_dev`):
+  first side view too wide with overlapping labels, oblique from behind the start had the bulkhead
+  hiding the route → side camera moved in, keyframes spread (start/approach/under/climb/over/goal),
+  oblique moved to the table end. Video frames checked (camera not behind a wall). ~1 s per frame.
+- 11:47Z queued 18332346 (smoothing, afterok M1) and 18332347 (final viz, afterok M1/M5/N2/N2h).
+- 14:07Z resumed. All jobs COMPLETED: M1 1h42 (4 calls 6100–6122 s, identical knots = L1), M5 2h16,
+  N2 2h19, N2h 2h20 (both queue-exhausted, 5330 exp, unknown only at u_min), smoothing 33 s
+  (selected, continuous re-verification passed), viz 6 min. MaxRSS 1.4–2.9 GB.
+- Bug found by looking at the frames: after adding the "approach" keyframe, the flythrough still used
+  idx[1] as "under the lamp", so the extracted frame showed u=-1.62 (approach). Fixed (lookup by label),
+  re-rendered (18342635); frame 134 now at u=-0.83, z=.65 under the light box. All four frames looked at.
+- Committed 5802592 (Task 1) and 3c5591d (Task 2). Report docs/uavlamp_report.md (Task 3).
