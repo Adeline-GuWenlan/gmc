@@ -12,6 +12,7 @@ __pycache__/
 # gmc/artifacts 738M (P5 + formal gate JSON)
 gmc/outputs/
 gmc/artifacts/
+gmc/results/gs3d/smoothing/
 
 # --- Frozen external asset splatc_atlas: keep code/docs, drop the bulk ---
 splatc_atlas/data/

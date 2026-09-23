@@ -1,0 +1,117 @@
+{
+  "schema_version": "gs3d.a6-acceptance.v1",
+  "accepted": true,
+  "scene": {
+    "scene_id": "showcase_planefloor_airborne_v1",
+    "archive_sha256": "1103b6a5124d4e858bbd03ff751b52bc10a0fd095d7b0212d3c7ac28a893044d",
+    "same_collision_and_render_authority_as_a5": true,
+    "projection_called": false,
+    "coverage_policy": "assumed_map_domain; not sensor-observed free space"
+  },
+  "inputs": {
+    "same_cases_and_seed_as_a5": true,
+    "seed": 0,
+    "uav_sha256": "9d998bdb6136a321d95d41ba3109683996a8549ae29c72bd08abec1fc28e2a24",
+    "sweeper_sha256": "c89e079ae62f39398911d133e93c56c0ba1902d69937223021109ea840ef94ae",
+    "cylinder_sha256": "4ef6ca641314b897c5a59b5248294c47816dcc3628a9d3dc22cf7c402f905e82",
+    "all_verified_raw_fallbacks_retained": true
+  },
+  "robots": {
+    "uav": {
+      "selected": "smoothed",
+      "raw_turn_metric_rad": 7.068583470577026,
+      "smoothed_turn_metric_rad": 3.6190738956143447,
+      "turn_reduction_fraction": 0.48800577786500826,
+      "raw_length_m": 3.5970562748477137,
+      "smoothed_length_m": 3.531095458490297,
+      "raw_duration_s": 8.19411254969543,
+      "smoothed_duration_s": 16.35348340085982,
+      "raw_altitude_range_m": 0.7499999999999999,
+      "smoothed_altitude_range_m": 0.75,
+      "continuous_clearance_lower_m": 0.052775965695583314,
+      "required_margin_m": 0.05,
+      "max_speed_mps": 0.4761904761904761,
+      "max_vertical_speed_mps": 0.2857142857142857,
+      "max_acceleration_mps2": 0.45351473922902497,
+      "ordered_under_light_then_over_table": true,
+      "exact_terminal_pose_retained": true,
+      "continuous_curve_and_dynamics_verification": true,
+      "optimizer_wall_s": 0.024245201027952135
+    },
+    "sweeper": {
+      "selected": "smoothed",
+      "raw_turn_metric_rad": 0.0,
+      "smoothed_turn_metric_rad": 0.0,
+      "turn_reduction_fraction": 0.0,
+      "no_nontrivial_geometric_turn_in_input": true,
+      "raw_length_m": 1.6000000000000005,
+      "smoothed_length_m": 1.6000000000000005,
+      "raw_duration_s": 8.474925986923129,
+      "smoothed_duration_s": 16.824102780740105,
+      "altitude_range_m": 6.661338147750939e-16,
+      "continuous_clearance_lower_m": 0.0014433553070445338,
+      "required_margin_m": 0.001,
+      "max_speed_mps": 0.28571428571428564,
+      "max_acceleration_mps2": 0.08378779416810897,
+      "max_yaw_rate_radps": 0.9314342966436605,
+      "max_yaw_acceleration_radps2": 0.9070294784580497,
+      "support_and_exact_terminal_pose_retained": true,
+      "continuous_curve_and_dynamics_verification": true,
+      "optimizer_wall_s": 0.010136812925338745
+    },
+    "cylinder": {
+      "selected": "smoothed",
+      "raw_turn_metric_rad": 7.853981655047911,
+      "smoothed_turn_metric_rad": 2.2002946727331123,
+      "turn_reduction_fraction": 0.7198497820122945,
+      "raw_length_m": 12.812741699796952,
+      "smoothed_length_m": 12.522313718103387,
+      "raw_duration_s": 52.13391696009256,
+      "smoothed_duration_s": 95.8951482972815,
+      "altitude_range_m": 2.220446049250313e-16,
+      "continuous_clearance_lower_m": 0.0010014707389243587,
+      "required_margin_m": 0.001,
+      "max_speed_mps": 0.2857142857142857,
+      "max_acceleration_mps2": 0.271123481531777,
+      "max_yaw_rate_radps": 0.9523809523809523,
+      "max_yaw_acceleration_radps2": 0.9070294784580499,
+      "spline_tension": 0.5,
+      "natural_spline_rejected_for_workspace_margin": true,
+      "support_and_exact_original_goal_retained": true,
+      "continuous_curve_and_dynamics_verification": true,
+      "optimizer_wall_s": 48.304626853903756
+    }
+  },
+  "verification": {
+    "continuous_collision_method": "adaptive cubic-Bezier convex-hull tube around complete 3D oracle-verified chords",
+    "dynamics_method": "analytic derivative bounds recomputed from authoritative controls and quintic timing",
+    "focused_tests": 69,
+    "focused_failures": 0,
+    "focused_errors": 0,
+    "focused_junit_sha256": "3de03c9991ed5dccb3ffb309593d5a9648c7b875b9c1673eedaafdc1e72b853e",
+    "raw_artifact_hashes": {
+      "manifest": "87d3462227d4ccc58e076dcaaf6344116a1719665b0763d278f0512ccc3d954c",
+      "uav": "6da25dfac7c86270728b93a6d9a374c60199e6685256c3b2afbd910b1cdaf276",
+      "sweeper": "967bef54e441897573ac190296e6fec4a70c875eec6ef73dcfbb068857586c62",
+      "cylinder": "05c6c1e2de1e4bfdcd9b6ddb7b6eed23a2c2770cea0077f8bfb5b40597d41043",
+      "render_manifest": "67ca6cb1b32b486aa2e5fd06ab4051ba45f9d733bc08231c14c04885c8feb883"
+    }
+  },
+  "visual_review": {
+    "opened": true,
+    "raw_vs_smoothed_3d_sha256": "c977855053d85381bfd1a4e3737250892dad4c01cf618a63d54c5d351000d260",
+    "trajectory_profiles_sha256": "db309fea5adbeb1f069ebefae86f231b0f72debf0dcb705a726043270b1c260f",
+    "finding": "The same derivative Gaussian scene shows the protected low UAV traverse, vertical rise and high table crossing; the cylinder curve visibly rounds the raw detour while staying on the ground plane; sweeper raw and selected geometry coincide as expected for its straight route."
+  },
+  "timing": {
+    "preparation_wall_s": 3.060046537895687,
+    "physical_control_dt_s": 0.05,
+    "rendering_and_scheduler_queue_excluded": true
+  },
+  "limitations": [
+    "Safety is a conservative floating-point bound relative to the Gaussian map and assumed coverage domain, not an exact-arithmetic or map-completeness theorem.",
+    "Turn and curvature diagnostics are finitely sampled and do not authorize collision safety.",
+    "Velocity and acceleration are continuous and bounded, but jerk is not constrained and ground execution is deliberately stop-and-go at some joins.",
+    "The upright UAV body omits roll, pitch, wind, tracking error, actuator dynamics and closed-loop flight-control certification."
+  ]
+}
