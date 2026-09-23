@@ -1,0 +1,35 @@
+{
+ "note": "compact copies: timings.records replaced by per-stage counts/sums; evidence.route_samples dropped (reconstructable from result.trajectory with sample_linear_trajectory(dt_s=.02)). Full files stay on HPC under gmc/outputs/uavlamp/l2/.",
+ "full_files": {
+  "M1_main_low_start": {
+   "path": "outputs/uavlamp/l2/M1_main_low_start/result.json",
+   "bytes": 842843,
+   "sha256": "b0a144829c09dd47179c379053e243cd074712c55c14465f769f454d98d14ca8"
+  },
+  "M5_high_start": {
+   "path": "outputs/uavlamp/l2/M5_high_start/result.json",
+   "bytes": 1305980,
+   "sha256": "b08e9a2ac254d920773abec45f0877a077da451b66702b2237b71aa37d165d15"
+  },
+  "N2_plug_low_start": {
+   "path": "outputs/uavlamp/l2/N2_plug_low_start/result.json",
+   "bytes": 3291349,
+   "sha256": "477257f02d29d5a7893a6c39c2285f359818ca433fcea2183496099c89381661"
+  },
+  "N2h_plug_high_start": {
+   "path": "outputs/uavlamp/l2/N2h_plug_high_start/result.json",
+   "bytes": 3248460,
+   "sha256": "38d533fce14e6948cb5340c215296a6d8ac52945adb88f70c45e7238d1059c48"
+  },
+  "C4h_lamp_only_high_start": {
+   "path": "outputs/uavlamp/l2/C4h_lamp_only_high_start/result.json",
+   "bytes": 19911,
+   "sha256": "77d7a6de4368f4eb6d29215836d135ea4732d2c4c5615e0b3d7ec5f879c5757f"
+  },
+  "M1_smooth": {
+   "path": "outputs/uavlamp/l2/M1_smooth/smooth.json",
+   "bytes": 40773,
+   "sha256": "e5cd91d38193091cd1a0c2c83c9c38a539ddeb167c15afc050a83ba3cb2a140a"
+  }
+ }
+}

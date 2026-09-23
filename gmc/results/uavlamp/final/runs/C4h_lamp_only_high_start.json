@@ -1,0 +1,586 @@
+{
+ "schema": "uavlamp.l2_run.v1",
+ "name": "l2_C4h_lamp_only_high_start",
+ "spec_path": "configs/uavlamp_l2/C4h_lamp_only_high_start.json",
+ "spec": {
+  "archive": "outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "manifest": "outputs/uavlamp/scene_v2/manifest.json",
+  "frame": {
+   "origin_world_m": [
+    9.875215398669711,
+    26.984262702544104,
+    -1.2271749593107995
+   ],
+   "world_to_route": [
+    [
+     0.4313593046722016,
+     0.9021802205062548,
+     0.0
+    ],
+    [
+     0.9021802205062548,
+     -0.4313593046722016,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "definition": "site frame: u along real wall A (world dir (.431,.902)), v = wall A normal into the gallery (v=0 on wall A's measured face), z = height above the plane floor. Fitted by experiments/uavlamp_site.py (job 18323467), origin shifted by -0.45 m along v onto wall A's per-bin 99.9% face."
+  },
+  "box_route": {
+   "lower": [
+    -3.0,
+    -0.35,
+    0.0
+   ],
+   "upper": [
+    3.7,
+    2.75,
+    2.43
+   ]
+  },
+  "start_route": [
+   -2.0,
+   1.2,
+   1.55
+  ],
+  "goal_route": [
+   0.8,
+   0.55,
+   1.5
+  ],
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+   "max_wall_s": 20000.0,
+   "max_expansions": 2000000,
+   "max_oracle_calls": 50000000,
+   "max_narrowphase_pairs": 1000000000
+  },
+  "lamp": {
+   "footprint_route_uv": [
+    [
+     -1.0,
+     -0.05
+    ],
+    [
+     -0.7,
+     2.45
+    ]
+   ],
+   "underside_z": 1.1,
+   "top_z": 1.25
+  },
+  "table": {
+   "top_route_uv": [
+    [
+     -0.02,
+     -0.03
+    ],
+    [
+     2.97,
+     0.79
+    ]
+   ],
+   "top_z": 0.94
+  },
+  "top_band_z": [
+   0.0,
+   2.45
+  ],
+  "side_slab_v": [
+   -0.35,
+   2.75
+  ],
+  "drop_roles": [
+   "drop_ceiling",
+   "bulkhead",
+   "back_panel"
+  ],
+  "name": "l2_C4h_lamp_only_high_start",
+  "output": "outputs/uavlamp/l2/C4h_lamp_only_high_start",
+  "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc"
+ },
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "manifest_checked_loader": "gmc.gs3d.scene_uavlamp.load_uavlamp_derivative",
+ "scene_variants_test_only": {
+  "dropped_roles": [
+   "back_panel",
+   "bulkhead",
+   "drop_ceiling"
+  ],
+  "extra_rows": []
+ },
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7103046,
+  "opacity_selected": 3807772,
+  "selected_supports": 354700,
+  "bounds_min": [
+   8.265374407475917,
+   23.091483953176784,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.952240432349058,
+   30.473305275052518,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "planner_calls_per_query": 1,
+ "n_repeated_calls_for_timing": 1,
+ "call_arguments_verbatim": {
+  "method": "gmc.gs3d.planner.LatticePlanner.plan",
+  "planner_prepared_index": true,
+  "arguments": {
+   "scene": {
+    "scene_id": "l2_C4h_lamp_only_high_start",
+    "n_gaussians": 354700,
+    "bounds_min": [
+     8.265374407475917,
+     23.091483953176784,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     13.952240432349058,
+     30.473305275052518,
+     1.2028250406892007
+    ],
+    "tau": 0.3,
+    "level": 2.0,
+    "known_space": {
+     "type": "RouteBoxKnownSpace",
+     "origin_world_m": [
+      9.875215398669711,
+      26.984262702544104,
+      -1.2271749593107995
+     ],
+     "world_to_route": [
+      [
+       0.4313593046722016,
+       0.9021802205062548,
+       0.0
+      ],
+      [
+       0.9021802205062548,
+       -0.4313593046722016,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "lower_route_m": [
+      -3.0,
+      -0.35,
+      0.0
+     ],
+     "upper_route_m": [
+      3.7,
+      2.75,
+      2.43
+     ]
+    },
+    "support": null
+   },
+   "body": {
+    "name": "uav",
+    "radius_m": 0.25,
+    "half_height_m": 0.1,
+    "motion": "uav_translation",
+    "ground_clearance_m": 0.02
+   },
+   "start": {
+    "xyz": [
+     10.095113053932813,
+     24.662271095924954,
+     0.3228250406892006
+    ],
+    "yaw": 0.0
+   },
+   "goal": {
+    "original": {
+     "xyz": [
+      10.716501963685912,
+      27.468759261379397,
+      0.27282504068920055
+     ],
+     "yaw": 0.0
+    },
+    "position_tolerance_m": 0.0,
+    "yaw_tolerance_rad": 0.05
+   },
+   "config": {
+    "resolution_m": 0.1,
+    "margin_m": 0.05,
+    "seed": 0,
+    "budget": {
+     "max_wall_s": 20000.0,
+     "max_expansions": 2000000,
+     "max_oracle_calls": 50000000,
+     "max_narrowphase_pairs": 1000000000
+    }
+   }
+  },
+  "keyword_arguments": [
+   "timer"
+  ],
+  "not_passed": "no waypoints, no intermediate poses, no per-segment z bounds, no altitude schedule, no cost terms: plan() accepts none of these"
+ },
+ "status": "success",
+ "reason": "verified_goal_reached",
+ "primary_call": "warm0",
+ "result": {
+  "schema_version": "gs3d.v1",
+  "scene_id": "l2_C4h_lamp_only_high_start",
+  "robot": {
+   "name": "uav",
+   "radius_m": 0.25,
+   "half_height_m": 0.1,
+   "motion": "uav_translation",
+   "ground_clearance_m": 0.02,
+   "limits": {
+    "max_speed_mps": 0.5,
+    "max_vertical_speed_mps": 0.3,
+    "max_yaw_rate_radps": 1.0,
+    "max_acceleration_mps2": 0.5,
+    "max_yaw_acceleration_radps2": 1.0
+   }
+  },
+  "status": "success",
+  "reason": "verified_goal_reached",
+  "safety": "continuous_bound",
+  "original_goal": [
+   10.716501963685912,
+   27.468759261379397,
+   0.27282504068920055,
+   0.0
+  ],
+  "attained_goal": [
+   10.716501963685912,
+   27.468759261379397,
+   0.27282504068920055,
+   0.0
+  ],
+  "position_tolerance_m": 0.0,
+  "yaw_tolerance_rad": 0.05,
+  "trajectory": {
+   "poses": [
+    [
+     10.095113053932813,
+     24.662271095924954,
+     0.3228250406892006,
+     0.0
+    ],
+    [
+     10.716501963685912,
+     27.468759261379397,
+     0.27282504068920055,
+     0.0
+    ]
+   ],
+   "time_s": [
+    0.0,
+    5.7497826045860165
+   ],
+   "interpolation": "linear_xyz_yaw",
+   "segments": [],
+   "control_dt_s": 0.05
+  },
+  "clearance_lower_m": 0.05000669243332804,
+  "endpoint_reports": {
+   "start": {
+    "occupancy": "free",
+    "safety": "continuous_bound",
+    "clearance_lower_m": 0.10000003000259831,
+    "reason": "swept_support_separation_bound_capped",
+    "primitive_ids": [],
+    "candidate_count": 0,
+    "narrowphase_pairs": 0
+   },
+   "original": {
+    "occupancy": "free",
+    "safety": "continuous_bound",
+    "clearance_lower_m": 0.10000003000259831,
+    "reason": "swept_support_separation_bound_capped",
+    "primitive_ids": [],
+    "candidate_count": 0,
+    "narrowphase_pairs": 0
+   },
+   "attained": {
+    "occupancy": "free",
+    "safety": "continuous_bound",
+    "clearance_lower_m": 0.10000003000259831,
+    "reason": "swept_support_separation_bound_capped",
+    "primitive_ids": [],
+    "candidate_count": 0,
+    "narrowphase_pairs": 0
+   }
+  },
+  "diagnostics": {
+   "seed": 0,
+   "expansions": 0,
+   "oracle_calls": 5,
+   "narrowphase_pairs": 30354,
+   "termination": "verified_goal_reached",
+   "resolution_m": 0.1,
+   "margin_m": 0.05,
+   "coverage_policy": "assumed_map_domain (declared route prism)",
+   "config": {
+    "resolution_m": 0.1,
+    "margin_m": 0.05,
+    "seed": 0,
+    "budget": {
+     "max_wall_s": 20000.0,
+     "max_expansions": 2000000,
+     "max_oracle_calls": 50000000,
+     "max_narrowphase_pairs": 1000000000
+    }
+   },
+   "frontier_peak": 0,
+   "visited_nodes": 0,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 0,
+   "occupied_rejections": 0,
+   "goal_candidates_checked": 0,
+   "connectivity": 26,
+   "goal_roundoff_m": 1e-09,
+   "preparation_in_algorithm": false,
+   "verification": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.05000669243332804,
+    "reports": [
+     {
+      "occupancy": "free",
+      "safety": "continuous_bound",
+      "clearance_lower_m": 0.05000669243332804,
+      "reason": "swept_support_separation_bound_capped",
+      "primitive_ids": [],
+      "candidate_count": 22018,
+      "narrowphase_pairs": 15177
+     }
+    ]
+   },
+   "kinematics": {
+    "passed": true,
+    "acceleration_verified": false,
+    "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+   },
+   "path_length_m": 2.8748913022930083,
+   "altitude_range_m": 0.050000000000000044,
+   "candidate_count": 44036,
+   "bvh_nodes_visited": 5569,
+   "gjk_iterations": 0,
+   "preparation": {
+    "input_supports": 354700,
+    "active_supports": 354700,
+    "outward_floored_covariances": 0,
+    "covariance_floor_max_added_m2": 0.0,
+    "roundoff_symmetrized_covariances": 714,
+    "bvh_nodes": 32767,
+    "index_build_wall_s": 0.9269655670505017
+   }
+  },
+  "provenance": {
+   "coverage_policy": "assumed_map_domain (declared route prism)",
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7103046,
+    "opacity_selected": 3807772,
+    "selected_supports": 354700,
+    "bounds_min": [
+     8.265374407475917,
+     23.091483953176784,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     13.952240432349058,
+     30.473305275052518,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "dropped_roles_test_only": [
+    "back_panel",
+    "bulkhead",
+    "drop_ceiling"
+   ],
+   "extra_test_only": [],
+   "seed": 0
+  },
+  "timings": {
+   "algorithm_wall_s": 1.775635204045102,
+   "preparation_wall_s": 0.9270075659733266,
+   "mode": "warm",
+   "replans_s": [
+    1.775635204045102
+   ],
+   "call_id": "warm0",
+   "stage_total_is_not_wall": true,
+   "records_summary": {
+    "endpoint_check": {
+     "count": 1,
+     "seconds_sum": 0.0011386879486963153
+    },
+    "edge_validation": {
+     "count": 1,
+     "seconds_sum": 0.8906069990480319
+    },
+    "trajectory_build": {
+     "count": 1,
+     "seconds_sum": 4.881701897829771e-05
+    },
+    "verify": {
+     "count": 1,
+     "seconds_sum": 0.8835816640639678
+    }
+   }
+  }
+ },
+ "replay": {
+  "passed": true,
+  "geometry": {
+   "passed": true,
+   "safety": "continuous_bound",
+   "reason": "all_closed_edges_verified",
+   "clearance_lower_m": 0.05000669243332804,
+   "reports": [
+    {
+     "occupancy": "free",
+     "safety": "continuous_bound",
+     "clearance_lower_m": 0.05000669243332804,
+     "reason": "swept_support_separation_bound_capped",
+     "primitive_ids": [],
+     "candidate_count": 22018,
+     "narrowphase_pairs": 15177
+    }
+   ]
+  },
+  "kinematics": {
+   "passed": true,
+   "acceleration_verified": false,
+   "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+  },
+  "attained_matches": true,
+  "variable_z": true,
+  "wall_s": 1.760095969075337,
+  "oracle": "fresh GaussianBodyOracle on a freshly built PreparedScene of the same SceneSpec"
+ },
+ "evidence": {
+  "path_length_m": 2.8748913022930003,
+  "n_samples": 289,
+  "z_range": [
+   1.5,
+   1.55
+  ],
+  "z_start": 1.55,
+  "z_goal": 1.5,
+  "under_lamp_intervals": [],
+  "under_lamp_centre_in_footprint_intervals": [
+   {
+    "s_from_m": 1.0299999999999998,
+    "s_to_m": 1.3299999999999994,
+    "sample_from": 103,
+    "sample_to": 133,
+    "z_min": 1.5268686906712057,
+    "z_max": 1.5320862792416103
+   }
+  ],
+  "above_table_intervals": [
+   {
+    "s_from_m": 1.779999999999998,
+    "s_to_m": 2.8748913022930003,
+    "sample_from": 178,
+    "sample_to": 288,
+    "z_min": 1.5,
+    "z_max": 1.5190423078155986
+   }
+  ],
+  "over_lamp_intervals": [
+   {
+    "s_from_m": 0.7799999999999991,
+    "s_to_m": 1.5899999999999987,
+    "sample_from": 78,
+    "sample_to": 159,
+    "z_min": 1.522346780576855,
+    "z_max": 1.5364342697169477
+   }
+  ],
+  "lamp_overlap_not_under_samples": 82,
+  "under_precedes_above_table": false,
+  "passes_under_lamp": false,
+  "goal_minus_lowest_under_lamp_z": null,
+  "definitions": {
+   "under": "body disc (r) overlaps lamp footprint and z + half_height + margin <= underside_z",
+   "above_table": "body disc overlaps table-top footprint and z - half_height - margin >= top_z",
+   "s": "arc length of the centre polyline, from the trajectory samples only"
+  },
+  "knots_route": [
+   [
+    -2.0,
+    1.2,
+    1.55
+   ],
+   [
+    0.8,
+    0.55,
+    1.5
+   ]
+  ],
+  "clearance_lower_m_planner": 0.05000669243332804,
+  "clearance_lower_m_replay": 0.05000669243332804
+ },
+ "all_calls": [
+  {
+   "call_id": "warm0",
+   "mode": "warm",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "algorithm_wall_s": 1.775635204045102,
+   "preparation_wall_s": 0.9270075659733266,
+   "expansions": 0,
+   "oracle_calls": 5,
+   "knots_sha256": "693a3e99779adfadd1177064e16d7a03f5779829adec33339c98d0b2a3d50ba7",
+   "utc_started": "2026-09-23T11:38:03Z",
+   "same_arguments_as_primary": true
+  }
+ ],
+ "timing": {
+  "definition": "algorithm_wall_s = planner's own perf_counter from plan() entry to assembled result (gs3d.timing). Excludes archive load/crop, rendering, replay and the trajectory's physical time_s / control_dt_s.",
+  "archive_load_and_hash_s": 1.3798171950038522,
+  "scene_build_and_crop_s": 1.1965414790902287,
+  "index_preparation_wall_s": 0.9270075659733266,
+  "cold_algorithm_wall_s": [],
+  "warm_algorithm_wall_s": [
+   1.775635204045102
+  ],
+  "warm_stats": {
+   "count": 1,
+   "p50_s": 1.775635204045102,
+   "p95_s": 1.775635204045102,
+   "max_s": 1.775635204045102
+  },
+  "calls_ran_concurrently": false,
+  "concurrency_note": null,
+  "physical_trajectory_duration_s": 5.7497826045860165,
+  "physical_control_dt_s": 0.05
+ },
+ "identical_routes_across_calls": true,
+ "map_unknown_rejections_by_box_face": {},
+ "host": {
+  "node": "cs614.hpc.nyu.edu",
+  "slurm_job_id": "18332119",
+  "cpus": "2",
+  "python": "3.13.5"
+ }
+}
