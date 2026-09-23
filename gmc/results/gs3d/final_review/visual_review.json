@@ -1,0 +1,72 @@
+{
+  "findings": [
+    "Side EWA view shows low orange body under gold light, climb in gap and high magenta body above retained tabletop.",
+    "Oblique/high EWA views retain nearby wall occlusion; do not use them alone to infer clearance.",
+    "Ground EWA overview is heavily ceiling-occluded (yellow supports); route outline agrees with JSON but obstacle proximity is not readable there.",
+    "3D thinned context and profiles show supported cylinder detour, reduced aggregate turning and matching straight sweeper route; they do not authorize collision safety.",
+    "UAV retains two stopped geometric corners at protected climb joins; smoothing improves total turning and time derivatives, not everywhere geometric curvature."
+  ],
+  "keyframes": [
+    {
+      "label": "low body under light",
+      "replay_row": 10,
+      "route_xyz": [
+        0.0,
+        0.0,
+        0.65
+      ],
+      "source": "exported trajectory replay",
+      "time_s": 0.5,
+      "world_xyz": [
+        9.0,
+        5.75,
+        -0.5771749593107994
+      ]
+    },
+    {
+      "label": "high body over table",
+      "replay_row": 116,
+      "route_xyz": [
+        1.3909545442950497,
+        -0.12727922061357821,
+        1.4
+      ],
+      "source": "exported trajectory replay",
+      "time_s": 5.800000000000001,
+      "world_xyz": [
+        9.936396103067892,
+        6.786396103067893,
+        0.17282504068920046
+      ]
+    }
+  ],
+  "keyframes_independently_interpolated_from_export": true,
+  "limitations": "Raw EWA paths and final smoothed context are distinct products; no physical controller execution or photorealistic final flight video is claimed.",
+  "opened_images": [
+    {
+      "path": "integration/render/uav_side.png",
+      "sha256": "2823bc9914e5e9d8d71ee7c3b2be7db3b2027ebdccf887becf66cf62ede117fa"
+    },
+    {
+      "path": "integration/render/uav_oblique.png",
+      "sha256": "97691ddecfb79a154081767c3000292b7b79c760ad71cab9dec4f7f70684476c"
+    },
+    {
+      "path": "integration/render/uav_high.png",
+      "sha256": "6b0fe6e88f1c372bb0e1ead824ee5dec88c8bcaf49a4b8f4bc94f940a7f64cf1"
+    },
+    {
+      "path": "integration/render/ground_overview.png",
+      "sha256": "706914a85c2ae7066b02aa4a2025ae7b06279e0c1aa9ff961a766ae9a179e90d"
+    },
+    {
+      "path": "smoothing/render/raw_vs_smoothed_3d.png",
+      "sha256": "c977855053d85381bfd1a4e3737250892dad4c01cf618a63d54c5d351000d260"
+    },
+    {
+      "path": "smoothing/render/trajectory_profiles.png",
+      "sha256": "db309fea5adbeb1f069ebefae86f231b0f72debf0dcb705a726043270b1c260f"
+    }
+  ],
+  "same_scene_hash": "1103b6a5124d4e858bbd03ff751b52bc10a0fd095d7b0212d3c7ac28a893044d"
+}

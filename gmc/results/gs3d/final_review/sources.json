@@ -1,0 +1,23 @@
+[
+  {
+    "actual_sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60",
+    "bytes": 795415908,
+    "path": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+    "role": "edited_floor_source",
+    "sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60"
+  },
+  {
+    "actual_sha256": "c9318d253676209b43fd0159786b74df2b628954f524c20ad1cc06d0f58c88ae",
+    "bytes": 819776588,
+    "path": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/processed.npz",
+    "role": "decoded_original",
+    "sha256": "c9318d253676209b43fd0159786b74df2b628954f524c20ad1cc06d0f58c88ae"
+  },
+  {
+    "actual_sha256": "98af4928cc67523015bd32c4f438d334adb86db59bc20ef1c97227bf367cc3c2",
+    "bytes": 499121449,
+    "path": "/scratch/wg2381/splathjb/splatc_atlas/data/gs_scenes/showcase/raw/point_cloud.ply",
+    "role": "original_ply",
+    "sha256": "98af4928cc67523015bd32c4f438d334adb86db59bc20ef1c97227bf367cc3c2"
+  }
+]

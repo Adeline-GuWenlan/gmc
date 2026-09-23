@@ -1,0 +1,714 @@
+{
+  "cylinder": {
+    "cold_algorithm_s": 23.23515106900595,
+    "cold_stage_spans_s": {
+      "edge_validation": 21.539970327634364,
+      "endpoint_check": 0.010312333004549146,
+      "goal_candidates": 0.011552690877579153,
+      "search": 21.641143435030244,
+      "trajectory_build": 0.00033103302121162415,
+      "verify": 1.5671848030760884
+    },
+    "continuous_verification": {
+      "certificate_leaves": 44,
+      "certificate_max_depth": 5,
+      "clearance_lower_m": 0.0010014707389243587,
+      "continuity": "position velocity and acceleration are continuous; ease5 makes velocity and acceleration zero at segment joins",
+      "dynamics_bounds": {
+        "max_acceleration_mps2": 0.271123481531777,
+        "max_speed_mps": 0.2857142857142857,
+        "max_vertical_speed_mps": 0.0,
+        "max_yaw_acceleration_radps2": 0.9070294784580499,
+        "max_yaw_rate_radps": 0.9523809523809523
+      },
+      "goal_reached": true,
+      "limit_checks": {
+        "acceleration": true,
+        "speed": true,
+        "vertical_speed": true,
+        "yaw_acceleration": true,
+        "yaw_rate": true
+      },
+      "passed": true,
+      "reason": "continuous_curve_and_dynamics_bounds_verified",
+      "safety": "continuous_bound"
+    },
+    "exported_sample_dt_range_s": [
+      0.047965820402616544,
+      0.04996979381313338
+    ],
+    "goal_sensitivity": [
+      {
+        "attained_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          1.1102230246251565e-16
+        ],
+        "diagnosis": {
+          "budget_exhaustion": null,
+          "connectivity": {
+            "frontier_peak": 102,
+            "map_unknown_rejections": 0,
+            "neighbourhood": 8,
+            "reachable_lattice_exhausted": false,
+            "visited_nodes": 565
+          },
+          "endpoint_map_status": {
+            "attained": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "original": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "start": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            }
+          },
+          "scaling": {
+            "candidate_count": 407048,
+            "expansions": 526,
+            "narrowphase_pairs": 65243,
+            "oracle_calls": 1236
+          },
+          "status": "success",
+          "terminal_error": {
+            "position_m": 0.0,
+            "yaw_rad": 1.1102230246251565e-16
+          },
+          "termination": "verified_goal_reached"
+        },
+        "original_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "tolerance_m": 0.0
+      },
+      {
+        "attained_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          1.1102230246251565e-16
+        ],
+        "diagnosis": {
+          "budget_exhaustion": null,
+          "connectivity": {
+            "frontier_peak": 102,
+            "map_unknown_rejections": 0,
+            "neighbourhood": 8,
+            "reachable_lattice_exhausted": false,
+            "visited_nodes": 565
+          },
+          "endpoint_map_status": {
+            "attained": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "original": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "start": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            }
+          },
+          "scaling": {
+            "candidate_count": 407048,
+            "expansions": 526,
+            "narrowphase_pairs": 65243,
+            "oracle_calls": 1236
+          },
+          "status": "success",
+          "terminal_error": {
+            "position_m": 0.0,
+            "yaw_rad": 1.1102230246251565e-16
+          },
+          "termination": "verified_goal_reached"
+        },
+        "original_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "tolerance_m": 0.1
+      },
+      {
+        "attained_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "diagnosis": {
+          "budget_exhaustion": null,
+          "connectivity": {
+            "frontier_peak": 102,
+            "map_unknown_rejections": 0,
+            "neighbourhood": 8,
+            "reachable_lattice_exhausted": false,
+            "visited_nodes": 551
+          },
+          "endpoint_map_status": {
+            "attained": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "original": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "start": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            }
+          },
+          "scaling": {
+            "candidate_count": 364368,
+            "expansions": 510,
+            "narrowphase_pairs": 57127,
+            "oracle_calls": 1211
+          },
+          "status": "success",
+          "terminal_error": {
+            "position_m": 0.0,
+            "yaw_rad": 0.0
+          },
+          "termination": "verified_goal_reached"
+        },
+        "original_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "tolerance_m": 0.25
+      },
+      {
+        "attained_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "diagnosis": {
+          "budget_exhaustion": null,
+          "connectivity": {
+            "frontier_peak": 102,
+            "map_unknown_rejections": 0,
+            "neighbourhood": 8,
+            "reachable_lattice_exhausted": false,
+            "visited_nodes": 546
+          },
+          "endpoint_map_status": {
+            "attained": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "original": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            },
+            "start": {
+              "occupancy": "free",
+              "reason": "swept_support_separation_bound_capped",
+              "safety": "continuous_bound"
+            }
+          },
+          "scaling": {
+            "candidate_count": 364246,
+            "expansions": 505,
+            "narrowphase_pairs": 57127,
+            "oracle_calls": 1202
+          },
+          "status": "success",
+          "terminal_error": {
+            "position_m": 0.0,
+            "yaw_rad": 0.0
+          },
+          "termination": "verified_goal_reached"
+        },
+        "original_goal": [
+          11.7,
+          12.7,
+          -0.34217495931079944,
+          0.0
+        ],
+        "tolerance_m": 0.5
+      }
+    ],
+    "legacy_trace_diagnosis": {
+      "diagnosis": {
+        "budget_exhaustion": [
+          3,
+          4
+        ],
+        "connectivity": "legacy connectivity is projected-raster evidence only",
+        "endpoint_map_status": "legacy projected prechecks say clear; they are not 3D coverage evidence",
+        "scaling": [
+          {
+            "query_seconds": 174.81283354759216,
+            "rung": 0,
+            "supports": 21144
+          },
+          {
+            "query_seconds": 628.7833902835846,
+            "rung": 1,
+            "supports": 45572
+          },
+          {
+            "query_seconds": 445.00565457344055,
+            "rung": 2,
+            "supports": 46835
+          },
+          {
+            "query_seconds": 722.5406653881073,
+            "rung": 3,
+            "supports": 73178
+          },
+          {
+            "query_seconds": 1713.889904975891,
+            "rung": 4,
+            "supports": 149303
+          }
+        ]
+      },
+      "rows": [
+        {
+          "distance_m": 2.433105,
+          "legacy_reason": null,
+          "legacy_status": "REACHABLE",
+          "projected_endpoint_clear": true,
+          "projected_raster_connected": true,
+          "projected_supports": 21144,
+          "query_seconds": 174.81283354759216,
+          "rung": 0
+        },
+        {
+          "distance_m": 3.996248,
+          "legacy_reason": null,
+          "legacy_status": "REACHABLE",
+          "projected_endpoint_clear": true,
+          "projected_raster_connected": true,
+          "projected_supports": 45572,
+          "query_seconds": 628.7833902835846,
+          "rung": 1
+        },
+        {
+          "distance_m": 5.453898,
+          "legacy_reason": null,
+          "legacy_status": "REACHABLE",
+          "projected_endpoint_clear": true,
+          "projected_raster_connected": true,
+          "projected_supports": 46835,
+          "query_seconds": 445.00565457344055,
+          "rung": 2
+        },
+        {
+          "distance_m": 6.90163,
+          "legacy_reason": "query_support_budget_exhausted",
+          "legacy_status": "UNKNOWN",
+          "projected_endpoint_clear": true,
+          "projected_raster_connected": true,
+          "projected_supports": 73178,
+          "query_seconds": 722.5406653881073,
+          "rung": 3
+        },
+        {
+          "distance_m": 8.583851,
+          "legacy_reason": "query_support_budget_exhausted",
+          "legacy_status": "UNKNOWN",
+          "projected_endpoint_clear": true,
+          "projected_raster_connected": true,
+          "projected_supports": 149303,
+          "query_seconds": 1713.889904975891,
+          "rung": 4
+        }
+      ]
+    },
+    "metrics": {
+      "nontrivial_turn_case": true,
+      "raw": {
+        "altitude_range_m": 0.0,
+        "discrete_curvature_proxy_max_radpm": 3.2532257114214485,
+        "duration_s": 52.13391696009256,
+        "path_length_m": 12.812741699796952,
+        "translation_segments": 60,
+        "turn_metric_rad": 7.853981655047911
+      },
+      "required_improvement_fraction": 0.1,
+      "smoothed_candidate": {
+        "altitude_range_m": 2.220446049250313e-16,
+        "duration_s": 95.8951482972815,
+        "metric_sampling": {
+          "not_used_for_collision_authorization": true,
+          "samples_per_bezier": 101
+        },
+        "path_length_m": 12.522313718103387,
+        "sampled_curvature_max_radpm": 42.083236387115804,
+        "turn_metric_rad": 2.2002946727331123
+      },
+      "turn_improvement_fraction": 0.7198497820122945
+    },
+    "nominal_control_dt_s": 0.05,
+    "optimizer_wall_s": 53.6918802059954,
+    "preparation_wall_s": 1.1854702640557662,
+    "raw_endpoint_reports": {
+      "attained": {
+        "candidate_count": 971,
+        "clearance_lower_m": 0.001102019798764562,
+        "narrowphase_pairs": 29,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "original": {
+        "candidate_count": 971,
+        "clearance_lower_m": 0.001102019798764562,
+        "narrowphase_pairs": 29,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "start": {
+        "candidate_count": 39,
+        "clearance_lower_m": 0.0061843691199447975,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      }
+    },
+    "scene_id": "showcase_planefloor_airborne_v1-ground-rung4",
+    "start_to_original_goal_m": 8.583851117068608,
+    "warm": {
+      "count": 5,
+      "max_s": 23.77008231403306,
+      "p50_s": 23.56930364703294,
+      "p95_s": 23.77008231403306,
+      "samples_s": [
+        23.164166084956378,
+        23.40424616006203,
+        23.56930364703294,
+        23.728865118930116,
+        23.77008231403306
+      ]
+    },
+    "warm_definition": "exact-goal planner entry to assembled result"
+  },
+  "sweeper": {
+    "cold_algorithm_s": 0.006783436983823776,
+    "cold_stage_spans_s": {
+      "edge_validation": 0.0010891739511862397,
+      "endpoint_check": 0.001786431996151805,
+      "index_build": 1.1715899509144947,
+      "scene_load": 7.813097909092903e-06,
+      "trajectory_build": 4.526099655777216e-05,
+      "verify": 0.003607781953178346
+    },
+    "continuous_verification": {
+      "certificate_leaves": 1,
+      "certificate_max_depth": 0,
+      "clearance_lower_m": 0.0014433553070445338,
+      "continuity": "position velocity and acceleration are continuous; ease5 makes velocity and acceleration zero at segment joins",
+      "dynamics_bounds": {
+        "max_acceleration_mps2": 0.08378779416810897,
+        "max_speed_mps": 0.28571428571428564,
+        "max_vertical_speed_mps": 0.0,
+        "max_yaw_acceleration_radps2": 0.9070294784580497,
+        "max_yaw_rate_radps": 0.9314342966436605
+      },
+      "goal_reached": true,
+      "limit_checks": {
+        "acceleration": true,
+        "speed": true,
+        "vertical_speed": true,
+        "yaw_acceleration": true,
+        "yaw_rate": true
+      },
+      "passed": true,
+      "reason": "continuous_curve_and_dynamics_bounds_verified",
+      "safety": "continuous_bound"
+    },
+    "exported_sample_dt_range_s": [
+      0.049407052974530075,
+      0.04976303317535624
+    ],
+    "metrics": {
+      "nontrivial_turn_case": false,
+      "raw": {
+        "altitude_range_m": 0.0,
+        "discrete_curvature_proxy_max_radpm": 0.0,
+        "duration_s": 8.474925986923129,
+        "path_length_m": 1.6000000000000005,
+        "translation_segments": 1,
+        "turn_metric_rad": 0.0
+      },
+      "required_improvement_fraction": 0.1,
+      "smoothed_candidate": {
+        "altitude_range_m": 6.661338147750939e-16,
+        "duration_s": 16.824102780740105,
+        "metric_sampling": {
+          "not_used_for_collision_authorization": true,
+          "samples_per_bezier": 101
+        },
+        "path_length_m": 1.6000000000000005,
+        "sampled_curvature_max_radpm": 0.0,
+        "turn_metric_rad": 0.0
+      },
+      "turn_improvement_fraction": 0.0
+    },
+    "nominal_control_dt_s": 0.05,
+    "optimizer_wall_s": 0.01144140597898513,
+    "preparation_wall_s": 1.1854702640557662,
+    "raw_endpoint_reports": {
+      "attained": {
+        "candidate_count": 32,
+        "clearance_lower_m": 0.022974826893380037,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "original": {
+        "candidate_count": 32,
+        "clearance_lower_m": 0.022974826893380037,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "start": {
+        "candidate_count": 23,
+        "clearance_lower_m": 0.0061843691199447975,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      }
+    },
+    "scene_id": "showcase_planefloor_airborne_v1-ground-rung4",
+    "warm": {
+      "count": 5,
+      "max_s": 0.007011514040641487,
+      "p50_s": 0.00650528899859637,
+      "p95_s": 0.007011514040641487,
+      "samples_s": [
+        0.006415994954295456,
+        0.006439678021706641,
+        0.00650528899859637,
+        0.0066982959397137165,
+        0.007011514040641487
+      ]
+    },
+    "warm_definition": "exact-goal planner entry to assembled result"
+  },
+  "uav": {
+    "cold_algorithm_s": 0.4792621589731425,
+    "cold_stage_spans_s": {
+      "edge_validation": 0.0016091909492388368,
+      "endpoint_check": 0.006959816091693938,
+      "index_build": 0.7458192289341241,
+      "scene_edit": 8.26292671263218e-06,
+      "scene_load": 1.5943626950029284,
+      "trajectory_build": 9.0652029030025e-05,
+      "verify": 0.0026022259844467044
+    },
+    "continuous_verification": {
+      "certificate_leaves": 11,
+      "certificate_max_depth": 3,
+      "clearance_lower_m": 0.052775965695583314,
+      "continuity": "position velocity and acceleration are continuous; ease5 makes velocity and acceleration zero at segment joins",
+      "dynamics_bounds": {
+        "max_acceleration_mps2": 0.45351473922902497,
+        "max_speed_mps": 0.4761904761904761,
+        "max_vertical_speed_mps": 0.2857142857142857,
+        "max_yaw_acceleration_radps2": 0.0,
+        "max_yaw_rate_radps": 0.0
+      },
+      "goal_reached": true,
+      "limit_checks": {
+        "acceleration": true,
+        "speed": true,
+        "vertical_speed": true,
+        "yaw_acceleration": true,
+        "yaw_rate": true
+      },
+      "passed": true,
+      "reason": "continuous_curve_and_dynamics_bounds_verified",
+      "safety": "continuous_bound"
+    },
+    "exported_sample_dt_range_s": [
+      0.049427754482572084,
+      0.04984284397252736
+    ],
+    "metrics": {
+      "nontrivial_turn_case": true,
+      "raw": {
+        "altitude_range_m": 0.7499999999999999,
+        "discrete_curvature_proxy_max_radpm": 6.506451422842888,
+        "duration_s": 8.19411254969543,
+        "path_length_m": 3.5970562748477137,
+        "translation_segments": 17,
+        "turn_metric_rad": 7.068583470577026
+      },
+      "required_improvement_fraction": 0.1,
+      "smoothed_candidate": {
+        "altitude_range_m": 0.75,
+        "duration_s": 16.35348340085982,
+        "metric_sampling": {
+          "not_used_for_collision_authorization": true,
+          "samples_per_bezier": 101
+        },
+        "path_length_m": 3.531095458490297,
+        "sampled_curvature_max_radpm": 209.4395102393178,
+        "turn_metric_rad": 3.6190738956143447
+      },
+      "turn_improvement_fraction": 0.48800577786500826
+    },
+    "nominal_control_dt_s": 0.05,
+    "optimizer_wall_s": 0.027250900981016457,
+    "ordered_gates": {
+      "all_pass": true,
+      "altitude_range_m": 0.7500000000000001,
+      "continuous_clearance_lower_m": 0.052775965695583314,
+      "floor_relative_centre_z_range_m": [
+        0.6499999999999998,
+        1.4
+      ],
+      "gates": {
+        "altitude_range_at_least_0p50_m": true,
+        "continuous_clearance_strictly_above_0p05_m": true,
+        "high_body_bottom_above_table_with_margin": true,
+        "high_crossing_found": true,
+        "independent_replay_passed": true,
+        "low_body_top_below_light_with_margin": true,
+        "low_crossing_found": true,
+        "ordered_low_before_high": true
+      },
+      "high_crossing": {
+        "centre_height_above_floor_m": 1.4,
+        "horizontal_span_m": 0.700000000000001,
+        "lateral_centre_bounds_m": [
+          -0.95,
+          0.95
+        ],
+        "route_s_m": [
+          0.92,
+          1.620000000000001
+        ],
+        "source": "continuous monotone Bezier control hull; conservative whole-section time bounds",
+        "time_s": [
+          8.01184750420185,
+          12.547546305701665
+        ],
+        "verified_bezier_sections": 1
+      },
+      "light": {
+        "gaussian_id": 7341022,
+        "underside_above_floor_m": 1.05
+      },
+      "low_crossing": {
+        "centre_height_above_floor_m": 0.65,
+        "horizontal_span_m": 0.4,
+        "lateral_centre_bounds_m": [
+          -0.4,
+          0.4
+        ],
+        "route_s_m": [
+          -0.2,
+          0.2
+        ],
+        "source": "continuous monotone Bezier control hull; conservative whole-section time bounds",
+        "time_s": [
+          0.0,
+          3.0899725042018495
+        ],
+        "verified_bezier_sections": 1
+      },
+      "schema_version": "gs3d.uav-ordered-gates.v1",
+      "table": {
+        "source_support_count": 18010,
+        "top_above_floor_m": 0.905097595379117
+      },
+      "uav_body": {
+        "half_height_m": 0.1,
+        "margin_m": 0.05,
+        "radius_m": 0.25
+      },
+      "world_centre_z_range_m": [
+        -0.5771749593107997,
+        0.17282504068920052
+      ]
+    },
+    "preparation_wall_s": 2.3541743610985577,
+    "raw_endpoint_reports": {
+      "attained": {
+        "candidate_count": 64,
+        "clearance_lower_m": 0.05277596569558337,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "original": {
+        "candidate_count": 64,
+        "clearance_lower_m": 0.05277596569558337,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      },
+      "start": {
+        "candidate_count": 176,
+        "clearance_lower_m": 0.08474525230566753,
+        "narrowphase_pairs": 0,
+        "occupancy": "free",
+        "primitive_ids": [],
+        "reason": "swept_support_separation_bound_capped",
+        "safety": "continuous_bound"
+      }
+    },
+    "scene_id": "showcase_planefloor_airborne_v1-uav-task",
+    "warm": {
+      "count": 5,
+      "max_s": 0.468768771039322,
+      "p50_s": 0.46591533394530416,
+      "p95_s": 0.468768771039322,
+      "samples_s": [
+        0.4531894620740786,
+        0.46257517801132053,
+        0.46591533394530416,
+        0.46622120193205774,
+        0.468768771039322
+      ]
+    },
+    "warm_definition": "three-leg outer mission (includes finalization)"
+  }
+}

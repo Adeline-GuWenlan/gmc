@@ -1,0 +1,166 @@
+{
+  "all_available_checks_pass": true,
+  "baseline_failure_names_match": true,
+  "baseline_failures_not_reproduced": [],
+  "baseline_sha256": "44f743b2b3e1f39acb64e1ea243c0f70e5818b4f230ba741f78207c79a877b2b",
+  "failed_or_errors": 25,
+  "failures": [
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_blind_is_forbidden_without_explicit_opt_in"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_blind_opt_in_keeps_withheld_manifest_scope_explicit"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_oracle_record_analytic_truth_is_cross_checked_against_manifest"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_one_sealed_atlas_case_runs_both_arms_at_equal_cap"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_split_manifest_is_hashed_and_parsed_from_one_read"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_split_manifest_tamper_is_rejected"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '/scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py'",
+      "test": "tests.integration.test_atlas_benchmark::test_package_inventory_cannot_reseal_pinned_generator"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_selected_oracle_record_is_checked_against_package_inventory"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_benchmark::test_runtime_guard_rejects_new_legacy_import_only"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_full_s1_truth_is_recomputed_with_four_partial_gate_events"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_report_from_different_scene_binding_is_rejected"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_fake_report_numeric_budget_overflows_fail_postcheck"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_runner_rejects_a_non_support_budget_stop_reason"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_budget_stop_keeps_leaf_resolution_without_claiming_completion"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_budget_stopped_report_cannot_forge_resolution_completion"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_report_completion_flag_must_be_a_strict_bool"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_fifty_two_degree_brackets_cannot_pass_five_degree_gate"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_four_degree_partial_brackets_satisfy_strict_acceptance"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_four_representative_cases_use_all_supports_and_full_compiler"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_staged_report_keeps_initial_and_refined_aggregates_separate"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_budget_exception_keeps_finally_timing_and_fails_acceptance"
+    },
+    {
+      "category": "reproduced_missing_sealed_atlas_asset",
+      "kind": "failure",
+      "message": "gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/codex_jobs/gs3d_20260921/worktrees/A7/splatc_atlas",
+      "test": "tests.integration.test_atlas_gate_intervals::test_case_deadline_skips_connectivity_and_builder_gets_all_pairs"
+    }
+  ],
+  "junit": "/scratch/wg2381/codex_jobs/gs3d_20260921/logs/A7/full_suite.xml",
+  "junit_sha256": "d3efb058bcddc154efceaa074dc527ff358ba25f71287ae013ece8fb4a4d85bb",
+  "passed": 654,
+  "skipped": 0,
+  "suite_seconds": 1539.945,
+  "tests": 679,
+  "unexpected_failures": []
+}

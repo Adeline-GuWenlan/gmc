@@ -1,0 +1,10 @@
+{
+  "all_raw_artifact_hashes_recomputed": true,
+  "bezier_continuous_and_dynamics_verified": true,
+  "final_acceptance_pending": "Atlas supplementary tests and final report/Git commit",
+  "full_suite_gs3d_passed": 78,
+  "render_keyframes_match_export": true,
+  "same_original_goals": true,
+  "source_hashes_match_tested_commit": true,
+  "three_robots_reproduced": true
+}

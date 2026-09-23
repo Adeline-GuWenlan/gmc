@@ -1,0 +1,93 @@
+{
+  "base": "9ff0d5c2a59c95a4444e45878ef878c8d9837108",
+  "reviewed_head": "0f738d1f45d1d17d58c28abf8796a51e189641a8",
+  "introduced_blob_count": 121,
+  "largest_introduced_blobs": [
+    {
+      "object": "7e4986bad5b26a09a1b7c6ab4f43561542c36719",
+      "bytes": 217603,
+      "path": "gmc/results/gs3d/benchmark/timing.json"
+    },
+    {
+      "object": "e9a0bd30272e44ecf4d992c6e02c9ff630ddd867",
+      "bytes": 40063,
+      "path": "gmc/results/gs3d/core/under_over_side.png"
+    },
+    {
+      "object": "7c892c4c394c35ecfc6181f4c595c9cbab8970dd",
+      "bytes": 36345,
+      "path": "gmc/src/gmc/gs3d/smoothing.py"
+    },
+    {
+      "object": "f86d7d743a0fc638371510663ac8fa40b3873f19",
+      "bytes": 33794,
+      "path": "gmc/src/gmc/gs3d/smoothing.py"
+    },
+    {
+      "object": "85e69c6472111c065fa2f914256e50fcb35b2fa5",
+      "bytes": 31055,
+      "path": "docs/gs3d_architecture.md"
+    },
+    {
+      "object": "0996786aba737f5aff4bc95214e14763a7aa7a42",
+      "bytes": 26917,
+      "path": "docs/gs3d_architecture.md"
+    },
+    {
+      "object": "445afb09dde68fe8b9d7ca3db4dc0907eb577bae",
+      "bytes": 25071,
+      "path": "automation/gs3d_20260921/scheduler.py"
+    },
+    {
+      "object": "7971b46194c89e71125dc8b85564a94260c6a9f7",
+      "bytes": 24558,
+      "path": "docs/gs3d_architecture.md"
+    },
+    {
+      "object": "be420c7778751ee47df5fa9c17cb43a05bd65206",
+      "bytes": 22520,
+      "path": "automation/gs3d_20260921/scheduler.py"
+    },
+    {
+      "object": "f568d93f9282104b918aa2232ceed55bdf519fc9",
+      "bytes": 22217,
+      "path": "gmc/experiments/gs3d_integration.py"
+    }
+  ],
+  "blobs_over_1MiB": [],
+  "secret_pattern_findings": [],
+  "scan_scope": "Every introduced historical blob, known credential patterns; no matching content printed. This is not a guarantee against arbitrary secret formats.",
+  "predecessor_ancestors": {
+    "A0": {
+      "commit": "1bac9e2b206957d0f8a494df6c192d36a6b52a17",
+      "ancestor": true
+    },
+    "A1": {
+      "commit": "3cfa80d24241254f91d5c5a55eed53d0f78d2d70",
+      "ancestor": true
+    },
+    "A2": {
+      "commit": "70ab219baa4cdfccf2c5c8606c778ce80fb2ec19",
+      "ancestor": true
+    },
+    "A3": {
+      "commit": "c0f3db4147ac62568529dfece76cb6cf10e5144d",
+      "ancestor": true
+    },
+    "A4": {
+      "commit": "70f5dc4aa97df5947ea3066468f281ff975caf10",
+      "ancestor": true
+    },
+    "A5": {
+      "commit": "b2c74a6a515d4cb03df7e0136281300d30394726",
+      "ancestor": true
+    },
+    "A6": {
+      "commit": "726dc09d9250c8152981d5967f3b49b4547c6c40",
+      "ancestor": true
+    }
+  },
+  "legacy_src_and_tests_unchanged": true,
+  "unmerged_paths": [],
+  "status": []
+}

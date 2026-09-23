@@ -1,0 +1,113 @@
+{
+  "atlas_root": "/scratch/wg2381/splathjb/splatc_atlas",
+  "constructed": true,
+  "load_success": true,
+  "case_count": 1,
+  "integrity": {
+    "dev": {
+      "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/data/splatc_gates/dev/manifest.json",
+      "sha256": "a3e5f12b3a2166b7d57dc8b46bb3db6dadc0c7cdbdbf39b5cae013853101ab31",
+      "n_episodes": 24,
+      "sealed_on": "2026-08-11",
+      "sealed_artifact": "pinned_split_seal+round4_package_inventory",
+      "package_relative_path": "src_snapshot/data/splatc_gates/dev/manifest.json",
+      "package_inventory_checked": true,
+      "package_manifest": {
+        "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/MANIFEST.sha256",
+        "sha256": "ae9bdfca8383d624dba21053f6de6fd3e35815d77fbcb7176b24a2496ed95865",
+        "externally_authenticated": false
+      },
+      "split_seals": {
+        "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/results/manifests/split_seals.json",
+        "package_relative_path": "src_snapshot/results/manifests/split_seals.json",
+        "sha256": "2010fc188f3f4325e51db2f7c77fee55047fdd70f9a0b02b3a05aed7511ad433",
+        "package_inventory_checked": true,
+        "independently_pinned": true
+      },
+      "oracle_records_sealed": false,
+      "oracle_records_package_inventory_checked": true,
+      "generator_source_sealed": true,
+      "robot_registry_source_sealed": true,
+      "selected_oracle_records": [
+        {
+          "query_id": "dev_001",
+          "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/outputs/oracle_records/dev_001.json",
+          "package_relative_path": "src_snapshot/outputs/oracle_records/dev_001.json",
+          "sha256": "eeb0a7ec9cb521cb4abf3a58486a58a32ba1b34a1d4767c1f18c8d2be9e71dfc",
+          "package_inventory_checked": true,
+          "independently_pinned": false
+        }
+      ],
+      "runtime_source_integrity": {
+        "generator_module": "splatc.datasets.g1_gate",
+        "generator_source_sealed": true,
+        "legacy_import_guard": {
+          "forbidden_namespace": "splatc.gmc and descendants",
+          "preexisting_modules_ignored": true,
+          "scope": "modules newly loaded by each adapter call"
+        },
+        "modules": {
+          "splatc": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/__init__.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/__init__.py",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "splatc.common": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/common/__init__.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/common/__init__.py",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "splatc.common.se2": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/common/se2.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/common/se2.py",
+            "sha256": "b1e3fa20648891a501ca5b8f581b289e8f5ba951630b08df39f39d5164735b0d"
+          },
+          "splatc.datasets": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/datasets/__init__.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/__init__.py",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "splatc.datasets.g1_gate": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/datasets/g1_gate.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py",
+            "sha256": "f3dbd542098079c18f4b2fbec53c12cdfcaf82e283fa0c8c26df953f94897424"
+          },
+          "splatc.gaussian_geometry": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/gaussian_geometry/__init__.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/gaussian_geometry/__init__.py",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "splatc.gaussian_geometry.contact": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/gaussian_geometry/contact.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/gaussian_geometry/contact.py",
+            "sha256": "179a01d1227bb4f077bdf3551f516d98d886ee0c79f93b3e3c82397124a5094d"
+          },
+          "splatc.gaussian_geometry.primitives": {
+            "independently_pinned": true,
+            "package_inventory_checked": true,
+            "package_relative_path": "src_snapshot/src/splatc/gaussian_geometry/primitives.py",
+            "path": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/gaussian_geometry/primitives.py",
+            "sha256": "b622b98b127173ba628f24cd65b7cef9ef6b4305dda97819d972f8f176fad819"
+          }
+        },
+        "robot_registry_source": "splatc.datasets.g1_gate:robot_library",
+        "robot_registry_source_sealed": true,
+        "source_root": "/scratch/wg2381/splathjb/splatc_atlas/outputs/round4_final_package/src_snapshot/src"
+      }
+    }
+  }
+}
