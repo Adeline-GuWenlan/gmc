@@ -1,0 +1,720 @@
+{
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "runs": {
+  "M1_main_low_start": {
+   "path": "outputs/uavlamp/l2/M1_main_low_start/result.json",
+   "sha256": "b0a144829c09dd47179c379053e243cd074712c55c14465f769f454d98d14ca8",
+   "status": "success"
+  },
+  "M5_high_start": {
+   "path": "outputs/uavlamp/l2/M5_high_start/result.json",
+   "sha256": "b08e9a2ac254d920773abec45f0877a077da451b66702b2237b71aa37d165d15",
+   "status": "success"
+  },
+  "N2_plug_low_start": {
+   "path": "outputs/uavlamp/l2/N2_plug_low_start/result.json",
+   "sha256": "477257f02d29d5a7893a6c39c2285f359818ca433fcea2183496099c89381661",
+   "status": "map_unknown"
+  },
+  "N2h_plug_high_start": {
+   "path": "outputs/uavlamp/l2/N2h_plug_high_start/result.json",
+   "sha256": "38d533fce14e6948cb5340c215296a6d8ac52945adb88f70c45e7238d1059c48",
+   "status": "map_unknown"
+  },
+  "C4h_lamp_only_high_start": {
+   "path": "outputs/uavlamp/l2/C4h_lamp_only_high_start/result.json",
+   "sha256": "77d7a6de4368f4eb6d29215836d135ea4732d2c4c5615e0b3d7ec5f879c5757f",
+   "status": "success"
+  },
+  "C4_L1": {
+   "path": "outputs/uavlamp/t3_v2/C4_counterfactual_lamp_only_low/result.json",
+   "sha256": "9844274ac51f47808e2770956d875242f8d433f447daee8492ea2bb9991523c4",
+   "status": "success"
+  }
+ },
+ "keyframes": {
+  "side": {
+   "path": "results/uavlamp/final/keyframes_side.png",
+   "camera": {
+    "pos": [
+     14.50579481071759,
+     24.382295310604245,
+     -0.027174959310799468
+    ],
+    "fov_y_deg": 50.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -0.35,
+    5.3,
+    1.2
+   ],
+   "target_route": [
+    -0.35,
+    1.0,
+    1.0
+   ],
+   "n_splats": 492784,
+   "path_visible_fraction": 0.26512968299711814,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      356.94311816451335,
+      495.39191819834184
+     ],
+     "depth_m": 4.125772262499175
+    },
+    {
+     "label": "approach",
+     "sample": 42,
+     "route_xyz": [
+      -1.6211,
+      1.0188,
+      0.55
+     ],
+     "pixel_uv": [
+      446.8299146721951,
+      489.7068641663087
+     ],
+     "depth_m": 4.306747521475742
+    },
+    {
+     "label": "under the lamp",
+     "sample": 132,
+     "route_xyz": [
+      -0.832,
+      0.7524,
+      0.65
+     ],
+     "pixel_uv": [
+      609.4866178942132,
+      463.4902479959959
+     ],
+     "depth_m": 4.56824132202249
+    },
+    {
+     "label": "climbing",
+     "sample": 196,
+     "route_xyz": [
+      -0.3476,
+      0.8533,
+      0.9903
+     ],
+     "pixel_uv": [
+      700.4618838443805,
+      400.55232032194084
+     ],
+     "depth_m": 4.451630496899416
+    },
+    {
+     "label": "over the table",
+     "sample": 268,
+     "route_xyz": [
+      0.1504,
+      0.6152,
+      1.2423
+     ],
+     "pixel_uv": [
+      791.7626142126572,
+      352.3354734764971
+     ],
+     "depth_m": 4.677775421774653
+    },
+    {
+     "label": "goal",
+     "sample": 346,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      908.5156129309194,
+      305.648013710947
+     ],
+     "depth_m": 4.730931989065072
+    }
+   ]
+  },
+  "oblique": {
+   "path": "results/uavlamp/final/keyframes_oblique.png",
+   "camera": {
+    "pos": [
+     15.091804191330432,
+     27.926176376023026,
+     1.8728250406892009
+    ],
+    "fov_y_deg": 55.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    3.1,
+    4.3,
+    3.1
+   ],
+   "target_route": [
+    -0.7,
+    0.9,
+    0.8
+   ],
+   "n_splats": 430112,
+   "path_visible_fraction": 0.16714697406340057,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      569.0295881788493,
+      389.40487080649024
+     ],
+     "depth_m": 6.397322428965653
+    },
+    {
+     "label": "approach",
+     "sample": 42,
+     "route_xyz": [
+      -1.6211,
+      1.0188,
+      0.55
+     ],
+     "pixel_uv": [
+      613.6047483610953,
+      397.32313508619217
+     ],
+     "depth_m": 6.250033211690259
+    },
+    {
+     "label": "under the lamp",
+     "sample": 132,
+     "route_xyz": [
+      -0.832,
+      0.7524,
+      0.65
+     ],
+     "pixel_uv": [
+      702.8918481149627,
+      407.3495970580153
+     ],
+     "depth_m": 5.834828308146621
+    },
+    {
+     "label": "climbing",
+     "sample": 196,
+     "route_xyz": [
+      -0.3476,
+      0.8533,
+      0.9903
+     ],
+     "pixel_uv": [
+      739.0784037361623,
+      388.6584504479807
+     ],
+     "depth_m": 5.304482299106033
+    },
+    {
+     "label": "over the table",
+     "sample": 268,
+     "route_xyz": [
+      0.1504,
+      0.6152,
+      1.2423
+     ],
+     "pixel_uv": [
+      819.5855316051302,
+      366.1341175674642
+     ],
+     "depth_m": 5.007286477837589
+    },
+    {
+     "label": "goal",
+     "sample": 346,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      915.3412255835699,
+      353.13930129284404
+     ],
+     "depth_m": 4.49966761316377
+    }
+   ]
+  },
+  "top": {
+   "path": "results/uavlamp/final/keyframes_top.png",
+   "camera": {
+    "pos": [
+     10.49503899058099,
+     26.078272241827047,
+     6.9728250406892
+    ],
+    "fov_y_deg": 48.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -0.55,
+    0.95,
+    8.2
+   ],
+   "target_route": [
+    -0.55,
+    1.0,
+    0.0
+   ],
+   "n_splats": 667867,
+   "path_visible_fraction": 0.2881844380403458,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      870.256994499139,
+      376.12293854732854
+     ],
+     "depth_m": 7.651382151415958
+    },
+    {
+     "label": "approach",
+     "sample": 42,
+     "route_xyz": [
+      -1.6211,
+      1.0188,
+      0.55
+     ],
+     "pixel_uv": [
+      825.7833981248771,
+      397.39500442811146
+     ],
+     "depth_m": 7.650277471293603
+    },
+    {
+     "label": "under the lamp",
+     "sample": 132,
+     "route_xyz": [
+      -0.832,
+      0.7524,
+      0.65
+     ],
+     "pixel_uv": [
+      733.566274464063,
+      428.9960717182566
+     ],
+     "depth_m": 7.548654801555264
+    },
+    {
+     "label": "climbing",
+     "sample": 196,
+     "route_xyz": [
+      -0.3476,
+      0.8533,
+      0.9903
+     ],
+     "pixel_uv": [
+      674.7763606612131,
+      417.5283067879724
+     ],
+     "depth_m": 7.208968606590569
+    },
+    {
+     "label": "over the table",
+     "sample": 268,
+     "route_xyz": [
+      0.1504,
+      0.6152,
+      1.2423
+     ],
+     "pixel_uv": [
+      609.5322925486555,
+      448.7236512086271
+     ],
+     "depth_m": 6.955521425867754
+    },
+    {
+     "label": "goal",
+     "sample": 346,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      518.9068514147351,
+      459.13636516871725
+     ],
+     "depth_m": 6.69743647058636
+    }
+   ]
+  }
+ },
+ "video": {
+  "path": "results/uavlamp/final/flythrough.mp4",
+  "bytes": 771576,
+  "sha256": "f32482907d1b4f6ff61d6b91deb95d43d504cb6924f94a5e89ad9c63f58b4bdf",
+  "fps": 20,
+  "n_frames": 340,
+  "size": [
+   960,
+   540
+  ],
+  "render_s": 357.29590256896336,
+  "frames_from_mp4": {
+   "start": {
+    "path": "results/uavlamp/final/flythrough_frame_000_start.png",
+    "frame": 0,
+    "route_xyz": [
+     -2.0,
+     1.2,
+     0.55
+    ]
+   },
+   "under the lamp": {
+    "path": "results/uavlamp/final/flythrough_frame_134_under_the_lamp.png",
+    "frame": 134,
+    "route_xyz": [
+     -0.832,
+     0.7524,
+     0.65
+    ]
+   },
+   "climbing": {
+    "path": "results/uavlamp/final/flythrough_frame_189_climbing.png",
+    "frame": 189,
+    "route_xyz": [
+     -0.3476,
+     0.8533,
+     0.9903
+    ]
+   },
+   "at goal": {
+    "path": "results/uavlamp/final/flythrough_frame_339_at_goal.png",
+    "frame": 339,
+    "route_xyz": [
+     0.8,
+     0.55,
+     1.5
+    ]
+   }
+  },
+  "camera_path_every_20th": [
+   {
+    "frame": 0,
+    "sample": 0,
+    "eye_route": [
+     -4.629,
+     3.934,
+     2.043
+    ],
+    "target_route": [
+     -1.242,
+     1.092,
+     0.775
+    ]
+   },
+   {
+    "frame": 20,
+    "sample": 0,
+    "eye_route": [
+     -4.375,
+     4.194,
+     2.088
+    ],
+    "target_route": [
+     -1.242,
+     1.092,
+     0.775
+    ]
+   },
+   {
+    "frame": 40,
+    "sample": 24,
+    "eye_route": [
+     -4.017,
+     4.391,
+     2.134
+    ],
+    "target_route": [
+     -1.159,
+     1.052,
+     0.775
+    ]
+   },
+   {
+    "frame": 60,
+    "sample": 47,
+    "eye_route": [
+     -3.612,
+     4.55,
+     2.179
+    ],
+    "target_route": [
+     -1.047,
+     0.998,
+     0.775
+    ]
+   },
+   {
+    "frame": 80,
+    "sample": 70,
+    "eye_route": [
+     -3.189,
+     4.681,
+     2.224
+    ],
+    "target_route": [
+     -0.933,
+     0.944,
+     0.775
+    ]
+   },
+   {
+    "frame": 100,
+    "sample": 93,
+    "eye_route": [
+     -2.754,
+     4.792,
+     2.274
+    ],
+    "target_route": [
+     -0.82,
+     0.895,
+     0.78
+    ]
+   },
+   {
+    "frame": 120,
+    "sample": 116,
+    "eye_route": [
+     -2.312,
+     4.896,
+     2.341
+    ],
+    "target_route": [
+     -0.711,
+     0.868,
+     0.802
+    ]
+   },
+   {
+    "frame": 140,
+    "sample": 139,
+    "eye_route": [
+     -1.867,
+     5.0,
+     2.431
+    ],
+    "target_route": [
+     -0.607,
+     0.869,
+     0.848
+    ]
+   },
+   {
+    "frame": 160,
+    "sample": 162,
+    "eye_route": [
+     -1.419,
+     5.094,
+     2.537
+    ],
+    "target_route": [
+     -0.507,
+     0.889,
+     0.909
+    ]
+   },
+   {
+    "frame": 180,
+    "sample": 186,
+    "eye_route": [
+     -0.974,
+     5.155,
+     2.657
+    ],
+    "target_route": [
+     -0.413,
+     0.906,
+     0.985
+    ]
+   },
+   {
+    "frame": 200,
+    "sample": 209,
+    "eye_route": [
+     -0.538,
+     5.159,
+     2.768
+    ],
+    "target_route": [
+     -0.329,
+     0.896,
+     1.052
+    ]
+   },
+   {
+    "frame": 220,
+    "sample": 232,
+    "eye_route": [
+     -0.098,
+     5.104,
+     2.855
+    ],
+    "target_route": [
+     -0.24,
+     0.856,
+     1.096
+    ]
+   },
+   {
+    "frame": 240,
+    "sample": 255,
+    "eye_route": [
+     0.344,
+     5.016,
+     2.931
+    ],
+    "target_route": [
+     -0.145,
+     0.812,
+     1.128
+    ]
+   },
+   {
+    "frame": 260,
+    "sample": 278,
+    "eye_route": [
+     0.782,
+     4.915,
+     3.013
+    ],
+    "target_route": [
+     -0.047,
+     0.785,
+     1.166
+    ]
+   },
+   {
+    "frame": 280,
+    "sample": 301,
+    "eye_route": [
+     1.215,
+     4.796,
+     3.095
+    ],
+    "target_route": [
+     0.054,
+     0.766,
+     1.205
+    ]
+   },
+   {
+    "frame": 300,
+    "sample": 324,
+    "eye_route": [
+     1.638,
+     4.662,
+     3.181
+    ],
+    "target_route": [
+     0.156,
+     0.76,
+     1.248
+    ]
+   },
+   {
+    "frame": 320,
+    "sample": 346,
+    "eye_route": [
+     2.014,
+     4.503,
+     3.254
+    ],
+    "target_route": [
+     0.225,
+     0.754,
+     1.278
+    ]
+   }
+  ],
+  "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"
+ },
+ "files": {
+  "altitude_profile.png": {
+   "bytes": 155333,
+   "sha256": "9844d890ab0f8bb97c4a26c77b7e10eee521e2bf3e657ce41df43347dd527cb8"
+  },
+  "flythrough.mp4": {
+   "bytes": 771576,
+   "sha256": "f32482907d1b4f6ff61d6b91deb95d43d504cb6924f94a5e89ad9c63f58b4bdf"
+  },
+  "flythrough_frame_000_start.png": {
+   "bytes": 232108,
+   "sha256": "f4524d4852c095fad9f85670d1100e602b474e75c4459c78ae4d097e55156364"
+  },
+  "flythrough_frame_134_under_the_lamp.png": {
+   "bytes": 344550,
+   "sha256": "e70b3d600b7ff8be4139397af7457ebefd8ed1e07c1b4e3b037e45420fc9e794"
+  },
+  "flythrough_frame_189_climbing.png": {
+   "bytes": 346214,
+   "sha256": "5a8dde122d817fea4bbb2b0d874a635eef9ee553ee7b2d6cfa09eb8ae1f10bb6"
+  },
+  "flythrough_frame_339_at_goal.png": {
+   "bytes": 316450,
+   "sha256": "26289c1e9b82fba15cbf2ae9f2f0e66b314ea6b35a0097ccff3f4fe0d57fc1c0"
+  },
+  "keyframes_oblique.png": {
+   "bytes": 516494,
+   "sha256": "b20aef2793f30fdec8a5c92900b09e1909da6b1599cb4a46b0f60e0ccf7f41bf"
+  },
+  "keyframes_side.png": {
+   "bytes": 634389,
+   "sha256": "b2bf6fd67135510c80d4c891efcf6fd38aadc1d52297a1299b7411ca4e969849"
+  },
+  "keyframes_top.png": {
+   "bytes": 530571,
+   "sha256": "44cbc4c637cc907ca5c152e4dda84263fee62e7703104a77c05f4a4c8476e536"
+  },
+  "necessity_high_start.png": {
+   "bytes": 409638,
+   "sha256": "7b584ec653c6e413841ab5377774695dbc294c3d16866dff2239343567353b97"
+  },
+  "necessity_low_start.png": {
+   "bytes": 410481,
+   "sha256": "f84bb8b8bdcd4441c188957fb248aa099053c93f32ec0ef2ea8e0b58a8d5c241"
+  },
+  "route_3d.html": {
+   "bytes": 3042050,
+   "sha256": "b1223c041ed32cd981a3afdd23b295b7909dbd8b9dfb69c8f85f776e9eb4d3ce"
+  }
+ }
+}
