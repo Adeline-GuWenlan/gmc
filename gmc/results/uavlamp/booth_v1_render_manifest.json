@@ -1,0 +1,95 @@
+{
+ "archive_sha256": "485df24d1077c313c355767ecdb0330ca7bcbba8bc986a7f47e4cc2dd7dd08c4",
+ "tag": "booth_v1",
+ "dropped_roles": [],
+ "n_region": 747562,
+ "views": {
+  "entrance": {
+   "path": "outputs/uavlamp/render/booth_v1_entrance.png",
+   "camera": {
+    "pos": [
+     9.41085740813157,
+     22.88342478126224,
+     0.12282504068920058
+    ],
+    "fov_y_deg": 55.0,
+    "size": [
+     1200,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -3.9,
+    1.35,
+    1.35
+   ],
+   "target_route": [
+    0.8,
+    0.9,
+    1.05
+   ],
+   "n_splats": 747562,
+   "n_visible": 561959,
+   "n_drawn": 561959
+  },
+  "cutaway_side": {
+   "path": "outputs/uavlamp/render/booth_v1_cutaway_side.png",
+   "camera": {
+    "pos": [
+     15.519761018508081,
+     23.952909086490138,
+     0.27282504068920055
+    ],
+    "fov_y_deg": 55.0,
+    "size": [
+     1200,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -0.3,
+    6.4,
+    1.5
+   ],
+   "target_route": [
+    -0.3,
+    1.0,
+    1.15
+   ],
+   "n_splats": 492784,
+   "n_visible": 492591,
+   "n_drawn": 492591
+  },
+  "cutaway_oblique": {
+   "path": "outputs/uavlamp/render/booth_v1_cutaway_oblique.png",
+   "camera": {
+    "pos": [
+     13.143066839883971,
+     21.763999590578017,
+     2.9728250406892007
+    ],
+    "fov_y_deg": 55.0,
+    "size": [
+     1200,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -3.3,
+    5.2,
+    4.2
+   ],
+   "target_route": [
+    0.2,
+    1.0,
+    1.0
+   ],
+   "n_splats": 430112,
+   "n_visible": 416747,
+   "n_drawn": 416747
+  }
+ }
+}

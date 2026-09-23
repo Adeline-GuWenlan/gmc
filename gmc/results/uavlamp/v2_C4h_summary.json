@@ -1,0 +1,158 @@
+{
+  "status": "success",
+  "reason": "verified_goal_reached",
+  "expansions": 0,
+  "visited_nodes": 0,
+  "oracle_calls": 5,
+  "occupied_rejections": 0,
+  "unproven_rejections": 0,
+  "map_unknown_rejections": 0,
+  "algorithm_wall_s": 1.9530035139760002,
+  "clearance_lower_m": 0.05000669243332804,
+  "path_length_m": 2.8748913022930083,
+  "altitude_range_m": 0.050000000000000044,
+  "knots_route": [
+    [
+      -2.0,
+      1.2,
+      1.55
+    ],
+    [
+      0.8,
+      0.55,
+      1.5
+    ]
+  ],
+  "z_start": 1.55,
+  "z_goal": 1.5,
+  "z_min": 1.5,
+  "z_max": 1.55,
+  "lamp": {
+    "footprint_route_uv": [
+      [
+        -1.0,
+        -0.05
+      ],
+      [
+        -0.7,
+        2.45
+      ]
+    ],
+    "underside_z": 1.1,
+    "centre_samples_inside_footprint": 31,
+    "passes_under": false,
+    "passes_over": true,
+    "z_inside_footprint": [
+      1.5268686906712057,
+      1.5320862792416103
+    ],
+    "v_range_while_u_in_lamp_span": [
+      0.8992929787256733,
+      0.9671216301409342
+    ],
+    "z_range_while_u_in_lamp_span": [
+      1.5268686906712057,
+      1.5320862792416103
+    ],
+    "goal_minus_min_z_under_lamp": -0.026868690671205675
+  },
+  "map_unknown_rejections_by_box_face": {},
+  "name": "v2_C4h_counterfactual_lamp_only_high",
+  "archive": "outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+  "start_route": [
+    -2.0,
+    1.2,
+    1.55
+  ],
+  "goal_route": [
+    0.8,
+    0.55,
+    1.5
+  ],
+  "start_world": [
+    10.095113053932813,
+    24.662271095924954,
+    0.3228250406892006
+  ],
+  "goal_world": [
+    10.716501963685912,
+    27.468759261379397,
+    0.27282504068920055
+  ],
+  "box_route": {
+    "lower": [
+      -3.0,
+      -0.35,
+      0.0
+    ],
+    "upper": [
+      3.7,
+      2.75,
+      2.43
+    ]
+  },
+  "bounds_world": [
+    [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ]
+  ],
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+    "max_wall_s": 20000.0,
+    "max_expansions": 2000000,
+    "max_oracle_calls": 50000000,
+    "max_narrowphase_pairs": 1000000000
+  },
+  "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7103046,
+    "opacity_selected": 3807772,
+    "selected_supports": 354700,
+    "bounds_min": [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    "bounds_max": [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+  },
+  "dropped_roles_test_only": [
+    "back_panel",
+    "bulkhead",
+    "drop_ceiling"
+  ],
+  "extra_test_only": [],
+  "planner_calls": 1,
+  "independent_replay_passed": true,
+  "endpoint_reports": {
+    "start": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "original": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "attained": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    }
+  }
+}

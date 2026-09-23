@@ -77,3 +77,16 @@ walls. That is the pattern to reproduce — but in the real hall the side walls 
   measurement): gallery between two real walls, A (7.5,22)→(11.6,30.5) and B (10.3,22)→(15.9,32),
   ~2.8–3.0 m wide, with a real table/cabinet at (10.2–11.8, 26.8–29.6) against wall A and a
   ≥4 m free approach from the south. Job 18323467 fits the wall faces and the table.
+- Site chosen: gallery between real walls A/B, real table against wall A. Frame origin moved
+  0.45 m onto wall A's face (site job's 0.999 quantile was polluted by the table).
+- Build 18323926 ok (sha 485df24d…). Render 18323927 looked at: reads as gallery + light box.
+  Probes 18323928: all boundaries 0 free crossings; opening 85 free (control). Wall B sparse in
+  the booth span, still closed.
+- cpu_short rejects --time ≥ 8 h (6 h accepted): necessity budget capped at 20 700 s (job 18324321).
+- Resumed 09:04Z. Q1a/Q1b run 2: both success, both UNDER Codex's lamp (Q1b falsifies my "over").
+  v1 T3: M1/M5/C4/B6/B6h budget-stopped at 7200 s (~3.6 s/expansion, 19 GJK it/pair, 1/3 edges
+  unproven near wall A/table); C4h success OVER the lamp; N2 queue exhausted but labelled map_unknown
+  because v1 box v-faces 5 cm inside walls + rotated-AABB coverage check precedes occupancy;
+  P3c/d probes mis-placed (goal body outside box). v2: box faces behind surfaces, face-logging
+  coverage wrapper, nearer goal (.8,.55,1.5), start u=-2.0, 20 000 s budgets. Jobs 18329380-90.
+- v2 results 11:15Z: M1/M5 success under the lamp (replay passed); N2 exhausted, unknown only at u_min (3648); B6/B6h identical routes; C4 same as M1 (low start = geodesic), C4h over. Route overlay render 18331738.

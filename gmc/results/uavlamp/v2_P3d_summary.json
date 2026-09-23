@@ -1,0 +1,102 @@
+{
+  "status": "goal_invalid",
+  "reason": "original_goal:ellipsoid_centre_in_swept_body",
+  "expansions": 0,
+  "visited_nodes": 0,
+  "oracle_calls": 2,
+  "occupied_rejections": 1,
+  "unproven_rejections": 0,
+  "map_unknown_rejections": 0,
+  "algorithm_wall_s": 0.03518364601768553,
+  "clearance_lower_m": null,
+  "map_unknown_rejections_by_box_face": {},
+  "name": "v2_P3d_goal_beside_lamp_wallB",
+  "archive": "outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+  "start_route": [
+    -2.0,
+    1.2,
+    0.55
+  ],
+  "goal_route": [
+    -0.85,
+    1.95,
+    1.1700000000000002
+  ],
+  "start_world": [
+    10.095113053932813,
+    24.662271095924954,
+    -0.6771749593107994
+  ],
+  "goal_world": [
+    11.267811419685536,
+    25.376258871002996,
+    -0.0571749593107993
+  ],
+  "box_route": {
+    "lower": [
+      -3.0,
+      -0.35,
+      0.0
+    ],
+    "upper": [
+      3.7,
+      2.75,
+      2.43
+    ]
+  },
+  "bounds_world": [
+    [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ]
+  ],
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+    "max_wall_s": 20000.0,
+    "max_expansions": 2000000,
+    "max_oracle_calls": 50000000,
+    "max_narrowphase_pairs": 1000000000
+  },
+  "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 359201,
+    "bounds_min": [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    "bounds_max": [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+  },
+  "dropped_roles_test_only": [],
+  "extra_test_only": [],
+  "planner_calls": 1,
+  "independent_replay_passed": null,
+  "endpoint_reports": {
+    "start": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "original": {
+      "occupancy": "occupied",
+      "reason": "ellipsoid_centre_in_swept_body",
+      "clearance_lower_m": 0.0
+    }
+  }
+}

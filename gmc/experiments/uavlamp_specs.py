@@ -10,7 +10,7 @@ import argparse
 import json
 from pathlib import Path
 
-BIG = {"max_wall_s": 7200., "max_expansions": 2_000_000, "max_oracle_calls": 50_000_000,
+BIG = {"max_wall_s": 20000., "max_expansions": 2_000_000, "max_oracle_calls": 50_000_000,
        "max_narrowphase_pairs": 1_000_000_000}
 NECESSITY = {**BIG, "max_wall_s": 20700.}
 
@@ -47,8 +47,8 @@ def main(argv=None):
         "N2_necessity_plug": {"extra_builders": [plug], "budget": NECESSITY},
         "P3a_goal_above_lamp_in_bulkhead": {"goal_route": [ul, 1.2, 1.80]},
         "P3b_goal_lamp_top_bulkhead_seam": {"goal_route": [ul, 1.2, zl + .17]},
-        "P3c_goal_beside_lamp_wallA": {"goal_route": [ul, .15, zl + .07]},
-        "P3d_goal_beside_lamp_wallB": {"goal_route": [ul, 2.20, zl + .07]},
+        "P3c_goal_beside_lamp_wallA": {"goal_route": [ul, .35, zl + .07]},
+        "P3d_goal_beside_lamp_wallB": {"goal_route": [ul, 1.95, zl + .07]},
         "C4_counterfactual_lamp_only_low": {"drop_roles": ["drop_ceiling", "bulkhead", "back_panel"]},
         "C4h_counterfactual_lamp_only_high": {"drop_roles": ["drop_ceiling", "bulkhead", "back_panel"],
                                               "start_route": q["high_start_route"]},

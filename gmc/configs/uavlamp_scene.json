@@ -1,6 +1,6 @@
 {
  "schema_version": "uavlamp.scene.v1",
- "scene_id": "uavlamp_gallery_booth_v1",
+ "scene_id": "uavlamp_gallery_booth_v2",
  "source": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
  "source_sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60",
  "frame": {
@@ -144,38 +144,38 @@
  ],
  "query": {
   "start_route": [
-   -2.4,
+   -2.0,
    1.2,
    0.55
   ],
   "high_start_route": [
-   -2.4,
+   -2.0,
    1.2,
    1.55
   ],
   "goal_route": [
-   1.5,
-   0.47,
+   0.8,
+   0.55,
    1.5
   ],
   "box_route": {
    "lower": [
     -3.0,
-    -0.05,
+    -0.35,
     0.0
    ],
    "upper": [
-    3.3,
-    2.45,
+    3.7,
+    2.75,
     2.43
    ]
   },
   "box_faces": {
-   "u_min (u=-3.00)": "OPEN AIR - gallery continues south; tested by pushing to u=-4.00",
-   "u_max (u=3.30)": "back_panel (added)",
-   "v_min (v=-.05)": "inside real wall A (face v~0)",
-   "v_max (v=2.45)": "inside real wall B (face v 2.30-2.40)",
-   "z_min (z=0)": "real plane floor (top ~.034)",
+   "u_min (u=-3.00)": "OPEN AIR - gallery continues south; tested by pushing to u=-4.00 (soffit extends to -4.20)",
+   "u_max (u=3.70)": "behind the back panel (u=3.30): reachable only through the back panel",
+   "v_min (v=-.35)": "behind real wall A's face (v~0): reachable only through wall A",
+   "v_max (v=2.75)": "behind real wall B's face (v 2.30-2.40, band to ~2.70): reachable only through wall B",
+   "z_min (z=0)": "real plane floor (top ~.03)",
    "z_max (z=2.43)": "soffit (added, z 2.38-2.42)"
   },
   "lamp": {
@@ -206,7 +206,8 @@
    "top_z": 0.94
   },
   "resolution_m": 0.1,
-  "margin_m": 0.05
+  "margin_m": 0.05,
+  "box_note": "v1 used v in [-.05,2.45], u_max 3.30: faces 5 cm inside the walls made the rotated-prism coverage check report map_unknown before the wall's occupancy; v2 moves those faces behind the surfaces."
  },
  "notes": [
   "All edits are additions; no source Gaussian is removed or modified.",

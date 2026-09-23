@@ -1,0 +1,1150 @@
+{
+ "schema_version": "uavlamp.scene.v1",
+ "scene_id": "uavlamp_gallery_booth_v1",
+ "units": "metres; covariance m^2; world xyz, +z up; route/site frame local z = height above floor",
+ "source": {
+  "path": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+  "bytes": 795415908,
+  "sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60"
+ },
+ "source_unchanged_after_build": true,
+ "derivative": {
+  "path": "outputs/uavlamp/scene/uavlamp_scene.npz",
+  "bytes": 796074132,
+  "sha256": "485df24d1077c313c355767ecdb0330ca7bcbba8bc986a7f47e4cc2dd7dd08c4",
+  "n_base_gaussians": 7101868,
+  "n_output_gaussians": 7107732,
+  "n_added": 5864,
+  "builder_code_sha256": "b72505a6e9b6cec33a288b35b46856c0a41ed979ec7da65fef7ce73d47bbe7b9"
+ },
+ "config_sha256": "edff1cbb4e52903d779c208fa6f7e7cebfd670b32ba069a8d5f0252f6920e844",
+ "frame": {
+  "origin_world_m": [
+   9.875215398669711,
+   26.984262702544104,
+   -1.2271749593107995
+  ],
+  "world_to_route": [
+   [
+    0.4313593046722016,
+    0.9021802205062548,
+    0.0
+   ],
+   [
+    0.9021802205062548,
+    -0.4313593046722016,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "definition": "site frame: u along real wall A (world dir (.431,.902)), v = wall A normal into the gallery (v=0 on wall A's measured face), z = height above the plane floor. Fitted by experiments/uavlamp_site.py (job 18323467), origin shifted by -0.45 m along v onto wall A's per-bin 99.9% face."
+ },
+ "tau": 0.3,
+ "level": 2.0,
+ "edits": [
+  {
+   "edit_id": "soffit",
+   "role": "drop_ceiling",
+   "kind": "panel",
+   "center_route": [
+    -0.4500000000000002,
+    1.2000000000000002,
+    2.4
+   ],
+   "plane": "uv",
+   "size_m": [
+    7.5,
+    2.5
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.9,
+    0.9,
+    0.87
+   ],
+   "opacity": 0.95,
+   "justification": "lowered gallery ceiling (soffit) at 2.40 m over this gallery section, a standard exhibition drop-ceiling height",
+   "contact": "spans wall A face (v=0) to wall B face (v 2.30-2.40); both edges run 0.05 m past the face into the wall band",
+   "id_range": [
+    7341022,
+    7344156
+   ],
+   "count": 3135,
+   "actual_step_m": [
+    0.07978723404255339,
+    0.078125
+   ],
+   "min_half_thickness_m": 0.014323539224624494,
+   "solid_aabb_route_m": {
+    "lower": [
+     -4.28,
+     -0.1299999999999999,
+     2.38
+    ],
+    "upper": [
+     3.38,
+     2.5300000000000002,
+     2.42
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_diffuser",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    1.2000000000000002,
+    1.12
+   ],
+   "plane": "uv",
+   "size_m": [
+    0.26,
+    2.46
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    1.0,
+    0.93,
+    0.72
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7344157,
+    7344513
+   ],
+   "count": 357,
+   "actual_step_m": [
+    0.043333333333333335,
+    0.04919999999999991
+   ],
+   "min_half_thickness_m": 0.01510176442965819,
+   "solid_aabb_route_m": {
+    "lower": [
+     -1.03,
+     -0.07999999999999985,
+     1.1
+    ],
+    "upper": [
+     -0.6699999999999999,
+     2.4800000000000004,
+     1.1400000000000001
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_top",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    1.2000000000000002,
+    1.23
+   ],
+   "plane": "uv",
+   "size_m": [
+    0.26,
+    2.46
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7344514,
+    7344870
+   ],
+   "count": 357,
+   "actual_step_m": [
+    0.043333333333333335,
+    0.04919999999999991
+   ],
+   "min_half_thickness_m": 0.01510176442965819,
+   "solid_aabb_route_m": {
+    "lower": [
+     -1.03,
+     -0.07999999999999985,
+     1.21
+    ],
+    "upper": [
+     -0.6699999999999999,
+     2.4800000000000004,
+     1.25
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_side_umin",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.98,
+    1.2000000000000002,
+    1.175
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.46,
+    0.10999999999999988
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7344871,
+    7345074
+   ],
+   "count": 204,
+   "actual_step_m": [
+    0.04919999999999991,
+    0.036666666666666625
+   ],
+   "min_half_thickness_m": 0.015792296293516746,
+   "solid_aabb_route_m": {
+    "lower": [
+     -1.0,
+     -0.07999999999999985,
+     1.07
+    ],
+    "upper": [
+     -0.96,
+     2.4800000000000004,
+     1.28
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_side_umax",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.72,
+    1.2000000000000002,
+    1.175
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.46,
+    0.10999999999999988
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7345075,
+    7345278
+   ],
+   "count": 204,
+   "actual_step_m": [
+    0.04919999999999991,
+    0.036666666666666625
+   ],
+   "min_half_thickness_m": 0.015792296293516746,
+   "solid_aabb_route_m": {
+    "lower": [
+     -0.74,
+     -0.07999999999999985,
+     1.07
+    ],
+    "upper": [
+     -0.7,
+     2.4800000000000004,
+     1.28
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_end_vmin",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    -0.029999999999999822,
+    1.175
+   ],
+   "plane": "uz",
+   "size_m": [
+    0.26,
+    0.10999999999999988
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7345279,
+    7345306
+   ],
+   "count": 28,
+   "actual_step_m": [
+    0.043333333333333335,
+    0.036666666666666625
+   ],
+   "min_half_thickness_m": 0.016465452046971297,
+   "solid_aabb_route_m": {
+    "lower": [
+     -1.03,
+     -0.04999999999999982,
+     1.07
+    ],
+    "upper": [
+     -0.6699999999999999,
+     -0.009999999999999822,
+     1.28
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "lamp_end_vmax",
+   "parent": "lamp",
+   "role": "lamp",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    2.43,
+    1.175
+   ],
+   "plane": "uz",
+   "size_m": [
+    0.26,
+    0.10999999999999988
+   ],
+   "spacing_m": 0.05,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead",
+   "id_range": [
+    7345307,
+    7345334
+   ],
+   "count": 28,
+   "actual_step_m": [
+    0.043333333333333335,
+    0.036666666666666625
+   ],
+   "min_half_thickness_m": 0.016465452046971297,
+   "solid_aabb_route_m": {
+    "lower": [
+     -1.03,
+     2.41,
+     1.07
+    ],
+    "upper": [
+     -0.6699999999999999,
+     2.45,
+     1.28
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "bulkhead",
+   "role": "bulkhead",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    1.2000000000000002,
+    1.825
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.5,
+    1.15
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.9,
+    0.9,
+    0.87
+   ],
+   "opacity": 0.95,
+   "justification": "header wall (bulkhead) from the light box up to the soffit, closing the entrance above the lamp",
+   "contact": "bottom edge on the lamp top (z 1.25), top edge on the soffit (z 2.40), sides into wall A / wall B",
+   "id_range": [
+    7345335,
+    7345862
+   ],
+   "count": 528,
+   "actual_step_m": [
+    0.078125,
+    0.07666666666666666
+   ],
+   "min_half_thickness_m": 0.01458740177624505,
+   "solid_aabb_route_m": {
+    "lower": [
+     -0.87,
+     -0.1299999999999999,
+     1.17
+    ],
+    "upper": [
+     -0.83,
+     2.5300000000000002,
+     2.48
+    ]
+   },
+   "manual_edit": true
+  },
+  {
+   "edit_id": "back_panel",
+   "role": "back_panel",
+   "kind": "panel",
+   "center_route": [
+    3.3,
+    1.2000000000000002,
+    1.2
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.5,
+    2.4
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.55,
+    0.62,
+    0.7
+   ],
+   "opacity": 0.95,
+   "justification": "display back panel closing the booth 0.35 m beyond the table end (table ends u=2.95)",
+   "contact": "floor (z 0) to soffit (z 2.40), wall A to wall B",
+   "id_range": [
+    7345863,
+    7346885
+   ],
+   "count": 1023,
+   "actual_step_m": [
+    0.078125,
+    0.08000000000000007
+   ],
+   "min_half_thickness_m": 0.014304984039116396,
+   "solid_aabb_route_m": {
+    "lower": [
+     3.28,
+     -0.1299999999999999,
+     -0.08000000000000007
+    ],
+    "upper": [
+     3.32,
+     2.5300000000000002,
+     2.48
+    ]
+   },
+   "manual_edit": true
+  }
+ ],
+ "query": {
+  "start_route": [
+   -2.4,
+   1.2,
+   0.55
+  ],
+  "high_start_route": [
+   -2.4,
+   1.2,
+   1.55
+  ],
+  "goal_route": [
+   1.5,
+   0.47,
+   1.5
+  ],
+  "box_route": {
+   "lower": [
+    -3.0,
+    -0.05,
+    0.0
+   ],
+   "upper": [
+    3.3,
+    2.45,
+    2.43
+   ]
+  },
+  "box_faces": {
+   "u_min (u=-3.00)": "OPEN AIR - gallery continues south; tested by pushing to u=-4.00",
+   "u_max (u=3.30)": "back_panel (added)",
+   "v_min (v=-.05)": "inside real wall A (face v~0)",
+   "v_max (v=2.45)": "inside real wall B (face v 2.30-2.40)",
+   "z_min (z=0)": "real plane floor (top ~.034)",
+   "z_max (z=2.43)": "soffit (added, z 2.38-2.42)"
+  },
+  "lamp": {
+   "footprint_route_uv": [
+    [
+     -1.0,
+     -0.05
+    ],
+    [
+     -0.7,
+     2.45
+    ]
+   ],
+   "underside_z": 1.1,
+   "top_z": 1.25
+  },
+  "table": {
+   "top_route_uv": [
+    [
+     0.0,
+     0.15
+    ],
+    [
+     2.95,
+     0.78
+    ]
+   ],
+   "top_z": 0.94
+  },
+  "resolution_m": 0.1,
+  "margin_m": 0.05
+ },
+ "real_geometry": {
+  "wall_A": "real full-height hall wall, face v~0 (measured per u-bin in manifest.measured_contacts)",
+  "wall_B": "real full-height hall wall, face v~2.30-2.40 (signage/posters protrude), band to v~2.65",
+  "table": "real table against wall A, u 0..2.95, v ~.15..~.78, top ~.92-.94 m (site job 18323467)",
+  "floor": "plane floor (user-approved Amendment-3 manual edit), top ~.034 m",
+  "ceiling": "real ceiling ~5.07 m, beam 4.5 m"
+ },
+ "notes": [
+  "All edits are additions; no source Gaussian is removed or modified.",
+  "Body r=.25, h=.10, margin=.05: lateral gap closed if <.50 m, vertical gap closed if <.20 m (one .10 m lattice cell of safety)."
+ ],
+ "config_path": "configs/uavlamp_scene.json",
+ "measured_contacts": {
+  "wall_face_rows": [
+   {
+    "u": [
+     -4.5,
+     -4.25
+    ],
+    "wallA_n": 1733,
+    "wallA_face_v_q50": -0.08702772855813515,
+    "wallA_face_v_q999": -0.0011262321184549859,
+    "wallB_n": 2663,
+    "wallB_face_v_q001": 2.4050019466465735,
+    "wallB_face_v_q50": 2.495441266857357,
+    "wallB_back_v_max": 2.6740944269629243
+   },
+   {
+    "u": [
+     -4.25,
+     -4.0
+    ],
+    "wallA_n": 1167,
+    "wallA_face_v_q50": -0.10922419630730004,
+    "wallA_face_v_q999": -0.04566347419958454,
+    "wallB_n": 1366,
+    "wallB_face_v_q001": 2.3580178322691943,
+    "wallB_face_v_q50": 2.569744471467324,
+    "wallB_back_v_max": 2.672707181780329
+   },
+   {
+    "u": [
+     -4.0,
+     -3.75
+    ],
+    "wallA_n": 1213,
+    "wallA_face_v_q50": -0.08648700175316619,
+    "wallA_face_v_q999": -0.04605302526470684,
+    "wallB_n": 2670,
+    "wallB_face_v_q001": 2.398148051340911,
+    "wallB_face_v_q50": 2.636779014896912,
+    "wallB_back_v_max": 2.702347744522608
+   },
+   {
+    "u": [
+     -3.75,
+     -3.5
+    ],
+    "wallA_n": 4117,
+    "wallA_face_v_q50": -0.033997724727018716,
+    "wallA_face_v_q999": 0.0030240785273611365,
+    "wallB_n": 2607,
+    "wallB_face_v_q001": 2.385275967058117,
+    "wallB_face_v_q50": 2.655195361598328,
+    "wallB_back_v_max": 2.7131657624958936
+   },
+   {
+    "u": [
+     -3.5,
+     -3.25
+    ],
+    "wallA_n": 3120,
+    "wallA_face_v_q50": -0.03859629321613069,
+    "wallA_face_v_q999": 0.005024636888263709,
+    "wallB_n": 4120,
+    "wallB_face_v_q001": 2.3852157606912354,
+    "wallB_face_v_q50": 2.6658204994476113,
+    "wallB_back_v_max": 2.714343118106364
+   },
+   {
+    "u": [
+     -3.25,
+     -3.0
+    ],
+    "wallA_n": 4594,
+    "wallA_face_v_q50": -0.06665348268533952,
+    "wallA_face_v_q999": -0.000314175566854407,
+    "wallB_n": 6785,
+    "wallB_face_v_q001": 2.391180643487264,
+    "wallB_face_v_q50": 2.6451454841085216,
+    "wallB_back_v_max": 2.711778179361586
+   },
+   {
+    "u": [
+     -3.0,
+     -2.75
+    ],
+    "wallA_n": 8920,
+    "wallA_face_v_q50": -0.29658669778961266,
+    "wallA_face_v_q999": -0.0067339393508589725,
+    "wallB_n": 6316,
+    "wallB_face_v_q001": 2.3941983273846525,
+    "wallB_face_v_q50": 2.640033479274377,
+    "wallB_back_v_max": 2.708088811281262
+   },
+   {
+    "u": [
+     -2.75,
+     -2.5
+    ],
+    "wallA_n": 3323,
+    "wallA_face_v_q50": -0.27123047877397916,
+    "wallA_face_v_q999": -0.04697880994477285,
+    "wallB_n": 5740,
+    "wallB_face_v_q001": 2.397832615861543,
+    "wallB_face_v_q50": 2.6499190117553444,
+    "wallB_back_v_max": 2.7075639810446956
+   },
+   {
+    "u": [
+     -2.5,
+     -2.25
+    ],
+    "wallA_n": 3637,
+    "wallA_face_v_q50": -0.2724406145879202,
+    "wallA_face_v_q999": -0.053812353771496776,
+    "wallB_n": 4935,
+    "wallB_face_v_q001": 2.3922057516628454,
+    "wallB_face_v_q50": 2.4617590306890866,
+    "wallB_back_v_max": 2.706993401028392
+   },
+   {
+    "u": [
+     -2.25,
+     -2.0
+    ],
+    "wallA_n": 3951,
+    "wallA_face_v_q50": -0.25815689215876647,
+    "wallA_face_v_q999": -0.0523002256542307,
+    "wallB_n": 6045,
+    "wallB_face_v_q001": 2.399265079942558,
+    "wallB_face_v_q50": 2.471119322327134,
+    "wallB_back_v_max": 2.699064916364816
+   },
+   {
+    "u": [
+     -2.0,
+     -1.75
+    ],
+    "wallA_n": 4656,
+    "wallA_face_v_q50": -0.2786805730177767,
+    "wallA_face_v_q999": -0.05271123542038318,
+    "wallB_n": 4003,
+    "wallB_face_v_q001": 2.392122454199286,
+    "wallB_face_v_q50": 2.4247841858782064,
+    "wallB_back_v_max": 2.6661438411402547
+   },
+   {
+    "u": [
+     -1.75,
+     -1.5
+    ],
+    "wallA_n": 9264,
+    "wallA_face_v_q50": -0.25947243072485626,
+    "wallA_face_v_q999": 0.0018574091967712325,
+    "wallB_n": 10354,
+    "wallB_face_v_q001": 2.393658178309134,
+    "wallB_face_v_q50": 2.5627243791879417,
+    "wallB_back_v_max": 2.697789597661057
+   },
+   {
+    "u": [
+     -1.5,
+     -1.25
+    ],
+    "wallA_n": 7892,
+    "wallA_face_v_q50": -0.26036158860060343,
+    "wallA_face_v_q999": 0.00410562440783738,
+    "wallB_n": 9830,
+    "wallB_face_v_q001": 2.398213106084525,
+    "wallB_face_v_q50": 2.4264582830288557,
+    "wallB_back_v_max": 2.708463804294319
+   },
+   {
+    "u": [
+     -1.25,
+     -1.0
+    ],
+    "wallA_n": 8584,
+    "wallA_face_v_q50": -0.2592561106323961,
+    "wallA_face_v_q999": 0.0021125374105106483,
+    "wallB_n": 6811,
+    "wallB_face_v_q001": 2.3997390400782,
+    "wallB_face_v_q50": 2.631772611766366,
+    "wallB_back_v_max": 2.7060232851297044
+   },
+   {
+    "u": [
+     -1.0,
+     -0.75
+    ],
+    "wallA_n": 6662,
+    "wallA_face_v_q50": -0.251348635744154,
+    "wallA_face_v_q999": -0.0413591159113611,
+    "wallB_n": 6814,
+    "wallB_face_v_q001": 2.3905991119082115,
+    "wallB_face_v_q50": 2.5098351091513864,
+    "wallB_back_v_max": 2.703635177915702
+   },
+   {
+    "u": [
+     -0.75,
+     -0.5
+    ],
+    "wallA_n": 10249,
+    "wallA_face_v_q50": -0.23866995064436955,
+    "wallA_face_v_q999": -0.04123466346560337,
+    "wallB_n": 6432,
+    "wallB_face_v_q001": 2.3945583354520865,
+    "wallB_face_v_q50": 2.6025707110789433,
+    "wallB_back_v_max": 2.7008007322268632
+   },
+   {
+    "u": [
+     -0.5,
+     -0.25
+    ],
+    "wallA_n": 9369,
+    "wallA_face_v_q50": -0.12259050487528111,
+    "wallA_face_v_q999": -0.04166534926670624,
+    "wallB_n": 7918,
+    "wallB_face_v_q001": 2.389385051230439,
+    "wallB_face_v_q50": 2.63789535176128,
+    "wallB_back_v_max": 2.691643346868394
+   },
+   {
+    "u": [
+     -0.25,
+     0.0
+    ],
+    "wallA_n": 7060,
+    "wallA_face_v_q50": -0.07505495858441247,
+    "wallA_face_v_q999": -0.00575758189796655,
+    "wallB_n": 1961,
+    "wallB_face_v_q001": 2.3790517998160157,
+    "wallB_face_v_q50": 2.5139445479435274,
+    "wallB_back_v_max": 2.6990971031134774
+   },
+   {
+    "u": [
+     0.0,
+     0.25
+    ],
+    "wallA_n": 6529,
+    "wallA_face_v_q50": -0.07021015666063993,
+    "wallA_face_v_q999": 0.018324710577840842,
+    "wallB_n": 2242,
+    "wallB_face_v_q001": 2.3817890230444645,
+    "wallB_face_v_q50": 2.42199876811416,
+    "wallB_back_v_max": 2.673757048045088
+   },
+   {
+    "u": [
+     0.25,
+     0.5
+    ],
+    "wallA_n": 7737,
+    "wallA_face_v_q50": -0.0799991905364482,
+    "wallA_face_v_q999": 0.015202043851758908,
+    "wallB_n": 1780,
+    "wallB_face_v_q001": 2.3801085190467934,
+    "wallB_face_v_q50": 2.4199666496175007,
+    "wallB_back_v_max": 2.655061031887993
+   },
+   {
+    "u": [
+     0.5,
+     0.75
+    ],
+    "wallA_n": 10264,
+    "wallA_face_v_q50": -0.05891883337429883,
+    "wallA_face_v_q999": 0.009820039687910339,
+    "wallB_n": 2716,
+    "wallB_face_v_q001": 2.382810623678886,
+    "wallB_face_v_q50": 2.691675188655523,
+    "wallB_back_v_max": 3.284671157451247
+   },
+   {
+    "u": [
+     0.75,
+     1.0
+    ],
+    "wallA_n": 8847,
+    "wallA_face_v_q50": -0.07972418056538023,
+    "wallA_face_v_q999": -0.01124397029746881,
+    "wallB_n": 451,
+    "wallB_face_v_q001": 2.3758396893511238,
+    "wallB_face_v_q50": 2.4684630390587694,
+    "wallB_back_v_max": 3.3131096304631105
+   },
+   {
+    "u": [
+     1.0,
+     1.25
+    ],
+    "wallA_n": 9388,
+    "wallA_face_v_q50": -0.060886714111466345,
+    "wallA_face_v_q999": -0.009619372047970998,
+    "wallB_n": 380,
+    "wallB_face_v_q001": 2.3707549346240606,
+    "wallB_face_v_q50": 2.4675183422730407,
+    "wallB_back_v_max": 3.1971323342421947
+   },
+   {
+    "u": [
+     1.25,
+     1.5
+    ],
+    "wallA_n": 7267,
+    "wallA_face_v_q50": -0.07914119635375655,
+    "wallA_face_v_q999": 0.011166242502013323,
+    "wallB_n": 345,
+    "wallB_face_v_q001": 2.358801641961049,
+    "wallB_face_v_q50": 2.4654983520856315,
+    "wallB_back_v_max": 2.973791380610943
+   },
+   {
+    "u": [
+     1.5,
+     1.75
+    ],
+    "wallA_n": 8044,
+    "wallA_face_v_q50": -0.08425625512367856,
+    "wallA_face_v_q999": -0.005042348399716383,
+    "wallB_n": 402,
+    "wallB_face_v_q001": 2.360726404212222,
+    "wallB_face_v_q50": 2.464057481238106,
+    "wallB_back_v_max": 3.053956132383114
+   },
+   {
+    "u": [
+     1.75,
+     2.0
+    ],
+    "wallA_n": 10754,
+    "wallA_face_v_q50": -0.06434545214951037,
+    "wallA_face_v_q999": -0.019632688451805564,
+    "wallB_n": 438,
+    "wallB_face_v_q001": 2.3144603337771827,
+    "wallB_face_v_q50": 2.460160147949688,
+    "wallB_back_v_max": 2.7732527338923227
+   },
+   {
+    "u": [
+     2.0,
+     2.25
+    ],
+    "wallA_n": 8206,
+    "wallA_face_v_q50": -0.0939759928397312,
+    "wallA_face_v_q999": -0.021051981691618,
+    "wallB_n": 517,
+    "wallB_face_v_q001": 2.2986818893302035,
+    "wallB_face_v_q50": 2.451802165904433,
+    "wallB_back_v_max": 2.6723696863472637
+   },
+   {
+    "u": [
+     2.25,
+     2.5
+    ],
+    "wallA_n": 6384,
+    "wallA_face_v_q50": -0.08095246665315001,
+    "wallA_face_v_q999": 0.004204070263101881,
+    "wallB_n": 593,
+    "wallB_face_v_q001": 2.309819599196903,
+    "wallB_face_v_q50": 2.449657479392256,
+    "wallB_back_v_max": 2.6849090169589105
+   },
+   {
+    "u": [
+     2.5,
+     2.75
+    ],
+    "wallA_n": 7475,
+    "wallA_face_v_q50": -0.08150593820293445,
+    "wallA_face_v_q999": -0.029739348885226106,
+    "wallB_n": 498,
+    "wallB_face_v_q001": 2.298389854386525,
+    "wallB_face_v_q50": 2.458153267599104,
+    "wallB_back_v_max": 2.6678800201339943
+   },
+   {
+    "u": [
+     2.75,
+     3.0
+    ],
+    "wallA_n": 8454,
+    "wallA_face_v_q50": -0.0643795311825317,
+    "wallA_face_v_q999": 0.028368906304819752,
+    "wallB_n": 454,
+    "wallB_face_v_q001": 2.325310115410387,
+    "wallB_face_v_q50": 2.4658216382857985,
+    "wallB_back_v_max": 2.67209047437274
+   },
+   {
+    "u": [
+     3.0,
+     3.25
+    ],
+    "wallA_n": 4971,
+    "wallA_face_v_q50": -0.26251702959121637,
+    "wallA_face_v_q999": -0.06107259357106059,
+    "wallB_n": 2461,
+    "wallB_face_v_q001": 2.3240044224044203,
+    "wallB_face_v_q50": 2.3976316523545864,
+    "wallB_back_v_max": 2.702840251084286
+   },
+   {
+    "u": [
+     3.25,
+     3.5
+    ],
+    "wallA_n": 3912,
+    "wallA_face_v_q50": -0.26157118363073606,
+    "wallA_face_v_q999": -0.0734605761448905,
+    "wallB_n": 1918,
+    "wallB_face_v_q001": 2.3433817235119436,
+    "wallB_face_v_q50": 2.3941373347693906,
+    "wallB_back_v_max": 2.6699290366216815
+   },
+   {
+    "u": [
+     3.5,
+     3.75
+    ],
+    "wallA_n": 4228,
+    "wallA_face_v_q50": -0.2507613023028312,
+    "wallA_face_v_q999": -0.06992480510952122,
+    "wallB_n": 2119,
+    "wallB_face_v_q001": 2.3483720689827488,
+    "wallB_face_v_q50": 2.393914343672797,
+    "wallB_back_v_max": 2.6740874553714415
+   }
+  ],
+  "table": {
+   "n_supports": 22323,
+   "top_q50": 0.824473619789527,
+   "top_q99": 0.9219299426660467,
+   "top_max": 0.9377282548202439,
+   "footprint_top_gt_0p8_u": [
+    -0.0243491908966871,
+    2.9662260941279612
+   ],
+   "footprint_top_gt_0p8_v": [
+    -0.028477575955539146,
+    0.7921664056101245
+   ]
+  },
+  "floor_top_in_approach": {
+   "q50": -0.013707712635247248,
+   "q99": 0.10570225378928139,
+   "max": 0.1529816754952319
+  },
+  "approach_floaters_largest": [],
+  "n_approach_floaters": 0,
+  "n_source_supports_inside_booth_air_excluding_table": 0,
+  "nearest_source_support_to_goal_m": 0.5271421032421649,
+  "edit_contacts": [
+   {
+    "edit_id": "soffit",
+    "solid_v": [
+     -0.1299999999999999,
+     2.5300000000000002
+    ],
+    "solid_z": [
+     2.38,
+     2.42
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.15836890630481965,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.13586266523060964,
+    "declared_contact": "spans wall A face (v=0) to wall B face (v 2.30-2.40); both edges run 0.05 m past the face into the wall band"
+   },
+   {
+    "edit_id": "lamp_diffuser",
+    "solid_v": [
+     -0.07999999999999985,
+     2.4800000000000004
+    ],
+    "solid_z": [
+     1.1,
+     1.1400000000000001
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.1083689063048196,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.08586266523060981,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "lamp_top",
+    "solid_v": [
+     -0.07999999999999985,
+     2.4800000000000004
+    ],
+    "solid_z": [
+     1.21,
+     1.25
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.1083689063048196,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.08586266523060981,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "lamp_side_umin",
+    "solid_v": [
+     -0.07999999999999985,
+     2.4800000000000004
+    ],
+    "solid_z": [
+     1.07,
+     1.28
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.1083689063048196,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.08586266523060981,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "lamp_side_umax",
+    "solid_v": [
+     -0.07999999999999985,
+     2.4800000000000004
+    ],
+    "solid_z": [
+     1.07,
+     1.28
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.1083689063048196,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.08586266523060981,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "lamp_end_vmin",
+    "solid_v": [
+     -0.04999999999999982,
+     -0.009999999999999822
+    ],
+    "solid_z": [
+     1.07,
+     1.28
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.07836890630481957,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": 2.4041373347693904,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "lamp_end_vmax",
+    "solid_v": [
+     2.41,
+     2.45
+    ],
+    "solid_z": [
+     1.07,
+     1.28
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": 2.3816310936951806,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.055862665230609565,
+    "declared_contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+   },
+   {
+    "edit_id": "bulkhead",
+    "solid_v": [
+     -0.1299999999999999,
+     2.5300000000000002
+    ],
+    "solid_z": [
+     1.17,
+     2.48
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.15836890630481965,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.13586266523060964,
+    "declared_contact": "bottom edge on the lamp top (z 1.25), top edge on the soffit (z 2.40), sides into wall A / wall B"
+   },
+   {
+    "edit_id": "back_panel",
+    "solid_v": [
+     -0.1299999999999999,
+     2.5300000000000002
+    ],
+    "solid_z": [
+     -0.08000000000000007,
+     2.48
+    ],
+    "gap_to_wallA_m (solid v_min - max wallA face q999; <=0 means embedded)": -0.15836890630481965,
+    "gap_to_wallB_m (min wallB face q50 - solid v_max; <=0 means embedded)": -0.13586266523060964,
+    "declared_contact": "floor (z 0) to soffit (z 2.40), wall A to wall B"
+   }
+  ]
+ }
+}

@@ -1,0 +1,131 @@
+{
+  "status": "map_unknown",
+  "reason": "reachable_frontier_meets_unknown_coverage",
+  "expansions": 5330,
+  "visited_nodes": 5330,
+  "oracle_calls": 23692,
+  "occupied_rejections": 3578,
+  "unproven_rejections": 7853,
+  "map_unknown_rejections": 3648,
+  "algorithm_wall_s": 6742.80874105799,
+  "clearance_lower_m": null,
+  "map_unknown_rejections_by_box_face": {
+    "u_min": 3648
+  },
+  "name": "v2_N2_necessity_plug",
+  "archive": "outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+  "start_route": [
+    -2.0,
+    1.2,
+    0.55
+  ],
+  "goal_route": [
+    0.8,
+    0.55,
+    1.5
+  ],
+  "start_world": [
+    10.095113053932813,
+    24.662271095924954,
+    -0.6771749593107994
+  ],
+  "goal_world": [
+    10.716501963685912,
+    27.468759261379397,
+    0.27282504068920055
+  ],
+  "box_route": {
+    "lower": [
+      -3.0,
+      -0.35,
+      0.0
+    ],
+    "upper": [
+      3.7,
+      2.75,
+      2.43
+    ]
+  },
+  "bounds_world": [
+    [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ]
+  ],
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+    "max_wall_s": 20700.0,
+    "max_expansions": 2000000,
+    "max_oracle_calls": 50000000,
+    "max_narrowphase_pairs": 1000000000
+  },
+  "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7108227,
+    "opacity_selected": 3812953,
+    "selected_supports": 359696,
+    "bounds_min": [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    "bounds_max": [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+  },
+  "dropped_roles_test_only": [],
+  "extra_test_only": [
+    {
+      "edit_id": "plug_under_lamp",
+      "role": "test_only_plug",
+      "kind": "panel",
+      "center_route": [
+        -0.85,
+        1.2000000000000002,
+        0.55
+      ],
+      "plane": "vz",
+      "size_m": [
+        2.5,
+        1.1
+      ],
+      "spacing_m": 0.08,
+      "half_thickness_m": 0.02,
+      "color_rgb": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "opacity": 0.95,
+      "justification": "TEST ONLY: fills the under-lamp opening; never shipped",
+      "contact": "floor to lamp underside, wall A to wall B, in the lamp's centre plane",
+      "rows": 495
+    }
+  ],
+  "planner_calls": 1,
+  "independent_replay_passed": null,
+  "endpoint_reports": {
+    "start": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "original": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    }
+  }
+}

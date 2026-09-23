@@ -1,0 +1,1109 @@
+{
+ "schema": "uavlamp.l1_handoff.v1",
+ "scene_id": "uavlamp_gallery_booth_v2",
+ "archive": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "manifest": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/manifest.json",
+ "manifest_copy_in_git": "gmc/results/uavlamp/scene_v2_manifest.json",
+ "config": "gmc/configs/uavlamp_scene.json",
+ "builder": "gmc/src/gmc/gs3d/scene_uavlamp.py + gmc/experiments/uavlamp_build.py (sbatch gmc/hpc/uavlamp/l1_py.sbatch)",
+ "loader": "gmc.gs3d.scene_uavlamp.load_uavlamp_derivative(archive, manifest)",
+ "source": {
+  "path": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+  "bytes": 795415908,
+  "sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60"
+ },
+ "frame": {
+  "origin_world_m": [
+   9.875215398669711,
+   26.984262702544104,
+   -1.2271749593107995
+  ],
+  "world_to_route": [
+   [
+    0.4313593046722016,
+    0.9021802205062548,
+    0.0
+   ],
+   [
+    0.9021802205062548,
+    -0.4313593046722016,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "definition": "site frame: u along real wall A (world dir (.431,.902)), v = wall A normal into the gallery (v=0 on wall A's measured face), z = height above the plane floor. Fitted by experiments/uavlamp_site.py (job 18323467), origin shifted by -0.45 m along v onto wall A's per-bin 99.9% face."
+ },
+ "start_route": [
+  -2.0,
+  1.2,
+  0.55
+ ],
+ "high_start_route": [
+  -2.0,
+  1.2,
+  1.55
+ ],
+ "goal_route": [
+  0.8,
+  0.55,
+  1.5
+ ],
+ "start_world": [
+  10.095113053932813,
+  24.662271095924954,
+  -0.6771749593107994
+ ],
+ "high_start_world": [
+  10.095113053932813,
+  24.662271095924954,
+  0.3228250406892006
+ ],
+ "goal_world": [
+  10.716501963685912,
+  27.468759261379397,
+  0.27282504068920055
+ ],
+ "box_route": {
+  "lower": [
+   -3.0,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   3.7,
+   2.75,
+   2.43
+  ]
+ },
+ "box_faces": {
+  "u_min (u=-3.00)": "OPEN AIR - gallery continues south; tested by pushing to u=-4.00 (soffit extends to -4.20)",
+  "u_max (u=3.70)": "behind the back panel (u=3.30): reachable only through the back panel",
+  "v_min (v=-.35)": "behind real wall A's face (v~0): reachable only through wall A",
+  "v_max (v=2.75)": "behind real wall B's face (v 2.30-2.40, band to ~2.70): reachable only through wall B",
+  "z_min (z=0)": "real plane floor (top ~.03)",
+  "z_max (z=2.43)": "soffit (added, z 2.38-2.42)"
+ },
+ "known_space": "RouteBoxKnownSpace(frame, box_route); SceneSpec bounds = its world AABB (see experiments/uavlamp_query.py build_scene)",
+ "body": {
+  "name": "uav",
+  "radius_m": 0.25,
+  "half_height_m": 0.1,
+  "motion": "uav_translation"
+ },
+ "tau": 0.3,
+ "level": 2.0,
+ "planner": {
+  "class": "gmc.gs3d.planner.LatticePlanner (unchanged from cba1433)",
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "seed": 0,
+  "budget": {
+   "max_wall_s": 20000.0,
+   "max_expansions": 2000000,
+   "max_oracle_calls": 50000000,
+   "max_narrowphase_pairs": 1000000000
+  },
+  "lattice": "26-neighbour xyz A*, anchored at the start, 0.10 m in x,y,z (world axes)",
+  "expected_wall_s": "5800-7500 s per query on 2 CPU / ~8 GB"
+ },
+ "lamp": {
+  "footprint_route_uv": [
+   [
+    -1.0,
+    -0.05
+   ],
+   [
+    -0.7,
+    2.45
+   ]
+  ],
+  "underside_z": 1.1,
+  "top_z": 1.25
+ },
+ "table": {
+  "top_route_uv": [
+   [
+    -0.02,
+    -0.03
+   ],
+   [
+    2.97,
+    0.79
+   ]
+  ],
+  "top_z_q99": 0.922,
+  "top_z_max": 0.938
+ },
+ "runner": "PYTHONPATH=src:experiments python experiments/uavlamp_query.py outputs/uavlamp/specs/v2_M1_main_low_start.json",
+ "results": {
+  "M1_main_low_start": {
+   "job": 18329383,
+   "spec": "outputs/uavlamp/specs/v2_M1_main_low_start.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 1293,
+   "algorithm_wall_s": 5902.132615983952,
+   "path_length_m": 3.3830655147877318,
+   "passes_under": true,
+   "passes_over": false,
+   "z_under_footprint": [
+    0.5557735026918956,
+    0.7116580753730949
+   ],
+   "goal_z_minus_min_under_z": 0.9442264973081044,
+   "clearance_lower_m": 0.0500370316297175,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     0.55
+    ],
+    [
+     -1.9098,
+     1.1569,
+     0.55
+    ],
+    [
+     -1.8196,
+     1.1137,
+     0.55
+    ],
+    [
+     -1.7293,
+     1.0706,
+     0.55
+    ],
+    [
+     -1.6391,
+     1.0275,
+     0.55
+    ],
+    [
+     -1.5489,
+     0.9843,
+     0.55
+    ],
+    [
+     -1.4587,
+     0.9412,
+     0.55
+    ],
+    [
+     -1.3685,
+     0.898,
+     0.55
+    ],
+    [
+     -1.2783,
+     0.8549,
+     0.55
+    ],
+    [
+     -1.188,
+     0.8118,
+     0.55
+    ],
+    [
+     -1.0978,
+     0.7686,
+     0.55
+    ],
+    [
+     -1.0076,
+     0.7255,
+     0.55
+    ],
+    [
+     -0.8742,
+     0.7726,
+     0.65
+    ],
+    [
+     -0.784,
+     0.7295,
+     0.65
+    ],
+    [
+     -0.6507,
+     0.7765,
+     0.75
+    ],
+    [
+     -0.5173,
+     0.8236,
+     0.85
+    ],
+    [
+     -0.384,
+     0.8707,
+     0.95
+    ],
+    [
+     -0.2937,
+     0.8276,
+     1.05
+    ],
+    [
+     -0.2035,
+     0.7844,
+     1.15
+    ],
+    [
+     -0.1133,
+     0.7413,
+     1.15
+    ],
+    [
+     -0.0231,
+     0.6982,
+     1.15
+    ],
+    [
+     0.0671,
+     0.655,
+     1.15
+    ],
+    [
+     0.1573,
+     0.6119,
+     1.25
+    ],
+    [
+     0.2476,
+     0.5687,
+     1.25
+    ],
+    [
+     0.3809,
+     0.6158,
+     1.35
+    ],
+    [
+     0.4711,
+     0.5727,
+     1.35
+    ],
+    [
+     0.5613,
+     0.5296,
+     1.35
+    ],
+    [
+     0.6947,
+     0.5766,
+     1.45
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/M1_main_low_start/result.json"
+  },
+  "M5_high_start": {
+   "job": 18329384,
+   "spec": "outputs/uavlamp/specs/v2_M5_high_start.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 1941,
+   "algorithm_wall_s": 6594.591171006905,
+   "path_length_m": 3.5487509397369688,
+   "passes_under": true,
+   "passes_over": false,
+   "z_under_footprint": [
+    0.85,
+    0.85
+   ],
+   "goal_z_minus_min_under_z": 0.65,
+   "clearance_lower_m": 0.05003108893503161,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     1.55
+    ],
+    [
+     -1.9098,
+     1.1569,
+     1.45
+    ],
+    [
+     -1.8196,
+     1.1137,
+     1.35
+    ],
+    [
+     -1.7293,
+     1.0706,
+     1.25
+    ],
+    [
+     -1.6391,
+     1.0275,
+     1.15
+    ],
+    [
+     -1.5058,
+     1.0745,
+     1.05
+    ],
+    [
+     -1.3724,
+     1.1216,
+     0.95
+    ],
+    [
+     -1.2391,
+     1.1687,
+     0.85
+    ],
+    [
+     -1.1488,
+     1.1256,
+     0.85
+    ],
+    [
+     -1.0586,
+     1.0824,
+     0.85
+    ],
+    [
+     -0.9684,
+     1.0393,
+     0.85
+    ],
+    [
+     -0.8782,
+     0.9962,
+     0.85
+    ],
+    [
+     -0.788,
+     0.953,
+     0.85
+    ],
+    [
+     -0.6978,
+     0.9099,
+     0.85
+    ],
+    [
+     -0.6075,
+     0.8668,
+     0.85
+    ],
+    [
+     -0.5173,
+     0.8236,
+     0.85
+    ],
+    [
+     -0.384,
+     0.8707,
+     0.95
+    ],
+    [
+     -0.2937,
+     0.8276,
+     1.05
+    ],
+    [
+     -0.2035,
+     0.7844,
+     1.15
+    ],
+    [
+     -0.1133,
+     0.7413,
+     1.15
+    ],
+    [
+     -0.0231,
+     0.6982,
+     1.15
+    ],
+    [
+     0.0671,
+     0.655,
+     1.15
+    ],
+    [
+     0.1573,
+     0.6119,
+     1.25
+    ],
+    [
+     0.2476,
+     0.5687,
+     1.25
+    ],
+    [
+     0.3809,
+     0.6158,
+     1.35
+    ],
+    [
+     0.4711,
+     0.5727,
+     1.35
+    ],
+    [
+     0.5613,
+     0.5296,
+     1.35
+    ],
+    [
+     0.6947,
+     0.5766,
+     1.45
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/M5_high_start/result.json"
+  },
+  "N2_necessity_plug": {
+   "job": 18329385,
+   "spec": "outputs/uavlamp/specs/v2_N2_necessity_plug.json",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 5330,
+   "algorithm_wall_s": 6742.80874105799,
+   "path_length_m": null,
+   "passes_under": null,
+   "passes_over": null,
+   "z_under_footprint": null,
+   "goal_z_minus_min_under_z": null,
+   "clearance_lower_m": null,
+   "independent_replay_passed": null,
+   "map_unknown_by_box_face": {
+    "u_min": 3648
+   },
+   "knots_route": null,
+   "result_json": "outputs/uavlamp/t3_v2/N2_necessity_plug/result.json"
+  },
+  "C4_counterfactual_lamp_only_low": {
+   "job": 18329386,
+   "spec": "outputs/uavlamp/specs/v2_C4_counterfactual_lamp_only_low.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 1316,
+   "algorithm_wall_s": 5818.56547406601,
+   "path_length_m": 3.3830655147877318,
+   "passes_under": true,
+   "passes_over": false,
+   "z_under_footprint": [
+    0.5557735026918956,
+    0.7116580753730949
+   ],
+   "goal_z_minus_min_under_z": 0.9442264973081044,
+   "clearance_lower_m": 0.0500370316297175,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     0.55
+    ],
+    [
+     -1.9098,
+     1.1569,
+     0.55
+    ],
+    [
+     -1.8196,
+     1.1137,
+     0.55
+    ],
+    [
+     -1.7293,
+     1.0706,
+     0.55
+    ],
+    [
+     -1.6391,
+     1.0275,
+     0.55
+    ],
+    [
+     -1.5489,
+     0.9843,
+     0.55
+    ],
+    [
+     -1.4587,
+     0.9412,
+     0.55
+    ],
+    [
+     -1.3685,
+     0.898,
+     0.55
+    ],
+    [
+     -1.2783,
+     0.8549,
+     0.55
+    ],
+    [
+     -1.188,
+     0.8118,
+     0.55
+    ],
+    [
+     -1.0978,
+     0.7686,
+     0.55
+    ],
+    [
+     -1.0076,
+     0.7255,
+     0.55
+    ],
+    [
+     -0.8742,
+     0.7726,
+     0.65
+    ],
+    [
+     -0.784,
+     0.7295,
+     0.65
+    ],
+    [
+     -0.6507,
+     0.7765,
+     0.75
+    ],
+    [
+     -0.5173,
+     0.8236,
+     0.85
+    ],
+    [
+     -0.384,
+     0.8707,
+     0.95
+    ],
+    [
+     -0.2937,
+     0.8276,
+     1.05
+    ],
+    [
+     -0.2035,
+     0.7844,
+     1.15
+    ],
+    [
+     -0.1133,
+     0.7413,
+     1.15
+    ],
+    [
+     -0.0231,
+     0.6982,
+     1.15
+    ],
+    [
+     0.0671,
+     0.655,
+     1.15
+    ],
+    [
+     0.1573,
+     0.6119,
+     1.25
+    ],
+    [
+     0.2476,
+     0.5687,
+     1.25
+    ],
+    [
+     0.3809,
+     0.6158,
+     1.35
+    ],
+    [
+     0.4711,
+     0.5727,
+     1.35
+    ],
+    [
+     0.5613,
+     0.5296,
+     1.35
+    ],
+    [
+     0.6947,
+     0.5766,
+     1.45
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/C4_counterfactual_lamp_only_low/result.json"
+  },
+  "C4h_counterfactual_lamp_only_high": {
+   "job": 18329387,
+   "spec": "outputs/uavlamp/specs/v2_C4h_counterfactual_lamp_only_high.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 0,
+   "algorithm_wall_s": 1.9530035139760002,
+   "path_length_m": 2.8748913022930083,
+   "passes_under": false,
+   "passes_over": true,
+   "z_under_footprint": [
+    1.5268686906712057,
+    1.5320862792416103
+   ],
+   "goal_z_minus_min_under_z": -0.026868690671205675,
+   "clearance_lower_m": 0.05000669243332804,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     1.55
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/C4h_counterfactual_lamp_only_high/result.json"
+  },
+  "B6_box_umin_pushed_1m": {
+   "job": 18329388,
+   "spec": "outputs/uavlamp/specs/v2_B6_box_umin_pushed_1m.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 1293,
+   "algorithm_wall_s": 5763.121116782015,
+   "path_length_m": 3.3830655147877318,
+   "passes_under": true,
+   "passes_over": false,
+   "z_under_footprint": [
+    0.5557735026918956,
+    0.7116580753730949
+   ],
+   "goal_z_minus_min_under_z": 0.9442264973081044,
+   "clearance_lower_m": 0.0500370316297175,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     0.55
+    ],
+    [
+     -1.9098,
+     1.1569,
+     0.55
+    ],
+    [
+     -1.8196,
+     1.1137,
+     0.55
+    ],
+    [
+     -1.7293,
+     1.0706,
+     0.55
+    ],
+    [
+     -1.6391,
+     1.0275,
+     0.55
+    ],
+    [
+     -1.5489,
+     0.9843,
+     0.55
+    ],
+    [
+     -1.4587,
+     0.9412,
+     0.55
+    ],
+    [
+     -1.3685,
+     0.898,
+     0.55
+    ],
+    [
+     -1.2783,
+     0.8549,
+     0.55
+    ],
+    [
+     -1.188,
+     0.8118,
+     0.55
+    ],
+    [
+     -1.0978,
+     0.7686,
+     0.55
+    ],
+    [
+     -1.0076,
+     0.7255,
+     0.55
+    ],
+    [
+     -0.8742,
+     0.7726,
+     0.65
+    ],
+    [
+     -0.784,
+     0.7295,
+     0.65
+    ],
+    [
+     -0.6507,
+     0.7765,
+     0.75
+    ],
+    [
+     -0.5173,
+     0.8236,
+     0.85
+    ],
+    [
+     -0.384,
+     0.8707,
+     0.95
+    ],
+    [
+     -0.2937,
+     0.8276,
+     1.05
+    ],
+    [
+     -0.2035,
+     0.7844,
+     1.15
+    ],
+    [
+     -0.1133,
+     0.7413,
+     1.15
+    ],
+    [
+     -0.0231,
+     0.6982,
+     1.15
+    ],
+    [
+     0.0671,
+     0.655,
+     1.15
+    ],
+    [
+     0.1573,
+     0.6119,
+     1.25
+    ],
+    [
+     0.2476,
+     0.5687,
+     1.25
+    ],
+    [
+     0.3809,
+     0.6158,
+     1.35
+    ],
+    [
+     0.4711,
+     0.5727,
+     1.35
+    ],
+    [
+     0.5613,
+     0.5296,
+     1.35
+    ],
+    [
+     0.6947,
+     0.5766,
+     1.45
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/B6_box_umin_pushed_1m/result.json"
+  },
+  "B6h_box_umin_pushed_1m_high": {
+   "job": 18329389,
+   "spec": "outputs/uavlamp/specs/v2_B6h_box_umin_pushed_1m_high.json",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "expansions": 1941,
+   "algorithm_wall_s": 7503.901784203015,
+   "path_length_m": 3.5487509397369688,
+   "passes_under": true,
+   "passes_over": false,
+   "z_under_footprint": [
+    0.85,
+    0.85
+   ],
+   "goal_z_minus_min_under_z": 0.65,
+   "clearance_lower_m": 0.05003108893503161,
+   "independent_replay_passed": true,
+   "map_unknown_by_box_face": {},
+   "knots_route": [
+    [
+     -2.0,
+     1.2,
+     1.55
+    ],
+    [
+     -1.9098,
+     1.1569,
+     1.45
+    ],
+    [
+     -1.8196,
+     1.1137,
+     1.35
+    ],
+    [
+     -1.7293,
+     1.0706,
+     1.25
+    ],
+    [
+     -1.6391,
+     1.0275,
+     1.15
+    ],
+    [
+     -1.5058,
+     1.0745,
+     1.05
+    ],
+    [
+     -1.3724,
+     1.1216,
+     0.95
+    ],
+    [
+     -1.2391,
+     1.1687,
+     0.85
+    ],
+    [
+     -1.1488,
+     1.1256,
+     0.85
+    ],
+    [
+     -1.0586,
+     1.0824,
+     0.85
+    ],
+    [
+     -0.9684,
+     1.0393,
+     0.85
+    ],
+    [
+     -0.8782,
+     0.9962,
+     0.85
+    ],
+    [
+     -0.788,
+     0.953,
+     0.85
+    ],
+    [
+     -0.6978,
+     0.9099,
+     0.85
+    ],
+    [
+     -0.6075,
+     0.8668,
+     0.85
+    ],
+    [
+     -0.5173,
+     0.8236,
+     0.85
+    ],
+    [
+     -0.384,
+     0.8707,
+     0.95
+    ],
+    [
+     -0.2937,
+     0.8276,
+     1.05
+    ],
+    [
+     -0.2035,
+     0.7844,
+     1.15
+    ],
+    [
+     -0.1133,
+     0.7413,
+     1.15
+    ],
+    [
+     -0.0231,
+     0.6982,
+     1.15
+    ],
+    [
+     0.0671,
+     0.655,
+     1.15
+    ],
+    [
+     0.1573,
+     0.6119,
+     1.25
+    ],
+    [
+     0.2476,
+     0.5687,
+     1.25
+    ],
+    [
+     0.3809,
+     0.6158,
+     1.35
+    ],
+    [
+     0.4711,
+     0.5727,
+     1.35
+    ],
+    [
+     0.5613,
+     0.5296,
+     1.35
+    ],
+    [
+     0.6947,
+     0.5766,
+     1.45
+    ],
+    [
+     0.8,
+     0.55,
+     1.5
+    ]
+   ],
+   "result_json": "outputs/uavlamp/t3_v2/B6h_box_umin_pushed_1m_high/result.json"
+  },
+  "P3a": {
+   "job": 18329390,
+   "status": "goal_invalid",
+   "reason": "original_goal:ellipsoid_centre_in_swept_body",
+   "goal_route": [
+    -0.85,
+    1.2,
+    1.8
+   ]
+  },
+  "P3b": {
+   "job": 18329390,
+   "status": "goal_invalid",
+   "reason": "original_goal:minkowski_interior_witness",
+   "goal_route": [
+    -0.85,
+    1.2,
+    1.27
+   ]
+  },
+  "P3c": {
+   "job": 18329390,
+   "status": "goal_invalid",
+   "reason": "original_goal:ellipsoid_centre_in_swept_body",
+   "goal_route": [
+    -0.85,
+    0.35,
+    1.1700000000000002
+   ]
+  },
+  "P3d": {
+   "job": 18329390,
+   "status": "goal_invalid",
+   "reason": "original_goal:ellipsoid_centre_in_swept_body",
+   "goal_route": [
+    -0.85,
+    1.95,
+    1.1700000000000002
+   ]
+  },
+  "P3_boundary_sweep": {
+   "job": 18329382,
+   "file": "gmc/results/uavlamp/probes_v2.json",
+   "free_crossings_on_boundaries": 0,
+   "boundary_crossings": 2923,
+   "under_lamp_control_free": 85
+  }
+ },
+ "task1_codex_scene": {
+  "Q1a": {
+   "job": 18323468,
+   "status": "success",
+   "passes_under": true,
+   "z_under": [
+    0.65,
+    0.752
+   ]
+  },
+  "Q1b": {
+   "job": 18323469,
+   "status": "success",
+   "passes_under": true,
+   "z_under": [
+    0.65,
+    0.745
+   ],
+   "note": "pre-registered start was inside a pillar; moved to v=+.4"
+  }
+ },
+ "renders": {
+  "scene": "gmc/results/uavlamp/booth_v2_{entrance,cutaway_side,cutaway_oblique}.png",
+  "routes": "gmc/results/uavlamp/booth_v2_routes_*.png (2D overlay, not depth-tested; cutaway_side is the readable one)"
+ },
+ "for_L2": [
+  "Rerun M1 (and ideally M5) once as the production run; ~1.6-2.1 h each; results must reproduce knots_route above.",
+  "Photoreal renders: crop v<2.22 (wall B) or use the entrance view; routes need depth-tested overlay.",
+  "The superseded v1 archive (outputs/uavlamp/scene, sha 485df24d...) must not be used."
+ ]
+}

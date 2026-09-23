@@ -1,0 +1,290 @@
+{
+  "status": "success",
+  "reason": "verified_goal_reached",
+  "expansions": 1293,
+  "visited_nodes": 2280,
+  "oracle_calls": 5858,
+  "occupied_rejections": 408,
+  "unproven_rejections": 2023,
+  "map_unknown_rejections": 0,
+  "algorithm_wall_s": 5902.132615983952,
+  "clearance_lower_m": 0.0500370316297175,
+  "path_length_m": 3.3830655147877318,
+  "altitude_range_m": 0.95,
+  "knots_route": [
+    [
+      -2.0,
+      1.2,
+      0.55
+    ],
+    [
+      -1.9098,
+      1.1569,
+      0.55
+    ],
+    [
+      -1.8196,
+      1.1137,
+      0.55
+    ],
+    [
+      -1.7293,
+      1.0706,
+      0.55
+    ],
+    [
+      -1.6391,
+      1.0275,
+      0.55
+    ],
+    [
+      -1.5489,
+      0.9843,
+      0.55
+    ],
+    [
+      -1.4587,
+      0.9412,
+      0.55
+    ],
+    [
+      -1.3685,
+      0.898,
+      0.55
+    ],
+    [
+      -1.2783,
+      0.8549,
+      0.55
+    ],
+    [
+      -1.188,
+      0.8118,
+      0.55
+    ],
+    [
+      -1.0978,
+      0.7686,
+      0.55
+    ],
+    [
+      -1.0076,
+      0.7255,
+      0.55
+    ],
+    [
+      -0.8742,
+      0.7726,
+      0.65
+    ],
+    [
+      -0.784,
+      0.7295,
+      0.65
+    ],
+    [
+      -0.6507,
+      0.7765,
+      0.75
+    ],
+    [
+      -0.5173,
+      0.8236,
+      0.85
+    ],
+    [
+      -0.384,
+      0.8707,
+      0.95
+    ],
+    [
+      -0.2937,
+      0.8276,
+      1.05
+    ],
+    [
+      -0.2035,
+      0.7844,
+      1.15
+    ],
+    [
+      -0.1133,
+      0.7413,
+      1.15
+    ],
+    [
+      -0.0231,
+      0.6982,
+      1.15
+    ],
+    [
+      0.0671,
+      0.655,
+      1.15
+    ],
+    [
+      0.1573,
+      0.6119,
+      1.25
+    ],
+    [
+      0.2476,
+      0.5687,
+      1.25
+    ],
+    [
+      0.3809,
+      0.6158,
+      1.35
+    ],
+    [
+      0.4711,
+      0.5727,
+      1.35
+    ],
+    [
+      0.5613,
+      0.5296,
+      1.35
+    ],
+    [
+      0.6947,
+      0.5766,
+      1.45
+    ],
+    [
+      0.8,
+      0.55,
+      1.5
+    ]
+  ],
+  "z_start": 0.55,
+  "z_goal": 1.5,
+  "z_min": 0.55,
+  "z_max": 1.5,
+  "lamp": {
+    "footprint_route_uv": [
+      [
+        -1.0,
+        -0.05
+      ],
+      [
+        -0.7,
+        2.45
+      ]
+    ],
+    "underside_z": 1.1,
+    "centre_samples_inside_footprint": 38,
+    "passes_under": true,
+    "passes_over": false,
+    "z_inside_footprint": [
+      0.5557735026918956,
+      0.7116580753730949
+    ],
+    "v_range_while_u_in_lamp_span": [
+      0.7282230506855446,
+      0.7717156238850503
+    ],
+    "z_range_while_u_in_lamp_span": [
+      0.5557735026918956,
+      0.7116580753730949
+    ],
+    "goal_minus_min_z_under_lamp": 0.9442264973081044,
+    "under_before_reaching_goal_altitude": true
+  },
+  "map_unknown_rejections_by_box_face": {},
+  "name": "v2_M1_main_low_start",
+  "archive": "outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+  "start_route": [
+    -2.0,
+    1.2,
+    0.55
+  ],
+  "goal_route": [
+    0.8,
+    0.55,
+    1.5
+  ],
+  "start_world": [
+    10.095113053932813,
+    24.662271095924954,
+    -0.6771749593107994
+  ],
+  "goal_world": [
+    10.716501963685912,
+    27.468759261379397,
+    0.27282504068920055
+  ],
+  "box_route": {
+    "lower": [
+      -3.0,
+      -0.35,
+      0.0
+    ],
+    "upper": [
+      3.7,
+      2.75,
+      2.43
+    ]
+  },
+  "bounds_world": [
+    [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ]
+  ],
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+    "max_wall_s": 20000.0,
+    "max_expansions": 2000000,
+    "max_oracle_calls": 50000000,
+    "max_narrowphase_pairs": 1000000000
+  },
+  "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 359201,
+    "bounds_min": [
+      8.265374407475917,
+      23.091483953176784,
+      -1.2271749593107995
+    ],
+    "bounds_max": [
+      13.952240432349058,
+      30.473305275052518,
+      1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+  },
+  "dropped_roles_test_only": [],
+  "extra_test_only": [],
+  "planner_calls": 1,
+  "independent_replay_passed": true,
+  "endpoint_reports": {
+    "start": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "original": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    },
+    "attained": {
+      "occupancy": "free",
+      "reason": "swept_support_separation_bound_capped",
+      "clearance_lower_m": 0.10000003000259831
+    }
+  }
+}

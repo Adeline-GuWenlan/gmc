@@ -80,6 +80,32 @@ def _extra_rows(spec, frame):
     return rows, records
 
 
+class FaceLoggingKnownSpace:
+    """Delegates to the route prism; counts which prism face(s) each rejected AABB exceeds.
+
+    Pure bookkeeping for reporting ``map_unknown``: the planner sees identical answers.
+    """
+
+    def __init__(self, inner):
+        self.inner = inner
+        self.face_counts = {}
+
+    def contains_aabb(self, lower, upper):
+        ok = self.inner.contains_aabb(lower, upper)
+        if not ok:
+            lo, hi = np.asarray(lower, float), np.asarray(upper, float)
+            corners = np.asarray([[a, b, c] for a in (lo[0], hi[0]) for b in (lo[1], hi[1])
+                                  for c in (lo[2], hi[2])])
+            route = (corners - np.asarray(self.inner.origin_world_m)) @ np.asarray(self.inner.world_to_route).T
+            dlo, dhi = np.asarray(self.inner.lower_route_m), np.asarray(self.inner.upper_route_m)
+            faces = [f"{ax}_{side}" for k, ax in enumerate("uvz")
+                     for side, bad in (("min", np.any(route[:, k] < dlo[k] - 1e-12)),
+                                       ("max", np.any(route[:, k] > dhi[k] + 1e-12))) if bad]
+            key = "+".join(faces) or "invalid"
+            self.face_counts[key] = self.face_counts.get(key, 0) + 1
+        return ok
+
+
 def build_scene(spec, full, manifest_doc):
     frame = Frame(spec["frame"]["origin_world_m"], spec["frame"]["world_to_route"])
     drop_roles = set(spec.get("drop_roles", []))
@@ -108,6 +134,7 @@ def build_scene(spec, full, manifest_doc):
     known = RouteBoxKnownSpace(tuple(frame.origin), tuple(map(tuple, frame.R)),
                                tuple(box["lower"]), tuple(box["upper"]))
     bmin, bmax = known.world_bounds()
+    known = FaceLoggingKnownSpace(known)
     cropped, crop = crop_by_support_aabb(full, bmin, bmax, level=LEVEL, tau=TAU)
     scene = SceneSpec(spec["name"], cropped, bmin, bmax, TAU, LEVEL, known, None,
                       {"coverage_policy": "assumed_map_domain (declared route prism)",
@@ -274,6 +301,7 @@ def run_one(spec_path: Path, cache: dict):
         replay = replay_plan(result, GaussianBodyOracle(PreparedScene(scene)))
         replay = {k: v for k, v in replay.items() if k != "samples"}
     summary, local = analyse(result, frame, spec)
+    summary["map_unknown_rejections_by_box_face"] = scene.known_space.face_counts
     summary.update(name=spec["name"], archive=str(archive), archive_sha256=digest,
                    start_route=spec["start_route"], goal_route=spec["goal_route"],
                    start_world=list(start.xyz), goal_world=list(goal.xyz),
