@@ -59,4 +59,104 @@ If Q1b also goes under, the scene is more constraining than I think (then §1 re
 
 ### §1 results
 
-*(filled in after the run, verbatim)*
+*(filled in after the runs, verbatim; newest last)*
+
+**Run 1 — job 18323035 (2 CPU, 2.9 GB MaxRSS, 2 m 18 s), Codex's own budget (120 s wall):**
+
+- Q1a: `budget_exhausted / max_wall_s` after **78 expansions**, 654 oracle calls, 44 429 narrowphase
+  pairs (≈ 180 ms per oracle call, ≈ 68 body–Gaussian pairs per call near the start). 204 of 654
+  edges were rejected as *unproven* (lower bound ≤ margin), 15 occupied. No route. So under
+  Codex's own budget a single start→goal query on its scene **does not return a route at all**;
+  Codex's A5 legs returned because they were easy: legs 1–2 were accepted as direct edges
+  (0 expansions), leg 3 searched 152 expansions at 1.40 m in open air (0.48 s, 304 pairs). The
+  expensive region is exactly the low, cluttered space around the start.
+- Q1b as pre-registered: `start_invalid / minkowski_interior_witness` — the start route
+  `(-1.5, 0, .65)` is 0.1 m from a real hollow pillar (route `u∈[-2,-.4], v∈[-1.6,-.1]`, visible
+  in `outputs/uavlamp/t1/q1b/top.png`); the body overlaps real Gaussian 4722613. My
+  pre-registration missed the pillar. Re-run with the start moved the minimum amount clear,
+  route `(-1.5, +.4, .65)`, everything else unchanged.
+
+Both re-run with a 5400 s wall budget (other limits ×10–40) — the budget is a planner parameter,
+not a cost term; see Run 2.
+
+## §2 Design: a booth at the end of a real gallery, entered only under a light box
+
+### Site (measured, job 18323467 `experiments/uavlamp_site.py`, refined by the build job)
+
+The hall has full-height display walls (they reach the ~5.07 m ceiling). Between two of them runs a
+gallery, **wall A** (world (7.5,22)→(11.6,30.5)) and **wall B** (world (10.3,22)→(15.9,32)),
+≈2.3–2.4 m clear. A **real table** (top 0.92–0.94 m, legs at u≈0/1.5/2.95) stands against wall A.
+Site frame: `u` along wall A (north), `v` from wall A's face into the gallery, `z` above the floor;
+origin world `(9.8752, 26.9843, z_floor)`, `u = (.4314, .9022, 0)`, `v = (.9022, -.4314, 0)`.
+I rejected the table at world (14.5,10) against the outer wall: only ~1.5 m approach before a low
+round dais, and it has only one wall.
+
+### Why these edits (the design argument)
+
+Codex's lamp is a local obstacle: room beside it and above it, so nothing forces the under-route.
+Here the two **real** walls already remove "beside" if the lamp spans the gallery wall to wall.
+"Above" is removed by a **bulkhead** (header wall) from the lamp top to a **soffit** (lowered
+ceiling) at 2.40 m, which covers the gallery section wall to wall. A **back panel** closes the
+booth 0.35 m past the table end. The booth that holds the table (and the goal) is then bounded by
+wall A, wall B (real), the floor (real), soffit, back panel, bulkhead + lamp (added). The only
+opening is **under the lamp**. This is the F1 pattern with real walls where F1 used box faces.
+
+```
+ side section (u–z), any v in the gallery                          plan (u–v)
+ z(m)                                                               v(m)
+ 2.40 ══════════════ soffit (drop ceiling) ════════════════╗        2.45 ▓▓▓▓▓▓▓▓▓▓▓ wall B (real, face 2.30–2.40) ▓▓▓▓
+      ║ bulkhead                                           ║             │    lamp │                                 ║ back
+      ║ (1.25–2.40)                                        ║ back        │  2.50 m │                     goal ●       ║ panel
+ 1.50 ║                          goal ● (u 1.50, v .47)    ║ panel  1.20 │ start ● │ (u −1.0…−0.7)                   ║ u=3.30
+ 1.25 ▄▄ lamp top                                          ║             │         │  ┌──────── table (real) ────┐   ║
+ 1.10 ▀▀ lamp underside (diffuser)                         ║        0.78 │         │  │ u 0…2.95, top .92–.94    │   ║
+  .94      ┌─────────── table top (real) ──────────┐       ║        0.15 │         │  └───────────────────────────┘   ║
+  .55 ●start (u −2.40)                             │       ║        0.00 ▓▓▓▓▓▓▓▓▓▓▓ wall A (real, face v = 0) ▓▓▓▓▓▓▓▓
+  0.0 ═══════════════ floor (real) ═════════════════════════╝             u: −3.0 (box, open air)  −0.85 (lamp)  0 … 2.95  3.30
+      u: −3.0     −2.40      −0.85                0 … 2.95   3.30
+```
+
+Dimensions (site frame, metres): lamp box `u ∈ [−1.00, −0.70]`, `v ∈ [−0.05, 2.45]` (ends 5 cm into
+both wall bands), underside **1.10**, top 1.25; bulkhead `u = −0.85`, `z ∈ [1.25, 2.40]`; soffit
+`z = 2.40`, `u ∈ [−4.20, 3.30]`; back panel `u = 3.30`, `z ∈ [0, 2.40]`. Start `(−2.40, 1.20, 0.55)`,
+high start `(−2.40, 1.20, 1.55)`, goal `(1.50, 0.47, 1.50)` = 0.56 m above the table top, body
+bottom 0.46 m above it.
+
+### Gap budget (body r .25, h .10, margin .05; lattice .10)
+
+| gap | size | closes if | status |
+| --- | --- | --- | --- |
+| beside lamp, wall A / wall B | ≤ 0 (lamp embedded 5 cm into each wall band) | < 0.50 | closed |
+| above lamp (lamp top ↔ bulkhead) | 0 (bulkhead bottom edge on lamp top) | < 0.20 | closed |
+| bulkhead / back panel ↔ soffit, soffit ↔ walls | 0 (overlapping sample rows) | < 0.20 / < 0.50 | closed |
+| under lamp (floor top ≈ .03 → underside 1.10) | ≈ 1.07 m tall × ≈ 2.3 m wide | passable if > 0.30 tall, > 0.60 wide | open, ≈ 0.77 m vertical and ≈ 1.7 m lateral slack |
+
+Centre heights under the lamp must be < 1.10 − .15 = 0.95 (lattice from the 0.55 start: ≤ 0.85),
+i.e. ≥ 0.65 m below the 1.50 goal (requirement ≥ 0.50). Floor side: centres ≥ ≈ 0.19. Slack over
+body+margin to the floor ≈ 0.66–0.76 m ≫ 2 cells.
+
+### Edits are dense sheets, proven leak-free (tests, not eyes)
+
+Each panel is a grid of flat Gaussians, spacing ≤ 8 cm (lamp 5 cm), in-plane semiaxis = spacing,
+normal semiaxis 2 cm at level 2, opacity .95 (> τ). `panel_min_half_thickness` proves that the union
+of supports is a slab with no holes (worst point: a grid-cell centre, half-thickness
+≥ 0.707 × 2 cm). Tests in `gmc/tests/unit/test_uavlamp_scene.py`:
+`test_panel_union_is_a_solid_slab_without_holes` (dense Mahalanobis check at and between samples),
+`test_body_cannot_cross_panel_between_or_at_samples` (production oracle, incl. cell centres),
+`test_gap_rule_closes_below_body_minus_one_cell_and_opens_above` (the .50/.20 rule vs the oracle),
+`test_builder_is_deterministic_and_records_identity`, `test_loader_rejects_hash_mismatch`,
+`test_opening_slice_single_query_goes_under_and_plug_exhausts` (the whole design pattern on a
+synthetic slice: one query goes under; with a plug the reachable set is exhausted).
+
+### Box
+
+Route prism `u ∈ [−3.00, 3.30]`, `v ∈ [−0.05, 2.45]`, `z ∈ [0, 2.43]`.
+- `v` faces sit **inside** the real walls (faces at v ≈ 0 and ≈ 2.30–2.40).
+- `z_min` is the real floor; `z_max` is the soffit.
+- `u_max` is the back panel.
+- **`u_min = −3.00` is the only face in open air** (the gallery continues south). §3 B6 pushes it
+  to −4.00 and compares routes.
+
+Because the `v` faces coincide with the walls, a hole in a real wall would be hidden by the box. The
+boundary leak sweep (§3 P3-sweep) checks this: it crosses every booth boundary with the body inside
+a large declared box.

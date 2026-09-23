@@ -61,3 +61,19 @@ top at 2.8) and a low one at `(.8,0,.3)` semiaxes `(.35,2,.95)`; start `(-1.8,0,
 the hanging one reaches past the box ceiling, so "over" does not exist. The box faces play the
 walls. That is the pattern to reproduce — but in the real hall the side walls and top seal must be
 *scene geometry* (real wall, added partition, drop ceiling), not open-air box faces.
+
+## L1 problems log
+
+- Job 18322943 (T1) failed in 2 s: `/usr/bin/time` does not exist on Torch compute nodes. Removed;
+  MaxRSS comes from `sacct`. Resubmitted.
+- T1 run 1 (18323035): Q1a budget-stopped at 120 s after 78 expansions (~180 ms/oracle call,
+  68 narrowphase pairs/call near real clutter, 204/654 edges unproven). Planner is slow in real
+  clutter; any necessity/exhaustion proof must keep the reachable volume small and budget in
+  hours. Q1b pre-registered start is inside a real pillar → moved to v=+.4. Resubmitted as
+  18323468/18323469 with max_wall_s 5400.
+- Site search from measurement rasters (`outputs/uavlamp/measure/*.png`): hall walls are
+  full height to the ~5 m ceiling. Candidate A: table at world (14.1–15.3, 9.0–10.9) against the
+  outer wall, but only ~1.5 m approach before a low round dais. Candidate B (chosen for
+  measurement): gallery between two real walls, A (7.5,22)→(11.6,30.5) and B (10.3,22)→(15.9,32),
+  ~2.8–3.0 m wide, with a real table/cabinet at (10.2–11.8, 26.8–29.6) against wall A and a
+  ≥4 m free approach from the south. Job 18323467 fits the wall faces and the table.

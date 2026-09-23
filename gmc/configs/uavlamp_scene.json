@@ -1,0 +1,215 @@
+{
+ "schema_version": "uavlamp.scene.v1",
+ "scene_id": "uavlamp_gallery_booth_v1",
+ "source": "/scratch/wg2381/splathjb/gmc/outputs/height/plane/processed_planefloor.npz",
+ "source_sha256": "a7931eab77e2ca2e46c86653502cd66582293b0eb01cab436792db96d0eb3c60",
+ "frame": {
+  "origin_world_m": [
+   9.875215398669711,
+   26.984262702544104,
+   -1.2271749593107995
+  ],
+  "world_to_route": [
+   [
+    0.4313593046722016,
+    0.9021802205062548,
+    0.0
+   ],
+   [
+    0.9021802205062548,
+    -0.4313593046722016,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "definition": "site frame: u along real wall A (world dir (.431,.902)), v = wall A normal into the gallery (v=0 on wall A's measured face), z = height above the plane floor. Fitted by experiments/uavlamp_site.py (job 18323467), origin shifted by -0.45 m along v onto wall A's per-bin 99.9% face."
+ },
+ "real_geometry": {
+  "wall_A": "real full-height hall wall, face v~0 (measured per u-bin in manifest.measured_contacts)",
+  "wall_B": "real full-height hall wall, face v~2.30-2.40 (signage/posters protrude), band to v~2.65",
+  "table": "real table against wall A, u -0.02..2.97, v -0.03..0.79 (flush with wall A), top q99 .922 / max .938 m (build job 18323926 measured_contacts)",
+  "floor": "plane floor (user-approved Amendment-3 manual edit), top ~.034 m",
+  "ceiling": "real ceiling ~5.07 m, beam 4.5 m"
+ },
+ "edits": [
+  {
+   "edit_id": "soffit",
+   "role": "drop_ceiling",
+   "kind": "panel",
+   "center_route": [
+    -0.4500000000000002,
+    1.2000000000000002,
+    2.4
+   ],
+   "plane": "uv",
+   "size_m": [
+    7.5,
+    2.5
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.9,
+    0.9,
+    0.87
+   ],
+   "opacity": 0.95,
+   "justification": "lowered gallery ceiling (soffit) at 2.40 m over this gallery section, a standard exhibition drop-ceiling height",
+   "contact": "spans wall A face (v=0) to wall B face (v 2.30-2.40); both edges run 0.05 m past the face into the wall band"
+  },
+  {
+   "edit_id": "lamp",
+   "role": "lamp",
+   "kind": "lamp_box",
+   "center_uv": [
+    -0.85,
+    1.2000000000000002
+   ],
+   "size_uv": [
+    0.3,
+    2.5
+   ],
+   "underside_z": 1.1,
+   "height": 0.15,
+   "spacing": 0.05,
+   "half_thickness": 0.02,
+   "housing_rgb": [
+    0.12,
+    0.12,
+    0.13
+   ],
+   "diffuser_rgb": [
+    1.0,
+    0.93,
+    0.72
+   ],
+   "opacity": 0.95,
+   "justification": "linear light box (2.5 m x 0.30 m x 0.15 m) hanging in the booth entrance, underside 1.10 m",
+   "contact": "ends touch wall A and wall B faces (0.05 m into each wall band); top meets the bulkhead"
+  },
+  {
+   "edit_id": "bulkhead",
+   "role": "bulkhead",
+   "kind": "panel",
+   "center_route": [
+    -0.85,
+    1.2000000000000002,
+    1.825
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.5,
+    1.15
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.9,
+    0.9,
+    0.87
+   ],
+   "opacity": 0.95,
+   "justification": "header wall (bulkhead) from the light box up to the soffit, closing the entrance above the lamp",
+   "contact": "bottom edge on the lamp top (z 1.25), top edge on the soffit (z 2.40), sides into wall A / wall B"
+  },
+  {
+   "edit_id": "back_panel",
+   "role": "back_panel",
+   "kind": "panel",
+   "center_route": [
+    3.3,
+    1.2000000000000002,
+    1.2
+   ],
+   "plane": "vz",
+   "size_m": [
+    2.5,
+    2.4
+   ],
+   "spacing_m": 0.08,
+   "half_thickness_m": 0.02,
+   "color_rgb": [
+    0.55,
+    0.62,
+    0.7
+   ],
+   "opacity": 0.95,
+   "justification": "display back panel closing the booth 0.35 m beyond the table end (table ends u=2.95)",
+   "contact": "floor (z 0) to soffit (z 2.40), wall A to wall B"
+  }
+ ],
+ "query": {
+  "start_route": [
+   -2.4,
+   1.2,
+   0.55
+  ],
+  "high_start_route": [
+   -2.4,
+   1.2,
+   1.55
+  ],
+  "goal_route": [
+   1.5,
+   0.47,
+   1.5
+  ],
+  "box_route": {
+   "lower": [
+    -3.0,
+    -0.05,
+    0.0
+   ],
+   "upper": [
+    3.3,
+    2.45,
+    2.43
+   ]
+  },
+  "box_faces": {
+   "u_min (u=-3.00)": "OPEN AIR - gallery continues south; tested by pushing to u=-4.00",
+   "u_max (u=3.30)": "back_panel (added)",
+   "v_min (v=-.05)": "inside real wall A (face v~0)",
+   "v_max (v=2.45)": "inside real wall B (face v 2.30-2.40)",
+   "z_min (z=0)": "real plane floor (top ~.034)",
+   "z_max (z=2.43)": "soffit (added, z 2.38-2.42)"
+  },
+  "lamp": {
+   "footprint_route_uv": [
+    [
+     -1.0,
+     -0.05
+    ],
+    [
+     -0.7,
+     2.45
+    ]
+   ],
+   "underside_z": 1.1,
+   "top_z": 1.25
+  },
+  "table": {
+   "top_route_uv": [
+    [
+     -0.02,
+     -0.03
+    ],
+    [
+     2.97,
+     0.79
+    ]
+   ],
+   "top_z": 0.94
+  },
+  "resolution_m": 0.1,
+  "margin_m": 0.05
+ },
+ "notes": [
+  "All edits are additions; no source Gaussian is removed or modified.",
+  "Body r=.25, h=.10, margin=.05: lateral gap closed if <.50 m, vertical gap closed if <.20 m (one .10 m lattice cell of safety)."
+ ]
+}
