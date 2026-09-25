@@ -1,0 +1,1386 @@
+{
+ "schema": "uavconn.c1_synthetic.v1",
+ "rows": [
+  {
+   "case": "open_ascent",
+   "query": "ascent",
+   "body": "uav",
+   "start": [
+    0.0,
+    0.0,
+    0.3
+   ],
+   "goal": [
+    0.0,
+    0.0,
+    2.6
+   ],
+   "n_gaussians": 0,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 0.0014510499313473701,
+    "raw": {
+     "path_length_m": 2.3000000000000003,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 2.3000000000000003,
+     "altitude_range_m": 2.3000000000000003
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.0025855449493974447,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.004861859522825644,
+      "duration_s": 15.093750000000009,
+      "smooth_path_length_m": 2.3,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 0.16417394601739943,
+    "query_stages": {
+     "locate": 0.0002186700003221631,
+     "locate_cells": 3.357604146003723e-05,
+     "graph_search": 1.3201963156461716e-05,
+     "lifting": 7.652794010937214e-05,
+     "own_verification": 4.927499685436487e-05,
+     "shared_verification": 0.00042711198329925537
+    },
+    "clearance_lower_m": 0.1,
+    "certificate": null,
+    "graph_cells": 1,
+    "cell_certified_path": {
+     "path_length_m": 2.3000000000000003,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 2.3000000000000003,
+     "altitude_range_m": 2.3000000000000003
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 0.0005199350416660309,
+    "raw": {
+     "path_length_m": 2.3000000000000003,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 2.3000000000000003,
+     "altitude_range_m": 2.3000000000000003
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.0023915469646453857,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.004861859522825644,
+      "duration_s": 15.093750000000009,
+      "smooth_path_length_m": 2.3,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 0,
+    "outer_wall_s": 0.0005311669083312154,
+    "clearance_lower_m": 0.10000003000025581
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "low_wall",
+   "query": "over",
+   "body": "uav",
+   "start": [
+    -1.5,
+    0.0,
+    0.5
+   ],
+   "goal": [
+    1.5,
+    0.0,
+    0.5
+   ],
+   "n_gaussians": 253,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 1.8470692629925907,
+    "raw": {
+     "path_length_m": 3.537235886510193,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 1.1167398488841527,
+     "max_turning_rad": 1.1167398488841527,
+     "curvature_integral_rad": 1.1167398488841527,
+     "bending_energy_per_m": 0.7051313116220734,
+     "vertical_travel_m": 1.8257515122657626,
+     "altitude_range_m": 0.9128757561328813
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05033652969557768
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.05411189398728311,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000021317,
+     "smoothed": {
+      "integrated_squared_jerk": 0.1045309438856751,
+      "duration_s": 17.972241448866104,
+      "smooth_path_length_m": 3.614627659294279,
+      "bezier_segments": 2,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 10.076147777959704,
+    "query_stages": {
+     "locate": 0.0013811619719490409,
+     "locate_cells": 0.00206332397647202,
+     "graph_search": 0.585119677009061,
+     "lifting": 0.0013837299775332212,
+     "shortcut": 0.0019157479982823133,
+     "tighten": 1.1860326050082222,
+     "merge_corners": 0.0062569520669057965,
+     "own_verification": 0.005205640918575227,
+     "shared_verification": 0.011148746008984745
+    },
+    "clearance_lower_m": 0.05033652969557768,
+    "certificate": null,
+    "graph_cells": 2,
+    "cell_certified_path": {
+     "path_length_m": 3.7512484933279593,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 1.2878894771993858,
+     "max_turning_rad": 1.2878894771993858,
+     "curvature_integral_rad": 1.2878894771993858,
+     "bending_energy_per_m": 0.8843238769337888,
+     "vertical_travel_m": 2.194047052881741,
+     "altitude_range_m": 1.0970235264408705
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 131.44783250498585,
+    "raw": {
+     "path_length_m": 3.662741699796952,
+     "n_vertices": 30,
+     "n_segments": 29,
+     "total_turning_rad": 6.283185328253009,
+     "max_turning_rad": 0.7853981633974504,
+     "curvature_integral_rad": 6.283185328253009,
+     "bending_energy_per_m": 39.38451023596161,
+     "vertical_travel_m": 1.6,
+     "altitude_range_m": 0.8
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05385162507255985
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.5057425230043009,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05003166962918022,
+     "smoothed": {
+      "integrated_squared_jerk": 1.2035117865723257,
+      "duration_s": 16.857711036327196,
+      "smooth_path_length_m": 3.513364608786926,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 1833,
+    "outer_wall_s": 131.4478831900051,
+    "clearance_lower_m": 0.05385162507255985
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "full_wall_gap",
+   "query": "across",
+   "body": "uav",
+   "start": [
+    -1.5,
+    -0.4,
+    1.0
+   ],
+   "goal": [
+    1.5,
+    -0.4,
+    1.0
+   ],
+   "n_gaussians": 364,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 6.003107883036137,
+    "raw": {
+     "path_length_m": 3.5397531829859545,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 1.1520563242835666,
+     "max_turning_rad": 0.8023671037838258,
+     "curvature_integral_rad": 1.1520563242835666,
+     "bending_energy_per_m": 0.7975147868279423,
+     "vertical_travel_m": 5.206827591308638e-07,
+     "altitude_range_m": 2.603413795654319e-07
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05098506239973633
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.08908715401776135,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.050129884669067225,
+     "smoothed": {
+      "integrated_squared_jerk": 1.994876157411387,
+      "duration_s": 16.173575164451442,
+      "smooth_path_length_m": 3.6212663514430385,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 28.973669457947835,
+    "query_stages": {
+     "locate": 0.0016946119721978903,
+     "locate_cells": 0.004857041058130562,
+     "graph_search": 3.8997413179604337,
+     "lifting": 0.001894830958917737,
+     "shortcut": 0.031073919031769037,
+     "tighten": 1.7880335740046576,
+     "merge_corners": 0.023724116035737097,
+     "own_verification": 0.007372388965450227,
+     "shared_verification": 0.01018468604888767
+    },
+    "clearance_lower_m": 0.05098506239973633,
+    "certificate": null,
+    "graph_cells": 4,
+    "cell_certified_path": {
+     "path_length_m": 3.6310597577351156,
+     "n_vertices": 5,
+     "n_segments": 4,
+     "total_turning_rad": 1.3474107684889278,
+     "max_turning_rad": 0.6737053284894248,
+     "curvature_integral_rad": 1.3474107684889278,
+     "bending_energy_per_m": 0.9999920682509864,
+     "vertical_travel_m": 5.107354974498435e-07,
+     "altitude_range_m": 2.5536774872492174e-07
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 218.8393608420156,
+    "raw": {
+     "path_length_m": 3.82842712474619,
+     "n_vertices": 30,
+     "n_segments": 29,
+     "total_turning_rad": 9.424778011645127,
+     "max_turning_rad": 1.5707963267948966,
+     "curvature_integral_rad": 9.424778011645127,
+     "bending_energy_per_m": 67.05198073052983,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05385162507250439
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.26416773092933,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.06263379717259326,
+     "smoothed": {
+      "integrated_squared_jerk": 0.16051012811790205,
+      "duration_s": 16.705397705532185,
+      "smooth_path_length_m": 3.6897253107056667,
+      "bezier_segments": 2,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 2443,
+    "outer_wall_s": 218.83942691492848,
+    "clearance_lower_m": 0.05385162507250439
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "overhang",
+   "query": "up_past_ceiling",
+   "body": "uav",
+   "start": [
+    -1.5,
+    0.0,
+    0.6
+   ],
+   "goal": [
+    -1.5,
+    0.0,
+    2.5
+   ],
+   "n_gaussians": 621,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 2.0155890081077814,
+    "raw": {
+     "path_length_m": 5.373071078928245,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 2.5044150377758503,
+     "max_turning_rad": 1.2703892447768603,
+     "curvature_integral_rad": 2.5044150377758503,
+     "bending_energy_per_m": 2.205984958300518,
+     "vertical_travel_m": 1.9000000000000001,
+     "altitude_range_m": 1.9
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05099997999985711
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.15108718001283705,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05091100180144793,
+     "smoothed": {
+      "integrated_squared_jerk": 1.1821977964613175,
+      "duration_s": 34.153619489409536,
+      "smooth_path_length_m": 5.803913142068026,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 2.91788746509701,
+    "query_stages": {
+     "locate": 0.001883259043097496,
+     "locate_cells": 0.0014144610613584518,
+     "graph_search": 0.15200758399441838,
+     "lifting": 0.004562414018437266,
+     "shortcut": 0.14477975200861692,
+     "tighten": 1.6716673549963161,
+     "merge_corners": 0.0024393160128965974,
+     "own_verification": 0.0014207960339263082,
+     "shared_verification": 0.023977340082637966
+    },
+    "clearance_lower_m": 0.05099997999985711,
+    "certificate": null,
+    "graph_cells": 5,
+    "cell_certified_path": {
+     "path_length_m": 5.405185298765582,
+     "n_vertices": 6,
+     "n_segments": 5,
+     "total_turning_rad": 2.5219182643060334,
+     "max_turning_rad": 1.2798380323542098,
+     "curvature_integral_rad": 2.5219182643060334,
+     "bending_energy_per_m": 3.116664090353848,
+     "vertical_travel_m": 1.9000000000000001,
+     "altitude_range_m": 1.9
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 73.73739210306667,
+    "raw": {
+     "path_length_m": 5.904163056034262,
+     "n_vertices": 53,
+     "n_segments": 52,
+     "total_turning_rad": 15.707963318824712,
+     "max_turning_rad": 0.7853981633974504,
+     "curvature_integral_rad": 15.707963318824712,
+     "bending_energy_per_m": 102.20309995471004,
+     "vertical_travel_m": 1.9000000000000001,
+     "altitude_range_m": 1.9
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.06999997999985491
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 3.55317698395811,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.0531418615037766,
+     "smoothed": {
+      "integrated_squared_jerk": 0.8492870759407323,
+      "duration_s": 33.76003108022132,
+      "smooth_path_length_m": 5.638922204279261,
+      "bezier_segments": 4,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 4887,
+    "outer_wall_s": 73.73749963706359,
+    "clearance_lower_m": 0.06999997999985491
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "bridge",
+   "query": "under",
+   "body": "uav",
+   "start": [
+    -1.5,
+    0.0,
+    0.6
+   ],
+   "goal": [
+    1.5,
+    0.0,
+    0.6
+   ],
+   "n_gaussians": 695,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 0.6929757189936936,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.004082995001226664,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 35.28446617501322,
+    "query_stages": {
+     "locate": 0.0033909969497472048,
+     "locate_cells": 0.005675507942214608,
+     "graph_search": 0.26365869597066194,
+     "lifting": 0.00108487403485924,
+     "shortcut": 8.66639893501997e-05,
+     "own_verification": 5.344301462173462e-05,
+     "shared_verification": 0.00044276006519794464
+    },
+    "clearance_lower_m": 0.1,
+    "certificate": null,
+    "graph_cells": 2,
+    "cell_certified_path": {
+     "path_length_m": 3.000000000000477,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 1.1878010859120371e-06,
+     "max_turning_rad": 1.1878010859120371e-06,
+     "curvature_integral_rad": 1.1878010859120371e-06,
+     "bending_energy_per_m": 9.405809464623934e-13,
+     "vertical_travel_m": 1.605256881420658e-06,
+     "altitude_range_m": 8.02628440710329e-07
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 0.0018548279767856002,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.004003082984127104,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 0,
+    "outer_wall_s": 0.0018670529825612903,
+    "clearance_lower_m": 0.10000003000025581
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "bridge",
+   "query": "over",
+   "body": "uav",
+   "start": [
+    -1.5,
+    0.0,
+    2.3
+   ],
+   "goal": [
+    1.5,
+    0.0,
+    2.3
+   ],
+   "n_gaussians": 695,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 1.3474880210123956,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.004013685043901205,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 35.28446617501322,
+    "query_stages": {
+     "locate": 0.00014617398846894503,
+     "locate_cells": 0.008073645061813295,
+     "graph_search": 0.9354501209454611,
+     "lifting": 0.0011682200711220503,
+     "shortcut": 8.129200432449579e-05,
+     "own_verification": 5.7955970987677574e-05,
+     "shared_verification": 0.00043351296335458755
+    },
+    "clearance_lower_m": 0.1,
+    "certificate": null,
+    "graph_cells": 2,
+    "cell_certified_path": {
+     "path_length_m": 3.0,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 6.186857248735578e-09,
+     "altitude_range_m": 3.093428624367789e-09
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 0.0018228880362585187,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000025581
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.003669028985314071,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000025581,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 0,
+    "outer_wall_s": 0.0018351390026509762,
+    "clearance_lower_m": 0.10000003000025581
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "shaft",
+   "query": "up_the_shaft",
+   "body": "uav",
+   "start": [
+    -1.0,
+    -1.0,
+    0.5
+   ],
+   "goal": [
+    -1.0,
+    -1.0,
+    3.3
+   ],
+   "n_gaussians": 1298,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 11.527205017977394,
+    "raw": {
+     "path_length_m": 6.879354599004479,
+     "n_vertices": 6,
+     "n_segments": 5,
+     "total_turning_rad": 2.653770552611512,
+     "max_turning_rad": 1.4366823419305248,
+     "curvature_integral_rad": 2.653770552611512,
+     "bending_energy_per_m": 2.2086127337902823,
+     "vertical_travel_m": 2.8,
+     "altitude_range_m": 2.8
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.050592074832575315
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.5007453359430656,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.0511588929948705,
+     "smoothed": {
+      "integrated_squared_jerk": 1.8989635814504362,
+      "duration_s": 35.27861191780917,
+      "smooth_path_length_m": 6.971216565537735,
+      "bezier_segments": 4,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 32.78851615800522,
+    "query_stages": {
+     "locate": 0.0036611949326470494,
+     "locate_cells": 0.008090078015811741,
+     "graph_search": 6.501793280011043,
+     "lifting": 0.015998519957065582,
+     "shortcut": 0.6493640710832551,
+     "tighten": 3.769831395940855,
+     "merge_corners": 0.016190644935704768,
+     "own_verification": 0.01482071599457413,
+     "shared_verification": 0.044973760028369725
+    },
+    "clearance_lower_m": 0.050592074832575315,
+    "certificate": null,
+    "graph_cells": 8,
+    "cell_certified_path": {
+     "path_length_m": 6.908100401464768,
+     "n_vertices": 9,
+     "n_segments": 8,
+     "total_turning_rad": 2.6772595329328643,
+     "max_turning_rad": 1.4243437206091372,
+     "curvature_integral_rad": 2.6772595329328643,
+     "bending_energy_per_m": 11.783704363544253,
+     "vertical_travel_m": 2.8,
+     "altitude_range_m": 2.8
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 140.28849185199942,
+    "raw": {
+     "path_length_m": 7.082551129331013,
+     "n_vertices": 51,
+     "n_segments": 50,
+     "total_turning_rad": 5.667705914610563,
+     "max_turning_rad": 0.9553166181245093,
+     "curvature_integral_rad": 5.667705914610563,
+     "bending_energy_per_m": 33.94775262599667,
+     "vertical_travel_m": 2.8000000000000007,
+     "altitude_range_m": 2.8000000000000003
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05262119928373611
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 5.651255202013999,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.052111374347172654,
+     "smoothed": {
+      "integrated_squared_jerk": 4.735650497431441,
+      "duration_s": 35.628376861062655,
+      "smooth_path_length_m": 6.96405699123719,
+      "bezier_segments": 5,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 9072,
+    "outer_wall_s": 140.28866857406683,
+    "clearance_lower_m": 0.05262119928373611
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "window_small_uav",
+   "query": "through",
+   "body": "uav_small",
+   "start": [
+    -1.5,
+    0.0,
+    1.05
+   ],
+   "goal": [
+    1.5,
+    0.0,
+    1.05
+   ],
+   "n_gaussians": 918,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 0.9248312950367108,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000021318
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.004454929963685572,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000021318,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 66.30014285398647,
+    "query_stages": {
+     "locate": 0.0032753499690443277,
+     "locate_cells": 0.0072034039767459035,
+     "graph_search": 0.41670963598880917,
+     "lifting": 0.0011130949715152383,
+     "shortcut": 9.10250237211585e-05,
+     "own_verification": 5.843397229909897e-05,
+     "shared_verification": 0.0005312159191817045
+    },
+    "clearance_lower_m": 0.1,
+    "certificate": null,
+    "graph_cells": 2,
+    "cell_certified_path": {
+     "path_length_m": 3.0000000000000107,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 1.7055158529072421e-07,
+     "max_turning_rad": 1.7055158529072421e-07,
+     "curvature_integral_rad": 1.7055158529072421e-07,
+     "bending_energy_per_m": 1.939189549678605e-14,
+     "vertical_travel_m": 2.5666739000840266e-07,
+     "altitude_range_m": 1.2833369500420133e-07
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 0.0021745340200141072,
+    "raw": {
+     "path_length_m": 3.0,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.10000003000021318
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.004200578900054097,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.10000003000021318,
+     "smoothed": {
+      "integrated_squared_jerk": 0.028175128036036702,
+      "duration_s": 11.8125,
+      "smooth_path_length_m": 3.0,
+      "bezier_segments": 1,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 0,
+    "outer_wall_s": 0.002184883924201131,
+    "clearance_lower_m": 0.10000003000021318
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "window_big_uav",
+   "query": "through",
+   "body": "uav_big",
+   "start": [
+    -1.5,
+    0.0,
+    1.05
+   ],
+   "goal": [
+    1.5,
+    0.0,
+    1.05
+   ],
+   "n_gaussians": 918,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 3.649853042908944,
+    "raw": {
+     "path_length_m": 3.7920537880361946,
+     "n_vertices": 5,
+     "n_segments": 4,
+     "total_turning_rad": 1.369391343934093,
+     "max_turning_rad": 0.8731282251720367,
+     "curvature_integral_rad": 1.369391343934093,
+     "bending_energy_per_m": 2.9031631856058233,
+     "vertical_travel_m": 0.2939962728224006,
+     "altitude_range_m": 0.1469981364112003
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.050588847291036486
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.23809508699923754,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.050999834666703735,
+     "smoothed": {
+      "integrated_squared_jerk": 1.4711772797546887,
+      "duration_s": 19.035992213369937,
+      "smooth_path_length_m": 3.8116109057480605,
+      "bezier_segments": 4,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 12.620537753100507,
+    "query_stages": {
+     "locate": 0.003987369011156261,
+     "locate_cells": 0.0033269940176978707,
+     "graph_search": 1.494303509942256,
+     "lifting": 0.0016437970334663987,
+     "shortcut": 0.0298226960003376,
+     "tighten": 1.939841240993701,
+     "merge_corners": 0.058758308994583786,
+     "own_verification": 0.008441981975920498,
+     "shared_verification": 0.020411676028743386
+    },
+    "clearance_lower_m": 0.050588847291036486,
+    "certificate": null,
+    "graph_cells": 3,
+    "cell_certified_path": {
+     "path_length_m": 3.8316499990894615,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 1.4333018871228407,
+     "max_turning_rad": 0.7407164024156996,
+     "curvature_integral_rad": 1.4333018871228407,
+     "bending_energy_per_m": 0.9630486619527816,
+     "vertical_travel_m": 0.28505113049906683,
+     "altitude_range_m": 0.14252556524953341
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 235.90633065404836,
+    "raw": {
+     "path_length_m": 3.9941125496954286,
+     "n_vertices": 30,
+     "n_segments": 29,
+     "total_turning_rad": 6.283185328253014,
+     "max_turning_rad": 1.570796326794898,
+     "curvature_integral_rad": 6.283185328253014,
+     "bending_energy_per_m": 46.61136073958785,
+     "vertical_travel_m": 0.0,
+     "altitude_range_m": 0.0
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05381311838655553
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.7810342219891027,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05090597122319108,
+     "smoothed": {
+      "integrated_squared_jerk": 1.2593724082808382,
+      "duration_s": 20.17819847118735,
+      "smooth_path_length_m": 3.8761703978976674,
+      "bezier_segments": 4,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 4309,
+    "outer_wall_s": 235.90642391494475,
+    "clearance_lower_m": 0.05381311838655553
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "f1_under_over",
+   "query": "f1",
+   "body": "uav",
+   "start": [
+    -1.8,
+    0.0,
+    0.65
+   ],
+   "goal": [
+    1.8,
+    0.0,
+    1.65
+   ],
+   "n_gaussians": 2,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 0.5273463490884751,
+    "raw": {
+     "path_length_m": 3.7973598268439033,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 0.8178966718037143,
+     "max_turning_rad": 0.4337649930383374,
+     "curvature_integral_rad": 0.8178966718037143,
+     "bending_energy_per_m": 0.2812536813790561,
+     "vertical_travel_m": 0.9999999999999999,
+     "altitude_range_m": 0.9999999999999999
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05115621773753525
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.02319241303484887,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05142855145570257,
+     "smoothed": {
+      "integrated_squared_jerk": 0.8089527118663569,
+      "duration_s": 16.293279605597437,
+      "smooth_path_length_m": 3.8237143128520583,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 4.396495616994798,
+    "query_stages": {
+     "locate": 0.0011211630189791322,
+     "locate_cells": 0.000523191993124783,
+     "graph_search": 0.019494767067953944,
+     "lifting": 0.001985686947591603,
+     "shortcut": 0.003037931048311293,
+     "tighten": 0.4914559950120747,
+     "merge_corners": 0.002597389044240117,
+     "own_verification": 0.002837098902091384,
+     "shared_verification": 0.0009025069884955883
+    },
+    "clearance_lower_m": 0.05115621773753525,
+    "certificate": null,
+    "graph_cells": 4,
+    "cell_certified_path": {
+     "path_length_m": 3.8064297980381703,
+     "n_vertices": 5,
+     "n_segments": 4,
+     "total_turning_rad": 0.8712688560921495,
+     "max_turning_rad": 0.46175949423090973,
+     "curvature_integral_rad": 0.8712688560921495,
+     "bending_energy_per_m": 0.40449444236803656,
+     "vertical_travel_m": 0.9999999999999999,
+     "altitude_range_m": 0.9999999999999999
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 5.810809363028966,
+    "raw": {
+     "path_length_m": 4.0142135623730955,
+     "n_vertices": 36,
+     "n_segments": 35,
+     "total_turning_rad": 3.1415927106378003,
+     "max_turning_rad": 0.7853981633974484,
+     "curvature_integral_rad": 3.1415927106378003,
+     "bending_energy_per_m": 18.943890245019574,
+     "vertical_travel_m": 0.9999999999999999,
+     "altitude_range_m": 0.9999999999999999
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05502601634591602
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.04363409604411572,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.0618077964027996,
+     "smoothed": {
+      "integrated_squared_jerk": 0.5137761344342195,
+      "duration_s": 18.563752405678713,
+      "smooth_path_length_m": 3.948210554782811,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 463,
+    "outer_wall_s": 5.810831800918095,
+    "clearance_lower_m": 0.05502601634591602
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth",
+   "query": "low_start",
+   "body": "uav",
+   "start": [
+    -1.8,
+    0.0,
+    0.45
+   ],
+   "goal": [
+    1.3,
+    0.3,
+    1.35
+   ],
+   "n_gaussians": 4040,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 1.8693490650039166,
+    "raw": {
+     "path_length_m": 3.35048005692737,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 0.5432607164643012,
+     "max_turning_rad": 0.5432607164643012,
+     "curvature_integral_rad": 0.5432607164643012,
+     "bending_energy_per_m": 0.17617308626750233,
+     "vertical_travel_m": 0.9000000000000001,
+     "altitude_range_m": 0.9000000000000001
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05001536725900306
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.049170757993124425,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05181522047168619,
+     "smoothed": {
+      "integrated_squared_jerk": 0.35748288963358305,
+      "duration_s": 14.361238257358727,
+      "smooth_path_length_m": 3.3810272598468454,
+      "bezier_segments": 2,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 18.50429733598139,
+    "query_stages": {
+     "locate": 0.00604655803181231,
+     "locate_cells": 0.006097413948737085,
+     "graph_search": 0.6196567419683561,
+     "lifting": 0.0023974840296432376,
+     "shortcut": 0.0692061890149489,
+     "tighten": 1.0050377199659124,
+     "own_verification": 0.010607834090478718,
+     "shared_verification": 0.015192223945632577
+    },
+    "clearance_lower_m": 0.05001536725900306,
+    "certificate": null,
+    "graph_cells": 3,
+    "cell_certified_path": {
+     "path_length_m": 3.352153219906848,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 0.5472565112263528,
+     "max_turning_rad": 0.547256455471313,
+     "curvature_integral_rad": 0.5472565112263528,
+     "bending_energy_per_m": 0.24564117435447974,
+     "vertical_travel_m": 0.9000000000000001,
+     "altitude_range_m": 0.9000000000000001
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 151.18924856500234,
+    "raw": {
+     "path_length_m": 3.568143379694521,
+     "n_vertices": 31,
+     "n_segments": 30,
+     "total_turning_rad": 6.728746582196342,
+     "max_turning_rad": 0.9553166181245092,
+     "curvature_integral_rad": 6.728746582196342,
+     "bending_energy_per_m": 37.66563971097703,
+     "vertical_travel_m": 0.9000000000000001,
+     "altitude_range_m": 0.9000000000000001
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05099017336879619
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.22808975307270885,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.05143465773967937,
+     "smoothed": {
+      "integrated_squared_jerk": 0.31859749847558283,
+      "duration_s": 14.64273277720702,
+      "smooth_path_length_m": 3.4253572109353643,
+      "bezier_segments": 2,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 1491,
+    "outer_wall_s": 151.1895731970435,
+    "clearance_lower_m": 0.05099017336879619
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth",
+   "query": "high_start",
+   "body": "uav",
+   "start": [
+    -1.8,
+    0.0,
+    1.5
+   ],
+   "goal": [
+    1.3,
+    0.3,
+    1.35
+   ],
+   "n_gaussians": 4040,
+   "aerial3d": {
+    "status": "REACHABLE",
+    "wall_s": 2.7983317560283467,
+    "raw": {
+     "path_length_m": 3.5632885721197614,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 1.1799533201497385,
+     "max_turning_rad": 0.6498409366262656,
+     "curvature_integral_rad": 1.1799533201497385,
+     "bending_energy_per_m": 0.6645884584467883,
+     "vertical_travel_m": 1.4920000000000029,
+     "altitude_range_m": 0.8210000000000014
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.05099997999985094
+    },
+    "smoothing": {
+     "selected": "raw_verified_fallback",
+     "reason": "turn_improvement_below_threshold",
+     "wall_s": 0.0733279560226947,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.052027150855202056,
+     "smoothed": {
+      "integrated_squared_jerk": 0.8748640158457281,
+      "duration_s": 16.327264636526333,
+      "smooth_path_length_m": 3.5989050970414898,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 18.50429733598139,
+    "query_stages": {
+     "locate": 0.00024369906168431044,
+     "locate_cells": 0.007247108034789562,
+     "graph_search": 1.113168198033236,
+     "lifting": 0.00423460197634995,
+     "shortcut": 0.24689060088712722,
+     "tighten": 1.2556334669934586,
+     "merge_corners": 0.0002664630301296711,
+     "own_verification": 0.00081210199277848,
+     "shared_verification": 0.010126439970918
+    },
+    "clearance_lower_m": 0.05099997999985094,
+    "certificate": null,
+    "graph_cells": 4,
+    "cell_certified_path": {
+     "path_length_m": 3.5632885721197693,
+     "n_vertices": 5,
+     "n_segments": 4,
+     "total_turning_rad": 1.1799538847569007,
+     "max_turning_rad": 0.6498411840801431,
+     "curvature_integral_rad": 1.1799538847569007,
+     "bending_energy_per_m": 1.045387090164915,
+     "vertical_travel_m": 1.4920000000000029,
+     "altitude_range_m": 0.8210000000000014
+    }
+   },
+   "lattice": {
+    "status": "success",
+    "wall_s": 561.3389140759828,
+    "raw": {
+     "path_length_m": 3.8698962722306764,
+     "n_vertices": 32,
+     "n_segments": 31,
+     "total_turning_rad": 6.797986070355971,
+     "max_turning_rad": 0.9553166181245112,
+     "curvature_integral_rad": 6.797986070355971,
+     "bending_energy_per_m": 39.206399469558505,
+     "vertical_travel_m": 1.6500000000000004,
+     "altitude_range_m": 0.9
+    },
+    "replay_fresh": {
+     "passed": true,
+     "clearance_lower_m": 0.09216221223954812
+    },
+    "smoothing": {
+     "selected": "smoothed",
+     "reason": "smoothed_verified",
+     "wall_s": 0.8967387940501794,
+     "candidate_verified": true,
+     "candidate_clearance_lower_m": 0.06600829724388949,
+     "smoothed": {
+      "integrated_squared_jerk": 0.8007887609295403,
+      "duration_s": 17.62654956841296,
+      "smooth_path_length_m": 3.7053715729360905,
+      "bezier_segments": 3,
+      "definition": "exact int |x'''|^2 dt over cubic-Bezier + quintic-ease segments (24-point Gauss-Legendre per segment)"
+     }
+    },
+    "reason": "verified_goal_reached",
+    "expansions": 2555,
+    "outer_wall_s": 561.3391971980454,
+    "clearance_lower_m": 0.09216221223954812
+   },
+   "verdicts_agree": true
+  }
+ ],
+ "host": {
+  "node": "cs603.hpc.nyu.edu",
+  "slurm_job_id": "18511507",
+  "cpus": "2"
+ },
+ "lattice_config": {
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+   "max_wall_s": 1200.0,
+   "max_expansions": 400000,
+   "max_oracle_calls": 20000000,
+   "max_narrowphase_pairs": 500000000
+  }
+ },
+ "smoothing_config": {
+  "max_shortcut_span": 64,
+  "max_certificate_depth": 14,
+  "certificate_deviation_m": 0.005,
+  "duration_safety_factor": 1.05,
+  "min_turn_improvement_fraction": 0.1,
+  "metric_samples_per_segment": 101
+ }
+}

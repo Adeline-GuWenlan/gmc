@@ -1,0 +1,214 @@
+{
+ "schema": "uavconn.c1_synthetic.v1",
+ "rows": [
+  {
+   "case": "full_wall_closed",
+   "query": "across",
+   "body": "uav",
+   "start": [
+    -1.5,
+    -0.4,
+    1.0
+   ],
+   "goal": [
+    1.5,
+    -0.4,
+    1.0
+   ],
+   "n_gaussians": 644,
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "wall_s": 0.01081198698375374,
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.671321249916218,
+    "query_stages": {
+     "locate": 0.0015291670570150018,
+     "cut_certificate": 0.009176244959235191
+    },
+    "clearance_lower_m": null,
+    "certificate": {
+     "kind": "possible_space_cut",
+     "claim": "start and goal are in different connected components of the union of all non-BLOCKED leaves; every point of F_true lies in such a leaf, so no collision-free path exists inside the domain (floating-point conservative, not exact arithmetic)",
+     "start_components": [
+      0
+     ],
+     "start_component_leaves": 3240,
+     "start_component_bbox_plan": [
+      [
+       -1.6999999699997868,
+       -0.6999999699997868,
+       0.15000003000021314
+      ],
+      [
+       -0.2833333283332979,
+       0.6999999699997868,
+       2.349999969999787
+      ]
+     ],
+     "blocked_leaves_on_cut": 384,
+     "cut_distinct_pairs": 329,
+     "cut_traceable_fraction": 1.0,
+     "domain_boundary": "the remaining boundary of the start component is the C-space domain boundary"
+    },
+    "graph_cells": null,
+    "cell_certified_path": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "wall_s": 330.17900929099414,
+    "reason": "reachable_frontier_has_unproven_edges",
+    "expansions": 3718,
+    "outer_wall_s": 330.17916722304653,
+    "clearance_lower_m": null
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth_plug",
+   "query": "low_start",
+   "body": "uav",
+   "start": [
+    -1.8,
+    0.0,
+    0.45
+   ],
+   "goal": [
+    1.3,
+    0.3,
+    1.35
+   ],
+   "n_gaussians": 4282,
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "wall_s": 0.06063582096248865,
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.970276346895844,
+    "query_stages": {
+     "locate": 0.0063186639454215765,
+     "cut_certificate": 0.05413662793580443
+    },
+    "clearance_lower_m": null,
+    "certificate": {
+     "kind": "possible_space_cut",
+     "claim": "start and goal are in different connected components of the union of all non-BLOCKED leaves; every point of F_true lies in such a leaf, so no collision-free path exists inside the domain (floating-point conservative, not exact arithmetic)",
+     "start_components": [
+      0
+     ],
+     "start_component_leaves": 9634,
+     "start_component_bbox_plan": [
+      [
+       -2.1999999699997783,
+       -0.699999973749806,
+       0.15000003000022172
+      ],
+      [
+       -0.2781249956249679,
+       0.699999973749806,
+       1.8499999699997782
+      ]
+     ],
+     "blocked_leaves_on_cut": 2166,
+     "cut_distinct_pairs": 969,
+     "cut_traceable_fraction": 1.0,
+     "domain_boundary": "the remaining boundary of the start component is the C-space domain boundary"
+    },
+    "graph_cells": null,
+    "cell_certified_path": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "wall_s": 862.3511191050056,
+    "reason": "reachable_frontier_has_unproven_edges",
+    "expansions": 3601,
+    "outer_wall_s": 862.3519349269336,
+    "clearance_lower_m": null
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth_plug",
+   "query": "high_start",
+   "body": "uav",
+   "start": [
+    -1.8,
+    0.0,
+    1.5
+   ],
+   "goal": [
+    1.3,
+    0.3,
+    1.35
+   ],
+   "n_gaussians": 4282,
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "wall_s": 0.06143742601852864,
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.970276346895844,
+    "query_stages": {
+     "locate": 0.00044477498158812523,
+     "cut_certificate": 0.06081252498552203
+    },
+    "clearance_lower_m": null,
+    "certificate": {
+     "kind": "possible_space_cut",
+     "claim": "start and goal are in different connected components of the union of all non-BLOCKED leaves; every point of F_true lies in such a leaf, so no collision-free path exists inside the domain (floating-point conservative, not exact arithmetic)",
+     "start_components": [
+      0
+     ],
+     "start_component_leaves": 9634,
+     "start_component_bbox_plan": [
+      [
+       -2.1999999699997783,
+       -0.699999973749806,
+       0.15000003000022172
+      ],
+      [
+       -0.2781249956249679,
+       0.699999973749806,
+       1.8499999699997782
+      ]
+     ],
+     "blocked_leaves_on_cut": 2166,
+     "cut_distinct_pairs": 969,
+     "cut_traceable_fraction": 1.0,
+     "domain_boundary": "the remaining boundary of the start component is the C-space domain boundary"
+    },
+    "graph_cells": null,
+    "cell_certified_path": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "wall_s": 930.110626647016,
+    "reason": "reachable_frontier_has_unproven_edges",
+    "expansions": 3835,
+    "outer_wall_s": 930.1114094060613,
+    "clearance_lower_m": null
+   },
+   "verdicts_agree": true
+  }
+ ],
+ "host": {
+  "node": "cs612.hpc.nyu.edu",
+  "slurm_job_id": "18511508",
+  "cpus": "2"
+ },
+ "lattice_config": {
+  "resolution_m": 0.1,
+  "margin_m": 0.05,
+  "budget": {
+   "max_wall_s": 1200.0,
+   "max_expansions": 400000,
+   "max_oracle_calls": 20000000,
+   "max_narrowphase_pairs": 500000000
+  }
+ },
+ "smoothing_config": {
+  "max_shortcut_span": 64,
+  "max_certificate_depth": 14,
+  "certificate_deviation_m": 0.005,
+  "duration_safety_factor": 1.05,
+  "min_turn_improvement_fraction": 0.1,
+  "metric_samples_per_segment": 101
+ }
+}
