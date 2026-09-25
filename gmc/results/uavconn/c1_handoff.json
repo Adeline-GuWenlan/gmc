@@ -1300,7 +1300,7 @@
   "archive": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/uavlamp_scene.npz (+manifest.json); specs gmc/configs/uavlamp_l2/*.json use paths relative to the uavlamp gmc/ dir: pass --uavlamp-root /scratch/wg2381/splathjb-uavlamp/gmc"
  },
  "recommended_sbatch": {
-  "compile_plus_queries_per_scene": "--cpus-per-task=2 --mem=6G --time=01:30:00 (measured compile 462-630 s, MaxRSS 1.4-2.7 GB; 1.5x = 4 GB, 6 GB gives headroom). One compile per scene variant: booth (M1, M5), plug (N2, N2h), lamp-only (C4h).",
+  "compile_plus_queries_per_scene": "--cpus-per-task=2 --mem=6G --time=01:30:00 (measured over 6 real-archive probes: compile 256-630 s depending on node load, MaxRSS 1.37-2.93 GB; 1.5 x 2.93 = 4.4 GB, 6 GB gives headroom). One compile per scene variant: booth (M1, M5), plug (N2, N2h), lamp-only (C4h).",
   "cold_vs_warm": "cold = compile + first query (report both walls); warm = further queries on the same CompiledComplex (seconds). Several warm repeats are cheap.",
   "baseline_retiming": "per _rules.md: LatticePlanner real-scene query 2 CPU / ~5 GB / 1.7-2.3 h each (cpu_short < 8 h); run one query per job",
   "pytest": "hpc/uavconn/c1_pytest.sbatch (2 CPU / 8 GB / ~15 min)"
