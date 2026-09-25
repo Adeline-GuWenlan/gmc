@@ -136,3 +136,15 @@ def test_post_processing_keeps_the_certificate_buffer():
     r = query(compiled, *queries["over"])
     buffer = compiled.tree.config.buffer_m
     assert r["verification"]["own"]["clearance_lower_m"] >= .05 + buffer - 1e-9
+
+
+def test_corner_wraps_are_merged_after_tightening():
+    """The taut string around the wall end is merged to few vertices (smoother-friendly) at a
+    length cost within the merge budget, still certified with the buffer."""
+    scene, queries = full_wall(gap=True)
+    compiled = compile_complex(scene, UAV)
+    r = query(compiled, *queries["across"])
+    assert r["status"] == "REACHABLE"
+    assert r["metrics"]["n_vertices"] <= 4
+    assert r["metrics"]["path_length_m"] < 3.6
+    assert r["verification"]["own"]["clearance_lower_m"] >= .05 + compiled.tree.config.buffer_m - 1e-9

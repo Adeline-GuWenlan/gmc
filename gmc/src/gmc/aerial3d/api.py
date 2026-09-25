@@ -33,8 +33,8 @@ from .graph import components, touch_pairs
 from .metrics import polyline_metrics
 from .octree import BLOCKED, OUTSIDE, SAFE, UNKNOWN, Octree, OctreeConfig
 from .pairs import domain_from_scene, pairs_from_scene
-from .query import (PortalGraph, cells_containing, shortcut, shorten, shorten_in_cells, simplify,
-                    tighten)
+from .query import (PortalGraph, cells_containing, merge_corners, shortcut, shorten, shorten_in_cells,
+                    simplify, tighten)
 from .verify import verify_polyline, verify_segment
 
 # Same names as gmc.types.PlanStatus; not imported, because gmc.types pulls in the 2-D
@@ -60,6 +60,8 @@ class QueryConfig:
     tighten: bool = True
     tighten_rounds: int = 3
     tighten_max_checks: int = 3000
+    merge_corners: bool = True
+    merge_max_increase_frac: float = .03   # chosen on the synthetic suite (worklog), global
     verify_pad_m: float = .05
     verify_max_depth: int = 12
     query_cell_max_lp: int = 400
@@ -336,6 +338,13 @@ def query(compiled: CompiledComplex, start, goal, *, config: QueryConfig = Query
             if len(pts) > 2:
                 pts, _ = shortcut(pts, accept, max_attempts=config.shortcut_max_attempts)
             st.update(checks=checks, length_before_m=before,
+                      length_after_m=float(np.sum(np.linalg.norm(np.diff(pts, axis=0), axis=1))))
+    if config.merge_corners and len(pts) > 3:
+        with rec.stage("merge_corners") as st:
+            L = float(np.sum(np.linalg.norm(np.diff(pts, axis=0), axis=1)))
+            n0 = len(pts)
+            pts, checks = merge_corners(pts, accept, max_increase_m=config.merge_max_increase_frac * L)
+            st.update(checks=checks, vertices_before=n0, vertices_after=len(pts), length_before_m=L,
                       length_after_m=float(np.sum(np.linalg.norm(np.diff(pts, axis=0), axis=1))))
     with rec.stage("own_verification"):
         own = verify_polyline(compiled.table, compiled.domain, pts, **kw)

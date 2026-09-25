@@ -280,3 +280,47 @@ def tighten(points, accept, *, rounds: int = 3, sweeps: int = 12, min_step_m: fl
                 Q.append(b)
             P = Q
     return simplify(np.asarray(P), tol=1e-7), checks
+
+
+def merge_corners(points, accept, *, max_increase_m: float, max_checks: int = 2000,
+                  line_gap_m: float = 1e-4) -> tuple[np.ndarray, int]:
+    """Replace a run of vertices wrapping a corner by the intersection of its end tangents.
+
+    For interior run P[i..j], the lines P[i-1]->P[i] (continued forward) and P[j+1]->P[j]
+    (continued backward) meet at x (closest points within ``line_gap_m`` for skew lines);
+    P[i..j] becomes the single vertex x if ``accept`` certifies both new segments and the
+    total length grows by no more than the remaining ``max_increase_m``.  Fewer, longer
+    segments suit stop-at-anchor smoothers; every change is re-certified (§10.3).
+    """
+    P = [np.asarray(p, float) for p in points]
+    budget, checks = float(max_increase_m), 0
+    length = lambda X: float(sum(np.linalg.norm(b - a) for a, b in zip(X[:-1], X[1:])))
+    changed = True
+    while changed and checks < max_checks:
+        changed = False
+        for i in range(1, len(P) - 1):
+            for j in range(len(P) - 2, i, -1):
+                d1, d2 = P[i] - P[i - 1], P[j + 1] - P[j]
+                M = np.column_stack([d1, d2])
+                if np.linalg.matrix_rank(M, tol=1e-12) < 2:
+                    continue
+                (s, t), *_ = np.linalg.lstsq(M, P[j] - P[i], rcond=None)
+                if s < 0 or t < 0:
+                    continue
+                x1, x2 = P[i] + s * d1, P[j] - t * d2
+                if np.linalg.norm(x1 - x2) > line_gap_m:
+                    continue
+                x = (x1 + x2) / 2
+                Q = P[:i] + [x] + P[j + 1:]
+                delta = length(Q) - length(P)
+                if delta > budget:
+                    continue
+                checks += 2
+                if accept(P[i - 1], x) and accept(x, P[j + 1]):
+                    P, budget, changed = Q, budget - max(delta, 0.), True
+                    break
+                if checks >= max_checks:
+                    break
+            if changed or checks >= max_checks:
+                break
+    return np.asarray(P), checks
