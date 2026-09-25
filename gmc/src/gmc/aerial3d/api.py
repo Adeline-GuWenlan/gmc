@@ -318,15 +318,19 @@ def query(compiled: CompiledComplex, start, goal, *, config: QueryConfig = Query
     diag["lifted_segments_inside_their_cell"] = bool(all(inside))
     cell_certified = pts.copy()
     kw = {"pad_m": config.verify_pad_m, "max_depth": config.verify_max_depth}
+    keep = m + compiled.tree.config.buffer_m   # post-processing keeps the cells' buffer
+
+    def accept(a, b):
+        v = verify_segment(compiled.table, compiled.domain, a, b, **kw)
+        return v["status"] == "CERTIFIED" and v["clearance_lower_m"] >= keep
+
     if config.shortcut and len(pts) > 2:
         with rec.stage("shortcut") as st:
-            accept = lambda a, b: verify_segment(compiled.table, compiled.domain, a, b, **kw)["status"] == "CERTIFIED"
             pts, attempts = shortcut(pts, accept, max_attempts=config.shortcut_max_attempts)
             st["attempts"] = attempts
     if config.tighten and len(pts) > 2:
         with rec.stage("tighten") as st:
             before = float(np.sum(np.linalg.norm(np.diff(pts, axis=0), axis=1)))
-            accept = lambda a, b: verify_segment(compiled.table, compiled.domain, a, b, **kw)["status"] == "CERTIFIED"
             pts, checks = tighten(pts, accept, rounds=config.tighten_rounds,
                                   max_checks=config.tighten_max_checks)
             if len(pts) > 2:

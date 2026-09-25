@@ -126,3 +126,13 @@ def test_default_path_is_tightened_to_a_taut_string():
     assert r["status"] == "REACHABLE"
     assert r["metrics"]["path_length_m"] < 3.55
     assert r["verification"]["own"]["status"] == "CERTIFIED" and r["verification"]["shared"]["passed"]
+
+
+def test_post_processing_keeps_the_certificate_buffer():
+    """Shortcut/tightening accept a segment only with clearance >= margin + buffer, like the cells,
+    so the baseline replay never has to certify a near-tangent segment."""
+    scene, queries = low_wall()
+    compiled = compile_complex(scene, UAV)
+    r = query(compiled, *queries["over"])
+    buffer = compiled.tree.config.buffer_m
+    assert r["verification"]["own"]["clearance_lower_m"] >= .05 + buffer - 1e-9
