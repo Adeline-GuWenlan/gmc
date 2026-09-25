@@ -196,3 +196,52 @@ pair C-obstacles form a slab ≈ 0.6 m thick in u that spans D's whole v range (
 A 5 cm box in its core lies inside a single panel pair's `P⁻`, so a closed BLOCKED layer should exist
 without relying on the real walls. Risk: junctions between panels or real clutter could leave only
 UNKNOWN boxes → honest UNKNOWN. Both methods must agree on the verdict class (no false REACHABLE).
+
+## 6. Implementation notes added after the design commit (C1)
+
+§1–§5 above are the pre-registered design (commit `59625e9`) and are left unchanged except for the
+direction count (the level-2 icosphere already contains the ±axes: K = 81, not 81 + 3). What the
+implementation (`55bd6d1` onward) added or changed, and why:
+
+1. **Grid tiling.** The octree root grid tiles the domain bbox exactly (per-axis leaf edge ≤
+   `min_cell_m`), inset by 2·tol. Straddling roots produced thousands of partial/OUTSIDE boxes. The
+   uncovered sliver (2·tol ≈ 2e-8 m) is thinner than the inner-hull shrink ε_in (4e-8 m): a sliver point
+   next to a BLOCKED box is still inside that pair's inner polytope, so the cut argument covers the sliver.
+2. **Refinement skip bound.** `g(u) = |u·(μ−c)| − ρ(u) − |u|·d` is Lipschitz on S² with constant
+   `‖μ−c‖ + R_i + ‖d‖` (R_i = circumradius of O_i − μ_i) and every unit vector is within the icosphere's
+   covering radius (10.81°) of ±U. Refinement is skipped only where this bound proves it cannot succeed.
+3. **Portals.** Up to 8 portal regions per cell pair (best 3-D shared leaf / 2-D shared face per
+   0.5 m bin), so A* sees several crossing locations between two large overlapping cells.
+4. **Lifting.** After A* over portal points, portal points are first optimised inside their portal
+   boxes (L-BFGS-B), then over the full intersection of their two convex cells (SLSQP; a convex
+   program for the fixed cell sequence, GCS-style). Every lifted segment is checked to lie in one cell.
+5. **Post-processing (uav.md §10.3).** Greedy shortcut, then certified taut-string tightening: a vertex
+   moves toward its neighbours' chord only if the own direct verifier certifies both new segments;
+   midpoints are inserted between rounds so the path can bend around corners; collinear points
+   dropped. Without it the low-wall route was 3.75 m (analytic ≈ 3.43 m, lattice 3.66 m); with it
+   < 3.55 m. The cell-certified polyline is kept in the result (`cell_polyline_plan`).
+6. **Corner merging.** A run of vertices wrapping an obstacle corner is replaced by the intersection of
+   its end tangents if both new segments certify with the buffer and the path grows by ≤ 3 % (global
+   default, chosen on the synthetic suite). The gs3d A6 smoother eases to a stop at every anchor, so a
+   taut string with many short segments scored a high smoothed jerk; merging fixes most of that.
+7. **Buffer in post-processing.** Shortcut, tightening and merging accept a segment only if the own
+   verifier's clearance ≥ margin + buffer (1 mm), like the cells, so the shared replay never has to
+   certify a near-tangent segment.
+8. **Status strings.** `gmc.types` imports shapely (2-D backend); the 3-D backend uses the same
+   names as strings and never loads shapely (tested).
+
+## 7. Measured real-scene cost (C1 Task 3; sbatch, cpu_short, 2 CPU)
+
+Real archive `2a3a72d6…96cc` through the manifest-checked loader and the baseline's `build_scene`
+(359 201 cropped Gaussians; the domain prune keeps 284–289 k pairs). Per-stage numbers are in
+`gmc/results/uavconn/probe/*.json`; job accounting in `gmc/results/uavconn/c1_handoff.json`.
+
+| Probe (job, commit) | compile | of which octree / cells+portals | MaxRSS | query | result |
+|---|---:|---:|---:|---:|---|
+| M1 (18511509, 5ee328c) | 582 s | 51 s / 528 s | 1.37 GB | 8.95 s (tighten 6.1 s, shared replay 0.07 s) | REACHABLE, 3.056 m, 4 vertices, under the lamp then above the table |
+| N2 plug (18513500, 87f14c3) | 507 s | 51 s / 453 s | 2.93 GB | 0.14 s | certified UNREACHABLE (cut: plug + lamp + header slab and walls/floor) |
+| C4h lamp only (18513501, 87f14c3) | 256 s | 40 s / 213 s | 2.18 GB | 1.55 s | REACHABLE, 2.8749 m straight line over the lamp |
+
+Against the §4 estimate: compile at the upper-middle of 1–30 min, memory below the 2–4 GB estimate,
+query faster than estimated because the shared replay of 1–3 long segments is cheap. These are
+C1 de-risking runs; the pre-registered §5 predictions stand and C2 evaluates them.
