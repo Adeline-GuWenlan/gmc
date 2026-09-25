@@ -158,3 +158,29 @@ def test_tight_slice_is_never_certified_unreachable(tight_archive):
     assert d["status"] in ("REACHABLE", "UNKNOWN")
     if d["status"] == "REACHABLE":
         assert d["replay"]["passed"]
+
+
+def test_extended_pairs_are_seeded_oracle_free_and_share_the_template_scene(slice_archive, tmp_path):
+    import uavconn_pairs as cp
+    from gmc.gs3d.contracts import Pose3
+    from gmc.gs3d.oracle import GaussianBodyOracle, PreparedScene
+    from uavlamp_query import UAV, build_scene
+    tmpl = json.loads(spec(slice_archive, "tmpl").read_text())
+    full, doc = su.load_uavlamp_derivative(tmpl["archive"], tmpl["manifest"])
+    frame, scene, *_ = build_scene(tmpl, full, doc)
+    regions = {"A_start": {"lower": [-1.0, -.3, .2], "upper": [-.5, .3, .6]},
+               "A_goal": {"lower": [1.2, -.3, .8], "upper": [1.8, .3, 1.5]}}
+    one = cp.generate(scene, frame, n_a=2, n_b=2, seed=7, regions=regions, min_dist_m=.5)
+    two = cp.generate(scene, frame, n_a=2, n_b=2, seed=7, regions=regions, min_dist_m=.5)
+    assert [r["start_route"] for r in one["pairs"]] == [r["start_route"] for r in two["pairs"]]
+    assert [r["class"] for r in one["pairs"]] == ["A", "A", "B", "B"]
+    oracle = GaussianBodyOracle(PreparedScene(scene))
+    for r in one["pairs"]:
+        assert r["distance_m"] >= .5
+        for key in ("start_route", "goal_route"):
+            rep = oracle.pose(Pose3(tuple(frame.to_world(r[key]))), UAV, margin_m=.05)
+            assert rep.occupancy == "free"
+    paths = cp.write_specs(tmpl, one["pairs"], tmp_path / "specs", "out")
+    specs = [json.loads(open(p).read()) for p in paths]
+    assert len({cr.scene_key(s) for s in specs} | {cr.scene_key(tmpl)}) == 1
+    assert all(s["budget"]["max_wall_s"] == 18000. for s in specs)
