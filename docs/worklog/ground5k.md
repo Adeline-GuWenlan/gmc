@@ -111,3 +111,29 @@ The design is in `docs/ground5k_design.md` §1. Decisions the code does not make
   passed; they are 55 now.
 - **GMC cylinder pilot memory:** sacct MaxRSS median 4.7 GB, p90 6.6 GB, max 7.4 GB. Tasks get 12 GB
   and the child cap is task memory − 1.5 GB (10.5 GB). GMC sweeper MaxRSS max 5.2 GB → 8 GB. A\* → 6 GB.
+- **Final pilot** (after the three runner fixes):
+  - A\* 100 of 100 certified and replayed.
+  - GMC sweeper 44 of 50: 4 FAIL_BUDGET, 2 `safe_graph_ambiguous`.
+  - GMC cylinder 6 of 50: 44 FAIL_BUDGET; certified maps up to 96,537 supports.
+  - 0 FAIL_REPLAY and 0 ERROR.
+
+  Projection: 0.63 CPU·h per pair for all four combinations, so 3,154 CPU·h for all 5,000 scene_v2
+  pairs, which the budget allows. Wall-clock is about 13.6 days, bound by the 120 GB per-user QOS.
+  Design §2, commit 2079e94.
+
+### Task 3: launch (2026-09-25 13:29 UTC)
+
+- **scene_v2, pairs [0, 5000):**
+
+  | array | combination | tasks | pairs/task | memory |
+  |---|---|---|---|---|
+  | 18512654 | A\* sweeper | 0-19%1 | 250 | 6 GB |
+  | 18512655 | A\* cylinder | 0-39%1 | 125 | 6 GB |
+  | 18512656 | GMC sweeper | 0-199%2 | 25 | 8 GB |
+  | 18512657 | GMC cylinder | 0-555%8 | 9 | 12 GB |
+
+  All have `--time 05:55:00`. The pilot pairs 0–49 are skipped (same final semantics), which the
+  first tasks' logs confirm.
+- **Plane floor, pairs [0, 1000):** 18512671–18512674, same layout, `--dependency=afterany` on the
+  four scene_v2 arrays.
+- **Handoff:** `gmc/results/ground5k/g1_handoff.json`.
