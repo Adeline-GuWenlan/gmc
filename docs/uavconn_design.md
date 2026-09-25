@@ -29,8 +29,8 @@ unchanged; forks none of it). Status enum reused from `gmc.types.PlanStatus`.
 | §3.1 hard-support semantics | Identical to the baseline oracle: level-κ ellipsoid `E_i = {μ_i + κ L_i v, ‖v‖≤1}`, κ = `SceneSpec.level` (2.0), only opacity > τ (0.3); body = analytic upright cylinder (r, h); free ⇔ distance > margin m (0.05). See §3. | `pairs.py` |
 | §4.1 Phase U0 | q = p ∈ R³ (upright cylinder is yaw invariant). Yaw (§9) and dynamics (Phase 6) **not** implemented. | — |
 | §5.1–5.4 pair C-obstacle, support value/point | `O_i = μ_i + κE(Σ_i) ⊕ Cyl(r,h) ⊕ B(m)`, exact closed-form support `h_i(u) = u·μ_i + κ√(uᵀΣ_i u) + r‖u_xy‖ + h|u_z| + m‖u‖` and support point. The body is one convex primitive, so "pair" = (scene Gaussian i, body cylinder). | `pairs.py` |
-| §6.1 direction set | Level-2 icosphere (162 unit rows = 81 antipodal pairs) ∪ {±e_x, ±e_y, ±e_z}; stored binary64 rows are the rows consumed. Adaptive refinement adds directions per pair when a fixed direction does not separate. | `envelopes.py` |
-| §6.2 outer polytope | `P⁺_i = ∩_k {u_k·x ≤ h_i(u_k) + ε}` (ε = directed fp allowance). Because every `O_i` is centrally symmetric about μ_i, `h_i(u) = u·μ_i + ρ_i(u)` with even `ρ_i`; only the 84 half-directions' ρ are stored. | `envelopes.py` |
+| §6.1 direction set | Level-2 icosphere (162 unit rows = 81 antipodal pairs; the ±axes are among them, snapped exact); stored binary64 rows are the rows consumed. Adaptive refinement adds directions per pair when a fixed direction does not separate. | `envelopes.py` |
+| §6.2 outer polytope | `P⁺_i = ∩_k {u_k·x ≤ h_i(u_k) + ε}` (ε = directed fp allowance). Because every `O_i` is centrally symmetric about μ_i, `h_i(u) = u·μ_i + ρ_i(u)` with even `ρ_i`; only the 81 half-directions' ρ are stored. | `envelopes.py` |
 | §6.3 inner polytope | `P⁻_i = conv{x_i(u_k)}` (support points; computed lazily with qhull, H-rep shrunk by ε). | `envelopes.py` |
 | §6.4 sandwich + audit | `P⁻ ⊆ O ⊆ P⁺` audit on analytic, random and adversarial (needle/pancake, rotated) pairs: inner vertices satisfy dense-direction exact support; exact support points satisfy P⁺ rows; P⁻ vertices ⊆ P⁺. Adaptive direction refinement; pair provenance on every facet. **Not** exact/dyadic predicates: floating-point conservative slack, as in `gs3d` (`numerical_slack`). | `envelopes.py`, tests |
 | §7.2 safe/possible unions | Never materialised as Boolean unions. F_safe is under-approximated by the union of SAFE boxes and convex cells (each certified disjoint from every `P⁺_i`); F_possible is over-approximated by the union of non-BLOCKED boxes (each BLOCKED box ⊆ one `P⁻_i`). So `cells ⊆ F_safe ⊆ F_true ⊆ F_possible ⊆ ∪ non-BLOCKED boxes`. | `octree.py`, `cells.py` |
@@ -56,7 +56,7 @@ Not implemented: §9 (yaw product complex), §11.3–11.4 (yaw segments; the bod
 box's own frame (for the gallery, the route frame `x_F = R(x_W − o)`, a rotation about z plus a
 translation; covariances rotate as `RΣRᵀ`, nothing is projected or dropped).
 
-1. **Pair envelopes** (§5–§6): for every candidate pair, μ_i, Σ_i, the 84 stored ρ-values (outer), and
+1. **Pair envelopes** (§5–§6): for every candidate pair, μ_i, Σ_i, the 81 stored ρ-values (outer), and
    on demand the inner hull.
 2. **Pair-driven adaptive octree** over the bounding box of the C-space domain D (§3). A node box B
    (centre c, half extents d) is
@@ -160,7 +160,7 @@ Domain (M1 box): prism u [−3.0, 3.7], v [−0.35, 2.75], z [0, 2.43] shrinks t
 |---|---|---|
 | load + hash + crop (not algorithm time) | ~3 s, ~1 GB RSS peak | baseline: 1.37 s load, 0.60 s crop |
 | domain prune | 359 k → ~150–250 k pairs, < 5 s | prism is ~½ of its world AABB area |
-| ρ table (84 half-directions) | ~250 k × 84 × 8 B ≈ 170 MB, ~1 s | vectorised |
+| ρ table (81 half-directions) | ~250 k × 81 × 8 B ≈ 160 MB, ~1 s | vectorised |
 | octree | 5·10⁴–3·10⁵ nodes, ≤ 10³–10⁴ candidates each, 1–15 min | C-obstacle union boundary ~50–100 m² at 5 cm leaves |
 | inner hulls | 10⁴–5·10⁴ qhulls × ~0.5 ms ≈ 5–30 s | lazy, cached |
 | convex cells | 10²–10³ cells × 0.2–1 s = 1–20 min (budgeted) | one O(N) exclusion pass per plane |
