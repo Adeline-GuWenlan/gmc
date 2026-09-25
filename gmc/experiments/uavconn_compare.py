@@ -184,6 +184,11 @@ def smooth_block(path) -> dict | None:
             "integrated_squared_jerk": sm.get("integrated_squared_jerk"), "duration_s": sm.get("duration_s"),
             "smooth_path_length_m": sm.get("smooth_path_length_m"), "bezier_segments": sm.get("bezier_segments"),
             "anchor_rows": s.get("anchor_rows"), "gs3d_turn_metric_rad": g.get("turn_metric_rad"),
+            "sampled_curvature_max_radpm": g.get("sampled_curvature_max_radpm"),
+            "gs3d_raw_turn_metric_rad": ((s.get("gs3d_metrics") or {}).get("raw") or {}).get("turn_metric_rad"),
+            "turn_improvement_fraction": (s.get("gs3d_metrics") or {}).get("turn_improvement_fraction"),
+            "jerk_dimensionless": (sm["integrated_squared_jerk"] * sm["duration_s"] ** 5 / sm["smooth_path_length_m"] ** 2
+                                   if sm.get("integrated_squared_jerk") is not None else None),
             "optimizer_wall_s": s.get("optimizer_wall_s"),
             "passes_under_lamp": (s.get("evidence") or {}).get("passes_under_lamp"),
             "under_precedes_above_table": (s.get("evidence") or {}).get("under_precedes_above_table")}
@@ -225,7 +230,8 @@ def summary_stats(vals):
 
 RAW_KEYS = ("path_length_m", "n_vertices", "n_turning_vertices", "total_turning_rad", "max_turning_rad",
             "bending_energy_per_m", "vertical_travel_m")
-SM_KEYS = ("integrated_squared_jerk", "duration_s", "smooth_path_length_m", "gs3d_turn_metric_rad")
+SM_KEYS = ("integrated_squared_jerk", "jerk_dimensionless", "duration_s", "smooth_path_length_m",
+           "gs3d_turn_metric_rad", "sampled_curvature_max_radpm")
 
 
 def smoothness(rows) -> dict:
@@ -377,15 +383,17 @@ def fig_time(doc, dst):
         ax.scatter([p["lattice_s"] for p, f in zip(per, lat_fail) if f], [yy for yy, f in zip(y, lat_fail) if f],
                    s=46, facecolors="white", edgecolors=ORANGE, linewidths=1.8, zorder=3,
                    label="lattice: stopped by budget (no answer)")
-    comp = sorted({round(p["aerial3d_compile_s"]) for p in per})
-    for c in comp:
-        ax.axvline(c, color=BLUE, lw=1, ls=(0, (4, 3)), alpha=.6, zorder=0)
-    ax.text(max(comp), len(per) - .3, "  aerial3d one-off compile per scene\n  (dashed; reused by every query)",
-            color=MUTED, fontsize=8, va="top")
+    names = {"booth": "booth", "plug": "booth+plug", "lamp": "lamp only", "ext": "booth, ext. job"}
+    comps = sorted(doc["time"]["compiles"].items(), key=lambda kv: kv[1]["compile_wall_s"])
+    for g, c in comps:
+        ax.axvline(c["compile_wall_s"], color=BLUE, lw=1, ls=(0, (4, 3)), alpha=.6, zorder=0)
+    note = " · ".join(f"{names.get(g, g)} {c['compile_wall_s']:.0f} s" for g, c in comps)
     ax.set_yticks(y)
     ax.set_yticklabels([f"{p['query']}" + ("" if p["set"] == "benchmark" else "") for p in per], fontsize=8)
     ax.set_xscale("log")
-    ax.set_xlabel("wall-clock seconds per query (log scale)", color=INK)
+    ax.set_xlabel("wall-clock seconds per query (log scale)\n"
+                  f"dashed: aerial3d one-off compile per scene, reused by all its queries ({note})",
+                  color=INK, fontsize=9)
     _style(ax)
     ax.legend(loc="lower right", fontsize=8, frameon=False)
     nb = sum(p["set"] == "benchmark" for p in per)
@@ -408,8 +416,9 @@ def fig_smooth(doc, dst):
     panels = [("path_length_m", "raw path length (m)", "raw", False),
               ("n_turning_vertices", "turning vertices (raw)", "raw", False),
               ("total_turning_rad", "total turning (rad, raw)", "raw", False),
+              ("sampled_curvature_max_radpm", "max curvature (1/m) after\nthe same A6 smoothing", "smooth", False),
               ("integrated_squared_jerk", "∫|jerk|² dt after the same\nA6 smoothing (log)", "smooth", True)]
-    fig, axes = plt.subplots(1, len(panels), figsize=(13, 3.9))
+    fig, axes = plt.subplots(1, len(panels), figsize=(16, 3.9))
     rng = np.random.default_rng(0)
     for ax, (k, lab, blk, log) in zip(axes, panels):
         vals = []
@@ -430,7 +439,7 @@ def fig_smooth(doc, dst):
             if a is not None and b is not None:
                 ax.plot([0, 1], [a, b], color=GRID, lw=.8, zorder=1)
         ax.set_xticks([0, 1]); ax.set_xticklabels(["aerial3d", "lattice"])
-        if log:
+        if log and any(x > 0 for v in vals for x in v):
             ax.set_yscale("log")
         ax.set_title(lab, fontsize=9, color=INK, loc="left")
         ax.grid(axis="y", color=GRID, lw=.8); ax.set_axisbelow(True)
