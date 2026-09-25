@@ -60,3 +60,54 @@ The design is in `docs/ground5k_design.md` §1. Decisions the code does not make
   Recorded in design §3.3.
 - **Pair list committed before any planner run:** 7.9 MB, so committed gzipped (SHA-256 of the plain
   JSON `f598ee358ae740d0a9b719e7f3024d87fce58598e680ce7133e3441cf6fd7115`).
+- **Pilot, first attempt: runner bug.** A\* arrays 18500647 / 18500649 crashed on every call. The frozen
+  config's `astar.budget` has a descriptive `max_wall_s` string, and I forwarded it next to the computed
+  wall budget (TypeError). I cancelled both arrays and deleted the 33 ERROR JSONs they wrote; each had
+  exactly that TypeError. The runner tests now take their planner sections from the frozen config
+  (RED, then GREEN). A\* pilot resubmitted.
+- **Pilot, GMC sweeper: 5 of the first 18 were FAIL_REPLAY**, all `geometry_or_margin_unproven`.
+  Diagnostic job 18501088 (`ground5k_replay_diag.py`) found:
+  - each rejected edge is held up by one floor splat whose level-2 top is at floor + 0.0199–0.0200 m;
+  - the true gap to the sweeper chassis (+0.020) is 0.2–0.8 mm;
+  - no collision, but below the shared 1 mm margin.
+
+  GMC's band test drops a splat lying wholly outside the band, so the runner had given GMC zero
+  vertical margin. That was a runner inconsistency, not a GMC parameter. Fix: GMC projects with its
+  band inflated by the margin (regression test: a splat 0.5 mm under the chassis across the straight
+  line; RED showed the same FAIL_REPLAY, GREEN makes both planners go round).
+
+  Pilot GMC arrays 18500657 / 18500659 were cancelled. Their 40 JSONs went to
+  `outputs/ground5k/scene_v2/superseded_pilot_gmc_band/`, and the GMC pilot was resubmitted
+  (18501688, 18501689).
+- The runner now also records the rejected replay edge (poses, implicated Gaussian ids, bound) and
+  GMC's `failed_invariants` for INTERNAL_ERROR. Two superseded GMC sweeper runs ended
+  `INTERNAL_ERROR / structural_invariant_failed`; their invariant names were not recorded then.
+- **Slurm QOS.** cpu_short allows 32 CPUs and 120 GB per user at once, and 6 h wall. The 16 GB
+  pilot tasks therefore ran about 7 at a time. Memory is now sized per combination from sacct
+  MaxRSS × 1.5: A\* ≤ 2.2 GB, GMC sweeper ≤ 3.5 GB (tasks 11–49 resubmitted at 6 GB as 18501874).
+- **Correction to the north-wing explanation.** The plane-floor pair list (job 18500683, same hall
+  without the booth) populates the wing up to y ≈ 31. Its lattices connect most north free nodes to
+  the main hall: sweeper 393 of 437, cylinder 253 of 296. In scene_v2 the corresponding counts are
+  109 of 429 and 6 of 273. The uav-lamp booth (back panel floor to 2.48 m at y ≈ 29–30, lamp box from
+  1.07 m, in the corridor between walls A and B) cuts the wing off. Design §3.3 is corrected; the
+  y ≥ 30 near-floor occupancy is common to both scenes.
+- **Pilot, GMC INTERNAL_ERROR `I3_graph_nesting`: 6 of 100 GMC queries** (5 sweeper, 1 cylinder),
+  every one on a region cut by the contact strip.
+  - On the GMC sweeper, 5 of 7 cut regions failed against 0 of 43 plain boxes. All polygons had the
+    same (clockwise) orientation, so orientation is not the cause.
+  - `verification/invariants.py:92` checks SAFE ⊆ POSSIBLE by exact shapely difference. With a slanted
+    workspace edge, the two separately computed overlays leave floating-point slivers.
+  - Fix (runner): the query region is now an axis-aligned staircase of 0.10 m y-bands inside the
+    strip (`StairRegion`), used identically by A\*, GMC and the replay. Uncut boxes are unchanged.
+    Tests added: rectilinear, inside the strip, contains == polygon, erosion == square fit. RED, then
+    GREEN.
+  - The staircase gives up ≤ 1.2 cm slivers at the strip edge. For 5 of the 5,000 pairs a cylinder
+    witness touches such a sliver (v2-01136, v2-01413, v2-02749, v2-02860, v2-03906); they are
+    listed in the handoff.
+  - The 7 cut pairs of the pilot (14, 16, 22, 28, 33, 34, 36) were archived to
+    `superseded_pilot_stair/` and rerun for all four combinations (18511062–65).
+- **Full suite (18501925):** 722 passed, 25 failed. The 25 are exactly the baseline's missing sealed
+  Atlas package (`test_atlas_benchmark` 10, `test_atlas_gate_intervals` 15). All 48 ground5k tests
+  passed; they are 55 now.
+- **GMC cylinder pilot memory:** sacct MaxRSS median 4.7 GB, p90 6.6 GB, max 7.4 GB. Tasks get 12 GB
+  and the child cap is task memory − 1.5 GB (10.5 GB). GMC sweeper MaxRSS max 5.2 GB → 8 GB. A\* → 6 GB.

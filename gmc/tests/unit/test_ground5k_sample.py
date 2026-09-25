@@ -264,3 +264,71 @@ def test_finalized_pairs_are_shuffled_with_crops_holding_endpoints_and_witnesses
         assert np.all((pts[:, 0] >= x0) & (pts[:, 0] <= x1) & (pts[:, 1] >= y0) & (pts[:, 1] <= y1))
         assert set(r["witness"]) == {"sweeper", "cylinder"}
         assert r["floor_z"]["start"]["support_z"] == 0.0
+
+
+# ------------------------------------------------ staircase query region (pilot fix) --
+
+TILTED = {**FLAT, "normal": [-0.02, -0.004, 1.0], "centroid": [5.0, 3.0, 0.0]}
+
+
+def _stair(box=(0.0, 0.0, 10.0, 6.0), floor=TILTED):
+    return gc.query_region(box, CFG, floor)
+
+
+def test_query_region_is_rectilinear_so_gmc_overlays_stay_exact():
+    """Pilot: GMC's I3 graph-nesting check failed on 5 of 7 regions cut by the slanted
+    contact-strip edge and on none of 43 boxes.  The region's edges are now axis-aligned."""
+    poly = _stair().polygon(erode=0.3)
+    xy = np.asarray(poly.exterior.coords)
+    d = np.diff(xy, axis=0)
+    assert np.all((np.abs(d[:, 0]) < 1e-12) | (np.abs(d[:, 1]) < 1e-12))
+
+
+def test_staircase_lies_inside_the_contact_strip_and_hugs_it():
+    r = _stair()
+    strip = gc.ContactStrip.from_floor(TILTED, 0.05)
+    v = r.vertices()
+    assert np.all(np.abs(strip.dev(v[:, 0], v[:, 1])) <= 0.05)
+    exact = gc.Region.from_box((0, 0, 10, 6), r.z, strip).polygon()
+    lost = exact.area - r.polygon().area
+    assert 0 <= lost <= 6.0 * 0.10 * 0.2 * 2 + 1e-9        # <= height x band x |dy/dx| per side
+
+
+def test_unclipped_box_stays_one_box():
+    r = gc.query_region((4.0, 1.0, 6.0, 5.0), CFG, TILTED)
+    assert len(r.vertices()) == 4
+    assert r.polygon().equals(__import__("shapely.geometry", fromlist=["box"]).box(4, 1, 6, 5))
+
+
+def test_staircase_contains_aabb_agrees_with_its_polygon():
+    from shapely.geometry import box as sbox
+    r = _stair()
+    poly = r.polygon()
+    rng = np.random.default_rng(3)
+    for _ in range(400):
+        c = rng.uniform((0, 0), (10, 6))
+        h = rng.uniform(0.05, 0.8, 2)
+        lo, hi = (c[0] - h[0], c[1] - h[1], 0.0), (c[0] + h[0], c[1] + h[1], 1.0)
+        inside = poly.buffer(1e-9).contains(sbox(lo[0], lo[1], hi[0], hi[1]))
+        assert r.contains_aabb(lo, hi) == inside
+
+
+def test_eroded_workspace_is_exactly_where_the_body_square_fits():
+    r = _stair()
+    e = 0.3
+    ws = r.polygon(erode=e)
+    rng = np.random.default_rng(4)
+    from shapely.geometry import Point
+    for _ in range(400):
+        c = rng.uniform((0, 0), (10, 6))
+        fits = r.contains_aabb((c[0] - e, c[1] - e, 0.0), (c[0] + e, c[1] + e, 1.0))
+        d = ws.exterior.distance(Point(c))
+        if d > 1e-6:
+            assert ws.contains(Point(c)) == fits
+
+
+def test_staircase_counts_contact_rejections():
+    r = _stair()
+    x_lo = r.vertices()[:, 0].min()
+    assert not r.contains_aabb((x_lo - 0.05, 0.1, 0.0), (x_lo + 0.3, 0.3, 1.0))
+    assert r.rejections["contact"] + r.rejections["x_min"] >= 1

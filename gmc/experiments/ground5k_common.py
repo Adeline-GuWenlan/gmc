@@ -200,6 +200,113 @@ def _halfplane_polygon(ax, ay, b, bounds):
     return Polygon(pts) if len(pts) >= 3 else Polygon()
 
 
+class StairRegion:
+    """The query region ``R``: box ``Q`` cut by the contact strip, as an axis-aligned staircase.
+
+    Each y-band of height ``band_m`` gets the x-range the strip allows over the *whole* band,
+    so the staircase lies inside the strip.  Its edges are axis-aligned: GMC's I3 graph-nesting
+    check (``verification/invariants.py:92``) compares separately computed SAFE and POSSIBLE
+    polygons by exact set difference, and a slanted workspace edge left floating-point slivers
+    (pilot: 5 of 7 slanted regions failed, 0 of 43 boxes).  A box the strip does not cut is one
+    band, identical to ``Q``.  Same KnownSpace protocol and face counters as ``Region``.
+    """
+
+    def __init__(self, box, z_range, strip: ContactStrip, band_m: float):
+        x0, y0, x1, y1 = map(float, box)
+        n = max(1, int(math.ceil((y1 - y0) / band_m - 1e-9)))
+        ys = [y0 + k * band_m for k in range(n)] + [y1]
+        bands = []
+        for ya, yb in zip(ys[:-1], ys[1:]):
+            lo, hi = x0, x1
+            for ax, ay, b in strip.halfplanes():
+                if ax > 0:
+                    hi = min(hi, (b - ay * ya) / ax, (b - ay * yb) / ax)
+                elif ax < 0:
+                    lo = max(lo, (b - ay * ya) / ax, (b - ay * yb) / ax)
+                elif max(ay * ya, ay * yb) > b:
+                    lo, hi = x0, x0 - 1.0
+            if bands and bands[-1][2] == lo and bands[-1][3] == hi:
+                bands[-1] = (bands[-1][0], yb, lo, hi)
+            else:
+                bands.append((ya, yb, lo, hi))
+        self.bands = [bd for bd in bands if bd[3] > bd[2]]
+        if not self.bands:
+            raise ValueError("query region is empty inside the contact strip")
+        self.box = (x0, y0, x1, y1)
+        self.z = (float(z_range[0]), float(z_range[1]))
+        self.lower = (x0, y0, self.z[0])
+        self.upper = (x1, y1, self.z[1])
+        self.faces = ("x_min", "x_max", "y_min", "y_max", "contact")
+        self.rejections = {f: 0 for f in (*self.faces, "z")}
+        self._b = np.asarray(self.bands, float)
+
+    def _limits(self, ylo, yhi):
+        b = self._b
+        k = (b[:, 1] >= ylo) & (b[:, 0] <= yhi)
+        if not k.any():
+            return None
+        return float(b[k, 2].max()), float(b[k, 3].min())
+
+    def contains_aabb(self, lower, upper) -> bool:
+        lo, hi = np.asarray(lower, float), np.asarray(upper, float)
+        if lo.shape != (3,) or hi.shape != (3,) or not np.isfinite([*lo, *hi]).all() or np.any(lo > hi):
+            return False
+        if lo[2] < self.z[0] or hi[2] > self.z[1]:
+            self.rejections["z"] += 1
+            return False
+        ok = True
+        if lo[1] < self.box[1] - 1e-12:
+            self.rejections["y_min"] += 1
+            ok = False
+        if hi[1] > self.box[3] + 1e-12:
+            self.rejections["y_max"] += 1
+            ok = False
+        lim = self._limits(max(lo[1], self.box[1]), min(hi[1], self.box[3]))
+        if lim is None:
+            return False
+        if lo[0] < lim[0] - 1e-12:
+            self.rejections["x_min" if lim[0] == self.box[0] else "contact"] += 1
+            ok = False
+        if hi[0] > lim[1] + 1e-12:
+            self.rejections["x_max" if lim[1] == self.box[2] else "contact"] += 1
+            ok = False
+        return ok
+
+    def contains_points(self, xy) -> np.ndarray:
+        xy = np.atleast_2d(np.asarray(xy, float))
+        return np.array([self.contains_aabb((x, y, self.z[0]), (x, y, self.z[1])) for x, y in xy], bool)
+
+    def polygon(self, erode: float = 0.0):
+        """Staircase outline of the centres whose ``erode`` square fits (erode 0: the region)."""
+        from shapely.geometry import Polygon
+        e = float(erode)
+        y_lo, y_hi = self.box[1] + e, self.box[3] - e
+        cuts = sorted({y_lo, y_hi, *[v + d for bd in self.bands for v in bd[:2] for d in (-e, e)]})
+        cuts = [c for c in cuts if y_lo <= c <= y_hi]
+        rows = []
+        for t0, t1 in zip(cuts[:-1], cuts[1:]):
+            if t1 <= t0:
+                continue
+            lim = self._limits(0.5 * (t0 + t1) - e, 0.5 * (t0 + t1) + e)
+            if lim is None or lim[1] - e <= lim[0] + e:
+                if rows:
+                    raise ValueError("query region splits into pieces")
+                continue
+            xl, xh = lim[0] + e, lim[1] - e
+            if rows and rows[-1][2] == xl and rows[-1][3] == xh:
+                rows[-1][1] = t1
+            else:
+                rows.append([t0, t1, xl, xh])
+        if not rows:
+            return Polygon()
+        right = [(r[3], y) for r in rows for y in (r[0], r[1])]
+        left = [(r[2], y) for r in reversed(rows) for y in (r[1], r[0])]
+        return Polygon(right + left).simplify(0)
+
+    def vertices(self) -> np.ndarray:
+        return np.asarray(self.polygon().exterior.coords[:-1], float)
+
+
 class RasterRegion:
     """Hall-wide known floor: an evidence raster intersected with the contact strip.
 
@@ -276,18 +383,18 @@ def query_box(points_xy, pad: float, extent) -> tuple:
     return (max(x0, extent[0]), max(y0, extent[1]), min(x1, extent[2]), min(y1, extent[3]))
 
 
-def query_region(box, cfg: dict, floor: dict) -> Region:
+def query_region(box, cfg: dict, floor: dict) -> "StairRegion":
     strip = ContactStrip.from_floor(floor, cfg["contact"]["max_height_error_m"])
-    return Region.from_box(box, z_range(cfg, floor), strip)
+    return StairRegion(box, z_range(cfg, floor), strip, cfg["crop"].get("stair_band_m", 0.10))
 
 
-def region_height_error(region: Region, floor: dict, cfg: dict) -> float:
+def region_height_error(region, floor: dict, cfg: dict) -> float:
     strip = ContactStrip.from_floor(floor, cfg["contact"]["max_height_error_m"])
     v = region.vertices()
     return float(np.max(np.abs(strip.dev(v[:, 0], v[:, 1]))))
 
 
-def crop_query(scene3d, region: Region, floor: dict, cfg: dict, scene_id: str):
+def crop_query(scene3d, region, floor: dict, cfg: dict, scene_id: str):
     """SceneSpec for one query: the same Gaussians for both planners and the replay."""
     lo = (region.box[0], region.box[1], region.z[0])
     hi = (region.box[2], region.box[3], region.z[1])

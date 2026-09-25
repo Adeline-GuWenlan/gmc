@@ -56,6 +56,11 @@ This benchmark calls the same functions in the same order; only the per-query wa
 things differ:
 - **Workspace.** The window is the query region `R` eroded by the robot's `r + 0.001` m square
   (§1.5). GMC's body therefore stays inside `R`, which is exactly where A\*'s body stays.
+- **Band.** GMC projects with its robot band inflated by the shared margin, 0.001 m (sweeper
+  floor + [0.019, 0.101], cylinder floor + [0.019, 1.751]). Its band test drops any splat lying wholly
+  outside the band, however close. Without the inflation, GMC certified paths that pass 0.2–0.8 mm
+  above floor splats, which the shared replay and A\* (margin 1 mm in every direction) reject. The
+  pilot found this (§2.1). Horizontally, GMC's `eps_clear` 2 mm already exceeds the margin.
 - **Wall budget.** GMC's own query deadline is set to the time left in the 1800 s cap
   (`ground5k_run.py:357`). This writes `max_wall_seconds` in place on the same config object, because
   the decomposition binding checks config *identity*: `orientation/provenance.py:50`. Compile has no
@@ -151,9 +156,11 @@ One region per **pair**, shared by both robots and both planners (`ground5k_comm
 2. `S` = contact strip, where `|fitted floor − z_floor| ≤ 0.05 m`. The fitted plane is tilted 0.285°,
    so this excludes the SW corner (x ≲ 0) and an east strip (x ≳ 18, y 15–25). Neither planner may
    put its body where the gs3d support rule would refuse the floor.
-3. `R = Q ∩ S` is a convex polygon (`Region`, `ground5k_common.py:116`):
+3. `R` = `Q ∩ S` as an **axis-aligned staircase**: 0.10 m y-bands, each with the x-range the strip
+   allows over the whole band (`StairRegion`, `ground5k_common.py`). It replaced the exact convex
+   cut after the pilot (§2.1). A box the strip does not cut stays exactly `Q`.
    - **A\*:** known space and support evidence. Scene bounds are `Q × z`.
-   - **GMC:** workspace = `R ⊖ square(r + 0.001)`.
+   - **GMC:** workspace = `R ⊖ square(r + 0.001)`, a rectilinear polygon.
 4. **Gaussians:** opacity > τ and level-2 ellipsoid AABB overlapping `Q × [z_floor − 0.10,
    z_floor + 2.00]`. This is `crop_by_support_aabb`, the conservative crop rule of the architecture
    record.
@@ -162,15 +169,17 @@ One region per **pair**, shared by both robots and both planners (`ground5k_comm
 5. **Floor:** constant `z_floor = −1.2271749593` (the GMC band origin and the gs3d A5 manifold). The
    plane-floor tiles top out at `z_floor + 0.015 m` < chassis bottom `z_floor + 0.02 m`.
 
-The witnesses are certified paths for both robots and lie inside `R`. So a planner that fails on a
-pair has failed where a certified route exists inside its own query region.
+The witnesses are certified paths for both robots and lie inside `R`, except five cylinder witnesses
+that touch the staircase's ≤ 1.2 cm edge slivers (§2.1). So a planner that fails on a pair has failed
+where a certified route exists inside its own query region.
 
 ### 1.6 Per-query caps and resumability
 
 - Each (pair, robot, planner) runs in a forked child under `watchdog` (`ground5k_run.py:55`).
 - **Wall cap:** 1800 s over crop + preparation or projection + compile + query + certification, with
   30 s grace.
-- **Memory cap:** 12.5 GB child RSS (tasks request 16 GB).
+- **Memory cap:** child RSS ≤ min(12.5 GB, task memory − 1.5 GB). Task memory is pilot MaxRSS × 1.5
+  (§2.3): 10.5 GB for GMC cylinder.
 - A kill is `FAIL_BUDGET` with the stage it hit.
 - **Output:** one JSON per query at `outputs/ground5k/<scene>/runs/<combo>/<pair_id>.json`, written
   atomically. A task skips every pair whose JSON already parses.
@@ -187,13 +196,154 @@ pair has failed where a certified route exists inside its own query region.
   - floor evidence: 0.10 m cells; level-2 footprints of opaque source splats within −0.30 … +0.10 m
     of the fitted floor; splats with half-extent > 0.5 m ignored.
 - **Per query:** 1800 s, 30 s grace, 12.5 GB.
-- **A\* and GMC settings:** as above.
+- **A\* and GMC settings:** as above, plus the GMC band inflation `gmc.band_inflation_m` = 0.001.
 
 No parameter differs between pairs, robots or planners, except the robot bodies.
 
-## 2. Pilot and projection
+## 2. Pilot and projection (Task 2)
 
-(Filled in after the pilot; see below.)
+**Setup.** The pilot covered the first 50 pairs of the committed list (`v2-00000` … `v2-00049`), all
+four combinations, one pair per array task, with 1 CPU per task.
+- Arrays (all in `claude_jobs/ground5k/jobids/G1.txt`):
+  - A\*: 18500830, 18500831;
+  - GMC: 18501688 + 18501874, 18501689;
+  - reruns of the 7 strip-cut pairs: 18511062–18511065.
+- Summary: `gmc/experiments/ground5k_pilot.py` → `results/ground5k/pilot/summary_scene_v2.json`,
+  `table_scene_v2.md`.
+
+### 2.1 Runner bugs the pilot found (fixed before the numbers below; no planner parameter changed)
+
+1. **Budget keyword.** A\* crashed on every call: the frozen config's descriptive
+   `astar.budget.max_wall_s` string was forwarded next to the computed wall budget.
+   - The tests now read the planner sections of the frozen config.
+   - The 33 ERROR JSONs were deleted and the arrays rerun.
+2. **Vertical margin for GMC (the band).** 5 of the first 18 GMC sweeper results were `FAIL_REPLAY`.
+   - `ground5k_replay_diag.py` (job 18501088) showed each was one floor splat whose level-2 top sits
+     0.2–0.8 mm below the sweeper chassis. There was no collision, but the gap is inside the shared
+     1 mm margin.
+   - GMC's band test ignores a splat lying wholly outside the band, so GMC had been given no vertical
+     margin.
+   - Fix: GMC projects with its band inflated by the margin (§1.1).
+   - Superseded outputs: `outputs/ground5k/scene_v2/superseded_pilot_gmc_band/`.
+3. **Slanted workspace edge.** GMC `INTERNAL_ERROR / I3_graph_nesting` occurred on 5 of 7
+   strip-cut regions and 0 of 43 boxes (sweeper).
+   - Cause: the invariant compares SAFE and POSSIBLE overlays by exact set difference, and a slanted
+     workspace edge leaves slivers.
+   - Fix: the query region is an axis-aligned staircase inside the strip (§1.5, `StairRegion`), for
+     both planners and the replay. Uncut boxes are unchanged.
+   - The 7 cut pairs were rerun for all four combinations. The sweeper errors went: pairs 22, 28, 33
+     and 36 now certify; 16 ended FAIL_BUDGET.
+   - Superseded outputs: `superseded_pilot_stair/`.
+   - Side effect: for 5 of the 5,000 pairs a cylinder witness touches the ≤ 1.2 cm sliver the
+     staircase gives up (v2-01136, v2-01413, v2-02749, v2-02860, v2-03906). They are flagged in the
+     handoff.
+
+The runner also records the rejected replay edge (Gaussian ids, bound) and GMC's `failed_invariants`.
+
+### 2.2 Pilot result (final code, 50 pairs)
+
+| combination | done | SUCCESS | NO_PATH | UNKNOWN | BUDGET | REPLAY | ERROR | query wall median / p90 / max (s) | peak RSS p90 / max (GB) | CPU·h (pilot) | CPU·h / pair |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| gmc_sweeper | 50 | 44 | 0 | 2 | 4 | 0 | 0 | 122 / 1,640 / 1,830 | 2.51 / 5.20 | 5.05 | 0.101 |
+| gmc_cylinder | 50 | 6 | 0 | 0 | 44 | 0 | 0 | 1,830 / 1,830 / 1,831 | 6.47 / 7.33 | 25.73 | 0.515 |
+| astar_sweeper | 50 | 50 | 0 | 0 | 0 | 0 | 0 | 5 / 10 / 16 | 1.30 / 1.30 | 0.19 | 0.004 |
+| astar_cylinder | 50 | 50 | 0 | 0 | 0 | 0 | 0 | 27 / 51 / 143 | 1.30 / 1.30 | 0.58 | 0.012 |
+
+**Causes.**
+- GMC sweeper:
+  - 44 `gmc_reachable_certified`;
+  - 4 `wall_cap_kill`, killed while in `query`;
+  - 2 `gmc_safe_graph_ambiguous`.
+- GMC cylinder:
+  - 32 `wall_cap_kill` (26 while in `query`, 6 in `compile_slabs` on 387 k–672 k-support maps);
+  - 11 `gmc_query_support_budget_exhausted` (maps of 30 k–313 k supports);
+  - 1 `gmc_wall_cap_before_query`;
+  - 6 certified.
+- A\*: 100 of 100 `astar_success`. Every replay passed; there are 0 `FAIL_REPLAY` and 0 `ERROR` in
+  the final pilot.
+
+**GMC cylinder by projected map size** (GMC supports after projection):
+
+| map size | queries | certified |
+|---|---|---|
+| < 50 k | 6 | 4 |
+| 50–100 k | 6 | 2 |
+| 100–200 k | 12 | 0 |
+| 200–400 k | 19 | 0 |
+| ≥ 400 k | 7 | 0 |
+
+- The median map is 214 k supports.
+- The largest certified map, 96,537 supports (v2-00046, 1,368 s), is **above** P3's 46,835-support
+  ceiling. P3 had a 7200 s query cap and a smaller window, so the two are not directly comparable.
+
+**Path length where both certify** (GMC / A\*): sweeper median 0.963 (p10 0.944, p90 1.000,
+n = 44); cylinder median 0.965 (n = 6). GMC's any-angle paths are about 4 % shorter than the 0.20 m
+8-neighbour lattice's.
+
+**Time and memory.** A\* takes 5 s (sweeper) and 27 s (cylinder) median per query.
+- GMC sweeper median 122 s; GMC cylinder hits the 1,830 s kill in 33 of 50 queries.
+- sacct MaxRSS: A\* ≤ 2.2 GB, GMC sweeper ≤ 5.2 GB, GMC cylinder median 4.7 / p90 6.6 / max 7.4 GB.
+
+### 2.3 Projection and the prefix
+
+Cost per pair per combination is the larger of:
+- sacct CPU time per pair in the pilot, including the scene load in one-pair tasks and the reruns (conservative);
+- mean query wall plus the load amortised over the full-run task size.
+
+| combination | CPU·h / pair | 5,000 pairs | task layout | memory |
+|---|---|---|---|---|
+| A\* sweeper | 0.0037 | 19 | 250 pairs/task, 20 tasks, %1 | 6 GB |
+| A\* cylinder | 0.0116 | 58 | 125 pairs/task, 40 tasks, %1 | 6 GB |
+| GMC sweeper | 0.101 | 505 | 25 pairs/task, 200 tasks, %2 | 8 GB |
+| GMC cylinder | 0.515 | 2,573 | 9 pairs/task, 556 tasks, %8 | 12 GB |
+| **all four** | **0.631** | **3,154** | | |
+
+**Budget.**
+- 8,000 CPU·h, minus 42 CPU·h used by G1 so far (agents included), minus a 300 CPU·h G2 reserve,
+  leaves 7,658 CPU·h.
+- **The budget allows the full list: prefix = 5,000 pairs** on scene_v2, the same prefix for all four
+  combinations.
+
+**Memory.**
+- Tasks request pilot MaxRSS × 1.5, rounded up.
+- The child cap is task memory − 1.5 GB, i.e. 10.5 GB for GMC cylinder.
+- No pilot query exceeded 7.4 GB, so no pilot outcome would change.
+
+**Wall-clock is bound by memory, not by CPU·h.** The cpu_short QOS allows 32 CPUs and 120 GB per user
+at once (6 h wall per job), shared with the other chain and the agent jobs.
+- scene_v2 needs about 30,900 GB·h for GMC cylinder plus 4,500 GB·h for the rest.
+- Against about 108 GB usable, that is **about 13.6 days**. CPU-bound it would be about 4.1 days.
+- The throttles (%8, %2, %1, %1) give each combination roughly its share of the GB·h, so they
+  finish together.
+
+**Plane floor (priority 2).** The budget would allow its full 5,000 pairs as well (about 3,150 CPU·h
+more, total about 6,650 of 8,000). But that would add about 13.6 more days before G2 can report, and
+the user put scene_v2 first "如果时间不够的话" (if time is short).
+- G1 therefore queues a **1,000-pair prefix** of the plane-floor list (`pf-00000` … `pf-00999`,
+  about 631 CPU·h, about 2.7 days) behind scene_v2 with `--dependency=afterany`.
+- It is an unbiased prefix. G2 or the operator can extend it: the runner resumes and skips finished
+  pairs.
+
+### 2.4 Pre-registered expectations for the full scene_v2 run (from the 50-pair pilot, 95 % Wilson)
+
+1. **A\* success** ≥ 93 % for both robots (pilot 50/50; interval 0.93–1.00). Its failures, if any, are
+   `FAIL_UNKNOWN` (unproven near-contact edges) or `FAIL_NO_PATH` in narrow passages below the 0.20 m
+   lattice. `FAIL_BUDGET` stays below 1 %.
+2. **GMC sweeper success** 76–94 % (pilot 44/50). Its failures are mainly `FAIL_BUDGET` (query past the
+   1800 s cap, pilot 8 %) and `FAIL_UNKNOWN / safe_graph_ambiguous` (pilot 4 %). No `FAIL_NO_PATH`
+   (possible-graph cut) is expected, because every pair has a certified witness inside its region.
+3. **GMC cylinder success** 6–24 % (pilot 6/50), and it is budget-limited.
+   - About 88 % end `FAIL_BUDGET`.
+   - Success falls with the projected map size. No certification is expected above about 150 k
+     supports.
+   - The certified maps extend past P3's 47 k.
+   - GMC cylinder failures here say "certification did not finish within 1800 s", not "no path":
+     A\* finds and replays a path on every pilot pair.
+4. **Zero `FAIL_REPLAY`** for both planners. After the band fix any replay rejection is a safety bug
+   and G2 lists every one.
+5. **Where both certify**, GMC paths are 3–6 % shorter than A\*'s (lattice discretisation).
+6. **GMC ERROR (`I3_graph_nesting`)** below 2 % after the staircase fix. It was 0 of 100 in the final
+   pilot.
 
 ## 3. The pair sampler (Task 1)
 
@@ -278,29 +428,45 @@ endpoints. Per y-band (`results/ground5k/pairs_scene_v2_yband.json`):
 | 30–38 | 53.0 (9.5 %) | 0.1 % | 132 / 69 |
 
 The endpoints cover the south and central hall (y < 25) evenly, and every room there has endpoints.
-The **north wing (y ≥ 25, 17 % of the known floor) holds only 0.6 % of endpoints**, for two reasons
-in the edited map:
+The **north wing (y ≥ 25, 17 % of the known floor) holds only 0.6 % of endpoints.** I checked why
+before accepting it, using `witness_components_scene_v2.png` and the plane-floor control (§3.4):
 
-1. **Most of its known floor is not free for either robot** (grey in the components figure):
-   - y 25–30: ≈ 45 % of known-floor lattice nodes certified free for the sweeper, ≈ 31 % for the
-     cylinder.
-   - y 30–38: 16 % and 8 %.
-   - For comparison, y 10–15: 67 % and 54 %.
-
-   This is the round-table cluster, where P1 already reported 28.5 m² of residual near-floor
-   over-approximation that the plane-floor edit did not remove. Near-floor splats there overlap even
-   the sweeper's chassis at +0.02 m.
-2. **What is free forms separate components** (sweeper 332 nodes, cylinder 207). The certified 0.25 m
-   lattice does not connect them to the main hall. Pairs are independent uniform draws, so a pair
-   needs *both* endpoints in such an island, which has probability ≈ (area share)².
+1. **The uav-lamp booth cuts the wing off from the main hall** (a manual edit in scene_v2).
+   - The booth fills the corridor between walls A and B at world x 9.4–13.6, y 25.0–30.1.
+   - Its back panel runs from the floor to 2.48 m at y ≈ 29–30. Its lamp box starts 1.07 m above the
+     floor, so the cylinder cannot pass under it.
+   - Free lattice nodes at y ≥ 25 that lie in the main hall's component:
+     - scene_v2: sweeper 109 of 429, cylinder 6 of 273;
+     - the same hall without the booth (plane floor): sweeper 393 of 437, cylinder 253 of 296.
+2. **At y ≥ 30 most known floor is not free for either robot, in both scenes.**
+   - scene_v2, y 30–38: 16 % of known-floor lattice nodes certified free for the sweeper, 8 % for the
+     cylinder. For comparison, y 10–15: 67 % and 54 %.
+   - This is the round-table cluster, where P1 reported residual near-floor over-approximation that
+     the plane-floor edit did not remove. Near-floor splats there overlap even the sweeper's chassis
+     at +0.02 m.
+3. **Why so few endpoints land there.** Pairs are independent uniform draws. A north-wing endpoint in
+   scene_v2 is admitted only if its partner is in the same small island, which has probability
+   ≈ (area share)².
 
 **Biases, stated for the report.** The accepted pairs are uniform over pairs of known,
 certified-free floor points ≥ 3 m apart that a coarse certified lattice connects for **both**
 robots. This excludes:
 - pairs linked only through gaps narrower than the 0.25 m lattice can thread;
 - pairs linked through unobserved floor or across the contact-strip limit;
-- in effect, the north wing and the SW / E contact-limited strips.
+- in effect, the booth-isolated north wing (scene_v2 only) and the SW / E contact-limited strips.
 
 It therefore favours open, well-connected floor, and it removes the pairs where the question is
 connectivity itself. A planner failure on an admitted pair is a failure on a pair that a certified
 route inside the planner's own query region connects.
+
+### 3.4 Plane-floor pair list (priority 2, job 18500683)
+
+Same sampler, same evidence raster, seed 20260925, prefix `pf`. `outputs/ground5k/planefloor/`
+(figure `results/ground5k/figs/pairs_planefloor.png`, opened):
+- **Endpoint draws:** 55,813. (a) rejected 32,163; (b) sweeper 8,360, cylinder 3,422.
+- **Pair draws:** 5,934. Separation < 3 m: 414. (c) sweeper disconnected 48; cylinder unattached 11,
+  disconnected 461.
+- **Accepted:** 5,000.
+
+Without the booth, the north wing up to y ≈ 31 is populated; pair separations reach 29 m. It serves
+as the control for §3.3. Whether its planner arrays run depends on the projection (§2).
