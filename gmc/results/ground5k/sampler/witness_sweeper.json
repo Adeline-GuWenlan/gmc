@@ -1,0 +1,21 @@
+{
+ "candidate_nodes": 7642,
+ "edges_free": 14865,
+ "edges_tested": 14969,
+ "free_nodes": 4351,
+ "node_rejections": {
+  "body_exceeds_workspace_bounds": 1,
+  "ellipsoid_centre_in_swept_body": 98,
+  "geometry_or_margin_unproven": 77,
+  "map_unknown": 587,
+  "minkowski_interior_witness": 2528
+ },
+ "oracle": {
+  "bvh_nodes_visited": 2341688,
+  "candidate_count": 1111452,
+  "gjk_iterations": 29682,
+  "narrowphase_pairs": 34952,
+  "oracle_calls": 22611
+ },
+ "wall_s": 38.56481671333313
+}

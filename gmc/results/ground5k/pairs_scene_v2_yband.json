@@ -1,0 +1,79 @@
+[
+ {
+  "y": [
+   -1,
+   5
+  ],
+  "known_floor_m2": 76.0,
+  "endpoint_share": 0.0868,
+  "sweeper_free_nodes": 435,
+  "cylinder_free_nodes": 316,
+  "known_floor_share": 0.1364
+ },
+ {
+  "y": [
+   5,
+   10
+  ],
+  "known_floor_m2": 90.1,
+  "endpoint_share": 0.2342,
+  "sweeper_free_nodes": 837,
+  "cylinder_free_nodes": 680,
+  "known_floor_share": 0.1618
+ },
+ {
+  "y": [
+   10,
+   15
+  ],
+  "known_floor_m2": 105.5,
+  "endpoint_share": 0.3147,
+  "sweeper_free_nodes": 1138,
+  "cylinder_free_nodes": 919,
+  "known_floor_share": 0.1894
+ },
+ {
+  "y": [
+   15,
+   20
+  ],
+  "known_floor_m2": 104.1,
+  "endpoint_share": 0.255,
+  "sweeper_free_nodes": 936,
+  "cylinder_free_nodes": 761,
+  "known_floor_share": 0.1869
+ },
+ {
+  "y": [
+   20,
+   25
+  ],
+  "known_floor_m2": 87.4,
+  "endpoint_share": 0.1034,
+  "sweeper_free_nodes": 576,
+  "cylinder_free_nodes": 392,
+  "known_floor_share": 0.1569
+ },
+ {
+  "y": [
+   25,
+   30
+  ],
+  "known_floor_m2": 40.9,
+  "endpoint_share": 0.0051,
+  "sweeper_free_nodes": 297,
+  "cylinder_free_nodes": 204,
+  "known_floor_share": 0.0734
+ },
+ {
+  "y": [
+   30,
+   38
+  ],
+  "known_floor_m2": 53.0,
+  "endpoint_share": 0.0008,
+  "sweeper_free_nodes": 132,
+  "cylinder_free_nodes": 69,
+  "known_floor_share": 0.0952
+ }
+]

@@ -1,0 +1,46 @@
+{
+ "bias": "admitted pairs are those a 0.25 m certified lattice connects for BOTH robots, on observed floor inside the contact strip; pairs reachable only through gaps the coarse lattice misses, or through unobserved floor, are excluded",
+ "config_sha256": "ce7c4d51948757260fe24230646ac9531e988033cc6227ac73b51836dcab5aab",
+ "filter_rates": {
+  "a_unknown_floor_of_endpoint_draws": 0.5784160113522143,
+  "b_not_free_of_known_endpoints": 0.5005083973212721,
+  "c_rejected_of_separated_pairs": 0.24402781977623222,
+  "sep_below_min_of_pair_draws": 0.07145865506106977
+ },
+ "filters": {
+  "a_unknown_floor": 39131,
+  "accepted": 5000,
+  "b_not_free_cylinder": 4095,
+  "b_not_free_sweeper": 10180,
+  "c_disconnected_cylinder": 670,
+  "c_disconnected_sweeper": 931,
+  "c_unattached_cylinder": 13,
+  "c_unattached_sweeper": 0,
+  "endpoint_draws": 67652,
+  "pair_draws": 7123,
+  "sep_below_min": 509
+ },
+ "n_pairs": 5000,
+ "oracle_stats": {
+  "cylinder": {
+   "bvh_nodes_visited": 10530870,
+   "candidate_count": 20412143,
+   "gjk_iterations": 4644025,
+   "narrowphase_pairs": 2380103,
+   "oracle_calls": 59272
+  },
+  "sweeper": {
+   "bvh_nodes_visited": 8087180,
+   "candidate_count": 3075650,
+   "gjk_iterations": 94341,
+   "narrowphase_pairs": 57808,
+   "oracle_calls": 80281
+  }
+ },
+ "sampler_wall_s": 1003.2566847801208,
+ "scene": "scene_v2",
+ "scene_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "schema_version": "ground5k.pairs.v1",
+ "seed": 20260924,
+ "shuffled": true
+}
