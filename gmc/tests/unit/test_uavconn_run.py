@@ -184,3 +184,20 @@ def test_extended_pairs_are_seeded_oracle_free_and_share_the_template_scene(slic
     specs = [json.loads(open(p).read()) for p in paths]
     assert len({cr.scene_key(s) for s in specs} | {cr.scene_key(tmpl)}) == 1
     assert all(s["budget"]["max_wall_s"] == 18000. for s in specs)
+
+
+def test_same_smoothing_on_both_methods_is_freshly_reverified(slice_archive):
+    import uavconn_smooth as cs
+    import uavlamp_run as ur
+    sp = spec(slice_archive, "smooth_main")
+    cr.run([sp], slice_archive / "sm_a3", warm=0, expected_sha256=None)
+    ur.run(sp, slice_archive / "sm_lat", cold=0, warm=1)
+    cs.main(["--template", str(sp), "--out", str(slice_archive / "sm_out"),
+             "--run", f"aerial3d:main={slice_archive / 'sm_a3' / 'smooth_main' / 'result.json'}",
+             "--run", f"lattice:main={slice_archive / 'sm_lat' / 'result.json'}"])
+    for method in ("aerial3d", "lattice"):
+        row = json.loads((slice_archive / "sm_out" / f"{method}__main.json").read_text())
+        assert row["raw_replay_passed"]
+        assert row["fresh_reverification"]["passed"], row["fresh_reverification"]
+        assert row["smoothed"]["integrated_squared_jerk"] > 0
+        assert row["evidence"]["passes_under_lamp"]

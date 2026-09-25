@@ -1,0 +1,97 @@
+{
+ "archive": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+ "manifest": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/manifest.json",
+ "frame": {
+  "origin_world_m": [
+   9.875215398669711,
+   26.984262702544104,
+   -1.2271749593107995
+  ],
+  "world_to_route": [
+   [
+    0.4313593046722016,
+    0.9021802205062548,
+    0.0
+   ],
+   [
+    0.9021802205062548,
+    -0.4313593046722016,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "definition": "site frame: u along real wall A (world dir (.431,.902)), v = wall A normal into the gallery (v=0 on wall A's measured face), z = height above the plane floor. Fitted by experiments/uavlamp_site.py (job 18323467), origin shifted by -0.45 m along v onto wall A's per-bin 99.9% face."
+ },
+ "box_route": {
+  "lower": [
+   -3.0,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   3.7,
+   2.75,
+   2.43
+  ]
+ },
+ "start_route": [
+  1.6307,
+  1.1594,
+  1.5448
+ ],
+ "goal_route": [
+  0.8384,
+  1.3907,
+  2.2201
+ ],
+ "resolution_m": 0.1,
+ "margin_m": 0.05,
+ "budget": {
+  "max_wall_s": 18000.0,
+  "max_expansions": 2000000,
+  "max_oracle_calls": 50000000,
+  "max_narrowphase_pairs": 1000000000
+ },
+ "lamp": {
+  "footprint_route_uv": [
+   [
+    -1.0,
+    -0.05
+   ],
+   [
+    -0.7,
+    2.45
+   ]
+  ],
+  "underside_z": 1.1,
+  "top_z": 1.25
+ },
+ "table": {
+  "top_route_uv": [
+   [
+    -0.02,
+    -0.03
+   ],
+   [
+    2.97,
+    0.79
+   ]
+  ],
+  "top_z": 0.94
+ },
+ "top_band_z": [
+  0.0,
+  2.45
+ ],
+ "side_slab_v": [
+  -0.35,
+  2.75
+ ],
+ "name": "c2_ext_EB09",
+ "output": "outputs/uavconn/c2/ext/EB09",
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc"
+}
