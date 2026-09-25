@@ -1,0 +1,1349 @@
+{
+ "schema": "uavconn.c1_handoff.v1",
+ "compile_config_defaults": {
+  "margin_m": 0.05,
+  "pad_m": 0.001,
+  "octree": {
+   "min_cell_m": 0.05,
+   "root_levels": 3,
+   "buffer_m": 0.001,
+   "max_refine_pairs": 8,
+   "blocked_candidates": 4,
+   "max_nodes": 20000000
+  },
+  "cells": {
+   "max_cells": 5000,
+   "max_planes_per_cell": 20000,
+   "max_wall_s": null,
+   "gap_chunk": 32768,
+   "portal_samples": 8,
+   "portal_bin_m": 0.5
+  },
+  "audit_pairs": 64,
+  "audit_seed": 0
+ },
+ "query_config_defaults": {
+  "shortcut": true,
+  "shortcut_max_attempts": 400,
+  "tighten": true,
+  "tighten_rounds": 3,
+  "tighten_max_checks": 3000,
+  "merge_corners": true,
+  "merge_max_increase_frac": 0.03,
+  "verify_pad_m": 0.05,
+  "verify_max_depth": 12,
+  "query_cell_max_lp": 400,
+  "shared_verification": true
+ },
+ "probes": {
+  "C4h_18500913_55bd6d1": {
+   "file": "results/uavconn/probe/C4h_18500913_55bd6d1.json",
+   "spec": "configs/uavlamp_l2/C4h_lamp_only_high_start.json",
+   "slurm_job_id": "18500913",
+   "node": "cs662.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 1.6192376899998635,
+   "scene_build_and_crop_s": 1.3918404909782112,
+   "cropped_gaussians": 354700,
+   "candidate_pairs": 284254,
+   "pruned_pairs": 70446,
+   "compile_wall_s": 462.47681507398374,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 1.0212515029124916,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.6453803470358253,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.6691300770035014,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "octree",
+     "seconds": 55.8184824900236,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "cells",
+     "seconds": 403.35069008904975,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.21201348502654582,
+     "peak_rss_mb_after": 2159.69140625
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.3873121510259807,
+     "peak_rss_mb_after": 2159.69140625
+    }
+   ],
+   "octree_nodes": 70160,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 16151,
+    "BLOCKED": 18320,
+    "UNKNOWN": 27003
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 19.212440812164495,
+    "BLOCKED": 9.602403400972975,
+    "UNKNOWN": 2.4540616420415975
+   },
+   "cells": 1019,
+   "support_plane_cells": 1019,
+   "box_cells": 0,
+   "portals": 502727,
+   "possible_components": 1,
+   "traceability": {
+    "support_plane_cell_facets": 29371,
+    "pair_facet_fraction_of_support_plane_cells": 0.5836709679615948,
+    "domain_facet_fraction_of_support_plane_cells": 0.4163290320384052,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 23907,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 23907
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": true,
+   "query": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "algorithm_wall_s": 2.096712623955682,
+    "stages": {
+     "locate": 0.00017461099196225405,
+     "locate_cells": 0.011166859068907797,
+     "graph_search": 0.48154103802517056,
+     "lifting": 0.006445389008149505,
+     "shortcut": 0.010619315085932612,
+     "own_verification": 0.010608778102323413,
+     "shared_verification": 0.9575387960067019
+    },
+    "clearance_lower_m": 0.05000669243332804,
+    "metrics": {
+     "path_length_m": 2.8748913022930083,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.050000000000000044,
+     "altitude_range_m": 0.050000000000000044
+    },
+    "certificate": null
+   }
+  },
+  "C4h_final_18513501_87f14c3": {
+   "file": "results/uavconn/probe/C4h_final_18513501_87f14c3.json",
+   "spec": "configs/uavlamp_l2/C4h_lamp_only_high_start.json",
+   "slurm_job_id": "18513501",
+   "node": "cs618.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 1.1330094409640878,
+   "scene_build_and_crop_s": 0.9410633470397443,
+   "cropped_gaussians": 354700,
+   "candidate_pairs": 284254,
+   "pruned_pairs": 70446,
+   "compile_wall_s": 255.59196319407783,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.7336310760583729,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.3799702529795468,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.4961853009881452,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "octree",
+     "seconds": 39.815667947987095,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "cells",
+     "seconds": 213.44427486497443,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.16268074105028063,
+     "peak_rss_mb_after": 2159.74609375
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.30121158598922193,
+     "peak_rss_mb_after": 2159.74609375
+    }
+   ],
+   "octree_nodes": 70160,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 16151,
+    "BLOCKED": 18320,
+    "UNKNOWN": 27003
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 19.212440812164495,
+    "BLOCKED": 9.602403400972975,
+    "UNKNOWN": 2.4540616420415975
+   },
+   "cells": 1019,
+   "support_plane_cells": 1019,
+   "box_cells": 0,
+   "portals": 502727,
+   "possible_components": 1,
+   "traceability": {
+    "support_plane_cell_facets": 29371,
+    "pair_facet_fraction_of_support_plane_cells": 0.5836709679615948,
+    "domain_facet_fraction_of_support_plane_cells": 0.4163290320384052,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 23907,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 23907
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": true,
+   "query": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "algorithm_wall_s": 1.5537498730700463,
+    "stages": {
+     "locate": 0.00011118699330836535,
+     "locate_cells": 0.008577827946282923,
+     "graph_search": 0.33696559397503734,
+     "lifting": 0.004850789904594421,
+     "shortcut": 0.00809819798450917,
+     "own_verification": 0.007948955986648798,
+     "shared_verification": 0.7135376230580732
+    },
+    "clearance_lower_m": 0.05000669243332804,
+    "metrics": {
+     "path_length_m": 2.8748913022930083,
+     "n_vertices": 2,
+     "n_segments": 1,
+     "total_turning_rad": 0.0,
+     "max_turning_rad": 0.0,
+     "curvature_integral_rad": 0.0,
+     "bending_energy_per_m": 0.0,
+     "vertical_travel_m": 0.050000000000000044,
+     "altitude_range_m": 0.050000000000000044
+    },
+    "certificate": null
+   }
+  },
+  "M1_early_18487397_pre55bd6d1": {
+   "file": "results/uavconn/probe/M1_early_18487397_pre55bd6d1.json",
+   "spec": "configs/uavlamp_l2/M1_main_low_start.json",
+   "slurm_job_id": "18487397",
+   "node": "cs608.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 1.924669855972752,
+   "scene_build_and_crop_s": 0.559144068043679,
+   "cropped_gaussians": 359201,
+   "candidate_pairs": 288445,
+   "pruned_pairs": 70756,
+   "compile_wall_s": 543.6902113080723,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.9478299879701808,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.7410770009737462,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.8482155789388344,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "octree",
+     "seconds": 95.15286061202642,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "cells",
+     "seconds": 444.91769276210107,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.26475017494522035,
+     "peak_rss_mb_after": 1386.0703125
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.4246029460337013,
+     "peak_rss_mb_after": 1386.0703125
+    }
+   ],
+   "octree_nodes": 84944,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 17503,
+    "BLOCKED": 21037,
+    "UNKNOWN": 35870
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 16.001794228820216,
+    "BLOCKED": 12.007207500890122,
+    "UNKNOWN": 3.259904125468729
+   },
+   "cells": 1025,
+   "support_plane_cells": 1025,
+   "box_cells": 0,
+   "portals": 88247,
+   "possible_components": 1,
+   "traceability": {
+    "support_plane_cell_facets": 91314,
+    "pair_facet_fraction_of_support_plane_cells": 0.8652999540048624,
+    "domain_facet_fraction_of_support_plane_cells": 0.13470004599513766,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 27560,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 27560
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": true,
+   "query": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "algorithm_wall_s": 1.7777464570244774,
+    "stages": {
+     "locate": 0.0001627180026844144,
+     "locate_cells": 0.010858205961994827,
+     "graph_search": 0.18839665001723915,
+     "lifting": 0.008216182002797723,
+     "shortcut": 0.8657119320705533,
+     "own_verification": 0.284153018030338,
+     "shared_verification": 0.3111750540556386
+    },
+    "clearance_lower_m": 0.05002896882920952,
+    "metrics": {
+     "path_length_m": 3.1671769864900865,
+     "n_vertices": 3,
+     "n_segments": 2,
+     "total_turning_rad": 0.5966744961854337,
+     "max_turning_rad": 0.5966744961854337,
+     "curvature_integral_rad": 0.5966744961854337,
+     "bending_energy_per_m": 0.22481879346609446,
+     "vertical_travel_m": 0.95,
+     "altitude_range_m": 0.95
+    },
+    "certificate": null
+   }
+  },
+  "M1_final_18511509_5ee328c": {
+   "file": "results/uavconn/probe/M1_final_18511509_5ee328c.json",
+   "spec": "configs/uavlamp_l2/M1_main_low_start.json",
+   "slurm_job_id": "18511509",
+   "node": "cs612.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 1.5757959460606799,
+   "scene_build_and_crop_s": 0.6638501260895282,
+   "cropped_gaussians": 359201,
+   "candidate_pairs": 288445,
+   "pruned_pairs": 70756,
+   "compile_wall_s": 582.3129004109651,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.8904133919859305,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.6482855689246207,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.750762686948292,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "octree",
+     "seconds": 50.858569303993136,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "cells",
+     "seconds": 528.1868183490587,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.24265761603601277,
+     "peak_rss_mb_after": 1382.92578125
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.3218268109485507,
+     "peak_rss_mb_after": 1382.92578125
+    }
+   ],
+   "octree_nodes": 84944,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 17503,
+    "BLOCKED": 21037,
+    "UNKNOWN": 35870
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 16.001794228820216,
+    "BLOCKED": 12.007207500890122,
+    "UNKNOWN": 3.259904125468729
+   },
+   "cells": 1025,
+   "support_plane_cells": 1025,
+   "box_cells": 0,
+   "portals": 429500,
+   "possible_components": 1,
+   "traceability": {
+    "support_plane_cell_facets": 91314,
+    "pair_facet_fraction_of_support_plane_cells": 0.8652999540048624,
+    "domain_facet_fraction_of_support_plane_cells": 0.13470004599513766,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 27560,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 27560
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": true,
+   "query": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "algorithm_wall_s": 8.952218463993631,
+    "stages": {
+     "locate": 0.000162718934006989,
+     "locate_cells": 0.010954926023259759,
+     "graph_search": 0.7489566020667553,
+     "lifting": 0.003833928960375488,
+     "shortcut": 1.4853496530558914,
+     "tighten": 6.083924029022455,
+     "merge_corners": 0.027866288903169334,
+     "own_verification": 0.03816056495998055,
+     "shared_verification": 0.0743056139908731
+    },
+    "clearance_lower_m": 0.05000342135013273,
+    "metrics": {
+     "path_length_m": 3.055871860927602,
+     "n_vertices": 4,
+     "n_segments": 3,
+     "total_turning_rad": 0.7769336626992394,
+     "max_turning_rad": 0.45838752445686226,
+     "curvature_integral_rad": 0.7769336626992394,
+     "bending_energy_per_m": 0.3696957872622048,
+     "vertical_travel_m": 0.95,
+     "altitude_range_m": 0.95
+    },
+    "certificate": null
+   }
+  },
+  "N2_early_18499315_pre55bd6d1": {
+   "file": "results/uavconn/probe/N2_early_18499315_pre55bd6d1.json",
+   "spec": "configs/uavlamp_l2/N2_plug_low_start.json",
+   "slurm_job_id": "18499315",
+   "node": "cs601.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 23.76732581097167,
+   "scene_build_and_crop_s": 15.396702977013774,
+   "cropped_gaussians": 359696,
+   "candidate_pairs": 288940,
+   "pruned_pairs": 70756,
+   "compile_wall_s": 582.3824279999826,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 1.020628333906643,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.6612169420113787,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 4.896904385066591,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "octree",
+     "seconds": 54.27746139396913,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "cells",
+     "seconds": 520.4316454340005,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.2665174639550969,
+     "peak_rss_mb_after": 2143.140625
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.3741841419832781,
+     "peak_rss_mb_after": 2143.140625
+    }
+   ],
+   "octree_nodes": 84296,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 16956,
+    "BLOCKED": 21597,
+    "UNKNOWN": 35290
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 15.166415396333221,
+    "BLOCKED": 12.895297356314721,
+    "UNKNOWN": 3.207193102531125
+   },
+   "cells": 1023,
+   "support_plane_cells": 1023,
+   "box_cells": 0,
+   "portals": 88944,
+   "possible_components": 2,
+   "traceability": {
+    "support_plane_cell_facets": 98285,
+    "pair_facet_fraction_of_support_plane_cells": 0.8750979294907667,
+    "domain_facet_fraction_of_support_plane_cells": 0.12490207050923335,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 27013,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 27013
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": false,
+   "query": {
+    "status": "UNREACHABLE",
+    "reason": "possible_space_cut",
+    "algorithm_wall_s": 0.1359462069813162,
+    "stages": {
+     "locate": 0.00018715509213507175,
+     "cut_certificate": 0.13558172702323645
+    },
+    "clearance_lower_m": null,
+    "metrics": null,
+    "certificate": {
+     "kind": "possible_space_cut",
+     "start_components": [
+      0
+     ],
+     "start_component_leaves": 14694,
+     "start_component_bbox_plan": [
+      [
+       -2.666615098704654,
+       0.2006375974926059,
+       0.15000003000259848
+      ],
+      [
+       -1.158307549352327,
+       2.1559118632679426,
+       2.2799999699974016
+      ]
+     ],
+     "blocked_leaves_on_cut": 4056,
+     "cut_distinct_pairs": 1298,
+     "cut_traceable_fraction": 1.0,
+     "domain_boundary": "the remaining boundary of the start component is the C-space domain boundary"
+    }
+   }
+  },
+  "N2_final_18513500_87f14c3": {
+   "file": "results/uavconn/probe/N2_final_18513500_87f14c3.json",
+   "spec": "configs/uavlamp_l2/N2_plug_low_start.json",
+   "slurm_job_id": "18513500",
+   "node": "cs607.hpc.nyu.edu",
+   "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+   "archive_load_and_hash_s": 1.812115869950503,
+   "scene_build_and_crop_s": 1.1438800359610468,
+   "cropped_gaussians": 359696,
+   "candidate_pairs": 288940,
+   "pruned_pairs": 70756,
+   "compile_wall_s": 506.9504135919269,
+   "compile_stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.9658042449736968,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.6785073300125077,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.7368739289231598,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "octree",
+     "seconds": 50.78592144395225,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "cells",
+     "seconds": 452.7222186400322,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.26640458893962204,
+     "peak_rss_mb_after": 2141.98828125
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.356666699051857,
+     "peak_rss_mb_after": 2141.98828125
+    }
+   ],
+   "octree_nodes": 84296,
+   "leaves": {
+    "OUTSIDE": 0,
+    "SAFE": 16956,
+    "BLOCKED": 21597,
+    "UNKNOWN": 35290
+   },
+   "leaf_volume_m3": {
+    "OUTSIDE": 0.0,
+    "SAFE": 15.166415396333221,
+    "BLOCKED": 12.895297356314721,
+    "UNKNOWN": 3.207193102531125
+   },
+   "cells": 1023,
+   "support_plane_cells": 1023,
+   "box_cells": 0,
+   "portals": 435694,
+   "possible_components": 2,
+   "traceability": {
+    "support_plane_cell_facets": 98285,
+    "pair_facet_fraction_of_support_plane_cells": 0.8750979294907667,
+    "domain_facet_fraction_of_support_plane_cells": 0.12490207050923335,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 27013,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 27013
+   },
+   "sandwich_audit_passed": true,
+   "endpoints_same_possible_component": false,
+   "query": {
+    "status": "UNREACHABLE",
+    "reason": "possible_space_cut",
+    "algorithm_wall_s": 0.1420178720727563,
+    "stages": {
+     "locate": 0.00016888498794287443,
+     "cut_certificate": 0.14170885598286986
+    },
+    "clearance_lower_m": null,
+    "metrics": null,
+    "certificate": {
+     "kind": "possible_space_cut",
+     "start_components": [
+      0
+     ],
+     "start_component_leaves": 14694,
+     "start_component_bbox_plan": [
+      [
+       -2.666615098704654,
+       0.2006375974926059,
+       0.15000003000259848
+      ],
+      [
+       -1.158307549352327,
+       2.1559118632679426,
+       2.2799999699974016
+      ]
+     ],
+     "blocked_leaves_on_cut": 4056,
+     "cut_distinct_pairs": 1298,
+     "cut_traceable_fraction": 1.0,
+     "domain_boundary": "the remaining boundary of the start component is the C-space domain boundary"
+    }
+   }
+  }
+ },
+ "job_accounting": {
+  "probe_M1_final": {
+   "job_id": "18511509",
+   "elapsed": "00:10:00",
+   "max_rss": "1369656K"
+  },
+  "probe_N2_final": {
+   "job_id": "18513500",
+   "elapsed": "00:08:37",
+   "max_rss": "2933788K"
+  },
+  "probe_C4h_final": {
+   "job_id": "18513501",
+   "elapsed": "00:04:27",
+   "max_rss": "2175128K"
+  },
+  "probe_M1_early": {
+   "job_id": "18487397",
+   "elapsed": "00:09:15",
+   "max_rss": "2169956K"
+  },
+  "probe_N2_early": {
+   "job_id": "18499315",
+   "elapsed": "00:10:30",
+   "max_rss": "2731840K"
+  },
+  "probe_C4h_55bd6d1": {
+   "job_id": "18500913",
+   "elapsed": "00:07:53",
+   "max_rss": "2168984K"
+  },
+  "pytest_final": {
+   "job_id": "18511506",
+   "elapsed": "00:16:22",
+   "max_rss": "3000044K"
+  },
+  "synthetic_reachable": {
+   "job_id": "18511507",
+   "elapsed": "00:29:46",
+   "max_rss": "1746308K"
+  },
+  "synthetic_closed_plug": {
+   "job_id": "18511508",
+   "elapsed": "00:36:12",
+   "max_rss": "576008K"
+  }
+ },
+ "unit_tests": {
+  "junit": "outputs/uavconn/pytest_junit_18511506.xml",
+  "tests": 169,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 974.309,
+  "per_file": {
+   "test_gs3d_benchmark": 1,
+   "test_gs3d_core_geometry": 22,
+   "test_gs3d_core_planner": 27,
+   "test_gs3d_final_audit": 6,
+   "test_gs3d_integration": 4,
+   "test_gs3d_robots_goals": 9,
+   "test_gs3d_scene": 2,
+   "test_gs3d_smoothing": 5,
+   "test_gs3d_timing": 2,
+   "test_uavlamp_run": 9,
+   "test_uavlamp_scene": 11,
+   "test_aerial3d_acceptance": 15,
+   "test_aerial3d_api": 11,
+   "test_aerial3d_cells": 8,
+   "test_aerial3d_envelopes": 8,
+   "test_aerial3d_metrics": 6,
+   "test_aerial3d_octree": 8,
+   "test_aerial3d_pairs": 9,
+   "test_aerial3d_query": 2,
+   "test_aerial3d_verify": 4
+  }
+ },
+ "synthetic_comparison": [
+  {
+   "case": "full_wall_closed",
+   "query": "across",
+   "body": "uav",
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.671321249916218,
+    "query_wall_s": 0.01081198698375374,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "reason": "reachable_frontier_has_unproven_edges",
+    "wall_s": 330.17900929099414,
+    "expansions": 3718,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth_plug",
+   "query": "low_start",
+   "body": "uav",
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.970276346895844,
+    "query_wall_s": 0.06063582096248865,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "reason": "reachable_frontier_has_unproven_edges",
+    "wall_s": 862.3511191050056,
+    "expansions": 3601,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth_plug",
+   "query": "high_start",
+   "body": "uav",
+   "aerial3d": {
+    "status": "UNREACHABLE",
+    "reason": "possible_space_cut",
+    "compile_wall_s": 20.970276346895844,
+    "query_wall_s": 0.06143742601852864,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "lattice": {
+    "status": "verification_failed",
+    "reason": "reachable_frontier_has_unproven_edges",
+    "wall_s": 930.110626647016,
+    "expansions": 3835,
+    "length_m": null,
+    "vertices": null,
+    "total_turning_rad": null,
+    "smoothed_jerk": null,
+    "smoothed_duration_s": null,
+    "replay_fresh_passed": null
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "open_ascent",
+   "query": "ascent",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 0.16417394601739943,
+    "query_wall_s": 0.0014510499313473701,
+    "length_m": 2.3000000000000003,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.004861859522825644,
+    "smoothed_duration_s": 15.093750000000009,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 0.0005199350416660309,
+    "expansions": 0,
+    "length_m": 2.3000000000000003,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.004861859522825644,
+    "smoothed_duration_s": 15.093750000000009,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "low_wall",
+   "query": "over",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 10.076147777959704,
+    "query_wall_s": 1.8470692629925907,
+    "length_m": 3.537235886510193,
+    "vertices": 3,
+    "total_turning_rad": 1.1167398488841527,
+    "smoothed_jerk": 0.1045309438856751,
+    "smoothed_duration_s": 17.972241448866104,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 131.44783250498585,
+    "expansions": 1833,
+    "length_m": 3.662741699796952,
+    "vertices": 30,
+    "total_turning_rad": 6.283185328253009,
+    "smoothed_jerk": 1.2035117865723257,
+    "smoothed_duration_s": 16.857711036327196,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "full_wall_gap",
+   "query": "across",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 28.973669457947835,
+    "query_wall_s": 6.003107883036137,
+    "length_m": 3.5397531829859545,
+    "vertices": 4,
+    "total_turning_rad": 1.1520563242835666,
+    "smoothed_jerk": 1.994876157411387,
+    "smoothed_duration_s": 16.173575164451442,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 218.8393608420156,
+    "expansions": 2443,
+    "length_m": 3.82842712474619,
+    "vertices": 30,
+    "total_turning_rad": 9.424778011645127,
+    "smoothed_jerk": 0.16051012811790205,
+    "smoothed_duration_s": 16.705397705532185,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "overhang",
+   "query": "up_past_ceiling",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 2.91788746509701,
+    "query_wall_s": 2.0155890081077814,
+    "length_m": 5.373071078928245,
+    "vertices": 4,
+    "total_turning_rad": 2.5044150377758503,
+    "smoothed_jerk": 1.1821977964613175,
+    "smoothed_duration_s": 34.153619489409536,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 73.73739210306667,
+    "expansions": 4887,
+    "length_m": 5.904163056034262,
+    "vertices": 53,
+    "total_turning_rad": 15.707963318824712,
+    "smoothed_jerk": 0.8492870759407323,
+    "smoothed_duration_s": 33.76003108022132,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "bridge",
+   "query": "under",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 35.28446617501322,
+    "query_wall_s": 0.6929757189936936,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 0.0018548279767856002,
+    "expansions": 0,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "bridge",
+   "query": "over",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 35.28446617501322,
+    "query_wall_s": 1.3474880210123956,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 0.0018228880362585187,
+    "expansions": 0,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "shaft",
+   "query": "up_the_shaft",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 32.78851615800522,
+    "query_wall_s": 11.527205017977394,
+    "length_m": 6.879354599004479,
+    "vertices": 6,
+    "total_turning_rad": 2.653770552611512,
+    "smoothed_jerk": 1.8989635814504362,
+    "smoothed_duration_s": 35.27861191780917,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 140.28849185199942,
+    "expansions": 9072,
+    "length_m": 7.082551129331013,
+    "vertices": 51,
+    "total_turning_rad": 5.667705914610563,
+    "smoothed_jerk": 4.735650497431441,
+    "smoothed_duration_s": 35.628376861062655,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "window_small_uav",
+   "query": "through",
+   "body": "uav_small",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 66.30014285398647,
+    "query_wall_s": 0.9248312950367108,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 0.0021745340200141072,
+    "expansions": 0,
+    "length_m": 3.0,
+    "vertices": 2,
+    "total_turning_rad": 0.0,
+    "smoothed_jerk": 0.028175128036036702,
+    "smoothed_duration_s": 11.8125,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "window_big_uav",
+   "query": "through",
+   "body": "uav_big",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 12.620537753100507,
+    "query_wall_s": 3.649853042908944,
+    "length_m": 3.7920537880361946,
+    "vertices": 5,
+    "total_turning_rad": 1.369391343934093,
+    "smoothed_jerk": 1.4711772797546887,
+    "smoothed_duration_s": 19.035992213369937,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 235.90633065404836,
+    "expansions": 4309,
+    "length_m": 3.9941125496954286,
+    "vertices": 30,
+    "total_turning_rad": 6.283185328253014,
+    "smoothed_jerk": 1.2593724082808382,
+    "smoothed_duration_s": 20.17819847118735,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "f1_under_over",
+   "query": "f1",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 4.396495616994798,
+    "query_wall_s": 0.5273463490884751,
+    "length_m": 3.7973598268439033,
+    "vertices": 4,
+    "total_turning_rad": 0.8178966718037143,
+    "smoothed_jerk": 0.8089527118663569,
+    "smoothed_duration_s": 16.293279605597437,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 5.810809363028966,
+    "expansions": 463,
+    "length_m": 4.0142135623730955,
+    "vertices": 36,
+    "total_turning_rad": 3.1415927106378003,
+    "smoothed_jerk": 0.5137761344342195,
+    "smoothed_duration_s": 18.563752405678713,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth",
+   "query": "low_start",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 18.50429733598139,
+    "query_wall_s": 1.8693490650039166,
+    "length_m": 3.35048005692737,
+    "vertices": 3,
+    "total_turning_rad": 0.5432607164643012,
+    "smoothed_jerk": 0.35748288963358305,
+    "smoothed_duration_s": 14.361238257358727,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 151.18924856500234,
+    "expansions": 1491,
+    "length_m": 3.568143379694521,
+    "vertices": 31,
+    "total_turning_rad": 6.728746582196342,
+    "smoothed_jerk": 0.31859749847558283,
+    "smoothed_duration_s": 14.64273277720702,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  },
+  {
+   "case": "mini_booth",
+   "query": "high_start",
+   "body": "uav",
+   "aerial3d": {
+    "status": "REACHABLE",
+    "reason": "graph_path_lifted_and_verified",
+    "compile_wall_s": 18.50429733598139,
+    "query_wall_s": 2.7983317560283467,
+    "length_m": 3.5632885721197614,
+    "vertices": 4,
+    "total_turning_rad": 1.1799533201497385,
+    "smoothed_jerk": 0.8748640158457281,
+    "smoothed_duration_s": 16.327264636526333,
+    "replay_fresh_passed": true
+   },
+   "lattice": {
+    "status": "success",
+    "reason": "verified_goal_reached",
+    "wall_s": 561.3389140759828,
+    "expansions": 2555,
+    "length_m": 3.8698962722306764,
+    "vertices": 32,
+    "total_turning_rad": 6.797986070355971,
+    "smoothed_jerk": 0.8007887609295403,
+    "smoothed_duration_s": 17.62654956841296,
+    "replay_fresh_passed": true
+   },
+   "verdicts_agree": true
+  }
+ ],
+ "stage": "C1",
+ "branch": "uav-conn",
+ "method_name": "pair-certified support-plane cell complex (uav.md Phase U0; NOT the exact \u00a77.3-7.4 Boolean arrangement - see docs/uavconn_design.md \u00a72)",
+ "design_doc": "docs/uavconn_design.md (pre-registered \u00a71-\u00a75 at 59625e9; \u00a76 implementation notes)",
+ "worklog": "docs/worklog/uavconn.md",
+ "api": {
+  "package": "gmc/src/gmc/aerial3d",
+  "compile": "gmc.aerial3d.api.compile_complex(scene: gs3d SceneSpec, body: gs3d BodySpec, *, config=CompileConfig(), timer=None, prepared=None) -> CompiledComplex  [reusable across queries on the same scene+body+box; compiled.summary() for JSON]",
+  "query": "gmc.aerial3d.api.query(compiled, start_xyz_world, goal_xyz_world, *, config=QueryConfig(), timer=None, call_id='query') -> dict schema 'aerial3d.v1'",
+  "result_fields": [
+   "status (REACHABLE|UNREACHABLE|UNKNOWN)",
+   "reason",
+   "graph_path{cell_ids, cells[facets_by_kind, pair_ids, seed_leaf, bbox], portals}",
+   "polyline_world",
+   "polyline_plan",
+   "lifted_polyline_plan (portal centres)",
+   "cell_polyline_plan (cell-certified, before shortcut/tighten/merge)",
+   "verification{own (per-segment trace), shared (gs3d replay_plan)}",
+   "clearance_lower_m",
+   "certificate (UNREACHABLE: possible_space_cut with cut_pair_ids, cut_leaf_centres_plan, traceable fraction)",
+   "metrics (aerial3d.metrics.polyline_metrics of polyline_world)",
+   "timings{algorithm_wall_s, records[stage, seconds, sizes.peak_rss_mb], compile_wall_s}",
+   "gs3d_result (gs3d.v1 PlanResult for replay_plan; None unless REACHABLE)"
+  ],
+  "timing_stages_compile": [
+   "scene_prepare",
+   "pair_candidates",
+   "envelopes",
+   "octree",
+   "cells (cells + portals)",
+   "possible_graph",
+   "audit"
+  ],
+  "timing_stages_query": [
+   "locate",
+   "cut_certificate (UNREACHABLE only)",
+   "locate_cells",
+   "graph_search",
+   "lifting",
+   "shortcut",
+   "tighten",
+   "merge_corners",
+   "own_verification",
+   "shared_verification"
+  ],
+  "shared_replay_for_both_methods": "gmc.gs3d.trajectory.replay_plan(result, GaussianBodyOracle(PreparedScene(scene))) with a FRESH PreparedScene, exactly as uavlamp_run.run() does for the baseline; aerial3d result -> result['gs3d_result']",
+  "metrics": "gmc.aerial3d.metrics.polyline_metrics (raw) and smooth_segments_metrics (after the SAME gs3d.smoothing.optimize_trajectory, A6 UAV SmoothingConfig as uavlamp_run.smooth); see experiments/aerial3d_synthetic.py::smooth_block/method_row",
+  "real_scene_runner_template": "experiments/aerial3d_probe.py (manifest-checked loader + uavlamp_query.build_scene + compile + query)",
+  "under_lamp_evidence": "experiments/uavlamp_run.ordered_evidence on sample_linear_trajectory(result['gs3d_result']['trajectory'], dt_s=.02) mapped to the route frame (see results/uavconn/probe usage in the worklog)",
+  "archive": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/uavlamp_scene.npz (+manifest.json); specs gmc/configs/uavlamp_l2/*.json use paths relative to the uavlamp gmc/ dir: pass --uavlamp-root /scratch/wg2381/splathjb-uavlamp/gmc"
+ },
+ "recommended_sbatch": {
+  "compile_plus_queries_per_scene": "--cpus-per-task=2 --mem=6G --time=01:30:00 (measured compile 462-630 s, MaxRSS 1.4-2.7 GB; 1.5x = 4 GB, 6 GB gives headroom). One compile per scene variant: booth (M1, M5), plug (N2, N2h), lamp-only (C4h).",
+  "cold_vs_warm": "cold = compile + first query (report both walls); warm = further queries on the same CompiledComplex (seconds). Several warm repeats are cheap.",
+  "baseline_retiming": "per _rules.md: LatticePlanner real-scene query 2 CPU / ~5 GB / 1.7-2.3 h each (cpu_short < 8 h); run one query per job",
+  "pytest": "hpc/uavconn/c1_pytest.sbatch (2 CPU / 8 GB / ~15 min)"
+ },
+ "known_limitations": [
+  "Not an exact 3-D Boolean arrangement (\u00a77.3-7.4): F_safe is under-approximated by SAFE octree leaves + support-plane convex cells; completeness is resolution-bounded (a passage narrower than ~2 x min_cell_m=0.05 m may be missed -> UNKNOWN, never a false UNREACHABLE).",
+  "UNREACHABLE needs a cut of boxes each inside ONE pair's inner polytope; a wall closed only by several inner polytopes at sub-min_cell scale stays UNKNOWN.",
+  "Floating-point conservative certificates with declared slack (as gs3d); no exact/dyadic arithmetic.",
+  "Cell-sequence choice by A* over portal samples is a heuristic (no GCS mixed-integer optimum); post-processing (cell-sequence SLSQP, certified shortcut/tighten/corner-merge) is local.",
+  "Paths hug obstacles at margin + 1 mm buffer (like the baseline's ~0.0500 clearance); flight-grade safety margins, attitude, wind and dynamics are out of scope (Phase U0 only; no yaw product complex).",
+  "The gs3d A6 smoother eases to a stop at every anchor, so its jerk metric depends on anchor count/spacing as much as on geometric smoothness; report turning/curvature metrics alongside it.",
+  "Compile timings were measured on shared cpu_short nodes; not a controlled benchmark.",
+  "UNREACHABLE is certified inside the declared query box: the N2 start component is bounded by the plug/lamp/header slab, walls and floor, and by the box face u_min, which is air (same declared-domain assumption as the baseline; L1's B6/B6h moved that face and the route did not change)."
+ ],
+ "pre_registered_predictions_design_doc_5": {
+  "M1": "REACHABLE (P~0.9), under the lamp, 2.9-3.35 m, <=10 vertices; compile 2-30 min once, query <=10 s + shared replay 10-300 s",
+  "M5": "REACHABLE (P~0.9), under the lamp (descends below ~0.93 m), 3.0-3.5 m",
+  "N2": "certified UNREACHABLE (P~0.8), else UNKNOWN; never REACHABLE",
+  "N2h": "certified UNREACHABLE (P~0.8), else UNKNOWN",
+  "C4h": "REACHABLE (P~0.95), over the lamp, near straight, ~2.875 m",
+  "note": "C1 probes (de-risking, not the C2 evaluation) ran M1, N2 and C4h once each on the real archive AFTER these predictions were committed (59625e9); outcomes in 'probes'. M5 and N2h have not been run."
+ },
+ "notes_for_c2": [
+  "Use the same spec JSONs as the baseline (configs/uavlamp_l2/*.json): same archive, box, start, goal, margin; no per-query parameters. CompileConfig()/QueryConfig() defaults are the method; do not tune per query.",
+  "Replay both methods' paths with a fresh PreparedScene (replay_plan) - the in-query shared_verification uses the compile's PreparedScene.",
+  "The baseline's N2/N2h label is map_unknown (queue exhausted), not a certificate; aerial3d's UNREACHABLE comes with cut_pair_ids - attribute them to manifest edits/plug rows (plug rows get ids >= base_max+1e6 in uavlamp_query.build_scene).",
+  "Query wall time includes the shared replay; compile is separate (timings.compile_wall_s).",
+  "Timing records carry peak_rss_mb after each stage."
+ ],
+ "commits": {
+  "design": "59625e9",
+  "backend": "55bd6d1",
+  "buffer_in_post_processing": "c8ec948",
+  "corner_merging": "5ee328c",
+  "synthetic_acceptance": "87f14c3",
+  "probe": "2744ccb"
+ },
+ "probe_commits": {
+  "M1_early_18487397_pre55bd6d1": "uncommitted working tree on 59625e9 (before multi-sample portals / tightening)",
+  "N2_early_18499315_pre55bd6d1": "uncommitted working tree on 59625e9",
+  "C4h_18500913_55bd6d1": "55bd6d1",
+  "M1_final_18511509_5ee328c": "5ee328c",
+  "N2_final_18513500_87f14c3": "87f14c3",
+  "C4h_final_18513501_87f14c3": "87f14c3"
+ }
+}

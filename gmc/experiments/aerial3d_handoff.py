@@ -2,7 +2,7 @@
 
 Every number is read from a result file: probe JSONs (results/uavconn/probe), the
 pytest JUnit XML, the synthetic summaries, and job accounting passed on the command
-line (``--job NAME=JOBID:ELAPSED:MAXRSS``, from ``sacct``).
+line (``--job NAME=JOBID,ELAPSED,MAXRSS``, from ``sacct``).
 """
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/uavconn/c1_handoff.json"))
     ap.add_argument("--junit", type=Path, required=True)
-    ap.add_argument("--job", action="append", default=[], help="NAME=JOBID:ELAPSED:MAXRSS")
+    ap.add_argument("--job", action="append", default=[], help="NAME=JOBID,ELAPSED,MAXRSS")
     ap.add_argument("--extra", type=Path, help="JSON with commits/limitations/predictions/notes")
     a = ap.parse_args(argv)
     ts = ET.parse(a.junit).getroot()
@@ -95,7 +95,7 @@ def main(argv=None):
     jobs = {}
     for j in a.job:
         name, rest = j.split("=", 1)
-        jid, elapsed, rss = rest.split(":", 2)
+        jid, elapsed, rss = rest.split(",", 2)
         jobs[name] = {"job_id": jid, "elapsed": elapsed, "max_rss": rss}
     doc = {"schema": "uavconn.c1_handoff.v1",
            "compile_config_defaults": asdict(CompileConfig()),
