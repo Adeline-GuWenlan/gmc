@@ -1,0 +1,295 @@
+{
+ "note": "aerial3d run JSONs copied whole (<=130 KB each) except evidence.route_samples; lattice (C2) run JSONs compacted like L2's runs/: timings.records replaced by per-stage counts/sums, evidence.route_samples dropped (reconstructable from result.trajectory with sample_linear_trajectory(dt_s=.02)). Full files stay on HPC; SHA-256 below.",
+ "full_files": {
+  "aerial3d/l2_M1_main_low_start": {
+   "path": "outputs/uavconn/c2/aerial3d/booth/l2_M1_main_low_start/result.json",
+   "bytes": 31609,
+   "sha256": "47bdf9e4e00a864fb2e3a4052ee6488478b5fd958b290b9f8ee151c07d63d700"
+  },
+  "aerial3d/l2_M5_high_start": {
+   "path": "outputs/uavconn/c2/aerial3d/booth/l2_M5_high_start/result.json",
+   "bytes": 33993,
+   "sha256": "4e9f305ae7ad7bb7a0ad6cbec236d9a26a7443d1e05c905472f575b03655b018"
+  },
+  "aerial3d/c2_ext_EA00": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA00/result.json",
+   "bytes": 39282,
+   "sha256": "a0b7151318354cd2009404f4a785611d1a7f01ba7c9bfd3f5685d3ec04c96f12"
+  },
+  "aerial3d/c2_ext_EA01": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA01/result.json",
+   "bytes": 37518,
+   "sha256": "c08847fa752450cabf6c858bbff9fb173de8fa7cf21387800f215bc73cbc32a8"
+  },
+  "aerial3d/c2_ext_EA02": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA02/result.json",
+   "bytes": 32792,
+   "sha256": "e641728b5312fff66fbfef4eef6189e011e9b621c349e0b85399f535d976b299"
+  },
+  "aerial3d/c2_ext_EA03": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA03/result.json",
+   "bytes": 25293,
+   "sha256": "c37d54e59d451effdc7c8642f30f6210733db60bdbfe6213328c3b0b03fc20d4"
+  },
+  "aerial3d/c2_ext_EA04": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA04/result.json",
+   "bytes": 38104,
+   "sha256": "a35cba0d80c5255bfa5d61dcbdec5503db1caa73d263918ab43649ab449dd085"
+  },
+  "aerial3d/c2_ext_EA05": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA05/result.json",
+   "bytes": 44709,
+   "sha256": "394cf1937afc292e6fd65a60b2d7d29ff941e3c2a187b731a91bdc1a3da433a8"
+  },
+  "aerial3d/c2_ext_EA06": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA06/result.json",
+   "bytes": 33832,
+   "sha256": "2ccbb1ebc18a858b63bc43b5892287ac70d4a5b7da618bc97ff1a4c368f935f9"
+  },
+  "aerial3d/c2_ext_EA07": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA07/result.json",
+   "bytes": 37434,
+   "sha256": "7500199927c5f089edc865dfe0a41af07f992f8f7f1472be61442ed710134450"
+  },
+  "aerial3d/c2_ext_EA08": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA08/result.json",
+   "bytes": 38357,
+   "sha256": "4a29f3bdcc8ed0791c6dbe580f7017c2f14c14fc7dfbc2bcbee830e6506b7128"
+  },
+  "aerial3d/c2_ext_EA09": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA09/result.json",
+   "bytes": 38934,
+   "sha256": "e4e09d32109f45c870b9f679b13491a5962dec64e5ddd4e6500b193bdcfb7a0e"
+  },
+  "aerial3d/c2_ext_EA10": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA10/result.json",
+   "bytes": 49493,
+   "sha256": "c4777171b00e1f991db47e99c5016cf3dfd1e56a89661d316094edf3bc7d8c66"
+  },
+  "aerial3d/c2_ext_EA11": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA11/result.json",
+   "bytes": 47879,
+   "sha256": "61848ec051ccd8eb08373a4b53161f7e02eff999e7f25e52cd65becdcc6aceaa"
+  },
+  "aerial3d/c2_ext_EB00": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB00/result.json",
+   "bytes": 37625,
+   "sha256": "1a47ecfb63fb5e155179c69c75c13dfc9f796db53a977a08179f44e721936af2"
+  },
+  "aerial3d/c2_ext_EB01": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB01/result.json",
+   "bytes": 20625,
+   "sha256": "6e9826357ca3e640b9917109abf97ab5fe1d6101d43ab78dc046fb6535032825"
+  },
+  "aerial3d/c2_ext_EB02": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB02/result.json",
+   "bytes": 17413,
+   "sha256": "eb595830f6fb445caebf5115baea7d03190ff0814b94a85379251c4c9b117b4d"
+  },
+  "aerial3d/c2_ext_EB03": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB03/result.json",
+   "bytes": 25015,
+   "sha256": "2285829572924f9abe75f38103f7ee2de8d876695e5071b95eb10dbc3da420dc"
+  },
+  "aerial3d/c2_ext_EB04": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB04/result.json",
+   "bytes": 18086,
+   "sha256": "bf7c2752d04ef4e7f14c2deb6815ead4b5c780c191e5e2b1fa5ad4ecdb1c9242"
+  },
+  "aerial3d/c2_ext_EB05": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB05/result.json",
+   "bytes": 30811,
+   "sha256": "fd2496c9df5f1b71be2437cc8186af8dd1082f356277da7cda5ddaf87787a967"
+  },
+  "aerial3d/c2_ext_EB06": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB06/result.json",
+   "bytes": 35857,
+   "sha256": "fbd85e61b4fa861139773b9ffd428b999929cca9bd32d64de25f4076db410f78"
+  },
+  "aerial3d/c2_ext_EB07": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB07/result.json",
+   "bytes": 28358,
+   "sha256": "7f4bee576b09508cf4af6a623d35e38e52d0e6dcef783a277c64e0937471f8a6"
+  },
+  "aerial3d/c2_ext_EB08": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB08/result.json",
+   "bytes": 47376,
+   "sha256": "c2cd3069288d501714502ff41edafdb28e0627fa04b059593dd43117a7bda252"
+  },
+  "aerial3d/c2_ext_EB09": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB09/result.json",
+   "bytes": 20444,
+   "sha256": "7c0d6a568f4bfd184a56a77bee7f787078f255eb6c213ff79a99c019bea5fe48"
+  },
+  "aerial3d/c2_ext_EB10": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB10/result.json",
+   "bytes": 37106,
+   "sha256": "c7c9a8cc61a6c947ee16e0d7d79f65dfe4a5911c2bbad19d12df09cf00578dee"
+  },
+  "aerial3d/c2_ext_EB11": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB11/result.json",
+   "bytes": 22055,
+   "sha256": "7d0069483f89e87c1f9212c1b7e6cda6a510a1dc3d743e28e0a5b08f067c580d"
+  },
+  "aerial3d/l2_C4h_lamp_only_high_start": {
+   "path": "outputs/uavconn/c2/aerial3d/lamp/l2_C4h_lamp_only_high_start/result.json",
+   "bytes": 28042,
+   "sha256": "5dd7413ae6513f96b4a4ffc84e185838f6c5ea56ff2c25d4dbe6d0e4b03b0426"
+  },
+  "aerial3d/l2_N2_plug_low_start": {
+   "path": "outputs/uavconn/c2/aerial3d/plug/l2_N2_plug_low_start/result.json",
+   "bytes": 132299,
+   "sha256": "337065da941d2ada31e0addaa838d9aaafa76eca242d5b0bf131a47a15664346"
+  },
+  "aerial3d/l2_N2h_plug_high_start": {
+   "path": "outputs/uavconn/c2/aerial3d/plug/l2_N2h_plug_high_start/result.json",
+   "bytes": 132305,
+   "sha256": "69a5b89b7b7455680443204a1dc624f7b36e01b6f79b917271ab547adf3c4e0c"
+  },
+  "aerial3d/compile_booth": {
+   "path": "outputs/uavconn/c2/aerial3d/booth/compile.json",
+   "bytes": 7469,
+   "sha256": "5f599e921d5ff7d0f933614e457e349fb5fa0ea918933c156de61ffb69943b98"
+  },
+  "aerial3d/compile_ext": {
+   "path": "outputs/uavconn/c2/aerial3d/ext/compile.json",
+   "bytes": 8239,
+   "sha256": "b473f87a7a499f2efbd702d4f8669ce6f84c4b6a2d5eeaf76cb3e41efda149c6"
+  },
+  "aerial3d/compile_lamp": {
+   "path": "outputs/uavconn/c2/aerial3d/lamp/compile.json",
+   "bytes": 7423,
+   "sha256": "a2e9421167f43f6a126999bdf29c11a853bff93ac5f5e2f494404bf874681f1f"
+  },
+  "aerial3d/compile_plug": {
+   "path": "outputs/uavconn/c2/aerial3d/plug/compile.json",
+   "bytes": 7485,
+   "sha256": "2057cc7a404cb5be8a7917a5c290b61ae75d567e91415289e040011eddee251b"
+  },
+  "lattice/c2_ext_EA00": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA00/result.json",
+   "bytes": 1814913,
+   "sha256": "1e6a314cd36e2e318bc7264284036aeb385bda90c1f77137b2e97f641d120ce3"
+  },
+  "lattice/c2_ext_EA01": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA01/result.json",
+   "bytes": 777988,
+   "sha256": "f39b856cbc855b7fae88f60a09bef6d280d3ec46595ed682ceb7148b611641be"
+  },
+  "lattice/c2_ext_EA02": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA02/result.json",
+   "bytes": 1295812,
+   "sha256": "11466087a5dfdf0cfde2bb5b634971bb1dee5b82419ad50a991447498c93d0ae"
+  },
+  "lattice/c2_ext_EA03": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA03/result.json",
+   "bytes": 4403929,
+   "sha256": "80a63605adcf2770300688332a58e6dac2c954434c7a9de487bd8abf9db9c8d9"
+  },
+  "lattice/c2_ext_EA04": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA04/result.json",
+   "bytes": 2215095,
+   "sha256": "3bfe923abe68259695a76d32380e6474fb10ed543d69ac334344b55e1260fc4d"
+  },
+  "lattice/c2_ext_EA05": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA05/result.json",
+   "bytes": 2398538,
+   "sha256": "81e9508836e1052a49c27088dbe6745bab74c195788c9c457562ff82fa18f2b7"
+  },
+  "lattice/c2_ext_EA06": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA06/result.json",
+   "bytes": 781637,
+   "sha256": "e520ea99f60b336b934fac55a3bdab800f31f944298476e3ea76f8051a8b2f98"
+  },
+  "lattice/c2_ext_EA07": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA07/result.json",
+   "bytes": 1605397,
+   "sha256": "eed241013909e22a3bccb7805c06a8dd8b93a5906d52de44a1e733e30dc7113b"
+  },
+  "lattice/c2_ext_EA08": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA08/result.json",
+   "bytes": 1034669,
+   "sha256": "847630d5e9a0387a6eb81c092891afce7b637ff9324109e80d72cb541a449033"
+  },
+  "lattice/c2_ext_EA09": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA09/result.json",
+   "bytes": 1063727,
+   "sha256": "535be413588f456f75d74fa7ff2aaa5299bfdfb1d691af20dbcb992c7dae1d85"
+  },
+  "lattice/c2_ext_EA10": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA10/result.json",
+   "bytes": 1731274,
+   "sha256": "cafaf5d3ddc00f5da5260235902f82ee5d946eedadd669e51f1da42c6743434f"
+  },
+  "lattice/c2_ext_EA11": {
+   "path": "outputs/uavconn/c2/baseline/ext/EA11/result.json",
+   "bytes": 1723216,
+   "sha256": "f69c7ee7c2740dd8001f521737759dd33672a2fd83d1f8fa7784a1b0704cf8ba"
+  },
+  "lattice/c2_ext_EB00": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB00/result.json",
+   "bytes": 1216832,
+   "sha256": "8faf31f2d9ba8887beeff03ebcc17f7b22d5e245cafc85c26d6929f92b336692"
+  },
+  "lattice/c2_ext_EB01": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB01/result.json",
+   "bytes": 14351,
+   "sha256": "90539724ab88f970b4601c2c41a37bc05dee2cea6039ccb9d49905450cf920c6"
+  },
+  "lattice/c2_ext_EB02": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB02/result.json",
+   "bytes": 2358478,
+   "sha256": "49713d09f2b5aaa7a7f46f2938bb8bd2ef2053fa647495e70cfa956a4df1cd49"
+  },
+  "lattice/c2_ext_EB03": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB03/result.json",
+   "bytes": 16132,
+   "sha256": "5e3344988c9b0fda6130f0f203f464aee4371b7ebaef737e1f6798a426a10b23"
+  },
+  "lattice/c2_ext_EB04": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB04/result.json",
+   "bytes": 1890154,
+   "sha256": "cc150314779e1ab1610233641cda4429a6b7ffe93ec234ea48d28187136544f3"
+  },
+  "lattice/c2_ext_EB05": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB05/result.json",
+   "bytes": 20710,
+   "sha256": "14859c75a8530429e7fc3cf7beba71691941b006853b95948cf4f9f83d7bbf17"
+  },
+  "lattice/c2_ext_EB06": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB06/result.json",
+   "bytes": 934355,
+   "sha256": "8ccfd42aff5c907c989c11c331c8b56df74bd5ccd173ffc439c5248ebc11c552"
+  },
+  "lattice/c2_ext_EB07": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB07/result.json",
+   "bytes": 227821,
+   "sha256": "a1053fbe83693127e60861ff9f96327740a78bbe3db2714c72944a75652cd0fd"
+  },
+  "lattice/c2_ext_EB08": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB08/result.json",
+   "bytes": 1065337,
+   "sha256": "d6fd824c2893c23b9c5a857d7b8b360b9a67735f9545b38cfe4b6eb5d0c943f9"
+  },
+  "lattice/c2_ext_EB09": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB09/result.json",
+   "bytes": 14083,
+   "sha256": "5f299742c713b360d784af64607147aa9f8a71aedb762719a6ca4bc3dbcc8c23"
+  },
+  "lattice/c2_ext_EB10": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB10/result.json",
+   "bytes": 1770952,
+   "sha256": "acec94cf315fa25b1513d0dd6f3b97504523192b931e5743db061ac21b884fb3"
+  },
+  "lattice/c2_ext_EB11": {
+   "path": "outputs/uavconn/c2/baseline/ext/EB11/result.json",
+   "bytes": 14552,
+   "sha256": "73c9e84ebb0c0378d1999b1172ddb67b6cb8ecc87f1aa9fa5a2f0cc34883421f"
+  },
+  "lattice/l2_M1_main_low_start": {
+   "path": "outputs/uavconn/c2/baseline/M1_retime/result.json",
+   "bytes": 842251,
+   "sha256": "49ec8b786583c123d5613367324a3894b1bddf355359d2603e05c358c3589404"
+  }
+ }
+}

@@ -251,15 +251,17 @@ def smoothness(rows) -> dict:
     for k in SM_KEYS:
         out["smoothed"][k] = {m: summary_stats([r[m]["smooth"][k] for r in smb]) for m in ("aerial3d", "lattice")}
         out["paired"]["smoothed_" + k] = {
-            "aerial3d_lower_count": sum((r["aerial3d"]["smooth"][k] or 0) < (r["lattice"]["smooth"][k] or 0)
-                                        for r in smb), "n": len(smb)}
+            "aerial3d_lower_count": sum((r["aerial3d"]["smooth"][k] or 0) < (r["lattice"]["smooth"][k] or 0) - 1e-12
+                                        for r in smb),
+            "aerial3d_leq_count": sum((r["aerial3d"]["smooth"][k] or 0) <= (r["lattice"]["smooth"][k] or 0) + 1e-9
+                                      for r in smb), "n": len(smb)}
     return out
 
 
 def timing(rows, compiles) -> dict:
     per = []
     for r in rows:
-        a, l = r["aerial3d"], r["lattice"]
+        a, l = r["aerial3d"], r.get("lattice_retime") or r["lattice"]
         if "time" not in a or "time" not in l:
             continue
         la = l["time"]["algorithm_s"]
@@ -374,8 +376,13 @@ def fig_time(doc, dst):
     y = np.arange(len(per))[::-1]
     for yy, p in zip(y, per):
         ax.plot([p["aerial3d_cold_s"], p["lattice_s"]], [yy, yy], color=GRID, lw=2, zorder=1)
-    ax.scatter([p["aerial3d_cold_s"] for p in per], y, s=46, color=BLUE, edgecolors="white", linewidths=1.5,
-               zorder=3, label="aerial3d: one query (cold)")
+    a_ok = [p["aerial3d_outcome"] in ("path", "no_path_certified") for p in per]
+    ax.scatter([p["aerial3d_cold_s"] for p, o in zip(per, a_ok) if o], [yy for yy, o in zip(y, a_ok) if o], s=46,
+               color=BLUE, edgecolors="white", linewidths=1.5, zorder=3, label="aerial3d: one query (cold)")
+    if not all(a_ok):
+        ax.scatter([p["aerial3d_cold_s"] for p, o in zip(per, a_ok) if not o], [yy for yy, o in zip(y, a_ok) if not o],
+                   s=46, facecolors="white", edgecolors=BLUE, linewidths=1.8, zorder=3,
+                   label="aerial3d: answered UNKNOWN (shared replay rejected a long segment)")
     lat_fail = [p["lattice_outcome"] not in ("path", "exhausted") for p in per]
     ax.scatter([p["lattice_s"] for p, f in zip(per, lat_fail) if not f], [yy for yy, f in zip(y, lat_fail) if not f],
                s=46, color=ORANGE, edgecolors="white", linewidths=1.5, zorder=3, label="lattice: one query")
@@ -395,7 +402,7 @@ def fig_time(doc, dst):
                   f"dashed: aerial3d one-off compile per scene, reused by all its queries ({note})",
                   color=INK, fontsize=9)
     _style(ax)
-    ax.legend(loc="lower right", fontsize=8, frameon=False)
+    ax.legend(loc="upper left", fontsize=8, frameon=True, framealpha=.95, edgecolor="none")
     nb = sum(p["set"] == "benchmark" for p in per)
     if 0 < nb < len(per):
         ax.axhline(y[nb - 1] - .5, color=MUTED, lw=.6)
@@ -416,7 +423,8 @@ def fig_smooth(doc, dst):
     panels = [("path_length_m", "raw path length (m)", "raw", False),
               ("n_turning_vertices", "turning vertices (raw)", "raw", False),
               ("total_turning_rad", "total turning (rad, raw)", "raw", False),
-              ("sampled_curvature_max_radpm", "max curvature (1/m) after\nthe same A6 smoothing", "smooth", False),
+              ("sampled_curvature_max_radpm", "sampled max curvature (1/m)\nafter the same A6 smoothing (log)",
+               "smooth", True),
               ("integrated_squared_jerk", "∫|jerk|² dt after the same\nA6 smoothing (log)", "smooth", True)]
     fig, axes = plt.subplots(1, len(panels), figsize=(16, 3.9))
     rng = np.random.default_rng(0)

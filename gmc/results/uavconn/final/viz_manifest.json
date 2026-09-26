@@ -1,0 +1,646 @@
+{
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "keyframes": {
+  "side": {
+   "path": "results/uavconn/final/aerial3d_M1_keyframes_side.png",
+   "camera": {
+    "pos": [
+     14.50579481071759,
+     24.382295310604245,
+     -0.027174959310799468
+    ],
+    "fov_y_deg": 50.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -0.35,
+    5.3,
+    1.2
+   ],
+   "target_route": [
+    -0.35,
+    1.0,
+    1.0
+   ],
+   "n_splats": 492784,
+   "path_visible_fraction": 0.16233766233766234,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      356.94311816451335,
+      495.39191819834184
+     ],
+     "depth_m": 4.125772262499175
+    },
+    {
+     "label": "approach",
+     "sample": 39,
+     "route_xyz": [
+      -1.6258,
+      1.1365,
+      0.6398
+     ],
+     "pixel_uv": [
+      438.49528781968144,
+      475.05738418128743
+     ],
+     "depth_m": 4.1850101133636315
+    },
+    {
+     "label": "under the lamp",
+     "sample": 120,
+     "route_xyz": [
+      -0.8487,
+      1.0047,
+      0.8262
+     ],
+     "pixel_uv": [
+      600.7066222133038,
+      434.6109814537312
+     ],
+     "depth_m": 4.308042572851347
+    },
+    {
+     "label": "climbing",
+     "sample": 178,
+     "route_xyz": [
+      -0.3283,
+      0.9076,
+      1.0136
+     ],
+     "pixel_uv": [
+      704.2363940466312,
+      396.51207193453416
+     ],
+     "depth_m": 4.396321998895893
+    },
+    {
+     "label": "over the table",
+     "sample": 239,
+     "route_xyz": [
+      0.1985,
+      0.7427,
+      1.2545
+     ],
+     "pixel_uv": [
+      803.4028015106711,
+      349.82125985514546
+     ],
+     "depth_m": 4.549807435614996
+    },
+    {
+     "label": "goal",
+     "sample": 307,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      908.5156129309194,
+      305.648013710947
+     ],
+     "depth_m": 4.730931989065072
+    }
+   ]
+  },
+  "oblique": {
+   "path": "results/uavconn/final/aerial3d_M1_keyframes_oblique.png",
+   "camera": {
+    "pos": [
+     15.091804191330432,
+     27.926176376023026,
+     1.8728250406892009
+    ],
+    "fov_y_deg": 55.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    3.1,
+    4.3,
+    3.1
+   ],
+   "target_route": [
+    -0.7,
+    0.9,
+    0.8
+   ],
+   "n_splats": 430112,
+   "path_visible_fraction": 0.12987012987012986,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      569.0295881788493,
+      389.40487080649024
+     ],
+     "depth_m": 6.397322428965653
+    },
+    {
+     "label": "approach",
+     "sample": 39,
+     "route_xyz": [
+      -1.6258,
+      1.1365,
+      0.6398
+     ],
+     "pixel_uv": [
+      600.7625794260141,
+      390.8985413860212
+     ],
+     "depth_m": 6.14480188351327
+    },
+    {
+     "label": "under the lamp",
+     "sample": 120,
+     "route_xyz": [
+      -0.8487,
+      1.0047,
+      0.8262
+     ],
+     "pixel_uv": [
+      675.7809062452118,
+      394.42965091246657
+     ],
+     "depth_m": 5.620336135266012
+    },
+    {
+     "label": "climbing",
+     "sample": 178,
+     "route_xyz": [
+      -0.3283,
+      0.9076,
+      1.0136
+     ],
+     "pixel_uv": [
+      735.4560283495127,
+      388.4754540354438
+     ],
+     "depth_m": 5.248789386581347
+    },
+    {
+     "label": "over the table",
+     "sample": 239,
+     "route_xyz": [
+      0.1985,
+      0.7427,
+      1.2545
+     ],
+     "pixel_uv": [
+      812.5040951347967,
+      371.40024073609334
+     ],
+     "depth_m": 4.892120974242183
+    },
+    {
+     "label": "goal",
+     "sample": 307,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      915.3412255835699,
+      353.13930129284404
+     ],
+     "depth_m": 4.49966761316377
+    }
+   ]
+  },
+  "top": {
+   "path": "results/uavconn/final/aerial3d_M1_keyframes_top.png",
+   "camera": {
+    "pos": [
+     10.49503899058099,
+     26.078272241827047,
+     6.9728250406892
+    ],
+    "fov_y_deg": 48.0,
+    "size": [
+     1400,
+     800
+    ],
+    "near": 0.1
+   },
+   "eye_route": [
+    -0.55,
+    0.95,
+    8.2
+   ],
+   "target_route": [
+    -0.55,
+    1.0,
+    0.0
+   ],
+   "n_splats": 667867,
+   "path_visible_fraction": 0.30844155844155846,
+   "bodies": [
+    {
+     "label": "start",
+     "sample": 0,
+     "route_xyz": [
+      -2.0,
+      1.2,
+      0.55
+     ],
+     "pixel_uv": [
+      870.256994499139,
+      376.12293854732854
+     ],
+     "depth_m": 7.651382151415958
+    },
+    {
+     "label": "approach",
+     "sample": 39,
+     "route_xyz": [
+      -1.6258,
+      1.1365,
+      0.6398
+     ],
+     "pixel_uv": [
+      827.8271433498488,
+      383.31533840792383
+     ],
+     "depth_m": 7.561229386016643
+    },
+    {
+     "label": "under the lamp",
+     "sample": 120,
+     "route_xyz": [
+      -0.8487,
+      1.0047,
+      0.8262
+     ],
+     "pixel_uv": [
+      736.3885941927166,
+      398.81533641396896
+     ],
+     "depth_m": 7.37398902711037
+    },
+    {
+     "label": "climbing",
+     "sample": 178,
+     "route_xyz": [
+      -0.3283,
+      0.9076,
+      1.0136
+     ],
+     "pixel_uv": [
+      672.2809674322026,
+      410.77981278099185
+     ],
+     "depth_m": 7.186010454515828
+    },
+    {
+     "label": "over the table",
+     "sample": 239,
+     "route_xyz": [
+      0.1985,
+      0.7427,
+      1.2545
+     ],
+     "pixel_uv": [
+      603.1672952260141,
+      432.2933732585006
+     ],
+     "depth_m": 6.944135670228616
+    },
+    {
+     "label": "goal",
+     "sample": 307,
+     "route_xyz": [
+      0.8,
+      0.55,
+      1.5
+     ],
+     "pixel_uv": [
+      518.9068514147351,
+      459.13636516871725
+     ],
+     "depth_m": 6.69743647058636
+    }
+   ]
+  }
+ },
+ "runs": {
+  "aerial3d:M1_main_low_start": "outputs/uavconn/c2/aerial3d/booth/l2_M1_main_low_start/result.json",
+  "aerial3d:M5_high_start": "outputs/uavconn/c2/aerial3d/booth/l2_M5_high_start/result.json",
+  "aerial3d:N2h_plug_high_start": "outputs/uavconn/c2/aerial3d/plug/l2_N2h_plug_high_start/result.json",
+  "aerial3d:C4h_lamp_only_high_start": "outputs/uavconn/c2/aerial3d/lamp/l2_C4h_lamp_only_high_start/result.json",
+  "lattice:M1_main_low_start": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/l2/M1_main_low_start/result.json",
+  "lattice:M5_high_start": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/l2/M5_high_start/result.json"
+ },
+ "video": {
+  "path": "results/uavconn/final/video/flythrough.mp4",
+  "bytes": 680301,
+  "sha256": "88f2fcf34a153e6a31cbe8c1f25a7c28b6034d7f48270b942b8c86840bc3e41c",
+  "fps": 20,
+  "n_frames": 280,
+  "size": [
+   960,
+   540
+  ],
+  "render_s": 319.98569177801255,
+  "frames_from_mp4": {
+   "start": {
+    "path": "results/uavconn/final/video/flythrough_frame_000_start.png",
+    "frame": 0,
+    "route_xyz": [
+     -2.0,
+     1.2,
+     0.55
+    ]
+   },
+   "under the lamp": {
+    "path": "results/uavconn/final/video/flythrough_frame_113_under_the_lamp.png",
+    "frame": 113,
+    "route_xyz": [
+     -0.8487,
+     1.0047,
+     0.8262
+    ]
+   },
+   "climbing": {
+    "path": "results/uavconn/final/video/flythrough_frame_158_climbing.png",
+    "frame": 158,
+    "route_xyz": [
+     -0.3283,
+     0.9076,
+     1.0136
+    ]
+   },
+   "at goal": {
+    "path": "results/uavconn/final/video/flythrough_frame_279_at_goal.png",
+    "frame": 279,
+    "route_xyz": [
+     0.8,
+     0.55,
+     1.5
+    ]
+   }
+  },
+  "camera_path_every_20th": [
+   {
+    "frame": 0,
+    "sample": 0,
+    "eye_route": [
+     -4.627,
+     3.945,
+     2.053
+    ],
+    "target_route": [
+     -1.24,
+     1.103,
+     0.785
+    ]
+   },
+   {
+    "frame": 20,
+    "sample": 0,
+    "eye_route": [
+     -4.315,
+     4.258,
+     2.108
+    ],
+    "target_route": [
+     -1.24,
+     1.103,
+     0.785
+    ]
+   },
+   {
+    "frame": 40,
+    "sample": 26,
+    "eye_route": [
+     -3.876,
+     4.52,
+     2.186
+    ],
+    "target_route": [
+     -1.142,
+     1.087,
+     0.808
+    ]
+   },
+   {
+    "frame": 60,
+    "sample": 52,
+    "eye_route": [
+     -3.373,
+     4.738,
+     2.274
+    ],
+    "target_route": [
+     -1.006,
+     1.063,
+     0.841
+    ]
+   },
+   {
+    "frame": 80,
+    "sample": 78,
+    "eye_route": [
+     -2.849,
+     4.916,
+     2.361
+    ],
+    "target_route": [
+     -0.868,
+     1.04,
+     0.874
+    ]
+   },
+   {
+    "frame": 100,
+    "sample": 103,
+    "eye_route": [
+     -2.313,
+     5.055,
+     2.447
+    ],
+    "target_route": [
+     -0.736,
+     1.018,
+     0.905
+    ]
+   },
+   {
+    "frame": 120,
+    "sample": 129,
+    "eye_route": [
+     -1.759,
+     5.15,
+     2.534
+    ],
+    "target_route": [
+     -0.599,
+     0.995,
+     0.938
+    ]
+   },
+   {
+    "frame": 140,
+    "sample": 155,
+    "eye_route": [
+     -1.203,
+     5.201,
+     2.629
+    ],
+    "target_route": [
+     -0.468,
+     0.971,
+     0.979
+    ]
+   },
+   {
+    "frame": 160,
+    "sample": 180,
+    "eye_route": [
+     -0.657,
+     5.206,
+     2.737
+    ],
+    "target_route": [
+     -0.35,
+     0.944,
+     1.034
+    ]
+   },
+   {
+    "frame": 180,
+    "sample": 206,
+    "eye_route": [
+     -0.111,
+     5.159,
+     2.852
+    ],
+    "target_route": [
+     -0.231,
+     0.91,
+     1.095
+    ]
+   },
+   {
+    "frame": 200,
+    "sample": 232,
+    "eye_route": [
+     0.436,
+     5.064,
+     2.958
+    ],
+    "target_route": [
+     -0.105,
+     0.869,
+     1.149
+    ]
+   },
+   {
+    "frame": 220,
+    "sample": 257,
+    "eye_route": [
+     0.969,
+     4.927,
+     3.061
+    ],
+    "target_route": [
+     0.017,
+     0.83,
+     1.198
+    ]
+   },
+   {
+    "frame": 240,
+    "sample": 283,
+    "eye_route": [
+     1.491,
+     4.749,
+     3.164
+    ],
+    "target_route": [
+     0.142,
+     0.79,
+     1.249
+    ]
+   },
+   {
+    "frame": 260,
+    "sample": 307,
+    "eye_route": [
+     1.951,
+     4.546,
+     3.25
+    ],
+    "target_route": [
+     0.223,
+     0.764,
+     1.283
+    ]
+   }
+  ],
+  "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"
+ },
+ "files": {
+  "aerial3d_M1_keyframes_oblique.png": {
+   "bytes": 517502,
+   "sha256": "4a87a686fb23801f1d33523b3a0c2709bcf283c4bfa990700d972362fcba42cf"
+  },
+  "aerial3d_M1_keyframes_side.png": {
+   "bytes": 641617,
+   "sha256": "c319f16b103f8e47b764fcab22f29a5281e67d224e3dade4a1130e874e86573b"
+  },
+  "aerial3d_M1_keyframes_top.png": {
+   "bytes": 534016,
+   "sha256": "61aa35bea6aa5352fe5754b9566b4942ffab13c00b5b5e50c266ad50092a97a2"
+  },
+  "necessity_aerial3d.png": {
+   "bytes": 496108,
+   "sha256": "f63acb1e1266b2fadb725a08d277d7f76308a12e97f59f7b3a279d109a1e20ec"
+  },
+  "routes_M1_M5.png": {
+   "bytes": 420581,
+   "sha256": "7f3c77e128d8bd19e9e829ee60c5a3122a23acef8a7ab4cf558e4169f69805d5"
+  },
+  "video/flythrough.mp4": {
+   "bytes": 680301,
+   "sha256": "88f2fcf34a153e6a31cbe8c1f25a7c28b6034d7f48270b942b8c86840bc3e41c"
+  },
+  "video/flythrough_frame_000_start.png": {
+   "bytes": 230651,
+   "sha256": "f986a36b842b6ba03d7c98d6b0402a769eab0b596d181b024015185c6b41e6e1"
+  },
+  "video/flythrough_frame_113_under_the_lamp.png": {
+   "bytes": 339238,
+   "sha256": "89758952b8f864fdaed4fec5085c95ba0faeb6fcdfebde097f29ca0ff42c02c3"
+  },
+  "video/flythrough_frame_158_climbing.png": {
+   "bytes": 346844,
+   "sha256": "56ba71a79f66a1365c8055f381e38c3908b85c0b61b599767e8ad512c36a3e43"
+  },
+  "video/flythrough_frame_279_at_goal.png": {
+   "bytes": 307225,
+   "sha256": "8b95df1a686a419e2498f7e94d8008578806ba2a2474998342795e57c3084fa6"
+  }
+ }
+}

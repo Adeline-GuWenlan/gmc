@@ -1,0 +1,239 @@
+{
+ "schema": "uavconn.c2_posthoc.v1",
+ "rows": [
+  {
+   "name": "c2_ext_EA03",
+   "result": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EA03/result.json",
+   "status": "UNKNOWN",
+   "reason": "shared_replay_failed",
+   "piece_m": 0.2,
+   "counted": false,
+   "note": "post-hoc diagnostic; the pre-registered outcome stays as reported by the run",
+   "original_segments": [
+    {
+     "length_m": 1.2754979935763373,
+     "occupancy": "free",
+     "reason": "swept_support_separation_bound_capped",
+     "clearance_lower_m": 0.050183499165976454,
+     "world_aabb_route_lower": [
+      -2.8606,
+      0.7224,
+      0.819
+     ],
+     "world_aabb_route_upper": [
+      -1.0164,
+      2.2128,
+      1.4868
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    },
+    {
+     "length_m": 0.9254763638322876,
+     "occupancy": "free",
+     "reason": "swept_support_separation_bound_capped",
+     "clearance_lower_m": 0.05099997999826523,
+     "world_aabb_route_lower": [
+      -1.6832,
+      0.6777,
+      0.819
+     ],
+     "world_aabb_route_upper": [
+      -0.1023,
+      1.9654,
+      1.019
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    },
+    {
+     "length_m": 3.4760438578739183,
+     "occupancy": "unknown",
+     "reason": "map_unknown",
+     "clearance_lower_m": null,
+     "world_aabb_route_lower": [
+      -0.769,
+      -0.4731,
+      0.819
+     ],
+     "world_aabb_route_upper": [
+      3.1595,
+      2.328,
+      2.0334
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    }
+   ],
+   "subdivided": {
+    "pieces": 30,
+    "passed": true,
+    "geometry": {
+     "passed": true,
+     "safety": "continuous_bound",
+     "reason": "all_closed_edges_verified",
+     "clearance_lower_m": 0.05016204537646888
+    },
+    "same_point_set": "collinear subdivision of the own-verified polyline"
+   }
+  },
+  {
+   "name": "c2_ext_EB02",
+   "result": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB02/result.json",
+   "status": "UNKNOWN",
+   "reason": "shared_replay_failed",
+   "piece_m": 0.2,
+   "counted": false,
+   "note": "post-hoc diagnostic; the pre-registered outcome stays as reported by the run",
+   "original_segments": [
+    {
+     "length_m": 1.205609119277365,
+     "occupancy": "free",
+     "reason": "swept_support_separation_bound_capped",
+     "clearance_lower_m": 0.05027789532647177,
+     "world_aabb_route_lower": [
+      -2.6892,
+      0.44,
+      0.8241
+     ],
+     "world_aabb_route_upper": [
+      -0.9439,
+      2.0516,
+      1.5361
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    },
+    {
+     "length_m": 3.2307780495373573,
+     "occupancy": "unknown",
+     "reason": "map_unknown",
+     "clearance_lower_m": null,
+     "world_aabb_route_lower": [
+      -1.6107,
+      -0.2093,
+      0.3584
+     ],
+     "world_aabb_route_upper": [
+      2.2472,
+      3.0636,
+      1.0241
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    }
+   ],
+   "subdivided": {
+    "pieces": 24,
+    "passed": true,
+    "geometry": {
+     "passed": true,
+     "safety": "continuous_bound",
+     "reason": "all_closed_edges_verified",
+     "clearance_lower_m": 0.0501976041752655
+    },
+    "same_point_set": "collinear subdivision of the own-verified polyline"
+   }
+  },
+  {
+   "name": "c2_ext_EB04",
+   "result": "outputs/uavconn/c2/aerial3d/ext/c2_ext_EB04/result.json",
+   "status": "UNKNOWN",
+   "reason": "shared_replay_failed",
+   "piece_m": 0.2,
+   "counted": false,
+   "note": "post-hoc diagnostic; the pre-registered outcome stays as reported by the run",
+   "original_segments": [
+    {
+     "length_m": 4.1924658078510335,
+     "occupancy": "unknown",
+     "reason": "map_unknown",
+     "clearance_lower_m": null,
+     "world_aabb_route_lower": [
+      -2.1576,
+      -0.6889,
+      0.4638
+     ],
+     "world_aabb_route_upper": [
+      2.5743,
+      3.6522,
+      1.2893
+     ],
+     "box_route": {
+      "lower": [
+       -3.0,
+       -0.35,
+       0.0
+      ],
+      "upper": [
+       3.7,
+       2.75,
+       2.43
+      ]
+     }
+    }
+   ],
+   "subdivided": {
+    "pieces": 21,
+    "passed": true,
+    "geometry": {
+     "passed": true,
+     "safety": "continuous_bound",
+     "reason": "all_closed_edges_verified",
+     "clearance_lower_m": 0.06428668799984684
+    },
+    "same_point_set": "collinear subdivision of the own-verified polyline"
+   }
+  }
+ ]
+}
