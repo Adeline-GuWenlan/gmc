@@ -26,11 +26,13 @@ import os
 from pathlib import Path
 import platform
 import resource
+import subprocess
 import sys
 import time
 
 import numpy as np
 
+from gmc.aerial3d.octree import OctreeConfig
 from gmc.aerial3d.api import CompileConfig, QueryConfig, compile_complex, load_compiled, query, save_compiled
 from gmc.gs3d import scene_uavlamp as su
 from gmc.gs3d.contracts import Pose3
@@ -60,7 +62,9 @@ def host() -> dict:
     return {"node": platform.node(), "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
             "cpus_per_task": os.environ.get("SLURM_CPUS_PER_TASK"),
             "affinity_cpus": len(os.sched_getaffinity(0)), "loadavg": list(os.getloadavg()),
-            "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "python": sys.version.split()[0]}
+            "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "python": sys.version.split()[0],
+            "git_commit": subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True,
+                                         cwd=Path(__file__).parent).stdout.strip()}
 
 
 def floor_support(meta: dict, bmin, bmax):
@@ -109,7 +113,13 @@ def ground_world(frame, body, uv) -> np.ndarray:
 
 def compile_record(compiled, outer_s, cpu_s) -> dict:
     s = compiled.summary()
-    return {"compile_id": compiled.compile_id, "body": asdict(compiled.body),
+    facet = {int(i) for c in compiled.cells.cells for i in c.row_pair[c.row_pair >= 0]}
+    blocked = {int(i) for i in compiled.tree.blocked_pair[compiled.tree.blocked_pair >= 0]}
+    return {"compile_id": compiled.compile_id,
+            "active_pairs": {"cell_facet_pairs": len(facet), "blocked_leaf_pairs": len(blocked),
+                             "union": len(facet | blocked),
+                             "definition": "distinct candidate pairs that certify something: a support-plane "
+                                           "facet of some free cell, or the inner polytope of a BLOCKED leaf"}, "body": asdict(compiled.body),
             "config": s["config"], "domain_bbox_plan": [s["domain"]["bbox_lower"], s["domain"]["bbox_upper"]],
             "ground_z_plan": s["domain"].get("ground_z_plan"),
             "pairs": s["pairs"], "octree": {k: s["octree"].get(k) for k in
@@ -128,9 +138,15 @@ def compile_record(compiled, outer_s, cpu_s) -> dict:
                        for r in s["timings"]["records"]]}
 
 
-def timed_compile(scene, body, prepared=None):
+def compile_config(min_cell_m=None) -> CompileConfig:
+    if min_cell_m is None:
+        return GROUND_CONFIG
+    return replace(GROUND_CONFIG, octree=OctreeConfig(min_cell_m=float(min_cell_m)))
+
+
+def timed_compile(scene, body, prepared=None, min_cell_m=None):
     t0, c0 = time.perf_counter(), time.process_time()
-    compiled = compile_complex(scene, body, config=GROUND_CONFIG, prepared=prepared)
+    compiled = compile_complex(scene, body, config=compile_config(min_cell_m), prepared=prepared)
     return compiled, time.perf_counter() - t0, time.process_time() - c0
 
 
@@ -153,7 +169,7 @@ def cmd_probe(a):
            "scene_build_and_crop_s": ctx["scene_build_and_crop_s"], "support": ctx["support_evidence"],
            "robots": {}}
     for name in a.robots:
-        compiled, outer, cpu = timed_compile(ctx["scene"], ROBOTS[name])   # scene_prepare inside
+        compiled, outer, cpu = timed_compile(ctx["scene"], ROBOTS[name], min_cell_m=a.min_cell)   # scene_prepare inside
         out["robots"][name] = compile_record(compiled, outer, cpu)
         print(name, json.dumps({k: out["robots"][name][k] for k in ("compile_wall_s", "peak_rss_mb")},
                                default=float), json.dumps(out["robots"][name]["pairs"], default=float), flush=True)
@@ -265,12 +281,12 @@ def cmd_screen(a):
     frame = ctx["frame"]
     cand_path = a.out / "candidates.json"
     t0 = time.perf_counter()
-    cands = candidate_pairs(ctx)
+    cands = json.loads(a.candidates.read_text()) if a.candidates else candidate_pairs(ctx)
     cands["generation_wall_s"] = time.perf_counter() - t0
     _dump(cand_path, cands)
     print("candidates", {k: sum(p["category"] == k for p in cands["pairs"]) for k in ("thread", "lamp", "other")},
           "free points", cands["free_for_both"], flush=True)
-    compiled, outer, cpu = timed_compile(ctx["scene"], body)
+    compiled, outer, cpu = timed_compile(ctx["scene"], body, min_cell_m=a.min_cell)
     rec = compile_record(compiled, outer, cpu)
     t1 = time.perf_counter()
     meta = save_compiled(compiled, a.out / f"{a.robot}.a3c")
@@ -351,7 +367,7 @@ def cmd_demo(a):
     body, frame, scene = ROBOTS[a.robot], ctx["frame"], ctx["scene"]
     s = ground_world(frame, body, a.start)
     g = ground_world(frame, body, a.goal)
-    compiled, outer, cpu = timed_compile(scene, body)
+    compiled, outer, cpu = timed_compile(scene, body, min_cell_m=a.min_cell)
     rec = compile_record(compiled, outer, cpu)
     compile_records_before = json.dumps(compiled.timings["records"], sort_keys=True, default=float)
     calls = []
@@ -441,6 +457,9 @@ def main(argv=None):
     de.add_argument("--box", type=float, nargs=4, metavar=("U0", "V0", "U1", "V1"))
     for q in (pr, sc, de, mp_):
         q.add_argument("--out", type=Path, required=True)
+    for q in (pr, sc, de):
+        q.add_argument("--min-cell", type=float, default=None, help="octree min_cell_m (default 0.05)")
+    sc.add_argument("--candidates", type=Path, help="reuse a candidates.json instead of regenerating")
     a = p.parse_args(argv)
     a.out.mkdir(parents=True, exist_ok=True)
     {"probe": cmd_probe, "screen": cmd_screen, "demo": cmd_demo, "map": cmd_map}[a.cmd](a)
