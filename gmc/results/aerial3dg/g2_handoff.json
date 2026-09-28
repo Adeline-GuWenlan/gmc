@@ -1,0 +1,326 @@
+{
+ "schema": "aerial3dg.g2_handoff.v1",
+ "written_utc": "2026-09-28",
+ "status": "COMPLETE: 5000/5000 pairs answered for both robots; nothing running",
+ "pairs": {
+  "file": "gmc/results/aerial3dg/g2/pairs_5000.json",
+  "n": 5000,
+  "seed": 20260928,
+  "box_route": {
+   "lower": [
+    -9.0,
+    -0.35,
+    0.0
+   ],
+   "upper": [
+    3.7,
+    2.75,
+    2.43
+   ]
+  },
+  "rule": "uniform over the box, d_xy >= 3 m, both endpoints gs3d-oracle free (margin 0.001) for BOTH robots at each robot's own z_c; one shared list; no connectivity filter",
+  "why_uniform": "the planner's certified UNREACHABLE is a result in itself; a reachability witness would filter out exactly the lamp-crossing pairs that show it. UNREACHABLE/UNKNOWN rates are reported as they fall.",
+  "why_shared": "paired sweeper-vs-cylinder comparison on every pair; the cylinder's free set is contained in the sweeper's (G1 map), so this equals the cylinder's own endpoint set; for the sweeper it excludes the sweeper-only lamp zone/pockets as ENDPOINTS (still crossable mid-route)",
+  "counts": {
+   "pair_draws": 75460,
+   "dist_below_min": 28406,
+   "endpoint_not_free_sweeper": 36095,
+   "endpoint_not_free_cylinder": 5959,
+   "accepted": 5000
+  },
+  "acceptance_rate": 0.06626027034190299,
+  "dist_m": {
+   "min": 3.0009404609222092,
+   "median": 5.329807932462401,
+   "max": 11.620465220463421
+  },
+  "sampling_wall_s": 209.86452036094852,
+  "job": 18705370
+ },
+ "compile": {
+  "policy": "persist and reload: ONE compile per robot for all 5000 pairs = G1's demo compile (jobs 18704511/18704512 at cd18230; gmc/src and the runner unchanged since, so byte-identical to a G2 recompile). G2 ran zero compiles.",
+  "a3c": {
+   "sweeper": "gmc/outputs/aerial3dg/demo/sweeper.a3c (180 MB, not committed; sidecar sha256 in results/aerial3dg/g1/runs/demo/sweeper.a3c.json)",
+   "cylinder": "gmc/outputs/aerial3dg/demo/cylinder.a3c (387 MB, not committed; sidecar in results/aerial3dg/g1/runs/demo/cylinder.a3c.json)"
+  },
+  "compile_wall_s": {
+   "sweeper": 26.097612323006615,
+   "cylinder": 70.68394587107468
+  },
+  "proof_per_task": "each task summary's compile_once_proof: compiles_in_this_process 0 (counter wrapped around gmc.aerial3d.api.compile_complex), loads_in_this_process 1 (SHA-256 checked), compile records unchanged by queries, one compile_id on every row, no compile stage inside any query call -- true for all 20 tasks"
+ },
+ "run": {
+  "raw_per_pair_jsonl": "gmc/results/aerial3dg/g2/runs/{sweeper,cylinder}/task_{00..09}.jsonl (one JSON line per pair: status, reason, route_polyline in route frame, path length, clearance, query stages, cut attribution by manifest role)",
+  "task_summaries": "gmc/results/aerial3dg/g2/runs/*/task_??.summary.json",
+  "aggregate": "gmc/results/aerial3dg/g2/collect.json",
+  "figure": "gmc/results/aerial3dg/g2/g2_overview.png (inspected)",
+  "sacct": "gmc/results/aerial3dg/g2/sacct_g2.txt",
+  "arrays": {
+   "sweeper": [
+    "18705385_[0]",
+    "18705467_[1-9]%4 1 CPU/1500M"
+   ],
+   "cylinder": [
+    "18705386_[0]",
+    "18705466_[1-9]%2 1 CPU/2200M"
+   ]
+  },
+  "pairs_per_task": 500,
+  "timeout_per_pair_s": 120,
+  "query_config": "QueryConfig(export_max_segment_m=0.20)"
+ },
+ "robots": {
+  "sweeper": {
+   "completed": 5000,
+   "of": 5000,
+   "status_counts": {
+    "REACHABLE": 4699,
+    "UNREACHABLE": 0,
+    "UNKNOWN": 301,
+    "TIMEOUT": 0
+   },
+   "reasons": {
+    "REACHABLE": {
+     "graph_path_lifted_and_verified": 4699
+    },
+    "UNKNOWN": {
+     "goal_not_certified_free": 116,
+     "start_not_certified_free": 123,
+     "shared_replay_failed": 62
+    }
+   },
+   "query_wall_s": {
+    "n": 5000,
+    "sum": 5593.948628056329,
+    "mean": 1.1187897256112658,
+    "median": 0.6506367470137775,
+    "p95": 3.6553926231135856,
+    "max": 18.146631211042404
+   },
+   "query_wall_s_by_status": {
+    "REACHABLE": {
+     "n": 4699,
+     "sum": 5461.371166094148,
+     "mean": 1.16224115047758,
+     "median": 0.7155101799871773,
+     "p95": 3.6556764382112275,
+     "max": 18.146631211042404
+    },
+    "UNREACHABLE": null,
+    "UNKNOWN": {
+     "n": 301,
+     "sum": 132.57746196218068,
+     "mean": 0.4404566842597365,
+     "median": 0.027799112955108285,
+     "p95": 3.0415667830384336,
+     "max": 11.928569490963127
+    },
+    "TIMEOUT": null
+   },
+   "path_over_straight_reachable": {
+    "n": 4699,
+    "sum": 4848.137646718518,
+    "mean": 1.0317381669969181,
+    "median": 1.012612913314457,
+    "p95": 1.133191642607228,
+    "max": 1.4385084872590672
+   },
+   "clearance_lower_m_reachable": {
+    "n": 4699,
+    "sum": 6.8927334512023375,
+    "mean": 0.0014668511281554241,
+    "median": 0.0013642757910297058,
+    "p95": 0.0019543912052929603,
+    "max": 0.012207153494627119
+   },
+   "shared_gs3d_replay_passed_all_reachable": true,
+   "compile_id": "8e380fca1643ba5c",
+   "task_load_wall_s": {
+    "n": 10,
+    "sum": 7.2909899351070635,
+    "mean": 0.7290989935107064,
+    "median": 0.6867890444991644,
+    "p95": 0.8657854486140423,
+    "max": 0.8682808839948848
+   },
+   "task_peak_rss_mb": {
+    "n": 10,
+    "sum": 6524.890625,
+    "mean": 652.4890625,
+    "median": 652.45703125,
+    "p95": 653.1712890625,
+    "max": 653.60546875
+   },
+   "compile_once_all_tasks": true,
+   "array_tasks": 10,
+   "cpu_h_alloc": 1.5763888888888888,
+   "g1_estimate_cpu_h": {
+    "central": 0.6145092373242477,
+    "pessimistic": 0.6289146393865713,
+    "p95_bound": 3.283872546216751
+   },
+   "g1_estimate_query_mean_s": 0.4366388758896695
+  },
+  "cylinder": {
+   "completed": 5000,
+   "of": 5000,
+   "status_counts": {
+    "REACHABLE": 73,
+    "UNREACHABLE": 2928,
+    "UNKNOWN": 1999,
+    "TIMEOUT": 0
+   },
+   "reasons": {
+    "UNREACHABLE": {
+     "possible_space_cut": 2928
+    },
+    "UNKNOWN": {
+     "safe_graph_disconnected_possible_connected": 1587,
+     "goal_not_certified_free": 195,
+     "start_not_certified_free": 217
+    },
+    "REACHABLE": {
+     "graph_path_lifted_and_verified": 73
+    }
+   },
+   "query_wall_s": {
+    "n": 5000,
+    "sum": 526.8755636451533,
+    "mean": 0.10537511272903066,
+    "median": 0.05015846900641918,
+    "p95": 0.18227331998641602,
+    "max": 3.9020289330510423
+   },
+   "query_wall_s_by_status": {
+    "REACHABLE": {
+     "n": 73,
+     "sum": 118.0806418841239,
+     "mean": 1.6175430395085466,
+     "median": 1.5055694569600746,
+     "p95": 3.3796443865634473,
+     "max": 3.9020289330510423
+    },
+    "UNREACHABLE": {
+     "n": 2928,
+     "sum": 101.76653999229893,
+     "mean": 0.03475633196458297,
+     "median": 0.04630463197827339,
+     "p95": 0.0582997145538684,
+     "max": 0.15234921895898879
+    },
+    "UNKNOWN": {
+     "n": 1999,
+     "sum": 307.02838176873047,
+     "mean": 0.153590986377554,
+     "median": 0.13964540197048336,
+     "p95": 0.21162566083949058,
+     "max": 0.6206475219223648
+    },
+    "TIMEOUT": null
+   },
+   "path_over_straight_reachable": {
+    "n": 73,
+    "sum": 76.76324485491101,
+    "mean": 1.0515512993823426,
+    "median": 1.0323438915492165,
+    "p95": 1.1910242463792684,
+    "max": 1.2472850977712306
+   },
+   "clearance_lower_m_reachable": {
+    "n": 73,
+    "sum": 0.11495836313911316,
+    "mean": 0.0015747720977960706,
+    "median": 0.0013159315943942803,
+    "p95": 0.0028486368259560747,
+    "max": 0.006601267003478549
+   },
+   "shared_gs3d_replay_passed_all_reachable": true,
+   "compile_id": "c40f7f7bb7436581",
+   "task_load_wall_s": {
+    "n": 10,
+    "sum": 10.622137835016474,
+    "mean": 1.0622137835016474,
+    "median": 1.0084384704823606,
+    "p95": 1.2599945133551955,
+    "max": 1.2687164169037715
+   },
+   "task_peak_rss_mb": {
+    "n": 10,
+    "sum": 10648.3359375,
+    "mean": 1064.83359375,
+    "median": 1064.6484375,
+    "p95": 1065.6580078125,
+    "max": 1065.69140625
+   },
+   "compile_once_all_tasks": true,
+   "array_tasks": 10,
+   "cpu_h_alloc": 0.16666666666666666,
+   "g1_estimate_cpu_h": {
+    "central": 0.3846164445017995,
+    "pessimistic": 0.9228602870315196,
+    "p95_bound": 2.010856817941336
+   },
+   "g1_estimate_query_mean_s": 0.2623752925224835
+  }
+ },
+ "paired": {
+  "robots": [
+   "sweeper",
+   "cylinder"
+  ],
+  "pairs_answered_by_both": 5000,
+  "crosstab": {
+   "REACHABLE|UNREACHABLE": 2783,
+   "REACHABLE|UNKNOWN": 1843,
+   "REACHABLE|REACHABLE": 73,
+   "UNKNOWN|UNREACHABLE": 145,
+   "UNKNOWN|UNKNOWN": 156
+  },
+  "definition": "key = 'sweeper status|cylinder status' on the same pair"
+ },
+ "cost": {
+  "compute_cpu_h_alloc_total": 1.8038888888888889,
+  "compute_cpu_h_used_total": 1.7628986111111111,
+  "by_job_group": {
+   "sample": {
+    "jobs": 1,
+    "alloc_cpu_h": 0.060833333333333336,
+    "used_cpu_h": 0.059062222222222224
+   },
+   "sweeper": {
+    "jobs": 10,
+    "alloc_cpu_h": 1.5763888888888888,
+    "used_cpu_h": 1.5529775000000001
+   },
+   "cylinder": {
+    "jobs": 10,
+    "alloc_cpu_h": 0.16666666666666666,
+    "used_cpu_h": 0.15085888888888888
+   }
+  },
+  "wall_clock": {
+   "first_job_start_utc": "2026-09-28T08:00:56Z",
+   "last_job_end_utc": "2026-09-28T08:34:58Z",
+   "minutes": 34.0,
+   "note": "sample 3.6 min, then both robots' arrays in parallel; the cylinder's 5000 finished in ~8 min, the sweeper's in ~30 min (up to 5 concurrent tasks)"
+  },
+  "vs_g1_estimate": {
+   "g1_total_cpu_h": {
+    "central": 0.9991256818260472,
+    "pessimistic": 1.551774926418091,
+    "p95_bound": 5.294729364158087
+   },
+   "actual_query_tasks_cpu_h": 1.7430555555555556,
+   "why": "sweeper 2.6x over central (mean 1.12 s/pair vs 0.44): G1's screen pairs were short (median 3.57 m) and bucketed toward near-straight 'thread'/'lamp' routes; uniform pairs have median 5.3 m and more corners (4.6 vs 2.9 route vertices); shortcut+tighten = 0.99 s of the 1.16 s REACHABLE mean (0.37 in G1's screen) and grow with route length/complexity. Cylinder 0.44x of central (0.105 s/pair vs 0.26): 98.5% of uniform pairs are cheap certified cuts (0.035 s) or UNKNOWN (0.15 s). Total within G1's p95 bound (5.3 CPU-h), just above its pessimistic column (1.55).",
+   "recompile_per_pair_counterfactual_h": 134.4188308251129
+  }
+ },
+ "interpretation_for_g3": {
+  "contrast": "2783 pairs: sweeper REACHABLE (threads under the lamp) while the cylinder is certified UNREACHABLE (possible-space cut); every cylinder UNREACHABLE crosses the lamp at u~-0.85. 1843 pairs: sweeper REACHABLE, cylinder UNKNOWN across the u~-5.6 structure (sweeper uses the v 1.8-1.9 gap). 73 pairs both REACHABLE (cylinder detour ratio mean 1.052 vs sweeper 1.032 overall).",
+  "cylinder_unknown": "1587 safe_graph_disconnected_possible_connected, all on pairs crossing u~-5.6 (task 0 audit: 168/168); G1's 0.1 m gs3d point map has NO free cylinder centre in columns u=-5.6 and -5.5 across the whole width, so these are very likely unreachable but NOT certified (strong evidence, not proof: a <0.1 m free window could be missed). 412 endpoint_not_certified_free (5 cm leaf resolution at oracle-free endpoints).",
+  "sweeper_unknown": "239 endpoint_not_certified_free (start 123 / goal 116), 62 shared_replay_failed (own verifier certified, gs3d replay conservative). 0 UNREACHABLE.",
+  "measurement_template": "G3 should fill the 5000-pair / robot-comparison rows from collect.json (G1 filled the demo column in results/aerial3dg/g1/measurement_g1.csv)"
+ },
+ "g1_gaps_closed_in_g2": "none needed: G1 done.md lists nothing incomplete (both robots demoed, charted, videoed, compile-once proven, pushed); UAV re-run out of scope",
+ "still_running": []
+}
