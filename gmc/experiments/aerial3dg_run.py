@@ -362,75 +362,98 @@ def _sha(poly):
     return None if poly is None else hashlib.sha256(np.asarray(poly, float).round(12).tobytes()).hexdigest()
 
 
+def _call(compiled, s, g, call_id, mode, source):
+    t0, c0 = time.perf_counter(), time.process_time()
+    r = query(compiled, s, g, config=QCONFIG, call_id=call_id)
+    print(call_id, r["status"], r["reason"], round(r["timings"]["algorithm_wall_s"], 3), flush=True)
+    return {"call_id": call_id, "mode": mode, "source": source, "result": r,
+            "outer_wall_s": time.perf_counter() - t0, "cpu_s": time.process_time() - c0}
+
+
 def cmd_demo(a):
+    """One compile per robot; every named pair is answered from it (cold, warm, and from the reloaded file)."""
     ctx = load_booth(_box(a.box))
     body, frame, scene = ROBOTS[a.robot], ctx["frame"], ctx["scene"]
-    s = ground_world(frame, body, a.start)
-    g = ground_world(frame, body, a.goal)
+    pairs = json.loads(a.pairs.read_text())["pairs"]          # [{name, start_uv, goal_uv, role}], first = primary
     compiled, outer, cpu = timed_compile(scene, body, min_cell_m=a.min_cell)
     rec = compile_record(compiled, outer, cpu)
-    compile_records_before = json.dumps(compiled.timings["records"], sort_keys=True, default=float)
-    calls = []
-    for k in range(1 + a.warm):
-        mode, cid = ("cold", "cold0") if k == 0 else ("warm", f"warm{k - 1}")
-        t0, c0 = time.perf_counter(), time.process_time()
-        r = query(compiled, s, g, config=QCONFIG, call_id=cid)
-        calls.append({"call_id": cid, "mode": mode, "source": "in_memory_compile", "result": r,
-                      "outer_wall_s": time.perf_counter() - t0, "cpu_s": time.process_time() - c0})
-        print(cid, r["status"], r["reason"], round(r["timings"]["algorithm_wall_s"], 3), flush=True)
+    before = json.dumps(compiled.timings["records"], sort_keys=True, default=float)
+    ends = {p["name"]: (ground_world(frame, body, p["start_uv"]), ground_world(frame, body, p["goal_uv"])) for p in pairs}
+    calls = {p["name"]: [] for p in pairs}
+    for k, p in enumerate(pairs):
+        s, g = ends[p["name"]]
+        n_warm = a.warm if k == 0 else 1
+        calls[p["name"]].append(_call(compiled, s, g, f"{p['name']}:cold0", "cold", "in_memory_compile"))
+        for w in range(n_warm):
+            calls[p["name"]].append(_call(compiled, s, g, f"{p['name']}:warm{w}", "warm", "in_memory_compile"))
     t0 = time.perf_counter()
     meta = save_compiled(compiled, a.out / f"{a.robot}.a3c")
     save_s = time.perf_counter() - t0
     t0 = time.perf_counter()
     back = load_compiled(a.out / f"{a.robot}.a3c")
     load_s = time.perf_counter() - t0
-    t0, c0 = time.perf_counter(), time.process_time()
-    r = query(back, s, g, config=QCONFIG, call_id="reloaded0")
-    calls.append({"call_id": "reloaded0", "mode": "reloaded", "source": "persisted_compile_reloaded", "result": r,
-                  "outer_wall_s": time.perf_counter() - t0, "cpu_s": time.process_time() - c0})
-    compile_rerun = json.dumps(compiled.timings["records"], sort_keys=True, default=float) != compile_records_before
-    primary = calls[0]["result"]
-    replay = None
-    if primary["status"] == "REACHABLE":
+    for p in pairs:
+        s, g = ends[p["name"]]
+        calls[p["name"]].append(_call(back, s, g, f"{p['name']}:reloaded0", "reloaded", "persisted_compile_reloaded"))
+    compile_rerun = json.dumps(compiled.timings["records"], sort_keys=True, default=float) != before
+    stage_names = {x["stage"] for x in rec["stages"]}
+    out_pairs = {}
+    for p in pairs:
+        s, g = ends[p["name"]]
+        cl = calls[p["name"]]
+        primary = cl[0]["result"]
+        replay = None
+        if primary["status"] == "REACHABLE":
+            t0 = time.perf_counter()
+            rp = replay_plan(primary["gs3d_result"], GaussianBodyOracle(PreparedScene(scene)))
+            replay = {k: v for k, v in rp.items() if k != "samples"}
+            replay["wall_s"] = time.perf_counter() - t0
+            replay["oracle"] = "fresh GaussianBodyOracle on a freshly built PreparedScene of the same SceneSpec"
         t0 = time.perf_counter()
-        rp = replay_plan(primary["gs3d_result"], GaussianBodyOracle(PreparedScene(scene)))
-        replay = {k: v for k, v in rp.items() if k != "samples"}
-        replay["wall_s"] = time.perf_counter() - t0
-        replay["oracle"] = "fresh GaussianBodyOracle on a freshly built PreparedScene of the same SceneSpec"
-    t0 = time.perf_counter()
-    straight = straight_line_evidence(compiled, ctx, s, g)
-    straight["wall_s"] = time.perf_counter() - t0
-    print("straight line", straight["label_counts"], straight["oracle_counts"], straight["blocked_samples_by_role"],
-          flush=True)
-    compile_stage_names = {x["stage"] for x in rec["stages"]}
-    doc = {"schema": "aerial3dg.demo.v1", "robot": a.robot, "body": asdict(body), "host": host(),
-           "pair": {"start_uv": a.start, "goal_uv": a.goal, "start_world": s.tolist(), "goal_world": g.tolist(),
-                    "dist_m": float(np.linalg.norm(np.subtract(a.goal, a.start)))},
+        straight = straight_line_evidence(compiled, ctx, s, g)
+        straight["wall_s"] = time.perf_counter() - t0
+        print(p["name"], "straight line", straight["label_counts"], straight["oracle_counts"],
+              straight["blocked_samples_by_role"], flush=True)
+        cert = primary.get("certificate") or {}
+        attribution = None
+        if cert.get("cut_pair_ids"):
+            roles = {}
+            for pid in cert["cut_pair_ids"]:
+                rr = role_of(int(pid), ctx["manifest"])
+                roles[rr] = roles.get(rr, 0) + 1
+            attribution = {"cut_pairs_by_role": roles, "rule": "manifest edit id ranges by role; else captured"}
+        out_pairs[p["name"]] = {
+            "name": p["name"], "role": p.get("role"), "start_uv": p["start_uv"], "goal_uv": p["goal_uv"],
+            "start_world": s.tolist(), "goal_world": g.tolist(),
+            "dist_m": float(np.linalg.norm(np.subtract(p["goal_uv"], p["start_uv"]))),
+            "status": primary["status"], "reason": primary["reason"], "result": primary, "replay": replay,
+            "straight_line": straight, "certificate_attribution": attribution,
+            "calls": [{"call_id": c["call_id"], "mode": c["mode"], "source": c["source"],
+                       "status": c["result"]["status"], "reason": c["result"]["reason"],
+                       "algorithm_wall_s": c["result"]["timings"]["algorithm_wall_s"],
+                       "outer_wall_s": c["outer_wall_s"], "cpu_s": c["cpu_s"], "compile_id": c["result"]["compile_id"],
+                       "stages": {t["stage"]: t["seconds"] for t in c["result"]["timings"]["records"]},
+                       "compile_stages_in_call": sorted(stage_names & {t["stage"] for t in c["result"]["timings"]["records"]}),
+                       "polyline_sha256": _sha(c["result"]["polyline_world"])} for c in cl],
+            "identical_all_calls": len({(_sha(c["result"]["polyline_world"]), c["result"]["status"]) for c in cl}) == 1}
+    all_calls = [c for cl in calls.values() for c in cl]
+    doc = {"schema": "aerial3dg.demo.v2", "robot": a.robot, "body": asdict(body), "host": host(),
+           "primary": pairs[0]["name"], "pairs": out_pairs,
            "box_route": ctx["box_route"], "crop": ctx["crop"], "support": ctx["support_evidence"],
            "archive_sha256": ctx["digest"], "compile": rec,
            "persist": {**meta, "save_wall_s": save_s, "load_wall_s": load_s},
-           "status": primary["status"], "reason": primary["reason"], "result": primary, "replay": replay,
-           "straight_line": straight,
-           "calls": [{"call_id": c["call_id"], "mode": c["mode"], "source": c["source"],
-                      "status": c["result"]["status"], "reason": c["result"]["reason"],
-                      "algorithm_wall_s": c["result"]["timings"]["algorithm_wall_s"],
-                      "outer_wall_s": c["outer_wall_s"], "cpu_s": c["cpu_s"],
-                      "compile_id": c["result"]["compile_id"],
-                      "stages": {t["stage"]: t["seconds"] for t in c["result"]["timings"]["records"]},
-                      "compile_stages_in_call": sorted(compile_stage_names &
-                                                       {t["stage"] for t in c["result"]["timings"]["records"]}),
-                      "polyline_sha256": _sha(c["result"]["polyline_world"])} for c in calls],
            "compile_once_proof": {
-               "compiles_in_this_process": 1,
+               "compiles_in_this_process": 1, "query_calls_answered": len(all_calls),
                "compile_records_changed_by_queries": compile_rerun,
-               "identical_polylines_all_calls": len({_sha(c["result"]["polyline_world"]) for c in calls}) == 1,
-               "identical_status_all_calls": len({c["result"]["status"] for c in calls}) == 1,
-               "same_compile_id_all_calls": len({c["result"]["compile_id"] for c in calls}) == 1},
+               "any_compile_stage_inside_a_query_call": any(
+                   stage_names & {t["stage"] for t in c["result"]["timings"]["records"]} for c in all_calls),
+               "identical_result_all_calls_per_pair": {n: d["identical_all_calls"] for n, d in out_pairs.items()},
+               "same_compile_id_all_calls": len({c["result"]["compile_id"] for c in all_calls}) == 1},
            "timing_definition": "compile_wall_s = compile_complex entry to return (gs3d scene preparation + pairs + "
                                 "envelopes + octree + cells/portals + possible graph + audit); algorithm_wall_s = "
                                 "query entry to result incl. own verifier + in-query shared gs3d replay; cold = first "
-                                "query after the compile; warm = later queries on the same in-memory compile; "
-                                "reloaded = query on the compile saved to disk and loaded back (load time separate)",
+                                "query of that pair after the compile; warm = later queries on the same in-memory "
+                                "compile; reloaded = query on the compile saved to disk and loaded back (load separate)",
            "archive_load_and_hash_s": ctx["archive_load_and_hash_s"],
            "scene_build_and_crop_s": ctx["scene_build_and_crop_s"], "peak_rss_mb_end": rss_mb()}
     _dump(a.out / f"demo_{a.robot}.json", doc)
@@ -451,8 +474,7 @@ def main(argv=None):
     mp_.add_argument("--step", type=float, default=.1)
     de = sub.add_parser("demo")
     de.add_argument("--robot", required=True, choices=sorted(ROBOTS))
-    de.add_argument("--start", type=float, nargs=2, required=True)
-    de.add_argument("--goal", type=float, nargs=2, required=True)
+    de.add_argument("--pairs", type=Path, required=True, help="json {pairs: [{name, start_uv, goal_uv, role}]}")
     de.add_argument("--warm", type=int, default=3)
     de.add_argument("--box", type=float, nargs=4, metavar=("U0", "V0", "U1", "V1"))
     for q in (pr, sc, de, mp_):

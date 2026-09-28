@@ -1,0 +1,6 @@
+{"box_route_uv": [-9.0, -0.35, 3.7, 2.75],
+ "selection": "Rule fixed before screen 3 (docs/worklog/aerial3dg.md): among pairs with both robots REACHABLE, sweeper L <= 1.02 d, cylinder L >= 1.05 d, max (L_cyl - L_sw); none qualified in screens 2-3, so P1 is the fallback lamp crossing (booth-box screen2 lamp bucket, straightest sweeper route: L/d 1.0004) and P2 is the REACHABLE-both pair with the largest route deviation (screen3 O14, 0.158 m).",
+ "pairs": [
+  {"name": "P1_lamp", "role": "primary: lamp crossing (screen2 L00)", "start_uv": [2.3, 1.8], "goal_uv": [-1.5, 1.1]},
+  {"name": "P2_both", "role": "both reachable, max route deviation (screen3 O14)", "start_uv": [-5.3, 1.1], "goal_uv": [-2.1, 0.7]}
+ ]}

@@ -6,9 +6,9 @@ machinery (``uavlamp_viz``: Booth, overlay_path; ``gmc.height.ewa``; ``uavlamp_r
 only the body prism is parameterised by robot (the L2 ``draw_frame`` hard-codes the UAV).
 
 Outputs (``--out``):
-  routes.png                  plan views at each robot's own height (free space from the gs3d point map,
+  routes_<pair>.png           plan views at each robot's own height (free space from the gs3d point map,
                               captured Gaussians in that body band, both routes) + straight-line evidence
-  video/<robot>_flythrough.mp4 (+ 4 frames read back from each MP4)
+  video/<pair>_<robot>_flythrough.mp4 (+ 4 frames read back from each MP4)
   viz_manifest.json
 """
 from __future__ import annotations
@@ -41,10 +41,14 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["DejaVu Sa
                      "axes.edgecolor": GRID, "axes.spines.top": False, "axes.spines.right": False})
 
 
-def load_demo(path, frame):
-    doc = json.loads(Path(path).read_text())
+def load_demo(path, frame, pair):
+    top = json.loads(Path(path).read_text())
+    doc = top["pairs"][pair]
     r = doc["result"]
-    out = {"doc": doc, "robot": doc["robot"], "status": r["status"], "body": doc["body"]}
+    # the planning frame is the route prism's own frame: check, since cut leaves are drawn from plan coords
+    if not np.allclose(frame.to_route(np.asarray(r["start_world"])), r["start_plan"], atol=1e-9):
+        raise ValueError("plan frame differs from the route frame")
+    out = {"doc": doc, "top": top, "robot": top["robot"], "status": r["status"], "body": top["body"]}
     if r.get("gs3d_result"):
         smp = sample_linear_trajectory(r["gs3d_result"]["trajectory"], dt_s=.02)
         world = np.asarray(smp["poses"], float)[:, :3]
@@ -57,7 +61,7 @@ def load_demo(path, frame):
 # ----------------------------------------------------------------------------- plan figure
 def fig_routes(booth, demos, cands, dst):
     order = ["sweeper", "cylinder"]
-    pair = demos["sweeper"]["doc"]["pair"]
+    pair = demos["sweeper"]["doc"]
     s_uv, g_uv = np.asarray(pair["start_uv"]), np.asarray(pair["goal_uv"])
     ulo, uhi = min(s_uv[0], g_uv[0]) - 1.2, max(s_uv[0], g_uv[0]) + 1.2
     us, vs = np.asarray(cands["us"]), np.asarray(cands["vs"])
@@ -91,8 +95,17 @@ def fig_routes(booth, demos, cands, dst):
                     label=f"{name} route: {d['length']:.2f} m, {len(kn)} vertices (footprint r {body['radius_m']:.3f} m)")
             ax.scatter(kn[:, 0], kn[:, 1], s=24, color=ROBOT_C[name], edgecolors="white", linewidths=1.1, zorder=6)
         else:
-            ax.text(.5, .5, f"{name}: {d['status']} ({d['doc']['reason']})", transform=ax.transAxes, ha="center",
-                    fontsize=11, bbox=dict(fc="white", ec=ROBOT_C[name]))
+            cert = d["doc"]["result"].get("certificate") or {}
+            cut = np.asarray(cert.get("cut_leaf_centres_plan") or [], float).reshape(-1, 3)
+            if len(cut):
+                ax.scatter(cut[:, 0], cut[:, 1], s=4, c="#4a3aa7", alpha=.6, lw=0, zorder=4,
+                           label="BLOCKED leaves on the certified cut (each inside one pair's inner polytope)")
+            roles = (d["doc"].get("certificate_attribution") or {}).get("cut_pairs_by_role", {})
+            ax.text(.02, .06, f"{name}: {d['status']} ({d['doc']['reason']})" +
+                    (f"\n{cert.get('blocked_leaves_on_cut')} cut leaves, {cert.get('cut_distinct_pairs')} distinct pairs: " +
+                     ", ".join(f"{k} {v}" for k, v in sorted(roles.items())) if cert else ""),
+                    transform=ax.transAxes, fontsize=8.5, color="#4a3aa7", zorder=8,
+                    bbox=dict(fc="white", ec="#4a3aa7", lw=1))
         ax.plot([s_uv[0], g_uv[0]], [s_uv[1], g_uv[1]], color=INK2, lw=.8, ls=":", zorder=2,
                 label=f"straight line, {np.linalg.norm(g_uv - s_uv):.2f} m")
         ax.scatter(*s_uv, s=80, c="#1baf7a", edgecolors="k", zorder=7, label="start")
@@ -134,7 +147,7 @@ def fig_routes(booth, demos, cands, dst):
     ax.legend(loc="upper right", fontsize=7.5, ncol=3, framealpha=.92)
     ax.set_title("Why the routes differ: each robot's own certificates along the straight segment (octree leaf "
                  "labels, and the gs3d oracle's point clearance at the robot's own z)", fontsize=9.5, loc="left")
-    fig.suptitle(f"Same start {tuple(s_uv)} and goal {tuple(g_uv)} (route frame, m), same archive, one query call per "
+    fig.suptitle(f"Pair {pair['name']}: same start ({s_uv[0]:.2f}, {s_uv[1]:.2f}) and goal ({g_uv[0]:.2f}, {g_uv[1]:.2f}) (route u, v in m; {np.linalg.norm(g_uv - s_uv):.2f} m apart), same archive, one query call per "
                  f"robot on that robot's compile", fontsize=10.5, x=.01, ha="left")
     fig.savefig(dst, dpi=100, bbox_inches="tight")
     plt.close(fig)
@@ -168,7 +181,8 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
     sm = np.column_stack([np.convolve(np.pad(route[:, j], 30, mode="edge"), ker, mode="valid") for j in range(3)])
     mid = route.mean(axis=0)
     wanted = {"start": 0, "one third": len(ks) // 3, "two thirds": 2 * len(ks) // 3, "at goal": len(ks) - 1}
-    mp4 = out_dir / f"{name}_flythrough.mp4"
+    tag = d["doc"]["name"]
+    mp4 = out_dir / f"{tag}_{name}_flythrough.mp4"
     gen = imageio_ffmpeg.write_frames(str(mp4), size, fps=fps, codec="libx264", pix_fmt_in="rgb24",
                                       pix_fmt_out="yuv420p", macro_block_size=1, ffmpeg_log_level="error",
                                       output_params=["-crf", "23", "-preset", "medium"])
@@ -195,8 +209,8 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
                 f"{body['ground_clearance_m'] + 2 * body['half_height_m']:.2f} m above floor)   one query on the "
                 f"cached compile   t = {t[k]:5.1f} s", fontsize=9.5, color="k", bbox=dict(fc="white", ec="none", alpha=.8))
         ax.text(12, size[1] - 14, f"thick = this robot's route ({d['length']:.2f} m); thin "
-                f"{other['robot']} = the other robot's route ({other.get('length', float('nan')):.2f} m) · wall B and "
-                f"soffit cut away for the view", fontsize=8, color="k", bbox=dict(fc="white", ec="none", alpha=.7))
+                + (f"{other['robot']} = the other robot's route ({other['length']:.2f} m)" if "length" in other else
+                   f"{other['robot']}: {other['status']}, no route") + " · wall B and soffit cut away for the view", fontsize=8, color="k", bbox=dict(fc="white", ec="none", alpha=.7))
         ax.set_xlim(0, size[0]); ax.set_ylim(size[1], 0); ax.axis("off")
         fig.canvas.draw()
         img = np.asarray(fig.canvas.buffer_rgba())[:, :, :3].copy()
@@ -213,11 +227,11 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
     for f, raw in enumerate(reader):
         if f in inv:
             img = np.frombuffer(raw, np.uint8).reshape(h, w, 3)
-            dst = out_dir / f"{name}_frame_{f:03d}_{inv[f].replace(' ', '_')}.png"
+            dst = out_dir / f"{tag}_{name}_frame_{f:03d}_{inv[f].replace(' ', '_')}.png"
             plt.imsave(dst, img)
             frames[inv[f]] = {"path": str(dst), "frame": f, "route_xyz": route[ks[f]].round(4).tolist()}
     reader.close()
-    manifest.setdefault("videos", {})[name] = {
+    manifest.setdefault("videos", {})[f"{tag}:{name}"] = {
         "path": str(mp4), "bytes": mp4.stat().st_size, "sha256": uv.sha256(mp4), "fps": fps, "n_frames": len(ks),
         "size": list(size), "render_s": render_s, "frames_from_mp4": frames, "camera_path_every_20th": cams[::20],
         "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"}
@@ -232,22 +246,24 @@ def main(argv=None):
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--skip", nargs="*", default=[])
     p.add_argument("--video-seconds", type=float, default=12.)
+    p.add_argument("--pairs", nargs="+", required=True, help="pair names in the demo JSONs")
     a = p.parse_args(argv)
     a.out.mkdir(parents=True, exist_ok=True)
     root = a.uavlamp_root / "outputs/uavlamp/scene_v2"
     booth = uv.Booth(root / "uavlamp_scene.npz", root / "manifest.json")
-    demos = {n: load_demo(a.demo / f"demo_{n}.json", booth.frame) for n in ("sweeper", "cylinder")}
     cands = json.loads(a.candidates.read_text())
     manifest = {"archive_sha256": booth.doc["derivative"]["sha256"],
-                "demos": {n: str(a.demo / f"demo_{n}.json") for n in demos}}
-    fig_routes(booth, demos, cands, a.out / "routes.png")
-    print("routes done", flush=True)
-    if "video" not in a.skip:
-        vdir = a.out / "video"
-        vdir.mkdir(exist_ok=True)
-        for n, o in (("sweeper", "cylinder"), ("cylinder", "sweeper")):
-            if "world" in demos[n]:
-                flythrough(booth, demos[n], demos[o], vdir, manifest, seconds=a.video_seconds)
+                "demos": {n: str(a.demo / f"demo_{n}.json") for n in ("sweeper", "cylinder")}}
+    for pair in a.pairs:
+        demos = {n: load_demo(a.demo / f"demo_{n}.json", booth.frame, pair) for n in ("sweeper", "cylinder")}
+        fig_routes(booth, demos, cands, a.out / f"routes_{pair}.png")
+        print("routes done", pair, flush=True)
+        if "video" not in a.skip:
+            vdir = a.out / "video"
+            vdir.mkdir(exist_ok=True)
+            for n, o in (("sweeper", "cylinder"), ("cylinder", "sweeper")):
+                if "world" in demos[n]:
+                    flythrough(booth, demos[n], demos[o], vdir, manifest, seconds=a.video_seconds)
     for f in sorted(list(a.out.glob("*")) + list((a.out / "video").glob("*"))):
         if f.suffix in (".png", ".mp4"):
             manifest.setdefault("files", {})[str(f.relative_to(a.out))] = {"bytes": f.stat().st_size,
