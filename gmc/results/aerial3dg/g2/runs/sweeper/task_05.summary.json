@@ -1,0 +1,48 @@
+{
+ "a3c": "outputs/aerial3dg/demo/sweeper.a3c",
+ "compile_id": "8e380fca1643ba5c",
+ "load_wall_s": 0.8046147950226441,
+ "pairs_in_slice": 500,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 500,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 471,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 29,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 523.9618498483906,
+ "query_cpu_s_this_run": 522.2867856220005,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 653.60546875,
+ "robot": "sweeper",
+ "task": 5,
+ "n_tasks": 10,
+ "pair_index_range": [
+  2500,
+  2999
+ ],
+ "pairs_file": "results/aerial3dg/g2/pairs_5000.json",
+ "host": {
+  "node": "cs653.hpc.nyu.edu",
+  "slurm_job_id": "18705565",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   49.09619140625,
+   58.0341796875,
+   67.00927734375
+  ],
+  "utc": "2026-09-28T08:23:24Z",
+  "python": "3.13.5",
+  "git_commit": "9c9fa31fd25649397cdf80eff095aa34e2b4660c"
+ },
+ "timeout_s": 120.0
+}
