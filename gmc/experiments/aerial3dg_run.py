@@ -49,7 +49,6 @@ GROUND_CONFIG = CompileConfig(margin_m=.001)
 # Only the exported gs3d trajectory is split (collinear, <= 0.20 m, uavconn's post-hoc length): the
 # shared oracle's world-AABB swept test otherwise reports map_unknown on long corridor segments.
 QCONFIG = QueryConfig(export_max_segment_m=.20)
-TABLE_UV = ((-.02, -.03), (2.97, .79))      # manifest query.table.top_route_uv
 LAMP_U = (-1.03, -.67)                      # manifest lamp footprint u range
 
 
@@ -141,8 +140,13 @@ def _dump(path: Path, doc):
 
 
 # ----------------------------------------------------------------------------- probe
+def _box(b):
+    """Route prism from --box U0 V0 U1 V1 (z 0..2.43 as the manifest box); None = the manifest box."""
+    return None if b is None else {"lower": list(b[:2]) + [0.], "upper": list(b[2:]) + [2.43]}
+
+
 def cmd_probe(a):
-    box = {"lower": a.box[:2] + [0.], "upper": a.box[2:] + [2.43]}
+    box = _box(a.box)
     ctx = load_booth(box)
     out = {"schema": "aerial3dg.probe.v1", "box_route": box, "crop": ctx["crop"], "host": host(),
            "archive_load_and_hash_s": ctx["archive_load_and_hash_s"],
@@ -168,7 +172,7 @@ def free_mask(oracle, frame, body, grid, margin=GROUND_CONFIG.margin_m) -> np.nd
 
 
 def cmd_map(a):
-    box = {"lower": a.box[:2] + [0.], "upper": a.box[2:] + [2.43]}
+    box = _box(a.box)
     ctx = load_booth(box)
     frame = ctx["frame"]
     oracle = GaussianBodyOracle(PreparedScene(ctx["scene"]))
@@ -189,63 +193,56 @@ def cmd_map(a):
 
 
 # ----------------------------------------------------------------------------- candidates
-def free_both(oracle, frame, uv, margin=GROUND_CONFIG.margin_m) -> bool:
-    for body in ROBOTS.values():
-        q = Pose3(tuple(map(float, ground_world(frame, body, uv))), 0.)
-        r = oracle.edge(q, q, body, margin_m=margin)
-        if r.occupancy != "free" or r.safety != "continuous_bound":
-            return False
-    return True
-
-
-def _crosses_rect(p, q, lo, hi, n=200) -> bool:
-    t = np.linspace(0, 1, n)[:, None]
-    s = p[None] + t * (q - p)[None]
-    return bool(np.any(np.all((s >= lo) & (s <= hi), axis=1)))
-
-
-def candidate_pairs(ctx, *, step=.1, n_table=40, n_lamp=10, n_other=30, seed=0, min_dist=3.0) -> dict:
-    """Deterministic: 0.1 m route grid, points free for BOTH robots (gs3d oracle at each own z_c)."""
+def candidate_pairs(ctx, *, step=.1, n_thread=50, n_lamp=10, n_other=20, seed=0, min_dist=3.0) -> dict:
+    """Deterministic.  Route grid (``step``) over the box; gs3d oracle point check per robot at its own
+    z_c.  Endpoints: grid points free for BOTH robots.  Pairs (numpy default_rng(seed), xy distance >=
+    min_dist) are bucketed by their straight segment, looked up on the grid (nearest cell, 0.05 m samples):
+    'lamp' crosses the lamp's u-range; 'thread' is sweeper-free all along but cylinder-blocked somewhere;
+    'other' is the rest.  Buckets only steer sampling; outcomes are decided by the planner."""
     frame, scene, box = ctx["frame"], ctx["scene"], ctx["box_route"]
     oracle = GaussianBodyOracle(PreparedScene(scene))
-    us = np.arange(np.ceil(box["lower"][0] / step) * step, box["upper"][0], step)
-    vs = np.arange(np.ceil(box["lower"][1] / step) * step, box["upper"][1], step)
-    grid = np.array([(u, v) for u in us for v in vs]).round(6)
-    free = np.array([free_both(oracle, frame, uv) for uv in grid])
-    pts = grid[free]
+    us = np.round(np.arange(np.ceil(box["lower"][0] / step) * step, box["upper"][0], step), 6)
+    vs = np.round(np.arange(np.ceil(box["lower"][1] / step) * step, box["upper"][1], step), 6)
+    grid = np.array([(u, v) for u in us for v in vs])
+    masks = {n: free_mask(oracle, frame, b, grid).reshape(len(us), len(vs)) for n, b in ROBOTS.items()}
+    both = masks["sweeper"] & masks["cylinder"]
+    pts = grid[both.ravel()]
+
+    def cells(p, q):
+        n = max(2, int(np.ceil(np.linalg.norm(q - p) / .05)) + 1)
+        t = np.linspace(0, 1, n)[:, None]
+        x = p[None] + t * (q - p)[None]
+        i = np.clip(np.rint((x[:, 0] - us[0]) / step).astype(int), 0, len(us) - 1)
+        j = np.clip(np.rint((x[:, 1] - vs[0]) / step).astype(int), 0, len(vs) - 1)
+        return i, j
+
     rng = np.random.default_rng(seed)
-    i, j = rng.integers(0, len(pts), (2, 200000))
-    d = np.linalg.norm(pts[i] - pts[j], axis=1)
-    keep = d >= min_dist
-    i, j = i[keep], j[keep]
-    buckets = {"table": [], "lamp": [], "other": []}
-    want = {"table": n_table, "lamp": n_lamp, "other": n_other}
+    a_idx, b_idx = rng.integers(0, len(pts), (2, 400000))
+    buckets = {"thread": [], "lamp": [], "other": []}
+    want = {"thread": n_thread, "lamp": n_lamp, "other": n_other}
     seen = set()
-    for a, b in zip(i, j):
-        key = (min(a, b), max(a, b))
-        if key in seen:
-            continue
-        seen.add(key)
+    for a, b in zip(a_idx, b_idx):
         p, q = pts[a], pts[b]
-        if (p[0] - LAMP_U[1]) * (q[0] - LAMP_U[0]) < 0 or (min(p[0], q[0]) < LAMP_U[0] and max(p[0], q[0]) > LAMP_U[1]):
+        if np.linalg.norm(q - p) < min_dist or (min(a, b), max(a, b)) in seen:
+            continue
+        seen.add((min(a, b), max(a, b)))
+        if min(p[0], q[0]) < LAMP_U[1] and max(p[0], q[0]) > LAMP_U[0]:
             cat = "lamp"
-        elif _crosses_rect(p, q, np.asarray(TABLE_UV[0]), np.asarray(TABLE_UV[1])):
-            cat = "table"
         else:
-            cat = "other"
+            i, j = cells(p, q)
+            cat = "thread" if masks["sweeper"][i, j].all() and not masks["cylinder"][i, j].all() else "other"
         if len(buckets[cat]) < want[cat]:
             buckets[cat].append((p.tolist(), q.tolist()))
         if all(len(buckets[k]) >= want[k] for k in want):
             break
     pairs = [{"name": f"{k[0].upper()}{n:02d}", "category": k, "start_uv": p, "goal_uv": q,
               "dist_m": float(np.linalg.norm(np.subtract(q, p)))}
-             for k in ("table", "lamp", "other") for n, (p, q) in enumerate(buckets[k])]
-    return {"rule": f"route grid step {step} m over the box; a point is kept if the gs3d oracle says free "
-                    f"(continuous_bound) for BOTH robots at their own z_c with margin {GROUND_CONFIG.margin_m}; "
-                    f"pairs drawn with numpy default_rng({seed}), xy distance >= {min_dist} m, bucketed by whether "
-                    "the straight segment crosses the lamp's u-range, else the table footprint, else other",
-            "grid_points": int(len(grid)), "free_for_both": int(free.sum()),
-            "free_uv": pts.round(3).tolist(), "pairs": pairs}
+             for k in ("thread", "lamp", "other") for n, (p, q) in enumerate(buckets[k])]
+    return {"rule": candidate_pairs.__doc__, "step": step, "seed": seed, "min_dist_m": min_dist,
+            "grid_points": int(len(grid)), "free_for_both": int(both.sum()),
+            "free_sweeper": int(masks["sweeper"].sum()), "free_cylinder": int(masks["cylinder"].sum()),
+            "us": us.tolist(), "vs": vs.tolist(), "free": {n: m.tolist() for n, m in masks.items()},
+            "pairs": pairs}
 
 
 # ----------------------------------------------------------------------------- screen
@@ -263,7 +260,7 @@ def brief(r, frame) -> dict:
 
 
 def cmd_screen(a):
-    ctx = load_booth()
+    ctx = load_booth(_box(a.box))
     body = ROBOTS[a.robot]
     frame = ctx["frame"]
     cand_path = a.out / "candidates.json"
@@ -271,7 +268,7 @@ def cmd_screen(a):
     cands = candidate_pairs(ctx)
     cands["generation_wall_s"] = time.perf_counter() - t0
     _dump(cand_path, cands)
-    print("candidates", {k: sum(p["category"] == k for p in cands["pairs"]) for k in ("table", "lamp", "other")},
+    print("candidates", {k: sum(p["category"] == k for p in cands["pairs"]) for k in ("thread", "lamp", "other")},
           "free points", cands["free_for_both"], flush=True)
     compiled, outer, cpu = timed_compile(ctx["scene"], body)
     rec = compile_record(compiled, outer, cpu)
@@ -350,7 +347,7 @@ def _sha(poly):
 
 
 def cmd_demo(a):
-    ctx = load_booth()
+    ctx = load_booth(_box(a.box))
     body, frame, scene = ROBOTS[a.robot], ctx["frame"], ctx["scene"]
     s = ground_world(frame, body, a.start)
     g = ground_world(frame, body, a.goal)
@@ -432,6 +429,7 @@ def main(argv=None):
     pr.add_argument("--robots", nargs="+", default=["sweeper", "cylinder"])
     sc = sub.add_parser("screen")
     sc.add_argument("--robot", required=True, choices=sorted(ROBOTS))
+    sc.add_argument("--box", type=float, nargs=4, metavar=("U0", "V0", "U1", "V1"))
     mp_ = sub.add_parser("map")
     mp_.add_argument("--box", type=float, nargs=4, required=True, metavar=("U0", "V0", "U1", "V1"))
     mp_.add_argument("--step", type=float, default=.1)
@@ -440,6 +438,7 @@ def main(argv=None):
     de.add_argument("--start", type=float, nargs=2, required=True)
     de.add_argument("--goal", type=float, nargs=2, required=True)
     de.add_argument("--warm", type=int, default=3)
+    de.add_argument("--box", type=float, nargs=4, metavar=("U0", "V0", "U1", "V1"))
     for q in (pr, sc, de, mp_):
         q.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
