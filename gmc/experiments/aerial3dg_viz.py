@@ -104,7 +104,8 @@ def fig_routes(booth, demos, cands, dst):
             roles = (d["doc"].get("certificate_attribution") or {}).get("cut_pairs_by_role", {})
             ax.text(.02, .06, f"{name}: {d['status']} ({d['doc']['reason']})" +
                     (f"\n{cert.get('blocked_leaves_on_cut')} cut leaves, {cert.get('cut_distinct_pairs')} distinct pairs: " +
-                     ", ".join(f"{k} {v}" for k, v in sorted(roles.items())) if cert else ""),
+                     ", ".join(f"{k} {v}" for k, v in sorted(roles.items())) if cert.get("blocked_leaves_on_cut") else
+                     "\nno route and no cut certificate: not certified either way"),
                     transform=ax.transAxes, fontsize=8.5, color="#4a3aa7", zorder=8,
                     bbox=dict(fc="white", ec="#4a3aa7", lw=1))
         ax.plot([s_uv[0], g_uv[0]], [s_uv[1], g_uv[1]], color=INK2, lw=.8, ls=":", zorder=2,

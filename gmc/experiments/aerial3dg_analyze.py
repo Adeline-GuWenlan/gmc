@@ -588,7 +588,7 @@ def aggregate_cells(A: dict, robot: str, gallery_same: tuple[int, int] | None) -
         "机器人对比｜相近尺寸机器人之间 operator edge 相同的比例":
             "N/A（每个半径各自编译出自己的凸胞与 portal，边之间没有一一对应，比例无定义；可比的量见上一行与下一行）",
         "机器人对比｜轻微改变机器人宽度 / 长度 / 高度后结果突然翻转的比例":
-            "；".join(var(r_, lambda d: f"{_pct(d['pairs'] - d['same_status'], d['pairs'])} {d['flips']}，"
+            "；".join(var(r_, lambda d: f"{_pct(d['pairs'] - d['same_status'], d['pairs'])}（" + ("，".join(f"{k.replace('->', '→')} {vv}" for k, vv in d['flips'].items()) or "无") + "），"
                                         f"主要路线变化 {d['major_route_change']} / {d['both_reachable']}")
                      for r_ in ("sweeper", "cylinder")) + "（半径 ±1 cm；高度未变）"}
     cells = {
