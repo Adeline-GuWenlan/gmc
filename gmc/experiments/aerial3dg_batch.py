@@ -343,6 +343,68 @@ def cmd_collect(a):
         print(json.dumps(out["paired"]["crosstab"]), flush=True)
 
 
+def cmd_plot(a):
+    """Sampler coverage (endpoints over the box, distance histogram) + per-robot outcome and query time."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from aerial3dg_run import LAMP_U
+    doc = json.loads(a.pairs.read_text())
+    P = doc["pairs"]
+    S, G = np.array([p["start_uv"] for p in P]), np.array([p["goal_uv"] for p in P])
+    u0, v0, u1, v1 = doc["box_uv"]
+    rows = {r: {} for r in a.robots}
+    for r in a.robots:
+        for f in sorted((a.runs / r).glob("task_*.jsonl")):
+            rows[r].update(read_checkpoint(f))
+    fig = plt.figure(figsize=(15, 9))
+    gs = fig.add_gridspec(2, 3, height_ratios=[1, 1])
+    ax = fig.add_subplot(gs[0, :2])
+    ax.axvspan(*LAMP_U, color="#f2c14e", alpha=.35, label="lamp footprint (u)")
+    ax.scatter(S[:, 0], S[:, 1], s=2, c="#1f77b4", alpha=.5, label="start")
+    ax.scatter(G[:, 0], G[:, 1], s=2, c="#d62728", alpha=.5, label="goal")
+    ax.set(xlim=(u0, u1), ylim=(v0, v1), xlabel="u (m, route frame)", ylabel="v (m)", aspect="equal",
+           title=f"{len(P)} sampled pairs (seed {doc['seed']}): endpoints free for {' and '.join(doc['robots'])}")
+    ax.legend(loc="upper left", markerscale=4, fontsize=8)
+    ax = fig.add_subplot(gs[0, 2])
+    ax.hist([p["dist_m"] for p in P], bins=40, color="#555")
+    ax.axvline(doc["min_dist_m"], color="k", ls="--", lw=1)
+    ax.set(xlabel="straight-line start-goal distance (m)", ylabel="pairs", title="distance (>= 3 m by rule)")
+    colors = {"REACHABLE": "#2a9d8f", "UNREACHABLE": "#e76f51", "UNKNOWN": "#8d99ae", "TIMEOUT": "#000000"}
+    ax = fig.add_subplot(gs[1, 0])
+    x = np.arange(len(a.robots))
+    bottom = np.zeros(len(a.robots))
+    for k in STATUSES:
+        h = np.array([sum(r["status"] == k for r in rows[rb].values()) for rb in a.robots], float)
+        ax.bar(x, h, bottom=bottom, color=colors[k], label=k)
+        for i, (b, hh) in enumerate(zip(bottom, h)):
+            if hh:
+                ax.text(i, b + hh / 2, f"{int(hh)}", ha="center", va="center", fontsize=8, color="w")
+        bottom += h
+    ax.set(xticks=x, xticklabels=[f"{rb}\n({len(rows[rb])} answered)" for rb in a.robots], ylabel="pairs",
+           title="outcome per robot")
+    ax.legend(fontsize=8)
+    ax = fig.add_subplot(gs[1, 1])
+    for rb, c in zip(a.robots, ("#264653", "#e9c46a")):
+        t = [r["outer_wall_s"] for r in rows[rb].values()]
+        if t:
+            ax.hist(t, bins=np.logspace(-3, 2, 50), histtype="step", lw=1.5, color=c, label=f"{rb} (median {np.median(t):.2f} s)")
+    ax.set(xscale="log", xlabel="query wall per pair (s), on the one loaded compile", ylabel="pairs",
+           title="query time")
+    ax.legend(fontsize=8)
+    ax = fig.add_subplot(gs[1, 2])
+    for rb, c in zip(a.robots, ("#264653", "#e9c46a")):
+        rr = [r["path_length_m"] / r["dist_m"] for r in rows[rb].values() if r["status"] == "REACHABLE"]
+        if rr:
+            ax.hist(rr, bins=np.linspace(1, 1.5, 51), histtype="step", lw=1.5, color=c, label=f"{rb} ({len(rr)})")
+    ax.set(xlabel="path length / straight-line distance (REACHABLE)", ylabel="pairs", title="detour ratio")
+    ax.legend(fontsize=8)
+    fig.tight_layout()
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(a.out, dpi=90)
+    print("wrote", a.out, {rb: len(rows[rb]) for rb in a.robots}, flush=True)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -371,8 +433,14 @@ def main(argv=None):
     cl.add_argument("--runs", type=Path, required=True)
     cl.add_argument("--robots", nargs="+", default=["sweeper", "cylinder"])
     cl.add_argument("--out", type=Path, required=True)
+    pl = sub.add_parser("plot")
+    pl.add_argument("--pairs", type=Path, required=True)
+    pl.add_argument("--runs", type=Path, required=True)
+    pl.add_argument("--robots", nargs="+", default=["sweeper", "cylinder"])
+    pl.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
-    {"sample": cmd_sample, "compile": cmd_compile, "task": cmd_task, "collect": cmd_collect}[a.cmd](a)
+    {"sample": cmd_sample, "compile": cmd_compile, "task": cmd_task, "collect": cmd_collect,
+     "plot": cmd_plot}[a.cmd](a)
 
 
 if __name__ == "__main__":
