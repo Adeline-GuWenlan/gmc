@@ -1,0 +1,275 @@
+{
+ "schema": "aerial3dg.compile.v1",
+ "robot": "cylinder",
+ "box_route": {
+  "lower": [
+   -9.0,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   3.7,
+   2.75,
+   2.43
+  ]
+ },
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 582372,
+  "bounds_min": [
+   5.677218579442707,
+   17.678402630139257,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.952240432349058,
+   30.473305275052518,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "support": {
+  "contact_manifold": "constant_legacy_floor_reference",
+  "z_floor_world_m": -1.2271749593107995,
+  "fitted_plane_max_corner_deviation_m": 0.03529984778764117,
+  "allowed_height_error_m": 0.05,
+  "tile_top_clamp_m": -1.2121749593107995,
+  "chassis_bottom_m": -1.2071749593107994
+ },
+ "host": {
+  "node": "cs746.hpc.nyu.edu",
+  "slurm_job_id": "18708043",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   33.5244140625,
+   30.7666015625,
+   30.02880859375
+  ],
+  "utc": "2026-09-28T11:11:48Z",
+  "python": "3.13.5",
+  "git_commit": "7664d9e8f9cff6cc2d97a81800ab33d0893d8dd3"
+ },
+ "archive_load_and_hash_s": 1.7746591180330142,
+ "scene_build_and_crop_s": 0.5647323889425024,
+ "compile": {
+  "compile_id": "1a9cf24e7fbd64bd",
+  "active_pairs": {
+   "cell_facet_pairs": 849,
+   "blocked_leaf_pairs": 344,
+   "union": 1024,
+   "definition": "distinct candidate pairs that certify something: a support-plane facet of some free cell, or the inner polytope of a BLOCKED leaf"
+  },
+  "body": {
+   "name": "cylinder",
+   "radius_m": 0.29,
+   "half_height_m": 0.865,
+   "motion": "ground_unicycle",
+   "ground_clearance_m": 0.02
+  },
+  "config": {
+   "margin_m": 0.001,
+   "pad_m": 0.001,
+   "octree": {
+    "min_cell_m": 0.05,
+    "root_levels": 3,
+    "buffer_m": 0.001,
+    "max_refine_pairs": 8,
+    "blocked_candidates": 4,
+    "max_nodes": 20000000
+   },
+   "cells": {
+    "max_cells": 5000,
+    "max_planes_per_cell": 20000,
+    "max_wall_s": null,
+    "gap_chunk": 32768,
+    "portal_samples": 8,
+    "portal_bin_m": 0.5
+   },
+   "audit_pairs": 64,
+   "audit_seed": 0,
+   "ground_slab_m": 0.001
+  },
+  "domain_bbox_plan": [
+   [
+    -8.613273537699248,
+    0.03672646230075236,
+    0.884
+   ],
+   [
+    3.313273537699248,
+    2.3632735376992478,
+    0.886
+   ]
+  ],
+  "ground_z_plan": 0.885,
+  "pairs": {
+   "input_supports": 582372,
+   "opacity_selected": 582372,
+   "after_domain_aabb": 255061,
+   "candidate_pairs": 255061,
+   "pruned_pairs": 327311,
+   "prune_rules": [
+    "opacity>tau (baseline semantics)",
+    "exact AABB(O_i) vs domain bbox (+pad)",
+    "domain row a.x<=b with min_{O_i} a.x > b+pad"
+   ],
+   "pad_m": 0.001
+  },
+  "octree": {
+   "nodes": 22572,
+   "leaves": 19773,
+   "leaves_by_status": {
+    "OUTSIDE": 0,
+    "SAFE": 4421,
+    "BLOCKED": 4405,
+    "UNKNOWN": 10947
+   },
+   "volume_m3_by_status": {
+    "OUTSIDE": 0.0,
+    "SAFE": 0.024432878593998612,
+    "BLOCKED": 0.024469609804424326,
+    "UNKNOWN": 0.006591746893939837
+   },
+   "root_shape": [
+    30,
+    6,
+    1
+   ],
+   "leaf_unit_m": [
+    0.049693945980812636,
+    0.04846972990406315,
+    0.00024999499956696036
+   ],
+   "build_wall_s": 17.96688321500551
+  },
+  "cells": {
+   "cells": 251,
+   "support_plane_cells": 251,
+   "box_cells": 0,
+   "portals": 9745,
+   "portals_3d": 5974,
+   "portals_2d": 3771,
+   "planes": 5833,
+   "seed_failures": 0,
+   "cell_growth_wall_s": 43.67853343999013,
+   "build_wall_s": 44.633585134055465
+  },
+  "possible_components": 3,
+  "audit": {
+   "passed": true,
+   "pairs_audited": 80
+  },
+  "traceability": {
+   "support_plane_cell_facets": 9347,
+   "pair_facet_fraction_of_support_plane_cells": 0.6240504974858243,
+   "domain_facet_fraction_of_support_plane_cells": 0.3759495025141757,
+   "box_cell_facets": 0,
+   "facets_without_provenance": 0,
+   "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+  },
+  "free_boundary_traceability": {
+   "free_boundary_faces": 6485,
+   "traceable_fraction": 1.0,
+   "blocked_side": 0,
+   "unknown_side": 6485
+  },
+  "compile_wall_s": 66.03377247496974,
+  "compile_outer_wall_s": 66.03380823298357,
+  "compile_cpu_s": 65.757219429,
+  "peak_rss_mb": 1383.71484375,
+  "stages": [
+   {
+    "stage": "scene_prepare",
+    "seconds": 1.6337276949780062,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "active_supports": 582372,
+     "reused_prepared": false
+    }
+   },
+   {
+    "stage": "pair_candidates",
+    "seconds": 0.7194609030848369,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "candidate_pairs": 255061,
+     "pruned_pairs": 327311
+    }
+   },
+   {
+    "stage": "envelopes",
+    "seconds": 0.5386557999299839,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "directions": 81,
+     "rho_table_mb": 157.62284088134766
+    }
+   },
+   {
+    "stage": "octree",
+    "seconds": 17.967153592966497,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "nodes": 22572,
+     "leaves": 19773,
+     "outside": 0,
+     "safe": 4421,
+     "blocked": 4405,
+     "unknown": 10947
+    }
+   },
+   {
+    "stage": "cells",
+    "seconds": 44.633662102976814,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "cells": 251,
+     "portals": 9745,
+     "support_plane_cells": 251,
+     "box_cells": 0
+    }
+   },
+   {
+    "stage": "possible_graph",
+    "seconds": 0.06001494906377047,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "live_leaves": 15368,
+     "touch_pairs": 146787,
+     "components": 3
+    }
+   },
+   {
+    "stage": "audit",
+    "seconds": 0.3997135120444,
+    "peak_rss_mb": 1383.71484375,
+    "sizes": {
+     "pairs_audited": 80,
+     "passed": true
+    }
+   }
+  ],
+  "persist": {
+   "compile_id": "1a9cf24e7fbd64bd",
+   "scene_id": "uavlamp_gallery_booth_v2_ground",
+   "body": {
+    "name": "cylinder",
+    "radius_m": 0.29,
+    "half_height_m": 0.865,
+    "motion": "ground_unicycle",
+    "ground_clearance_m": 0.02
+   },
+   "bytes": 407243925,
+   "sha256": "50bd48fa7828693c7113b21faf1bbcf7b469bebe77cc29f314e7ea579183de65",
+   "format": "pickle protocol 5 of gmc.aerial3d.api.CompiledComplex",
+   "path": "outputs/aerial3dg/g3/variants/cylinder_r0.29.a3c",
+   "save_wall_s": 1.2740466230316088
+  }
+ },
+ "peak_rss_mb_end": 1383.71484375
+}
