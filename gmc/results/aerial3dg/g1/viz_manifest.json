@@ -1,0 +1,830 @@
+{
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "demos": {
+  "sweeper": "outputs/aerial3dg/demo/demo_sweeper.json",
+  "cylinder": "outputs/aerial3dg/demo/demo_cylinder.json"
+ },
+ "videos": {
+  "P1_lamp:sweeper": {
+   "path": "results/aerial3dg/g1/video/P1_lamp_sweeper_flythrough.mp4",
+   "bytes": 676349,
+   "sha256": "5d4df8470de21452650ae1dd44507db46a87fdf7fe9b339bca1366d3a60b3754",
+   "fps": 20,
+   "n_frames": 280,
+   "size": [
+    960,
+    540
+   ],
+   "render_s": 235.6498026449699,
+   "frames_from_mp4": {
+    "start": {
+     "path": "results/aerial3dg/g1/video/P1_lamp_sweeper_frame_000_start.png",
+     "frame": 0,
+     "route_xyz": [
+      2.3,
+      1.8,
+      0.06
+     ]
+    },
+    "one third": {
+     "path": "results/aerial3dg/g1/video/P1_lamp_sweeper_frame_093_one_third.png",
+     "frame": 93,
+     "route_xyz": [
+      1.374,
+      1.6402,
+      0.06
+     ]
+    },
+    "two thirds": {
+     "path": "results/aerial3dg/g1/video/P1_lamp_sweeper_frame_186_two_thirds.png",
+     "frame": 186,
+     "route_xyz": [
+      -0.6304,
+      1.2945,
+      0.06
+     ]
+    },
+    "at goal": {
+     "path": "results/aerial3dg/g1/video/P1_lamp_sweeper_frame_279_at_goal.png",
+     "frame": 279,
+     "route_xyz": [
+      -1.5,
+      1.1,
+      0.06
+     ]
+    }
+   },
+   "camera_path_every_20th": [
+    {
+     "frame": 0,
+     "sample": 0,
+     "eye_route": [
+      -0.12,
+      4.026,
+      2.152
+     ],
+     "target_route": [
+      1.534,
+      1.664,
+      0.35
+     ]
+    },
+    {
+     "frame": 20,
+     "sample": 0,
+     "eye_route": [
+      0.093,
+      4.162,
+      2.152
+     ],
+     "target_route": [
+      1.534,
+      1.664,
+      0.35
+     ]
+    },
+    {
+     "frame": 40,
+     "sample": 73,
+     "eye_route": [
+      0.317,
+      4.278,
+      2.152
+     ],
+     "target_route": [
+      1.534,
+      1.664,
+      0.35
+     ]
+    },
+    {
+     "frame": 60,
+     "sample": 146,
+     "eye_route": [
+      0.42,
+      4.352,
+      2.152
+     ],
+     "target_route": [
+      1.404,
+      1.642,
+      0.35
+     ]
+    },
+    {
+     "frame": 80,
+     "sample": 219,
+     "eye_route": [
+      0.402,
+      4.383,
+      2.152
+     ],
+     "target_route": [
+      1.145,
+      1.597,
+      0.35
+     ]
+    },
+    {
+     "frame": 100,
+     "sample": 292,
+     "eye_route": [
+      0.39,
+      4.393,
+      2.152
+     ],
+     "target_route": [
+      0.886,
+      1.553,
+      0.35
+     ]
+    },
+    {
+     "frame": 120,
+     "sample": 364,
+     "eye_route": [
+      0.385,
+      4.381,
+      2.152
+     ],
+     "target_route": [
+      0.63,
+      1.509,
+      0.35
+     ]
+    },
+    {
+     "frame": 140,
+     "sample": 437,
+     "eye_route": [
+      0.378,
+      4.347,
+      2.152
+     ],
+     "target_route": [
+      0.371,
+      1.464,
+      0.35
+     ]
+    },
+    {
+     "frame": 160,
+     "sample": 510,
+     "eye_route": [
+      0.371,
+      4.291,
+      2.152
+     ],
+     "target_route": [
+      0.112,
+      1.419,
+      0.35
+     ]
+    },
+    {
+     "frame": 180,
+     "sample": 583,
+     "eye_route": [
+      0.362,
+      4.213,
+      2.152
+     ],
+     "target_route": [
+      -0.146,
+      1.375,
+      0.35
+     ]
+    },
+    {
+     "frame": 200,
+     "sample": 656,
+     "eye_route": [
+      0.357,
+      4.111,
+      2.152
+     ],
+     "target_route": [
+      -0.398,
+      1.329,
+      0.35
+     ]
+    },
+    {
+     "frame": 220,
+     "sample": 728,
+     "eye_route": [
+      0.351,
+      3.975,
+      2.152
+     ],
+     "target_route": [
+      -0.645,
+      1.269,
+      0.35
+     ]
+    },
+    {
+     "frame": 240,
+     "sample": 801,
+     "eye_route": [
+      0.482,
+      3.853,
+      2.152
+     ],
+     "target_route": [
+      -0.746,
+      1.244,
+      0.35
+     ]
+    },
+    {
+     "frame": 260,
+     "sample": 870,
+     "eye_route": [
+      0.706,
+      3.736,
+      2.152
+     ],
+     "target_route": [
+      -0.746,
+      1.244,
+      0.35
+     ]
+    }
+   ],
+   "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"
+  },
+  "P2_both:sweeper": {
+   "path": "results/aerial3dg/g1/video/P2_both_sweeper_flythrough.mp4",
+   "bytes": 522447,
+   "sha256": "0d440b18db9143bc590bd3c9ca7523dec9fef133c32d0a602b744f09b969b8f5",
+   "fps": 20,
+   "n_frames": 280,
+   "size": [
+    960,
+    540
+   ],
+   "render_s": 166.9296208920423,
+   "frames_from_mp4": {
+    "start": {
+     "path": "results/aerial3dg/g1/video/P2_both_sweeper_frame_000_start.png",
+     "frame": 0,
+     "route_xyz": [
+      -5.3,
+      1.1,
+      0.06
+     ]
+    },
+    "one third": {
+     "path": "results/aerial3dg/g1/video/P2_both_sweeper_frame_093_one_third.png",
+     "frame": 93,
+     "route_xyz": [
+      -4.4651,
+      0.9676,
+      0.06
+     ]
+    },
+    "two thirds": {
+     "path": "results/aerial3dg/g1/video/P2_both_sweeper_frame_186_two_thirds.png",
+     "frame": 186,
+     "route_xyz": [
+      -2.9302,
+      0.7242,
+      0.06
+     ]
+    },
+    "at goal": {
+     "path": "results/aerial3dg/g1/video/P2_both_sweeper_frame_279_at_goal.png",
+     "frame": 279,
+     "route_xyz": [
+      -2.1,
+      0.7,
+      0.06
+     ]
+    }
+   },
+   "camera_path_every_20th": [
+    {
+     "frame": 0,
+     "sample": 0,
+     "eye_route": [
+      -6.317,
+      3.366,
+      2.152
+     ],
+     "target_route": [
+      -4.663,
+      1.004,
+      0.35
+     ]
+    },
+    {
+     "frame": 20,
+     "sample": 0,
+     "eye_route": [
+      -6.104,
+      3.502,
+      2.152
+     ],
+     "target_route": [
+      -4.663,
+      1.004,
+      0.35
+     ]
+    },
+    {
+     "frame": 40,
+     "sample": 56,
+     "eye_route": [
+      -5.866,
+      3.616,
+      2.152
+     ],
+     "target_route": [
+      -4.649,
+      1.002,
+      0.35
+     ]
+    },
+    {
+     "frame": 60,
+     "sample": 112,
+     "eye_route": [
+      -5.477,
+      3.688,
+      2.152
+     ],
+     "target_route": [
+      -4.493,
+      0.977,
+      0.35
+     ]
+    },
+    {
+     "frame": 80,
+     "sample": 168,
+     "eye_route": [
+      -5.037,
+      3.732,
+      2.152
+     ],
+     "target_route": [
+      -4.294,
+      0.946,
+      0.35
+     ]
+    },
+    {
+     "frame": 100,
+     "sample": 224,
+     "eye_route": [
+      -4.591,
+      3.754,
+      2.152
+     ],
+     "target_route": [
+      -4.095,
+      0.914,
+      0.35
+     ]
+    },
+    {
+     "frame": 120,
+     "sample": 280,
+     "eye_route": [
+      -4.142,
+      3.755,
+      2.152
+     ],
+     "target_route": [
+      -3.896,
+      0.883,
+      0.35
+     ]
+    },
+    {
+     "frame": 140,
+     "sample": 336,
+     "eye_route": [
+      -3.69,
+      3.734,
+      2.152
+     ],
+     "target_route": [
+      -3.697,
+      0.851,
+      0.35
+     ]
+    },
+    {
+     "frame": 160,
+     "sample": 392,
+     "eye_route": [
+      -3.239,
+      3.691,
+      2.152
+     ],
+     "target_route": [
+      -3.497,
+      0.819,
+      0.35
+     ]
+    },
+    {
+     "frame": 180,
+     "sample": 448,
+     "eye_route": [
+      -2.79,
+      3.626,
+      2.152
+     ],
+     "target_route": [
+      -3.298,
+      0.788,
+      0.35
+     ]
+    },
+    {
+     "frame": 200,
+     "sample": 504,
+     "eye_route": [
+      -2.344,
+      3.539,
+      2.152
+     ],
+     "target_route": [
+      -3.099,
+      0.756,
+      0.35
+     ]
+    },
+    {
+     "frame": 220,
+     "sample": 559,
+     "eye_route": [
+      -1.942,
+      3.446,
+      2.152
+     ],
+     "target_route": [
+      -2.937,
+      0.74,
+      0.35
+     ]
+    },
+    {
+     "frame": 240,
+     "sample": 615,
+     "eye_route": [
+      -1.549,
+      3.368,
+      2.152
+     ],
+     "target_route": [
+      -2.777,
+      0.76,
+      0.35
+     ]
+    },
+    {
+     "frame": 260,
+     "sample": 668,
+     "eye_route": [
+      -1.292,
+      3.255,
+      2.152
+     ],
+     "target_route": [
+      -2.743,
+      0.764,
+      0.35
+     ]
+    }
+   ],
+   "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"
+  },
+  "P2_both:cylinder": {
+   "path": "results/aerial3dg/g1/video/P2_both_cylinder_flythrough.mp4",
+   "bytes": 592549,
+   "sha256": "5d7544f988e3ed47d5ee7459a4969aa79b329cbd62c24c9f5d2f7f8aeec01c65",
+   "fps": 20,
+   "n_frames": 280,
+   "size": [
+    960,
+    540
+   ],
+   "render_s": 169.38591925206129,
+   "frames_from_mp4": {
+    "start": {
+     "path": "results/aerial3dg/g1/video/P2_both_cylinder_frame_000_start.png",
+     "frame": 0,
+     "route_xyz": [
+      -5.3,
+      1.1,
+      0.885
+     ]
+    },
+    "one third": {
+     "path": "results/aerial3dg/g1/video/P2_both_cylinder_frame_093_one_third.png",
+     "frame": 93,
+     "route_xyz": [
+      -4.4403,
+      0.9421,
+      0.885
+     ]
+    },
+    "two thirds": {
+     "path": "results/aerial3dg/g1/video/P2_both_cylinder_frame_186_two_thirds.png",
+     "frame": 186,
+     "route_xyz": [
+      -2.8795,
+      0.6135,
+      0.885
+     ]
+    },
+    "at goal": {
+     "path": "results/aerial3dg/g1/video/P2_both_cylinder_frame_279_at_goal.png",
+     "frame": 279,
+     "route_xyz": [
+      -2.1,
+      0.7,
+      0.885
+     ]
+    }
+   },
+   "camera_path_every_20th": [
+    {
+     "frame": 0,
+     "sample": 0,
+     "eye_route": [
+      -6.31,
+      3.342,
+      2.152
+     ],
+     "target_route": [
+      -4.656,
+      0.981,
+      0.35
+     ]
+    },
+    {
+     "frame": 20,
+     "sample": 0,
+     "eye_route": [
+      -6.097,
+      3.478,
+      2.152
+     ],
+     "target_route": [
+      -4.656,
+      0.981,
+      0.35
+     ]
+    },
+    {
+     "frame": 40,
+     "sample": 58,
+     "eye_route": [
+      -5.857,
+      3.592,
+      2.152
+     ],
+     "target_route": [
+      -4.641,
+      0.978,
+      0.35
+     ]
+    },
+    {
+     "frame": 60,
+     "sample": 116,
+     "eye_route": [
+      -5.46,
+      3.658,
+      2.152
+     ],
+     "target_route": [
+      -4.477,
+      0.948,
+      0.35
+     ]
+    },
+    {
+     "frame": 80,
+     "sample": 173,
+     "eye_route": [
+      -5.018,
+      3.697,
+      2.152
+     ],
+     "target_route": [
+      -4.275,
+      0.911,
+      0.35
+     ]
+    },
+    {
+     "frame": 100,
+     "sample": 231,
+     "eye_route": [
+      -4.566,
+      3.713,
+      2.152
+     ],
+     "target_route": [
+      -4.07,
+      0.873,
+      0.35
+     ]
+    },
+    {
+     "frame": 120,
+     "sample": 289,
+     "eye_route": [
+      -4.112,
+      3.707,
+      2.152
+     ],
+     "target_route": [
+      -3.866,
+      0.834,
+      0.35
+     ]
+    },
+    {
+     "frame": 140,
+     "sample": 346,
+     "eye_route": [
+      -3.663,
+      3.678,
+      2.152
+     ],
+     "target_route": [
+      -3.669,
+      0.794,
+      0.35
+     ]
+    },
+    {
+     "frame": 160,
+     "sample": 404,
+     "eye_route": [
+      -3.209,
+      3.62,
+      2.152
+     ],
+     "target_route": [
+      -3.467,
+      0.749,
+      0.35
+     ]
+    },
+    {
+     "frame": 180,
+     "sample": 462,
+     "eye_route": [
+      -2.755,
+      3.54,
+      2.152
+     ],
+     "target_route": [
+      -3.264,
+      0.702,
+      0.35
+     ]
+    },
+    {
+     "frame": 200,
+     "sample": 519,
+     "eye_route": [
+      -2.308,
+      3.439,
+      2.152
+     ],
+     "target_route": [
+      -3.063,
+      0.657,
+      0.35
+     ]
+    },
+    {
+     "frame": 220,
+     "sample": 577,
+     "eye_route": [
+      -1.921,
+      3.329,
+      2.152
+     ],
+     "target_route": [
+      -2.916,
+      0.623,
+      0.35
+     ]
+    },
+    {
+     "frame": 240,
+     "sample": 635,
+     "eye_route": [
+      -1.59,
+      3.292,
+      2.152
+     ],
+     "target_route": [
+      -2.819,
+      0.683,
+      0.35
+     ]
+    },
+    {
+     "frame": 260,
+     "sample": 689,
+     "eye_route": [
+      -1.285,
+      3.231,
+      2.152
+     ],
+     "target_route": [
+      -2.737,
+      0.74,
+      0.35
+     ]
+    }
+   ],
+   "crop": "v < 2.22 (wall B removed) and z < 2.34 (soffit and hall ceiling removed)"
+  }
+ },
+ "files": {
+  "routes_P1_lamp.png": {
+   "bytes": 222279,
+   "sha256": "939583f8895f08ca3af5911457b98a31dfc4bed015c70f7c9450393436e5c139"
+  },
+  "routes_P2_both.png": {
+   "bytes": 213937,
+   "sha256": "0d1988e6029c7f34722c6af7a7ee5de4a816f29644aaa9affab5ef3358baf292"
+  },
+  "timing.png": {
+   "bytes": 194316,
+   "sha256": "8a84b405c97c70a345f6241579d6de790e8cf10edf0d423a1fda2a559bbeb48b"
+  },
+  "video/P1_lamp_sweeper_flythrough.mp4": {
+   "bytes": 676349,
+   "sha256": "5d4df8470de21452650ae1dd44507db46a87fdf7fe9b339bca1366d3a60b3754"
+  },
+  "video/P1_lamp_sweeper_frame_000_start.png": {
+   "bytes": 271913,
+   "sha256": "4a1ca7f4b3a3109f2eeaa54918ed0c414d85bf529b86fbaacdef17932c58b410"
+  },
+  "video/P1_lamp_sweeper_frame_093_one_third.png": {
+   "bytes": 341439,
+   "sha256": "318e308c2c2635c18edd3f4e6db07ffd1577c738698e0c4b1b063d7c8e1f3db2"
+  },
+  "video/P1_lamp_sweeper_frame_186_two_thirds.png": {
+   "bytes": 389420,
+   "sha256": "3b6df13eb0eb790f70605cccaa33b8c2b3da43d9e93badd4ee33bcf034c6f9db"
+  },
+  "video/P1_lamp_sweeper_frame_279_at_goal.png": {
+   "bytes": 336174,
+   "sha256": "6e7ddd670124124f30c1970e08dc6ffe6c440c8253562c89b9dcf52902161786"
+  },
+  "video/P2_both_cylinder_flythrough.mp4": {
+   "bytes": 592549,
+   "sha256": "5d7544f988e3ed47d5ee7459a4969aa79b329cbd62c24c9f5d2f7f8aeec01c65"
+  },
+  "video/P2_both_cylinder_frame_000_start.png": {
+   "bytes": 211244,
+   "sha256": "1576113888807d60c6ff0b0990db2780596fa8ab1ef94fa85d7766c3d190bbb1"
+  },
+  "video/P2_both_cylinder_frame_093_one_third.png": {
+   "bytes": 263534,
+   "sha256": "f982fddb2d83b0c5a30792ac24b8ff958da11aab10df27ef2f7257c4efe4a93b"
+  },
+  "video/P2_both_cylinder_frame_186_two_thirds.png": {
+   "bytes": 305673,
+   "sha256": "d447373166ed47f6b54fc138fbbd0c2c185022eebeb085bb6b650de24c8fabe2"
+  },
+  "video/P2_both_cylinder_frame_279_at_goal.png": {
+   "bytes": 298157,
+   "sha256": "16c600b0a5143b3260d7d033019b3e7c8e8ac172ba8d5946b19f8aa2fea975d2"
+  },
+  "video/P2_both_sweeper_flythrough.mp4": {
+   "bytes": 522447,
+   "sha256": "0d440b18db9143bc590bd3c9ca7523dec9fef133c32d0a602b744f09b969b8f5"
+  },
+  "video/P2_both_sweeper_frame_000_start.png": {
+   "bytes": 202836,
+   "sha256": "cc703dffa19c2705f64ea2d06ad7db6e17313db6233fd39ffe7237d69dabfae1"
+  },
+  "video/P2_both_sweeper_frame_093_one_third.png": {
+   "bytes": 261182,
+   "sha256": "e7af7633cc3527f69e6474475d150fc7ed5356f98e07367ba4879097e379352e"
+  },
+  "video/P2_both_sweeper_frame_186_two_thirds.png": {
+   "bytes": 304204,
+   "sha256": "03b7e9798e487ab86b9ed21b7801229840fb2ff3b8f469f30ea9ebd7ecb526e5"
+  },
+  "video/P2_both_sweeper_frame_279_at_goal.png": {
+   "bytes": 292924,
+   "sha256": "925b184a11fba37a840a92c5882b79349a07f44ce6329add272888d6d0c2688f"
+  }
+ }
+}
