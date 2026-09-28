@@ -181,6 +181,14 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
     ker = np.ones(61) / 61
     sm = np.column_stack([np.convolve(np.pad(route[:, j], 30, mode="edge"), ker, mode="valid") for j in range(3)])
     mid = route.mean(axis=0)
+
+    def on_floor(world):   # draw routes on the floor (1 cm up) so both robots' lines are comparable in plan
+        r = booth.frame.to_route(world)
+        r[:, 2] = .01
+        return booth.frame.to_world(r)
+
+    own_f = on_floor(d["world"])
+    other_f = on_floor(other["world"]) if "world" in other else None
     wanted = {"start": 0, "one third": len(ks) // 3, "two thirds": 2 * len(ks) // 3, "at goal": len(ks) - 1}
     tag = d["doc"]["name"]
     mp4 = out_dir / f"{tag}_{name}_flythrough.mp4"
@@ -202,10 +210,10 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
         fig = plt.figure(figsize=(size[0] / 100, size[1] / 100), dpi=100)
         ax = fig.add_axes([0, 0, 1, 1])
         ax.imshow(np.clip(out["rgb"], 0, 1))
-        if "world" in other:
-            uv.overlay_path(ax, cam, surface, other["world"], colour=ROBOT_C[other["robot"]], lw=1.2)
-        uv.overlay_path(ax, cam, surface, d["world"], colour="#9ab8ff", lw=1.6)
-        uv.overlay_path(ax, cam, surface, d["world"][:k + 1], colour=ROBOT_C[name], lw=2.8)
+        if other_f is not None:
+            uv.overlay_path(ax, cam, surface, other_f, colour=ROBOT_C[other["robot"]], lw=1.2)
+        uv.overlay_path(ax, cam, surface, own_f, colour="#9ab8ff", lw=1.6)
+        uv.overlay_path(ax, cam, surface, own_f[:k + 1], colour=ROBOT_C[name], lw=2.8)
         ax.text(12, 22, f"{name} (r {body['radius_m']:.3f} m, body {body['ground_clearance_m']:.2f}–"
                 f"{body['ground_clearance_m'] + 2 * body['half_height_m']:.2f} m above floor)   one query on the "
                 f"cached compile   t = {t[k]:5.1f} s", fontsize=9.5, color="k", bbox=dict(fc="white", ec="none", alpha=.8))
@@ -216,7 +224,7 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
                  f"{body['ground_clearance_m'] + 2 * body['half_height_m']:.2f} m)" if under else ""),
                 fontsize=9.5, color="#5a4500" if under else "k", fontweight="bold" if under else "normal",
                 bbox=dict(fc="#fff3c4" if under else "white", ec="none", alpha=.85))
-        ax.text(12, size[1] - 14, f"thick = this robot's route ({d['length']:.2f} m); thin "
+        ax.text(12, size[1] - 14, f"routes drawn on the floor · thick = this robot's route ({d['length']:.2f} m); thin "
                 + (f"{other['robot']} = the other robot's route ({other['length']:.2f} m)" if "length" in other else
                    f"{other['robot']}: {other['status']}, no route") + " · wall B and soffit cut away for the view", fontsize=8, color="k", bbox=dict(fc="white", ec="none", alpha=.7))
         ax.set_xlim(0, size[0]); ax.set_ylim(size[1], 0); ax.axis("off")
