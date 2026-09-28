@@ -1,0 +1,14 @@
+{
+ "compile_id": "8e380fca1643ba5c",
+ "scene_id": "uavlamp_gallery_booth_v2_ground",
+ "body": {
+  "name": "sweeper",
+  "radius_m": 0.175,
+  "half_height_m": 0.04,
+  "motion": "ground_unicycle",
+  "ground_clearance_m": 0.02
+ },
+ "bytes": 188974853,
+ "sha256": "5924b88b827d3f28f689638e6cca82e899ba0332b308af2b80dd7fea825dd480",
+ "format": "pickle protocol 5 of gmc.aerial3d.api.CompiledComplex"
+}

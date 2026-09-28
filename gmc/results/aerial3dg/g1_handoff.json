@@ -1,0 +1,663 @@
+{
+ "schema": "aerial3dg.g1_handoff.v1",
+ "written_utc": "2026-09-28",
+ "deadline": "2026-09-29 08:45 America/New_York",
+ "deadline_met": true,
+ "api": {
+  "compile": "gmc.aerial3d.api.compile_complex(scene, body, *, config=CompileConfig(margin_m=0.001), prepared=None) -> CompiledComplex",
+  "query": "gmc.aerial3d.api.query(compiled, start_world, goal_world, *, config=QueryConfig(export_max_segment_m=0.20), call_id=...) -> dict (status REACHABLE/UNREACHABLE/UNKNOWN)",
+  "persist": "gmc.aerial3d.api.save_compiled(compiled, path) -> sidecar dict; load_compiled(path) (SHA-256 checked)",
+  "runner": "gmc/experiments/aerial3dg_run.py {probe|screen|map|demo} (load_booth(box) builds the SceneSpec incl. floor support; ground_world(frame, body, uv) gives the on-manifold start/goal)",
+  "sbatch": "gmc/hpc/aerial3dg/g1_run.sbatch, g1_viz.sbatch",
+  "seam": "docs/aerial3dg_design.md: ground_unicycle bodies get domain rows |z - z_c| <= ground_slab_m (1e-3) with z_c from scene.support; lifted vertices pinned to z_c; nothing else changed"
+ },
+ "bodies": {
+  "sweeper": {
+   "gs3d_body": "gmc.gs3d.robots.SWEEPER",
+   "name": "sweeper",
+   "radius_m": 0.175,
+   "half_height_m": 0.04,
+   "motion": "ground_unicycle",
+   "ground_clearance_m": 0.02,
+   "z_c_above_floor_m": 0.06,
+   "band_above_floor_m": [
+    0.02,
+    0.1
+   ],
+   "margin_m": 0.001,
+   "ground_slab_m": 0.001
+  },
+  "cylinder": {
+   "gs3d_body": "gmc.gs3d.robots.CYLINDER",
+   "name": "cylinder",
+   "radius_m": 0.3,
+   "half_height_m": 0.865,
+   "motion": "ground_unicycle",
+   "ground_clearance_m": 0.02,
+   "z_c_above_floor_m": 0.885,
+   "band_above_floor_m": [
+    0.02,
+    1.75
+   ],
+   "margin_m": 0.001,
+   "ground_slab_m": 0.001
+  }
+ },
+ "floor": {
+  "z_floor_world_m": -1.2271749593107995,
+  "definition": "archive meta z_floor == site-frame origin_world_m[2]; route z = height above floor; EvidenceBoundedPlaneSupport normal (0,0,1) through z_floor, evidence = world bounds of the route prism"
+ },
+ "scene": {
+  "archive": "/scratch/wg2381/splathjb-uavlamp/gmc/outputs/uavlamp/scene_v2/uavlamp_scene.npz",
+  "sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+  "box_route_extended_corridor": {
+   "lower": [
+    -9.0,
+    -0.35,
+    0.0
+   ],
+   "upper": [
+    3.7,
+    2.75,
+    2.43
+   ]
+  },
+  "box_route_booth_uav": {
+   "lower": [
+    -3.0,
+    -0.35,
+    0.0
+   ],
+   "upper": [
+    3.7,
+    2.75,
+    2.43
+   ]
+  },
+  "cropped_supports_extended": 582372
+ },
+ "probe": {
+  "sweeper": {
+   "compile_wall_s": 4.253515454009175,
+   "peak_rss_mb": 1380.96875,
+   "candidate_pairs": 3676,
+   "stages_s": {
+    "scene_prepare": 0.3252333780983463,
+    "pair_candidates": 0.2248258029576391,
+    "envelopes": 0.009997371933422983,
+    "octree": 2.8084804149111733,
+    "cells": 0.7089115279959515,
+    "possible_graph": 0.00895490508992225,
+    "audit": 0.15261181502137333
+   }
+  },
+  "cylinder": {
+   "compile_wall_s": 2.7464129120344296,
+   "peak_rss_mb": 1380.96875,
+   "candidate_pairs": 65573,
+   "stages_s": {
+    "scene_prepare": 0.33770736202131957,
+    "pair_candidates": 0.1254693039227277,
+    "envelopes": 0.10531873197760433,
+    "octree": 1.184083977015689,
+    "cells": 0.7790186540223658,
+    "possible_graph": 0.002969610970467329,
+    "audit": 0.20718063891399652
+   }
+  },
+  "box_route_uv": [
+   -1.6,
+   -0.35,
+   0.6,
+   2.75
+  ],
+  "job": 18702178,
+  "job_maxrss_gb": 1.31
+ },
+ "demo": {
+  "pairs_file": "gmc/configs/aerial3dg/g1_demo_pairs.json",
+  "jobs": {
+   "sweeper": 18704511,
+   "cylinder": 18704512
+  },
+  "compile": {
+   "sweeper": {
+    "compile_wall_s": 26.097612323006615,
+    "compile_cpu_s": 36.811247228000006,
+    "candidate_pairs": 11906,
+    "active_pairs": 563,
+    "stages_s": {
+     "scene_prepare": 1.7245458719553426,
+     "pair_candidates": 0.5774262240156531,
+     "envelopes": 0.018087852047756314,
+     "octree": 16.29629580990877,
+     "cells": 7.131693054921925,
+     "possible_graph": 0.0696515180170536,
+     "audit": 0.18123031896539032
+    },
+    "persisted_bytes": 188974853,
+    "load_wall_s": 0.8841724699595943,
+    "job_maxrss_gb": 1.7313041687011719
+   },
+   "cylinder": {
+    "compile_wall_s": 70.68394587107468,
+    "compile_cpu_s": 133.12324468900002,
+    "candidate_pairs": 252257,
+    "active_pairs": 1038,
+    "stages_s": {
+     "scene_prepare": 1.677442504093051,
+     "pair_candidates": 0.7275071890326217,
+     "envelopes": 0.5180721180513501,
+     "octree": 19.774947936064564,
+     "cells": 47.47591282299254,
+     "possible_graph": 0.06505778001155704,
+     "audit": 0.3581231910502538
+    },
+    "persisted_bytes": 406156588,
+    "load_wall_s": 1.2516806969651952,
+    "job_maxrss_gb": 2.170879364013672
+   }
+  },
+  "compile_once_proof": {
+   "sweeper": {
+    "compiles_in_this_process": 1,
+    "query_calls_answered": 8,
+    "compile_records_changed_by_queries": false,
+    "any_compile_stage_inside_a_query_call": false,
+    "identical_result_all_calls_per_pair": {
+     "P1_lamp": true,
+     "P2_both": true
+    },
+    "same_compile_id_all_calls": true
+   },
+   "cylinder": {
+    "compiles_in_this_process": 1,
+    "query_calls_answered": 8,
+    "compile_records_changed_by_queries": false,
+    "any_compile_stage_inside_a_query_call": false,
+    "identical_result_all_calls_per_pair": {
+     "P1_lamp": true,
+     "P2_both": true
+    },
+    "same_compile_id_all_calls": true
+   }
+  },
+  "pairs": {
+   "P1_lamp": {
+    "sweeper": {
+     "status": "REACHABLE",
+     "reason": "graph_path_lifted_and_verified",
+     "dist_m": 3.8639358172723313,
+     "path_length_m": 3.8652031171266694,
+     "route_uv": [
+      [
+       2.3,
+       1.7999999999999998
+      ],
+      [
+       -0.8844146541602411,
+       1.2506467548984315
+      ],
+      [
+       -1.4999999999999998,
+       1.100000000000001
+      ]
+     ],
+     "clearance_own_m": 0.0018061374163926966,
+     "clearance_fresh_replay_m": 0.0018061174146577804,
+     "fresh_replay_passed": true,
+     "certificate": null,
+     "cut_pairs_by_role": null,
+     "calls": [
+      {
+       "call_id": "P1_lamp:cold0",
+       "mode": "cold",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.25716851104516536,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "a2ee99e85aa76f5b5ba0db80c3e306192751df76fd166efea04679c060ed042f"
+      },
+      {
+       "call_id": "P1_lamp:warm0",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.24913467199075967,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "a2ee99e85aa76f5b5ba0db80c3e306192751df76fd166efea04679c060ed042f"
+      },
+      {
+       "call_id": "P1_lamp:warm1",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.24935852200724185,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "a2ee99e85aa76f5b5ba0db80c3e306192751df76fd166efea04679c060ed042f"
+      },
+      {
+       "call_id": "P1_lamp:warm2",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.2485361419385299,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "a2ee99e85aa76f5b5ba0db80c3e306192751df76fd166efea04679c060ed042f"
+      },
+      {
+       "call_id": "P1_lamp:reloaded0",
+       "mode": "reloaded",
+       "source": "persisted_compile_reloaded",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.35540072398725897,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "a2ee99e85aa76f5b5ba0db80c3e306192751df76fd166efea04679c060ed042f"
+      }
+     ],
+     "identical_all_calls": true,
+     "straight_line": {
+      "label_counts": {
+       "SAFE": 219,
+       "BLOCKED": 5,
+       "UNKNOWN": 17,
+       "NONE": 0
+      },
+      "oracle_counts": {
+       "free": 228,
+       "occupied": 13,
+       "unknown": 0
+      },
+      "blocked_samples_by_role": {
+       "captured": 5
+      }
+     }
+    },
+    "cylinder": {
+     "status": "UNREACHABLE",
+     "reason": "possible_space_cut",
+     "dist_m": 3.8639358172723313,
+     "path_length_m": null,
+     "route_uv": null,
+     "clearance_own_m": null,
+     "clearance_fresh_replay_m": null,
+     "fresh_replay_passed": null,
+     "certificate": {
+      "kind": "possible_space_cut",
+      "blocked_leaves_on_cut": 1214,
+      "cut_distinct_pairs": 88
+     },
+     "cut_pairs_by_role": {
+      "captured": 68,
+      "lamp": 10,
+      "back_panel": 10
+     },
+     "calls": [
+      {
+       "call_id": "P1_lamp:cold0",
+       "mode": "cold",
+       "source": "in_memory_compile",
+       "status": "UNREACHABLE",
+       "algorithm_wall_s": 0.025353659060783684,
+       "compile_stages_in_call": [],
+       "polyline_sha256": null
+      },
+      {
+       "call_id": "P1_lamp:warm0",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "UNREACHABLE",
+       "algorithm_wall_s": 0.02102567406836897,
+       "compile_stages_in_call": [],
+       "polyline_sha256": null
+      },
+      {
+       "call_id": "P1_lamp:warm1",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "UNREACHABLE",
+       "algorithm_wall_s": 0.020798797020688653,
+       "compile_stages_in_call": [],
+       "polyline_sha256": null
+      },
+      {
+       "call_id": "P1_lamp:warm2",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "UNREACHABLE",
+       "algorithm_wall_s": 0.02059934299904853,
+       "compile_stages_in_call": [],
+       "polyline_sha256": null
+      },
+      {
+       "call_id": "P1_lamp:reloaded0",
+       "mode": "reloaded",
+       "source": "persisted_compile_reloaded",
+       "status": "UNREACHABLE",
+       "algorithm_wall_s": 0.021477923030033708,
+       "compile_stages_in_call": [],
+       "polyline_sha256": null
+      }
+     ],
+     "identical_all_calls": true,
+     "straight_line": {
+      "label_counts": {
+       "SAFE": 166,
+       "BLOCKED": 57,
+       "UNKNOWN": 18,
+       "NONE": 0
+      },
+      "oracle_counts": {
+       "free": 179,
+       "occupied": 60,
+       "unknown": 2
+      },
+      "blocked_samples_by_role": {
+       "lamp": 57
+      }
+     }
+    }
+   },
+   "P2_both": {
+    "sweeper": {
+     "status": "REACHABLE",
+     "reason": "graph_path_lifted_and_verified",
+     "dist_m": 3.2249030993194197,
+     "path_length_m": 3.2382198184070576,
+     "route_uv": [
+      [
+       -5.3,
+       1.1000000000000008
+      ],
+      [
+       -2.491525535336329,
+       0.6546502549075426
+      ],
+      [
+       -2.4346965446558015,
+       0.6541458013361194
+      ],
+      [
+       -2.0999999999999988,
+       0.6999999999999991
+      ]
+     ],
+     "clearance_own_m": 0.002018373735637082,
+     "clearance_fresh_replay_m": 0.00211737271020113,
+     "fresh_replay_passed": true,
+     "certificate": null,
+     "cut_pairs_by_role": null,
+     "calls": [
+      {
+       "call_id": "P2_both:cold0",
+       "mode": "cold",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.6904884729301557,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "85975098b6165d6b1454daae422a3670b7b02a245373fbd44c4b285b95327422"
+      },
+      {
+       "call_id": "P2_both:warm0",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.6787939909845591,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "85975098b6165d6b1454daae422a3670b7b02a245373fbd44c4b285b95327422"
+      },
+      {
+       "call_id": "P2_both:reloaded0",
+       "mode": "reloaded",
+       "source": "persisted_compile_reloaded",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 0.6796043309150264,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "85975098b6165d6b1454daae422a3670b7b02a245373fbd44c4b285b95327422"
+      }
+     ],
+     "identical_all_calls": true,
+     "straight_line": {
+      "label_counts": {
+       "SAFE": 211,
+       "BLOCKED": 20,
+       "UNKNOWN": 10,
+       "NONE": 0
+      },
+      "oracle_counts": {
+       "free": 217,
+       "occupied": 24,
+       "unknown": 0
+      },
+      "blocked_samples_by_role": {
+       "captured": 20
+      }
+     }
+    },
+    "cylinder": {
+     "status": "REACHABLE",
+     "reason": "graph_path_lifted_and_verified",
+     "dist_m": 3.2249030993194197,
+     "path_length_m": 3.3235288301345736,
+     "route_uv": [
+      [
+       -5.3,
+       1.1000000000000008
+      ],
+      [
+       -4.177440873017589,
+       0.8938773379003221
+      ],
+      [
+       -3.729301841656235,
+       0.8070867722172486
+      ],
+      [
+       -2.387240612004848,
+       0.5012866237903513
+      ],
+      [
+       -2.0999999999999988,
+       0.6999999999999991
+      ]
+     ],
+     "clearance_own_m": 0.0019281326752617822,
+     "clearance_fresh_replay_m": 0.0014232411926859332,
+     "fresh_replay_passed": true,
+     "certificate": null,
+     "cut_pairs_by_role": null,
+     "calls": [
+      {
+       "call_id": "P2_both:cold0",
+       "mode": "cold",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 2.8046175809577107,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "36bf04950baa6d43fd75b5db77cbcf3c6e8b69705a8fcc8825be9d6c2c05df37"
+      },
+      {
+       "call_id": "P2_both:warm0",
+       "mode": "warm",
+       "source": "in_memory_compile",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 2.79874133807607,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "36bf04950baa6d43fd75b5db77cbcf3c6e8b69705a8fcc8825be9d6c2c05df37"
+      },
+      {
+       "call_id": "P2_both:reloaded0",
+       "mode": "reloaded",
+       "source": "persisted_compile_reloaded",
+       "status": "REACHABLE",
+       "algorithm_wall_s": 2.7703433099668473,
+       "compile_stages_in_call": [],
+       "polyline_sha256": "36bf04950baa6d43fd75b5db77cbcf3c6e8b69705a8fcc8825be9d6c2c05df37"
+      }
+     ],
+     "identical_all_calls": true,
+     "straight_line": {
+      "label_counts": {
+       "SAFE": 189,
+       "BLOCKED": 41,
+       "UNKNOWN": 11,
+       "NONE": 0
+      },
+      "oracle_counts": {
+       "free": 195,
+       "occupied": 46,
+       "unknown": 0
+      },
+      "blocked_samples_by_role": {
+       "captured": 41
+      }
+     }
+    }
+   }
+  },
+  "routes_differ": "P1: yes -- sweeper threads under the lamp (3.865 m vs 3.864 straight), cylinder certified UNREACHABLE (lamp+bulkhead span the corridor above 1.07 m; north pocket closed). P2: same strategy, cylinder wider (+0.086 m, max lateral deviation 0.158 m). No 'cylinder detours / sweeper threads' pair exists in this capture (see docs/aerial3dg_g1.md)."
+ },
+ "estimate_5000": {
+  "robots": {
+   "sweeper": {
+    "compile_s": 26.097612323006615,
+    "compile_cpu_s": 36.811247228000006,
+    "archive_load_and_crop_s": 2.9412625959375873,
+    "load_compiled_s": 0.8841724699595943,
+    "persisted_bytes": 188974853,
+    "screen_queries": 120,
+    "screen_status": {
+     "REACHABLE": 117,
+     "UNKNOWN": 3
+    },
+    "query_mean_s": 0.4366388758896695,
+    "query_median_s": 0.05159723706310615,
+    "query_p95_s": 2.358580458292272,
+    "query_max_s": 5.170645488076843,
+    "query_by_status": {
+     "REACHABLE": {
+      "n": 117,
+      "mean_s": 0.4470107653745426,
+      "p95_s": 2.363927200180478,
+      "max_s": 5.170645488076843
+     },
+     "UNKNOWN": {
+      "n": 3,
+      "mean_s": 0.03213518597961714,
+      "p95_s": 0.051580880500841884,
+      "max_s": 0.0549312710063532
+     }
+    },
+    "query_reachable_mean_s": 0.4470107653745426,
+    "demo_cold_s": {
+     "P1_lamp": 0.25716851104516536,
+     "P2_both": 0.6904884729301557
+    },
+    "demo_warm_median_s": 0.24924659699900076,
+    "peak_rss_gb": 1.7313041687011719,
+    "cpu_h_5000_compile_once": 0.6145092373242477,
+    "cpu_h_5000_all_reachable_mean": 0.6289146393865713,
+    "cpu_h_5000_p95_every_pair": 3.283872546216751,
+    "cpu_h_5000_compile_per_pair": 40.93821360393593,
+    "wall_h_1_tasks": 0.6147548407881253,
+    "wall_h_4_tasks": 0.15992267840305294,
+    "wall_h_8_tasks": 0.08411731800554088
+   },
+   "cylinder": {
+    "compile_s": 70.68394587107468,
+    "compile_cpu_s": 133.12324468900002,
+    "archive_load_and_crop_s": 2.058791722985916,
+    "load_compiled_s": 1.2516806969651952,
+    "persisted_bytes": 406156588,
+    "screen_queries": 120,
+    "screen_status": {
+     "UNREACHABLE": 20,
+     "REACHABLE": 34,
+     "UNKNOWN": 66
+    },
+    "query_mean_s": 0.2623752925224835,
+    "query_median_s": 0.11812892305897549,
+    "query_p95_s": 1.4332683613989496,
+    "query_max_s": 3.914102428010665,
+    "query_by_status": {
+     "UNREACHABLE": {
+      "n": 20,
+      "mean_s": 0.02182851230027154,
+      "p95_s": 0.04126162347383797,
+      "max_s": 0.041844286024570465
+     },
+     "REACHABLE": {
+      "n": 34,
+      "mean_s": 0.6499108591438819,
+      "p95_s": 2.7652765345293995,
+      "max_s": 3.914102428010665
+     },
+     "UNKNOWN": {
+      "n": 66,
+      "mean_s": 0.13562872190606978,
+      "p95_s": 0.17567603357019834,
+      "max_s": 0.3094852479407564
+     }
+    },
+    "query_reachable_mean_s": 0.6499108591438819,
+    "demo_cold_s": {
+     "P1_lamp": 0.025353659060783684,
+     "P2_both": 2.8046175809577107
+    },
+    "demo_warm_median_s": 0.020912235544528812,
+    "peak_rss_gb": 2.170879364013672,
+    "cpu_h_5000_compile_once": 0.3846164445017995,
+    "cpu_h_5000_all_reachable_mean": 0.9228602870315196,
+    "cpu_h_5000_p95_every_pair": 2.010856817941336,
+    "cpu_h_5000_compile_per_pair": 101.39599012025428,
+    "wall_h_1_tasks": 0.3849641335842898,
+    "wall_h_4_tasks": 0.11165653720670282,
+    "wall_h_8_tasks": 0.06610527114377167
+   }
+  },
+  "assumptions": [
+   "one compile per (scene, robot, box): the extended corridor box u[-9,3.7] v[-0.35,2.75] (route m); 5000 pairs per robot drawn inside it, so the compile is paid once per robot, persisted, and every array task loads it",
+   "per-query cost = measured algorithm wall of the screen queries (first call per pair on the one compile; includes own verifier and the in-query shared gs3d replay), pooled over the booth-box screen (40 pairs) and the extended-corridor screen (80 pairs). Central = pooled mean; pessimistic = every pair costs the REACHABLE mean (REACHABLE answers are the expensive ones: shortcut + tighten); bound = every pair at p95",
+   "the pooled screens are not uniform samples (bucketed toward lamp/thread pairs); in the extended corridor the cylinder answers UNKNOWN cheaply on pairs across the u~-5.6 structure, which lowers its central mean -- hence the pessimistic column",
+   "UNREACHABLE answers (certified cut) cost ~0.01-0.2 s and UNKNOWN endpoint answers ~0.01 s: the tail is the REACHABLE pairs whose path post-processing (shortcut + tighten) runs; p95 bound = every pair at the p95",
+   "no refinement / retry loop exists in aerial3d's query: an UNKNOWN is returned, not retried, so there is no unbounded tail; compile is deterministic and query cost does not grow with the number of pairs",
+   "wall excludes Slurm queueing (cpu_short QOS 120 GB / 32 CPU per user shared with ground5k); archive load + crop is paid once per task that needs a fresh PreparedScene -- here the compile pickle carries it",
+   "single-core: the query path is single-threaded numpy/scipy; tasks scale ~linearly while the node is not oversubscribed (uavconn saw 1.8x compile variance from node contention)"
+  ],
+  "total_cpu_h_both_robots_compile_once": 0.9991256818260472,
+  "total_cpu_h_both_robots_all_reachable_mean": 1.551774926418091,
+  "total_cpu_h_both_robots_p95_bound": 5.294729364158087,
+  "total_cpu_h_both_robots_compile_per_pair": 142.33420372419022
+ },
+ "g2_recommendation": {
+  "compile": "one job per robot: 2 CPU / 4 GB / 15 min that compiles once on the chosen box and save_compiled -> .a3c (180 / 387 MB). There is no dedicated `compile` subcommand yet: `screen` and `demo` both compile once and persist; G2 should add a thin batch subcommand that load_compiled's the .a3c and answers a slice of the pair list",
+  "queries": "array of 4-8 tasks per robot, each 1 CPU / 4 GB / 1 h (MaxRSS 1.7-2.2 GB x1.5), each loads the .a3c once and answers 625-1250 pairs; build ONE fresh PreparedScene per task if a post-hoc fresh replay is wanted (1.7 s each)",
+  "pairs": "sample start/goal on the same route grid rule as candidate_pairs (free for BOTH robots by the gs3d oracle at each z_c, xy distance >= 3 m); record status per robot; count UNKNOWN honestly",
+  "box": "extended corridor u[-9,3.7] (more varied) -- expect cylinder UNKNOWN on pairs crossing the u~-5.6 structure; or the UAV booth box u[-3,3.7] (cleaner: cylinder 2/40 UNKNOWN in screen2). Decide and state it before sampling.",
+  "query_config": "QueryConfig(export_max_segment_m=0.20) -- without it most ground routes are UNKNOWN shared_replay_failed (map_unknown)"
+ },
+ "not_chased": [
+  "cylinder UNKNOWN at the u~-5.6 captured structure: min_cell 0.025 changed no verdict (compile x2.7, query x2-5); would need multi-pair cut certificates or local refinement -- beyond G1",
+  "UAV (third robot) not re-run in G1: its aerial3d numbers are in the uavconn branch",
+  "no scene edits to manufacture a detour-vs-thread contrast (the plan forbids staging it)",
+  "the shared gs3d verifier itself is unchanged; long-segment world-AABB conservatism is avoided by exporting collinear <= 0.20 m knots"
+ ],
+ "artefacts": {
+  "report": "docs/aerial3dg_g1.md",
+  "design": "docs/aerial3dg_design.md",
+  "worklog": "docs/worklog/aerial3dg.md",
+  "measurement_csv": "gmc/results/aerial3dg/g1/measurement_g1.csv",
+  "timing_chart": "gmc/results/aerial3dg/g1/timing.png",
+  "routes": [
+   "gmc/results/aerial3dg/g1/routes_P1_lamp.png",
+   "gmc/results/aerial3dg/g1/routes_P2_both.png"
+  ],
+  "videos": [
+   "gmc/results/aerial3dg/g1/video/P1_lamp_sweeper_flythrough.mp4",
+   "gmc/results/aerial3dg/g1/video/P2_both_sweeper_flythrough.mp4",
+   "gmc/results/aerial3dg/g1/video/P2_both_cylinder_flythrough.mp4"
+  ],
+  "runs": "gmc/results/aerial3dg/g1/runs/",
+  "persisted_compiles_not_committed": "gmc/outputs/aerial3dg/demo/{sweeper,cylinder}.a3c (180/387 MB, sidecars committed in runs/demo/)"
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "route_kind": {
+  "P1_lamp": {
+   "sweeper": "从灯下穿行（近直线，L/d 1.0003）",
+   "cylinder": "无路径：认证不可达（灯+隔断在 1.07 m 以上横跨整个走廊）"
+  },
+  "P2_both": {
+   "sweeper": "近直线，绕捕获物体小幅偏移（L/d 1.004）",
+   "cylinder": "绕捕获物体更宽的绕行（L/d 1.031）"
+  }
+ },
+ "_differ": {
+  "P1_lamp": "是",
+  "P2_both": "是（轻微）"
+ },
+ "_differ_text": {
+  "P1_lamp": "sweeper 从灯下穿过；cylinder 的直线在 57/241 个采样点被灯的 pair 认证 BLOCKED，且无绕行（北侧口袋封闭），返回认证不可达",
+  "P2_both": "都绕开同一组捕获物体；cylinder 半径 0.30 m 使其离物体更远，路线长 0.086 m，最大横向偏差见报告"
+ },
+ "_multi": {
+  "机器人对比｜三种机器人得到完全相同路径的比例（多组 start/end）": "0 / 6；0%（仅两种机器人，都可达的 6 对中路线偏差 < 1 cm）（筛选 screen3：80 对，按 thread/lamp/other 分桶抽样，非均匀；不是 5000 对结果）",
+  "机器人对比｜更换机器人后可达 / 不可达结论发生变化的比例": "10 / 80；12.5%（sweeper 可达、cylinder 认证不可达）；另 61 / 80 cylinder 为 UNKNOWN（筛选 screen3：80 对，按 thread/lamp/other 分桶抽样，非均匀；不是 5000 对结果）",
+  "机器人对比｜更换机器人后主要路线发生变化的比例": "0 / 6；0%（换走廊/换通道意义上的主要路线变化：无；5/6 对 cylinder 在同一走廊内绕得更宽，最大横向偏差 0.13–0.16 m）（筛选 screen3：80 对，按 thread/lamp/other 分桶抽样，非均匀；不是 5000 对结果）",
+  "机器人对比｜小机器人选择窄路捷径的比例": "N/A（没有 cylinder 可绕行、sweeper 可穿的窄路对：u≈-5.6 的窄缝 cylinder 为 UNKNOWN，见报告）",
+  "机器人对比｜大机器人避开无法通过窄路的比例": "0 条 cylinder 可达路线穿过 u=-5.6 结构（应为 0）；该处 53 对给 UNKNOWN 而非错误可达（筛选 screen3：80 对，按 thread/lamp/other 分桶抽样，非均匀；不是 5000 对结果）",
+  "机器人对比｜高机器人避开低矮通道的比例": "10 / 10；100%（穿灯对：cylinder 全部认证不可达，灯+隔断从 1.07 m 起封死整个走廊；sweeper 10/10 从灯下通过）（筛选 screen3：80 对，按 thread/lamp/other 分桶抽样，非均匀；不是 5000 对结果）"
+ },
+ "screen3_summary": {
+  "pairs": 80,
+  "both_reachable": 6,
+  "max_route_deviation_m": {
+   "T20": 0.145,
+   "T24": 0.142,
+   "T26": 0.022,
+   "T43": 0.145,
+   "O08": 0.126,
+   "O14": 0.158
+  },
+  "cert_flip": 10,
+  "cyl_unknown_where_sweeper_reachable": 61,
+  "lamp_pairs": 10,
+  "lamp_cyl_unreachable": 10,
+  "cyl_routes_crossing_u_-5.6": []
+ }
+}

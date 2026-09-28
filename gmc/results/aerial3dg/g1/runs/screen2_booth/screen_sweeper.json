@@ -1,0 +1,1759 @@
+{
+ "schema": "aerial3dg.screen.v1",
+ "robot": "sweeper",
+ "host": {
+  "node": "cs624.hpc.nyu.edu",
+  "slurm_job_id": "18703223",
+  "cpus_per_task": "2",
+  "affinity_cpus": 2,
+  "loadavg": [
+   75.06689453125,
+   77.83154296875,
+   81.7314453125
+  ],
+  "utc": "2026-09-28T06:48:57Z",
+  "python": "3.13.5"
+ },
+ "compile": {
+  "compile_id": "82838116e1bb4269",
+  "body": {
+   "name": "sweeper",
+   "radius_m": 0.175,
+   "half_height_m": 0.04,
+   "motion": "ground_unicycle",
+   "ground_clearance_m": 0.02
+  },
+  "config": {
+   "margin_m": 0.001,
+   "pad_m": 0.001,
+   "octree": {
+    "min_cell_m": 0.05,
+    "root_levels": 3,
+    "buffer_m": 0.001,
+    "max_refine_pairs": 8,
+    "blocked_candidates": 4,
+    "max_nodes": 20000000
+   },
+   "cells": {
+    "max_cells": 5000,
+    "max_planes_per_cell": 20000,
+    "max_wall_s": null,
+    "gap_chunk": 32768,
+    "portal_samples": 8,
+    "portal_bin_m": 0.5
+   },
+   "audit_pairs": 64,
+   "audit_seed": 0,
+   "ground_slab_m": 0.001
+  },
+  "domain_bbox_plan": [
+   [
+    -2.7666305830947704,
+    -0.11663058309477012,
+    0.05900000000000005
+   ],
+   [
+    3.4666305830947706,
+    2.5166305830947704,
+    0.061000000000000054
+   ]
+  ],
+  "ground_z_plan": 0.06000000000000005,
+  "pairs": {
+   "input_supports": 359201,
+   "opacity_selected": 359201,
+   "after_domain_aabb": 9649,
+   "candidate_pairs": 9649,
+   "pruned_pairs": 349552,
+   "prune_rules": [
+    "opacity>tau (baseline semantics)",
+    "exact AABB(O_i) vs domain bbox (+pad)",
+    "domain row a.x<=b with min_{O_i} a.x > b+pad"
+   ],
+   "pad_m": 0.001
+  },
+  "octree": {
+   "nodes": 14480,
+   "leaves": 12684,
+   "leaves_by_status": {
+    "OUTSIDE": 0,
+    "SAFE": 2608,
+    "BLOCKED": 4209,
+    "UNKNOWN": 5867
+   },
+   "volume_m3_by_status": {
+    "OUTSIDE": 0.0,
+    "SAFE": 0.013674843488446062,
+    "BLOCKED": 0.01579350540031557,
+    "UNKNOWN": 0.003358602928110895
+   },
+   "root_shape": [
+    16,
+    7,
+    1
+   ],
+   "leaf_unit_m": [
+    0.04869735254832872,
+    0.04702252011046564,
+    0.0002499949995669482
+   ],
+   "build_wall_s": 9.353447484085336
+  },
+  "cells": {
+   "cells": 146,
+   "support_plane_cells": 146,
+   "box_cells": 0,
+   "portals": 4365,
+   "portals_3d": 2786,
+   "portals_2d": 1579,
+   "planes": 1214,
+   "seed_failures": 0,
+   "cell_growth_wall_s": 2.0136353119742125,
+   "build_wall_s": 2.47267902106978
+  },
+  "possible_components": 8,
+  "audit": {
+   "passed": true,
+   "pairs_audited": 80
+  },
+  "traceability": {
+   "support_plane_cell_facets": 3258,
+   "pair_facet_fraction_of_support_plane_cells": 0.37262124002455493,
+   "domain_facet_fraction_of_support_plane_cells": 0.627378759975445,
+   "box_cell_facets": 0,
+   "facets_without_provenance": 0,
+   "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+  },
+  "free_boundary_traceability": {
+   "free_boundary_faces": 4399,
+   "traceable_fraction": 1.0,
+   "blocked_side": 0,
+   "unknown_side": 4399
+  },
+  "compile_wall_s": 13.570296559017152,
+  "compile_outer_wall_s": 13.570328831905499,
+  "compile_cpu_s": 20.673487532999996,
+  "peak_rss_mb": 1383.83984375,
+  "stages": [
+   {
+    "stage": "scene_prepare",
+    "seconds": 0.9474877800093964,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "active_supports": 359201,
+     "reused_prepared": false
+    }
+   },
+   {
+    "stage": "pair_candidates",
+    "seconds": 0.5072519709356129,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "candidate_pairs": 9649,
+     "pruned_pairs": 349552
+    }
+   },
+   {
+    "stage": "envelopes",
+    "seconds": 0.017509154975414276,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "directions": 81,
+     "rho_table_mb": 5.962898254394531
+    }
+   },
+   {
+    "stage": "octree",
+    "seconds": 9.353640215005726,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "nodes": 14480,
+     "leaves": 12684,
+     "outside": 0,
+     "safe": 2608,
+     "blocked": 4209,
+     "unknown": 5867
+    }
+   },
+   {
+    "stage": "cells",
+    "seconds": 2.472724976018071,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "cells": 146,
+     "portals": 4365,
+     "support_plane_cells": 146,
+     "box_cells": 0
+    }
+   },
+   {
+    "stage": "possible_graph",
+    "seconds": 0.030330719077028334,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "live_leaves": 8475,
+     "touch_pairs": 73198,
+     "components": 8
+    }
+   },
+   {
+    "stage": "audit",
+    "seconds": 0.19202276202850044,
+    "peak_rss_mb": 1383.83984375,
+    "sizes": {
+     "pairs_audited": 80,
+     "passed": true
+    }
+   }
+  ],
+  "persist": {
+   "compile_id": "82838116e1bb4269",
+   "scene_id": "uavlamp_gallery_booth_v2_ground",
+   "body": {
+    "name": "sweeper",
+    "radius_m": 0.175,
+    "half_height_m": 0.04,
+    "motion": "ground_unicycle",
+    "ground_clearance_m": 0.02
+   },
+   "bytes": 116389744,
+   "sha256": "862c9e0a3a668ae7dd4340c8308c9f511428b0af08473ac4c8b8575c081380c4",
+   "format": "pickle protocol 5 of gmc.aerial3d.api.CompiledComplex",
+   "save_wall_s": 0.5111829340457916
+  }
+ },
+ "archive_load_and_hash_s": 1.9689879990182817,
+ "scene_build_and_crop_s": 0.9433030419750139,
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 359201,
+  "bounds_min": [
+   8.265374407475917,
+   23.091483953176784,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.952240432349058,
+   30.473305275052518,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "support": {
+  "contact_manifold": "constant_legacy_floor_reference",
+  "z_floor_world_m": -1.2271749593107995,
+  "fitted_plane_max_corner_deviation_m": 0.03529984778764117,
+  "allowed_height_error_m": 0.05,
+  "tile_top_clamp_m": -1.2121749593107995,
+  "chassis_bottom_m": -1.2071749593107994
+ },
+ "box_route": {
+  "lower": [
+   -3.0,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   3.7,
+   2.75,
+   2.43
+  ]
+ },
+ "results": [
+  {
+   "name": "L00",
+   "category": "lamp",
+   "dist_m": 3.8639358172723313,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.8654222145648394,
+   "vertices": 4,
+   "route_polyline": [
+    [
+     2.3,
+     1.8,
+     0.06
+    ],
+    [
+     -0.9398,
+     1.242,
+     0.06
+    ],
+    [
+     -1.3484,
+     1.1395,
+     0.06
+    ],
+    [
+     -1.5,
+     1.1,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.2848884629784152,
+   "stages": {
+    "locate": 0.00308966392185539,
+    "locate_cells": 0.0016576900379732251,
+    "graph_search": 0.05069160903804004,
+    "lifting": 0.021905128029175103,
+    "shortcut": 0.009963119053281844,
+    "tighten": 0.11937341094017029,
+    "merge_corners": 0.003470557974651456,
+    "own_verification": 0.003499335958622396,
+    "shared_verification": 0.02526545198634267
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L01",
+   "category": "lamp",
+   "dist_m": 3.413209633175202,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.7790392576187837,
+   "vertices": 4,
+   "route_polyline": [
+    [
+     -2.4,
+     2.0,
+     0.06
+    ],
+    [
+     -2.0748,
+     1.4372,
+     0.06
+    ],
+    [
+     -1.9065,
+     1.3307,
+     0.06
+    ],
+    [
+     1.0,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.6232625449774787,
+   "stages": {
+    "locate": 0.00019767601042985916,
+    "locate_cells": 0.0015207519754767418,
+    "graph_search": 0.0032693049870431423,
+    "lifting": 0.0018081950256600976,
+    "shortcut": 0.012844646000303328,
+    "tighten": 0.5691249199444428,
+    "merge_corners": 0.005244001047685742,
+    "own_verification": 0.0024146439973264933,
+    "shared_verification": 0.021482248906977475
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L02",
+   "category": "lamp",
+   "dist_m": 4.300000000000001,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.3021199157825665,
+   "vertices": 3,
+   "route_polyline": [
+    [
+     -2.2,
+     1.4,
+     0.06
+    ],
+    [
+     -1.7146,
+     1.3572,
+     0.06
+    ],
+    [
+     2.1,
+     1.4,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.09066576103214175,
+   "stages": {
+    "locate": 0.00021619501058012247,
+    "locate_cells": 0.0016244410071521997,
+    "graph_search": 0.007874232018366456,
+    "lifting": 0.005229089059866965,
+    "shortcut": 0.028248728020116687,
+    "tighten": 0.019218181958422065,
+    "own_verification": 0.0016944820526987314,
+    "shared_verification": 0.02119412797037512
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L03",
+   "category": "lamp",
+   "dist_m": 4.4,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.664576447110011,
+   "vertices": 5,
+   "route_polyline": [
+    [
+     -2.5,
+     1.9,
+     0.06
+    ],
+    [
+     -2.023,
+     1.3892,
+     0.06
+    ],
+    [
+     -1.745,
+     1.3548,
+     0.06
+    ],
+    [
+     -1.2605,
+     1.4273,
+     0.06
+    ],
+    [
+     1.9,
+     1.9,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.5937735689803958,
+   "stages": {
+    "locate": 0.00019026303198188543,
+    "locate_cells": 0.0015642360085621476,
+    "graph_search": 0.0083425750490278,
+    "lifting": 0.011748014949262142,
+    "shortcut": 0.059963968000374734,
+    "tighten": 0.46709943702444434,
+    "merge_corners": 0.011614979011937976,
+    "own_verification": 0.0037148609990254045,
+    "shared_verification": 0.02401658007875085
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L04",
+   "category": "lamp",
+   "dist_m": 4.522167621838006,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.674807204270585,
+   "vertices": 5,
+   "route_polyline": [
+    [
+     -1.7,
+     0.5,
+     0.06
+    ],
+    [
+     -1.2843,
+     1.014,
+     0.06
+    ],
+    [
+     -1.2466,
+     1.0531,
+     0.06
+    ],
+    [
+     -0.9125,
+     1.2484,
+     0.06
+    ],
+    [
+     2.6,
+     1.9,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0014115757307571791,
+   "algorithm_wall_s": 1.3118590960511938,
+   "stages": {
+    "locate": 0.00018855498638004065,
+    "locate_cells": 0.0016139770159497857,
+    "graph_search": 0.012810908956453204,
+    "lifting": 0.060384553973563015,
+    "shortcut": 0.058815900003537536,
+    "tighten": 1.1171534860040992,
+    "merge_corners": 0.015158961992710829,
+    "own_verification": 0.007983754971064627,
+    "shared_verification": 0.03224931797012687
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L05",
+   "category": "lamp",
+   "dist_m": 3.2062439083762797,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.258378545759339,
+   "vertices": 5,
+   "route_polyline": [
+    [
+     0.8,
+     1.4,
+     0.06
+    ],
+    [
+     -1.2318,
+     1.348,
+     0.06
+    ],
+    [
+     -1.7378,
+     1.335,
+     0.06
+    ],
+    [
+     -2.0124,
+     1.3942,
+     0.06
+    ],
+    [
+     -2.4,
+     1.6,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.24501154792960733,
+   "stages": {
+    "locate": 0.0001957489876076579,
+    "locate_cells": 0.0015346570871770382,
+    "graph_search": 0.03828000498469919,
+    "lifting": 0.0035012010484933853,
+    "shortcut": 0.029608331038616598,
+    "tighten": 0.14030777802690864,
+    "merge_corners": 0.004526298027485609,
+    "own_verification": 0.0014906859723851085,
+    "shared_verification": 0.02009433601051569
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L06",
+   "category": "lamp",
+   "dist_m": 4.767598976424087,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.83637286386838,
+   "vertices": 3,
+   "route_polyline": [
+    [
+     2.7,
+     1.5,
+     0.06
+    ],
+    [
+     -0.8153,
+     1.2669,
+     0.06
+    ],
+    [
+     -2.0,
+     0.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.00175656387920868,
+   "algorithm_wall_s": 0.42908496607560664,
+   "stages": {
+    "locate": 0.00018761504907160997,
+    "locate_cells": 0.0016428920207545161,
+    "graph_search": 0.06443887297064066,
+    "lifting": 0.006065957015380263,
+    "shortcut": 0.026766901020891964,
+    "tighten": 0.29125045193359256,
+    "own_verification": 0.0045282000210136175,
+    "shared_verification": 0.028845316963270307
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L07",
+   "category": "lamp",
+   "dist_m": 3.5,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.6142453315697503,
+   "vertices": 5,
+   "route_polyline": [
+    [
+     1.0,
+     1.7,
+     0.06
+    ],
+    [
+     -1.265,
+     1.4122,
+     0.06
+    ],
+    [
+     -1.7461,
+     1.3511,
+     0.06
+    ],
+    [
+     -1.9954,
+     1.386,
+     0.06
+    ],
+    [
+     -2.5,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.29957970697432756,
+   "stages": {
+    "locate": 0.00017617095727473497,
+    "locate_cells": 0.001508850953541696,
+    "graph_search": 0.041517036966979504,
+    "lifting": 0.001840810989961028,
+    "shortcut": 0.015332196024246514,
+    "tighten": 0.20398189092520624,
+    "merge_corners": 0.006079040002077818,
+    "own_verification": 0.0036448329919949174,
+    "shared_verification": 0.020269191940315068
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L08",
+   "category": "lamp",
+   "dist_m": 4.726520919238588,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.8139940502776914,
+   "vertices": 6,
+   "route_polyline": [
+    [
+     -2.4,
+     1.7,
+     0.06
+    ],
+    [
+     -2.03,
+     1.4072,
+     0.06
+    ],
+    [
+     -1.9569,
+     1.3804,
+     0.06
+    ],
+    [
+     -1.6584,
+     1.323,
+     0.06
+    ],
+    [
+     -1.245,
+     1.3101,
+     0.06
+    ],
+    [
+     2.3,
+     1.2,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0011692826763736494,
+   "algorithm_wall_s": 0.617297982913442,
+   "stages": {
+    "locate": 0.00018144608475267887,
+    "locate_cells": 0.0015054979594424367,
+    "graph_search": 0.01910664699971676,
+    "lifting": 0.02865058497991413,
+    "shortcut": 0.08002823498100042,
+    "tighten": 0.4363805439788848,
+    "merge_corners": 0.013514152029529214,
+    "own_verification": 0.004238133085891604,
+    "shared_verification": 0.0282276599900797
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "L09",
+   "category": "lamp",
+   "dist_m": 4.197618372363071,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 4.281548371299047,
+   "vertices": 3,
+   "route_polyline": [
+    [
+     2.3,
+     1.6,
+     0.06
+    ],
+    [
+     -0.9451,
+     1.2525,
+     0.06
+    ],
+    [
+     -1.8,
+     0.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.0018061174146577804,
+   "algorithm_wall_s": 0.8191412059823051,
+   "stages": {
+    "locate": 0.00016650999896228313,
+    "locate_cells": 0.0016187919536605477,
+    "graph_search": 0.0668736370280385,
+    "lifting": 0.006289163022302091,
+    "shortcut": 0.02332521602511406,
+    "tighten": 0.6822291549760848,
+    "merge_corners": 0.004041742999106646,
+    "own_verification": 0.0037534510483965278,
+    "shared_verification": 0.025496754911728203
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O00",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.1,
+     1.3,
+     0.06
+    ],
+    [
+     2.9,
+     1.5,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.03434947202913463,
+   "stages": {
+    "locate": 0.00020785897504538298,
+    "locate_cells": 0.0017967961030080914,
+    "graph_search": 0.011122092953883111,
+    "lifting": 0.0008671790128573775,
+    "shortcut": 0.0003811370115727186,
+    "own_verification": 0.00036316097248345613,
+    "shared_verification": 0.01443475903943181
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O01",
+   "category": "other",
+   "dist_m": 3.255764119219941,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.2557641192199416,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.9,
+     0.06
+    ],
+    [
+     2.9,
+     1.3,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.038949180976487696,
+   "stages": {
+    "locate": 0.00020071398466825485,
+    "locate_cells": 0.0017832890152931213,
+    "graph_search": 0.008108844980597496,
+    "lifting": 0.008821790921501815,
+    "shortcut": 0.00043398793786764145,
+    "own_verification": 0.00040197093039751053,
+    "shared_verification": 0.014023013995029032
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O02",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.5,
+     0.06
+    ],
+    [
+     2.7,
+     1.3,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.011025504821279257,
+   "algorithm_wall_s": 0.027214493020437658,
+   "stages": {
+    "locate": 0.00017976295202970505,
+    "locate_cells": 0.001762525993399322,
+    "graph_search": 0.004009888041764498,
+    "lifting": 0.0015700999647378922,
+    "shortcut": 0.000380499055609107,
+    "own_verification": 0.0003626879770308733,
+    "shared_verification": 0.013850060990080237
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O03",
+   "category": "other",
+   "dist_m": 3.026549190084311,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0265491900843116,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.6,
+     0.06
+    ],
+    [
+     -0.2,
+     2.0,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.030604152008891106,
+   "stages": {
+    "locate": 0.00022076896857470274,
+    "locate_cells": 0.0018119929591193795,
+    "graph_search": 0.004315390018746257,
+    "lifting": 0.004459897987544537,
+    "shortcut": 0.0004387840162962675,
+    "own_verification": 0.00040636793710291386,
+    "shared_verification": 0.013815648970194161
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O04",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.5,
+     0.06
+    ],
+    [
+     -0.1,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.03682966798078269,
+   "stages": {
+    "locate": 0.0001776759745553136,
+    "locate_cells": 0.0018144840141758323,
+    "graph_search": 0.015467404038645327,
+    "lifting": 0.0008325449889525771,
+    "shortcut": 0.0003742660628631711,
+    "own_verification": 0.0003713149344548583,
+    "shared_verification": 0.012615726911462843
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O05",
+   "category": "other",
+   "dist_m": 3.0016662039607267,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0016662039607245,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.8,
+     0.06
+    ],
+    [
+     -0.2,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002183132615473347,
+   "algorithm_wall_s": 0.03221860609482974,
+   "stages": {
+    "locate": 0.00019023404456675053,
+    "locate_cells": 0.001820550998672843,
+    "graph_search": 0.004072856972925365,
+    "lifting": 0.007254560012370348,
+    "shortcut": 0.0004366290522739291,
+    "own_verification": 0.0003959860187023878,
+    "shared_verification": 0.01291982107795775
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O06",
+   "category": "other",
+   "dist_m": 3.2015621187164247,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.201562118716424,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.2,
+     0.06
+    ],
+    [
+     -0.2,
+     2.0,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.03158203500788659,
+   "stages": {
+    "locate": 0.00020963000133633614,
+    "locate_cells": 0.0017533639911562204,
+    "graph_search": 0.007972527062520385,
+    "lifting": 0.0012547449441626668,
+    "shortcut": 0.00044365297071635723,
+    "own_verification": 0.00041152595076709986,
+    "shared_verification": 0.014398889965377748
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O07",
+   "category": "other",
+   "dist_m": 3.0,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0000000000000004,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.8,
+     0.06
+    ],
+    [
+     2.7,
+     1.8,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002183132615473347,
+   "algorithm_wall_s": 0.03207173501141369,
+   "stages": {
+    "locate": 0.00017155706882476807,
+    "locate_cells": 0.0018157520098611712,
+    "graph_search": 0.003820275072939694,
+    "lifting": 0.00769032200332731,
+    "shortcut": 0.0004297270206734538,
+    "own_verification": 0.0003999290056526661,
+    "shared_verification": 0.012605613912455738
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O08",
+   "category": "other",
+   "dist_m": 3.0016662039607267,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0016662039607236,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.8,
+     0.06
+    ],
+    [
+     -0.1,
+     1.9,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.027542809024453163,
+   "stages": {
+    "locate": 0.0001882379874587059,
+    "locate_cells": 0.0018243249505758286,
+    "graph_search": 0.0038600030820816755,
+    "lifting": 0.0021956689888611436,
+    "shortcut": 0.0004321089945733547,
+    "own_verification": 0.0003935759887099266,
+    "shared_verification": 0.01351521909236908
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O09",
+   "category": "other",
+   "dist_m": 3.0083217912982647,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.008321791298266,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.2,
+     1.9,
+     0.06
+    ],
+    [
+     2.7,
+     1.1,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.007821544832926217,
+   "algorithm_wall_s": 0.03299438103567809,
+   "stages": {
+    "locate": 0.00021449197083711624,
+    "locate_cells": 0.001710325013846159,
+    "graph_search": 0.005960762966424227,
+    "lifting": 0.004949418944306672,
+    "shortcut": 0.0004493329906836152,
+    "own_verification": 0.00039858906529843807,
+    "shared_verification": 0.014188051107339561
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O10",
+   "category": "other",
+   "dist_m": 3.014962686336267,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0149626863362653,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.6,
+     0.06
+    ],
+    [
+     -0.1,
+     1.9,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.026487402035854757,
+   "stages": {
+    "locate": 0.00018718698993325233,
+    "locate_cells": 0.001834288937970996,
+    "graph_search": 0.004137678071856499,
+    "lifting": 0.0014635080005973577,
+    "shortcut": 0.0004265719326213002,
+    "own_verification": 0.0004114919574931264,
+    "shared_verification": 0.012875793967396021
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O11",
+   "category": "other",
+   "dist_m": 3.27566787083184,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.2756678708318394,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.9,
+     0.06
+    ],
+    [
+     2.9,
+     1.2,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.03791672096122056,
+   "stages": {
+    "locate": 0.00019458692986518145,
+    "locate_cells": 0.0017581130377948284,
+    "graph_search": 0.0079467169707641,
+    "lifting": 0.007639111019670963,
+    "shortcut": 0.00043904094491153955,
+    "own_verification": 0.0003974039573222399,
+    "shared_verification": 0.014355376944877207
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O12",
+   "category": "other",
+   "dist_m": 3.2280024783137944,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.228002478313793,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.1,
+     0.06
+    ],
+    [
+     -0.3,
+     2.0,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.035661941044963896,
+   "stages": {
+    "locate": 0.00023126299493014812,
+    "locate_cells": 0.0016972159501165152,
+    "graph_search": 0.006256313994526863,
+    "lifting": 0.005176953040063381,
+    "shortcut": 0.00044417299795895815,
+    "own_verification": 0.0004089230205863714,
+    "shared_verification": 0.016312291962094605
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O13",
+   "category": "other",
+   "dist_m": 3.106444913401813,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.106444913401812,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.9,
+     0.06
+    ],
+    [
+     -0.3,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002183132615473347,
+   "algorithm_wall_s": 0.028278009966015816,
+   "stages": {
+    "locate": 0.00017452903557568789,
+    "locate_cells": 0.0018174309516325593,
+    "graph_search": 0.0037168539129197598,
+    "lifting": 0.00318133900873363,
+    "shortcut": 0.00042615504935383797,
+    "own_verification": 0.00040821998845785856,
+    "shared_verification": 0.01346978999208659
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O14",
+   "category": "other",
+   "dist_m": 3.1064449134018135,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.106444913401811,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.9,
+     0.06
+    ],
+    [
+     -0.2,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002183132615473347,
+   "algorithm_wall_s": 0.030546696041710675,
+   "stages": {
+    "locate": 0.00017795898020267487,
+    "locate_cells": 0.001816779957152903,
+    "graph_search": 0.00430979288648814,
+    "lifting": 0.004845035029575229,
+    "shortcut": 0.0004349939990788698,
+    "own_verification": 0.00039328797720372677,
+    "shared_verification": 0.013453177991323173
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O15",
+   "category": "other",
+   "dist_m": 3.2249030993194197,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.2249030993194188,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     2.0,
+     0.06
+    ],
+    [
+     -0.3,
+     1.6,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002183132615473347,
+   "algorithm_wall_s": 0.029331707046367228,
+   "stages": {
+    "locate": 0.00019685993902385235,
+    "locate_cells": 0.001825109007768333,
+    "graph_search": 0.004158277064561844,
+    "lifting": 0.002118948963470757,
+    "shortcut": 0.00043330807238817215,
+    "own_verification": 0.00040362298022955656,
+    "shared_verification": 0.015072121983394027
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O16",
+   "category": "other",
+   "dist_m": 3.1400636936215167,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.140063693621518,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.2,
+     1.9,
+     0.06
+    ],
+    [
+     2.9,
+     1.4,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.03553824301343411,
+   "stages": {
+    "locate": 0.0001958449138328433,
+    "locate_cells": 0.0018120999448001385,
+    "graph_search": 0.007261452032253146,
+    "lifting": 0.007424648967571557,
+    "shortcut": 0.0004273579688742757,
+    "own_verification": 0.00042044802103191614,
+    "shared_verification": 0.012809101957827806
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O17",
+   "category": "other",
+   "dist_m": 3.0805843601498726,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.080584360149874,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.7,
+     1.1,
+     0.06
+    ],
+    [
+     -0.3,
+     1.8,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.007821544832926217,
+   "algorithm_wall_s": 0.036162273958325386,
+   "stages": {
+    "locate": 0.00020681798923760653,
+    "locate_cells": 0.0016996230697259307,
+    "graph_search": 0.008566932054236531,
+    "lifting": 0.005362799041904509,
+    "shortcut": 0.0004505700198933482,
+    "own_verification": 0.00039893295615911484,
+    "shared_verification": 0.014370227931067348
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O18",
+   "category": "other",
+   "dist_m": 3.140063693621516,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.140063693621515,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     2.0,
+     0.06
+    ],
+    [
+     2.8,
+     1.5,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.032164850970730186,
+   "stages": {
+    "locate": 0.00020771194249391556,
+    "locate_cells": 0.001812865026295185,
+    "graph_search": 0.00488836201839149,
+    "lifting": 0.005517276003956795,
+    "shortcut": 0.0004428429529070854,
+    "own_verification": 0.0004038990009576082,
+    "shared_verification": 0.01377134001813829
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O19",
+   "category": "other",
+   "dist_m": 3.255764119219941,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.255764119219941,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.8,
+     0.06
+    ],
+    [
+     2.9,
+     1.2,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.03290692006703466,
+   "stages": {
+    "locate": 0.0001781670143827796,
+    "locate_cells": 0.0017455340130254626,
+    "graph_search": 0.005181081942282617,
+    "lifting": 0.005391578073613346,
+    "shortcut": 0.0004474580055102706,
+    "own_verification": 0.0004030150594189763,
+    "shared_verification": 0.01445056195370853
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O20",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.1,
+     0.06
+    ],
+    [
+     -0.1,
+     1.3,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.002994882199059555,
+   "algorithm_wall_s": 0.040664856089279056,
+   "stages": {
+    "locate": 0.0001970520243048668,
+    "locate_cells": 0.0016569769941270351,
+    "graph_search": 0.005246754037216306,
+    "lifting": 0.009468168951570988,
+    "shortcut": 0.00043948099482804537,
+    "own_verification": 0.00041103700641542673,
+    "shared_verification": 0.018113611033186316
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O21",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.6,
+     0.06
+    ],
+    [
+     -0.2,
+     1.8,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.028714535990729928,
+   "stages": {
+    "locate": 0.00018476101104170084,
+    "locate_cells": 0.0018171239644289017,
+    "graph_search": 0.0041489460272714496,
+    "lifting": 0.004174879053607583,
+    "shortcut": 0.0004291539080440998,
+    "own_verification": 0.0003979370230808854,
+    "shared_verification": 0.012398715945892036
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O22",
+   "category": "other",
+   "dist_m": 3.0999999999999996,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0999999999999965,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.7,
+     0.06
+    ],
+    [
+     -0.3,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.03140241198707372,
+   "stages": {
+    "locate": 0.0001834019785746932,
+    "locate_cells": 0.0018065220210701227,
+    "graph_search": 0.0039353600004687905,
+    "lifting": 0.006785011966712773,
+    "shortcut": 0.00037706398870795965,
+    "own_verification": 0.0003636829787865281,
+    "shared_verification": 0.012768717017024755
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O23",
+   "category": "other",
+   "dist_m": 3.014962686336267,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0149626863362684,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.4,
+     0.06
+    ],
+    [
+     -0.1,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.028381548007018864,
+   "stages": {
+    "locate": 0.00017763895448297262,
+    "locate_cells": 0.0018057540291920304,
+    "graph_search": 0.00667271891143173,
+    "lifting": 0.0009832509094849229,
+    "shortcut": 0.00037693302147090435,
+    "own_verification": 0.00037541892379522324,
+    "shared_verification": 0.012905073002912104
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O24",
+   "category": "other",
+   "dist_m": 3.1,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.1,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.2,
+     1.7,
+     0.06
+    ],
+    [
+     2.9,
+     1.7,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.003918100303783712,
+   "algorithm_wall_s": 0.032077217008918524,
+   "stages": {
+    "locate": 0.00018826103769242764,
+    "locate_cells": 0.0018097680294886231,
+    "graph_search": 0.004352494957856834,
+    "lifting": 0.0071713419165462255,
+    "shortcut": 0.00037321692798286676,
+    "own_verification": 0.00036598904989659786,
+    "shared_verification": 0.012680088053457439
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O25",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.006659275674584,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     -0.3,
+     1.8,
+     0.06
+    ],
+    [
+     2.7,
+     1.6,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.027673674980178475,
+   "stages": {
+    "locate": 0.00018537999130785465,
+    "locate_cells": 0.0018114621052518487,
+    "graph_search": 0.003431416000239551,
+    "lifting": 0.0036115600960329175,
+    "shortcut": 0.00043159094639122486,
+    "own_verification": 0.0003942509647458792,
+    "shared_verification": 0.012691948912106454
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O26",
+   "category": "other",
+   "dist_m": 3.1400636936215167,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.140063693621514,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.8,
+     0.06
+    ],
+    [
+     -0.2,
+     1.3,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.009285042599648716,
+   "algorithm_wall_s": 0.026326242950744927,
+   "stages": {
+    "locate": 0.0002042470732703805,
+    "locate_cells": 0.0017716570291668177,
+    "graph_search": 0.004284108057618141,
+    "lifting": 0.0009120599133893847,
+    "own_verification": 0.0004222199786454439,
+    "shared_verification": 0.013630228000693023
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O27",
+   "category": "other",
+   "dist_m": 3.0066592756745814,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.0066592756745805,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.8,
+     1.1,
+     0.06
+    ],
+    [
+     -0.2,
+     1.3,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001342418515456055,
+   "algorithm_wall_s": 0.02942966902628541,
+   "stages": {
+    "locate": 0.0002183349570259452,
+    "locate_cells": 0.001673141960054636,
+    "graph_search": 0.0030730420257896185,
+    "lifting": 0.0009438570123165846,
+    "own_verification": 0.00044341397006064653,
+    "shared_verification": 0.01800079899840057
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O28",
+   "category": "other",
+   "dist_m": 3.0016662039607267,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 3.001666203960726,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.9,
+     0.06
+    ],
+    [
+     -0.1,
+     2.0,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.033804323989897966,
+   "stages": {
+    "locate": 0.00021367601584643126,
+    "locate_cells": 0.0018256129696965218,
+    "graph_search": 0.006086439010687172,
+    "lifting": 0.003296131966635585,
+    "shortcut": 0.000444684992544353,
+    "own_verification": 0.00040777004323899746,
+    "shared_verification": 0.016370676923543215
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  },
+  {
+   "name": "O29",
+   "category": "other",
+   "dist_m": 3.0,
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "path_length_m": 2.9999999999999973,
+   "vertices": 2,
+   "route_polyline": [
+    [
+     2.9,
+     1.9,
+     0.06
+    ],
+    [
+     -0.1,
+     1.9,
+     0.06
+    ]
+   ],
+   "clearance_lower_m": 0.001265170733719488,
+   "algorithm_wall_s": 0.027330177021212876,
+   "stages": {
+    "locate": 0.0001886900281533599,
+    "locate_cells": 0.0018275059992447495,
+    "graph_search": 0.004525789991021156,
+    "lifting": 0.0009479800937697291,
+    "shortcut": 0.00042058294638991356,
+    "own_verification": 0.00040009093936532736,
+    "shared_verification": 0.013931481982581317
+   },
+   "certificate_kind": null,
+   "cut_distinct_pairs": null
+  }
+ ],
+ "peak_rss_mb_end": 1383.83984375
+}

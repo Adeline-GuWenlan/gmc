@@ -1,0 +1,112 @@
+{
+ "robots": {
+  "sweeper": {
+   "compile_s": 26.097612323006615,
+   "compile_cpu_s": 36.811247228000006,
+   "archive_load_and_crop_s": 2.9412625959375873,
+   "load_compiled_s": 0.8841724699595943,
+   "persisted_bytes": 188974853,
+   "screen_queries": 120,
+   "screen_status": {
+    "REACHABLE": 117,
+    "UNKNOWN": 3
+   },
+   "query_mean_s": 0.4366388758896695,
+   "query_median_s": 0.05159723706310615,
+   "query_p95_s": 2.358580458292272,
+   "query_max_s": 5.170645488076843,
+   "query_by_status": {
+    "REACHABLE": {
+     "n": 117,
+     "mean_s": 0.4470107653745426,
+     "p95_s": 2.363927200180478,
+     "max_s": 5.170645488076843
+    },
+    "UNKNOWN": {
+     "n": 3,
+     "mean_s": 0.03213518597961714,
+     "p95_s": 0.051580880500841884,
+     "max_s": 0.0549312710063532
+    }
+   },
+   "query_reachable_mean_s": 0.4470107653745426,
+   "demo_cold_s": {
+    "P1_lamp": 0.25716851104516536,
+    "P2_both": 0.6904884729301557
+   },
+   "demo_warm_median_s": 0.24924659699900076,
+   "peak_rss_gb": 1.7313041687011719,
+   "cpu_h_5000_compile_once": 0.6145092373242477,
+   "cpu_h_5000_all_reachable_mean": 0.6289146393865713,
+   "cpu_h_5000_p95_every_pair": 3.283872546216751,
+   "cpu_h_5000_compile_per_pair": 40.93821360393593,
+   "wall_h_1_tasks": 0.6147548407881253,
+   "wall_h_4_tasks": 0.15992267840305294,
+   "wall_h_8_tasks": 0.08411731800554088
+  },
+  "cylinder": {
+   "compile_s": 70.68394587107468,
+   "compile_cpu_s": 133.12324468900002,
+   "archive_load_and_crop_s": 2.058791722985916,
+   "load_compiled_s": 1.2516806969651952,
+   "persisted_bytes": 406156588,
+   "screen_queries": 120,
+   "screen_status": {
+    "UNREACHABLE": 20,
+    "REACHABLE": 34,
+    "UNKNOWN": 66
+   },
+   "query_mean_s": 0.2623752925224835,
+   "query_median_s": 0.11812892305897549,
+   "query_p95_s": 1.4332683613989496,
+   "query_max_s": 3.914102428010665,
+   "query_by_status": {
+    "UNREACHABLE": {
+     "n": 20,
+     "mean_s": 0.02182851230027154,
+     "p95_s": 0.04126162347383797,
+     "max_s": 0.041844286024570465
+    },
+    "REACHABLE": {
+     "n": 34,
+     "mean_s": 0.6499108591438819,
+     "p95_s": 2.7652765345293995,
+     "max_s": 3.914102428010665
+    },
+    "UNKNOWN": {
+     "n": 66,
+     "mean_s": 0.13562872190606978,
+     "p95_s": 0.17567603357019834,
+     "max_s": 0.3094852479407564
+    }
+   },
+   "query_reachable_mean_s": 0.6499108591438819,
+   "demo_cold_s": {
+    "P1_lamp": 0.025353659060783684,
+    "P2_both": 2.8046175809577107
+   },
+   "demo_warm_median_s": 0.020912235544528812,
+   "peak_rss_gb": 2.170879364013672,
+   "cpu_h_5000_compile_once": 0.3846164445017995,
+   "cpu_h_5000_all_reachable_mean": 0.9228602870315196,
+   "cpu_h_5000_p95_every_pair": 2.010856817941336,
+   "cpu_h_5000_compile_per_pair": 101.39599012025428,
+   "wall_h_1_tasks": 0.3849641335842898,
+   "wall_h_4_tasks": 0.11165653720670282,
+   "wall_h_8_tasks": 0.06610527114377167
+  }
+ },
+ "assumptions": [
+  "one compile per (scene, robot, box): the extended corridor box u[-9,3.7] v[-0.35,2.75] (route m); 5000 pairs per robot drawn inside it, so the compile is paid once per robot, persisted, and every array task loads it",
+  "per-query cost = measured algorithm wall of the screen queries (first call per pair on the one compile; includes own verifier and the in-query shared gs3d replay), pooled over the booth-box screen (40 pairs) and the extended-corridor screen (80 pairs). Central = pooled mean; pessimistic = every pair costs the REACHABLE mean (REACHABLE answers are the expensive ones: shortcut + tighten); bound = every pair at p95",
+  "the pooled screens are not uniform samples (bucketed toward lamp/thread pairs); in the extended corridor the cylinder answers UNKNOWN cheaply on pairs across the u~-5.6 structure, which lowers its central mean -- hence the pessimistic column",
+  "UNREACHABLE answers (certified cut) cost ~0.01-0.2 s and UNKNOWN endpoint answers ~0.01 s: the tail is the REACHABLE pairs whose path post-processing (shortcut + tighten) runs; p95 bound = every pair at the p95",
+  "no refinement / retry loop exists in aerial3d's query: an UNKNOWN is returned, not retried, so there is no unbounded tail; compile is deterministic and query cost does not grow with the number of pairs",
+  "wall excludes Slurm queueing (cpu_short QOS 120 GB / 32 CPU per user shared with ground5k); archive load + crop is paid once per task that needs a fresh PreparedScene -- here the compile pickle carries it",
+  "single-core: the query path is single-threaded numpy/scipy; tasks scale ~linearly while the node is not oversubscribed (uavconn saw 1.8x compile variance from node contention)"
+ ],
+ "total_cpu_h_both_robots_compile_once": 0.9991256818260472,
+ "total_cpu_h_both_robots_all_reachable_mean": 1.551774926418091,
+ "total_cpu_h_both_robots_p95_bound": 5.294729364158087,
+ "total_cpu_h_both_robots_compile_per_pair": 142.33420372419022
+}

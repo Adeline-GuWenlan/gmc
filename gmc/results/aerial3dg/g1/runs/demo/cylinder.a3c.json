@@ -1,0 +1,14 @@
+{
+ "compile_id": "c40f7f7bb7436581",
+ "scene_id": "uavlamp_gallery_booth_v2_ground",
+ "body": {
+  "name": "cylinder",
+  "radius_m": 0.3,
+  "half_height_m": 0.865,
+  "motion": "ground_unicycle",
+  "ground_clearance_m": 0.02
+ },
+ "bytes": 406156588,
+ "sha256": "e39fc1d067bb68e7d081fcbef98f018c280d83d9c0eea995234cc79a83b15116",
+ "format": "pickle protocol 5 of gmc.aerial3d.api.CompiledComplex"
+}

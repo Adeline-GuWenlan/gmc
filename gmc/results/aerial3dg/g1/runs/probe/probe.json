@@ -1,0 +1,444 @@
+{
+ "schema": "aerial3dg.probe.v1",
+ "box_route": {
+  "lower": [
+   -1.6,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   0.6,
+   2.75,
+   2.43
+  ]
+ },
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 152833,
+  "bounds_min": [
+   8.869277434017,
+   24.354536261885542,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   12.615026587865232,
+   27.676546591483127,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "host": {
+  "node": "cs620.hpc.nyu.edu",
+  "slurm_job_id": "18702178",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   43.39208984375,
+   46.3466796875,
+   46.09326171875
+  ],
+  "utc": "2026-09-28T06:40:34Z",
+  "python": "3.13.5"
+ },
+ "archive_load_and_hash_s": 1.1267752080457285,
+ "scene_build_and_crop_s": 0.45748248300515115,
+ "support": {
+  "contact_manifold": "constant_legacy_floor_reference",
+  "z_floor_world_m": -1.2271749593107995,
+  "fitted_plane_max_corner_deviation_m": 0.0270560757303695,
+  "allowed_height_error_m": 0.05,
+  "tile_top_clamp_m": -1.2121749593107995,
+  "chassis_bottom_m": -1.2071749593107994
+ },
+ "robots": {
+  "sweeper": {
+   "compile_id": "7d3c7484c7e8c212",
+   "body": {
+    "name": "sweeper",
+    "radius_m": 0.175,
+    "half_height_m": 0.04,
+    "motion": "ground_unicycle",
+    "ground_clearance_m": 0.02
+   },
+   "config": {
+    "margin_m": 0.001,
+    "pad_m": 0.001,
+    "octree": {
+     "min_cell_m": 0.05,
+     "root_levels": 3,
+     "buffer_m": 0.001,
+     "max_refine_pairs": 8,
+     "blocked_candidates": 4,
+     "max_nodes": 20000000
+    },
+    "cells": {
+     "max_cells": 5000,
+     "max_planes_per_cell": 20000,
+     "max_wall_s": null,
+     "gap_chunk": 32768,
+     "portal_samples": 8,
+     "portal_bin_m": 0.5
+    },
+    "audit_pairs": 64,
+    "audit_seed": 0,
+    "ground_slab_m": 0.001
+   },
+   "domain_bbox_plan": [
+    [
+     -1.3666305830947703,
+     -0.11663058309477012,
+     0.05900000000000005
+    ],
+    [
+     0.3666305830947701,
+     2.5166305830947704,
+     0.061000000000000054
+    ]
+   ],
+   "ground_z_plan": 0.06000000000000005,
+   "pairs": {
+    "input_supports": 152833,
+    "opacity_selected": 152833,
+    "after_domain_aabb": 3676,
+    "candidate_pairs": 3676,
+    "pruned_pairs": 149157,
+    "prune_rules": [
+     "opacity>tau (baseline semantics)",
+     "exact AABB(O_i) vs domain bbox (+pad)",
+     "domain row a.x<=b with min_{O_i} a.x > b+pad"
+    ],
+    "pad_m": 0.001
+   },
+   "octree": {
+    "nodes": 4667,
+    "leaves": 4088,
+    "leaves_by_status": {
+     "OUTSIDE": 0,
+     "SAFE": 801,
+     "BLOCKED": 1352,
+     "UNKNOWN": 1935
+    },
+    "volume_m3_by_status": {
+     "OUTSIDE": 0.0,
+     "SAFE": 0.0036991119314258984,
+     "BLOCKED": 0.004443314979045459,
+     "UNKNOWN": 0.0009856488002353502
+    },
+    "root_shape": [
+     5,
+     7,
+     1
+    ],
+    "leaf_unit_m": [
+     0.04333152815465985,
+     0.04702252011047132,
+     0.00024999499960669247
+    ],
+    "build_wall_s": 2.808381933020428
+   },
+   "cells": {
+    "cells": 61,
+    "support_plane_cells": 61,
+    "box_cells": 0,
+    "portals": 1571,
+    "portals_3d": 1125,
+    "portals_2d": 446,
+    "planes": 401,
+    "seed_failures": 0,
+    "cell_growth_wall_s": 0.5532953729853034,
+    "build_wall_s": 0.7088376650353894
+   },
+   "possible_components": 4,
+   "audit": {
+    "passed": true,
+    "pairs_audited": 79
+   },
+   "traceability": {
+    "support_plane_cell_facets": 1255,
+    "pair_facet_fraction_of_support_plane_cells": 0.3195219123505976,
+    "domain_facet_fraction_of_support_plane_cells": 0.6804780876494024,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 1504,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 1504
+   },
+   "compile_wall_s": 4.253515454009175,
+   "compile_outer_wall_s": 4.253554090973921,
+   "compile_cpu_s": 12.057765921000001,
+   "peak_rss_mb": 1380.96875,
+   "stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.3252333780983463,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "active_supports": 152833,
+      "reused_prepared": false
+     }
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.2248258029576391,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "candidate_pairs": 3676,
+      "pruned_pairs": 149157
+     }
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.009997371933422983,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "directions": 81,
+      "rho_table_mb": 2.271697998046875
+     }
+    },
+    {
+     "stage": "octree",
+     "seconds": 2.8084804149111733,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "nodes": 4667,
+      "leaves": 4088,
+      "outside": 0,
+      "safe": 801,
+      "blocked": 1352,
+      "unknown": 1935
+     }
+    },
+    {
+     "stage": "cells",
+     "seconds": 0.7089115279959515,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "cells": 61,
+      "portals": 1571,
+      "support_plane_cells": 61,
+      "box_cells": 0
+     }
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.00895490508992225,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "live_leaves": 2736,
+      "touch_pairs": 23002,
+      "components": 4
+     }
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.15261181502137333,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "pairs_audited": 79,
+      "passed": true
+     }
+    }
+   ]
+  },
+  "cylinder": {
+   "compile_id": "aa8ae59480195241",
+   "body": {
+    "name": "cylinder",
+    "radius_m": 0.3,
+    "half_height_m": 0.865,
+    "motion": "ground_unicycle",
+    "ground_clearance_m": 0.02
+   },
+   "config": {
+    "margin_m": 0.001,
+    "pad_m": 0.001,
+    "octree": {
+     "min_cell_m": 0.05,
+     "root_levels": 3,
+     "buffer_m": 0.001,
+     "max_refine_pairs": 8,
+     "blocked_candidates": 4,
+     "max_nodes": 20000000
+    },
+    "cells": {
+     "max_cells": 5000,
+     "max_planes_per_cell": 20000,
+     "max_wall_s": null,
+     "gap_chunk": 32768,
+     "portal_samples": 8,
+     "portal_bin_m": 0.5
+    },
+    "audit_pairs": 64,
+    "audit_seed": 0,
+    "ground_slab_m": 0.001
+   },
+   "domain_bbox_plan": [
+    [
+     -1.1999381424474633,
+     0.05006185755253693,
+     0.884
+    ],
+    [
+     0.19993814244746308,
+     2.349938142447463,
+     0.886
+    ]
+   ],
+   "ground_z_plan": 0.885,
+   "pairs": {
+    "input_supports": 152833,
+    "opacity_selected": 152833,
+    "after_domain_aabb": 65573,
+    "candidate_pairs": 65573,
+    "pruned_pairs": 87260,
+    "prune_rules": [
+     "opacity>tau (baseline semantics)",
+     "exact AABB(O_i) vs domain bbox (+pad)",
+     "domain row a.x<=b with min_{O_i} a.x > b+pad"
+    ],
+    "pad_m": 0.001
+   },
+   "octree": {
+    "nodes": 1320,
+    "leaves": 1158,
+    "leaves_by_status": {
+     "OUTSIDE": 0,
+     "SAFE": 220,
+     "BLOCKED": 324,
+     "UNKNOWN": 614
+    },
+    "volume_m3_by_status": {
+     "OUTSIDE": 0.0,
+     "SAFE": 0.0007388449858342593,
+     "BLOCKED": 0.005378372294044566,
+     "UNKNOWN": 0.0003217381711363372
+    },
+    "root_shape": [
+     4,
+     6,
+     1
+    ],
+    "leaf_unit_m": [
+     0.04374613265286812,
+     0.04791408843524541,
+     0.00024999499960670635
+    ],
+    "build_wall_s": 1.184009458986111
+   },
+   "cells": {
+    "cells": 13,
+    "support_plane_cells": 13,
+    "box_cells": 0,
+    "portals": 233,
+    "portals_3d": 185,
+    "portals_2d": 48,
+    "planes": 369,
+    "seed_failures": 0,
+    "cell_growth_wall_s": 0.7353301630355418,
+    "build_wall_s": 0.7789717679843307
+   },
+   "possible_components": 1,
+   "audit": {
+    "passed": true,
+    "pairs_audited": 80
+   },
+   "traceability": {
+    "support_plane_cell_facets": 551,
+    "pair_facet_fraction_of_support_plane_cells": 0.6696914700544465,
+    "domain_facet_fraction_of_support_plane_cells": 0.33030852994555354,
+    "box_cell_facets": 0,
+    "facets_without_provenance": 0,
+    "note": "pair facets are support planes of outer pair polytopes; domain facets are the workspace/known-space rows; box facets bound fallback box cells, whose freedom is certified by the leaf's pair separation"
+   },
+   "free_boundary_traceability": {
+    "free_boundary_faces": 369,
+    "traceable_fraction": 1.0,
+    "blocked_side": 0,
+    "unknown_side": 369
+   },
+   "compile_wall_s": 2.7464129120344296,
+   "compile_outer_wall_s": 2.746460772003047,
+   "compile_cpu_s": 10.399335349,
+   "peak_rss_mb": 1380.96875,
+   "stages": [
+    {
+     "stage": "scene_prepare",
+     "seconds": 0.33770736202131957,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "active_supports": 152833,
+      "reused_prepared": false
+     }
+    },
+    {
+     "stage": "pair_candidates",
+     "seconds": 0.1254693039227277,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "candidate_pairs": 65573,
+      "pruned_pairs": 87260
+     }
+    },
+    {
+     "stage": "envelopes",
+     "seconds": 0.10531873197760433,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "directions": 81,
+      "rho_table_mb": 40.522865295410156
+     }
+    },
+    {
+     "stage": "octree",
+     "seconds": 1.184083977015689,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "nodes": 1320,
+      "leaves": 1158,
+      "outside": 0,
+      "safe": 220,
+      "blocked": 324,
+      "unknown": 614
+     }
+    },
+    {
+     "stage": "cells",
+     "seconds": 0.7790186540223658,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "cells": 13,
+      "portals": 233,
+      "support_plane_cells": 13,
+      "box_cells": 0
+     }
+    },
+    {
+     "stage": "possible_graph",
+     "seconds": 0.002969610970467329,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "live_leaves": 834,
+      "touch_pairs": 7452,
+      "components": 1
+     }
+    },
+    {
+     "stage": "audit",
+     "seconds": 0.20718063891399652,
+     "peak_rss_mb": 1380.96875,
+     "sizes": {
+      "pairs_audited": 80,
+      "passed": true
+     }
+    }
+   ]
+  }
+ }
+}
