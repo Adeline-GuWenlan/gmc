@@ -51,6 +51,7 @@ class CompileConfig:
     cells: CellConfig = field(default_factory=CellConfig)
     audit_pairs: int = 64
     audit_seed: int = 0
+    ground_slab_m: float = 1e-3   # ground bodies: C-space z-window half-thickness (aerial3dg_design.md)
 
 
 @dataclass(frozen=True)
@@ -135,7 +136,8 @@ def compile_complex(scene: SceneSpec, body: BodySpec, *, config: CompileConfig =
         s["active_supports"] = int(len(prep.ids))
         s["reused_prepared"] = prepared is not None
     with rec.stage("pair_candidates") as s:
-        frame, domain = domain_from_scene(scene, body, margin_m=config.margin_m)
+        frame, domain = domain_from_scene(scene, body, margin_m=config.margin_m,
+                                          ground_slab_m=config.ground_slab_m)
         pairs, pstats = pairs_from_scene(scene, body, frame, domain, margin_m=config.margin_m,
                                          pad_m=config.pad_m, prepared=prep)
         s.update(candidate_pairs=len(pairs), pruned_pairs=pstats["pruned_pairs"])
@@ -180,6 +182,37 @@ def compile_complex(scene: SceneSpec, body: BodySpec, *, config: CompileConfig =
                         "definition": "compile = scene preparation (gs3d PreparedScene) + pairs + envelopes "
                                       "+ octree + cells/portals + possible graph + audit; excludes archive "
                                       "load/crop"}
+    return compiled
+
+
+def save_compiled(compiled: CompiledComplex, path) -> dict:
+    """Persist a compile (pickle) plus a ``.json`` sidecar holding its SHA-256; returns the sidecar."""
+    import pickle
+    from pathlib import Path
+    path = Path(path)
+    blob = pickle.dumps(compiled, protocol=pickle.HIGHEST_PROTOCOL)
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_bytes(blob)
+    tmp.replace(path)
+    meta = {"compile_id": compiled.compile_id, "scene_id": compiled.scene.scene_id,
+            "body": asdict(compiled.body), "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(),
+            "format": "pickle protocol %d of gmc.aerial3d.api.CompiledComplex" % pickle.HIGHEST_PROTOCOL}
+    path.with_name(path.name + ".json").write_text(json.dumps(meta, indent=1) + "\n")
+    return meta
+
+
+def load_compiled(path) -> CompiledComplex:
+    """Load a persisted compile; fail closed if the bytes differ from the sidecar hash."""
+    import pickle
+    from pathlib import Path
+    path = Path(path)
+    meta = json.loads(path.with_name(path.name + ".json").read_text())
+    blob = path.read_bytes()
+    if hashlib.sha256(blob).hexdigest() != meta["sha256"]:
+        raise ValueError("persisted compile hash differs from its sidecar")
+    compiled = pickle.loads(blob)
+    if not isinstance(compiled, CompiledComplex) or compiled.compile_id != meta["compile_id"]:
+        raise ValueError("persisted compile identity mismatch")
     return compiled
 
 
@@ -233,6 +266,8 @@ def _cut_certificate(compiled: CompiledComplex, start_comps: set) -> dict:
 
 def _endpoint(compiled, p, name, rec):
     tree, dom = compiled.tree, compiled.domain
+    if dom.ground_z is not None and abs(p[2] - dom.ground_z) > 1e-7:
+        return {"ok": False, "status": UNKNOWN_S, "reason": f"{name}_off_ground_manifold"}
     if dom.row_slack(p) <= dom.tol:
         return {"ok": False, "status": UNKNOWN_S, "reason": f"{name}_outside_domain"}
     leaves = tree.locate(p)
@@ -316,6 +351,12 @@ def query(compiled: CompiledComplex, start, goal, *, config: QueryConfig = Query
         inside = [bool(graph.cells[c].contains_points(pts[i:i + 2], tol=1e-12).all())
                   for i, c in enumerate(cell_seq)]
         st.update(portals=len(portals), segments_inside_cells=int(sum(inside)))
+        if compiled.domain.ground_z is not None:
+            # ground body: every vertex back on the support manifold (moves <= slab);
+            # the own verifier and the shared replay below re-check the pinned polyline
+            st["pinned_max_dz_m"] = float(np.max(np.abs(pts[:, 2] - compiled.domain.ground_z)))
+            pts = pts.copy()
+            pts[:, 2] = compiled.domain.ground_z
         pts = simplify(pts)
     diag["lifted_segments_inside_their_cell"] = bool(all(inside))
     cell_certified = pts.copy()

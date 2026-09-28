@@ -14,6 +14,12 @@ plain binary64 (they are only used for inner sets, which are shrunk by slack).
 The planning frame is the query box's own frame: a rigid map ``x_p = R (x_w - o)``
 whose R fixes the z axis (rotation or reflection about z), under which the
 cylinder is invariant.  Nothing is projected; covariances rotate as R S R^T.
+
+Ground bodies (``motion == "ground_unicycle"``, e.g. ``gs3d.robots.SWEEPER`` /
+``CYLINDER``) are the same upright cylinder with the body centre pinned to the
+support manifold ``z_c = floor + ground_clearance + half_height``.  Their domain
+adds a z-window slab ``|z - z_c| <= ground_slab`` (docs/aerial3dg_design.md);
+the pair C-obstacles stay the full 3-D ones.
 """
 from __future__ import annotations
 
@@ -161,6 +167,7 @@ class Domain:
     bbox_lower: np.ndarray
     bbox_upper: np.ndarray
     tol: float
+    ground_z: float | None = None   # plan-frame body-centre height of a ground body, else None
 
     def row_slack(self, q) -> float:
         return float(np.min(self.b - self.A @ np.asarray(q, float)))
@@ -179,7 +186,7 @@ class Domain:
         return {"rows": [{"a": a.tolist(), "b": float(b), "label": l}
                          for a, b, l in zip(self.A, self.b, self.labels)],
                 "bbox_lower": self.bbox_lower.tolist(), "bbox_upper": self.bbox_upper.tolist(),
-                "tol": self.tol}
+                "tol": self.tol, "ground_z_plan": self.ground_z}
 
 
 def _known_box_rows(known, frame: PlanningFrame, a_world):
@@ -211,11 +218,28 @@ def _known_box_rows(known, frame: PlanningFrame, a_world):
     return rows, rhs, labels
 
 
+def ground_centre_z(scene: SceneSpec, body: BodySpec) -> float:
+    """World body-centre height of a ground body on the scene's (horizontal) support."""
+    support = scene.support
+    if support is None:
+        raise ValueError("ground bodies need the scene's support surface")
+    lo, hi = np.asarray(scene.bounds_min, float), np.asarray(scene.bounds_max, float)
+    bounds = support.height_bounds((float(lo[0]), float(lo[1])), (float(hi[0]), float(hi[1])))
+    if bounds is None or not np.isfinite(bounds).all() or abs(bounds[1] - bounds[0]) > 1e-9:
+        raise ValueError("aerial3d ground bodies need a horizontal support over the scene bounds")
+    return float(bounds[0]) + body.ground_clearance_m + body.half_height_m
+
+
 def domain_from_scene(scene: SceneSpec, body: BodySpec, *, margin_m: float,
-                      frame: PlanningFrame | None = None) -> tuple[PlanningFrame, Domain]:
+                      frame: PlanningFrame | None = None,
+                      ground_slab_m: float = 1e-3) -> tuple[PlanningFrame, Domain]:
     """Planning frame + the body-centre domain the baseline oracle would accept."""
-    if body.motion != "uav_translation":
-        raise ValueError("aerial3d plans the axisymmetric UAV only")
+    if body.motion not in ("uav_translation", "ground_unicycle"):
+        raise ValueError(f"aerial3d does not plan motion {body.motion!r}")
+    ground = body.motion == "ground_unicycle"
+    if ground and not (np.isfinite(ground_slab_m) and ground_slab_m > 0):
+        raise ValueError("ground slab half-thickness must be positive")
+    z_world = ground_centre_z(scene, body) if ground else None
     inner = getattr(scene.known_space, "inner", scene.known_space)
     if frame is None:
         frame = (PlanningFrame(np.asarray(inner.world_to_route, float),
@@ -233,6 +257,13 @@ def domain_from_scene(scene: SceneSpec, body: BodySpec, *, margin_m: float,
         rhs += [w_hi[j] - a_world[j] - margin_m - slack_b - frame.origin[j],
                 -(w_lo[j] + a_world[j] + margin_m + slack_b - frame.origin[j])]
         labels += [f"world:{ax}_max", f"world:{ax}_min"]
+    ground_z = None
+    if ground:
+        # plan z = world z - origin z (the frame fixes the z axis)
+        ground_z = z_world - float(frame.origin[2])
+        rows += [np.array([0., 0., 1.]), np.array([0., 0., -1.])]
+        rhs += [ground_z + ground_slab_m, -(ground_z - ground_slab_m)]
+        labels += ["ground:z_window_max", "ground:z_window_min"]
     A, b = np.asarray(rows, float), np.asarray(rhs, float)
     lower, upper = np.empty(3), np.empty(3)
     for k in range(3):
@@ -244,7 +275,7 @@ def domain_from_scene(scene: SceneSpec, body: BodySpec, *, margin_m: float,
                 raise ValueError("empty or unbounded C-space domain")
             out[k] = res.x[k]
     tol = numerical_slack(lower, upper, w_lo, w_hi)
-    dom = Domain(A, b, tuple(labels), lower, upper, tol)
+    dom = Domain(A, b, tuple(labels), lower, upper, tol, ground_z)
     for arr in (dom.A, dom.b, dom.bbox_lower, dom.bbox_upper):
         arr.flags.writeable = False
     return frame, dom
