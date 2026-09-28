@@ -1,0 +1,202 @@
+{
+ "schema": "aerial3dg.g2_collect.v1",
+ "pairs_file": "results/aerial3dg/g2/pairs_5000.json",
+ "n_pairs": 5000,
+ "robots": {
+  "sweeper": {
+   "completed": 5000,
+   "status_counts": {
+    "REACHABLE": 4699,
+    "UNREACHABLE": 0,
+    "UNKNOWN": 301,
+    "TIMEOUT": 0
+   },
+   "reasons": {
+    "REACHABLE": {
+     "graph_path_lifted_and_verified": 4699
+    },
+    "UNKNOWN": {
+     "goal_not_certified_free": 116,
+     "start_not_certified_free": 123,
+     "shared_replay_failed": 62
+    }
+   },
+   "query_wall_s": {
+    "n": 5000,
+    "sum": 5593.948628056329,
+    "mean": 1.1187897256112658,
+    "median": 0.6506367470137775,
+    "p95": 3.6553926231135856,
+    "max": 18.146631211042404
+   },
+   "query_wall_s_by_status": {
+    "REACHABLE": {
+     "n": 4699,
+     "sum": 5461.371166094148,
+     "mean": 1.16224115047758,
+     "median": 0.7155101799871773,
+     "p95": 3.6556764382112275,
+     "max": 18.146631211042404
+    },
+    "UNREACHABLE": null,
+    "UNKNOWN": {
+     "n": 301,
+     "sum": 132.57746196218068,
+     "mean": 0.4404566842597365,
+     "median": 0.027799112955108285,
+     "p95": 3.0415667830384336,
+     "max": 11.928569490963127
+    },
+    "TIMEOUT": null
+   },
+   "path_over_straight": {
+    "n": 4699,
+    "sum": 4848.137646718518,
+    "mean": 1.0317381669969181,
+    "median": 1.012612913314457,
+    "p95": 1.133191642607228,
+    "max": 1.4385084872590672
+   },
+   "clearance_lower_m": {
+    "n": 4699,
+    "sum": 6.8927334512023375,
+    "mean": 0.0014668511281554241,
+    "median": 0.0013642757910297058,
+    "p95": 0.0019543912052929603,
+    "max": 0.012207153494627119
+   },
+   "shared_replay_passed_all_reachable": true,
+   "compile_ids": [
+    "8e380fca1643ba5c"
+   ],
+   "task_summaries": 10,
+   "load_wall_s": {
+    "n": 10,
+    "sum": 7.2909899351070635,
+    "mean": 0.7290989935107064,
+    "median": 0.6867890444991644,
+    "p95": 0.8657854486140423,
+    "max": 0.8682808839948848
+   },
+   "task_peak_rss_mb": {
+    "n": 10,
+    "sum": 6524.890625,
+    "mean": 652.4890625,
+    "median": 652.45703125,
+    "p95": 653.1712890625,
+    "max": 653.60546875
+   },
+   "compile_once_all_tasks": true
+  },
+  "cylinder": {
+   "completed": 5000,
+   "status_counts": {
+    "REACHABLE": 73,
+    "UNREACHABLE": 2928,
+    "UNKNOWN": 1999,
+    "TIMEOUT": 0
+   },
+   "reasons": {
+    "UNREACHABLE": {
+     "possible_space_cut": 2928
+    },
+    "UNKNOWN": {
+     "safe_graph_disconnected_possible_connected": 1587,
+     "goal_not_certified_free": 195,
+     "start_not_certified_free": 217
+    },
+    "REACHABLE": {
+     "graph_path_lifted_and_verified": 73
+    }
+   },
+   "query_wall_s": {
+    "n": 5000,
+    "sum": 526.8755636451533,
+    "mean": 0.10537511272903066,
+    "median": 0.05015846900641918,
+    "p95": 0.18227331998641602,
+    "max": 3.9020289330510423
+   },
+   "query_wall_s_by_status": {
+    "REACHABLE": {
+     "n": 73,
+     "sum": 118.0806418841239,
+     "mean": 1.6175430395085466,
+     "median": 1.5055694569600746,
+     "p95": 3.3796443865634473,
+     "max": 3.9020289330510423
+    },
+    "UNREACHABLE": {
+     "n": 2928,
+     "sum": 101.76653999229893,
+     "mean": 0.03475633196458297,
+     "median": 0.04630463197827339,
+     "p95": 0.0582997145538684,
+     "max": 0.15234921895898879
+    },
+    "UNKNOWN": {
+     "n": 1999,
+     "sum": 307.02838176873047,
+     "mean": 0.153590986377554,
+     "median": 0.13964540197048336,
+     "p95": 0.21162566083949058,
+     "max": 0.6206475219223648
+    },
+    "TIMEOUT": null
+   },
+   "path_over_straight": {
+    "n": 73,
+    "sum": 76.76324485491101,
+    "mean": 1.0515512993823426,
+    "median": 1.0323438915492165,
+    "p95": 1.1910242463792684,
+    "max": 1.2472850977712306
+   },
+   "clearance_lower_m": {
+    "n": 73,
+    "sum": 0.11495836313911316,
+    "mean": 0.0015747720977960706,
+    "median": 0.0013159315943942803,
+    "p95": 0.0028486368259560747,
+    "max": 0.006601267003478549
+   },
+   "shared_replay_passed_all_reachable": true,
+   "compile_ids": [
+    "c40f7f7bb7436581"
+   ],
+   "task_summaries": 10,
+   "load_wall_s": {
+    "n": 10,
+    "sum": 10.622137835016474,
+    "mean": 1.0622137835016474,
+    "median": 1.0084384704823606,
+    "p95": 1.2599945133551955,
+    "max": 1.2687164169037715
+   },
+   "task_peak_rss_mb": {
+    "n": 10,
+    "sum": 10648.3359375,
+    "mean": 1064.83359375,
+    "median": 1064.6484375,
+    "p95": 1065.6580078125,
+    "max": 1065.69140625
+   },
+   "compile_once_all_tasks": true
+  }
+ },
+ "paired": {
+  "robots": [
+   "sweeper",
+   "cylinder"
+  ],
+  "pairs_answered_by_both": 5000,
+  "crosstab": {
+   "REACHABLE|UNREACHABLE": 2783,
+   "REACHABLE|UNKNOWN": 1843,
+   "REACHABLE|REACHABLE": 73,
+   "UNKNOWN|UNREACHABLE": 145,
+   "UNKNOWN|UNKNOWN": 156
+  },
+  "definition": "key = 'sweeper status|cylinder status' on the same pair"
+ }
+}
