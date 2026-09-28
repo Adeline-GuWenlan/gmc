@@ -35,6 +35,16 @@ QUERY_GROUPS = {  # template-aligned grouping of the query's own stage records
 }
 
 
+def view(top, pair) -> dict:
+    """One (robot, pair) column: the robot's compile record merged with that pair's answers."""
+    pd = top["pairs"][pair]
+    d = {k: v for k, v in top.items() if k != "pairs"}
+    d.update(result=pd["result"], calls=pd["calls"], replay=pd["replay"], straight_line=pd["straight_line"],
+             pair={k: pd[k] for k in ("name", "role", "start_uv", "goal_uv", "dist_m")},
+             identical=pd["identical_all_calls"], attribution=pd.get("certificate_attribution"))
+    return d
+
+
 def pct(a, b):
     return 100. * a / b if b else float("nan")
 
@@ -66,9 +76,10 @@ def fig_timing(demos, screens, est, dst):
     ax = axes[1]
     rows, labels = [], []
     for r in ROBOTS:
-        for c in demos[r]["calls"]:
-            rows.append((r, c))
-            labels.append(f"{r} {c['call_id']}")
+        for pname, pd in demos[r]["pairs"].items():
+            for c in pd["calls"]:
+                rows.append((r, c))
+                labels.append(f"{r} {c['call_id']} ({pd['status'][:5]})")
     greys = ["#8a8984", "#b5b4ae", "#52514e", "#d3d2cc", "#6f6e69"]
     for gi, (g, names) in enumerate(QUERY_GROUPS.items()):
         left = np.array([sum(c["stages"].get(n, 0.) for gg in list(QUERY_GROUPS)[:gi] for n in QUERY_GROUPS[gg])
@@ -82,7 +93,7 @@ def fig_timing(demos, screens, est, dst):
     ax.set_yticks(np.arange(len(rows)), labels)
     ax.invert_yaxis()
     ax.set_xlabel("seconds per query call (algorithm wall, incl. own verifier + shared gs3d replay)")
-    ax.set_title("(b) the demo pair queried 5x on ONE compile: cold, 3 warm, 1 reloaded from disk", loc="left", fontsize=10)
+    ax.set_title("(b) both demo pairs answered from ONE compile per robot: cold, warm, reloaded", loc="left", fontsize=10)
     ax.legend(loc="lower right", fontsize=7)
     # (c) amortisation: compile once vs compile per pair, N pairs
     ax = axes[2]
@@ -117,13 +128,15 @@ def estimate(demos, screens, sacct) -> dict:
         status = {}
         for x in s["results"]:
             status[x["status"]] = status.get(x["status"], 0) + 1
-        warm = [c["algorithm_wall_s"] for c in d["calls"] if c["mode"] == "warm"]
+        calls = [c for pd in d["pairs"].values() for c in pd["calls"]]
+        warm = [c["algorithm_wall_s"] for c in calls if c["mode"] == "warm"]
         e = {"compile_s": d["compile"]["compile_wall_s"], "compile_cpu_s": d["compile"]["compile_cpu_s"],
              "archive_load_and_crop_s": d["archive_load_and_hash_s"] + d["scene_build_and_crop_s"],
              "load_compiled_s": d["persist"]["load_wall_s"], "persisted_bytes": d["persist"]["bytes"],
              "screen_queries": len(qs), "screen_status": status,
              "query_mean_s": float(np.mean(qs)), "query_median_s": q(qs, 50), "query_p95_s": q(qs, 95),
-             "query_max_s": float(np.max(qs)), "demo_cold_s": d["calls"][0]["algorithm_wall_s"],
+             "query_max_s": float(np.max(qs)),
+             "demo_cold_s": {n: pd["calls"][0]["algorithm_wall_s"] for n, pd in d["pairs"].items()},
              "demo_warm_median_s": q(warm, 50), "peak_rss_gb": sacct.get(r, {}).get("maxrss_gb")}
         e["cpu_h_5000_compile_once"] = (e["archive_load_and_crop_s"] + e["compile_s"] + 5000 * e["query_mean_s"]) / 3600
         e["cpu_h_5000_p95_every_pair"] = (e["archive_load_and_crop_s"] + e["compile_s"] + 5000 * e["query_p95_s"]) / 3600
@@ -155,11 +168,17 @@ def estimate(demos, screens, sacct) -> dict:
 
 
 # ----------------------------------------------------------------------------- template
-def fill_template(src, dst, demos, screens, est, sacct):
+def fill_template(src, dst, tops, screens, est, sacct, extra):
     rows = list(csv.reader(open(src, encoding="utf-8-sig")))
     head, body = rows[0], rows[1:]
-    val = {r: {} for r in ROBOTS}
-    for r in ROBOTS:
+    pairs = list(tops["sweeper"]["pairs"])
+    cols = [(r, pn) for pn in pairs for r in ROBOTS]
+    val = {c: {} for c in cols}
+    for (r, pn) in cols:
+        demos = {rr: view(tops[rr], pn) for rr in ROBOTS}
+        for rr in ROBOTS:
+            demos[rr]["route_kind"] = extra.get("route_kind", {}).get(pn, {}).get(rr, "见报告")
+        demos.update({k: v.get(pn, v) if isinstance(v, dict) else v for k, v in extra.items() if k.startswith("_")})
         d, s = demos[r], screens[r]
         res, comp = d["result"], d["compile"]
         cold = d["calls"][0]
@@ -184,7 +203,7 @@ def fill_template(src, dst, demos, screens, est, sacct):
         oct_, cel = comp["octree"], comp["cells"]
         sl = d["straight_line"]
         other = demos["cylinder" if r == "sweeper" else "sweeper"]
-        v = val[r]
+        v = val[(r, pn)]
         v["实验设置｜代码版本 / Git commit"] = f"版本：aerial3d ground (G1)；commit：{host.get('git_commit', '')[:10]}"
         v["实验设置｜运行日期"] = host["utc"][:10]
         v["实验设置｜硬件与运行环境"] = (f"CPU：{host['node']}（Slurm cpu_short，{host['cpus_per_task']} 核分配，查询单线程）；GPU：无；"
@@ -250,7 +269,7 @@ def fill_template(src, dst, demos, screens, est, sacct):
         v["复用性｜仅更换 start/end 时可以直接复用的阶段"] = "scene_prepare(BVH)、pair 生成、包络表、octree、凸胞+portal、possible 图、审计（compile 全部）"
         v["复用性｜仅更换 start/end 时可复用计算占原 cold-start 时间比例"] = f"{pct(comp['compile_wall_s'], total):.1f}%"
         v["复用性｜相同 start/end 重复查询时的缓存命中率"] = ("编译产物 100% 复用（warm/重载调用中无任何编译阶段）；查询结果本身不缓存 → 0%；"
-                                             f"warm 与 cold 结果完全一致：{d['compile_once_proof']['identical_polylines_all_calls']}")
+                                             f"cold/warm/重载结果完全一致：{d['identical']}")
         for k, name in ((1, "sweeper"), (2, "cylinder")):
             bb, dd = demos[name]["body"], demos[name]
             v[f"机器人对比｜机器人 {k} 参数"] = (f"名称：{name}；宽：{2 * bb['radius_m']:.3f} m；长：{2 * bb['radius_m']:.3f} m；高："
@@ -277,10 +296,10 @@ def fill_template(src, dst, demos, screens, est, sacct):
                     "机器人对比｜更换机器人后主要路线发生变化的比例", "机器人对比｜小机器人选择窄路捷径的比例",
                     "机器人对比｜大机器人避开无法通过窄路的比例", "机器人对比｜高机器人避开低矮通道的比例"):
             v[key] = demos.get("_multi", {}).get(key, "待 G2/G3（5000 对）")
-    out = [[head[0], "sweeper（本次测量）", "cylinder（本次测量）"]]
+    out = [[head[0]] + [f"{r} · {pn}（本次测量）" for r, pn in cols]]
     for row in body:
         key = row[0]
-        out.append([key] + [val[r].get(key, row[1] if len(row) > 1 else "") for r in ROBOTS])
+        out.append([key] + [val[c].get(key, row[1] if len(row) > 1 else "") for c in cols])
     with open(dst, "w", encoding="utf-8-sig", newline="") as f:
         csv.writer(f).writerows(out)
     return out
@@ -299,15 +318,11 @@ def main(argv=None):
     demos = {r: json.loads((a.demo / f"demo_{r}.json").read_text()) for r in ROBOTS}
     screens = {r: json.loads((a.screen / f"screen_{r}.json").read_text()) for r in ROBOTS}
     sacct = json.loads(a.sacct.read_text())
-    if a.extra:
-        extra = json.loads(a.extra.read_text())
-        for r in ROBOTS:
-            demos[r]["route_kind"] = extra.get("route_kind", {}).get(r, "见报告")
-        demos.update({k: v for k, v in extra.items() if k.startswith("_")})
+    extra = json.loads(a.extra.read_text()) if a.extra else {}
     est = estimate(demos, screens, sacct)
     (a.out / "estimate_5000.json").write_text(json.dumps(est, indent=1, ensure_ascii=False) + "\n")
     fig_timing(demos, screens, est, a.out / "timing.png")
-    fill_template(a.template, a.out / "measurement_g1.csv", demos, screens, est, sacct)
+    fill_template(a.template, a.out / "measurement_g1.csv", demos, screens, est, sacct, extra)
     print(json.dumps({r: {k: round(v, 3) if isinstance(v, float) else v for k, v in est["robots"][r].items()}
                       for r in ROBOTS}, ensure_ascii=False, indent=1))
     print("total cpu h (compile once, both robots):", round(est["total_cpu_h_both_robots_compile_once"], 3))
