@@ -67,6 +67,10 @@ class QueryConfig:
     verify_max_depth: int = 12
     query_cell_max_lp: int = 400
     shared_verification: bool = True
+    # Exported gs3d trajectory only: split long segments into collinear pieces <= this length (same
+    # path, no turns).  The shared oracle bounds a whole swept segment by its WORLD-axis AABB, which
+    # leaves a rotated known prism on long diagonal segments (map_unknown, uavconn EA03); None = off.
+    export_max_segment_m: float | None = None
 
 
 def _peak_rss_mb() -> float:
@@ -406,7 +410,8 @@ def query(compiled: CompiledComplex, start, goal, *, config: QueryConfig = Query
                metrics=polyline_metrics(poly_w))
     if own["status"] != "CERTIFIED":
         return finish(UNKNOWN_S, f"own_verification_{own['status'].lower()}")
-    gs3d = _gs3d_result(compiled, poly_w, g_w, own["clearance_lower_m"])
+    gs3d = _gs3d_result(compiled, _densify(poly_w, config.export_max_segment_m), g_w, own["clearance_lower_m"])
+    gs3d["diagnostics"]["export_max_segment_m"] = config.export_max_segment_m
     if config.shared_verification:
         with rec.stage("shared_verification"):
             replay = replay_plan(gs3d, GaussianBodyOracle(compiled.prepared))
@@ -421,6 +426,17 @@ def query(compiled: CompiledComplex, start, goal, *, config: QueryConfig = Query
         clearance = own["clearance_lower_m"]
     gs3d["clearance_lower_m"] = clearance
     return finish(REACHABLE, "graph_path_lifted_and_verified", clearance_lower_m=clearance, gs3d_result=gs3d)
+
+
+def _densify(poly, max_seg):
+    """Insert collinear knots so no segment exceeds ``max_seg`` (endpoints and vertices kept exactly)."""
+    if max_seg is None:
+        return poly
+    out = [poly[0]]
+    for a, b in zip(poly[:-1], poly[1:]):
+        k = max(1, int(np.ceil(np.linalg.norm(b - a) / max_seg - 1e-12)))
+        out += [a + (b - a) * (j / k) for j in range(1, k)] + [b]
+    return np.asarray(out)
 
 
 def _gs3d_result(compiled, poly_w, goal_w, clearance) -> dict:

@@ -121,3 +121,17 @@ def test_uav_path_is_unchanged():
     scene, _ = low_wall()
     frame, dom = domain_from_scene(scene, UAV, margin_m=.05)
     assert not any(l.startswith("ground:") for l in dom.labels)
+
+
+def test_export_densifies_the_shared_replay_trajectory_without_changing_the_path(corridor):
+    from gmc.aerial3d.api import QueryConfig
+    _, queries, compiled = corridor
+    base = query(compiled["sweeper"], *queries["sweeper"]["under"])
+    dense = query(compiled["sweeper"], *queries["sweeper"]["under"], config=QueryConfig(export_max_segment_m=.2))
+    assert dense["polyline_world"] == base["polyline_world"]                  # same path, same metrics
+    poses = np.asarray(dense["gs3d_result"]["trajectory"]["poses"], float)
+    steps = np.linalg.norm(np.diff(poses[:, :3], axis=0), axis=1)
+    assert steps.max() <= .2 + 1e-9 and len(poses) > len(base["gs3d_result"]["trajectory"]["poses"])
+    assert np.allclose(poses[:, 1], .5) and np.allclose(poses[:, 2], ground_z(SWEEPER))   # collinear, on manifold
+    assert dense["verification"]["shared"]["passed"]
+    assert dense["gs3d_result"]["diagnostics"]["export_max_segment_m"] == .2
