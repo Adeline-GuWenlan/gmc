@@ -254,9 +254,11 @@ def cmd_sample(a):
 
 
 def cmd_compile(a):
+    from dataclasses import replace
     from aerial3dg_run import load_booth, timed_compile
     ctx = load_booth(_box(a.box))
-    compiled, outer, cpu = timed_compile(ctx["scene"], ROBOTS[a.robot])
+    body = ROBOTS[a.robot] if a.radius is None else replace(ROBOTS[a.robot], radius_m=a.radius)
+    compiled, outer, cpu = timed_compile(ctx["scene"], body)
     rec = compile_record(compiled, outer, cpu)
     t0 = time.perf_counter()
     meta = save_compiled(compiled, a.a3c)
@@ -420,6 +422,7 @@ def main(argv=None):
     co.add_argument("--box", type=float, nargs=4, required=True, metavar=("U0", "V0", "U1", "V1"))
     co.add_argument("--a3c", type=Path, required=True)
     co.add_argument("--out", type=Path, required=True)
+    co.add_argument("--radius", type=float, default=None, help="override the body radius (size-sensitivity runs)")
     ta = sub.add_parser("task")
     ta.add_argument("--robot", required=True, choices=sorted(ROBOTS))
     ta.add_argument("--pairs", type=Path, required=True)

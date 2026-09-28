@@ -1,0 +1,181 @@
+{
+ "box_route_uv": [
+  -9.0,
+  -0.35,
+  3.7,
+  2.75
+ ],
+ "selection": "G3 gallery from the G2 5000-pair results (gmc/results/aerial3dg/g2/runs); rules fixed before rendering, applied by experiments/aerial3dg_analyze.py select",
+ "rules": {
+  "T1_thread_vs_detour": "both REACHABLE and G1's pre-registered contrast rule (sweeper L <= 1.02 d, cylinder L >= 1.05 d); the largest L_cylinder - L_sweeper",
+  "T2_thread_vs_detour_reverse": "same rule, travelling the opposite u direction to T1; the largest L_cylinder - L_sweeper",
+  "L1_gap_and_lamp": "sweeper REACHABLE with a route crossing both u=-5.6 and the lamp line u=-0.85, cylinder certified UNREACHABLE; the straightest sweeper route (min L/d)",
+  "N1_gap_only": "sweeper REACHABLE crossing u=-5.6 but not the lamp, cylinder UNKNOWN (safe_graph_disconnected_possible_connected); the straightest sweeper route (min L/d)",
+  "S1_sweeper_max_detour": "sweeper REACHABLE with the largest L/d over all 5000 pairs",
+  "B1_both_same_route": "both REACHABLE with route Hausdorff < 0.2 m; the largest d (control: no morphology effect)"
+ },
+ "pairs": [
+  {
+   "name": "T1_thread_vs_detour",
+   "role": "both REACHABLE and G1's pre-registered contrast rule (sweeper L <= 1.02 d, cylinder L >= 1.05 d); the largest L_cylinder - L_sweeper",
+   "g2_index": 2772,
+   "pair_id": "G2-02772",
+   "start_uv": [
+    -5.3308,
+    1.7868
+   ],
+   "goal_uv": [
+    -2.0579,
+    1.2485
+   ],
+   "dist_m": 3.3168722164111175,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "REACHABLE"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "graph_path_lifted_and_verified"
+   },
+   "g2_length_m": {
+    "sweeper": 3.3185622049526176,
+    "cylinder": 4.137085286741019
+   }
+  },
+  {
+   "name": "T2_thread_vs_detour_reverse",
+   "role": "same rule, travelling the opposite u direction to T1; the largest L_cylinder - L_sweeper",
+   "g2_index": 2004,
+   "pair_id": "G2-02004",
+   "start_uv": [
+    -1.6804,
+    1.0651
+   ],
+   "goal_uv": [
+    -4.7499,
+    2.0856
+   ],
+   "dist_m": 3.23469480786055,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "REACHABLE"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "graph_path_lifted_and_verified"
+   },
+   "g2_length_m": {
+    "sweeper": 3.235484723328368,
+    "cylinder": 3.8142423471180953
+   }
+  },
+  {
+   "name": "L1_gap_and_lamp",
+   "role": "sweeper REACHABLE with a route crossing both u=-5.6 and the lamp line u=-0.85, cylinder certified UNREACHABLE; the straightest sweeper route (min L/d)",
+   "g2_index": 2503,
+   "pair_id": "G2-02503",
+   "start_uv": [
+    1.0704,
+    1.1214
+   ],
+   "goal_uv": [
+    -6.1565,
+    1.8243
+   ],
+   "dist_m": 7.261002136069099,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "UNREACHABLE"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "possible_space_cut"
+   },
+   "g2_length_m": {
+    "sweeper": 7.261863125403572,
+    "cylinder": null
+   }
+  },
+  {
+   "name": "N1_gap_only",
+   "role": "sweeper REACHABLE crossing u=-5.6 but not the lamp, cylinder UNKNOWN (safe_graph_disconnected_possible_connected); the straightest sweeper route (min L/d)",
+   "g2_index": 964,
+   "pair_id": "G2-00964",
+   "start_uv": [
+    -6.3304,
+    1.8624
+   ],
+   "goal_uv": [
+    -2.8239,
+    1.3984
+   ],
+   "dist_m": 3.5370663338422137,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "UNKNOWN"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "safe_graph_disconnected_possible_connected"
+   },
+   "g2_length_m": {
+    "sweeper": 3.5370663338422106,
+    "cylinder": null
+   }
+  },
+  {
+   "name": "S1_sweeper_max_detour",
+   "role": "sweeper REACHABLE with the largest L/d over all 5000 pairs",
+   "g2_index": 354,
+   "pair_id": "G2-00354",
+   "start_uv": [
+    -4.3118,
+    0.3983
+   ],
+   "goal_uv": [
+    -7.2966,
+    0.0815
+   ],
+   "dist_m": 3.001565138390303,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "UNKNOWN"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "safe_graph_disconnected_possible_connected"
+   },
+   "g2_length_m": {
+    "sweeper": 4.317776926635387,
+    "cylinder": null
+   }
+  },
+  {
+   "name": "B1_both_same_route",
+   "role": "both REACHABLE with route Hausdorff < 0.2 m; the largest d (control: no morphology effect)",
+   "g2_index": 177,
+   "pair_id": "G2-00177",
+   "start_uv": [
+    -5.3981,
+    1.2594
+   ],
+   "goal_uv": [
+    -1.6056,
+    0.4865
+   ],
+   "dist_m": 3.8704561307422156,
+   "g2_status": {
+    "sweeper": "REACHABLE",
+    "cylinder": "REACHABLE"
+   },
+   "g2_reason": {
+    "sweeper": "graph_path_lifted_and_verified",
+    "cylinder": "graph_path_lifted_and_verified"
+   },
+   "g2_length_m": {
+    "sweeper": 3.870552250953362,
+    "cylinder": 3.883734228898848
+   }
+  }
+ ]
+}

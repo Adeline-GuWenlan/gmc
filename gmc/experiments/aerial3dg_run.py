@@ -371,12 +371,22 @@ def _call(compiled, s, g, call_id, mode, source):
 
 
 def cmd_demo(a):
-    """One compile per robot; every named pair is answered from it (cold, warm, and from the reloaded file)."""
+    """One compile per robot; every named pair is answered from it (cold, warm, and from the reloaded file).
+    With ``--from-a3c`` the compile is not rebuilt: the persisted one is loaded (G3 gallery, 0 compiles)."""
     ctx = load_booth(_box(a.box))
     body, frame, scene = ROBOTS[a.robot], ctx["frame"], ctx["scene"]
     pairs = json.loads(a.pairs.read_text())["pairs"]          # [{name, start_uv, goal_uv, role}], first = primary
-    compiled, outer, cpu = timed_compile(scene, body, min_cell_m=a.min_cell)
+    if a.from_a3c:
+        t0, c0 = time.perf_counter(), time.process_time()
+        compiled = load_compiled(a.from_a3c)
+        outer, cpu = time.perf_counter() - t0, time.process_time() - c0
+        if compiled.body != body:
+            raise ValueError(f"{a.from_a3c} holds {compiled.body}, not {body}")
+    else:
+        compiled, outer, cpu = timed_compile(scene, body, min_cell_m=a.min_cell)
     rec = compile_record(compiled, outer, cpu)
+    if a.from_a3c:        # compile_* fields are the original compile's records; outer/cpu here are the load
+        rec.update(compile_outer_wall_s=None, compile_cpu_s=None, load_wall_s=outer, load_cpu_s=cpu)
     before = json.dumps(compiled.timings["records"], sort_keys=True, default=float)
     ends = {p["name"]: (ground_world(frame, body, p["start_uv"]), ground_world(frame, body, p["goal_uv"])) for p in pairs}
     calls = {p["name"]: [] for p in pairs}
@@ -387,10 +397,11 @@ def cmd_demo(a):
         for w in range(n_warm):
             calls[p["name"]].append(_call(compiled, s, g, f"{p['name']}:warm{w}", "warm", "in_memory_compile"))
     t0 = time.perf_counter()
-    meta = save_compiled(compiled, a.out / f"{a.robot}.a3c")
+    a3c = a.from_a3c or a.out / f"{a.robot}.a3c"
+    meta = {"path": str(a3c), "reused": True} if a.from_a3c else save_compiled(compiled, a3c)
     save_s = time.perf_counter() - t0
     t0 = time.perf_counter()
-    back = load_compiled(a.out / f"{a.robot}.a3c")
+    back = load_compiled(a3c)
     load_s = time.perf_counter() - t0
     for p in pairs:
         s, g = ends[p["name"]]
@@ -443,7 +454,8 @@ def cmd_demo(a):
            "archive_sha256": ctx["digest"], "compile": rec,
            "persist": {**meta, "save_wall_s": save_s, "load_wall_s": load_s},
            "compile_once_proof": {
-               "compiles_in_this_process": 1, "query_calls_answered": len(all_calls),
+               "compiles_in_this_process": 0 if a.from_a3c else 1, "loaded_from": str(a.from_a3c or ""),
+               "query_calls_answered": len(all_calls),
                "compile_records_changed_by_queries": compile_rerun,
                "any_compile_stage_inside_a_query_call": any(
                    stage_names & {t["stage"] for t in c["result"]["timings"]["records"]} for c in all_calls),
@@ -477,6 +489,7 @@ def main(argv=None):
     de.add_argument("--pairs", type=Path, required=True, help="json {pairs: [{name, start_uv, goal_uv, role}]}")
     de.add_argument("--warm", type=int, default=3)
     de.add_argument("--box", type=float, nargs=4, metavar=("U0", "V0", "U1", "V1"))
+    de.add_argument("--from-a3c", type=Path, default=None, help="load this persisted compile instead of compiling")
     for q in (pr, sc, de, mp_):
         q.add_argument("--out", type=Path, required=True)
     for q in (pr, sc, de):
