@@ -34,6 +34,7 @@ from uavlamp_render import cam_from
 ROBOT_C = {"sweeper": "#2a78d6", "cylinder": "#eb6834"}
 FREE_C = {"sweeper": "#2a78d6", "cylinder": "#eb6834"}
 SURFACE, INK, INK2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e4e3df"
+LAMP_U = (-1.03, -.67)   # manifest lamp footprint u range (route m)
 LABEL_C = {"SAFE": "#1baf7a", "BLOCKED": "#d62728", "UNKNOWN": "#eda100", "NONE": "#a3a29d"}
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["DejaVu Sans"], "font.size": 9,
                      "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
@@ -66,7 +67,7 @@ def fig_routes(booth, demos, cands, dst):
     ulo, uhi = min(s_uv[0], g_uv[0]) - 1.2, max(s_uv[0], g_uv[0]) + 1.2
     us, vs = np.asarray(cands["us"]), np.asarray(cands["vs"])
     step = float(cands["step"])
-    fig = plt.figure(figsize=(15, 11.5))
+    fig = plt.figure(figsize=(12, 12.5))
     gs = fig.add_gridspec(3, 1, height_ratios=[1, 1, .85], hspace=.32)
     op = booth.opac > .3
     loc = booth.loc[op]
@@ -115,8 +116,8 @@ def fig_routes(booth, demos, cands, dst):
         ax.set_aspect("equal")
         ax.set_xlabel("u (m, along the gallery)")
         ax.set_ylabel("v (m, across)")
-        ax.set_title(f"{name} at its own height: body band {z0:.2f}–{z1:.2f} m above the floor.  Shaded = centre "
-                     f"positions the gs3d oracle certifies free (0.1 m grid); grey dots = captured Gaussians in the band",
+        ax.set_title(f"{name} at its own height (body band {z0:.2f}–{z1:.2f} m above the floor)\nshaded = centre positions "
+                     f"the gs3d oracle certifies free (0.1 m grid); grey dots = captured Gaussians in that band",
                      fontsize=9.5, loc="left")
         ax.legend(loc="upper right", fontsize=7.5, framealpha=.92, ncol=2)
     ax = fig.add_subplot(gs[2])
@@ -145,10 +146,10 @@ def fig_routes(booth, demos, cands, dst):
     ax.set_xlabel("distance along the straight start→goal segment (m)")
     ax.set_ylim(-2.7, max(3., ax.get_ylim()[1]))
     ax.legend(loc="upper right", fontsize=7.5, ncol=3, framealpha=.92)
-    ax.set_title("Why the routes differ: each robot's own certificates along the straight segment (octree leaf "
-                 "labels, and the gs3d oracle's point clearance at the robot's own z)", fontsize=9.5, loc="left")
-    fig.suptitle(f"Pair {pair['name']}: same start ({s_uv[0]:.2f}, {s_uv[1]:.2f}) and goal ({g_uv[0]:.2f}, {g_uv[1]:.2f}) (route u, v in m; {np.linalg.norm(g_uv - s_uv):.2f} m apart), same archive, one query call per "
-                 f"robot on that robot's compile", fontsize=10.5, x=.01, ha="left")
+    ax.set_title("Why the routes differ: each robot's own certificates along the straight segment\n(octree leaf "
+                 "labels; gs3d oracle point clearance at the robot's own z, capped by the oracle's padding)",
+                 fontsize=9.5, loc="left")
+    fig.suptitle(f"Pair {pair['name']}: start ({s_uv[0]:.2f}, {s_uv[1]:.2f}) → goal ({g_uv[0]:.2f}, {g_uv[1]:.2f}) (route u, v in m; {np.linalg.norm(g_uv - s_uv):.2f} m apart)\nsame archive; one query call per robot on that robot's own compile", fontsize=10.5, x=.01, ha="left")
     fig.savefig(dst, dpi=100, bbox_inches="tight")
     plt.close(fig)
 
@@ -208,6 +209,13 @@ def flythrough(booth, d, other, out_dir, manifest, *, seconds=12., fps=20, size=
         ax.text(12, 22, f"{name} (r {body['radius_m']:.3f} m, body {body['ground_clearance_m']:.2f}–"
                 f"{body['ground_clearance_m'] + 2 * body['half_height_m']:.2f} m above floor)   one query on the "
                 f"cached compile   t = {t[k]:5.1f} s", fontsize=9.5, color="k", bbox=dict(fc="white", ec="none", alpha=.8))
+        u_k = route[k, 0]
+        under = LAMP_U[0] - body["radius_m"] <= u_k <= LAMP_U[1] + body["radius_m"]
+        ax.text(12, 46, f"position u = {u_k:5.2f} m, v = {route[k, 1]:4.2f} m" +
+                ("   UNDER THE LAMP (lamp underside 1.10 m, body top "
+                 f"{body['ground_clearance_m'] + 2 * body['half_height_m']:.2f} m)" if under else ""),
+                fontsize=9.5, color="#5a4500" if under else "k", fontweight="bold" if under else "normal",
+                bbox=dict(fc="#fff3c4" if under else "white", ec="none", alpha=.85))
         ax.text(12, size[1] - 14, f"thick = this robot's route ({d['length']:.2f} m); thin "
                 + (f"{other['robot']} = the other robot's route ({other['length']:.2f} m)" if "length" in other else
                    f"{other['robot']}: {other['status']}, no route") + " · wall B and soffit cut away for the view", fontsize=8, color="k", bbox=dict(fc="white", ec="none", alpha=.7))

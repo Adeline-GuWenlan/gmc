@@ -27,8 +27,7 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["DejaVu Sa
                      "axes.spines.top": False, "axes.spines.right": False, "axes.axisbelow": True})
 COMPILE_STAGES = ["scene_prepare", "pair_candidates", "envelopes", "octree", "cells", "possible_graph", "audit"]
 QUERY_GROUPS = {  # template-aligned grouping of the query's own stage records
-    "locate endpoints": ["locate", "locate_cells", "cut_certificate"],
-    "portal A*": ["graph_search"],
+    "locate endpoints + portal A* (or cut certificate)": ["locate", "locate_cells", "cut_certificate", "graph_search"],
     "path extraction (lift + shortcut + tighten + merge)": ["lifting", "shortcut", "tighten", "merge_corners"],
     "own continuous verifier": ["own_verification"],
     "shared gs3d replay": ["shared_verification"],
@@ -80,7 +79,7 @@ def fig_timing(demos, screens, est, dst):
             for c in pd["calls"]:
                 rows.append((r, c))
                 labels.append(f"{r} {c['call_id']} ({pd['status'][:5]})")
-    greys = ["#8a8984", "#b5b4ae", "#52514e", "#d3d2cc", "#6f6e69"]
+    greys = ["#eda100", "#008300", "#e87ba4", "#4a3aa7"]   # plane_timing_report GROUP_COLOR hues (validated)
     for gi, (g, names) in enumerate(QUERY_GROUPS.items()):
         left = np.array([sum(c["stages"].get(n, 0.) for gg in list(QUERY_GROUPS)[:gi] for n in QUERY_GROUPS[gg])
                          for _, c in rows])
@@ -94,14 +93,14 @@ def fig_timing(demos, screens, est, dst):
     ax.invert_yaxis()
     ax.set_xlabel("seconds per query call (algorithm wall, incl. own verifier + shared gs3d replay)")
     ax.set_title("(b) both demo pairs answered from ONE compile per robot: cold, warm, reloaded", loc="left", fontsize=10)
-    ax.legend(loc="lower right", fontsize=7)
+    ax.legend(loc="upper center", bbox_to_anchor=(.45, -.13), ncol=2, fontsize=7, frameon=False)
     # (c) amortisation: compile once vs compile per pair, N pairs
     ax = axes[2]
     n = np.logspace(0, np.log10(5000), 60)
     for r in ROBOTS:
         e = est["robots"][r]
-        once = e["compile_s"] + e["load_compiled_s"] + n * e["query_mean_s"]
-        each = n * (e["archive_load_and_crop_s"] + e["compile_s"] + e["query_mean_s"])
+        once = e["compile_s"] + e["load_compiled_s"] + n * e["query_reachable_mean_s"]
+        each = n * (e["archive_load_and_crop_s"] + e["compile_s"] + e["query_reachable_mean_s"])
         ax.plot(n, once / 3600, color=ROBOT_C[r], lw=2, label=f"{r}: compile once, reuse")
         ax.plot(n, each / 3600, color=ROBOT_C[r], lw=1.4, ls=(0, (4, 3)), label=f"{r}: load + compile per pair")
         ax.text(n[-1] * 1.05, once[-1] / 3600, f"{once[-1] / 3600:.2f} h", fontsize=7.5, color=INK2, va="center")
@@ -110,9 +109,9 @@ def fig_timing(demos, screens, est, dst):
     ax.set_xlim(1, 5000 * 2.2)
     ax.set_xlabel("number of start/goal pairs on one scene + robot")
     ax.set_ylabel("single-core hours")
-    ax.set_title("(c) 5000 pairs: compile once vs per pair (screen means)", loc="left", fontsize=10)
+    ax.set_title("(c) N pairs: compile once vs per pair\n(every query at the REACHABLE mean)", loc="left", fontsize=10)
     ax.legend(loc="upper left", fontsize=7.5)
-    fig.suptitle("aerial3d ground bodies on the real archive — compile once, query many (sweeper vs cylinder, same pair)",
+    fig.suptitle("aerial3d ground bodies on the real archive — compile once, query many (sweeper vs cylinder, the same two demo pairs)",
                  x=.01, ha="left", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, .95))
     fig.savefig(dst, dpi=100)
@@ -125,9 +124,10 @@ def estimate(demos, screens, sacct) -> dict:
     for r in ROBOTS:
         d, s = demos[r], screens[r]
         qs = [x["algorithm_wall_s"] for x in s["results"]]
-        status = {}
+        status, by_status = {}, {}
         for x in s["results"]:
             status[x["status"]] = status.get(x["status"], 0) + 1
+            by_status.setdefault(x["status"], []).append(x["algorithm_wall_s"])
         calls = [c for pd in d["pairs"].values() for c in pd["calls"]]
         warm = [c["algorithm_wall_s"] for c in calls if c["mode"] == "warm"]
         e = {"compile_s": d["compile"]["compile_wall_s"], "compile_cpu_s": d["compile"]["compile_cpu_s"],
@@ -136,9 +136,14 @@ def estimate(demos, screens, sacct) -> dict:
              "screen_queries": len(qs), "screen_status": status,
              "query_mean_s": float(np.mean(qs)), "query_median_s": q(qs, 50), "query_p95_s": q(qs, 95),
              "query_max_s": float(np.max(qs)),
+             "query_by_status": {k: {"n": len(v), "mean_s": float(np.mean(v)), "p95_s": q(v, 95), "max_s": float(np.max(v))}
+                                 for k, v in by_status.items()},
+             "query_reachable_mean_s": float(np.mean(by_status.get("REACHABLE", qs))),
              "demo_cold_s": {n: pd["calls"][0]["algorithm_wall_s"] for n, pd in d["pairs"].items()},
              "demo_warm_median_s": q(warm, 50), "peak_rss_gb": sacct.get(r, {}).get("maxrss_gb")}
         e["cpu_h_5000_compile_once"] = (e["archive_load_and_crop_s"] + e["compile_s"] + 5000 * e["query_mean_s"]) / 3600
+        e["cpu_h_5000_all_reachable_mean"] = (e["archive_load_and_crop_s"] + e["compile_s"]
+                                              + 5000 * e["query_reachable_mean_s"]) / 3600
         e["cpu_h_5000_p95_every_pair"] = (e["archive_load_and_crop_s"] + e["compile_s"] + 5000 * e["query_p95_s"]) / 3600
         e["cpu_h_5000_compile_per_pair"] = 5000 * (e["archive_load_and_crop_s"] + e["compile_s"] + e["query_mean_s"]) / 3600
         for k in (1, 4, 8):
@@ -147,14 +152,19 @@ def estimate(demos, screens, sacct) -> dict:
         out["robots"][r] = e
     both = sum(out["robots"][r]["cpu_h_5000_compile_once"] for r in ROBOTS)
     out["total_cpu_h_both_robots_compile_once"] = both
+    out["total_cpu_h_both_robots_all_reachable_mean"] = sum(out["robots"][r]["cpu_h_5000_all_reachable_mean"] for r in ROBOTS)
     out["total_cpu_h_both_robots_p95_bound"] = sum(out["robots"][r]["cpu_h_5000_p95_every_pair"] for r in ROBOTS)
     out["total_cpu_h_both_robots_compile_per_pair"] = sum(out["robots"][r]["cpu_h_5000_compile_per_pair"] for r in ROBOTS)
     out["assumptions"] = [
         "one compile per (scene, robot, box): the extended corridor box u[-9,3.7] v[-0.35,2.75] (route m); 5000 pairs "
         "per robot drawn inside it, so the compile is paid once per robot, persisted, and every array task loads it",
-        "per-query cost = the screen's measured algorithm wall (cold, fresh process after the compile; includes own "
-        "verifier and the in-query shared gs3d replay) over its 80 pairs; the screen over-samples 'thread' pairs "
-        "(50/80) whose routes bend, so the mean is if anything pessimistic for uniformly drawn pairs",
+        "per-query cost = measured algorithm wall of the screen queries (first call per pair on the one compile; "
+        "includes own verifier and the in-query shared gs3d replay), pooled over the booth-box screen (40 pairs) and "
+        "the extended-corridor screen (80 pairs). Central = pooled mean; pessimistic = every pair costs the "
+        "REACHABLE mean (REACHABLE answers are the expensive ones: shortcut + tighten); bound = every pair at p95",
+        "the pooled screens are not uniform samples (bucketed toward lamp/thread pairs); in the extended corridor "
+        "the cylinder answers UNKNOWN cheaply on pairs across the u~-5.6 structure, which lowers its central mean -- "
+        "hence the pessimistic column",
         "UNREACHABLE answers (certified cut) cost ~0.01-0.2 s and UNKNOWN endpoint answers ~0.01 s: the tail is the "
         "REACHABLE pairs whose path post-processing (shortcut + tighten) runs; p95 bound = every pair at the p95",
         "no refinement / retry loop exists in aerial3d's query: an UNKNOWN is returned, not retried, so there is no "
@@ -190,11 +200,11 @@ def fill_template(src, dst, tops, screens, est, sacct, extra):
             return f"{x:.3f} s；占总时间 {pct(x, total):.1f}%"
         grp = {g: sum(qs.get(n, 0.) for n in names) for g, names in QUERY_GROUPS.items()}
         stages_sum = sum(st.values()) + sum(qs.values())
-        others = grp["locate endpoints"]
+        others = sum(qs.get(n, 0.) for n in ("locate", "locate_cells", "cut_certificate"))
         rest = total - stages_sum
         big = max([(k, v) for k, v in st.items()] + [(k, v) for k, v in qs.items()], key=lambda kv: kv[1])
         b, host = d["body"], d["host"]
-        own = res["verification"]["own"]
+        own = res["verification"]["own"] or {"segments": []}
         pairs_checked = sum(sg.get("pairs_checked") or 0 for sg in own["segments"])
         rep = d.get("replay") or {}
         n_edges = len((rep.get("geometry") or {}).get("reports", []) or []) or None
@@ -229,15 +239,14 @@ def fill_template(src, dst, tops, screens, est, sacct, extra):
         v["时间｜scene–robot 精确几何交互 / 碰撞计算耗时"] = t(st.get("envelopes", 0.) + st.get("audit", 0.)) + "（支撑函数包络表 + 夹逼审计）"
         v["时间｜自由 / 碰撞状态或 configuration-space domain 构建耗时"] = t(st.get("octree", 0.) + st.get("cells", 0.)) + \
             f"（octree 标注 {st.get('octree', 0.):.3f} s + 凸自由胞/portal {st.get('cells', 0.):.3f} s）"
-        v["时间｜自适应 refinement 耗时"] = (f"N/A（方向自适应细化在 octree 内部，已计入上行；refined_nodes="
-                                     f"{oct_.get('refined_nodes', 'n/a') if isinstance(oct_, dict) else 'n/a'}）")
+        v["时间｜自适应 refinement 耗时"] = "N/A（无独立 refinement 轮；octree 节点内的方向自适应细化已计入上一行）"
         v["时间｜规划结构 / graph / operator 组装耗时"] = t(st.get("possible_graph", 0.)) + "（possible 连通图；portal 在 cells 阶段内）"
         v["时间｜factorization / preconditioner setup 耗时"] = "N/A（无线性求解）"
-        v["时间｜全局求解 / 图搜索 / 数值求解耗时"] = t(grp["portal A*"]) + "（portal 图 A*）"
+        v["时间｜全局求解 / 图搜索 / 数值求解耗时"] = t(qs.get("graph_search", 0.)) + "（portal 图 A*）"
         v["时间｜路径提取耗时"] = t(grp["path extraction (lift + shortcut + tighten + merge)"])
         v["时间｜最终连续碰撞检查与路径验证耗时"] = t(grp["own continuous verifier"] + grp["shared gs3d replay"]) + \
             f"（自有验证 {grp['own continuous verifier']:.3f} s + 共享 gs3d 重放 {grp['shared gs3d replay']:.3f} s）"
-        v["时间｜其他未归类耗时"] = t(others) + "（端点定位）"
+        v["时间｜其他未归类耗时"] = t(others) + "（端点定位；不可达时含割证书）"
         v["时间｜各阶段耗时之和与总时间的差值"] = f"{rest:.3f} s；差值占总时间 {pct(rest, total):.1f}%"
         v["时间｜当前最耗时阶段"] = f"阶段：{big[0]}；耗时：{big[1]:.3f} s；占总时间：{pct(big[1], total):.1f}%"
         v["计算量｜单次规划 collision / contact 查询次数"] = (f"自有验证 pair 检查 {pairs_checked:,} 次；共享重放 oracle edge 检查 "
@@ -248,9 +257,9 @@ def fill_template(src, dst, tops, screens, est, sacct, extra):
         v["计算量｜有效 pair 比例"] = f"Active / Candidate：{pct(ap, pr['candidate_pairs']):.1f}%"
         v["计算量｜broad-phase 剪枝比例"] = (f"{pct(pr['pruned_pairs'], pr['opacity_selected']):.1f}%（盒内 opacity>tau 的 "
                                        f"{pr['opacity_selected']:,} 个中被 z 窗/域剪掉 {pr['pruned_pairs']:,}）")
-        rw = rep.get("wall_s")
-        v["计算量｜单次 collision / contact query 平均耗时"] = (f"Mean：{1000 * rw / n_edges:.2f} ms；P95：N/A（共享 gs3d 重放，每条边）"
-                                                   if rw and n_edges else "N/A")
+        rw = qs.get("shared_verification")
+        v["计算量｜单次 collision / contact query 平均耗时"] = (f"Mean：{1000 * rw / n_edges:.2f} ms；P95：N/A（查询内共享 gs3d 重放耗时 / 边数）"
+                                                   if rw and n_edges else "N/A（无路径，无需重放）")
         v["计算量｜重复或近重复 collision / contact query 比例"] = "N/A（未统计）"
         lv = oct_["leaves_by_status"]
         v["计算量｜单次规划使用的 configuration states / 节点 / 网格数量"] = (f"octree 叶 {oct_['leaves']:,}（SAFE {lv['SAFE']:,} / BLOCKED "
@@ -308,7 +317,7 @@ def fill_template(src, dst, tops, screens, est, sacct, extra):
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--demo", type=Path, required=True)
-    p.add_argument("--screen", type=Path, required=True)
+    p.add_argument("--screen", type=Path, nargs="+", required=True, help="screen dirs (pooled for query costs)")
     p.add_argument("--sacct", type=Path, required=True, help="json {robot: {maxrss_gb, req_mem}}")
     p.add_argument("--extra", type=Path, help="json with _differ/_differ_text/_multi and route kinds")
     p.add_argument("--template", type=Path, default=Path("/scratch/wg2381/splathjb/measurement_template.csv"))
@@ -316,7 +325,11 @@ def main(argv=None):
     a = p.parse_args(argv)
     a.out.mkdir(parents=True, exist_ok=True)
     demos = {r: json.loads((a.demo / f"demo_{r}.json").read_text()) for r in ROBOTS}
-    screens = {r: json.loads((a.screen / f"screen_{r}.json").read_text()) for r in ROBOTS}
+    screens = {}
+    for r in ROBOTS:
+        docs = [json.loads((sd / f"screen_{r}.json").read_text()) for sd in a.screen]
+        screens[r] = {**docs[-1], "results": [x for dd in docs for x in dd["results"]],
+                      "sources": [str(sd) for sd in a.screen]}
     sacct = json.loads(a.sacct.read_text())
     extra = json.loads(a.extra.read_text()) if a.extra else {}
     est = estimate(demos, screens, sacct)
