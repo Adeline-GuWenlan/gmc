@@ -118,7 +118,7 @@ cylinder 的 gs3d 点检查图在该处没有可通行的格点）。
 
 - 视频（EWA 渲染规划档案本身，沿用 uavconn/uavlamp 的渲染管线；墙 B 与吊顶切掉以便观看）：
   `video/P1_lamp_sweeper_flythrough.mp4`（穿灯；cylinder 无路线，故无 P1 cylinder 视频）、
-  `video/P2_both_sweeper_flythrough.mp4`、`video/P2_both_cylinder_flythrough.mp4`。每个视频从 MP4 解码回 4 帧并已人工查看。
+  `video/P2_both_sweeper_flythrough.mp4`、`video/P2_both_cylinder_flythrough.mp4`。两条路线都画在地面上（1 cm 高），机器人本体在真实高度；灯下的帧会标出“UNDER THE LAMP”。每个视频从 MP4 解码回 4 帧并已人工查看。
 
 | P1 sweeper：起点 | P1 sweeper：灯下 |
 |---|---|
