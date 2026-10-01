@@ -117,13 +117,48 @@ def cmd_raster(a):
     print(json.dumps({k: out[k] for k in ("archive_supports", "opacity_selected", "wall_s")}), flush=True)
 
 
+def cmd_scan(a):
+    """gs3d oracle point check (each robot at its z_c, margin 0.001) on a 1 cm (u, v) grid, on the scene of
+    route box ``--box``: the exact free / margin / occupied / map_unknown picture of one window."""
+    from gmc.gs3d.contracts import Pose3
+    from gmc.gs3d.oracle import GaussianBodyOracle, PreparedScene
+    from aerial3dg_run import _box, ground_world, load_booth
+    ctx = load_booth(_box(a.box))
+    oracle = GaussianBodyOracle(PreparedScene(ctx["scene"]))
+    u0, u1, v0, v1 = a.window
+    us = np.round(np.arange(u0, u1 + 1e-9, a.step), 4)
+    vs = np.round(np.arange(v0, v1 + 1e-9, a.step), 4)
+    codes = {"free": 0, "geometry_or_margin_unproven": 1, "occupied": 2, "map_unknown": 3}
+    out = {"box_uv": a.box, "window": a.window, "step": a.step, "us": us.tolist(), "vs": vs.tolist(),
+           "codes": {**codes, "other": 4}, "robots": {}}
+    for name, body in ROBOTS.items():
+        M = np.zeros((len(us), len(vs)), np.int8)
+        for i, u in enumerate(us):
+            for j, v in enumerate(vs):
+                rep = oracle.pose(Pose3(tuple(map(float, ground_world(ctx["frame"], body, (u, v)))), 0.), body,
+                                  margin_m=GROUND_CONFIG.margin_m)
+                k = "free" if rep.occupancy == "free" else ("occupied" if rep.occupancy == "occupied" else rep.reason)
+                M[i, j] = codes.get(k, 4)
+        out["robots"][name] = M.tolist()
+        free_v = {f"{u:.2f}": [float(vs[j]) for j in np.flatnonzero(M[i] == 0)] for i, u in enumerate(us)}
+        out[f"{name}_free_v_by_u"] = {k: ([min(v), max(v)] if v else None) for k, v in free_v.items()}
+        print(name, {k: int((M == c).sum()) for k, c in codes.items()}, flush=True)
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(json.dumps(out) + "\n")
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("raster")
     r.add_argument("--out", type=Path, required=True)
+    s = sub.add_parser("scan")
+    s.add_argument("--box", type=float, nargs=4, required=True)
+    s.add_argument("--window", type=float, nargs=4, required=True, metavar=("U0", "U1", "V0", "V1"))
+    s.add_argument("--step", type=float, default=.01)
+    s.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
-    {"raster": cmd_raster}[a.cmd](a)
+    {"raster": cmd_raster, "scan": cmd_scan}[a.cmd](a)
 
 
 if __name__ == "__main__":
