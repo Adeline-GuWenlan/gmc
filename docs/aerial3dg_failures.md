@@ -208,10 +208,36 @@ ORACLE_TEXT
 
 ## 5. What would fix each class
 
-FIX_TABLE
+| class | fix | status | evidence |
+|---|---|---|---|
+| SW-EP, CY-EP | Grow the **endpoint** query cell with buffer 0 (the oracle's own contract is clearance > margin; the buffer only pads SAFE leaves against the replay) | **evidence-backed** | 238/239 sweeper rows → REACHABLE, own verifier + shared replay (`fix/endpoints_buffer0_sweeper.json`). Cylinder: 30 → REACHABLE, 381 → exposes CY-GAP, 1 still uncertified |
+| SW-EP, CY-EP | Or: sample endpoints with the planner's own threshold (clearance > margin + buffer) so the test set only holds certifiable starts | guess (changes the test set, does not fix the method) | — |
+| SW-EP, CY-EP, CY-GAP | Clean the floor at the robots' effective threshold: splats with 2σ top in (0.018, 0.020) survive the plane-floor rule (`planefloor.py:34`) but act inside margin + buffer | guess (scene edit; not run) | The three named splats own 551/651 endpoint rows, and two splats form the CY-GAP corridor |
+| SW-KIN (and verdict-only vetoes) | Give in-place turns a minimum duration (e.g. 1 ms) in the gs3d export, or drop near-collinear polyline vertices before export. For the speed variant, give the same floor to sub-µm translations | turn floor **evidence-backed** (62/62); translation floor guess | `fix/kinematics_sweeper.json`; W1 verdict-only: 330/339 turn cases cleared, the 57 translation cases need the second half |
+| SW-KIN | Or: make the replay's rate tolerance relative to t (ulp-aware) | guess (changes the shared oracle, which this chain treats as fixed) | — |
+| CY-GAP | **Widen the box** so the domain contains the real way round (here v ≥ 2.45 at u≈-5.5) | **evidence-backed** | W1: 1587/1587 find a route; W2 WIDEN_GAP_W2 |
+| CY-GAP | Use the exact cylinder-in-prism domain instead of "world AABB in prism" (saves 0.1 m per side in this frame) | guess, and **not sufficient here**: it moves the limit from 2.35 to 2.45, and the passage starts at 2.45 | scan, §3.2 |
+| CY-GAP (certify UNREACHABLE in the G2 box instead) | A cut stated on the ground manifold z = z_c (2-D cross-section of each C-obstacle) rather than on the ±1 mm slab; a multi-pair union cut in the slab cannot work | guess (not implemented); the slab argument is evidence-backed | §3.2: free sliver 0.01–0.19 mm above both splats' C-obstacles; 0/647 no-free leaves covered by the union of inner polytopes |
+| CY-GAP | Finer leaves | **ruled out** | G1/G3: 0.025 / 0.05 / 0.10 m identical verdicts; mechanism is slab thickness, not leaf size |
+| CY-LAMP | none needed: correct, certified, box-independent | evidence-backed | W1/W2 unchanged; ORACLE_LAMP_SHORT |
+| all | `aerial3d/query.py:217 simplify` divides by zero on coincident lifted points (hit once on the W1 compile, pair 4217) | bug, found; not fixed (src is read-only for F1) | `widen/w1/cylinder/fast_00.jsonl` row 4217 |
 
 ## 6. Corrections to earlier reports
-CORRECTIONS
+- **G3 §2.3 / §7, G2 "Cylinder UNKNOWN":** the 1587 "very likely unreachable (a free window narrower than 0.1 m
+  could be missed)" pairs are unreachable **only inside the G2 box**. Within the box the oracle at 1 cm agrees:
+  no window. But the obstacle north of v≈1.1 is three floor splats inside the 1 mm margin, not a "captured
+  structure", and the hall has a way round just beyond the box face (§1, §3.2). Widening the box turns all of
+  them into found routes.
+- **G2 / G3 "62 shared_replay_failed: the gs3d replay was more conservative":** wrong. The replay's
+  geometry/clearance check passed on all 62. They fail its timing check by 1–3e-9 through float round-off on a
+  µrad turn (§3.3).
+- **G2 / G3 "239 endpoints not certified free at leaf resolution (5 cm leaves)":** the failing test is the
+  endpoint cell growth (`grow_cell` at a point, no leaf size involved). The cause is clearance in (margin,
+  margin + buffer] over sub-floor splats, not resolution (§3.1).
+- **G3 "cylinder 30 endpoint-class UNKNOWN connected in the point map":** consistent with this report. With
+  buffer 0, 30 cylinder endpoint rows become REACHABLE; the other 381 are CY-GAP pairs underneath.
+- Everything else in G2/G3 that I re-derived matches: 2928 cuts all at the lamp; compile box = sampling box;
+  582,372 supports.
 
 ## 7. Jobs, files, reproduction
 REPRO

@@ -6,11 +6,11 @@ route box the G2 compile used, at the 0.1 m lattice of the uav-lamp ground runs.
 reused by every query (the planner's own warm mode).
 
 Outcome (ground5k ``classify_astar`` semantics, the box faces being the query domain as for aerial3d):
-  ROUTE        A* found a route and its own post-build verification passed  -> a route exists
-  NO_ROUTE     reachable 0.1 m lattice exhausted, only occupied / outside-box rejections -> evidence (not proof)
-               that none exists: windows narrower than the lattice can be missed
-  UNSURE       budget exhausted, or the frontier had unproven edges (geometry_or_margin / support), or an
-               endpoint the A* itself does not accept
+  ROUTE            A* found a route and its own post-build verification passed  -> a route exists
+  NO_ROUTE         reachable 0.1 m lattice exhausted, only occupied / outside-box rejections -> evidence (not
+                   proof) that none exists: windows narrower than the lattice can be missed
+  NO_ROUTE_MARGIN  exhausted, some frontier edges rejected only as within-margin / unproven
+  UNSURE           budget exhausted, or an endpoint the A* itself does not accept
 
   sample   pick the stratified sample (seeded) from G2 rows + F1 classes  -> configs/aerial3dg/f1_oracle_sample.json
   run      run one robot's share of the sample (sbatch)
@@ -32,14 +32,34 @@ BUDGET = {"max_expansions": 500000, "max_oracle_calls": 5000000, "max_narrowphas
 
 
 def classify(res) -> str:
+    """ROUTE / NO_ROUTE (lattice exhausted; rejections only occupied or outside the box) / NO_ROUTE_MARGIN
+    (exhausted, but some frontier edges were rejected only as within-margin / unproven -- no route with
+    clearance > margin, which is the shared contract, though not proof of contact) / UNSURE."""
     st, d = res["status"], res["diagnostics"]
     if st == "success":
         return "ROUTE"
     if st in ("map_unknown", "no_path_on_lattice", "verification_failed") and \
             res["reason"] in ("reachable_frontier_meets_unknown_coverage", "reachable_lattice_exhausted",
                               "reachable_frontier_has_unproven_edges"):
-        return "NO_ROUTE" if d.get("unproven_rejections", 0) == 0 else "UNSURE"
+        return "NO_ROUTE" if d.get("unproven_rejections", 0) == 0 else "NO_ROUTE_MARGIN"
     return "UNSURE"
+
+
+def reclassify(path):
+    """Re-derive outcomes of a finished run from its stored counters (classification rule changed after the run)."""
+    doc = json.loads(Path(path).read_text())
+    for r in doc["rows"]:
+        if r["outcome"] != "ROUTE":
+            r["outcome"] = classify({"status": r["status"], "reason": r["reason"],
+                                     "diagnostics": {"unproven_rejections": r.get("unproven_rejections") or 0}})
+    summ = {}
+    for r in doc["rows"]:
+        summ.setdefault(r["class"], {}).setdefault(r["outcome"], 0)
+        summ[r["class"]][r["outcome"]] += 1
+    doc["summary"] = summ
+    doc["outcome_rule"] = classify.__doc__
+    _dump(path, doc)
+    return summ
 
 
 def cmd_sample(a):
