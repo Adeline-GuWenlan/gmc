@@ -18,3 +18,23 @@
   Hypothesis to test: the box edge v=2.75 is what closes the cylinder's way round at u~-5.6.
 - 21:54Z  Submitted widened compiles W1 (+1 m u and v): cylinder 18980207 (all 5000 pairs), sweeper
   18980208 (301 non-REACHABLE + slice 0-499), sequential (QOS headroom ~4 GB).
+- 22:00Z  W1 cylinder compile (job 18980207): 320 s, in-process peak 1.38 GB, .a3c 570 MB. The first u~-5.6
+  straddle pairs come back REACHABLE (G2-00001 5.95 m for 4.92 m straight), but each takes 12-70 s, >95 % in
+  shortcut/tighten/merge. Projected ~13 CPU-h per variant, so I cancelled 18980207 (rows kept as
+  `widen/w1/cylinder/fullconfig_partial.jsonl` for the agreement check) and re-ran the queries with a
+  verdict-only QueryConfig (no shortcut/tighten/merge; same locate/cut/search/lift/own verifier/shared replay):
+  job 18980787. Control: the G2 compile in the same mode, job 18980789.
+
+## Task 2: diagnostics
+- 22:02Z  Job 18980440 (sweeper diag):
+  - 239/239 sweeper `*_not_certified_free` endpoints are in UNKNOWN leaves, inside the domain, oracle-free,
+    and blocked from `grow_cell` by ONE (219) or two (20) captured Gaussians lying UNDER the chassis: 2-sigma
+    top z 0.0180-0.0189, i.e. 1.1-2.0 mm below the chassis bottom (0.02). Refined gap to the margin-inflated
+    C-obstacle 0.26-1.00 mm <= octree buffer 1 mm. So: sampler accepted clearance > margin (1 mm); the
+    certificate needs clearance > margin + buffer (2 mm).
+  - 62/62 `shared_replay_failed`: the shared replay's GEOMETRY passed on every one (clearance >= 1.03 mm);
+    it failed `kinematics: speed_or_yaw_rate_exceeded`. G2/G3 called this "the replay was more
+    conservative" (geometry); that was wrong. Rebuilding from 4-decimal route polylines passes, so the
+    violation depends on exact float values. Hypothesis: tiny in-place turns (1e-12..1e-6 rad) at the
+    collinear densify knots, timed as turn/1.0 rad/s and added to t ~ 30 s, so the elapsed time is rounded
+    and yaw_rate exceeds 1 + 1e-9. Probe job 18981043 (exact polylines + replay with sub-µrad turns dropped).
