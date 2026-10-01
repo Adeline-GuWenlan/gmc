@@ -16,10 +16,23 @@ from pathlib import Path
 
 from gmc.aerial3d.api import QueryConfig
 
+import aerial3dg_batch
 from aerial3dg_batch import run_task, task_slice
+from gmc.aerial3d.api import query
 from aerial3dg_run import MANIFEST, _dump, host
 
 FAST = QueryConfig(export_max_segment_m=.20, shortcut=False, tighten=False, merge_corners=False)
+
+
+def guarded_query(compiled, s, g, **kw):
+    """``api.query``, but an exception inside it becomes an ERROR row instead of killing the task.
+    (Found on the W1 compile: ``query.simplify`` divides by zero on coincident lifted points.)"""
+    try:
+        return query(compiled, s, g, **kw)
+    except Exception as exc:                       # noqa: BLE001 -- recorded, not hidden
+        return {"status": "ERROR", "reason": f"exception:{type(exc).__name__}:{exc}", "compile_id": compiled.compile_id,
+                "timings": {"algorithm_wall_s": 0., "records": []}, "polyline_world": None, "metrics": None,
+                "clearance_lower_m": None, "certificate": None, "verification": None}
 
 
 def main(argv=None):
@@ -32,6 +45,7 @@ def main(argv=None):
     p.add_argument("--task", type=int, default=0)
     p.add_argument("--timeout", type=float, default=120.)
     a = p.parse_args(argv)
+    aerial3dg_batch.query = guarded_query
     doc = json.loads(a.pairs.read_text())
     pairs = [doc["pairs"][i] for i in task_slice(len(doc["pairs"]), a.n_tasks, a.task)]
     out = a.out_dir / f"fast_{a.task:02d}.jsonl"
