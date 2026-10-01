@@ -45,12 +45,89 @@ def plot_archive(out=F1 / "range" / "archive_raster.png", zoom=None):
     print("wrote", out)
 
 
+def plot_zoom(zoom, out):
+    plot_archive(out, zoom=zoom)
+
+
+# ----------------------------------------------------------------------------- class maps (Task 2)
+START_C, GOAL_C, HI_C, LAMP_C = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
+
+
+def _background(ax, robot, window=(-11.2, 5.9, -2.6, 5.0)):
+    meta = json.loads((F1 / "range" / "archive_raster.json").read_text())
+    A = np.load(F1 / "range" / "archive_raster.npz")
+    u0, v0, u1, v1 = meta["window_uv"]
+    ax.imshow(np.log10(1 + A[f"{robot}_cover"].T.astype(float)), origin="lower", extent=(u0, u1, v0, v1),
+              cmap="Greys", vmin=0, vmax=3, aspect="equal")
+    box_patch(ax, G2_BOX, ec="#444", lw=1.4)
+    ax.set(xlim=window[:2], ylim=window[2:], xlabel="u (m)", ylabel="v (m)")
+
+
+def plot_class_maps(out=F1 / "class_maps.png"):
+    import csv
+    rows = list(csv.DictReader(open(F1 / "classes.csv")))
+    panels = [("sweeper", ["SW-EP"], "SW-EP: endpoint over a sub-floor Gaussian (within buffer)"),
+              ("sweeper", ["SW-KIN"], "SW-KIN: replay yaw-rate round-off (route shown faint)"),
+              ("cylinder", ["CY-LAMP"], "CY-LAMP: certified cut at lamp + bulkhead"),
+              ("cylinder", ["CY-GAP"], "CY-GAP: safe graph split at u~-5.6 (W1 routes faint)"),
+              ("cylinder", ["CY-EP", "CY-EP-LAT"], "CY-EP / CY-EP-LAT: endpoint within buffer")]
+    fig, axes = plt.subplots(len(panels), 1, figsize=(14, 4.3 * len(panels)))
+    for ax, (robot, cls, title) in zip(axes, panels):
+        _background(ax, robot)
+        sel = [r for r in rows if r["robot"] == robot and r["class"] in cls]
+        S = np.array([[float(r["start_u"]), float(r["start_v"])] for r in sel]).reshape(-1, 2)
+        G = np.array([[float(r["goal_u"]), float(r["goal_v"])] for r in sel]).reshape(-1, 2)
+        if "SW-KIN" in cls:
+            rp = json.loads((F1 / "diag" / "replay_sweeper.json").read_text())
+            for x in rp["rows"]:
+                if x.get("polyline_route"):
+                    P = np.asarray(x["polyline_route"])
+                    ax.plot(P[:, 0], P[:, 1], color=START_C, lw=.6, alpha=.35)
+        if "CY-GAP" in cls:
+            w = F1 / "widen" / "w1" / "cylinder" / "fast_00.jsonl"
+            if w.exists():
+                want = {int(r["index"]) for r in sel}
+                k = 0
+                for line in open(w):
+                    x = json.loads(line)
+                    if x["index"] in want and x["status"] == "REACHABLE" and x.get("route_polyline") and k < 60:
+                        P = np.asarray(x["route_polyline"])
+                        ax.plot(P[:, 0], P[:, 1], color=HI_C, lw=.7, alpha=.5)
+                        k += 1
+            b = F1 / "diag" / "bridges_cylinder.json"
+            if b.exists():
+                for c in json.loads(b.read_text())["corridors"].values():
+                    if "leaf_centres_uv" in c:
+                        C = np.asarray(c["leaf_centres_uv"])
+                        ax.scatter(C[:, 0], C[:, 1], s=4, marker="s", color="#d62728", label="UNKNOWN corridor leaves")
+            box_patch(ax, (-10, -1.35, 4.7, 3.75), ec=HI_C, lw=1, ls="--")
+        if "CY-LAMP" in cls:
+            ax.add_patch(Rectangle((-1.03, -.08), .36, 2.56, color=LAMP_C, alpha=.5, label="lamp footprint"))
+        if any(c in ("SW-EP", "CY-EP") for c in cls):
+            d = json.loads((F1 / "diag" / f"endpoints_{robot}.json").read_text())
+            seen = {}
+            for x in d["rows"]:
+                bl = min(x["blockers"], key=lambda b: b["refined_gap_m"])
+                seen.setdefault(bl["scene_id"], [bl["mean_route"], 0])[1] += 1
+            for sid, (mu, n) in seen.items():
+                ax.scatter([mu[0]], [mu[1]], s=60 + 2 * n, marker="*", color=HI_C, edgecolor="k", lw=.5, zorder=5)
+                if n >= 9:
+                    ax.annotate(f"id {sid}: {n}", (mu[0], mu[1]), xytext=(6, 6), textcoords="offset points", fontsize=8)
+        ax.scatter(S[:, 0], S[:, 1], s=9, marker="o", color=START_C, alpha=.6, label=f"start ({len(S)})", zorder=4)
+        ax.scatter(G[:, 0], G[:, 1], s=12, marker="x", color=GOAL_C, alpha=.6, label="goal", zorder=4)
+        ax.set_title(f"{title}  [{robot}, n={len(sel)}]", fontsize=10)
+        h, l = ax.get_legend_handles_labels()
+        uniq = dict(zip(l, h))
+        ax.legend(uniq.values(), uniq.keys(), loc="upper right", fontsize=7, markerscale=1.5)
+    fig.tight_layout()
+    fig.savefig(out, dpi=75)
+    print("wrote", out)
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "archive"
+    if what == "classes":
+        plot_class_maps()
     if what == "archive":
         plot_archive()
         plot_archive(F1 / "range" / "archive_raster_west.png", zoom=(-12, -3, -3.5, 5.5))
-
-
-def plot_zoom(zoom, out):
-    plot_archive(out, zoom=zoom)
