@@ -129,8 +129,47 @@ def plot_class_maps(out=F1 / "class_maps.png"):
     print("wrote", out)
 
 
+def plot_scan(out=F1 / "range" / "scan_gap_w1.png"):
+    """1 cm gs3d-oracle scan of the u~-5.6 window on the W1 scene, per robot, with the G2 limits."""
+    from matplotlib.colors import ListedColormap
+    d = json.loads((F1 / "range" / "scan_gap_w1.json").read_text())
+    us, vs = np.array(d["us"]), np.array(d["vs"])
+    cmap = ListedColormap(["#ffffff", "#eda100", "#444444", "#9ec5f4", "#e87ba4"])
+    fig, axes = plt.subplots(1, 2, figsize=(13, 6.5))
+    for ax, robot in zip(axes, ("cylinder", "sweeper")):
+        M = np.array(d["robots"][robot])
+        ax.imshow(M.T, origin="lower", extent=(us[0], us[-1], vs[0], vs[-1]), cmap=cmap, vmin=-.5, vmax=4.5,
+                  aspect="equal", interpolation="nearest")
+        ax.axhline(2.75, color="#1f77b4", lw=1.5, label="G2 box face v = 2.75")
+        lim = 2.75 - (.30 if robot == "cylinder" else .175) * (0.4313593 + 0.9021802)
+        ax.axhline(lim, color="#1f77b4", lw=1.2, ls="--", label=f"G2 {robot} domain limit v = {lim:.3f}")
+        if robot == "cylinder":
+            w = F1 / "widen" / "w1" / "cylinder" / "fast_00.jsonl"
+            k = 0
+            for line in open(w):
+                x = json.loads(line)
+                if x["status"] == "REACHABLE" and x.get("route_polyline") and k < 40:
+                    P = np.asarray(x["route_polyline"])
+                    if P[:, 0].min() < -5.6 < P[:, 0].max():
+                        ax.plot(P[:, 0], P[:, 1], color="#1baf7a", lw=.8, alpha=.6,
+                                label="W1 REACHABLE routes" if k == 0 else None)
+                        k += 1
+        ax.set(xlim=(us[0], us[-1]), ylim=(vs[0], vs[-1]), xlabel="u (m)", ylabel="v (m)",
+               title=f"{robot} at z_c, oracle point check (1 cm), W1 scene")
+        ax.legend(loc="lower right", fontsize=7)
+    from matplotlib.patches import Patch
+    fig.legend([Patch(color=c, ec="k") for c in ("#ffffff", "#eda100", "#444444", "#9ec5f4")],
+               ["free", "within margin (geometry_or_margin_unproven)", "occupied", "outside W1 known box"],
+               loc="upper center", ncol=4, fontsize=8)
+    fig.tight_layout(rect=(0, 0, 1, .94))
+    fig.savefig(out, dpi=80)
+    print("wrote", out)
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "archive"
+    if what == "scan":
+        plot_scan()
     if what == "classes":
         plot_class_maps()
     if what == "archive":
