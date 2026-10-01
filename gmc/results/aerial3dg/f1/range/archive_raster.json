@@ -1,0 +1,100 @@
+{
+ "window_uv": [
+  -13.0,
+  -5.0,
+  7.7,
+  8.0
+ ],
+ "step": 0.05,
+ "nu": 414,
+ "nv": 260,
+ "sweeper": {
+  "band_z": [
+   0.019,
+   0.101
+  ],
+  "gaussians_in_band": 69474,
+  "in_band_in_window": 33097
+ },
+ "cylinder": {
+  "band_z": [
+   0.019,
+   1.751
+  ],
+  "gaussians_in_band": 2310315,
+  "in_band_in_window": 1138516
+ },
+ "archive_supports": 7107732,
+ "opacity_selected": 3812458,
+ "crops": [
+  {
+   "pad_u": 0.0,
+   "pad_v": 0.0,
+   "box_uv": [
+    -9.0,
+    -0.35,
+    3.7,
+    2.75
+   ],
+   "selected_supports": 582372
+  },
+  {
+   "pad_u": 0.0,
+   "pad_v": 1.0,
+   "box_uv": [
+    -9.0,
+    -1.35,
+    3.7,
+    3.75
+   ],
+   "selected_supports": 676680
+  },
+  {
+   "pad_u": 0.0,
+   "pad_v": 2.0,
+   "box_uv": [
+    -9.0,
+    -2.35,
+    3.7,
+    4.75
+   ],
+   "selected_supports": 883977
+  },
+  {
+   "pad_u": 1.0,
+   "pad_v": 1.0,
+   "box_uv": [
+    -10.0,
+    -1.35,
+    4.7,
+    3.75
+   ],
+   "selected_supports": 783547
+  },
+  {
+   "pad_u": 2.0,
+   "pad_v": 2.0,
+   "box_uv": [
+    -11.0,
+    -2.35,
+    5.7,
+    4.75
+   ],
+   "selected_supports": 1224232
+  },
+  {
+   "pad_u": 1.0,
+   "pad_v": 2.0,
+   "box_uv": [
+    -10.0,
+    -2.35,
+    4.7,
+    4.75
+   ],
+   "selected_supports": 1070899
+  }
+ ],
+ "load_s": 4.826000613160431,
+ "wall_s": 13.79495456814766,
+ "definition": "route frame = manifest site frame; raster of opacity>0.3 Gaussians whose 2-sigma z-extent overlaps the robot band [clearance - margin, clearance + 2 half_height + margin]"
+}
