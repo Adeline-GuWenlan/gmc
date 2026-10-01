@@ -75,8 +75,13 @@ def plot_class_maps(out=F1 / "class_maps.png"):
     for ax, (robot, cls, title) in zip(axes, panels):
         _background(ax, robot)
         sel = [r for r in rows if r["robot"] == robot and r["class"] in cls]
-        S = np.array([[float(r["start_u"]), float(r["start_v"])] for r in sel]).reshape(-1, 2)
-        G = np.array([[float(r["goal_u"]), float(r["goal_v"])] for r in sel]).reshape(-1, 2)
+        if any(c in ("SW-EP", "CY-EP") for c in cls):     # only the endpoint that failed certification
+            ep = [json.loads(r["evidence"]).get("endpoint") for r in sel]
+            S = np.array([[float(r["start_u"]), float(r["start_v"])] for r, e in zip(sel, ep) if e == "start"]).reshape(-1, 2)
+            G = np.array([[float(r["goal_u"]), float(r["goal_v"])] for r, e in zip(sel, ep) if e == "goal"]).reshape(-1, 2)
+        else:
+            S = np.array([[float(r["start_u"]), float(r["start_v"])] for r in sel]).reshape(-1, 2)
+            G = np.array([[float(r["goal_u"]), float(r["goal_v"])] for r in sel]).reshape(-1, 2)
         if "SW-KIN" in cls:
             rp = json.loads((F1 / "diag" / "replay_sweeper.json").read_text())
             for x in rp["rows"]:
@@ -114,7 +119,7 @@ def plot_class_maps(out=F1 / "class_maps.png"):
                 if n >= 9:
                     ax.annotate(f"id {sid}: {n}", (mu[0], mu[1]), xytext=(6, 6), textcoords="offset points", fontsize=8)
         ax.scatter(S[:, 0], S[:, 1], s=9, marker="o", color=START_C, alpha=.6, label=f"start ({len(S)})", zorder=4)
-        ax.scatter(G[:, 0], G[:, 1], s=12, marker="x", color=GOAL_C, alpha=.6, label="goal", zorder=4)
+        ax.scatter(G[:, 0], G[:, 1], s=12, marker="x", color=GOAL_C, alpha=.6, label=f"goal ({len(G)})", zorder=4)
         ax.set_title(f"{title}  [{robot}, n={len(sel)}]", fontsize=10)
         h, l = ax.get_legend_handles_labels()
         uniq = dict(zip(l, h))

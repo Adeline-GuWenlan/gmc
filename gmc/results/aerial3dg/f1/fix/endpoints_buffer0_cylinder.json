@@ -1,0 +1,3721 @@
+{
+ "robot": "cylinder",
+ "query_cell_buffer_m": 0.0,
+ "n": 412,
+ "counts": {
+  "UNKNOWN:safe_graph_disconnected_possible_connected": 381,
+  "REACHABLE:graph_path_lifted_and_verified": 30,
+  "UNKNOWN:start_not_certified_free": 1
+ },
+ "rows": [
+  {
+   "index": 16,
+   "pair_id": "G2-00016",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.7908717768732458
+  },
+  {
+   "index": 20,
+   "pair_id": "G2-00020",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.580756118055433
+  },
+  {
+   "index": 40,
+   "pair_id": "G2-00040",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5697857928462327
+  },
+  {
+   "index": 74,
+   "pair_id": "G2-00074",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6102142150048167
+  },
+  {
+   "index": 79,
+   "pair_id": "G2-00079",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5485249978955835
+  },
+  {
+   "index": 82,
+   "pair_id": "G2-00082",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.565475138835609
+  },
+  {
+   "index": 116,
+   "pair_id": "G2-00116",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5972748829517514
+  },
+  {
+   "index": 117,
+   "pair_id": "G2-00117",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5437883960548788
+  },
+  {
+   "index": 154,
+   "pair_id": "G2-00154",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5473233601078391
+  },
+  {
+   "index": 206,
+   "pair_id": "G2-00206",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5906198329757899
+  },
+  {
+   "index": 207,
+   "pair_id": "G2-00207",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5418922989629209
+  },
+  {
+   "index": 214,
+   "pair_id": "G2-00214",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5468431040644646
+  },
+  {
+   "index": 273,
+   "pair_id": "G2-00273",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.636650461005047
+  },
+  {
+   "index": 274,
+   "pair_id": "G2-00274",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.586781393038109
+  },
+  {
+   "index": 283,
+   "pair_id": "G2-00283",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5416474279481918
+  },
+  {
+   "index": 291,
+   "pair_id": "G2-00291",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6006030889693648
+  },
+  {
+   "index": 295,
+   "pair_id": "G2-00295",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 4.084841240895912
+  },
+  {
+   "index": 313,
+   "pair_id": "G2-00313",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.548739881021902
+  },
+  {
+   "index": 315,
+   "pair_id": "G2-00315",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5358162519987673
+  },
+  {
+   "index": 324,
+   "pair_id": "G2-00324",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5266035611275584
+  },
+  {
+   "index": 325,
+   "pair_id": "G2-00325",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.556634042179212
+  },
+  {
+   "index": 358,
+   "pair_id": "G2-00358",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5182338289450854
+  },
+  {
+   "index": 367,
+   "pair_id": "G2-00367",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5857247340027243
+  },
+  {
+   "index": 417,
+   "pair_id": "G2-00417",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4391691731289029
+  },
+  {
+   "index": 441,
+   "pair_id": "G2-00441",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6062089269980788
+  },
+  {
+   "index": 452,
+   "pair_id": "G2-00452",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6166527539025992
+  },
+  {
+   "index": 453,
+   "pair_id": "G2-00453",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6427157651633024
+  },
+  {
+   "index": 477,
+   "pair_id": "G2-00477",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5298026308882982
+  },
+  {
+   "index": 481,
+   "pair_id": "G2-00481",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.541404833085835
+  },
+  {
+   "index": 492,
+   "pair_id": "G2-00492",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5566934819798917
+  },
+  {
+   "index": 511,
+   "pair_id": "G2-00511",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8291488171089441
+  },
+  {
+   "index": 526,
+   "pair_id": "G2-00526",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6052929798606783
+  },
+  {
+   "index": 540,
+   "pair_id": "G2-00540",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.9766609279904515
+  },
+  {
+   "index": 545,
+   "pair_id": "G2-00545",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5396554861217737
+  },
+  {
+   "index": 546,
+   "pair_id": "G2-00546",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5983108151704073
+  },
+  {
+   "index": 552,
+   "pair_id": "G2-00552",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5788525040261447
+  },
+  {
+   "index": 553,
+   "pair_id": "G2-00553",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5678737710695714
+  },
+  {
+   "index": 568,
+   "pair_id": "G2-00568",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5818472560495138
+  },
+  {
+   "index": 595,
+   "pair_id": "G2-00595",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6080752660054713
+  },
+  {
+   "index": 597,
+   "pair_id": "G2-00597",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6098391390405595
+  },
+  {
+   "index": 614,
+   "pair_id": "G2-00614",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5348099910188466
+  },
+  {
+   "index": 621,
+   "pair_id": "G2-00621",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5302326630335301
+  },
+  {
+   "index": 624,
+   "pair_id": "G2-00624",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6034087080042809
+  },
+  {
+   "index": 634,
+   "pair_id": "G2-00634",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.846209289971739
+  },
+  {
+   "index": 637,
+   "pair_id": "G2-00637",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.549018669873476
+  },
+  {
+   "index": 645,
+   "pair_id": "G2-00645",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5913273461628705
+  },
+  {
+   "index": 646,
+   "pair_id": "G2-00646",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5672167039010674
+  },
+  {
+   "index": 652,
+   "pair_id": "G2-00652",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5975698430556804
+  },
+  {
+   "index": 660,
+   "pair_id": "G2-00660",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5651095758657902
+  },
+  {
+   "index": 677,
+   "pair_id": "G2-00677",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5929473640862852
+  },
+  {
+   "index": 708,
+   "pair_id": "G2-00708",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.119436919922009
+  },
+  {
+   "index": 718,
+   "pair_id": "G2-00718",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.671267731115222
+  },
+  {
+   "index": 743,
+   "pair_id": "G2-00743",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.535018895054236
+  },
+  {
+   "index": 756,
+   "pair_id": "G2-00756",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5158841661177576
+  },
+  {
+   "index": 765,
+   "pair_id": "G2-00765",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5945135168731213
+  },
+  {
+   "index": 792,
+   "pair_id": "G2-00792",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5336545950267464
+  },
+  {
+   "index": 823,
+   "pair_id": "G2-00823",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5699508939869702
+  },
+  {
+   "index": 827,
+   "pair_id": "G2-00827",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.54859280702658
+  },
+  {
+   "index": 828,
+   "pair_id": "G2-00828",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5080804429017007
+  },
+  {
+   "index": 829,
+   "pair_id": "G2-00829",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.533139836974442
+  },
+  {
+   "index": 867,
+   "pair_id": "G2-00867",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.46012853388674557
+  },
+  {
+   "index": 878,
+   "pair_id": "G2-00878",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5883025440853089
+  },
+  {
+   "index": 883,
+   "pair_id": "G2-00883",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5693381789606065
+  },
+  {
+   "index": 884,
+   "pair_id": "G2-00884",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5303131579421461
+  },
+  {
+   "index": 896,
+   "pair_id": "G2-00896",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 7.031778785865754
+  },
+  {
+   "index": 897,
+   "pair_id": "G2-00897",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.9533869631122798
+  },
+  {
+   "index": 901,
+   "pair_id": "G2-00901",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5526512800715864
+  },
+  {
+   "index": 919,
+   "pair_id": "G2-00919",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5276576417963952
+  },
+  {
+   "index": 939,
+   "pair_id": "G2-00939",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6248487860430032
+  },
+  {
+   "index": 957,
+   "pair_id": "G2-00957",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5226703069638461
+  },
+  {
+   "index": 959,
+   "pair_id": "G2-00959",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5174367509316653
+  },
+  {
+   "index": 974,
+   "pair_id": "G2-00974",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6054524751380086
+  },
+  {
+   "index": 996,
+   "pair_id": "G2-00996",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6002316218800843
+  },
+  {
+   "index": 1008,
+   "pair_id": "G2-01008",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 2.877488879021257
+  },
+  {
+   "index": 1012,
+   "pair_id": "G2-01012",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5894567419309169
+  },
+  {
+   "index": 1015,
+   "pair_id": "G2-01015",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5693446311634034
+  },
+  {
+   "index": 1016,
+   "pair_id": "G2-01016",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.406402956927195
+  },
+  {
+   "index": 1039,
+   "pair_id": "G2-01039",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6366353901103139
+  },
+  {
+   "index": 1062,
+   "pair_id": "G2-01062",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5898188799619675
+  },
+  {
+   "index": 1069,
+   "pair_id": "G2-01069",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.7177518389653414
+  },
+  {
+   "index": 1070,
+   "pair_id": "G2-01070",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.161814830964431
+  },
+  {
+   "index": 1074,
+   "pair_id": "G2-01074",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5678603271953762
+  },
+  {
+   "index": 1097,
+   "pair_id": "G2-01097",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6336095570586622
+  },
+  {
+   "index": 1110,
+   "pair_id": "G2-01110",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5265030979644507
+  },
+  {
+   "index": 1114,
+   "pair_id": "G2-01114",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5731698691379279
+  },
+  {
+   "index": 1130,
+   "pair_id": "G2-01130",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5909242830239236
+  },
+  {
+   "index": 1140,
+   "pair_id": "G2-01140",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5940007171593606
+  },
+  {
+   "index": 1160,
+   "pair_id": "G2-01160",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5996190360747278
+  },
+  {
+   "index": 1182,
+   "pair_id": "G2-01182",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.45110165886580944
+  },
+  {
+   "index": 1191,
+   "pair_id": "G2-01191",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5482139671221375
+  },
+  {
+   "index": 1198,
+   "pair_id": "G2-01198",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5723668790888041
+  },
+  {
+   "index": 1211,
+   "pair_id": "G2-01211",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6072411660570651
+  },
+  {
+   "index": 1212,
+   "pair_id": "G2-01212",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4629221169743687
+  },
+  {
+   "index": 1246,
+   "pair_id": "G2-01246",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5792208609636873
+  },
+  {
+   "index": 1249,
+   "pair_id": "G2-01249",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5188177120871842
+  },
+  {
+   "index": 1280,
+   "pair_id": "G2-01280",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.48038126807659864
+  },
+  {
+   "index": 1283,
+   "pair_id": "G2-01283",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5838763508945704
+  },
+  {
+   "index": 1310,
+   "pair_id": "G2-01310",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5247834329493344
+  },
+  {
+   "index": 1333,
+   "pair_id": "G2-01333",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5942291391547769
+  },
+  {
+   "index": 1340,
+   "pair_id": "G2-01340",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4505572731141001
+  },
+  {
+   "index": 1354,
+   "pair_id": "G2-01354",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 6.064552552998066
+  },
+  {
+   "index": 1360,
+   "pair_id": "G2-01360",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 6.798201647121459
+  },
+  {
+   "index": 1373,
+   "pair_id": "G2-01373",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.680244099115953
+  },
+  {
+   "index": 1405,
+   "pair_id": "G2-01405",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.43387020006775856
+  },
+  {
+   "index": 1414,
+   "pair_id": "G2-01414",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8368828040547669
+  },
+  {
+   "index": 1423,
+   "pair_id": "G2-01423",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.48884877818636596
+  },
+  {
+   "index": 1454,
+   "pair_id": "G2-01454",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5072832249570638
+  },
+  {
+   "index": 1459,
+   "pair_id": "G2-01459",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.587896954966709
+  },
+  {
+   "index": 1465,
+   "pair_id": "G2-01465",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5312495140824467
+  },
+  {
+   "index": 1475,
+   "pair_id": "G2-01475",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5338611628394574
+  },
+  {
+   "index": 1480,
+   "pair_id": "G2-01480",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5863936811219901
+  },
+  {
+   "index": 1483,
+   "pair_id": "G2-01483",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5555118629708886
+  },
+  {
+   "index": 1484,
+   "pair_id": "G2-01484",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.496043719118461
+  },
+  {
+   "index": 1499,
+   "pair_id": "G2-01499",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5416745350230485
+  },
+  {
+   "index": 1503,
+   "pair_id": "G2-01503",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5223080329596996
+  },
+  {
+   "index": 1520,
+   "pair_id": "G2-01520",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5229793940670788
+  },
+  {
+   "index": 1522,
+   "pair_id": "G2-01522",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5099127050489187
+  },
+  {
+   "index": 1566,
+   "pair_id": "G2-01566",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.924401421099901
+  },
+  {
+   "index": 1570,
+   "pair_id": "G2-01570",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5423824209719896
+  },
+  {
+   "index": 1579,
+   "pair_id": "G2-01579",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5380310749169439
+  },
+  {
+   "index": 1596,
+   "pair_id": "G2-01596",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.519320041174069
+  },
+  {
+   "index": 1621,
+   "pair_id": "G2-01621",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4989830299746245
+  },
+  {
+   "index": 1652,
+   "pair_id": "G2-01652",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5273316130042076
+  },
+  {
+   "index": 1679,
+   "pair_id": "G2-01679",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.504554013023153
+  },
+  {
+   "index": 1681,
+   "pair_id": "G2-01681",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5346217509359121
+  },
+  {
+   "index": 1686,
+   "pair_id": "G2-01686",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5203948910348117
+  },
+  {
+   "index": 1698,
+   "pair_id": "G2-01698",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5742482962086797
+  },
+  {
+   "index": 1699,
+   "pair_id": "G2-01699",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5949305749963969
+  },
+  {
+   "index": 1706,
+   "pair_id": "G2-01706",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5166200110688806
+  },
+  {
+   "index": 1733,
+   "pair_id": "G2-01733",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.48968893685378134
+  },
+  {
+   "index": 1741,
+   "pair_id": "G2-01741",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4980068630538881
+  },
+  {
+   "index": 1754,
+   "pair_id": "G2-01754",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5596611797809601
+  },
+  {
+   "index": 1770,
+   "pair_id": "G2-01770",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5220152540132403
+  },
+  {
+   "index": 1771,
+   "pair_id": "G2-01771",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5366554521024227
+  },
+  {
+   "index": 1784,
+   "pair_id": "G2-01784",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5434515799861401
+  },
+  {
+   "index": 1789,
+   "pair_id": "G2-01789",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.41402253205887973
+  },
+  {
+   "index": 1792,
+   "pair_id": "G2-01792",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.538389313966036
+  },
+  {
+   "index": 1794,
+   "pair_id": "G2-01794",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6052408998366445
+  },
+  {
+   "index": 1831,
+   "pair_id": "G2-01831",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5163430490065366
+  },
+  {
+   "index": 1835,
+   "pair_id": "G2-01835",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.574616254074499
+  },
+  {
+   "index": 1837,
+   "pair_id": "G2-01837",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4500616400036961
+  },
+  {
+   "index": 1840,
+   "pair_id": "G2-01840",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5619787538889796
+  },
+  {
+   "index": 1855,
+   "pair_id": "G2-01855",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5606079541612417
+  },
+  {
+   "index": 1858,
+   "pair_id": "G2-01858",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5672009498812258
+  },
+  {
+   "index": 1859,
+   "pair_id": "G2-01859",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8978770498652011
+  },
+  {
+   "index": 1866,
+   "pair_id": "G2-01866",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5165253549348563
+  },
+  {
+   "index": 1867,
+   "pair_id": "G2-01867",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6151262980420142
+  },
+  {
+   "index": 1888,
+   "pair_id": "G2-01888",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5281452171038836
+  },
+  {
+   "index": 1889,
+   "pair_id": "G2-01889",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4457387949805707
+  },
+  {
+   "index": 1890,
+   "pair_id": "G2-01890",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5316506619565189
+  },
+  {
+   "index": 1892,
+   "pair_id": "G2-01892",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.4309262200258672
+  },
+  {
+   "index": 1893,
+   "pair_id": "G2-01893",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5838436100166291
+  },
+  {
+   "index": 1908,
+   "pair_id": "G2-01908",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5140879589598626
+  },
+  {
+   "index": 1909,
+   "pair_id": "G2-01909",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5137758159544319
+  },
+  {
+   "index": 1926,
+   "pair_id": "G2-01926",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5784562290646136
+  },
+  {
+   "index": 1928,
+   "pair_id": "G2-01928",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.47400221391581
+  },
+  {
+   "index": 1936,
+   "pair_id": "G2-01936",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5853290059603751
+  },
+  {
+   "index": 1946,
+   "pair_id": "G2-01946",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4518724591471255
+  },
+  {
+   "index": 1950,
+   "pair_id": "G2-01950",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6159019980113953
+  },
+  {
+   "index": 1955,
+   "pair_id": "G2-01955",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5572800280060619
+  },
+  {
+   "index": 1981,
+   "pair_id": "G2-01981",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6030632969923317
+  },
+  {
+   "index": 1986,
+   "pair_id": "G2-01986",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 4.353698052931577
+  },
+  {
+   "index": 1992,
+   "pair_id": "G2-01992",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5611713510006666
+  },
+  {
+   "index": 2008,
+   "pair_id": "G2-02008",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.42138528008945286
+  },
+  {
+   "index": 2021,
+   "pair_id": "G2-02021",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5748746548779309
+  },
+  {
+   "index": 2037,
+   "pair_id": "G2-02037",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5725629050284624
+  },
+  {
+   "index": 2039,
+   "pair_id": "G2-02039",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5090193490032107
+  },
+  {
+   "index": 2054,
+   "pair_id": "G2-02054",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5431054360233247
+  },
+  {
+   "index": 2061,
+   "pair_id": "G2-02061",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5040320430416614
+  },
+  {
+   "index": 2098,
+   "pair_id": "G2-02098",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.521622858941555
+  },
+  {
+   "index": 2131,
+   "pair_id": "G2-02131",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5676859160885215
+  },
+  {
+   "index": 2140,
+   "pair_id": "G2-02140",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5640831228811294
+  },
+  {
+   "index": 2150,
+   "pair_id": "G2-02150",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5725021958351135
+  },
+  {
+   "index": 2184,
+   "pair_id": "G2-02184",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5119697148911655
+  },
+  {
+   "index": 2201,
+   "pair_id": "G2-02201",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5966682771686465
+  },
+  {
+   "index": 2217,
+   "pair_id": "G2-02217",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5071086501702666
+  },
+  {
+   "index": 2226,
+   "pair_id": "G2-02226",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.48187322705052793
+  },
+  {
+   "index": 2269,
+   "pair_id": "G2-02269",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6018035290762782
+  },
+  {
+   "index": 2278,
+   "pair_id": "G2-02278",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.42003440693952143
+  },
+  {
+   "index": 2279,
+   "pair_id": "G2-02279",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5503920710179955
+  },
+  {
+   "index": 2281,
+   "pair_id": "G2-02281",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5932297920808196
+  },
+  {
+   "index": 2297,
+   "pair_id": "G2-02297",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5748596480116248
+  },
+  {
+   "index": 2307,
+   "pair_id": "G2-02307",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5345761119388044
+  },
+  {
+   "index": 2324,
+   "pair_id": "G2-02324",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6023807839956135
+  },
+  {
+   "index": 2354,
+   "pair_id": "G2-02354",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5555774618405849
+  },
+  {
+   "index": 2355,
+   "pair_id": "G2-02355",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6113756110426039
+  },
+  {
+   "index": 2366,
+   "pair_id": "G2-02366",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5856628851033747
+  },
+  {
+   "index": 2414,
+   "pair_id": "G2-02414",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.43195126787759364
+  },
+  {
+   "index": 2416,
+   "pair_id": "G2-02416",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5569242490455508
+  },
+  {
+   "index": 2423,
+   "pair_id": "G2-02423",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6363974169362336
+  },
+  {
+   "index": 2440,
+   "pair_id": "G2-02440",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5919954390265048
+  },
+  {
+   "index": 2462,
+   "pair_id": "G2-02462",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5512596659827977
+  },
+  {
+   "index": 2465,
+   "pair_id": "G2-02465",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5664465669542551
+  },
+  {
+   "index": 2487,
+   "pair_id": "G2-02487",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5304170870222151
+  },
+  {
+   "index": 2490,
+   "pair_id": "G2-02490",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5177333729807287
+  },
+  {
+   "index": 2496,
+   "pair_id": "G2-02496",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5420295388903469
+  },
+  {
+   "index": 2509,
+   "pair_id": "G2-02509",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 4.0868160938844085
+  },
+  {
+   "index": 2536,
+   "pair_id": "G2-02536",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 3.2759324740618467
+  },
+  {
+   "index": 2563,
+   "pair_id": "G2-02563",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5344100689981133
+  },
+  {
+   "index": 2564,
+   "pair_id": "G2-02564",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5925709360744804
+  },
+  {
+   "index": 2566,
+   "pair_id": "G2-02566",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.533734475960955
+  },
+  {
+   "index": 2573,
+   "pair_id": "G2-02573",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5294463220052421
+  },
+  {
+   "index": 2577,
+   "pair_id": "G2-02577",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5478930489625782
+  },
+  {
+   "index": 2617,
+   "pair_id": "G2-02617",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6177570649888366
+  },
+  {
+   "index": 2619,
+   "pair_id": "G2-02619",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5275258689653128
+  },
+  {
+   "index": 2621,
+   "pair_id": "G2-02621",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5364227150566876
+  },
+  {
+   "index": 2649,
+   "pair_id": "G2-02649",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.9577953659463674
+  },
+  {
+   "index": 2653,
+   "pair_id": "G2-02653",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.46417551301419735
+  },
+  {
+   "index": 2660,
+   "pair_id": "G2-02660",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.3022482299711555
+  },
+  {
+   "index": 2673,
+   "pair_id": "G2-02673",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5203394680283964
+  },
+  {
+   "index": 2676,
+   "pair_id": "G2-02676",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5597538030706346
+  },
+  {
+   "index": 2708,
+   "pair_id": "G2-02708",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6073805158957839
+  },
+  {
+   "index": 2729,
+   "pair_id": "G2-02729",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5579539949540049
+  },
+  {
+   "index": 2734,
+   "pair_id": "G2-02734",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.536429621046409
+  },
+  {
+   "index": 2736,
+   "pair_id": "G2-02736",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5977081819437444
+  },
+  {
+   "index": 2743,
+   "pair_id": "G2-02743",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.40993179799988866
+  },
+  {
+   "index": 2746,
+   "pair_id": "G2-02746",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4372482090257108
+  },
+  {
+   "index": 2795,
+   "pair_id": "G2-02795",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4777009610552341
+  },
+  {
+   "index": 2797,
+   "pair_id": "G2-02797",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5819519651122391
+  },
+  {
+   "index": 2802,
+   "pair_id": "G2-02802",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5386116041336209
+  },
+  {
+   "index": 2811,
+   "pair_id": "G2-02811",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 5.383109997026622
+  },
+  {
+   "index": 2814,
+   "pair_id": "G2-02814",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5440868879668415
+  },
+  {
+   "index": 2825,
+   "pair_id": "G2-02825",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5623557078652084
+  },
+  {
+   "index": 2846,
+   "pair_id": "G2-02846",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5511825098656118
+  },
+  {
+   "index": 2856,
+   "pair_id": "G2-02856",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5991770280525088
+  },
+  {
+   "index": 2871,
+   "pair_id": "G2-02871",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5483930159825832
+  },
+  {
+   "index": 2890,
+   "pair_id": "G2-02890",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5726377000100911
+  },
+  {
+   "index": 2891,
+   "pair_id": "G2-02891",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.43263733806088567
+  },
+  {
+   "index": 2901,
+   "pair_id": "G2-02901",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6166648468934
+  },
+  {
+   "index": 2914,
+   "pair_id": "G2-02914",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5730248040053993
+  },
+  {
+   "index": 2923,
+   "pair_id": "G2-02923",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5617612479254603
+  },
+  {
+   "index": 2931,
+   "pair_id": "G2-02931",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8873329828493297
+  },
+  {
+   "index": 2935,
+   "pair_id": "G2-02935",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5334140460472554
+  },
+  {
+   "index": 2945,
+   "pair_id": "G2-02945",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5030388350132853
+  },
+  {
+   "index": 2953,
+   "pair_id": "G2-02953",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.569717651931569
+  },
+  {
+   "index": 2960,
+   "pair_id": "G2-02960",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.48577471380122006
+  },
+  {
+   "index": 2961,
+   "pair_id": "G2-02961",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5672517030034214
+  },
+  {
+   "index": 2968,
+   "pair_id": "G2-02968",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5651478548534214
+  },
+  {
+   "index": 2975,
+   "pair_id": "G2-02975",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.538944210158661
+  },
+  {
+   "index": 2980,
+   "pair_id": "G2-02980",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.47949210996739566
+  },
+  {
+   "index": 2993,
+   "pair_id": "G2-02993",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5491224389988929
+  },
+  {
+   "index": 2996,
+   "pair_id": "G2-02996",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5794444719795138
+  },
+  {
+   "index": 3003,
+   "pair_id": "G2-03003",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.46793366502970457
+  },
+  {
+   "index": 3006,
+   "pair_id": "G2-03006",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5319742958527058
+  },
+  {
+   "index": 3013,
+   "pair_id": "G2-03013",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 6.789303924888372
+  },
+  {
+   "index": 3014,
+   "pair_id": "G2-03014",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5343644169624895
+  },
+  {
+   "index": 3027,
+   "pair_id": "G2-03027",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5743237319402397
+  },
+  {
+   "index": 3033,
+   "pair_id": "G2-03033",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.436203904915601
+  },
+  {
+   "index": 3048,
+   "pair_id": "G2-03048",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.534599730046466
+  },
+  {
+   "index": 3053,
+   "pair_id": "G2-03053",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5372484619729221
+  },
+  {
+   "index": 3078,
+   "pair_id": "G2-03078",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5423708879388869
+  },
+  {
+   "index": 3104,
+   "pair_id": "G2-03104",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5427902799565345
+  },
+  {
+   "index": 3105,
+   "pair_id": "G2-03105",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.596239980077371
+  },
+  {
+   "index": 3110,
+   "pair_id": "G2-03110",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5500726168975234
+  },
+  {
+   "index": 3115,
+   "pair_id": "G2-03115",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4250834579579532
+  },
+  {
+   "index": 3184,
+   "pair_id": "G2-03184",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5341708010528237
+  },
+  {
+   "index": 3191,
+   "pair_id": "G2-03191",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5753553388640285
+  },
+  {
+   "index": 3205,
+   "pair_id": "G2-03205",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5349168619140983
+  },
+  {
+   "index": 3211,
+   "pair_id": "G2-03211",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5494370548985898
+  },
+  {
+   "index": 3223,
+   "pair_id": "G2-03223",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6165112580638379
+  },
+  {
+   "index": 3240,
+   "pair_id": "G2-03240",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4146543419919908
+  },
+  {
+   "index": 3298,
+   "pair_id": "G2-03298",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5293661109171808
+  },
+  {
+   "index": 3310,
+   "pair_id": "G2-03310",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8341142849531025
+  },
+  {
+   "index": 3332,
+   "pair_id": "G2-03332",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.51931619993411
+  },
+  {
+   "index": 3349,
+   "pair_id": "G2-03349",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6291407430544496
+  },
+  {
+   "index": 3353,
+   "pair_id": "G2-03353",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5197385440114886
+  },
+  {
+   "index": 3356,
+   "pair_id": "G2-03356",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 8.002684463048354
+  },
+  {
+   "index": 3361,
+   "pair_id": "G2-03361",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5021990612149239
+  },
+  {
+   "index": 3384,
+   "pair_id": "G2-03384",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5441885630134493
+  },
+  {
+   "index": 3393,
+   "pair_id": "G2-03393",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5473309350199997
+  },
+  {
+   "index": 3407,
+   "pair_id": "G2-03407",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5363788991235197
+  },
+  {
+   "index": 3415,
+   "pair_id": "G2-03415",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.43586656590923667
+  },
+  {
+   "index": 3420,
+   "pair_id": "G2-03420",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5811130839865655
+  },
+  {
+   "index": 3428,
+   "pair_id": "G2-03428",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6076796289999038
+  },
+  {
+   "index": 3438,
+   "pair_id": "G2-03438",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5831899389158934
+  },
+  {
+   "index": 3456,
+   "pair_id": "G2-03456",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.42233896092511714
+  },
+  {
+   "index": 3461,
+   "pair_id": "G2-03461",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5264490079134703
+  },
+  {
+   "index": 3468,
+   "pair_id": "G2-03468",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8159752041101456
+  },
+  {
+   "index": 3478,
+   "pair_id": "G2-03478",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5140764419920743
+  },
+  {
+   "index": 3492,
+   "pair_id": "G2-03492",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5315948601346463
+  },
+  {
+   "index": 3511,
+   "pair_id": "G2-03511",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.49782634479925036
+  },
+  {
+   "index": 3518,
+   "pair_id": "G2-03518",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5688215780537575
+  },
+  {
+   "index": 3519,
+   "pair_id": "G2-03519",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5317235251422971
+  },
+  {
+   "index": 3526,
+   "pair_id": "G2-03526",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5450515570119023
+  },
+  {
+   "index": 3534,
+   "pair_id": "G2-03534",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5745363270398229
+  },
+  {
+   "index": 3535,
+   "pair_id": "G2-03535",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 2.1919586211442947
+  },
+  {
+   "index": 3540,
+   "pair_id": "G2-03540",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5435167578980327
+  },
+  {
+   "index": 3558,
+   "pair_id": "G2-03558",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5358720829244703
+  },
+  {
+   "index": 3565,
+   "pair_id": "G2-03565",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5744068601634353
+  },
+  {
+   "index": 3582,
+   "pair_id": "G2-03582",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5529143728781492
+  },
+  {
+   "index": 3605,
+   "pair_id": "G2-03605",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.467408288968727
+  },
+  {
+   "index": 3614,
+   "pair_id": "G2-03614",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.9744870869908482
+  },
+  {
+   "index": 3616,
+   "pair_id": "G2-03616",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5259819009806961
+  },
+  {
+   "index": 3638,
+   "pair_id": "G2-03638",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5455430799629539
+  },
+  {
+   "index": 3643,
+   "pair_id": "G2-03643",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.574036916019395
+  },
+  {
+   "index": 3645,
+   "pair_id": "G2-03645",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 6.498181831790134
+  },
+  {
+   "index": 3649,
+   "pair_id": "G2-03649",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5733248570468277
+  },
+  {
+   "index": 3655,
+   "pair_id": "G2-03655",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5149269578978419
+  },
+  {
+   "index": 3668,
+   "pair_id": "G2-03668",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5724599431268871
+  },
+  {
+   "index": 3676,
+   "pair_id": "G2-03676",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.535370972007513
+  },
+  {
+   "index": 3677,
+   "pair_id": "G2-03677",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5242589469999075
+  },
+  {
+   "index": 3690,
+   "pair_id": "G2-03690",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.525688448920846
+  },
+  {
+   "index": 3711,
+   "pair_id": "G2-03711",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5497349039651453
+  },
+  {
+   "index": 3713,
+   "pair_id": "G2-03713",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5321609159000218
+  },
+  {
+   "index": 3727,
+   "pair_id": "G2-03727",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.44692177698016167
+  },
+  {
+   "index": 3729,
+   "pair_id": "G2-03729",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5605265868362039
+  },
+  {
+   "index": 3730,
+   "pair_id": "G2-03730",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5837658820673823
+  },
+  {
+   "index": 3734,
+   "pair_id": "G2-03734",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.57513930904679
+  },
+  {
+   "index": 3770,
+   "pair_id": "G2-03770",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.453960585873574
+  },
+  {
+   "index": 3775,
+   "pair_id": "G2-03775",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8789207700174302
+  },
+  {
+   "index": 3776,
+   "pair_id": "G2-03776",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5178496569860727
+  },
+  {
+   "index": 3782,
+   "pair_id": "G2-03782",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4684837060049176
+  },
+  {
+   "index": 3784,
+   "pair_id": "G2-03784",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6126427559647709
+  },
+  {
+   "index": 3794,
+   "pair_id": "G2-03794",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5380818760022521
+  },
+  {
+   "index": 3807,
+   "pair_id": "G2-03807",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.46211021509952843
+  },
+  {
+   "index": 3809,
+   "pair_id": "G2-03809",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5559735840652138
+  },
+  {
+   "index": 3827,
+   "pair_id": "G2-03827",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5514178299345076
+  },
+  {
+   "index": 3835,
+   "pair_id": "G2-03835",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.536831091158092
+  },
+  {
+   "index": 3836,
+   "pair_id": "G2-03836",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 4.007815191056579
+  },
+  {
+   "index": 3859,
+   "pair_id": "G2-03859",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5767863220535219
+  },
+  {
+   "index": 3865,
+   "pair_id": "G2-03865",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5576076940633357
+  },
+  {
+   "index": 3866,
+   "pair_id": "G2-03866",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6320259128697217
+  },
+  {
+   "index": 3876,
+   "pair_id": "G2-03876",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5437741819769144
+  },
+  {
+   "index": 3912,
+   "pair_id": "G2-03912",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5510066871065646
+  },
+  {
+   "index": 3928,
+   "pair_id": "G2-03928",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5946042579598725
+  },
+  {
+   "index": 3946,
+   "pair_id": "G2-03946",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.45663912990130484
+  },
+  {
+   "index": 3964,
+   "pair_id": "G2-03964",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6067273870576173
+  },
+  {
+   "index": 3967,
+   "pair_id": "G2-03967",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5933127438183874
+  },
+  {
+   "index": 3989,
+   "pair_id": "G2-03989",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.40941701200790703
+  },
+  {
+   "index": 3999,
+   "pair_id": "G2-03999",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.612229460850358
+  },
+  {
+   "index": 4006,
+   "pair_id": "G2-04006",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8482574638910592
+  },
+  {
+   "index": 4010,
+   "pair_id": "G2-04010",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5326195571105927
+  },
+  {
+   "index": 4023,
+   "pair_id": "G2-04023",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5659219669178128
+  },
+  {
+   "index": 4031,
+   "pair_id": "G2-04031",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5854431968182325
+  },
+  {
+   "index": 4036,
+   "pair_id": "G2-04036",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5816449848935008
+  },
+  {
+   "index": 4038,
+   "pair_id": "G2-04038",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4319241880439222
+  },
+  {
+   "index": 4042,
+   "pair_id": "G2-04042",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6030176619533449
+  },
+  {
+   "index": 4044,
+   "pair_id": "G2-04044",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6203204430639744
+  },
+  {
+   "index": 4073,
+   "pair_id": "G2-04073",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5887239598669112
+  },
+  {
+   "index": 4078,
+   "pair_id": "G2-04078",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5462563030887395
+  },
+  {
+   "index": 4090,
+   "pair_id": "G2-04090",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6064173700287938
+  },
+  {
+   "index": 4091,
+   "pair_id": "G2-04091",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5790588490199298
+  },
+  {
+   "index": 4096,
+   "pair_id": "G2-04096",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.4994655200280249
+  },
+  {
+   "index": 4098,
+   "pair_id": "G2-04098",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.43894326593726873
+  },
+  {
+   "index": 4101,
+   "pair_id": "G2-04101",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6103757261298597
+  },
+  {
+   "index": 4115,
+   "pair_id": "G2-04115",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6010341339278966
+  },
+  {
+   "index": 4142,
+   "pair_id": "G2-04142",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5431274229194969
+  },
+  {
+   "index": 4173,
+   "pair_id": "G2-04173",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5544038470834494
+  },
+  {
+   "index": 4175,
+   "pair_id": "G2-04175",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5604520160704851
+  },
+  {
+   "index": 4180,
+   "pair_id": "G2-04180",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5352151240222156
+  },
+  {
+   "index": 4184,
+   "pair_id": "G2-04184",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 4.863402610179037
+  },
+  {
+   "index": 4209,
+   "pair_id": "G2-04209",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5803293790668249
+  },
+  {
+   "index": 4214,
+   "pair_id": "G2-04214",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8523746691644192
+  },
+  {
+   "index": 4215,
+   "pair_id": "G2-04215",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5183064490556717
+  },
+  {
+   "index": 4220,
+   "pair_id": "G2-04220",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5277101390529424
+  },
+  {
+   "index": 4225,
+   "pair_id": "G2-04225",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 2.711341792019084
+  },
+  {
+   "index": 4242,
+   "pair_id": "G2-04242",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6083040540106595
+  },
+  {
+   "index": 4248,
+   "pair_id": "G2-04248",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5682356420438737
+  },
+  {
+   "index": 4256,
+   "pair_id": "G2-04256",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5522922079544514
+  },
+  {
+   "index": 4262,
+   "pair_id": "G2-04262",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5904126961249858
+  },
+  {
+   "index": 4279,
+   "pair_id": "G2-04279",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6058611960615963
+  },
+  {
+   "index": 4286,
+   "pair_id": "G2-04286",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6524564879946411
+  },
+  {
+   "index": 4295,
+   "pair_id": "G2-04295",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5415529089514166
+  },
+  {
+   "index": 4357,
+   "pair_id": "G2-04357",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5812960648909211
+  },
+  {
+   "index": 4369,
+   "pair_id": "G2-04369",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5646502191666514
+  },
+  {
+   "index": 4380,
+   "pair_id": "G2-04380",
+   "g2_reason": "start_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 2.611451894044876
+  },
+  {
+   "index": 4411,
+   "pair_id": "G2-04411",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8481110569555312
+  },
+  {
+   "index": 4421,
+   "pair_id": "G2-04421",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6057735041249543
+  },
+  {
+   "index": 4440,
+   "pair_id": "G2-04440",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5582271900493652
+  },
+  {
+   "index": 4442,
+   "pair_id": "G2-04442",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.47538764821365476
+  },
+  {
+   "index": 4449,
+   "pair_id": "G2-04449",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5145862291101366
+  },
+  {
+   "index": 4452,
+   "pair_id": "G2-04452",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5452377791516483
+  },
+  {
+   "index": 4488,
+   "pair_id": "G2-04488",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5660275630652905
+  },
+  {
+   "index": 4507,
+   "pair_id": "G2-04507",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5993379710707814
+  },
+  {
+   "index": 4512,
+   "pair_id": "G2-04512",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5839090740773827
+  },
+  {
+   "index": 4527,
+   "pair_id": "G2-04527",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6209667529910803
+  },
+  {
+   "index": 4540,
+   "pair_id": "G2-04540",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6219267481938004
+  },
+  {
+   "index": 4544,
+   "pair_id": "G2-04544",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5015556130092591
+  },
+  {
+   "index": 4550,
+   "pair_id": "G2-04550",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.58953583589755
+  },
+  {
+   "index": 4560,
+   "pair_id": "G2-04560",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5974011160433292
+  },
+  {
+   "index": 4629,
+   "pair_id": "G2-04629",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 7.188258242094889
+  },
+  {
+   "index": 4636,
+   "pair_id": "G2-04636",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5786960949189961
+  },
+  {
+   "index": 4641,
+   "pair_id": "G2-04641",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6296672101598233
+  },
+  {
+   "index": 4646,
+   "pair_id": "G2-04646",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "start_not_certified_free",
+   "shared_replay_passed": null,
+   "wall_s": 0.1784570710733533
+  },
+  {
+   "index": 4648,
+   "pair_id": "G2-04648",
+   "g2_reason": "goal_not_certified_free",
+   "status": "REACHABLE",
+   "reason": "graph_path_lifted_and_verified",
+   "shared_replay_passed": true,
+   "wall_s": 2.4901224710047245
+  },
+  {
+   "index": 4691,
+   "pair_id": "G2-04691",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6206014761701226
+  },
+  {
+   "index": 4713,
+   "pair_id": "G2-04713",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6045070958789438
+  },
+  {
+   "index": 4721,
+   "pair_id": "G2-04721",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5400942349806428
+  },
+  {
+   "index": 4723,
+   "pair_id": "G2-04723",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5473176611121744
+  },
+  {
+   "index": 4771,
+   "pair_id": "G2-04771",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5890315668657422
+  },
+  {
+   "index": 4776,
+   "pair_id": "G2-04776",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5769627019762993
+  },
+  {
+   "index": 4785,
+   "pair_id": "G2-04785",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6163409401196986
+  },
+  {
+   "index": 4788,
+   "pair_id": "G2-04788",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6202650750055909
+  },
+  {
+   "index": 4805,
+   "pair_id": "G2-04805",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5187946378719062
+  },
+  {
+   "index": 4812,
+   "pair_id": "G2-04812",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.47219253215007484
+  },
+  {
+   "index": 4816,
+   "pair_id": "G2-04816",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5690904699731618
+  },
+  {
+   "index": 4832,
+   "pair_id": "G2-04832",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6102850779425353
+  },
+  {
+   "index": 4835,
+   "pair_id": "G2-04835",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.594901337986812
+  },
+  {
+   "index": 4838,
+   "pair_id": "G2-04838",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5467878109775484
+  },
+  {
+   "index": 4840,
+   "pair_id": "G2-04840",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5489100981503725
+  },
+  {
+   "index": 4858,
+   "pair_id": "G2-04858",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6233341249171644
+  },
+  {
+   "index": 4863,
+   "pair_id": "G2-04863",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5087733760010451
+  },
+  {
+   "index": 4874,
+   "pair_id": "G2-04874",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6156024490483105
+  },
+  {
+   "index": 4876,
+   "pair_id": "G2-04876",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6123394321184605
+  },
+  {
+   "index": 4877,
+   "pair_id": "G2-04877",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.45879612606950104
+  },
+  {
+   "index": 4898,
+   "pair_id": "G2-04898",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5888449021149427
+  },
+  {
+   "index": 4905,
+   "pair_id": "G2-04905",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.8903465420007706
+  },
+  {
+   "index": 4913,
+   "pair_id": "G2-04913",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.552490073023364
+  },
+  {
+   "index": 4916,
+   "pair_id": "G2-04916",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5274898649659008
+  },
+  {
+   "index": 4927,
+   "pair_id": "G2-04927",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.6310420061927289
+  },
+  {
+   "index": 4965,
+   "pair_id": "G2-04965",
+   "g2_reason": "start_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5432800250127912
+  },
+  {
+   "index": 4966,
+   "pair_id": "G2-04966",
+   "g2_reason": "goal_not_certified_free",
+   "status": "UNKNOWN",
+   "reason": "safe_graph_disconnected_possible_connected",
+   "shared_replay_passed": null,
+   "wall_s": 0.5688495989888906
+  }
+ ],
+ "wall_s": 357.00016194884665
+}
