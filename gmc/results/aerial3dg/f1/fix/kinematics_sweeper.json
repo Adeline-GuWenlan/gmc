@@ -1,0 +1,2986 @@
+{
+ "robot": "sweeper",
+ "n": 62,
+ "rows": [
+  {
+   "index": 49,
+   "pair_id": "G2-00049",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010303542405490779
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 58,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 40,
+     "steps": 62,
+     "t_s": 24.81669826332583,
+     "elapsed_s": 1.1042626759660834e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.1042626770763064e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0053975429968887e-09,
+     "elapsed_exact_s": 1.1042626770763064e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010303542405490779,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 55,
+   "pair_id": "G2-00055",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012470803841609698
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 51,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 44,
+     "steps": 57,
+     "t_s": 25.47448946296287,
+     "elapsed_s": 1.6821399100308554e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.6821399118072122e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0560101681988954e-09,
+     "elapsed_exact_s": 1.6821399118072122e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012470803841609698,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 166,
+   "pair_id": "G2-00166",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001462271038801953
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 41,
+   "polyline_vertices": 3,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 24,
+     "steps": 43,
+     "t_s": 17.1304488062611,
+     "elapsed_s": 1.2599326701945301e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.2599326715267978e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0574117137451822e-09,
+     "elapsed_exact_s": 1.2599326715267978e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001462271038801953,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 227,
+   "pair_id": "G2-00227",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013250173958813797
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 44,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.721021407196659e-07,
+   "violations": [
+    {
+     "step": 36,
+     "steps": 49,
+     "t_s": 21.446800396216588,
+     "elapsed_s": 6.72102139276376e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.721021407196659e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.1474264588761116e-09,
+     "elapsed_exact_s": 6.721021407196659e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013250173958813797,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 292,
+   "pair_id": "G2-00292",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 34,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.274814657811987e-07,
+   "violations": [
+    {
+     "step": 21,
+     "steps": 38,
+     "t_s": 12.37917022058453,
+     "elapsed_s": 4.274814653371095e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 4.274814657811987e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.038850117041079e-09,
+     "elapsed_exact_s": 4.274814657811987e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 357,
+   "pair_id": "G2-00357",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001237819514646557
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 45,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.344970900380332e-07,
+   "violations": [
+    {
+     "step": 37,
+     "steps": 50,
+     "t_s": 22.551992386041107,
+     "elapsed_s": 7.344970889278102e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 7.344970900380332e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.5115417806299547e-09,
+     "elapsed_exact_s": 7.344970900380332e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001237819514646557,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 368,
+   "pair_id": "G2-00368",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0016574549099900896
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 43,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 33,
+     "steps": 48,
+     "t_s": 19.097232933338546,
+     "elapsed_s": 1.0375122485584143e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.0375122503347711e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.712130881514895e-09,
+     "elapsed_exact_s": 1.0375122503347711e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0016574549099900896,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 380,
+   "pair_id": "G2-00380",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 40,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 36,
+     "steps": 45,
+     "t_s": 21.288364056843363,
+     "elapsed_s": 1.0489304926863952e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.048930494462752e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.6934933455559076e-09,
+     "elapsed_exact_s": 1.048930494462752e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 416,
+   "pair_id": "G2-00416",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0011397605495268594
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 57,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.750203081993476e-07,
+   "violations": [
+    {
+     "step": 41,
+     "steps": 62,
+     "t_s": 24.786619469804148,
+     "elapsed_s": 4.750203075332138e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 4.750203081993476e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.4023269212515288e-09,
+     "elapsed_exact_s": 4.750203081993476e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0011397605495268594,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 429,
+   "pair_id": "G2-00429",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 46,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 37,
+     "steps": 50,
+     "t_s": 23.010745244035704,
+     "elapsed_s": 1.03336132184495e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.0333613236213068e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.719008491107843e-09,
+     "elapsed_exact_s": 1.0333613236213068e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 478,
+   "pair_id": "G2-00478",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013764481085809192
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 48,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.968766057546816e-07,
+   "violations": [
+    {
+     "step": 42,
+     "steps": 55,
+     "t_s": 23.73432477207863,
+     "elapsed_s": 6.96876604422414e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.968766057546816e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.911769853535361e-09,
+     "elapsed_exact_s": 6.968766057546816e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013764481085809192,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 649,
+   "pair_id": "G2-00649",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012781429385505332
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 45,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 9.77321997552849e-07,
+   "violations": [
+    {
+     "step": 42,
+     "steps": 51,
+     "t_s": 24.42503983837991,
+     "elapsed_s": 9.773219957764923e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 9.77321997552849e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.8175758675909037e-09,
+     "elapsed_exact_s": 9.77321997552849e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012781429385505332,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 696,
+   "pair_id": "G2-00696",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013920977029469245
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 30,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.964715187849578e-07,
+   "violations": [
+    {
+     "step": 15,
+     "steps": 34,
+     "t_s": 9.03247178453437,
+     "elapsed_s": 4.96471518118824e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 4.964715187849578e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.341736277638006e-09,
+     "elapsed_exact_s": 4.964715187849578e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013920977029469245,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 712,
+   "pair_id": "G2-00712",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 52,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.28266019431223e-07,
+   "violations": [
+    {
+     "step": 40,
+     "steps": 58,
+     "t_s": 23.879137198507827,
+     "elapsed_s": 6.28266018765089e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.282660194312228e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.060273424613456e-09,
+     "elapsed_exact_s": 6.282660194312228e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 773,
+   "pair_id": "G2-00773",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013502655967815775
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 51,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.827581893187329e-07,
+   "violations": [
+    {
+     "step": 37,
+     "steps": 56,
+     "t_s": 22.539870806073218,
+     "elapsed_s": 6.827581877644207e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.827581893187329e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.276519417421241e-09,
+     "elapsed_exact_s": 6.827581893187329e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013502655967815775,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 776,
+   "pair_id": "G2-00776",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014774153399651894
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 44,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 31,
+     "steps": 48,
+     "t_s": 18.921938972423373,
+     "elapsed_s": 1.6148698200879608e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.6148698218643176e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.100000091014408e-09,
+     "elapsed_exact_s": 1.6148698218643176e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014774153399651894,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 818,
+   "pair_id": "G2-00818",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 45,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 30,
+     "steps": 49,
+     "t_s": 18.63633467289998,
+     "elapsed_s": 1.1248267384189603e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.1248267400842948e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.4805254799910017e-09,
+     "elapsed_exact_s": 1.1248267400842948e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013232977769281028,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 980,
+   "pair_id": "G2-00980",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012626005140660783
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 44,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.799938810393314e-07,
+   "violations": [
+    {
+     "step": 34,
+     "steps": 48,
+     "t_s": 21.004354727327144,
+     "elapsed_s": 7.799938792629746e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -7.799938810393314e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.2773984920121393e-09,
+     "elapsed_exact_s": 7.799938810393314e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012626005140660783,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1063,
+   "pair_id": "G2-01063",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 63,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 47,
+     "steps": 70,
+     "t_s": 26.81800071733266,
+     "elapsed_s": 1.0672632591024467e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.0672632602126697e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0402523287211807e-09,
+     "elapsed_exact_s": 1.0672632602126697e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1064,
+   "pair_id": "G2-01064",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 35,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.331670497847995e-07,
+   "violations": [
+    {
+     "step": 20,
+     "steps": 39,
+     "t_s": 11.512366016546007,
+     "elapsed_s": 4.3316704889662105e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 4.331670497847995e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.0504293818390806e-09,
+     "elapsed_exact_s": 4.331670497847995e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1082,
+   "pair_id": "G2-01082",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 47,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 35,
+     "steps": 53,
+     "t_s": 19.9891438886759,
+     "elapsed_s": 1.0229865239352876e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.0229865250455106e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0852763132618293e-09,
+     "elapsed_exact_s": 1.0229865250455106e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1169,
+   "pair_id": "G2-01169",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001372814534027115
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 49,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 41,
+     "steps": 56,
+     "t_s": 23.05554382549546,
+     "elapsed_s": 1.0526984262071437e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.0526984273173667e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0546448159232114e-09,
+     "elapsed_exact_s": 1.0526984273173667e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001372814534027115,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1777,
+   "pair_id": "G2-01777",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015518306990053995
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 49,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.952195478720057e-07,
+   "violations": [
+    {
+     "step": 34,
+     "steps": 53,
+     "t_s": 21.22417942352333,
+     "elapsed_s": 5.952195465397381e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 5.952195478720057e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.238279339650262e-09,
+     "elapsed_exact_s": 5.952195478720057e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015518306990053995,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1791,
+   "pair_id": "G2-01791",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001103683306427712
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 49,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.549797686496774e-07,
+   "violations": [
+    {
+     "step": 45,
+     "steps": 56,
+     "t_s": 25.37770463277263,
+     "elapsed_s": 8.549797669843429e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -8.549797686496774e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.9478056945132494e-09,
+     "elapsed_exact_s": 8.549797686496774e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001103683306427712,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1862,
+   "pair_id": "G2-01862",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015583416204778438
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 53,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.231291898028957e-07,
+   "violations": [
+    {
+     "step": 44,
+     "steps": 59,
+     "t_s": 25.96733951726717,
+     "elapsed_s": 6.231291891367619e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.231291898028957e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.069013988441725e-09,
+     "elapsed_exact_s": 6.231291898028957e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015583416204778438,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1914,
+   "pair_id": "G2-01914",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 45,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.487413297673328e-07,
+   "violations": [
+    {
+     "step": 25,
+     "steps": 49,
+     "t_s": 14.903354414647396,
+     "elapsed_s": 6.48741329101199e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.487413297673328e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0268095262944144e-09,
+     "elapsed_exact_s": 6.487413297673328e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2069,
+   "pair_id": "G2-02069",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010233731511608887
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 33,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.282155590702331e-07,
+   "violations": [
+    {
+     "step": 16,
+     "steps": 37,
+     "t_s": 8.755487686081423,
+     "elapsed_s": 5.282155584040993e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -5.282155590702331e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.2611023336717153e-09,
+     "elapsed_exact_s": 5.282155590702331e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010233731511608887,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2088,
+   "pair_id": "G2-02088",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001584655192583572
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 57,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 9.198007528965491e-07,
+   "violations": [
+    {
+     "step": 49,
+     "steps": 62,
+     "t_s": 31.10173125180615,
+     "elapsed_s": 9.198007511201922e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 9.198007524524598e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.4484307087059278e-09,
+     "elapsed_exact_s": 9.198007524524598e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001584655192583572,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2133,
+   "pair_id": "G2-02133",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 38,
+   "polyline_vertices": 4,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.77956030975335e-07,
+   "violations": [
+    {
+     "step": 21,
+     "steps": 41,
+     "t_s": 12.738743377399238,
+     "elapsed_s": 4.779560303092012e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -4.77956030975335e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.393713588981882e-09,
+     "elapsed_exact_s": 4.77956030975335e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2135,
+   "pair_id": "G2-02135",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 48,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 47,
+     "steps": 55,
+     "t_s": 26.483616321542662,
+     "elapsed_s": 1.1270488755599217e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.127048877114234e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.3790992792195311e-09,
+     "elapsed_exact_s": 1.127048877114234e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2218,
+   "pair_id": "G2-02218",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001455226348319586
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 54,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.051299736853366e-07,
+   "violations": [
+    {
+     "step": 43,
+     "steps": 61,
+     "t_s": 24.42217760494131,
+     "elapsed_s": 6.051299727971582e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -6.051299736853366e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.4677481452451957e-09,
+     "elapsed_exact_s": 6.051299736853366e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001455226348319586,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2235,
+   "pair_id": "G2-02235",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623388046
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 30,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 27,
+     "steps": 35,
+     "t_s": 17.017117720786043,
+     "elapsed_s": 1.1432536553002137e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.1432536566324814e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.1653298326308459e-09,
+     "elapsed_exact_s": 1.1432536566324814e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623388046,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2243,
+   "pair_id": "G2-02243",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 39,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.763350877709739e-07,
+   "violations": [
+    {
+     "step": 21,
+     "steps": 43,
+     "t_s": 12.802833365635845,
+     "elapsed_s": 7.763350868827956e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -7.76335087770974e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.1440657310402003e-09,
+     "elapsed_exact_s": 7.76335087770974e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2344,
+   "pair_id": "G2-02344",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012594178625639787
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 50,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.148803067875576e-07,
+   "violations": [
+    {
+     "step": 34,
+     "steps": 54,
+     "t_s": 20.609374434379262,
+     "elapsed_s": 8.1488030545529e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 8.148803067875576e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.6349244180702271e-09,
+     "elapsed_exact_s": 8.148803067875576e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012594178625639787,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2350,
+   "pair_id": "G2-02350",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 32,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 3.777256556425357e-07,
+   "violations": [
+    {
+     "step": 15,
+     "steps": 36,
+     "t_s": 8.23058787260052,
+     "elapsed_s": 3.777256551984465e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -3.777256556425357e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.1756924322980922e-09,
+     "elapsed_exact_s": 3.777256556425357e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2639,
+   "pair_id": "G2-02639",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0011530327887615988
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 57,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.5904467893542744e-07,
+   "violations": [
+    {
+     "step": 43,
+     "steps": 63,
+     "t_s": 25.43574967224725,
+     "elapsed_s": 4.590446778252044e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -4.5904467893542744e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.418551137139957e-09,
+     "elapsed_exact_s": 4.5904467893542744e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0011530327887615988,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2682,
+   "pair_id": "G2-02682",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012223352095589632
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 55,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 54,
+     "steps": 60,
+     "t_s": 33.65069117740371,
+     "elapsed_s": 1.7303995250017579e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": -1.7303995278883377e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.6681580561339615e-09,
+     "elapsed_exact_s": 1.7303995278883377e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012223352095589632,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2786,
+   "pair_id": "G2-02786",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 44,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.853827333510366e-07,
+   "violations": [
+    {
+     "step": 28,
+     "steps": 48,
+     "t_s": 17.51638547698162,
+     "elapsed_s": 8.853827324628583e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -8.853827333510367e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.003157557022405e-09,
+     "elapsed_exact_s": 8.853827333510367e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2815,
+   "pair_id": "G2-02815",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012104533811278045
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 51,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.5331999976028214e-07,
+   "violations": [
+    {
+     "step": 33,
+     "steps": 55,
+     "t_s": 20.593582896339093,
+     "elapsed_s": 4.533199984280145e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -4.5331999976028214e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.938912002647953e-09,
+     "elapsed_exact_s": 4.5331999976028214e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012104533811278045,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2824,
+   "pair_id": "G2-02824",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010648208183200978
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 38,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 30,
+     "steps": 43,
+     "t_s": 18.890728886946814,
+     "elapsed_s": 1.4342662666422257e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.4342662683075602e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.161105656066752e-09,
+     "elapsed_exact_s": 1.4342662683075602e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010648208183200978,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2887,
+   "pair_id": "G2-02887",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 46,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.186665681389258e-07,
+   "violations": [
+    {
+     "step": 28,
+     "steps": 50,
+     "t_s": 17.026760109620515,
+     "elapsed_s": 5.186665674727919e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -5.186665681389258e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.2843199836964914e-09,
+     "elapsed_exact_s": 5.186665681389258e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2937,
+   "pair_id": "G2-02937",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013543546022114234
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 42,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 29,
+     "steps": 46,
+     "t_s": 18.029154102548546,
+     "elapsed_s": 1.07339288035746e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 1.073392881467683e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0343119694056213e-09,
+     "elapsed_exact_s": 1.073392881467683e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013543546022114234,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 2941,
+   "pair_id": "G2-02941",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010543678969394052
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 28,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.495036972171576e-07,
+   "violations": [
+    {
+     "step": 17,
+     "steps": 33,
+     "t_s": 8.331897113334657,
+     "elapsed_s": 7.495036964400015e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -7.495036973281799e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.1850220804632272e-09,
+     "elapsed_exact_s": 7.495036973281799e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0010543678969394052,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3069,
+   "pair_id": "G2-03069",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0016249007117638918
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 42,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.295694157694044e-07,
+   "violations": [
+    {
+     "step": 35,
+     "steps": 47,
+     "t_s": 21.05329159091234,
+     "elapsed_s": 7.295694146591813e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 7.295694157694044e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.5217509474751978e-09,
+     "elapsed_exact_s": 7.295694157694044e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0016249007117638918,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3123,
+   "pair_id": "G2-03123",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 54,
+   "polyline_vertices": 9,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.525260120542441e-07,
+   "violations": [
+    {
+     "step": 42,
+     "steps": 62,
+     "t_s": 22.051529983707702,
+     "elapsed_s": 5.525260107219765e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -5.525260120542441e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.4112305485601837e-09,
+     "elapsed_exact_s": 5.525260120542441e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3425,
+   "pair_id": "G2-03425",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0017933928374233646
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 33,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.158527764479118e-07,
+   "violations": [
+    {
+     "step": 19,
+     "steps": 37,
+     "t_s": 10.697896280530998,
+     "elapsed_s": 8.158527755597333e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 8.158527764479118e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0886502810336651e-09,
+     "elapsed_exact_s": 8.158527764479118e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0017933928374233646,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3551,
+   "pair_id": "G2-03551",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 60,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 9.074137685693984e-07,
+   "violations": [
+    {
+     "step": 43,
+     "steps": 66,
+     "t_s": 24.835174975629748,
+     "elapsed_s": 9.074137672371307e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 9.074137685693984e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.468203114640687e-09,
+     "elapsed_exact_s": 9.074137685693984e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3627,
+   "pair_id": "G2-03627",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015522344560482688
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 47,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.6435128964184e-07,
+   "violations": [
+    {
+     "step": 32,
+     "steps": 51,
+     "t_s": 19.32668465841047,
+     "elapsed_s": 4.643512880875278e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 4.6435128964184e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 3.3472766780562324e-09,
+     "elapsed_exact_s": 4.6435128964184e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015522344560482688,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3631,
+   "pair_id": "G2-03631",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012699366760733914
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 22,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.114828717291743e-07,
+   "violations": [
+    {
+     "step": 14,
+     "steps": 26,
+     "t_s": 8.27234740073344,
+     "elapsed_s": 7.114828708409959e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 7.114828717291743e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.2483483136094264e-09,
+     "elapsed_exact_s": 7.114828717291743e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012699366760733914,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3641,
+   "pair_id": "G2-03641",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 48,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.67601614487323e-07,
+   "violations": [
+    {
+     "step": 39,
+     "steps": 54,
+     "t_s": 23.12398897523906,
+     "elapsed_s": 5.676016137101669e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 5.67601614487323e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.3691929812154058e-09,
+     "elapsed_exact_s": 5.67601614487323e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3735,
+   "pair_id": "G2-03735",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012027051947641003
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 46,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.713775587170346e-07,
+   "violations": [
+    {
+     "step": 29,
+     "steps": 50,
+     "t_s": 17.831659647847193,
+     "elapsed_s": 7.71377557384767e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 7.713775587170346e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.7271277741315316e-09,
+     "elapsed_exact_s": 7.713775587170346e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012027051947641003,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 3931,
+   "pair_id": "G2-03931",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014605924035997245
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 64,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 0,
+   "max_tiny_turn_rad": null,
+   "violations": [
+    {
+     "step": 64,
+     "steps": 71,
+     "t_s": 39.230485616774956,
+     "elapsed_s": 2.5786454429521655e-06,
+     "translation_m": 0.0,
+     "yaw_change_rad": 2.57864544606079e-06,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.2055261233712145e-09,
+     "elapsed_exact_s": 2.57864544606079e-06
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014605924035997245,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4252,
+   "pair_id": "G2-04252",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 45,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 9.47130709860744e-07,
+   "violations": [
+    {
+     "step": 38,
+     "steps": 50,
+     "t_s": 22.509116956833466,
+     "elapsed_s": 9.471307080843872e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -9.47130709860744e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.875513966353992e-09,
+     "elapsed_exact_s": 9.47130709860744e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0012552929305938195,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4263,
+   "pair_id": "G2-04263",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014561516805622003
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 58,
+   "polyline_vertices": 8,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.034115300757037e-07,
+   "violations": [
+    {
+     "step": 45,
+     "steps": 65,
+     "t_s": 25.584555501127788,
+     "elapsed_s": 6.034115287434361e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.034115300757037e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.2078923134216666e-09,
+     "elapsed_exact_s": 6.034115300757037e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0014561516805622003,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4384,
+   "pair_id": "G2-04384",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001447645507892739
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 55,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 7.190702586701293e-07,
+   "violations": [
+    {
+     "step": 41,
+     "steps": 60,
+     "t_s": 24.41998865082075,
+     "elapsed_s": 7.190702575599062e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 7.190702586701292e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.543970062911626e-09,
+     "elapsed_exact_s": 7.190702586701292e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001447645507892739,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4478,
+   "pair_id": "G2-04478",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 59,
+   "polyline_vertices": 7,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 5.65191667245557e-07,
+   "violations": [
+    {
+     "step": 43,
+     "steps": 65,
+     "t_s": 24.765646943906052,
+     "elapsed_s": 5.651916659132894e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 5.651916674676016e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 2.7500621779807943e-09,
+     "elapsed_exact_s": 5.651916674676016e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001370661623387713,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4487,
+   "pair_id": "G2-04487",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015234769315679228
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 39,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 4.96355423207362e-07,
+   "violations": [
+    {
+     "step": 26,
+     "steps": 44,
+     "t_s": 14.394155829033888,
+     "elapsed_s": 4.963554225412281e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -4.963554232073619e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.342050026664765e-09,
+     "elapsed_exact_s": 4.963554232073619e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0015234769315679228,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4582,
+   "pair_id": "G2-04582",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018057178777340574
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 35,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 6.702630210853044e-07,
+   "violations": [
+    {
+     "step": 19,
+     "steps": 40,
+     "t_s": 9.550650466287532,
+     "elapsed_s": 6.70263020197126e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -6.702630210853044e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.3251191255392314e-09,
+     "elapsed_exact_s": 6.702630210853044e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018057178777340574,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4687,
+   "pair_id": "G2-04687",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001265170733719488
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 30,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.368593489294085e-07,
+   "violations": [
+    {
+     "step": 25,
+     "steps": 35,
+     "t_s": 13.63071483248662,
+     "elapsed_s": 8.368593480412301e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -8.368593489294085e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0613234735501464e-09,
+     "elapsed_exact_s": 8.368593489294085e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.001265170733719488,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4756,
+   "pair_id": "G2-04756",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013520116868413177
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 37,
+   "polyline_vertices": 6,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.416955463719233e-07,
+   "violations": [
+    {
+     "step": 31,
+     "steps": 42,
+     "t_s": 18.135729719557137,
+     "elapsed_s": 8.416955452617003e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 8.416955463719233e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.3190315506506067e-09,
+     "elapsed_exact_s": 8.416955463719233e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013520116868413177,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4770,
+   "pair_id": "G2-04770",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 46,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.024833930697639e-07,
+   "violations": [
+    {
+     "step": 29,
+     "steps": 50,
+     "t_s": 18.238582688505574,
+     "elapsed_s": 8.024833917374963e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -8.024833930697639e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.6601808816574248e-09,
+     "elapsed_exact_s": 8.024833930697639e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0018061174146577804,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 4792,
+   "pair_id": "G2-04792",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "shared_geometry": {
+    "passed": true,
+    "safety": "continuous_bound",
+    "reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013340745283636514
+   },
+   "shared_kinematics": {
+    "passed": false,
+    "reason": "speed_or_yaw_rate_exceeded",
+    "acceleration_verified": false
+   },
+   "shared_attained_matches": true,
+   "densified_knots": 50,
+   "polyline_vertices": 5,
+   "turns_between_1e-12_and_1e-6_rad": 1,
+   "max_tiny_turn_rad": 8.555896375828098e-07,
+   "violations": [
+    {
+     "step": 31,
+     "steps": 54,
+     "t_s": 19.230221031781415,
+     "elapsed_s": 8.555896364725868e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 8.555896375828098e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.2976115737473037e-09,
+     "elapsed_exact_s": 8.555896375828098e-07
+    }
+   ],
+   "n_violations": 1,
+   "snapped_replay": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "clearance_lower_m": 0.0013340745283636514,
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  }
+ ],
+ "snapped_passed": 62,
+ "a3c": "/scratch/wg2381/splathjb-aerial3dg/gmc/outputs/aerial3dg/demo/sweeper.a3c",
+ "rows_source": "G2",
+ "fast": false
+}

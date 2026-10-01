@@ -38,3 +38,24 @@
     violation depends on exact float values. Hypothesis: tiny in-place turns (1e-12..1e-6 rad) at the
     collinear densify knots, timed as turn/1.0 rad/s and added to t ~ 30 s, so the elapsed time is rounded
     and yaw_rate exceeds 1 + 1e-9. Probe job 18981043 (exact polylines + replay with sub-µrad turns dropped).
+- 22:09Z  Concurrency: 4 of my jobs ran at once for ~10 min (QOS had room; g5 arrays are throttled by task count,
+  not by QOS memory). `scontrol update Dependency` / `hold` are refused here, so I serialise with dependencies at
+  submit time from now on.
+- 22:12Z  Kinematics probe v1 (18981043): violation confirmed on all 62 (one in-place turn of 0.4-2.6 µrad,
+  yaw-rate excess 1.0-3.3e-9 at t 8-39 s), but dropping the tiny turn makes the replay's heading-match check
+  fail (`ground_lateral_slip...`): not a valid fix. v2 (18981341): keep the turn, floor its duration at 1 ms ->
+  62/62 replays pass (geometry + kinematics).
+- 22:18Z  Buffer-0 endpoint cells (18981044): 238/239 sweeper endpoint rows become REACHABLE (own verifier +
+  shared replay); 1 hits a replay veto.
+- 22:19Z  Cylinder diag (18981090): 412 endpoint rows = 400 under-chassis + 12 lateral blockers; 3 sub-floor
+  Gaussians (5337920, 5496444, 5739701; 2-sigma tops 0.0180-0.0182) own 342/412 (and 209/239 sweeper rows).
+  Corridor: all 1587 CY-GAP pairs join cell components 0 (u -8.6..-5.67) and 1 (u -5.46..-1.33); the shortest
+  UNKNOWN corridor (900 leaves, u -5.82..-5.28, v 1.39..2.25) has exactly 2 unresolved pairs: sub-floor
+  Gaussians 5522629 (top 0.019990) and 5526162 (top 0.019805). The oracle at z_c says `unknown`
+  (geometry_or_margin_unproven), not occupied: a margin violation, not a contact. 1 cm oracle grid: no free path
+  across. Their C-obstacle top in body-centre z is 0.88599 / 0.88581 < slab top 0.886: a free sliver of
+  0.01-0.19 mm remains at the top of the +-1 mm slab, so these leaves can never be BLOCKED (no single- or
+  multi-pair certificate can exist in the slab), and they cannot be SAFE either.
+- 22:24Z  W1 sweeper done (18980208, 18 min, MaxRSS 1.38 GB). W2 (+2 m u and v) failed at scene build: the
+  fitted floor plane deviates 0.0500 m from z_floor at the box's world corners, the floor-support contract
+  allows 0.05. Largest box with v+2 that passes: u+1.5 (0.0487 m). Resubmitted W2 = u[-10.5,5.2] v[-2.35,4.75].
