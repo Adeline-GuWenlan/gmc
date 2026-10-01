@@ -226,10 +226,33 @@ def cmd_bridges(a):
             out.append(rep.occupancy)
         return out
 
-    used = {b for pp in per_pair for b in pp["joined_by_bridges"]}
+    # UNKNOWN-leaf graph (indices into unk) and, per UNKNOWN leaf, the cell components of touching SAFE leaves
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import dijkstra
+    e = np.searchsorted(unk, tp_u)
+    G = coo_matrix((np.ones(len(e)), (e[:, 0], e[:, 1])), shape=(len(unk), len(unk))).tocsr()
+    u_pos = np.searchsorted(unk, u_side)
+    combos = {}
+    for pp in per_pair:
+        if pp["start_comps"] and pp["goal_comps"]:
+            combos.setdefault((pp["start_comps"][0], pp["goal_comps"][0]), []).append(pp["index"])
     binfo = {}
-    for b in sorted(used):
-        leaves = unk[ulab == b]
+    for (ca, cb), owners in sorted(combos.items(), key=lambda kv: -len(kv[1])):
+        key = f"{ca}-{cb}"
+        A_adj = np.unique(u_pos[leafcomp[s_side] == ca])
+        B_adj = np.unique(u_pos[leafcomp[s_side] == cb])
+        if not len(A_adj) or not len(B_adj):
+            binfo[key] = {"pairs_owned": len(owners), "note": "a component touches no UNKNOWN leaf"}
+            continue
+        dA = dijkstra(G, directed=False, indices=A_adj, min_only=True, unweighted=True)
+        dB = dijkstra(G, directed=False, indices=B_adj, min_only=True, unweighted=True)
+        tot = dA + dB
+        m = float(np.min(tot))
+        if not np.isfinite(m):
+            binfo[key] = {"pairs_owned": len(owners), "note": "no UNKNOWN-leaf path between the components"}
+            continue
+        corridor_pos = np.flatnonzero(tot <= m + 2)
+        leaves = unk[corridor_pos]
         c, d = tree.boxes(leaves)
         pids, roles, gauss = set(), {}, {}
         for l in leaves:
@@ -239,12 +262,10 @@ def cmd_bridges(a):
             gi = gaussian_info(compiled, k, man)
             roles[gi["role"]] = roles.get(gi["role"], 0) + 1
             gauss[k] = gi
-        # oracle + union-of-inner samples: 3x3 per leaf at z_c
         offs = np.array([[i, j, 0.] for i in (-.66, 0., .66) for j in (-.66, 0., .66)])
         samples = (c[:, None, :] + offs[None] * d[:, None, :]).reshape(-1, 3)
         samples[:, 2] = compiled.domain.ground_z
-        occ = free_at(samples)
-        occ = np.asarray(occ).reshape(len(leaves), 9)
+        occ = np.asarray(free_at(samples)).reshape(len(leaves), 9)
         inner = np.zeros((len(leaves), 9), dtype=bool)
         for li, l in enumerate(leaves):
             P = samples[li * 9:(li + 1) * 9]
@@ -253,16 +274,14 @@ def cmd_bridges(a):
         leaf_class = np.where((occ == "free").all(1), "all_free",
                               np.where((occ == "free").any(1), "mixed", "no_free_sample"))
         lo, hi = (c - d).min(0), (c + d).max(0)
-        # 1 cm oracle free grid across the bridge (+5 cm), 8-connectivity between the joined components
         grid = None
-        if a.grid and (hi[0] - lo[0]) * (hi[1] - lo[1]) <= a.grid_max_m2:
+        if a.grid and (hi[0] - lo[0] + .2) * (hi[1] - lo[1] + .2) <= a.grid_max_m2:
             step = a.grid_step
-            us = np.arange(lo[0] - .05, hi[0] + .05 + 1e-9, step)
-            vs = np.arange(lo[1] - .05, hi[1] + .05 + 1e-9, step)
+            us = np.arange(lo[0] - .1, hi[0] + .1 + 1e-9, step)
+            vs = np.arange(lo[1] - .1, hi[1] + .1 + 1e-9, step)
             P = np.array([[u, v, compiled.domain.ground_z] for u in us for v in vs])
             F = (np.asarray(free_at(P)) == "free").reshape(len(us), len(vs))
             lab_grid = _grid_components(F)
-            # which joined component does each free grid point's containing cell belong to?
             touch = {}
             for (i, j), lab in np.ndenumerate(lab_grid):
                 if lab < 0:
@@ -270,34 +289,37 @@ def cmd_bridges(a):
                 cs = cells_containing(cx.cells, P[i * len(vs) + j])
                 for cc in {int(ccomp[x]) for x in cs}:
                     touch.setdefault(int(lab), set()).add(cc)
-            joining = {k: sorted(v) for k, v in touch.items() if len(v & bridges[b]) >= 2}
+            joining = {k: sorted(v) for k, v in touch.items() if {ca, cb} <= v}
             grid = {"step_m": step, "n_points": int(F.size), "free_points": int(F.sum()),
                     "free_components": int(lab_grid.max() + 1) if F.any() else 0,
-                    "free_component_joining_two_cell_components": bool(joining),
+                    "free_component_touching_both_cell_components": bool(joining),
                     "joining": {str(k): v for k, v in joining.items()},
                     "u_range": [float(us[0]), float(us[-1])], "v_range": [float(vs[0]), float(vs[-1])]}
-            np.save(Path(a.out).with_name(f"bridge_{b}_grid.npy"), F)
-        binfo[int(b)] = {
-            "leaves": int(len(leaves)), "bbox_uv": [round(lo[0], 3), round(lo[1], 3), round(hi[0], 3), round(hi[1], 3)],
-            "joins_cell_components": sorted(bridges[b]),
-            "pairs_owned": sum(b in pp["joined_by_bridges"] for pp in per_pair),
+            np.save(Path(a.out).with_name(f"corridor_{key}_grid.npy"), F)
+        binfo[key] = {
+            "components": [int(ca), int(cb)], "pairs_owned": len(owners),
+            "corridor_min_hops": m, "corridor_leaves": int(len(leaves)),
+            "region_leaves": int(np.count_nonzero(np.isfinite(dA) & np.isfinite(dB))),
+            "bbox_uv": [round(lo[0], 3), round(lo[1], 3), round(hi[0], 3), round(hi[1], 3)],
             "unresolved_pairs": len(pids), "unresolved_by_role": roles,
-            "unresolved_gaussians": sorted(gauss.values(), key=lambda g: g["mean_route"][0])[:200],
+            "unresolved_gaussians": sorted(gauss.values(), key=lambda g: g["mean_route"][1])[:200],
             "leaf_oracle_class": {k: int((leaf_class == k).sum()) for k in ("all_free", "mixed", "no_free_sample")},
             "samples_oracle": {k: int((occ == k).sum()) for k in ("free", "occupied", "unknown")},
             "samples_in_union_of_inner": int(inner.sum()), "samples": int(inner.size),
             "no_free_leaves_all_samples_in_union_of_inner": int(sum(
                 inner[i].all() for i in np.flatnonzero(leaf_class == "no_free_sample"))),
+            "no_free_leaves": int((leaf_class == "no_free_sample").sum()),
             "leaf_centres_uv": c[:, :2].round(3).tolist(), "leaf_half_uv": d[:, :2].round(4).tolist(),
             "leaf_class": leaf_class.tolist(), "grid": grid}
-        print("bridge", b, {k: binfo[int(b)][k] for k in ("leaves", "bbox_uv", "joins_cell_components", "pairs_owned",
-                                                         "unresolved_by_role", "leaf_oracle_class")},
-              json.dumps(grid)[:400] if grid else None, flush=True)
+        print("corridor", key, {k: binfo[key][k] for k in ("pairs_owned", "corridor_min_hops", "corridor_leaves",
+                                                          "bbox_uv", "unresolved_by_role", "leaf_oracle_class",
+                                                          "no_free_leaves_all_samples_in_union_of_inner")},
+              json.dumps(grid)[:300] if grid else None, flush=True)
     out = {"robot": a.robot, "a3c": str(a.a3c), "compile_id": compiled.compile_id, "n_rows": len(todo),
            "cell_components": int(ccomp.max() + 1), "component_info": comp_info,
            "unknown_regions": int(ulab.max() + 1) if len(ulab) else 0,
            "bridging_regions": {str(k): sorted(v) for k, v in bridges.items()},
-           "bridges": {str(k): v for k, v in binfo.items()}, "per_pair": per_pair,
+           "corridors": binfo, "per_pair": per_pair,
            "wall_s": time.perf_counter() - t0}
     _dump(a.out, out)
     print(a.robot, "bridges done", len(todo), round(out["wall_s"], 1), flush=True)
