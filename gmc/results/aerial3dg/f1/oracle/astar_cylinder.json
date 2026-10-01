@@ -1,0 +1,8161 @@
+{
+ "robot": "cylinder",
+ "resolution_m": 0.1,
+ "margin_m": 0.001,
+ "box_uv": [
+  -9.0,
+  -0.35,
+  3.7,
+  2.75
+ ],
+ "prepare_s": 1.8662760299630463,
+ "budget": {
+  "max_expansions": 500000,
+  "max_oracle_calls": 5000000,
+  "max_narrowphase_pairs": 20000000,
+  "max_wall_s": 300.0
+ },
+ "summary": {
+  "CY-LAMP": {
+   "NO_ROUTE_MARGIN": 26,
+   "NO_ROUTE": 4
+  },
+  "CY-GAP": {
+   "NO_ROUTE_MARGIN": 30
+  },
+  "CY-EP": {
+   "NO_ROUTE_MARGIN": 27,
+   "ROUTE": 3
+  },
+  "CY-EP-LAT": {
+   "NO_ROUTE_MARGIN": 12
+  },
+  "CTRL-REACHABLE": {
+   "ROUTE": 30
+  }
+ },
+ "rows": [
+  {
+   "class": "CY-LAMP",
+   "index": 296,
+   "pair_id": "G2-00296",
+   "dist_m": 11.169613810691933,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.671337543055415,
+   "expansions": 503,
+   "oracle_calls": 981,
+   "map_unknown_rejections": 154,
+   "unproven_rejections": 66,
+   "occupied_rejections": 87,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 305,
+   "pair_id": "G2-00305",
+   "dist_m": 7.861443595167494,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.472184126032516,
+   "expansions": 506,
+   "oracle_calls": 1060,
+   "map_unknown_rejections": 157,
+   "unproven_rejections": 58,
+   "occupied_rejections": 88,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 418,
+   "pair_id": "G2-00418",
+   "dist_m": 8.740334833403123,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.140980473021045,
+   "expansions": 505,
+   "oracle_calls": 1101,
+   "map_unknown_rejections": 148,
+   "unproven_rejections": 63,
+   "occupied_rejections": 91,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 547,
+   "pair_id": "G2-00547",
+   "dist_m": 5.628266618595818,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 21.88773315702565,
+   "expansions": 557,
+   "oracle_calls": 1204,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 48,
+   "occupied_rejections": 401,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 703,
+   "pair_id": "G2-00703",
+   "dist_m": 9.951433188239772,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 9.253111809957772,
+   "expansions": 504,
+   "oracle_calls": 978,
+   "map_unknown_rejections": 152,
+   "unproven_rejections": 66,
+   "occupied_rejections": 91,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 837,
+   "pair_id": "G2-00837",
+   "dist_m": 6.048839948287605,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.804349849931896,
+   "expansions": 556,
+   "oracle_calls": 1279,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 46,
+   "occupied_rejections": 396,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 898,
+   "pair_id": "G2-00898",
+   "dist_m": 4.7063921681049905,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.977367643965408,
+   "expansions": 562,
+   "oracle_calls": 1274,
+   "map_unknown_rejections": 25,
+   "unproven_rejections": 41,
+   "occupied_rejections": 410,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1026,
+   "pair_id": "G2-01026",
+   "dist_m": 4.685783018877421,
+   "outcome": "NO_ROUTE",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.833645995007828,
+   "expansions": 294,
+   "oracle_calls": 584,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 268,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1227,
+   "pair_id": "G2-01227",
+   "dist_m": 10.582887535072835,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.814907648134977,
+   "expansions": 504,
+   "oracle_calls": 1009,
+   "map_unknown_rejections": 152,
+   "unproven_rejections": 66,
+   "occupied_rejections": 87,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1330,
+   "pair_id": "G2-01330",
+   "dist_m": 10.336701317151425,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.279216170078143,
+   "expansions": 507,
+   "oracle_calls": 1071,
+   "map_unknown_rejections": 153,
+   "unproven_rejections": 63,
+   "occupied_rejections": 81,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1543,
+   "pair_id": "G2-01543",
+   "dist_m": 5.937859797940669,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.014670540113002,
+   "expansions": 292,
+   "oracle_calls": 664,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 9,
+   "occupied_rejections": 258,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1620,
+   "pair_id": "G2-01620",
+   "dist_m": 9.599010224497107,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.768219321966171,
+   "expansions": 288,
+   "oracle_calls": 618,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 256,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 1874,
+   "pair_id": "G2-01874",
+   "dist_m": 4.549102127892932,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.906156429089606,
+   "expansions": 558,
+   "oracle_calls": 1316,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 44,
+   "occupied_rejections": 410,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2243,
+   "pair_id": "G2-02243",
+   "dist_m": 7.216442658956003,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.965587944025174,
+   "expansions": 568,
+   "oracle_calls": 1314,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 36,
+   "occupied_rejections": 416,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2469,
+   "pair_id": "G2-02469",
+   "dist_m": 9.171493980808144,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.406459026038647,
+   "expansions": 503,
+   "oracle_calls": 896,
+   "map_unknown_rejections": 153,
+   "unproven_rejections": 70,
+   "occupied_rejections": 80,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2499,
+   "pair_id": "G2-02499",
+   "dist_m": 6.92790758382356,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.268592131091282,
+   "expansions": 506,
+   "oracle_calls": 859,
+   "map_unknown_rejections": 160,
+   "unproven_rejections": 61,
+   "occupied_rejections": 85,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2569,
+   "pair_id": "G2-02569",
+   "dist_m": 7.012291701006169,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.260478808078915,
+   "expansions": 291,
+   "oracle_calls": 558,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 258,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2640,
+   "pair_id": "G2-02640",
+   "dist_m": 4.124550072432143,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.78726486186497,
+   "expansions": 292,
+   "oracle_calls": 752,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 3,
+   "occupied_rejections": 265,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2807,
+   "pair_id": "G2-02807",
+   "dist_m": 10.038791052711476,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.010813815053552,
+   "expansions": 289,
+   "oracle_calls": 743,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 260,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 2822,
+   "pair_id": "G2-02822",
+   "dist_m": 6.8932773808980015,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.629042136948556,
+   "expansions": 561,
+   "oracle_calls": 1344,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 47,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3219,
+   "pair_id": "G2-03219",
+   "dist_m": 5.570594603810261,
+   "outcome": "NO_ROUTE",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.828253919025883,
+   "expansions": 287,
+   "oracle_calls": 640,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 258,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3225,
+   "pair_id": "G2-03225",
+   "dist_m": 9.95838834802098,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.871666026068851,
+   "expansions": 295,
+   "oracle_calls": 730,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 3,
+   "occupied_rejections": 261,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3244,
+   "pair_id": "G2-03244",
+   "dist_m": 9.020209805209634,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.76734082098119,
+   "expansions": 296,
+   "oracle_calls": 642,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 5,
+   "occupied_rejections": 265,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3273,
+   "pair_id": "G2-03273",
+   "dist_m": 4.251183282334461,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.664590403903276,
+   "expansions": 290,
+   "oracle_calls": 762,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 9,
+   "occupied_rejections": 255,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3344,
+   "pair_id": "G2-03344",
+   "dist_m": 4.745791066829638,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.881843141047284,
+   "expansions": 293,
+   "oracle_calls": 773,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 3,
+   "occupied_rejections": 259,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3783,
+   "pair_id": "G2-03783",
+   "dist_m": 7.78087742738568,
+   "outcome": "NO_ROUTE",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.124703980050981,
+   "expansions": 295,
+   "oracle_calls": 581,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 262,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3934,
+   "pair_id": "G2-03934",
+   "dist_m": 7.911801706943873,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.11423219088465,
+   "expansions": 292,
+   "oracle_calls": 759,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 8,
+   "occupied_rejections": 260,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 3988,
+   "pair_id": "G2-03988",
+   "dist_m": 3.8565226850104226,
+   "outcome": "NO_ROUTE",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.87078611413017,
+   "expansions": 293,
+   "oracle_calls": 680,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 262,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 4079,
+   "pair_id": "G2-04079",
+   "dist_m": 4.838536012059846,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.45671907090582,
+   "expansions": 294,
+   "oracle_calls": 610,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 12,
+   "occupied_rejections": 252,
+   "route_uv": null
+  },
+  {
+   "class": "CY-LAMP",
+   "index": 4305,
+   "pair_id": "G2-04305",
+   "dist_m": 7.772705583643317,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.438935172045603,
+   "expansions": 505,
+   "oracle_calls": 1039,
+   "map_unknown_rejections": 149,
+   "unproven_rejections": 68,
+   "occupied_rejections": 88,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 494,
+   "pair_id": "G2-00494",
+   "dist_m": 4.986195674058531,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.481394214788452,
+   "expansions": 563,
+   "oracle_calls": 1244,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 48,
+   "occupied_rejections": 406,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 563,
+   "pair_id": "G2-00563",
+   "dist_m": 3.863822155586357,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 10.624049219070002,
+   "expansions": 502,
+   "oracle_calls": 1058,
+   "map_unknown_rejections": 151,
+   "unproven_rejections": 70,
+   "occupied_rejections": 80,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 674,
+   "pair_id": "G2-00674",
+   "dist_m": 3.226058638648715,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 11.055956905940548,
+   "expansions": 505,
+   "oracle_calls": 925,
+   "map_unknown_rejections": 160,
+   "unproven_rejections": 56,
+   "occupied_rejections": 90,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 945,
+   "pair_id": "G2-00945",
+   "dist_m": 4.778629330676319,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.045435156906024,
+   "expansions": 560,
+   "oracle_calls": 1405,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 54,
+   "occupied_rejections": 402,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 1396,
+   "pair_id": "G2-01396",
+   "dist_m": 3.3611754268410334,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.13032333087176,
+   "expansions": 506,
+   "oracle_calls": 1079,
+   "map_unknown_rejections": 148,
+   "unproven_rejections": 62,
+   "occupied_rejections": 91,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 1493,
+   "pair_id": "G2-01493",
+   "dist_m": 6.288961456393257,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.42258592392318,
+   "expansions": 558,
+   "oracle_calls": 1138,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 46,
+   "occupied_rejections": 409,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 1519,
+   "pair_id": "G2-01519",
+   "dist_m": 3.6217134563628863,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 19.004575481871143,
+   "expansions": 560,
+   "oracle_calls": 1181,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 43,
+   "occupied_rejections": 404,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 1805,
+   "pair_id": "G2-01805",
+   "dist_m": 4.632163149112949,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 11.996567226946354,
+   "expansions": 557,
+   "oracle_calls": 1309,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 45,
+   "occupied_rejections": 395,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 1945,
+   "pair_id": "G2-01945",
+   "dist_m": 4.5126327858579405,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 11.51442921999842,
+   "expansions": 506,
+   "oracle_calls": 1028,
+   "map_unknown_rejections": 155,
+   "unproven_rejections": 68,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2044,
+   "pair_id": "G2-02044",
+   "dist_m": 5.237858258868791,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.634044357109815,
+   "expansions": 565,
+   "oracle_calls": 1114,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 43,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2149,
+   "pair_id": "G2-02149",
+   "dist_m": 5.205923976586673,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.970950834918767,
+   "expansions": 567,
+   "oracle_calls": 1265,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 61,
+   "occupied_rejections": 395,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2253,
+   "pair_id": "G2-02253",
+   "dist_m": 4.7345356118631114,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 19.015755836153403,
+   "expansions": 558,
+   "oracle_calls": 1219,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 46,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2263,
+   "pair_id": "G2-02263",
+   "dist_m": 3.2171254762598234,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.127980754012242,
+   "expansions": 501,
+   "oracle_calls": 931,
+   "map_unknown_rejections": 149,
+   "unproven_rejections": 70,
+   "occupied_rejections": 84,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2618,
+   "pair_id": "G2-02618",
+   "dist_m": 3.815143317098323,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.110109850997105,
+   "expansions": 556,
+   "oracle_calls": 1114,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 48,
+   "occupied_rejections": 407,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 2893,
+   "pair_id": "G2-02893",
+   "dist_m": 3.3477750596478257,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.58134559285827,
+   "expansions": 506,
+   "oracle_calls": 885,
+   "map_unknown_rejections": 153,
+   "unproven_rejections": 65,
+   "occupied_rejections": 94,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3139,
+   "pair_id": "G2-03139",
+   "dist_m": 3.3565733911237516,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 10.343910000985488,
+   "expansions": 502,
+   "oracle_calls": 1122,
+   "map_unknown_rejections": 154,
+   "unproven_rejections": 65,
+   "occupied_rejections": 85,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3195,
+   "pair_id": "G2-03195",
+   "dist_m": 4.76689416077177,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.38121675211005,
+   "expansions": 505,
+   "oracle_calls": 1023,
+   "map_unknown_rejections": 157,
+   "unproven_rejections": 60,
+   "occupied_rejections": 86,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3250,
+   "pair_id": "G2-03250",
+   "dist_m": 4.584149823031529,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 10.146956979995593,
+   "expansions": 502,
+   "oracle_calls": 930,
+   "map_unknown_rejections": 147,
+   "unproven_rejections": 69,
+   "occupied_rejections": 84,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3556,
+   "pair_id": "G2-03556",
+   "dist_m": 4.097148825707945,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.079206077149138,
+   "expansions": 561,
+   "oracle_calls": 1189,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 46,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3571,
+   "pair_id": "G2-03571",
+   "dist_m": 3.631191012601788,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.85433899401687,
+   "expansions": 567,
+   "oracle_calls": 1125,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 48,
+   "occupied_rejections": 415,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3667,
+   "pair_id": "G2-03667",
+   "dist_m": 3.9558683054419292,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.803864232031628,
+   "expansions": 560,
+   "oracle_calls": 1229,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 44,
+   "occupied_rejections": 409,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3723,
+   "pair_id": "G2-03723",
+   "dist_m": 4.271742810610208,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.508790177060291,
+   "expansions": 506,
+   "oracle_calls": 1096,
+   "map_unknown_rejections": 151,
+   "unproven_rejections": 65,
+   "occupied_rejections": 86,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3853,
+   "pair_id": "G2-03853",
+   "dist_m": 3.0370931579390184,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 18.251299407100305,
+   "expansions": 561,
+   "oracle_calls": 1225,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 48,
+   "occupied_rejections": 401,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 3869,
+   "pair_id": "G2-03869",
+   "dist_m": 6.276146691242964,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.147916204063222,
+   "expansions": 505,
+   "oracle_calls": 1064,
+   "map_unknown_rejections": 148,
+   "unproven_rejections": 65,
+   "occupied_rejections": 91,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4271,
+   "pair_id": "G2-04271",
+   "dist_m": 5.677441963595928,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.563447724096477,
+   "expansions": 561,
+   "oracle_calls": 1116,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 48,
+   "occupied_rejections": 399,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4332,
+   "pair_id": "G2-04332",
+   "dist_m": 4.350055035284037,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.077356812078506,
+   "expansions": 566,
+   "oracle_calls": 1121,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 53,
+   "occupied_rejections": 409,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4433,
+   "pair_id": "G2-04433",
+   "dist_m": 3.8677518482963715,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.863891290966421,
+   "expansions": 561,
+   "oracle_calls": 1101,
+   "map_unknown_rejections": 24,
+   "unproven_rejections": 49,
+   "occupied_rejections": 400,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4445,
+   "pair_id": "G2-04445",
+   "dist_m": 5.195046703351184,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.612090534996241,
+   "expansions": 508,
+   "oracle_calls": 961,
+   "map_unknown_rejections": 168,
+   "unproven_rejections": 64,
+   "occupied_rejections": 84,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4506,
+   "pair_id": "G2-04506",
+   "dist_m": 3.5062217514013576,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.684748257976025,
+   "expansions": 503,
+   "oracle_calls": 928,
+   "map_unknown_rejections": 165,
+   "unproven_rejections": 60,
+   "occupied_rejections": 90,
+   "route_uv": null
+  },
+  {
+   "class": "CY-GAP",
+   "index": 4717,
+   "pair_id": "G2-04717",
+   "dist_m": 3.087524453344459,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 18.227864048909396,
+   "expansions": 562,
+   "oracle_calls": 1220,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 54,
+   "occupied_rejections": 410,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 273,
+   "pair_id": "G2-00273",
+   "dist_m": 4.34023664907802,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.674831925192848,
+   "expansions": 564,
+   "oracle_calls": 1197,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 50,
+   "occupied_rejections": 406,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 358,
+   "pair_id": "G2-00358",
+   "dist_m": 6.922439769329885,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.808479519095272,
+   "expansions": 559,
+   "oracle_calls": 1413,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 42,
+   "occupied_rejections": 403,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 540,
+   "pair_id": "G2-00540",
+   "dist_m": 3.631967447541346,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.630033517123846,
+   "wall_s": 1.5699570791330189,
+   "expansions": 184,
+   "oracle_calls": 457,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 114,
+   "route_uv": [
+    [
+     -1.521,
+     1.402
+    ],
+    [
+     -1.521,
+     1.402
+    ],
+    [
+     -1.564,
+     1.311
+    ],
+    [
+     -1.564,
+     1.311
+    ],
+    [
+     -1.698,
+     1.264
+    ],
+    [
+     -1.831,
+     1.217
+    ],
+    [
+     -1.831,
+     1.217
+    ],
+    [
+     -1.874,
+     1.127
+    ],
+    [
+     -1.917,
+     1.037
+    ],
+    [
+     -1.96,
+     0.947
+    ],
+    [
+     -2.003,
+     0.856
+    ],
+    [
+     -2.047,
+     0.766
+    ],
+    [
+     -2.09,
+     0.676
+    ],
+    [
+     -2.133,
+     0.586
+    ],
+    [
+     -2.133,
+     0.586
+    ],
+    [
+     -2.266,
+     0.539
+    ],
+    [
+     -2.4,
+     0.492
+    ],
+    [
+     -2.533,
+     0.445
+    ],
+    [
+     -2.533,
+     0.445
+    ],
+    [
+     -2.623,
+     0.488
+    ],
+    [
+     -2.713,
+     0.531
+    ],
+    [
+     -2.804,
+     0.574
+    ],
+    [
+     -2.894,
+     0.617
+    ],
+    [
+     -2.984,
+     0.66
+    ],
+    [
+     -3.074,
+     0.703
+    ],
+    [
+     -3.164,
+     0.746
+    ],
+    [
+     -3.255,
+     0.79
+    ],
+    [
+     -3.345,
+     0.833
+    ],
+    [
+     -3.435,
+     0.876
+    ],
+    [
+     -3.525,
+     0.919
+    ],
+    [
+     -3.616,
+     0.962
+    ],
+    [
+     -3.706,
+     1.005
+    ],
+    [
+     -3.796,
+     1.048
+    ],
+    [
+     -3.886,
+     1.092
+    ],
+    [
+     -3.976,
+     1.135
+    ],
+    [
+     -4.067,
+     1.178
+    ],
+    [
+     -4.157,
+     1.221
+    ],
+    [
+     -4.247,
+     1.264
+    ],
+    [
+     -4.337,
+     1.307
+    ],
+    [
+     -4.428,
+     1.35
+    ],
+    [
+     -4.518,
+     1.394
+    ],
+    [
+     -4.608,
+     1.437
+    ],
+    [
+     -4.698,
+     1.48
+    ],
+    [
+     -4.698,
+     1.48
+    ],
+    [
+     -4.745,
+     1.613
+    ],
+    [
+     -4.745,
+     1.613
+    ],
+    [
+     -4.835,
+     1.656
+    ],
+    [
+     -4.835,
+     1.656
+    ],
+    [
+     -4.883,
+     1.79
+    ],
+    [
+     -4.93,
+     1.923
+    ],
+    [
+     -4.93,
+     1.923
+    ],
+    [
+     -5.099,
+     2.027
+    ],
+    [
+     -5.099,
+     2.027
+    ]
+   ]
+  },
+  {
+   "class": "CY-EP",
+   "index": 595,
+   "pair_id": "G2-00595",
+   "dist_m": 5.327922826956112,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.366209857864305,
+   "expansions": 560,
+   "oracle_calls": 1376,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 45,
+   "occupied_rejections": 406,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 597,
+   "pair_id": "G2-00597",
+   "dist_m": 5.270884735032629,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.305435321992263,
+   "expansions": 555,
+   "oracle_calls": 1379,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 47,
+   "occupied_rejections": 399,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 708,
+   "pair_id": "G2-00708",
+   "dist_m": 3.71323921664091,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.359124017045771,
+   "wall_s": 0.5860034411307424,
+   "expansions": 85,
+   "oracle_calls": 322,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 96,
+   "route_uv": [
+    [
+     -1.575,
+     1.263
+    ],
+    [
+     -1.575,
+     1.263
+    ],
+    [
+     -1.709,
+     1.216
+    ],
+    [
+     -1.842,
+     1.169
+    ],
+    [
+     -1.842,
+     1.169
+    ],
+    [
+     -1.885,
+     1.079
+    ],
+    [
+     -1.928,
+     0.988
+    ],
+    [
+     -1.971,
+     0.898
+    ],
+    [
+     -2.015,
+     0.808
+    ],
+    [
+     -2.058,
+     0.718
+    ],
+    [
+     -2.101,
+     0.627
+    ],
+    [
+     -2.101,
+     0.627
+    ],
+    [
+     -2.234,
+     0.58
+    ],
+    [
+     -2.368,
+     0.533
+    ],
+    [
+     -2.501,
+     0.486
+    ],
+    [
+     -2.501,
+     0.486
+    ],
+    [
+     -2.591,
+     0.529
+    ],
+    [
+     -2.681,
+     0.572
+    ],
+    [
+     -2.772,
+     0.616
+    ],
+    [
+     -2.862,
+     0.659
+    ],
+    [
+     -2.952,
+     0.702
+    ],
+    [
+     -3.042,
+     0.745
+    ],
+    [
+     -3.132,
+     0.788
+    ],
+    [
+     -3.223,
+     0.831
+    ],
+    [
+     -3.313,
+     0.874
+    ],
+    [
+     -3.403,
+     0.918
+    ],
+    [
+     -3.493,
+     0.961
+    ],
+    [
+     -3.584,
+     1.004
+    ],
+    [
+     -3.674,
+     1.047
+    ],
+    [
+     -3.764,
+     1.09
+    ],
+    [
+     -3.854,
+     1.133
+    ],
+    [
+     -3.944,
+     1.176
+    ],
+    [
+     -4.035,
+     1.219
+    ],
+    [
+     -4.125,
+     1.263
+    ],
+    [
+     -4.215,
+     1.306
+    ],
+    [
+     -4.305,
+     1.349
+    ],
+    [
+     -4.395,
+     1.392
+    ],
+    [
+     -4.486,
+     1.435
+    ],
+    [
+     -4.576,
+     1.478
+    ],
+    [
+     -4.666,
+     1.521
+    ],
+    [
+     -4.756,
+     1.565
+    ],
+    [
+     -4.847,
+     1.608
+    ],
+    [
+     -4.937,
+     1.651
+    ],
+    [
+     -5.027,
+     1.694
+    ],
+    [
+     -5.117,
+     1.737
+    ],
+    [
+     -5.117,
+     1.737
+    ],
+    [
+     -5.247,
+     1.816
+    ],
+    [
+     -5.247,
+     1.816
+    ]
+   ]
+  },
+  {
+   "class": "CY-EP",
+   "index": 896,
+   "pair_id": "G2-00896",
+   "dist_m": 3.8998031232358383,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.273493104835787,
+   "wall_s": 2.3462944098282605,
+   "expansions": 236,
+   "oracle_calls": 678,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 12,
+   "occupied_rejections": 130,
+   "route_uv": [
+    [
+     -1.501,
+     1.108
+    ],
+    [
+     -1.501,
+     1.108
+    ],
+    [
+     -1.634,
+     1.061
+    ],
+    [
+     -1.634,
+     1.061
+    ],
+    [
+     -1.724,
+     1.104
+    ],
+    [
+     -1.815,
+     1.147
+    ],
+    [
+     -1.905,
+     1.19
+    ],
+    [
+     -1.995,
+     1.233
+    ],
+    [
+     -2.085,
+     1.276
+    ],
+    [
+     -2.176,
+     1.319
+    ],
+    [
+     -2.176,
+     1.319
+    ],
+    [
+     -2.223,
+     1.453
+    ],
+    [
+     -2.223,
+     1.453
+    ],
+    [
+     -2.313,
+     1.496
+    ],
+    [
+     -2.403,
+     1.539
+    ],
+    [
+     -2.403,
+     1.539
+    ],
+    [
+     -2.536,
+     1.492
+    ],
+    [
+     -2.67,
+     1.445
+    ],
+    [
+     -2.803,
+     1.398
+    ],
+    [
+     -2.936,
+     1.351
+    ],
+    [
+     -3.07,
+     1.304
+    ],
+    [
+     -3.203,
+     1.256
+    ],
+    [
+     -3.337,
+     1.209
+    ],
+    [
+     -3.47,
+     1.162
+    ],
+    [
+     -3.603,
+     1.115
+    ],
+    [
+     -3.737,
+     1.068
+    ],
+    [
+     -3.87,
+     1.021
+    ],
+    [
+     -4.003,
+     0.974
+    ],
+    [
+     -4.137,
+     0.927
+    ],
+    [
+     -4.27,
+     0.88
+    ],
+    [
+     -4.403,
+     0.833
+    ],
+    [
+     -4.403,
+     0.833
+    ],
+    [
+     -4.494,
+     0.876
+    ],
+    [
+     -4.494,
+     0.876
+    ],
+    [
+     -4.627,
+     0.829
+    ],
+    [
+     -4.627,
+     0.829
+    ],
+    [
+     -4.717,
+     0.872
+    ],
+    [
+     -4.717,
+     0.872
+    ],
+    [
+     -4.851,
+     0.825
+    ],
+    [
+     -4.851,
+     0.825
+    ],
+    [
+     -4.941,
+     0.868
+    ],
+    [
+     -4.941,
+     0.868
+    ],
+    [
+     -5.074,
+     0.821
+    ],
+    [
+     -5.074,
+     0.821
+    ],
+    [
+     -5.164,
+     0.864
+    ],
+    [
+     -5.255,
+     0.907
+    ],
+    [
+     -5.255,
+     0.907
+    ],
+    [
+     -5.393,
+     0.864
+    ],
+    [
+     -5.393,
+     0.864
+    ]
+   ]
+  },
+  {
+   "class": "CY-EP",
+   "index": 1191,
+   "pair_id": "G2-01191",
+   "dist_m": 3.958338021190207,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.419660750078037,
+   "expansions": 503,
+   "oracle_calls": 1017,
+   "map_unknown_rejections": 161,
+   "unproven_rejections": 60,
+   "occupied_rejections": 88,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1405,
+   "pair_id": "G2-01405",
+   "dist_m": 4.6934495768038245,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.960972771979868,
+   "expansions": 504,
+   "oracle_calls": 818,
+   "map_unknown_rejections": 150,
+   "unproven_rejections": 64,
+   "occupied_rejections": 92,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1459,
+   "pair_id": "G2-01459",
+   "dist_m": 4.705789158047776,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.809205676196143,
+   "expansions": 563,
+   "oracle_calls": 1132,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 51,
+   "occupied_rejections": 404,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1503,
+   "pair_id": "G2-01503",
+   "dist_m": 4.998627612655298,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 10.819382990011945,
+   "expansions": 502,
+   "oracle_calls": 944,
+   "map_unknown_rejections": 153,
+   "unproven_rejections": 70,
+   "occupied_rejections": 80,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1754,
+   "pair_id": "G2-01754",
+   "dist_m": 3.107674778672955,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.649999219924212,
+   "expansions": 505,
+   "oracle_calls": 1057,
+   "map_unknown_rejections": 149,
+   "unproven_rejections": 65,
+   "occupied_rejections": 87,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1888,
+   "pair_id": "G2-01888",
+   "dist_m": 4.194722943175151,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 10.57458304404281,
+   "expansions": 503,
+   "oracle_calls": 934,
+   "map_unknown_rejections": 152,
+   "unproven_rejections": 66,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 1908,
+   "pair_id": "G2-01908",
+   "dist_m": 3.6105602183040797,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.851049624150619,
+   "expansions": 505,
+   "oracle_calls": 975,
+   "map_unknown_rejections": 148,
+   "unproven_rejections": 62,
+   "occupied_rejections": 91,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 2131,
+   "pair_id": "G2-02131",
+   "dist_m": 4.01411530726261,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.953853579936549,
+   "expansions": 503,
+   "oracle_calls": 939,
+   "map_unknown_rejections": 151,
+   "unproven_rejections": 70,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 2566,
+   "pair_id": "G2-02566",
+   "dist_m": 3.546446900772659,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.407309532165527,
+   "expansions": 504,
+   "oracle_calls": 1037,
+   "map_unknown_rejections": 159,
+   "unproven_rejections": 62,
+   "occupied_rejections": 84,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 2931,
+   "pair_id": "G2-02931",
+   "dist_m": 6.165543169908066,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.39940213994123,
+   "expansions": 505,
+   "oracle_calls": 1045,
+   "map_unknown_rejections": 152,
+   "unproven_rejections": 64,
+   "occupied_rejections": 94,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 3003,
+   "pair_id": "G2-03003",
+   "dist_m": 3.7880196462003735,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.654604000039399,
+   "expansions": 505,
+   "oracle_calls": 1140,
+   "map_unknown_rejections": 149,
+   "unproven_rejections": 72,
+   "occupied_rejections": 82,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 3332,
+   "pair_id": "G2-03332",
+   "dist_m": 3.4068708003092807,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.94520471803844,
+   "expansions": 564,
+   "oracle_calls": 1228,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 57,
+   "occupied_rejections": 391,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 3438,
+   "pair_id": "G2-03438",
+   "dist_m": 4.06916876155315,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.412520334823057,
+   "expansions": 562,
+   "oracle_calls": 1303,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 45,
+   "occupied_rejections": 412,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 3649,
+   "pair_id": "G2-03649",
+   "dist_m": 4.849809613788979,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.07543777115643,
+   "expansions": 556,
+   "oracle_calls": 1229,
+   "map_unknown_rejections": 23,
+   "unproven_rejections": 53,
+   "occupied_rejections": 401,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 3784,
+   "pair_id": "G2-03784",
+   "dist_m": 4.960246423314068,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.689168347977102,
+   "expansions": 562,
+   "oracle_calls": 1357,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 40,
+   "occupied_rejections": 414,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4036,
+   "pair_id": "G2-04036",
+   "dist_m": 4.099883141017559,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 11.251398780150339,
+   "expansions": 507,
+   "oracle_calls": 945,
+   "map_unknown_rejections": 152,
+   "unproven_rejections": 60,
+   "occupied_rejections": 94,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4180,
+   "pair_id": "G2-04180",
+   "dist_m": 6.2256437008553585,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.870100871194154,
+   "expansions": 568,
+   "oracle_calls": 1320,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 46,
+   "occupied_rejections": 415,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4209,
+   "pair_id": "G2-04209",
+   "dist_m": 3.735386358865706,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.026360374875367,
+   "expansions": 557,
+   "oracle_calls": 1221,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 44,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4214,
+   "pair_id": "G2-04214",
+   "dist_m": 5.745664401094098,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.237151433946565,
+   "expansions": 506,
+   "oracle_calls": 941,
+   "map_unknown_rejections": 154,
+   "unproven_rejections": 66,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4256,
+   "pair_id": "G2-04256",
+   "dist_m": 4.567864635691386,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 11.160761228995398,
+   "expansions": 503,
+   "oracle_calls": 986,
+   "map_unknown_rejections": 157,
+   "unproven_rejections": 63,
+   "occupied_rejections": 84,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4636,
+   "pair_id": "G2-04636",
+   "dist_m": 3.2384454804736182,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.259894727030769,
+   "expansions": 565,
+   "oracle_calls": 1197,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 48,
+   "occupied_rejections": 408,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4646,
+   "pair_id": "G2-04646",
+   "dist_m": 3.879218633951946,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.30839911592193,
+   "expansions": 507,
+   "oracle_calls": 1011,
+   "map_unknown_rejections": 159,
+   "unproven_rejections": 65,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP",
+   "index": 4816,
+   "pair_id": "G2-04816",
+   "dist_m": 4.84231312700862,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.87125541898422,
+   "expansions": 551,
+   "oracle_calls": 1118,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 60,
+   "occupied_rejections": 385,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 621,
+   "pair_id": "G2-00621",
+   "dist_m": 6.5577945934589925,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.670512192184106,
+   "expansions": 565,
+   "oracle_calls": 1108,
+   "map_unknown_rejections": 20,
+   "unproven_rejections": 58,
+   "occupied_rejections": 404,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 634,
+   "pair_id": "G2-00634",
+   "dist_m": 6.0967286186938,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.970249227946624,
+   "expansions": 559,
+   "oracle_calls": 1128,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 52,
+   "occupied_rejections": 407,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 743,
+   "pair_id": "G2-00743",
+   "dist_m": 3.7291833127375225,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 18.474876935128123,
+   "expansions": 560,
+   "oracle_calls": 1157,
+   "map_unknown_rejections": 25,
+   "unproven_rejections": 35,
+   "occupied_rejections": 405,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 1280,
+   "pair_id": "G2-01280",
+   "dist_m": 3.109396880425527,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.238511704839766,
+   "expansions": 565,
+   "oracle_calls": 1132,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 40,
+   "occupied_rejections": 413,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 2217,
+   "pair_id": "G2-02217",
+   "dist_m": 4.03130138416864,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.112733657937497,
+   "expansions": 506,
+   "oracle_calls": 1063,
+   "map_unknown_rejections": 154,
+   "unproven_rejections": 66,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 2414,
+   "pair_id": "G2-02414",
+   "dist_m": 4.128033105487406,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 16.86165145295672,
+   "expansions": 503,
+   "oracle_calls": 890,
+   "map_unknown_rejections": 165,
+   "unproven_rejections": 58,
+   "occupied_rejections": 88,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 2563,
+   "pair_id": "G2-02563",
+   "dist_m": 6.146661905457303,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.749528195010498,
+   "expansions": 564,
+   "oracle_calls": 1133,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 41,
+   "occupied_rejections": 419,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 2619,
+   "pair_id": "G2-02619",
+   "dist_m": 5.092936041224159,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 15.143222017912194,
+   "expansions": 559,
+   "oracle_calls": 1216,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 49,
+   "occupied_rejections": 404,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 2960,
+   "pair_id": "G2-02960",
+   "dist_m": 3.017945309312281,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 14.491386630106717,
+   "expansions": 507,
+   "oracle_calls": 947,
+   "map_unknown_rejections": 159,
+   "unproven_rejections": 67,
+   "occupied_rejections": 79,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 3614,
+   "pair_id": "G2-03614",
+   "dist_m": 3.470759232502307,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 13.543612012872472,
+   "expansions": 557,
+   "oracle_calls": 1199,
+   "map_unknown_rejections": 21,
+   "unproven_rejections": 46,
+   "occupied_rejections": 396,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 3946,
+   "pair_id": "G2-03946",
+   "dist_m": 6.057308235511877,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 12.979381615994498,
+   "expansions": 506,
+   "oracle_calls": 1037,
+   "map_unknown_rejections": 154,
+   "unproven_rejections": 64,
+   "occupied_rejections": 83,
+   "route_uv": null
+  },
+  {
+   "class": "CY-EP-LAT",
+   "index": 4173,
+   "pair_id": "G2-04173",
+   "dist_m": 3.3826592453275572,
+   "outcome": "NO_ROUTE_MARGIN",
+   "status": "map_unknown",
+   "reason": "reachable_frontier_meets_unknown_coverage",
+   "path_length_m": null,
+   "wall_s": 17.393608266022056,
+   "expansions": 559,
+   "oracle_calls": 1196,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 51,
+   "occupied_rejections": 411,
+   "route_uv": null
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 7,
+   "pair_id": "G2-00007",
+   "dist_m": 3.1662129129292618,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.6104023975878676,
+   "wall_s": 2.3554528090171516,
+   "expansions": 115,
+   "oracle_calls": 386,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 117,
+   "route_uv": [
+    [
+     -1.958,
+     0.948
+    ],
+    [
+     -1.958,
+     0.948
+    ],
+    [
+     -2.001,
+     0.858
+    ],
+    [
+     -2.044,
+     0.768
+    ],
+    [
+     -2.088,
+     0.677
+    ],
+    [
+     -2.131,
+     0.587
+    ],
+    [
+     -2.131,
+     0.587
+    ],
+    [
+     -2.264,
+     0.54
+    ],
+    [
+     -2.397,
+     0.493
+    ],
+    [
+     -2.531,
+     0.446
+    ],
+    [
+     -2.531,
+     0.446
+    ],
+    [
+     -2.621,
+     0.489
+    ],
+    [
+     -2.711,
+     0.532
+    ],
+    [
+     -2.801,
+     0.575
+    ],
+    [
+     -2.801,
+     0.575
+    ],
+    [
+     -2.935,
+     0.528
+    ],
+    [
+     -2.935,
+     0.528
+    ],
+    [
+     -3.025,
+     0.571
+    ],
+    [
+     -3.115,
+     0.614
+    ],
+    [
+     -3.205,
+     0.658
+    ],
+    [
+     -3.296,
+     0.701
+    ],
+    [
+     -3.386,
+     0.744
+    ],
+    [
+     -3.476,
+     0.787
+    ],
+    [
+     -3.566,
+     0.83
+    ],
+    [
+     -3.657,
+     0.873
+    ],
+    [
+     -3.657,
+     0.873
+    ],
+    [
+     -3.79,
+     0.826
+    ],
+    [
+     -3.79,
+     0.826
+    ],
+    [
+     -3.88,
+     0.869
+    ],
+    [
+     -3.88,
+     0.869
+    ],
+    [
+     -4.013,
+     0.822
+    ],
+    [
+     -4.147,
+     0.775
+    ],
+    [
+     -4.28,
+     0.728
+    ],
+    [
+     -4.414,
+     0.681
+    ],
+    [
+     -4.547,
+     0.634
+    ],
+    [
+     -4.68,
+     0.587
+    ],
+    [
+     -4.68,
+     0.587
+    ],
+    [
+     -4.77,
+     0.63
+    ],
+    [
+     -4.77,
+     0.63
+    ],
+    [
+     -4.904,
+     0.583
+    ],
+    [
+     -4.904,
+     0.583
+    ],
+    [
+     -4.994,
+     0.626
+    ],
+    [
+     -4.994,
+     0.626
+    ],
+    [
+     -5.107,
+     0.614
+    ],
+    [
+     -5.107,
+     0.614
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 75,
+   "pair_id": "G2-00075",
+   "dist_m": 3.1234034833815496,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.341414857196463,
+   "wall_s": 0.5706592109054327,
+   "expansions": 189,
+   "oracle_calls": 374,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 0,
+   "occupied_rejections": 55,
+   "route_uv": [
+    [
+     -4.768,
+     1.46
+    ],
+    [
+     -4.768,
+     1.46
+    ],
+    [
+     -4.678,
+     1.417
+    ],
+    [
+     -4.588,
+     1.374
+    ],
+    [
+     -4.498,
+     1.331
+    ],
+    [
+     -4.408,
+     1.288
+    ],
+    [
+     -4.317,
+     1.245
+    ],
+    [
+     -4.227,
+     1.202
+    ],
+    [
+     -4.137,
+     1.159
+    ],
+    [
+     -4.047,
+     1.115
+    ],
+    [
+     -3.956,
+     1.072
+    ],
+    [
+     -3.866,
+     1.029
+    ],
+    [
+     -3.776,
+     0.986
+    ],
+    [
+     -3.686,
+     0.943
+    ],
+    [
+     -3.596,
+     0.9
+    ],
+    [
+     -3.505,
+     0.857
+    ],
+    [
+     -3.415,
+     0.813
+    ],
+    [
+     -3.325,
+     0.77
+    ],
+    [
+     -3.325,
+     0.77
+    ],
+    [
+     -3.192,
+     0.817
+    ],
+    [
+     -3.192,
+     0.817
+    ],
+    [
+     -3.101,
+     0.774
+    ],
+    [
+     -3.011,
+     0.731
+    ],
+    [
+     -2.921,
+     0.688
+    ],
+    [
+     -2.831,
+     0.645
+    ],
+    [
+     -2.74,
+     0.602
+    ],
+    [
+     -2.65,
+     0.559
+    ],
+    [
+     -2.56,
+     0.515
+    ],
+    [
+     -2.47,
+     0.472
+    ],
+    [
+     -2.47,
+     0.472
+    ],
+    [
+     -2.336,
+     0.519
+    ],
+    [
+     -2.203,
+     0.566
+    ],
+    [
+     -2.07,
+     0.614
+    ],
+    [
+     -1.936,
+     0.661
+    ],
+    [
+     -1.803,
+     0.708
+    ],
+    [
+     -1.803,
+     0.708
+    ],
+    [
+     -1.725,
+     0.758
+    ],
+    [
+     -1.725,
+     0.758
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 177,
+   "pair_id": "G2-00177",
+   "dist_m": 3.8704561307422156,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.132453298766049,
+   "wall_s": 2.8236786650959402,
+   "expansions": 255,
+   "oracle_calls": 505,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 10,
+   "occupied_rejections": 97,
+   "route_uv": [
+    [
+     -5.398,
+     1.259
+    ],
+    [
+     -5.398,
+     1.259
+    ],
+    [
+     -5.308,
+     1.216
+    ],
+    [
+     -5.218,
+     1.173
+    ],
+    [
+     -5.127,
+     1.13
+    ],
+    [
+     -5.037,
+     1.087
+    ],
+    [
+     -4.947,
+     1.044
+    ],
+    [
+     -4.857,
+     1.001
+    ],
+    [
+     -4.767,
+     0.957
+    ],
+    [
+     -4.676,
+     0.914
+    ],
+    [
+     -4.586,
+     0.871
+    ],
+    [
+     -4.496,
+     0.828
+    ],
+    [
+     -4.406,
+     0.785
+    ],
+    [
+     -4.315,
+     0.742
+    ],
+    [
+     -4.315,
+     0.742
+    ],
+    [
+     -4.182,
+     0.789
+    ],
+    [
+     -4.049,
+     0.836
+    ],
+    [
+     -3.915,
+     0.883
+    ],
+    [
+     -3.915,
+     0.883
+    ],
+    [
+     -3.825,
+     0.84
+    ],
+    [
+     -3.825,
+     0.84
+    ],
+    [
+     -3.692,
+     0.887
+    ],
+    [
+     -3.692,
+     0.887
+    ],
+    [
+     -3.602,
+     0.844
+    ],
+    [
+     -3.511,
+     0.801
+    ],
+    [
+     -3.421,
+     0.758
+    ],
+    [
+     -3.331,
+     0.714
+    ],
+    [
+     -3.241,
+     0.671
+    ],
+    [
+     -3.151,
+     0.628
+    ],
+    [
+     -3.06,
+     0.585
+    ],
+    [
+     -2.97,
+     0.542
+    ],
+    [
+     -2.88,
+     0.499
+    ],
+    [
+     -2.88,
+     0.499
+    ],
+    [
+     -2.747,
+     0.546
+    ],
+    [
+     -2.747,
+     0.546
+    ],
+    [
+     -2.656,
+     0.503
+    ],
+    [
+     -2.566,
+     0.46
+    ],
+    [
+     -2.566,
+     0.46
+    ],
+    [
+     -2.433,
+     0.507
+    ],
+    [
+     -2.433,
+     0.507
+    ],
+    [
+     -2.343,
+     0.463
+    ],
+    [
+     -2.343,
+     0.463
+    ],
+    [
+     -2.209,
+     0.511
+    ],
+    [
+     -2.209,
+     0.511
+    ],
+    [
+     -2.119,
+     0.467
+    ],
+    [
+     -2.119,
+     0.467
+    ],
+    [
+     -1.986,
+     0.515
+    ],
+    [
+     -1.986,
+     0.515
+    ],
+    [
+     -1.895,
+     0.471
+    ],
+    [
+     -1.895,
+     0.471
+    ],
+    [
+     -1.762,
+     0.518
+    ],
+    [
+     -1.762,
+     0.518
+    ],
+    [
+     -1.606,
+     0.487
+    ],
+    [
+     -1.606,
+     0.487
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 208,
+   "pair_id": "G2-00208",
+   "dist_m": 3.9618648235395413,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.344526526665746,
+   "wall_s": 0.5618568111676723,
+   "expansions": 85,
+   "oracle_calls": 311,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 82,
+   "route_uv": [
+    [
+     -1.487,
+     0.999
+    ],
+    [
+     -1.487,
+     0.999
+    ],
+    [
+     -1.621,
+     0.952
+    ],
+    [
+     -1.754,
+     0.905
+    ],
+    [
+     -1.887,
+     0.858
+    ],
+    [
+     -2.021,
+     0.811
+    ],
+    [
+     -2.021,
+     0.811
+    ],
+    [
+     -2.064,
+     0.721
+    ],
+    [
+     -2.107,
+     0.63
+    ],
+    [
+     -2.107,
+     0.63
+    ],
+    [
+     -2.24,
+     0.583
+    ],
+    [
+     -2.374,
+     0.536
+    ],
+    [
+     -2.507,
+     0.489
+    ],
+    [
+     -2.507,
+     0.489
+    ],
+    [
+     -2.597,
+     0.532
+    ],
+    [
+     -2.688,
+     0.575
+    ],
+    [
+     -2.778,
+     0.618
+    ],
+    [
+     -2.868,
+     0.662
+    ],
+    [
+     -2.958,
+     0.705
+    ],
+    [
+     -3.048,
+     0.748
+    ],
+    [
+     -3.139,
+     0.791
+    ],
+    [
+     -3.229,
+     0.834
+    ],
+    [
+     -3.319,
+     0.877
+    ],
+    [
+     -3.409,
+     0.92
+    ],
+    [
+     -3.5,
+     0.964
+    ],
+    [
+     -3.59,
+     1.007
+    ],
+    [
+     -3.68,
+     1.05
+    ],
+    [
+     -3.77,
+     1.093
+    ],
+    [
+     -3.86,
+     1.136
+    ],
+    [
+     -3.951,
+     1.179
+    ],
+    [
+     -4.041,
+     1.222
+    ],
+    [
+     -4.131,
+     1.266
+    ],
+    [
+     -4.221,
+     1.309
+    ],
+    [
+     -4.312,
+     1.352
+    ],
+    [
+     -4.402,
+     1.395
+    ],
+    [
+     -4.492,
+     1.438
+    ],
+    [
+     -4.582,
+     1.481
+    ],
+    [
+     -4.672,
+     1.524
+    ],
+    [
+     -4.763,
+     1.567
+    ],
+    [
+     -4.853,
+     1.611
+    ],
+    [
+     -4.943,
+     1.654
+    ],
+    [
+     -5.033,
+     1.697
+    ],
+    [
+     -5.123,
+     1.74
+    ],
+    [
+     -5.214,
+     1.783
+    ],
+    [
+     -5.214,
+     1.783
+    ],
+    [
+     -5.367,
+     1.801
+    ],
+    [
+     -5.367,
+     1.801
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 518,
+   "pair_id": "G2-00518",
+   "dist_m": 3.0805776211613303,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.5789710976542852,
+   "wall_s": 4.414261155063286,
+   "expansions": 253,
+   "oracle_calls": 524,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 6,
+   "occupied_rejections": 138,
+   "route_uv": [
+    [
+     -4.166,
+     2.005
+    ],
+    [
+     -4.166,
+     2.005
+    ],
+    [
+     -4.076,
+     1.961
+    ],
+    [
+     -3.986,
+     1.918
+    ],
+    [
+     -3.896,
+     1.875
+    ],
+    [
+     -3.806,
+     1.832
+    ],
+    [
+     -3.715,
+     1.789
+    ],
+    [
+     -3.625,
+     1.746
+    ],
+    [
+     -3.535,
+     1.703
+    ],
+    [
+     -3.445,
+     1.66
+    ],
+    [
+     -3.355,
+     1.616
+    ],
+    [
+     -3.264,
+     1.573
+    ],
+    [
+     -3.174,
+     1.53
+    ],
+    [
+     -3.084,
+     1.487
+    ],
+    [
+     -3.084,
+     1.487
+    ],
+    [
+     -3.037,
+     1.354
+    ],
+    [
+     -2.99,
+     1.22
+    ],
+    [
+     -2.943,
+     1.087
+    ],
+    [
+     -2.896,
+     0.954
+    ],
+    [
+     -2.848,
+     0.82
+    ],
+    [
+     -2.801,
+     0.687
+    ],
+    [
+     -2.801,
+     0.687
+    ],
+    [
+     -2.711,
+     0.644
+    ],
+    [
+     -2.711,
+     0.644
+    ],
+    [
+     -2.664,
+     0.51
+    ],
+    [
+     -2.664,
+     0.51
+    ],
+    [
+     -2.574,
+     0.467
+    ],
+    [
+     -2.574,
+     0.467
+    ],
+    [
+     -2.441,
+     0.514
+    ],
+    [
+     -2.307,
+     0.561
+    ],
+    [
+     -2.307,
+     0.561
+    ],
+    [
+     -2.217,
+     0.518
+    ],
+    [
+     -2.217,
+     0.518
+    ],
+    [
+     -2.084,
+     0.565
+    ],
+    [
+     -2.084,
+     0.565
+    ],
+    [
+     -1.993,
+     0.522
+    ],
+    [
+     -1.993,
+     0.522
+    ],
+    [
+     -1.86,
+     0.569
+    ],
+    [
+     -1.86,
+     0.569
+    ],
+    [
+     -1.77,
+     0.526
+    ],
+    [
+     -1.77,
+     0.526
+    ],
+    [
+     -1.636,
+     0.573
+    ],
+    [
+     -1.636,
+     0.573
+    ],
+    [
+     -1.458,
+     0.536
+    ],
+    [
+     -1.458,
+     0.536
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 576,
+   "pair_id": "G2-00576",
+   "dist_m": 3.437167871955049,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.7066575785361624,
+   "wall_s": 0.9040200219023973,
+   "expansions": 199,
+   "oracle_calls": 459,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 79,
+   "route_uv": [
+    [
+     -4.937,
+     0.891
+    ],
+    [
+     -4.937,
+     0.891
+    ],
+    [
+     -4.847,
+     0.848
+    ],
+    [
+     -4.757,
+     0.805
+    ],
+    [
+     -4.757,
+     0.805
+    ],
+    [
+     -4.623,
+     0.852
+    ],
+    [
+     -4.623,
+     0.852
+    ],
+    [
+     -4.533,
+     0.809
+    ],
+    [
+     -4.533,
+     0.809
+    ],
+    [
+     -4.4,
+     0.856
+    ],
+    [
+     -4.4,
+     0.856
+    ],
+    [
+     -4.309,
+     0.813
+    ],
+    [
+     -4.309,
+     0.813
+    ],
+    [
+     -4.176,
+     0.86
+    ],
+    [
+     -4.176,
+     0.86
+    ],
+    [
+     -4.086,
+     0.817
+    ],
+    [
+     -4.086,
+     0.817
+    ],
+    [
+     -3.952,
+     0.864
+    ],
+    [
+     -3.819,
+     0.911
+    ],
+    [
+     -3.819,
+     0.911
+    ],
+    [
+     -3.729,
+     0.868
+    ],
+    [
+     -3.639,
+     0.825
+    ],
+    [
+     -3.548,
+     0.781
+    ],
+    [
+     -3.548,
+     0.781
+    ],
+    [
+     -3.415,
+     0.829
+    ],
+    [
+     -3.415,
+     0.829
+    ],
+    [
+     -3.325,
+     0.785
+    ],
+    [
+     -3.325,
+     0.785
+    ],
+    [
+     -3.192,
+     0.832
+    ],
+    [
+     -3.192,
+     0.832
+    ],
+    [
+     -3.101,
+     0.789
+    ],
+    [
+     -3.011,
+     0.746
+    ],
+    [
+     -2.921,
+     0.703
+    ],
+    [
+     -2.831,
+     0.66
+    ],
+    [
+     -2.74,
+     0.617
+    ],
+    [
+     -2.65,
+     0.574
+    ],
+    [
+     -2.56,
+     0.53
+    ],
+    [
+     -2.47,
+     0.487
+    ],
+    [
+     -2.47,
+     0.487
+    ],
+    [
+     -2.336,
+     0.534
+    ],
+    [
+     -2.203,
+     0.582
+    ],
+    [
+     -2.07,
+     0.629
+    ],
+    [
+     -1.936,
+     0.676
+    ],
+    [
+     -1.803,
+     0.723
+    ],
+    [
+     -1.67,
+     0.77
+    ],
+    [
+     -1.67,
+     0.77
+    ],
+    [
+     -1.502,
+     0.778
+    ],
+    [
+     -1.502,
+     0.778
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 891,
+   "pair_id": "G2-00891",
+   "dist_m": 3.452670841537027,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.7295488491294413,
+   "wall_s": 3.2441570239607245,
+   "expansions": 208,
+   "oracle_calls": 429,
+   "map_unknown_rejections": 16,
+   "unproven_rejections": 3,
+   "occupied_rejections": 105,
+   "route_uv": [
+    [
+     -4.908,
+     2.21
+    ],
+    [
+     -4.908,
+     2.21
+    ],
+    [
+     -4.818,
+     2.167
+    ],
+    [
+     -4.728,
+     2.124
+    ],
+    [
+     -4.637,
+     2.08
+    ],
+    [
+     -4.547,
+     2.037
+    ],
+    [
+     -4.457,
+     1.994
+    ],
+    [
+     -4.367,
+     1.951
+    ],
+    [
+     -4.276,
+     1.908
+    ],
+    [
+     -4.186,
+     1.865
+    ],
+    [
+     -4.096,
+     1.822
+    ],
+    [
+     -4.006,
+     1.779
+    ],
+    [
+     -3.916,
+     1.735
+    ],
+    [
+     -3.825,
+     1.692
+    ],
+    [
+     -3.735,
+     1.649
+    ],
+    [
+     -3.645,
+     1.606
+    ],
+    [
+     -3.555,
+     1.563
+    ],
+    [
+     -3.465,
+     1.52
+    ],
+    [
+     -3.374,
+     1.477
+    ],
+    [
+     -3.284,
+     1.433
+    ],
+    [
+     -3.194,
+     1.39
+    ],
+    [
+     -3.104,
+     1.347
+    ],
+    [
+     -3.013,
+     1.304
+    ],
+    [
+     -3.013,
+     1.304
+    ],
+    [
+     -2.88,
+     1.351
+    ],
+    [
+     -2.747,
+     1.398
+    ],
+    [
+     -2.613,
+     1.445
+    ],
+    [
+     -2.48,
+     1.492
+    ],
+    [
+     -2.347,
+     1.539
+    ],
+    [
+     -2.347,
+     1.539
+    ],
+    [
+     -2.256,
+     1.496
+    ],
+    [
+     -2.256,
+     1.496
+    ],
+    [
+     -2.209,
+     1.363
+    ],
+    [
+     -2.209,
+     1.363
+    ],
+    [
+     -2.119,
+     1.32
+    ],
+    [
+     -2.119,
+     1.32
+    ],
+    [
+     -2.072,
+     1.186
+    ],
+    [
+     -2.072,
+     1.186
+    ],
+    [
+     -1.982,
+     1.143
+    ],
+    [
+     -1.892,
+     1.1
+    ],
+    [
+     -1.801,
+     1.057
+    ],
+    [
+     -1.801,
+     1.057
+    ],
+    [
+     -1.667,
+     1.02
+    ],
+    [
+     -1.667,
+     1.02
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1650,
+   "pair_id": "G2-01650",
+   "dist_m": 3.3265735554771667,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.7804152537557854,
+   "wall_s": 3.5915770658757538,
+   "expansions": 284,
+   "oracle_calls": 549,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 134,
+   "route_uv": [
+    [
+     -4.656,
+     2.03
+    ],
+    [
+     -4.656,
+     2.03
+    ],
+    [
+     -4.566,
+     1.986
+    ],
+    [
+     -4.476,
+     1.943
+    ],
+    [
+     -4.386,
+     1.9
+    ],
+    [
+     -4.295,
+     1.857
+    ],
+    [
+     -4.205,
+     1.814
+    ],
+    [
+     -4.115,
+     1.771
+    ],
+    [
+     -4.025,
+     1.728
+    ],
+    [
+     -3.934,
+     1.685
+    ],
+    [
+     -3.844,
+     1.641
+    ],
+    [
+     -3.754,
+     1.598
+    ],
+    [
+     -3.664,
+     1.555
+    ],
+    [
+     -3.574,
+     1.512
+    ],
+    [
+     -3.483,
+     1.469
+    ],
+    [
+     -3.393,
+     1.426
+    ],
+    [
+     -3.303,
+     1.383
+    ],
+    [
+     -3.213,
+     1.339
+    ],
+    [
+     -3.122,
+     1.296
+    ],
+    [
+     -3.032,
+     1.253
+    ],
+    [
+     -2.942,
+     1.21
+    ],
+    [
+     -2.942,
+     1.21
+    ],
+    [
+     -2.895,
+     1.077
+    ],
+    [
+     -2.848,
+     0.943
+    ],
+    [
+     -2.801,
+     0.81
+    ],
+    [
+     -2.754,
+     0.677
+    ],
+    [
+     -2.707,
+     0.543
+    ],
+    [
+     -2.707,
+     0.543
+    ],
+    [
+     -2.616,
+     0.5
+    ],
+    [
+     -2.526,
+     0.457
+    ],
+    [
+     -2.526,
+     0.457
+    ],
+    [
+     -2.393,
+     0.504
+    ],
+    [
+     -2.26,
+     0.551
+    ],
+    [
+     -2.126,
+     0.598
+    ],
+    [
+     -1.993,
+     0.645
+    ],
+    [
+     -1.859,
+     0.692
+    ],
+    [
+     -1.859,
+     0.692
+    ],
+    [
+     -1.769,
+     0.649
+    ],
+    [
+     -1.769,
+     0.649
+    ],
+    [
+     -1.609,
+     0.694
+    ],
+    [
+     -1.609,
+     0.694
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1675,
+   "pair_id": "G2-01675",
+   "dist_m": 3.055400839497168,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.2958529633549145,
+   "wall_s": 0.8596037859097123,
+   "expansions": 151,
+   "oracle_calls": 366,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 5,
+   "occupied_rejections": 72,
+   "route_uv": [
+    [
+     -4.653,
+     0.883
+    ],
+    [
+     -4.653,
+     0.883
+    ],
+    [
+     -4.563,
+     0.84
+    ],
+    [
+     -4.473,
+     0.797
+    ],
+    [
+     -4.382,
+     0.753
+    ],
+    [
+     -4.292,
+     0.71
+    ],
+    [
+     -4.292,
+     0.71
+    ],
+    [
+     -4.159,
+     0.757
+    ],
+    [
+     -4.025,
+     0.804
+    ],
+    [
+     -3.892,
+     0.852
+    ],
+    [
+     -3.759,
+     0.899
+    ],
+    [
+     -3.759,
+     0.899
+    ],
+    [
+     -3.668,
+     0.855
+    ],
+    [
+     -3.578,
+     0.812
+    ],
+    [
+     -3.488,
+     0.769
+    ],
+    [
+     -3.398,
+     0.726
+    ],
+    [
+     -3.308,
+     0.683
+    ],
+    [
+     -3.308,
+     0.683
+    ],
+    [
+     -3.174,
+     0.73
+    ],
+    [
+     -3.174,
+     0.73
+    ],
+    [
+     -3.084,
+     0.687
+    ],
+    [
+     -2.994,
+     0.644
+    ],
+    [
+     -2.904,
+     0.601
+    ],
+    [
+     -2.813,
+     0.557
+    ],
+    [
+     -2.723,
+     0.514
+    ],
+    [
+     -2.633,
+     0.471
+    ],
+    [
+     -2.633,
+     0.471
+    ],
+    [
+     -2.5,
+     0.518
+    ],
+    [
+     -2.5,
+     0.518
+    ],
+    [
+     -2.409,
+     0.475
+    ],
+    [
+     -2.409,
+     0.475
+    ],
+    [
+     -2.276,
+     0.522
+    ],
+    [
+     -2.143,
+     0.569
+    ],
+    [
+     -2.009,
+     0.616
+    ],
+    [
+     -1.876,
+     0.663
+    ],
+    [
+     -1.743,
+     0.711
+    ],
+    [
+     -1.743,
+     0.711
+    ],
+    [
+     -1.604,
+     0.693
+    ],
+    [
+     -1.604,
+     0.693
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1760,
+   "pair_id": "G2-01760",
+   "dist_m": 3.3357651985713868,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.4462721609616502,
+   "wall_s": 0.7245360030792654,
+   "expansions": 131,
+   "oracle_calls": 281,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 0,
+   "occupied_rejections": 31,
+   "route_uv": [
+    [
+     -4.995,
+     1.63
+    ],
+    [
+     -4.995,
+     1.63
+    ],
+    [
+     -4.904,
+     1.587
+    ],
+    [
+     -4.814,
+     1.544
+    ],
+    [
+     -4.724,
+     1.501
+    ],
+    [
+     -4.634,
+     1.458
+    ],
+    [
+     -4.544,
+     1.415
+    ],
+    [
+     -4.453,
+     1.371
+    ],
+    [
+     -4.363,
+     1.328
+    ],
+    [
+     -4.273,
+     1.285
+    ],
+    [
+     -4.183,
+     1.242
+    ],
+    [
+     -4.092,
+     1.199
+    ],
+    [
+     -4.002,
+     1.156
+    ],
+    [
+     -3.912,
+     1.113
+    ],
+    [
+     -3.822,
+     1.069
+    ],
+    [
+     -3.732,
+     1.026
+    ],
+    [
+     -3.641,
+     0.983
+    ],
+    [
+     -3.551,
+     0.94
+    ],
+    [
+     -3.461,
+     0.897
+    ],
+    [
+     -3.371,
+     0.854
+    ],
+    [
+     -3.28,
+     0.811
+    ],
+    [
+     -3.19,
+     0.767
+    ],
+    [
+     -3.1,
+     0.724
+    ],
+    [
+     -3.01,
+     0.681
+    ],
+    [
+     -2.92,
+     0.638
+    ],
+    [
+     -2.829,
+     0.595
+    ],
+    [
+     -2.739,
+     0.552
+    ],
+    [
+     -2.649,
+     0.509
+    ],
+    [
+     -2.559,
+     0.466
+    ],
+    [
+     -2.559,
+     0.466
+    ],
+    [
+     -2.425,
+     0.513
+    ],
+    [
+     -2.425,
+     0.513
+    ],
+    [
+     -2.335,
+     0.469
+    ],
+    [
+     -2.335,
+     0.469
+    ],
+    [
+     -2.202,
+     0.517
+    ],
+    [
+     -2.202,
+     0.517
+    ],
+    [
+     -2.112,
+     0.473
+    ],
+    [
+     -2.112,
+     0.473
+    ],
+    [
+     -1.978,
+     0.521
+    ],
+    [
+     -1.978,
+     0.521
+    ],
+    [
+     -1.861,
+     0.486
+    ],
+    [
+     -1.861,
+     0.486
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1916,
+   "pair_id": "G2-01916",
+   "dist_m": 3.451828392316165,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.5727474452670434,
+   "wall_s": 0.7457683251705021,
+   "expansions": 143,
+   "oracle_calls": 284,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 0,
+   "occupied_rejections": 27,
+   "route_uv": [
+    [
+     -5.031,
+     2.038
+    ],
+    [
+     -5.031,
+     2.038
+    ],
+    [
+     -4.941,
+     1.995
+    ],
+    [
+     -4.851,
+     1.952
+    ],
+    [
+     -4.761,
+     1.909
+    ],
+    [
+     -4.67,
+     1.866
+    ],
+    [
+     -4.58,
+     1.823
+    ],
+    [
+     -4.49,
+     1.779
+    ],
+    [
+     -4.4,
+     1.736
+    ],
+    [
+     -4.31,
+     1.693
+    ],
+    [
+     -4.219,
+     1.65
+    ],
+    [
+     -4.129,
+     1.607
+    ],
+    [
+     -4.039,
+     1.564
+    ],
+    [
+     -3.949,
+     1.521
+    ],
+    [
+     -3.858,
+     1.477
+    ],
+    [
+     -3.768,
+     1.434
+    ],
+    [
+     -3.678,
+     1.391
+    ],
+    [
+     -3.588,
+     1.348
+    ],
+    [
+     -3.498,
+     1.305
+    ],
+    [
+     -3.407,
+     1.262
+    ],
+    [
+     -3.317,
+     1.219
+    ],
+    [
+     -3.227,
+     1.175
+    ],
+    [
+     -3.137,
+     1.132
+    ],
+    [
+     -3.047,
+     1.089
+    ],
+    [
+     -2.956,
+     1.046
+    ],
+    [
+     -2.866,
+     1.003
+    ],
+    [
+     -2.866,
+     1.003
+    ],
+    [
+     -2.819,
+     0.87
+    ],
+    [
+     -2.772,
+     0.736
+    ],
+    [
+     -2.725,
+     0.603
+    ],
+    [
+     -2.725,
+     0.603
+    ],
+    [
+     -2.635,
+     0.56
+    ],
+    [
+     -2.544,
+     0.517
+    ],
+    [
+     -2.454,
+     0.473
+    ],
+    [
+     -2.364,
+     0.43
+    ],
+    [
+     -2.274,
+     0.387
+    ],
+    [
+     -2.184,
+     0.344
+    ],
+    [
+     -2.184,
+     0.344
+    ],
+    [
+     -2.037,
+     0.321
+    ],
+    [
+     -2.037,
+     0.321
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1918,
+   "pair_id": "G2-01918",
+   "dist_m": 3.582191421462566,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.004213037328522,
+   "wall_s": 3.106844960944727,
+   "expansions": 125,
+   "oracle_calls": 432,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 138,
+   "route_uv": [
+    [
+     -1.691,
+     1.015
+    ],
+    [
+     -1.691,
+     1.015
+    ],
+    [
+     -1.824,
+     0.968
+    ],
+    [
+     -1.957,
+     0.921
+    ],
+    [
+     -1.957,
+     0.921
+    ],
+    [
+     -2.001,
+     0.831
+    ],
+    [
+     -2.044,
+     0.74
+    ],
+    [
+     -2.087,
+     0.65
+    ],
+    [
+     -2.087,
+     0.65
+    ],
+    [
+     -2.22,
+     0.603
+    ],
+    [
+     -2.22,
+     0.603
+    ],
+    [
+     -2.263,
+     0.513
+    ],
+    [
+     -2.263,
+     0.513
+    ],
+    [
+     -2.397,
+     0.466
+    ],
+    [
+     -2.53,
+     0.419
+    ],
+    [
+     -2.663,
+     0.372
+    ],
+    [
+     -2.663,
+     0.372
+    ],
+    [
+     -2.754,
+     0.415
+    ],
+    [
+     -2.844,
+     0.458
+    ],
+    [
+     -2.934,
+     0.501
+    ],
+    [
+     -3.024,
+     0.544
+    ],
+    [
+     -3.114,
+     0.587
+    ],
+    [
+     -3.205,
+     0.63
+    ],
+    [
+     -3.295,
+     0.674
+    ],
+    [
+     -3.385,
+     0.717
+    ],
+    [
+     -3.475,
+     0.76
+    ],
+    [
+     -3.566,
+     0.803
+    ],
+    [
+     -3.656,
+     0.846
+    ],
+    [
+     -3.746,
+     0.889
+    ],
+    [
+     -3.746,
+     0.889
+    ],
+    [
+     -3.879,
+     0.842
+    ],
+    [
+     -4.013,
+     0.795
+    ],
+    [
+     -4.146,
+     0.748
+    ],
+    [
+     -4.279,
+     0.701
+    ],
+    [
+     -4.413,
+     0.654
+    ],
+    [
+     -4.546,
+     0.607
+    ],
+    [
+     -4.679,
+     0.56
+    ],
+    [
+     -4.813,
+     0.513
+    ],
+    [
+     -4.946,
+     0.466
+    ],
+    [
+     -5.08,
+     0.418
+    ],
+    [
+     -5.08,
+     0.418
+    ],
+    [
+     -5.22,
+     0.402
+    ],
+    [
+     -5.22,
+     0.402
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1921,
+   "pair_id": "G2-01921",
+   "dist_m": 3.2137391384491676,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.018641267091609,
+   "wall_s": 7.989590008975938,
+   "expansions": 418,
+   "oracle_calls": 821,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 43,
+   "occupied_rejections": 215,
+   "route_uv": [
+    [
+     -5.154,
+     1.923
+    ],
+    [
+     -5.154,
+     1.923
+    ],
+    [
+     -5.064,
+     1.88
+    ],
+    [
+     -4.974,
+     1.837
+    ],
+    [
+     -4.883,
+     1.794
+    ],
+    [
+     -4.793,
+     1.751
+    ],
+    [
+     -4.703,
+     1.708
+    ],
+    [
+     -4.613,
+     1.665
+    ],
+    [
+     -4.523,
+     1.621
+    ],
+    [
+     -4.432,
+     1.578
+    ],
+    [
+     -4.342,
+     1.535
+    ],
+    [
+     -4.252,
+     1.492
+    ],
+    [
+     -4.162,
+     1.449
+    ],
+    [
+     -4.071,
+     1.406
+    ],
+    [
+     -3.981,
+     1.363
+    ],
+    [
+     -3.891,
+     1.319
+    ],
+    [
+     -3.801,
+     1.276
+    ],
+    [
+     -3.711,
+     1.233
+    ],
+    [
+     -3.62,
+     1.19
+    ],
+    [
+     -3.53,
+     1.147
+    ],
+    [
+     -3.44,
+     1.104
+    ],
+    [
+     -3.35,
+     1.061
+    ],
+    [
+     -3.26,
+     1.018
+    ],
+    [
+     -3.169,
+     0.974
+    ],
+    [
+     -3.079,
+     0.931
+    ],
+    [
+     -2.989,
+     0.888
+    ],
+    [
+     -2.899,
+     0.845
+    ],
+    [
+     -2.808,
+     0.802
+    ],
+    [
+     -2.808,
+     0.802
+    ],
+    [
+     -2.761,
+     0.669
+    ],
+    [
+     -2.714,
+     0.535
+    ],
+    [
+     -2.714,
+     0.535
+    ],
+    [
+     -2.624,
+     0.492
+    ],
+    [
+     -2.534,
+     0.449
+    ],
+    [
+     -2.534,
+     0.449
+    ],
+    [
+     -2.4,
+     0.496
+    ],
+    [
+     -2.267,
+     0.543
+    ],
+    [
+     -2.134,
+     0.59
+    ],
+    [
+     -2.134,
+     0.59
+    ],
+    [
+     -2.091,
+     0.68
+    ],
+    [
+     -2.047,
+     0.771
+    ],
+    [
+     -2.004,
+     0.861
+    ],
+    [
+     -2.004,
+     0.861
+    ],
+    [
+     -2.051,
+     0.994
+    ],
+    [
+     -2.051,
+     0.994
+    ],
+    [
+     -2.057,
+     1.064
+    ],
+    [
+     -2.057,
+     1.064
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1943,
+   "pair_id": "G2-01943",
+   "dist_m": 3.02018096312125,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.2539214176429945,
+   "wall_s": 1.868516119895503,
+   "expansions": 148,
+   "oracle_calls": 341,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 85,
+   "route_uv": [
+    [
+     -5.009,
+     0.814
+    ],
+    [
+     -5.009,
+     0.814
+    ],
+    [
+     -4.919,
+     0.771
+    ],
+    [
+     -4.829,
+     0.728
+    ],
+    [
+     -4.739,
+     0.685
+    ],
+    [
+     -4.649,
+     0.642
+    ],
+    [
+     -4.558,
+     0.598
+    ],
+    [
+     -4.558,
+     0.598
+    ],
+    [
+     -4.425,
+     0.646
+    ],
+    [
+     -4.292,
+     0.693
+    ],
+    [
+     -4.158,
+     0.74
+    ],
+    [
+     -4.025,
+     0.787
+    ],
+    [
+     -3.892,
+     0.834
+    ],
+    [
+     -3.758,
+     0.881
+    ],
+    [
+     -3.758,
+     0.881
+    ],
+    [
+     -3.668,
+     0.838
+    ],
+    [
+     -3.578,
+     0.795
+    ],
+    [
+     -3.488,
+     0.752
+    ],
+    [
+     -3.397,
+     0.708
+    ],
+    [
+     -3.307,
+     0.665
+    ],
+    [
+     -3.217,
+     0.622
+    ],
+    [
+     -3.127,
+     0.579
+    ],
+    [
+     -3.036,
+     0.536
+    ],
+    [
+     -2.946,
+     0.493
+    ],
+    [
+     -2.856,
+     0.45
+    ],
+    [
+     -2.766,
+     0.406
+    ],
+    [
+     -2.766,
+     0.406
+    ],
+    [
+     -2.632,
+     0.453
+    ],
+    [
+     -2.632,
+     0.453
+    ],
+    [
+     -2.542,
+     0.41
+    ],
+    [
+     -2.452,
+     0.367
+    ],
+    [
+     -2.452,
+     0.367
+    ],
+    [
+     -2.319,
+     0.414
+    ],
+    [
+     -2.185,
+     0.461
+    ],
+    [
+     -2.185,
+     0.461
+    ],
+    [
+     -2.019,
+     0.389
+    ],
+    [
+     -2.019,
+     0.389
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 1995,
+   "pair_id": "G2-01995",
+   "dist_m": 3.1192002308284086,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.5272638026489056,
+   "wall_s": 3.433055103989318,
+   "expansions": 262,
+   "oracle_calls": 517,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 6,
+   "occupied_rejections": 132,
+   "route_uv": [
+    [
+     -4.659,
+     1.968
+    ],
+    [
+     -4.659,
+     1.968
+    ],
+    [
+     -4.569,
+     1.925
+    ],
+    [
+     -4.479,
+     1.882
+    ],
+    [
+     -4.388,
+     1.838
+    ],
+    [
+     -4.298,
+     1.795
+    ],
+    [
+     -4.208,
+     1.752
+    ],
+    [
+     -4.118,
+     1.709
+    ],
+    [
+     -4.028,
+     1.666
+    ],
+    [
+     -3.937,
+     1.623
+    ],
+    [
+     -3.847,
+     1.58
+    ],
+    [
+     -3.757,
+     1.537
+    ],
+    [
+     -3.667,
+     1.493
+    ],
+    [
+     -3.576,
+     1.45
+    ],
+    [
+     -3.486,
+     1.407
+    ],
+    [
+     -3.396,
+     1.364
+    ],
+    [
+     -3.306,
+     1.321
+    ],
+    [
+     -3.216,
+     1.278
+    ],
+    [
+     -3.125,
+     1.235
+    ],
+    [
+     -3.035,
+     1.191
+    ],
+    [
+     -2.945,
+     1.148
+    ],
+    [
+     -2.945,
+     1.148
+    ],
+    [
+     -2.898,
+     1.015
+    ],
+    [
+     -2.851,
+     0.882
+    ],
+    [
+     -2.804,
+     0.748
+    ],
+    [
+     -2.757,
+     0.615
+    ],
+    [
+     -2.757,
+     0.615
+    ],
+    [
+     -2.666,
+     0.572
+    ],
+    [
+     -2.576,
+     0.529
+    ],
+    [
+     -2.486,
+     0.485
+    ],
+    [
+     -2.486,
+     0.485
+    ],
+    [
+     -2.353,
+     0.533
+    ],
+    [
+     -2.219,
+     0.58
+    ],
+    [
+     -2.086,
+     0.627
+    ],
+    [
+     -1.953,
+     0.674
+    ],
+    [
+     -1.953,
+     0.674
+    ],
+    [
+     -1.78,
+     0.767
+    ],
+    [
+     -1.78,
+     0.767
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2072,
+   "pair_id": "G2-02072",
+   "dist_m": 3.2211579237907597,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.4351361604296153,
+   "wall_s": 0.5083749340847135,
+   "expansions": 223,
+   "oracle_calls": 524,
+   "map_unknown_rejections": 19,
+   "unproven_rejections": 6,
+   "occupied_rejections": 0,
+   "route_uv": [
+    [
+     -8.566,
+     0.499
+    ],
+    [
+     -8.566,
+     0.499
+    ],
+    [
+     -8.432,
+     0.546
+    ],
+    [
+     -8.299,
+     0.593
+    ],
+    [
+     -8.166,
+     0.64
+    ],
+    [
+     -8.032,
+     0.687
+    ],
+    [
+     -7.899,
+     0.734
+    ],
+    [
+     -7.766,
+     0.781
+    ],
+    [
+     -7.632,
+     0.828
+    ],
+    [
+     -7.499,
+     0.875
+    ],
+    [
+     -7.499,
+     0.875
+    ],
+    [
+     -7.456,
+     0.966
+    ],
+    [
+     -7.456,
+     0.966
+    ],
+    [
+     -7.322,
+     1.013
+    ],
+    [
+     -7.322,
+     1.013
+    ],
+    [
+     -7.279,
+     1.103
+    ],
+    [
+     -7.236,
+     1.193
+    ],
+    [
+     -7.236,
+     1.193
+    ],
+    [
+     -7.103,
+     1.24
+    ],
+    [
+     -7.103,
+     1.24
+    ],
+    [
+     -7.06,
+     1.33
+    ],
+    [
+     -7.06,
+     1.33
+    ],
+    [
+     -6.926,
+     1.377
+    ],
+    [
+     -6.926,
+     1.377
+    ],
+    [
+     -6.883,
+     1.468
+    ],
+    [
+     -6.883,
+     1.468
+    ],
+    [
+     -6.75,
+     1.515
+    ],
+    [
+     -6.75,
+     1.515
+    ],
+    [
+     -6.707,
+     1.605
+    ],
+    [
+     -6.707,
+     1.605
+    ],
+    [
+     -6.573,
+     1.652
+    ],
+    [
+     -6.573,
+     1.652
+    ],
+    [
+     -6.53,
+     1.742
+    ],
+    [
+     -6.53,
+     1.742
+    ],
+    [
+     -6.397,
+     1.789
+    ],
+    [
+     -6.397,
+     1.789
+    ],
+    [
+     -6.354,
+     1.88
+    ],
+    [
+     -6.311,
+     1.97
+    ],
+    [
+     -6.311,
+     1.97
+    ],
+    [
+     -6.177,
+     2.017
+    ],
+    [
+     -6.177,
+     2.017
+    ],
+    [
+     -6.134,
+     2.107
+    ],
+    [
+     -6.134,
+     2.107
+    ],
+    [
+     -6.001,
+     2.154
+    ],
+    [
+     -6.001,
+     2.154
+    ],
+    [
+     -5.88,
+     2.278
+    ],
+    [
+     -5.88,
+     2.278
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2262,
+   "pair_id": "G2-02262",
+   "dist_m": 3.130437915052781,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.8625949926708016,
+   "wall_s": 7.661297688027844,
+   "expansions": 422,
+   "oracle_calls": 886,
+   "map_unknown_rejections": 2,
+   "unproven_rejections": 29,
+   "occupied_rejections": 230,
+   "route_uv": [
+    [
+     -5.02,
+     1.52
+    ],
+    [
+     -5.02,
+     1.52
+    ],
+    [
+     -4.93,
+     1.477
+    ],
+    [
+     -4.84,
+     1.434
+    ],
+    [
+     -4.75,
+     1.391
+    ],
+    [
+     -4.659,
+     1.348
+    ],
+    [
+     -4.569,
+     1.305
+    ],
+    [
+     -4.479,
+     1.261
+    ],
+    [
+     -4.479,
+     1.261
+    ],
+    [
+     -4.346,
+     1.309
+    ],
+    [
+     -4.346,
+     1.309
+    ],
+    [
+     -4.255,
+     1.265
+    ],
+    [
+     -4.165,
+     1.222
+    ],
+    [
+     -4.075,
+     1.179
+    ],
+    [
+     -3.985,
+     1.136
+    ],
+    [
+     -3.894,
+     1.093
+    ],
+    [
+     -3.804,
+     1.05
+    ],
+    [
+     -3.714,
+     1.007
+    ],
+    [
+     -3.624,
+     0.963
+    ],
+    [
+     -3.534,
+     0.92
+    ],
+    [
+     -3.443,
+     0.877
+    ],
+    [
+     -3.353,
+     0.834
+    ],
+    [
+     -3.263,
+     0.791
+    ],
+    [
+     -3.173,
+     0.748
+    ],
+    [
+     -3.082,
+     0.705
+    ],
+    [
+     -2.992,
+     0.662
+    ],
+    [
+     -2.902,
+     0.618
+    ],
+    [
+     -2.812,
+     0.575
+    ],
+    [
+     -2.722,
+     0.532
+    ],
+    [
+     -2.631,
+     0.489
+    ],
+    [
+     -2.541,
+     0.446
+    ],
+    [
+     -2.541,
+     0.446
+    ],
+    [
+     -2.408,
+     0.493
+    ],
+    [
+     -2.274,
+     0.54
+    ],
+    [
+     -2.141,
+     0.587
+    ],
+    [
+     -2.141,
+     0.587
+    ],
+    [
+     -2.098,
+     0.677
+    ],
+    [
+     -2.055,
+     0.768
+    ],
+    [
+     -2.012,
+     0.858
+    ],
+    [
+     -1.969,
+     0.948
+    ],
+    [
+     -1.925,
+     1.038
+    ],
+    [
+     -1.925,
+     1.038
+    ],
+    [
+     -1.903,
+     1.234
+    ],
+    [
+     -1.903,
+     1.234
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2301,
+   "pair_id": "G2-02301",
+   "dist_m": 3.501674863547443,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.7784149807677654,
+   "wall_s": 3.0730482689104974,
+   "expansions": 162,
+   "oracle_calls": 441,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 6,
+   "occupied_rejections": 122,
+   "route_uv": [
+    [
+     -1.674,
+     0.659
+    ],
+    [
+     -1.674,
+     0.659
+    ],
+    [
+     -1.764,
+     0.703
+    ],
+    [
+     -1.764,
+     0.703
+    ],
+    [
+     -1.897,
+     0.656
+    ],
+    [
+     -2.031,
+     0.608
+    ],
+    [
+     -2.164,
+     0.561
+    ],
+    [
+     -2.297,
+     0.514
+    ],
+    [
+     -2.431,
+     0.467
+    ],
+    [
+     -2.431,
+     0.467
+    ],
+    [
+     -2.521,
+     0.51
+    ],
+    [
+     -2.611,
+     0.553
+    ],
+    [
+     -2.701,
+     0.597
+    ],
+    [
+     -2.792,
+     0.64
+    ],
+    [
+     -2.882,
+     0.683
+    ],
+    [
+     -2.972,
+     0.726
+    ],
+    [
+     -3.062,
+     0.769
+    ],
+    [
+     -3.153,
+     0.812
+    ],
+    [
+     -3.243,
+     0.855
+    ],
+    [
+     -3.333,
+     0.899
+    ],
+    [
+     -3.333,
+     0.899
+    ],
+    [
+     -3.466,
+     0.852
+    ],
+    [
+     -3.466,
+     0.852
+    ],
+    [
+     -3.557,
+     0.895
+    ],
+    [
+     -3.557,
+     0.895
+    ],
+    [
+     -3.69,
+     0.848
+    ],
+    [
+     -3.69,
+     0.848
+    ],
+    [
+     -3.78,
+     0.891
+    ],
+    [
+     -3.78,
+     0.891
+    ],
+    [
+     -3.913,
+     0.844
+    ],
+    [
+     -3.913,
+     0.844
+    ],
+    [
+     -4.004,
+     0.887
+    ],
+    [
+     -4.004,
+     0.887
+    ],
+    [
+     -4.137,
+     0.84
+    ],
+    [
+     -4.137,
+     0.84
+    ],
+    [
+     -4.227,
+     0.883
+    ],
+    [
+     -4.227,
+     0.883
+    ],
+    [
+     -4.361,
+     0.836
+    ],
+    [
+     -4.361,
+     0.836
+    ],
+    [
+     -4.451,
+     0.879
+    ],
+    [
+     -4.541,
+     0.922
+    ],
+    [
+     -4.541,
+     0.922
+    ],
+    [
+     -4.674,
+     0.875
+    ],
+    [
+     -4.674,
+     0.875
+    ],
+    [
+     -4.765,
+     0.918
+    ],
+    [
+     -4.765,
+     0.918
+    ],
+    [
+     -4.898,
+     0.871
+    ],
+    [
+     -4.898,
+     0.871
+    ],
+    [
+     -4.988,
+     0.914
+    ],
+    [
+     -4.988,
+     0.914
+    ],
+    [
+     -5.168,
+     0.89
+    ],
+    [
+     -5.168,
+     0.89
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2592,
+   "pair_id": "G2-02592",
+   "dist_m": 3.596079232998072,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.9904188901188755,
+   "wall_s": 1.9235007711686194,
+   "expansions": 191,
+   "oracle_calls": 465,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 4,
+   "occupied_rejections": 121,
+   "route_uv": [
+    [
+     -1.829,
+     0.836
+    ],
+    [
+     -1.829,
+     0.836
+    ],
+    [
+     -1.962,
+     0.789
+    ],
+    [
+     -2.096,
+     0.742
+    ],
+    [
+     -2.096,
+     0.742
+    ],
+    [
+     -2.139,
+     0.652
+    ],
+    [
+     -2.182,
+     0.561
+    ],
+    [
+     -2.182,
+     0.561
+    ],
+    [
+     -2.315,
+     0.514
+    ],
+    [
+     -2.449,
+     0.467
+    ],
+    [
+     -2.449,
+     0.467
+    ],
+    [
+     -2.539,
+     0.51
+    ],
+    [
+     -2.629,
+     0.553
+    ],
+    [
+     -2.719,
+     0.597
+    ],
+    [
+     -2.809,
+     0.64
+    ],
+    [
+     -2.9,
+     0.683
+    ],
+    [
+     -2.99,
+     0.726
+    ],
+    [
+     -3.08,
+     0.769
+    ],
+    [
+     -3.17,
+     0.812
+    ],
+    [
+     -3.261,
+     0.855
+    ],
+    [
+     -3.351,
+     0.898
+    ],
+    [
+     -3.441,
+     0.942
+    ],
+    [
+     -3.531,
+     0.985
+    ],
+    [
+     -3.621,
+     1.028
+    ],
+    [
+     -3.712,
+     1.071
+    ],
+    [
+     -3.802,
+     1.114
+    ],
+    [
+     -3.892,
+     1.157
+    ],
+    [
+     -3.982,
+     1.2
+    ],
+    [
+     -4.073,
+     1.244
+    ],
+    [
+     -4.163,
+     1.287
+    ],
+    [
+     -4.163,
+     1.287
+    ],
+    [
+     -4.296,
+     1.24
+    ],
+    [
+     -4.296,
+     1.24
+    ],
+    [
+     -4.386,
+     1.283
+    ],
+    [
+     -4.386,
+     1.283
+    ],
+    [
+     -4.52,
+     1.236
+    ],
+    [
+     -4.52,
+     1.236
+    ],
+    [
+     -4.61,
+     1.279
+    ],
+    [
+     -4.61,
+     1.279
+    ],
+    [
+     -4.743,
+     1.232
+    ],
+    [
+     -4.743,
+     1.232
+    ],
+    [
+     -4.833,
+     1.275
+    ],
+    [
+     -4.833,
+     1.275
+    ],
+    [
+     -4.967,
+     1.228
+    ],
+    [
+     -4.967,
+     1.228
+    ],
+    [
+     -5.057,
+     1.271
+    ],
+    [
+     -5.147,
+     1.314
+    ],
+    [
+     -5.147,
+     1.314
+    ],
+    [
+     -5.281,
+     1.267
+    ],
+    [
+     -5.281,
+     1.267
+    ],
+    [
+     -5.398,
+     1.278
+    ],
+    [
+     -5.398,
+     1.278
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2772,
+   "pair_id": "G2-02772",
+   "dist_m": 3.3168722164111175,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.236424208648793,
+   "wall_s": 9.19112217403017,
+   "expansions": 451,
+   "oracle_calls": 924,
+   "map_unknown_rejections": 18,
+   "unproven_rejections": 46,
+   "occupied_rejections": 245,
+   "route_uv": [
+    [
+     -5.331,
+     1.787
+    ],
+    [
+     -5.331,
+     1.787
+    ],
+    [
+     -5.241,
+     1.744
+    ],
+    [
+     -5.15,
+     1.701
+    ],
+    [
+     -5.06,
+     1.657
+    ],
+    [
+     -4.97,
+     1.614
+    ],
+    [
+     -4.88,
+     1.571
+    ],
+    [
+     -4.789,
+     1.528
+    ],
+    [
+     -4.699,
+     1.485
+    ],
+    [
+     -4.609,
+     1.442
+    ],
+    [
+     -4.519,
+     1.399
+    ],
+    [
+     -4.429,
+     1.355
+    ],
+    [
+     -4.338,
+     1.312
+    ],
+    [
+     -4.248,
+     1.269
+    ],
+    [
+     -4.158,
+     1.226
+    ],
+    [
+     -4.068,
+     1.183
+    ],
+    [
+     -3.978,
+     1.14
+    ],
+    [
+     -3.887,
+     1.097
+    ],
+    [
+     -3.797,
+     1.053
+    ],
+    [
+     -3.707,
+     1.01
+    ],
+    [
+     -3.617,
+     0.967
+    ],
+    [
+     -3.526,
+     0.924
+    ],
+    [
+     -3.436,
+     0.881
+    ],
+    [
+     -3.346,
+     0.838
+    ],
+    [
+     -3.256,
+     0.795
+    ],
+    [
+     -3.166,
+     0.752
+    ],
+    [
+     -3.075,
+     0.708
+    ],
+    [
+     -2.985,
+     0.665
+    ],
+    [
+     -2.895,
+     0.622
+    ],
+    [
+     -2.805,
+     0.579
+    ],
+    [
+     -2.714,
+     0.536
+    ],
+    [
+     -2.624,
+     0.493
+    ],
+    [
+     -2.534,
+     0.45
+    ],
+    [
+     -2.534,
+     0.45
+    ],
+    [
+     -2.401,
+     0.497
+    ],
+    [
+     -2.267,
+     0.544
+    ],
+    [
+     -2.134,
+     0.591
+    ],
+    [
+     -2.134,
+     0.591
+    ],
+    [
+     -2.091,
+     0.681
+    ],
+    [
+     -2.048,
+     0.771
+    ],
+    [
+     -2.005,
+     0.861
+    ],
+    [
+     -2.005,
+     0.861
+    ],
+    [
+     -2.052,
+     0.995
+    ],
+    [
+     -2.052,
+     0.995
+    ],
+    [
+     -2.009,
+     1.085
+    ],
+    [
+     -2.009,
+     1.085
+    ],
+    [
+     -2.058,
+     1.249
+    ],
+    [
+     -2.058,
+     1.249
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2919,
+   "pair_id": "G2-02919",
+   "dist_m": 3.052633002835421,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.2246705113429415,
+   "wall_s": 0.819056587992236,
+   "expansions": 172,
+   "oracle_calls": 436,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 29,
+   "route_uv": [
+    [
+     -2.279,
+     1.62
+    ],
+    [
+     -2.279,
+     1.62
+    ],
+    [
+     -2.413,
+     1.573
+    ],
+    [
+     -2.546,
+     1.525
+    ],
+    [
+     -2.679,
+     1.478
+    ],
+    [
+     -2.813,
+     1.431
+    ],
+    [
+     -2.946,
+     1.384
+    ],
+    [
+     -3.079,
+     1.337
+    ],
+    [
+     -3.213,
+     1.29
+    ],
+    [
+     -3.346,
+     1.243
+    ],
+    [
+     -3.479,
+     1.196
+    ],
+    [
+     -3.613,
+     1.149
+    ],
+    [
+     -3.746,
+     1.102
+    ],
+    [
+     -3.746,
+     1.102
+    ],
+    [
+     -3.836,
+     1.145
+    ],
+    [
+     -3.836,
+     1.145
+    ],
+    [
+     -3.97,
+     1.098
+    ],
+    [
+     -3.97,
+     1.098
+    ],
+    [
+     -4.06,
+     1.141
+    ],
+    [
+     -4.06,
+     1.141
+    ],
+    [
+     -4.193,
+     1.094
+    ],
+    [
+     -4.193,
+     1.094
+    ],
+    [
+     -4.284,
+     1.137
+    ],
+    [
+     -4.284,
+     1.137
+    ],
+    [
+     -4.417,
+     1.09
+    ],
+    [
+     -4.417,
+     1.09
+    ],
+    [
+     -4.507,
+     1.133
+    ],
+    [
+     -4.597,
+     1.176
+    ],
+    [
+     -4.597,
+     1.176
+    ],
+    [
+     -4.731,
+     1.129
+    ],
+    [
+     -4.731,
+     1.129
+    ],
+    [
+     -4.821,
+     1.172
+    ],
+    [
+     -4.821,
+     1.172
+    ],
+    [
+     -4.954,
+     1.125
+    ],
+    [
+     -4.954,
+     1.125
+    ],
+    [
+     -5.044,
+     1.168
+    ],
+    [
+     -5.044,
+     1.168
+    ],
+    [
+     -5.178,
+     1.121
+    ],
+    [
+     -5.178,
+     1.121
+    ],
+    [
+     -5.295,
+     1.148
+    ],
+    [
+     -5.295,
+     1.148
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 2957,
+   "pair_id": "G2-02957",
+   "dist_m": 3.690483548263018,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 4.175468589204905,
+   "wall_s": 4.795771732926369,
+   "expansions": 402,
+   "oracle_calls": 867,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 10,
+   "occupied_rejections": 177,
+   "route_uv": [
+    [
+     -5.297,
+     1.115
+    ],
+    [
+     -5.297,
+     1.115
+    ],
+    [
+     -5.207,
+     1.072
+    ],
+    [
+     -5.117,
+     1.028
+    ],
+    [
+     -5.117,
+     1.028
+    ],
+    [
+     -4.984,
+     1.076
+    ],
+    [
+     -4.984,
+     1.076
+    ],
+    [
+     -4.893,
+     1.032
+    ],
+    [
+     -4.893,
+     1.032
+    ],
+    [
+     -4.76,
+     1.079
+    ],
+    [
+     -4.76,
+     1.079
+    ],
+    [
+     -4.67,
+     1.036
+    ],
+    [
+     -4.67,
+     1.036
+    ],
+    [
+     -4.536,
+     1.083
+    ],
+    [
+     -4.536,
+     1.083
+    ],
+    [
+     -4.446,
+     1.04
+    ],
+    [
+     -4.446,
+     1.04
+    ],
+    [
+     -4.313,
+     1.087
+    ],
+    [
+     -4.313,
+     1.087
+    ],
+    [
+     -4.223,
+     1.044
+    ],
+    [
+     -4.223,
+     1.044
+    ],
+    [
+     -4.089,
+     1.091
+    ],
+    [
+     -4.089,
+     1.091
+    ],
+    [
+     -3.999,
+     1.048
+    ],
+    [
+     -3.909,
+     1.005
+    ],
+    [
+     -3.909,
+     1.005
+    ],
+    [
+     -3.776,
+     1.052
+    ],
+    [
+     -3.776,
+     1.052
+    ],
+    [
+     -3.685,
+     1.009
+    ],
+    [
+     -3.595,
+     0.966
+    ],
+    [
+     -3.505,
+     0.923
+    ],
+    [
+     -3.415,
+     0.88
+    ],
+    [
+     -3.324,
+     0.836
+    ],
+    [
+     -3.234,
+     0.793
+    ],
+    [
+     -3.144,
+     0.75
+    ],
+    [
+     -3.054,
+     0.707
+    ],
+    [
+     -2.964,
+     0.664
+    ],
+    [
+     -2.873,
+     0.621
+    ],
+    [
+     -2.783,
+     0.578
+    ],
+    [
+     -2.693,
+     0.534
+    ],
+    [
+     -2.603,
+     0.491
+    ],
+    [
+     -2.512,
+     0.448
+    ],
+    [
+     -2.512,
+     0.448
+    ],
+    [
+     -2.379,
+     0.495
+    ],
+    [
+     -2.246,
+     0.542
+    ],
+    [
+     -2.112,
+     0.589
+    ],
+    [
+     -2.112,
+     0.589
+    ],
+    [
+     -2.069,
+     0.68
+    ],
+    [
+     -2.069,
+     0.68
+    ],
+    [
+     -1.936,
+     0.727
+    ],
+    [
+     -1.936,
+     0.727
+    ],
+    [
+     -1.893,
+     0.817
+    ],
+    [
+     -1.893,
+     0.817
+    ],
+    [
+     -1.759,
+     0.864
+    ],
+    [
+     -1.759,
+     0.864
+    ],
+    [
+     -1.716,
+     0.954
+    ],
+    [
+     -1.716,
+     0.954
+    ],
+    [
+     -1.608,
+     1.007
+    ],
+    [
+     -1.608,
+     1.007
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 3061,
+   "pair_id": "G2-03061",
+   "dist_m": 3.33414059841513,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.653141677779661,
+   "wall_s": 4.23579862783663,
+   "expansions": 95,
+   "oracle_calls": 352,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 2,
+   "occupied_rejections": 104,
+   "route_uv": [
+    [
+     -1.921,
+     0.848
+    ],
+    [
+     -1.921,
+     0.848
+    ],
+    [
+     -2.054,
+     0.801
+    ],
+    [
+     -2.054,
+     0.801
+    ],
+    [
+     -2.097,
+     0.71
+    ],
+    [
+     -2.141,
+     0.62
+    ],
+    [
+     -2.141,
+     0.62
+    ],
+    [
+     -2.274,
+     0.573
+    ],
+    [
+     -2.407,
+     0.526
+    ],
+    [
+     -2.541,
+     0.479
+    ],
+    [
+     -2.674,
+     0.432
+    ],
+    [
+     -2.807,
+     0.385
+    ],
+    [
+     -2.807,
+     0.385
+    ],
+    [
+     -2.898,
+     0.428
+    ],
+    [
+     -2.988,
+     0.471
+    ],
+    [
+     -3.078,
+     0.514
+    ],
+    [
+     -3.168,
+     0.557
+    ],
+    [
+     -3.258,
+     0.6
+    ],
+    [
+     -3.349,
+     0.643
+    ],
+    [
+     -3.439,
+     0.687
+    ],
+    [
+     -3.529,
+     0.73
+    ],
+    [
+     -3.619,
+     0.773
+    ],
+    [
+     -3.709,
+     0.816
+    ],
+    [
+     -3.8,
+     0.859
+    ],
+    [
+     -3.8,
+     0.859
+    ],
+    [
+     -3.933,
+     0.812
+    ],
+    [
+     -4.066,
+     0.765
+    ],
+    [
+     -4.2,
+     0.718
+    ],
+    [
+     -4.333,
+     0.671
+    ],
+    [
+     -4.466,
+     0.624
+    ],
+    [
+     -4.6,
+     0.577
+    ],
+    [
+     -4.733,
+     0.53
+    ],
+    [
+     -4.867,
+     0.483
+    ],
+    [
+     -5.0,
+     0.435
+    ],
+    [
+     -5.133,
+     0.388
+    ],
+    [
+     -5.133,
+     0.388
+    ],
+    [
+     -5.224,
+     0.391
+    ],
+    [
+     -5.224,
+     0.391
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 3252,
+   "pair_id": "G2-03252",
+   "dist_m": 3.14414089060907,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.1441408906090706,
+   "wall_s": 0.019394577015191317,
+   "expansions": 0,
+   "oracle_calls": 7,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 0,
+   "occupied_rejections": 0,
+   "route_uv": [
+    [
+     -2.449,
+     0.397
+    ],
+    [
+     -2.449,
+     0.397
+    ],
+    [
+     -5.24,
+     1.845
+    ],
+    [
+     -5.24,
+     1.845
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 3301,
+   "pair_id": "G2-03301",
+   "dist_m": 3.0013882454624228,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.79837321911324,
+   "wall_s": 3.0092107870150357,
+   "expansions": 214,
+   "oracle_calls": 490,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 10,
+   "occupied_rejections": 106,
+   "route_uv": [
+    [
+     -1.926,
+     0.924
+    ],
+    [
+     -1.926,
+     0.924
+    ],
+    [
+     -2.059,
+     0.877
+    ],
+    [
+     -2.059,
+     0.877
+    ],
+    [
+     -2.102,
+     0.787
+    ],
+    [
+     -2.145,
+     0.696
+    ],
+    [
+     -2.188,
+     0.606
+    ],
+    [
+     -2.188,
+     0.606
+    ],
+    [
+     -2.322,
+     0.559
+    ],
+    [
+     -2.322,
+     0.559
+    ],
+    [
+     -2.365,
+     0.469
+    ],
+    [
+     -2.365,
+     0.469
+    ],
+    [
+     -2.455,
+     0.512
+    ],
+    [
+     -2.455,
+     0.512
+    ],
+    [
+     -2.589,
+     0.465
+    ],
+    [
+     -2.589,
+     0.465
+    ],
+    [
+     -2.679,
+     0.508
+    ],
+    [
+     -2.769,
+     0.551
+    ],
+    [
+     -2.859,
+     0.594
+    ],
+    [
+     -2.949,
+     0.638
+    ],
+    [
+     -3.04,
+     0.681
+    ],
+    [
+     -3.13,
+     0.724
+    ],
+    [
+     -3.22,
+     0.767
+    ],
+    [
+     -3.31,
+     0.81
+    ],
+    [
+     -3.4,
+     0.853
+    ],
+    [
+     -3.491,
+     0.896
+    ],
+    [
+     -3.581,
+     0.94
+    ],
+    [
+     -3.671,
+     0.983
+    ],
+    [
+     -3.671,
+     0.983
+    ],
+    [
+     -3.718,
+     1.116
+    ],
+    [
+     -3.718,
+     1.116
+    ],
+    [
+     -3.808,
+     1.159
+    ],
+    [
+     -3.808,
+     1.159
+    ],
+    [
+     -3.856,
+     1.292
+    ],
+    [
+     -3.856,
+     1.292
+    ],
+    [
+     -3.946,
+     1.336
+    ],
+    [
+     -3.946,
+     1.336
+    ],
+    [
+     -3.993,
+     1.469
+    ],
+    [
+     -3.993,
+     1.469
+    ],
+    [
+     -4.083,
+     1.512
+    ],
+    [
+     -4.083,
+     1.512
+    ],
+    [
+     -4.13,
+     1.645
+    ],
+    [
+     -4.13,
+     1.645
+    ],
+    [
+     -4.22,
+     1.689
+    ],
+    [
+     -4.311,
+     1.732
+    ],
+    [
+     -4.311,
+     1.732
+    ],
+    [
+     -4.358,
+     1.865
+    ],
+    [
+     -4.358,
+     1.865
+    ],
+    [
+     -4.448,
+     1.908
+    ],
+    [
+     -4.448,
+     1.908
+    ],
+    [
+     -4.495,
+     2.042
+    ],
+    [
+     -4.495,
+     2.042
+    ],
+    [
+     -4.585,
+     2.085
+    ],
+    [
+     -4.585,
+     2.085
+    ],
+    [
+     -4.644,
+     2.195
+    ],
+    [
+     -4.644,
+     2.195
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 3419,
+   "pair_id": "G2-03419",
+   "dist_m": 3.311311741591238,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.687974762617083,
+   "wall_s": 2.625876202015206,
+   "expansions": 309,
+   "oracle_calls": 590,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 14,
+   "occupied_rejections": 103,
+   "route_uv": [
+    [
+     -5.315,
+     1.256
+    ],
+    [
+     -5.315,
+     1.256
+    ],
+    [
+     -5.225,
+     1.213
+    ],
+    [
+     -5.134,
+     1.17
+    ],
+    [
+     -5.044,
+     1.127
+    ],
+    [
+     -4.954,
+     1.084
+    ],
+    [
+     -4.864,
+     1.04
+    ],
+    [
+     -4.774,
+     0.997
+    ],
+    [
+     -4.683,
+     0.954
+    ],
+    [
+     -4.593,
+     0.911
+    ],
+    [
+     -4.503,
+     0.868
+    ],
+    [
+     -4.413,
+     0.825
+    ],
+    [
+     -4.413,
+     0.825
+    ],
+    [
+     -4.279,
+     0.872
+    ],
+    [
+     -4.279,
+     0.872
+    ],
+    [
+     -4.189,
+     0.829
+    ],
+    [
+     -4.099,
+     0.786
+    ],
+    [
+     -4.099,
+     0.786
+    ],
+    [
+     -3.966,
+     0.833
+    ],
+    [
+     -3.832,
+     0.88
+    ],
+    [
+     -3.832,
+     0.88
+    ],
+    [
+     -3.742,
+     0.837
+    ],
+    [
+     -3.652,
+     0.793
+    ],
+    [
+     -3.652,
+     0.793
+    ],
+    [
+     -3.518,
+     0.841
+    ],
+    [
+     -3.518,
+     0.841
+    ],
+    [
+     -3.428,
+     0.797
+    ],
+    [
+     -3.428,
+     0.797
+    ],
+    [
+     -3.295,
+     0.844
+    ],
+    [
+     -3.295,
+     0.844
+    ],
+    [
+     -3.205,
+     0.801
+    ],
+    [
+     -3.114,
+     0.758
+    ],
+    [
+     -3.024,
+     0.715
+    ],
+    [
+     -2.934,
+     0.672
+    ],
+    [
+     -2.844,
+     0.629
+    ],
+    [
+     -2.754,
+     0.586
+    ],
+    [
+     -2.663,
+     0.543
+    ],
+    [
+     -2.573,
+     0.499
+    ],
+    [
+     -2.483,
+     0.456
+    ],
+    [
+     -2.483,
+     0.456
+    ],
+    [
+     -2.35,
+     0.503
+    ],
+    [
+     -2.216,
+     0.55
+    ],
+    [
+     -2.216,
+     0.55
+    ],
+    [
+     -2.173,
+     0.641
+    ],
+    [
+     -2.173,
+     0.641
+    ],
+    [
+     -2.037,
+     0.785
+    ],
+    [
+     -2.037,
+     0.785
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 4060,
+   "pair_id": "G2-04060",
+   "dist_m": 3.0712168598130614,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.3681737137964722,
+   "wall_s": 0.9794305288232863,
+   "expansions": 232,
+   "oracle_calls": 420,
+   "map_unknown_rejections": 0,
+   "unproven_rejections": 1,
+   "occupied_rejections": 70,
+   "route_uv": [
+    [
+     -4.756,
+     1.706
+    ],
+    [
+     -4.756,
+     1.706
+    ],
+    [
+     -4.666,
+     1.662
+    ],
+    [
+     -4.576,
+     1.619
+    ],
+    [
+     -4.485,
+     1.576
+    ],
+    [
+     -4.395,
+     1.533
+    ],
+    [
+     -4.305,
+     1.49
+    ],
+    [
+     -4.215,
+     1.447
+    ],
+    [
+     -4.125,
+     1.404
+    ],
+    [
+     -4.034,
+     1.36
+    ],
+    [
+     -3.944,
+     1.317
+    ],
+    [
+     -3.854,
+     1.274
+    ],
+    [
+     -3.764,
+     1.231
+    ],
+    [
+     -3.673,
+     1.188
+    ],
+    [
+     -3.583,
+     1.145
+    ],
+    [
+     -3.493,
+     1.102
+    ],
+    [
+     -3.403,
+     1.058
+    ],
+    [
+     -3.313,
+     1.015
+    ],
+    [
+     -3.222,
+     0.972
+    ],
+    [
+     -3.132,
+     0.929
+    ],
+    [
+     -3.042,
+     0.886
+    ],
+    [
+     -2.952,
+     0.843
+    ],
+    [
+     -2.862,
+     0.8
+    ],
+    [
+     -2.771,
+     0.757
+    ],
+    [
+     -2.771,
+     0.757
+    ],
+    [
+     -2.724,
+     0.623
+    ],
+    [
+     -2.724,
+     0.623
+    ],
+    [
+     -2.634,
+     0.58
+    ],
+    [
+     -2.544,
+     0.537
+    ],
+    [
+     -2.454,
+     0.494
+    ],
+    [
+     -2.454,
+     0.494
+    ],
+    [
+     -2.32,
+     0.541
+    ],
+    [
+     -2.187,
+     0.588
+    ],
+    [
+     -2.054,
+     0.635
+    ],
+    [
+     -1.92,
+     0.682
+    ],
+    [
+     -1.92,
+     0.682
+    ],
+    [
+     -1.819,
+     0.808
+    ],
+    [
+     -1.819,
+     0.808
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 4217,
+   "pair_id": "G2-04217",
+   "dist_m": 3.3083730820450103,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.6770121071633857,
+   "wall_s": 2.262796213151887,
+   "expansions": 138,
+   "oracle_calls": 428,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 128,
+   "route_uv": [
+    [
+     -1.872,
+     0.819
+    ],
+    [
+     -1.872,
+     0.819
+    ],
+    [
+     -2.005,
+     0.772
+    ],
+    [
+     -2.139,
+     0.725
+    ],
+    [
+     -2.139,
+     0.725
+    ],
+    [
+     -2.182,
+     0.634
+    ],
+    [
+     -2.225,
+     0.544
+    ],
+    [
+     -2.225,
+     0.544
+    ],
+    [
+     -2.358,
+     0.497
+    ],
+    [
+     -2.492,
+     0.45
+    ],
+    [
+     -2.492,
+     0.45
+    ],
+    [
+     -2.582,
+     0.493
+    ],
+    [
+     -2.672,
+     0.536
+    ],
+    [
+     -2.762,
+     0.579
+    ],
+    [
+     -2.853,
+     0.623
+    ],
+    [
+     -2.943,
+     0.666
+    ],
+    [
+     -3.033,
+     0.709
+    ],
+    [
+     -3.033,
+     0.709
+    ],
+    [
+     -3.166,
+     0.662
+    ],
+    [
+     -3.166,
+     0.662
+    ],
+    [
+     -3.257,
+     0.705
+    ],
+    [
+     -3.257,
+     0.705
+    ],
+    [
+     -3.39,
+     0.658
+    ],
+    [
+     -3.39,
+     0.658
+    ],
+    [
+     -3.48,
+     0.701
+    ],
+    [
+     -3.57,
+     0.744
+    ],
+    [
+     -3.661,
+     0.787
+    ],
+    [
+     -3.751,
+     0.83
+    ],
+    [
+     -3.841,
+     0.874
+    ],
+    [
+     -3.841,
+     0.874
+    ],
+    [
+     -3.974,
+     0.826
+    ],
+    [
+     -4.108,
+     0.779
+    ],
+    [
+     -4.241,
+     0.732
+    ],
+    [
+     -4.374,
+     0.685
+    ],
+    [
+     -4.374,
+     0.685
+    ],
+    [
+     -4.465,
+     0.728
+    ],
+    [
+     -4.465,
+     0.728
+    ],
+    [
+     -4.598,
+     0.681
+    ],
+    [
+     -4.598,
+     0.681
+    ],
+    [
+     -4.688,
+     0.724
+    ],
+    [
+     -4.688,
+     0.724
+    ],
+    [
+     -4.822,
+     0.677
+    ],
+    [
+     -4.822,
+     0.677
+    ],
+    [
+     -4.912,
+     0.72
+    ],
+    [
+     -4.912,
+     0.72
+    ],
+    [
+     -5.045,
+     0.673
+    ],
+    [
+     -5.045,
+     0.673
+    ],
+    [
+     -5.179,
+     0.71
+    ],
+    [
+     -5.179,
+     0.71
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 4356,
+   "pair_id": "G2-04356",
+   "dist_m": 3.1398561957516464,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.762265278105218,
+   "wall_s": 0.4815760450437665,
+   "expansions": 96,
+   "oracle_calls": 291,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 0,
+   "occupied_rejections": 69,
+   "route_uv": [
+    [
+     -1.837,
+     1.068
+    ],
+    [
+     -1.837,
+     1.068
+    ],
+    [
+     -1.97,
+     1.021
+    ],
+    [
+     -1.97,
+     1.021
+    ],
+    [
+     -2.013,
+     0.931
+    ],
+    [
+     -2.056,
+     0.841
+    ],
+    [
+     -2.099,
+     0.751
+    ],
+    [
+     -2.142,
+     0.66
+    ],
+    [
+     -2.186,
+     0.57
+    ],
+    [
+     -2.186,
+     0.57
+    ],
+    [
+     -2.319,
+     0.523
+    ],
+    [
+     -2.452,
+     0.476
+    ],
+    [
+     -2.452,
+     0.476
+    ],
+    [
+     -2.543,
+     0.519
+    ],
+    [
+     -2.633,
+     0.562
+    ],
+    [
+     -2.723,
+     0.605
+    ],
+    [
+     -2.813,
+     0.649
+    ],
+    [
+     -2.903,
+     0.692
+    ],
+    [
+     -2.994,
+     0.735
+    ],
+    [
+     -3.084,
+     0.778
+    ],
+    [
+     -3.174,
+     0.821
+    ],
+    [
+     -3.264,
+     0.864
+    ],
+    [
+     -3.355,
+     0.907
+    ],
+    [
+     -3.445,
+     0.951
+    ],
+    [
+     -3.535,
+     0.994
+    ],
+    [
+     -3.625,
+     1.037
+    ],
+    [
+     -3.715,
+     1.08
+    ],
+    [
+     -3.806,
+     1.123
+    ],
+    [
+     -3.896,
+     1.166
+    ],
+    [
+     -3.986,
+     1.209
+    ],
+    [
+     -4.076,
+     1.253
+    ],
+    [
+     -4.166,
+     1.296
+    ],
+    [
+     -4.257,
+     1.339
+    ],
+    [
+     -4.347,
+     1.382
+    ],
+    [
+     -4.437,
+     1.425
+    ],
+    [
+     -4.527,
+     1.468
+    ],
+    [
+     -4.618,
+     1.511
+    ],
+    [
+     -4.618,
+     1.511
+    ],
+    [
+     -4.665,
+     1.645
+    ],
+    [
+     -4.665,
+     1.645
+    ],
+    [
+     -4.755,
+     1.688
+    ],
+    [
+     -4.755,
+     1.688
+    ],
+    [
+     -4.88,
+     1.839
+    ],
+    [
+     -4.88,
+     1.839
+    ]
+   ]
+  },
+  {
+   "class": "CTRL-REACHABLE",
+   "index": 4365,
+   "pair_id": "G2-04365",
+   "dist_m": 3.312834704599673,
+   "outcome": "ROUTE",
+   "status": "success",
+   "reason": "verified_goal_reached",
+   "path_length_m": 3.564293809047305,
+   "wall_s": 5.817346583120525,
+   "expansions": 136,
+   "oracle_calls": 396,
+   "map_unknown_rejections": 1,
+   "unproven_rejections": 7,
+   "occupied_rejections": 94,
+   "route_uv": [
+    [
+     -4.954,
+     0.485
+    ],
+    [
+     -4.954,
+     0.485
+    ],
+    [
+     -4.82,
+     0.532
+    ],
+    [
+     -4.687,
+     0.579
+    ],
+    [
+     -4.554,
+     0.626
+    ],
+    [
+     -4.42,
+     0.674
+    ],
+    [
+     -4.287,
+     0.721
+    ],
+    [
+     -4.153,
+     0.768
+    ],
+    [
+     -4.02,
+     0.815
+    ],
+    [
+     -3.887,
+     0.862
+    ],
+    [
+     -3.887,
+     0.862
+    ],
+    [
+     -3.797,
+     0.819
+    ],
+    [
+     -3.797,
+     0.819
+    ],
+    [
+     -3.663,
+     0.866
+    ],
+    [
+     -3.663,
+     0.866
+    ],
+    [
+     -3.573,
+     0.823
+    ],
+    [
+     -3.483,
+     0.78
+    ],
+    [
+     -3.393,
+     0.736
+    ],
+    [
+     -3.302,
+     0.693
+    ],
+    [
+     -3.212,
+     0.65
+    ],
+    [
+     -3.122,
+     0.607
+    ],
+    [
+     -3.032,
+     0.564
+    ],
+    [
+     -3.032,
+     0.564
+    ],
+    [
+     -2.898,
+     0.611
+    ],
+    [
+     -2.898,
+     0.611
+    ],
+    [
+     -2.808,
+     0.568
+    ],
+    [
+     -2.718,
+     0.525
+    ],
+    [
+     -2.628,
+     0.482
+    ],
+    [
+     -2.628,
+     0.482
+    ],
+    [
+     -2.494,
+     0.529
+    ],
+    [
+     -2.494,
+     0.529
+    ],
+    [
+     -2.404,
+     0.485
+    ],
+    [
+     -2.404,
+     0.485
+    ],
+    [
+     -2.271,
+     0.533
+    ],
+    [
+     -2.137,
+     0.58
+    ],
+    [
+     -2.137,
+     0.58
+    ],
+    [
+     -2.047,
+     0.537
+    ],
+    [
+     -2.047,
+     0.537
+    ],
+    [
+     -1.914,
+     0.584
+    ],
+    [
+     -1.914,
+     0.584
+    ],
+    [
+     -1.824,
+     0.54
+    ],
+    [
+     -1.824,
+     0.54
+    ],
+    [
+     -1.642,
+     0.572
+    ],
+    [
+     -1.642,
+     0.572
+    ]
+   ]
+  }
+ ],
+ "outcome_rule": "ROUTE / NO_ROUTE (lattice exhausted; rejections only occupied or outside the box) / NO_ROUTE_MARGIN\n(exhausted, but some frontier edges were rejected only as within-margin / unproven -- no route with\nclearance > margin, which is the shared contract, though not proof of contact) / UNSURE."
+}

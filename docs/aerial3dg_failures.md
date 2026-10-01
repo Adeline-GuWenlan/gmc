@@ -2,11 +2,11 @@
 
 **Summary (6 lines)**
 1. **Compile range = placement box, not the hall.** One prism u[-9,3.7] v[-0.35,2.75] (582,372 of 7.1 M Gaussians) is both the compile domain and the sampling box. Its faces are walls to the planner, and they are 0.1 m more conservative than the geometry for a cylinder in this 64°-rotated frame.
-2. **The box *was* the cause of the 1587 cylinder `safe_graph_disconnected` UNKNOWNs.** Widened by 1 m, all 1587 find a route: 1122 are REACHABLE, and 465 are own-verified routes vetoed only by replay round-off (line 5). W2_GAP_SUMMARY. The way round passes over the last floor splat at body-centre v ≥ 2.45, so the body's far edge reaches v ≥ 2.75, the box face. Wall B is missing there and the hall is open to v≈4.
+2. **The box *was* the cause of the 1587 cylinder `safe_graph_disconnected` UNKNOWNs.** Widened by 1 m, all 1587 find a route: 1122 are REACHABLE, and 465 are own-verified routes vetoed only by replay round-off (line 5). W2 (+1.5 m u, +2 m v) gives the same: 1068 REACHABLE + 519 vetoed, 0 still disconnected. The way round passes over the last floor splat at body-centre v ≥ 2.45, so the body's far edge reaches v ≥ 2.75, the box face. Wall B is missing there and the hall is open to v≈4.
 3. **The "structure at u≈-5.6" north of v 1.1 is three sub-floor Gaussians**, 2σ tops 0.0198–0.0200 m, 0.01–0.2 mm below the chassis bottom. They block the cylinder only through the 1 mm margin, and they graze the ±1 mm C-space slab, so no cut certificate can exist there (UNKNOWN is structural, not resolution).
 4. **All 651 `*_not_certified_free` endpoints (239 sweeper, 412 cylinder) have one mechanism.** Each endpoint is oracle-free by 1–2 mm over a sub-floor Gaussian (3 Gaussians own 551 of them). The certificate needs margin + buffer = 2 mm. A buffer-0 endpoint cell fixes 238/239 sweeper rows.
 5. **All 62 sweeper `shared_replay_failed` rows are float round-off in the exported trajectory's yaw-rate check (excess 1–3e-9), not geometry.** Replay geometry passed on all 62; with a 1 ms floor on in-place turns all 62 pass. G2/G3's "replay was more conservative" was wrong.
-6. **The 2928 cylinder UNREACHABLEs are real and box-independent**: certified lamp + bulkhead cuts, unchanged in W1/W2; ORACLE_LINE.
+6. **The 2928 cylinder UNREACHABLEs are real and box-independent**: certified lamp + bulkhead cuts, unchanged in W1/W2; the independent lattice A* finds no route for 30/30 sampled.
 
 Machine-readable: `gmc/results/aerial3dg/f1/classes.csv` (one row per non-REACHABLE pair), `classes.json`,
 `class_crosstabs.json`. Process: `docs/worklog/aerial3dg_fail.md`. Every number below comes from a committed file
@@ -55,7 +55,7 @@ under `gmc/results/aerial3dg/f1/` produced by a job listed in §7. "(unverified)
 
 **Decisive experiment: re-compile on widened boxes, same 5000 pairs.**
 - **W1** = +1 m in u and v: u[-10,4.7] v[-1.35,3.75], 783,547 supports.
-- **W2** = +1.5 m u, +2 m v: u[-10.5,5.2] v[-2.35,4.75], 1,070,899+ supports. +2 m in u as well was not
+- **W2** = +1.5 m u, +2 m v: u[-10.5,5.2] v[-2.35,4.75], 1,160,982 supports. +2 m in u as well was not
   possible: at the +2/+2 box's world corners the fitted floor plane deviates 0.0500 m from `z_floor`, and the
   shared floor-support contract allows 0.05 (`aerial3dg_run.floor_support`; job 18981509 failed on exactly
   this). u+1.5 gives 0.0487.
@@ -67,7 +67,28 @@ under `gmc/results/aerial3dg/f1/` produced by a job listed in §7. "(unverified)
     slightly pessimistic on REACHABLE: 8/73 get a round-off replay veto (§3.3).
 - Sweeper: full G2 config on its 301 non-REACHABLE + the unbiased slice 0-499 (770 pairs).
 
-WIDEN_TABLE
+Compiles: W1 cylinder 320 s (in-process peak 1.38 GB); W2 cylinder 392 s, job MaxRSS 2.86 GB; sweeper
+W1/W2 MaxRSS 1.38 GB. All within the 4 GB per-job cap. G2 status → widened status, per class:
+
+| class (G2 rows) | G2 box, verdict-only control | **W1** (+1 m u, v) | **W2** (+1.5 m u, +2 m v) |
+|---|---|---|---|
+| CY-GAP (1587) | 1587 unchanged | **1122 REACHABLE + 465 own-verified, replay-vetoed** (all 468 W1 vetoes: replay geometry passed, kinematic round-off) | **1068 REACHABLE + 519 own-verified, replay-vetoed** (W2 vetoes not broken down, unverified) |
+| CY-LAMP (2928) | 2928 unchanged | 2928 UNREACHABLE (cut) | 2928 UNREACHABLE (cut) |
+| CY-EP + CY-EP-LAT (412) | unchanged | 412 unchanged | 412 unchanged |
+| cylinder G2-REACHABLE (73) | 65 R, 8 veto | 69 R, 3 veto, 1 ERROR (src `simplify` ZeroDivisionError, pair 4217) | 60 R, 12 veto, 1 `safe_graph_disconnected` (G2-00917, start at the east edge of cell component 1; not investigated) |
+| SW-EP (239) | — | 239 unchanged | 239 unchanged |
+| SW-KIN (62) | — | 59 REACHABLE, 3 veto | 58 REACHABLE, 4 veto |
+| sweeper G2-REACHABLE, slice 0-499 (469) | — | 463 R, 6 veto | 467 R, 2 veto |
+
+**Verdict on the box.**
+- The 1587 u≈-5.6 UNKNOWNs are a box effect. No pair stays disconnected once the box allows the body past
+  v = 2.75 at u≈-5.5, and every route found is own-verifier certified, with the replay's geometry passing on all
+  468 W1 vetoes analysed. On W1, 387/468 vetoed routes pass the full replay with the 1 ms turn floor; the rest
+  are the translation variant (not tested with a fix). W2's 519 vetoes were not broken down (unverified).
+- Nothing else is box-sensitive. The lamp cut and the 651 endpoint rows do not move at all. The sweeper's 62
+  replay vetoes reshuffle with any recompile, but that is float round-off, not the box: a few REACHABLE rows
+  flip the other way (6 / 2 of 469 sampled in W1 / W2).
+- Sweeper sensitivity to the box: 239/301 UNKNOWNs fully insensitive; 62/301 change, but as a lottery.
 
 ## 2. Taxonomy: every non-REACHABLE row in exactly one class (Task 2)
 
@@ -84,7 +105,7 @@ WIDEN_TABLE
 Each row's evidence (blocker id / top z / refined gap / oracle clearance; violating step; cut roles; cell
 components; W1/W2/G2-fast status; buffer-0 status; A* outcome where sampled) is in `classes.csv → evidence`.
 Spatial maps: `gmc/results/aerial3dg/f1/class_maps.png` (inspected). The failing endpoints form small disks
-around a handful of named sub-floor Gaussians. The SW-KIN routes all pass one vertex near (-1.85, 1.35). The
+around a handful of named sub-floor Gaussians. 54/62 SW-KIN routes have a vertex within 0.1 m of (-1.85, 1.35). The
 CY-GAP W1 routes squeeze past the UNKNOWN corridor at v≈2.45.
 
 ![class maps](../gmc/results/aerial3dg/f1/class_maps.png)
@@ -98,7 +119,7 @@ Code path: `api.query` → `cells_containing` finds no cell → `grow_cell(table
 measured from the margin-inflated C-obstacle. `diag/endpoints_{robot}.json` replays exactly this per row (job
 18980440 sweeper, 18981090 cylinder):
 
-- **Domain:** 651/651 endpoints are strictly inside; none is near a box face.
+- **Domain:** 651/651 endpoints are strictly inside the domain (`box_status = inside`), so the box is not the cause.
 - **Leaf:** 651/651 lie in UNKNOWN leaves, and the gs3d oracle calls 651/651 free (that is why the sampler
   accepted them).
 - **Blocker:** each has 1 (219 sweeper) or 2 refining-failed pairs, all captured Gaussians.
@@ -150,7 +171,7 @@ Code path: both endpoints are in free cells, but `graph.search` over cells + por
     span the full slab thickness, so they can be neither BLOCKED nor SAFE: they stay UNKNOWN (`octree.py:202`).
   - A multi-pair cut cannot help either, because the union of all C-obstacles does not cover the sliver. On my
     3×3 samples per leaf at z_c, only 66/8100 lie in either pair's inner polytope, and 0 of the 647 no-free-sample
-    leaves are covered by the union.
+    leaves are covered by the union of the two inner polytopes.
   - Any sound cut has to be stated on the manifold z = z_c itself, or on a slab thinner than the intrusion
     (here ≤ 0.01 mm, which is not practical).
   - G1/G3 showed that halving the leaf changes nothing, which fits this: no leaf size fixes a slab-thickness
@@ -177,8 +198,8 @@ on the same compile and rebuild the exported trajectory exactly as `api._gs3d_re
 - **Geometry is not the problem:** replay geometry passed on 62/62 (`all_closed_edges_verified`, clearance
   1.02–1.81 mm), and the goal matched on 62/62.
 - **What fails is the kinematics check:** `speed_or_yaw_rate_exceeded` on 62/62, at exactly one step per route.
-  - That step is an in-place turn of 0.38–2.58 µrad at a nearly collinear polyline vertex (all 62 routes share a
-    vertex near (-1.85, 1.35)).
+  - That step is an in-place turn of 0.38–2.58 µrad at a nearly collinear polyline vertex (54/62 routes have a vertex
+    within 0.1 m of (-1.85, 1.35), next to sub-floor splat 5739701; which vertex carries the bad turn was not recorded).
   - `planner._linear_trajectory` times it as turn / 1 rad/s = 0.4–2.6 µs (`planner.py:58`) and adds it to
     t ≈ 8–39 s.
   - In binary64 the difference of two such times is off by ~1e-9 relative, and the check allows exactly 1e-9
@@ -190,21 +211,45 @@ on the same compile and rebuild the exported trajectory exactly as `api._gs3d_re
 - **Box:** the class is a lottery over exact polyline floats, not geometry.
   - W1: 59/62 REACHABLE, while 6 of the 469 sampled REACHABLE pairs gain a veto.
   - W2: 58/62 REACHABLE, while 2 gain a veto.
-  - Verdict-only mode (unshortened polylines, more near-collinear vertices) shows the same family: on W1, 396
-    analysed vetoes all have replay geometry passing. 339 are tiny turns (the 1 ms floor clears 330); 57 are
-    sub-µm translations (the speed half of the same check, not covered by a turn floor). W1KIN_ALL
+  - Verdict-only mode (unshortened polylines, more near-collinear vertices) shows the same family on the complete
+    W1 run (`fix/kinematics_w1_cylinder.json`, job 18987018). Of 468 vetoes, replay geometry passed on all 468.
+    398 are tiny turns (387 cleared by the 1 ms floor); 70 are sub-µm translations (the speed half of the same
+    check, not covered by a turn floor).
 
 ### 3.4 CY-LAMP: certified UNREACHABLE
 - All 2928 straddle the lamp's u range, and every certificate names lamp pairs. There are two variants:
   - 1472 cuts of 124 pairs (captured + lamp; the west side);
   - 1456 cuts of 88 pairs (back panel + captured + lamp; the closed booth pocket east of the lamp).
 - Every cut leaf is inside a named pair's inner polytope; the claim is "no path inside the domain" (`api.py:255-268`).
-- Box-independent: W1 2928/2928 UNREACHABLE; W2 W2LAMP.
+- Box-independent: W1 2928/2928 UNREACHABLE; W2 2928/2928 UNREACHABLE.
 - G3's 0.1 m point map found all 2926 snappable pairs disconnected.
-- Independent A*: ORACLE_LAMP.
+- Independent A*: no route on 30/30 sampled (§4).
 
 ## 4. Independent truth check: gs3d lattice A* on a stratified sample
-ORACLE_TEXT
+`oracle/astar_{sweeper,cylinder}.json` (jobs 18985512, 18985513). The setup:
+- gs3d `LatticePlanner` with ground5k's settings (margin 0.001, position tolerance 0, yaw tolerance 0.05,
+  500k expansions), 0.1 m lattice, on the **G2 box's** scene, one PreparedScene per job.
+- 30 pairs per class, stratified over distance terciles (seeded, `configs/aerial3dg/f1_oracle_sample.json`), all
+  12 CY-EP-LAT, and 30 G2-REACHABLE controls per robot.
+- ROUTE = A* found a route that passed its own post-build verification.
+- NO_ROUTE = lattice exhausted; rejections only occupied / outside the box.
+- NO_ROUTE_MARGIN = exhausted; some frontier edges were rejected only as within-margin (`geometry_or_margin_unproven`).
+  There is no route with clearance > margin, the shared contract, but these edges are not proof of contact.
+- No query hit the budget; none was UNSURE.
+
+| class | sampled | ROUTE | NO_ROUTE | NO_ROUTE_MARGIN | reading |
+|---|---|---|---|---|---|
+| SW-EP | 30 | **30** | 0 | 0 | truly reachable → method incomplete (the endpoint certificate) |
+| SW-KIN | 30 | **30** | 0 | 0 | truly reachable → method incomplete (export round-off) |
+| sweeper control (G2 REACHABLE) | 30 | 30 | 0 | 0 | oracle agrees |
+| CY-LAMP | 30 | 0 | 4 | 26 | truly blocked (method correct). The margin-only rejections are presumably frontier edges at floor splats elsewhere in the start component, not at the lamp, whose cut is certified by inner polytopes (inference, not checked edge by edge) |
+| CY-GAP | 30 | 0 | 0 | **30** | in the G2 box, blocked **only through the margin** (the floor splats): the method "just cannot certify", and §3.2 shows why it cannot |
+| CY-EP | 30 | **3** | 0 | 27 | 3 truly reachable (exactly the 3 sampled pairs that buffer-0 makes REACHABLE); 27 are CY-GAP pairs underneath (buffer-0 → safe-graph split) |
+| CY-EP-LAT | 12 | 0 | 0 | 12 | all CY-GAP pairs underneath (buffer-0 → safe-graph split) |
+| cylinder control (G2 REACHABLE) | 30 | 30 | 0 | 0 | oracle agrees |
+
+Caveat (unverified): a 0.1 m lattice can miss windows narrower than its step. For CY-GAP the 1 cm scan (§3.2)
+closes that gap in the window that matters.
 
 ## 5. What would fix each class
 
@@ -213,13 +258,13 @@ ORACLE_TEXT
 | SW-EP, CY-EP | Grow the **endpoint** query cell with buffer 0 (the oracle's own contract is clearance > margin; the buffer only pads SAFE leaves against the replay) | **evidence-backed** | 238/239 sweeper rows → REACHABLE, own verifier + shared replay (`fix/endpoints_buffer0_sweeper.json`). Cylinder: 30 → REACHABLE, 381 → exposes CY-GAP, 1 still uncertified |
 | SW-EP, CY-EP | Or: sample endpoints with the planner's own threshold (clearance > margin + buffer) so the test set only holds certifiable starts | guess (changes the test set, does not fix the method) | — |
 | SW-EP, CY-EP, CY-GAP | Clean the floor at the robots' effective threshold: splats with 2σ top in (0.018, 0.020) survive the plane-floor rule (`planefloor.py:34`) but act inside margin + buffer | guess (scene edit; not run) | The three named splats own 551/651 endpoint rows, and two splats form the CY-GAP corridor |
-| SW-KIN (and verdict-only vetoes) | Give in-place turns a minimum duration (e.g. 1 ms) in the gs3d export, or drop near-collinear polyline vertices before export. For the speed variant, give the same floor to sub-µm translations | turn floor **evidence-backed** (62/62); translation floor guess | `fix/kinematics_sweeper.json`; W1 verdict-only: 330/339 turn cases cleared, the 57 translation cases need the second half |
+| SW-KIN (and verdict-only vetoes) | Give in-place turns a minimum duration (e.g. 1 ms) in the gs3d export, or drop near-collinear polyline vertices before export. For the speed variant, give the same floor to sub-µm translations | turn floor **evidence-backed** (62/62); translation floor guess | `fix/kinematics_sweeper.json`; W1 verdict-only: 387/398 turn cases cleared; the 70 translation cases need the second half |
 | SW-KIN | Or: make the replay's rate tolerance relative to t (ulp-aware) | guess (changes the shared oracle, which this chain treats as fixed) | — |
-| CY-GAP | **Widen the box** so the domain contains the real way round (here v ≥ 2.45 at u≈-5.5) | **evidence-backed** | W1: 1587/1587 find a route; W2 WIDEN_GAP_W2 |
+| CY-GAP | **Widen the box** so the domain contains the real way round (here v ≥ 2.45 at u≈-5.5) | **evidence-backed** | W1: 1587/1587 find a route; W2 1587/1587 likewise |
 | CY-GAP | Use the exact cylinder-in-prism domain instead of "world AABB in prism" (saves 0.1 m per side in this frame) | guess, and **not sufficient here**: it moves the limit from 2.35 to 2.45, and the passage starts at 2.45 | scan, §3.2 |
 | CY-GAP (certify UNREACHABLE in the G2 box instead) | A cut stated on the ground manifold z = z_c (2-D cross-section of each C-obstacle) rather than on the ±1 mm slab; a multi-pair union cut in the slab cannot work | guess (not implemented); the slab argument is evidence-backed | §3.2: free sliver 0.01–0.19 mm above both splats' C-obstacles; 0/647 no-free leaves covered by the union of inner polytopes |
 | CY-GAP | Finer leaves | **ruled out** | G1/G3: 0.025 / 0.05 / 0.10 m identical verdicts; mechanism is slab thickness, not leaf size |
-| CY-LAMP | none needed: correct, certified, box-independent | evidence-backed | W1/W2 unchanged; ORACLE_LAMP_SHORT |
+| CY-LAMP | none needed: correct, certified, box-independent | evidence-backed | W1/W2 unchanged; A* no route 30/30 |
 | all | `aerial3d/query.py:217 simplify` divides by zero on coincident lifted points (hit once on the W1 compile, pair 4217) | bug, found; not fixed (src is read-only for F1) | `widen/w1/cylinder/fast_00.jsonl` row 4217 |
 
 ## 6. Corrections to earlier reports
@@ -240,4 +285,40 @@ ORACLE_TEXT
   582,372 supports.
 
 ## 7. Jobs, files, reproduction
-REPRO
+All jobs: 1 CPU, ≤ 4 GB, `cpu_short`; IDs with purpose in
+`/scratch/wg2381/claude_jobs/aerial3dg_fail/jobids/F1.txt`. Logs in `/scratch/wg2381/claude_jobs/logs/a3f_*`.
+
+| job | what | output (under `gmc/results/aerial3dg/f1/`) |
+|---|---|---|
+| 18979876 | full-archive raster, crop sizes | `range/archive_raster.*` |
+| 18980207 (cancelled by me after the compile; its 13 full-config rows kept), 18980787 + 18986134 | W1 cylinder compile + 5000 pairs, verdict-only | `widen/w1/cylinder/` |
+| 18980208 | W1 sweeper compile + 770 pairs, full config | `widen/w1/sweeper/` |
+| 18981509 (failed: floor-support limit at +2/+2), 18985509 | W2 cylinder | `widen/w2/cylinder/` |
+| 18985510 | W2 sweeper | `widen/w2/sweeper/` |
+| 18980789 | control: G2 compile, verdict-only | `widen/g2/cylinder/` |
+| 18980440, 18981090 | diagnostics (endpoints, replay, corridor) | `diag/` |
+| 18981043, 18981341, 18984831, 18987018 | kinematics probes | `fix/kinematics_*` |
+| 18981044, 18984830 | buffer-0 endpoint probes | `fix/endpoints_buffer0_*` |
+| 18986244 | 1 cm oracle scan u≈-5.6 | `range/scan_gap_w1.*` |
+| 18985512, 18985513 | lattice A* sample | `oracle/astar_*` |
+
+```bash
+cd gmc; export PYTHONPATH=src:experiments; H=hpc/aerial3dg
+sbatch --job-name=a3f_archive --mem=3500M $H/f1_py.sbatch experiments/aerial3dg_fail_archive.py raster --out results/aerial3dg/f1/range
+MODE=fast sbatch $H/f1_widen.sbatch cylinder w1 -10.0 -1.35 4.7 3.75 results/aerial3dg/g2/pairs_5000.json
+sbatch --mem=3G $H/f1_widen.sbatch sweeper w1 -10.0 -1.35 4.7 3.75 configs/aerial3dg/f1_sweeper_subset.json
+MODE=fast sbatch $H/f1_widen.sbatch cylinder w2 -10.5 -2.35 5.2 4.75 results/aerial3dg/g2/pairs_5000.json
+sbatch --mem=3G $H/f1_widen.sbatch sweeper w2 -10.5 -2.35 5.2 4.75 configs/aerial3dg/f1_sweeper_subset.json
+sbatch $H/f1_g2fast.sbatch cylinder results/aerial3dg/g2/pairs_5000.json
+sbatch --mem=2G $H/f1_diag.sbatch sweeper endpoints replay; sbatch $H/f1_diag.sbatch cylinder endpoints bridges
+sbatch $H/f1_py.sbatch experiments/aerial3dg_fail_fixprobe.py kinematics --robot sweeper --out results/aerial3dg/f1/fix/kinematics_sweeper.json
+sbatch $H/f1_py.sbatch experiments/aerial3dg_fail_fixprobe.py endpoints --robot sweeper --out results/aerial3dg/f1/fix/endpoints_buffer0_sweeper.json
+sbatch --mem=3500M $H/f1_py.sbatch experiments/aerial3dg_fail_archive.py scan --box -10.0 -1.35 4.7 3.75 --window -6.0 -5.1 0.9 3.4 --out results/aerial3dg/f1/range/scan_gap_w1.json
+python experiments/aerial3dg_fail_classify.py            # classes.csv / classes.json / class_crosstabs.json
+python experiments/aerial3dg_fail_oracle.py sample --classes configs/aerial3dg/f1_oracle_classes.json --n 30 --out configs/aerial3dg/f1_oracle_sample.json
+sbatch --mem=3500M $H/f1_py.sbatch experiments/aerial3dg_fail_oracle.py run --robot cylinder --sample configs/aerial3dg/f1_oracle_sample.json --out results/aerial3dg/f1/oracle/astar_cylinder.json
+python experiments/aerial3dg_fail_plots.py classes; python experiments/aerial3dg_fail_plots.py scan
+```
+
+Not committed (large, reproducible): the widened `.a3c` compiles in `gmc/outputs/aerial3dg/f1/widen/`.
+Nothing under `gmc/src/` and none of the G2 results were changed.

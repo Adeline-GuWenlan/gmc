@@ -34411,5 +34411,6 @@
     ]
    ]
   }
- ]
+ ],
+ "outcome_rule": "ROUTE / NO_ROUTE (lattice exhausted; rejections only occupied or outside the box) / NO_ROUTE_MARGIN\n(exhausted, but some frontier edges were rejected only as within-margin / unproven -- no route with\nclearance > margin, which is the shared contract, though not proof of contact) / UNSURE."
 }

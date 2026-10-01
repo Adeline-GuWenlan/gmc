@@ -1,0 +1,42 @@
+{
+ "a3c": "outputs/aerial3dg/f1/widen/w2_cylinder.a3c",
+ "compile_id": "85c8e3d69fd1e90d",
+ "load_wall_s": 2.77906591584906,
+ "pairs_in_slice": 5000,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 5000,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 1128,
+  "UNREACHABLE": 2928,
+  "UNKNOWN": 944,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 2011.1778356872965,
+ "query_cpu_s_this_run": 2000.4349762229983,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 1911.25,
+ "robot": "cylinder",
+ "qconfig": "QueryConfig(shortcut=False, shortcut_max_attempts=400, tighten=False, tighten_rounds=3, tighten_max_checks=3000, merge_corners=False, merge_max_increase_frac=0.03, verify_pad_m=0.05, verify_max_depth=12, query_cell_max_lp=400, shared_verification=True, export_max_segment_m=0.2)",
+ "pairs_file": "results/aerial3dg/g2/pairs_5000.json",
+ "host": {
+  "node": "cs620.hpc.nyu.edu",
+  "slurm_job_id": "18985509",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   122.27978515625,
+   122.87109375,
+   119.46484375
+  ],
+  "utc": "2026-10-01T23:21:48Z",
+  "python": "3.13.5",
+  "git_commit": "d32d3afc48c1ab8a127b6d5dbb6ee4f79a341470"
+ }
+}

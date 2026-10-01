@@ -1,0 +1,109 @@
+{
+ "SW-EP": {
+  "w1_status": {
+   "UNKNOWN:goal_not_certified_free": 116,
+   "UNKNOWN:start_not_certified_free": 123
+  },
+  "w2_status": {
+   "UNKNOWN:goal_not_certified_free": 116,
+   "UNKNOWN:start_not_certified_free": 123
+  },
+  "buffer0_status": {
+   "REACHABLE:graph_path_lifted_and_verified": 238,
+   "UNKNOWN:shared_replay_failed": 1
+  },
+  "astar": {
+   "ROUTE": 30
+  }
+ },
+ "SW-KIN": {
+  "w1_status": {
+   "REACHABLE:graph_path_lifted_and_verified": 59,
+   "UNKNOWN:shared_replay_failed": 3
+  },
+  "w2_status": {
+   "REACHABLE:graph_path_lifted_and_verified": 58,
+   "UNKNOWN:shared_replay_failed": 4
+  },
+  "turn_floor_replay_passed": {
+   "True": 62
+  },
+  "astar": {
+   "ROUTE": 30
+  }
+ },
+ "CY-LAMP": {
+  "w1_status": {
+   "UNREACHABLE:possible_space_cut": 2928
+  },
+  "w2_status": {
+   "UNREACHABLE:possible_space_cut": 2928
+  },
+  "g2fast_status": {
+   "UNREACHABLE:possible_space_cut": 2928
+  },
+  "astar": {
+   "NO_ROUTE_MARGIN": 26,
+   "NO_ROUTE": 4
+  }
+ },
+ "CY-GAP": {
+  "w1_status": {
+   "REACHABLE:graph_path_lifted_and_verified": 1122,
+   "UNKNOWN:shared_replay_failed": 465
+  },
+  "w2_status": {
+   "REACHABLE:graph_path_lifted_and_verified": 1068,
+   "UNKNOWN:shared_replay_failed": 519
+  },
+  "g2fast_status": {
+   "UNKNOWN:safe_graph_disconnected_possible_connected": 1587
+  },
+  "astar": {
+   "NO_ROUTE_MARGIN": 30
+  }
+ },
+ "CY-EP": {
+  "w1_status": {
+   "UNKNOWN:goal_not_certified_free": 188,
+   "UNKNOWN:start_not_certified_free": 212
+  },
+  "w2_status": {
+   "UNKNOWN:goal_not_certified_free": 188,
+   "UNKNOWN:start_not_certified_free": 212
+  },
+  "g2fast_status": {
+   "UNKNOWN:goal_not_certified_free": 188,
+   "UNKNOWN:start_not_certified_free": 212
+  },
+  "buffer0_status": {
+   "UNKNOWN:safe_graph_disconnected_possible_connected": 369,
+   "REACHABLE:graph_path_lifted_and_verified": 30,
+   "UNKNOWN:start_not_certified_free": 1
+  },
+  "astar": {
+   "NO_ROUTE_MARGIN": 27,
+   "ROUTE": 3
+  }
+ },
+ "CY-EP-LAT": {
+  "w1_status": {
+   "UNKNOWN:goal_not_certified_free": 7,
+   "UNKNOWN:start_not_certified_free": 5
+  },
+  "w2_status": {
+   "UNKNOWN:goal_not_certified_free": 7,
+   "UNKNOWN:start_not_certified_free": 5
+  },
+  "g2fast_status": {
+   "UNKNOWN:goal_not_certified_free": 7,
+   "UNKNOWN:start_not_certified_free": 5
+  },
+  "astar": {
+   "NO_ROUTE_MARGIN": 12
+  },
+  "buffer0_status": {
+   "UNKNOWN:safe_graph_disconnected_possible_connected": 12
+  }
+ }
+}

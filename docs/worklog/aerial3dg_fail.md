@@ -68,3 +68,16 @@
   passed on all, kinematics failed on all (339 tiny turn, 57 sub-µm translation); the 1 ms turn floor clears 330.
   The W1 routes cross u=-5.6 at body-centre v = 2.4497..2.4704, INSIDE the old box (v <= 2.75) but above the old
   cylinder domain limit 2.35 (world-AABB inset 0.40 m in the rotated frame vs 0.30 geometric).
+- 22:59Z  Full W1 veto breakdown (18987018): 468 vetoes, replay geometry passed on all; 398 turn (387 cleared by
+  the 1 ms floor), 70 translation.
+- 23:12Z  A* (18985512/13, 0.1 m lattice, G2 box): sweeper SW-EP 30/30, SW-KIN 30/30, controls 30/30 ROUTE.
+  Cylinder: CY-LAMP 0/30 route, CY-GAP 0/30, CY-EP 3/30 (exactly the sampled buffer-0 REACHABLE ones),
+  CY-EP-LAT 0/12, controls 30/30. My first outcome rule called "exhausted with within-margin frontier edges"
+  UNSURE; I split it into NO_ROUTE_MARGIN post hoc from the stored counters (`oracle.reclassify`), because
+  under the shared margin contract those edges are not traversable. No query hit the budget.
+- 23:22Z  W2 cylinder (18985509, compile 392 s, MaxRSS 2.86 GB): same picture as W1: CY-GAP 1068 REACHABLE +
+  519 vetoed, 0 disconnected; lamp 2928 and endpoints 412 unchanged. One G2-REACHABLE pair (G2-00917) becomes
+  safe_graph_disconnected on W2 (not investigated).
+- 23:25Z  Corrected my own wording: the W1 routes' body centres are inside the old box, but the body's edge
+  reaches the old face v=2.75. The 1 cm scan shows the passage starts at v=2.45, so any box with that face
+  closes it.
