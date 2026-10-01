@@ -1,0 +1,2317 @@
+{
+ "box_route_uv": [
+  -9.0,
+  -0.35,
+  3.7,
+  2.75
+ ],
+ "selection": "Manually-requested gallery of 'failed' cylinder pairs from the G2 5000-pair run (gmc/results/aerial3dg/g2/runs/cylinder); scope = UNKNOWN/safe_graph_disconnected_possible_connected (u~-5.6 gap, method incompleteness) + UNREACHABLE (certified, all cross the lamp). Systematic sample by dist_m rank within each group, not random, not all 4515 candidates.",
+ "n_gap": 80,
+ "n_unreach": 40,
+ "pool_sizes": {
+  "gap": 1587,
+  "unreach": 2928,
+  "total_cylinder_rows": 5000
+ },
+ "pairs": [
+  {
+   "name": "F_gap_0579",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.00 m, G2 index 579 (G2-00579)",
+   "g2_index": 579,
+   "pair_id": "G2-00579",
+   "start_uv": [
+    -7.357,
+    0.3282
+   ],
+   "goal_uv": [
+    -4.7196,
+    1.7599
+   ],
+   "dist_m": 3.0009404609222092,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1732",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.02 m, G2 index 1732 (G2-01732)",
+   "g2_index": 1732,
+   "pair_id": "G2-01732",
+   "start_uv": [
+    -8.1287,
+    1.8486
+   ],
+   "goal_uv": [
+    -5.3161,
+    0.7359
+   ],
+   "dist_m": 3.0247016464438277,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4739",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.06 m, G2 index 4739 (G2-04739)",
+   "g2_index": 4739,
+   "pair_id": "G2-04739",
+   "start_uv": [
+    -4.6615,
+    1.276
+   ],
+   "goal_uv": [
+    -7.5875,
+    0.3927
+   ],
+   "dist_m": 3.0564186378832336,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1273",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.09 m, G2 index 1273 (G2-01273)",
+   "g2_index": 1273,
+   "pair_id": "G2-01273",
+   "start_uv": [
+    -6.9964,
+    1.6017
+   ],
+   "goal_uv": [
+    -3.9099,
+    1.4625
+   ],
+   "dist_m": 3.089637339559451,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2808",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.11 m, G2 index 2808 (G2-02808)",
+   "g2_index": 2808,
+   "pair_id": "G2-02808",
+   "start_uv": [
+    -7.1214,
+    1.7094
+   ],
+   "goal_uv": [
+    -4.321,
+    0.3522
+   ],
+   "dist_m": 3.111949871061551,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0808",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.14 m, G2 index 808 (G2-00808)",
+   "g2_index": 808,
+   "pair_id": "G2-00808",
+   "start_uv": [
+    -8.1833,
+    1.9806
+   ],
+   "goal_uv": [
+    -5.0451,
+    1.9121
+   ],
+   "dist_m": 3.138947513100529,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2191",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.17 m, G2 index 2191 (G2-02191)",
+   "g2_index": 2191,
+   "pair_id": "G2-02191",
+   "start_uv": [
+    -7.2997,
+    0.3819
+   ],
+   "goal_uv": [
+    -4.1441,
+    0.7055
+   ],
+   "dist_m": 3.17214884896658,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3303",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.19 m, G2 index 3303 (G2-03303)",
+   "g2_index": 3303,
+   "pair_id": "G2-03303",
+   "start_uv": [
+    -8.4374,
+    2.0086
+   ],
+   "goal_uv": [
+    -5.2691,
+    1.627
+   ],
+   "dist_m": 3.1911978080338423,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2320",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.22 m, G2 index 2320 (G2-02320)",
+   "g2_index": 2320,
+   "pair_id": "G2-02320",
+   "start_uv": [
+    -7.9651,
+    1.7375
+   ],
+   "goal_uv": [
+    -4.7448,
+    1.8185
+   ],
+   "dist_m": 3.2213185328371363,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0778",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.24 m, G2 index 778 (G2-00778)",
+   "g2_index": 778,
+   "pair_id": "G2-00778",
+   "start_uv": [
+    -3.9797,
+    1.9037
+   ],
+   "goal_uv": [
+    -6.9056,
+    0.5038
+   ],
+   "dist_m": 3.2435491086154378,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4035",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.27 m, G2 index 4035 (G2-04035)",
+   "g2_index": 4035,
+   "pair_id": "G2-04035",
+   "start_uv": [
+    -3.8357,
+    1.7684
+   ],
+   "goal_uv": [
+    -7.1075,
+    1.6982
+   ],
+   "dist_m": 3.272553021724782,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2763",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.31 m, G2 index 2763 (G2-02763)",
+   "g2_index": 2763,
+   "pair_id": "G2-02763",
+   "start_uv": [
+    -3.7335,
+    1.0734
+   ],
+   "goal_uv": [
+    -6.9562,
+    1.8075
+   ],
+   "dist_m": 3.305253106798328,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0400",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.33 m, G2 index 400 (G2-00400)",
+   "g2_index": 400,
+   "pair_id": "G2-00400",
+   "start_uv": [
+    -3.9644,
+    1.7228
+   ],
+   "goal_uv": [
+    -6.949,
+    0.2462
+   ],
+   "dist_m": 3.329892598868618,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3464",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.36 m, G2 index 3464 (G2-03464)",
+   "g2_index": 3464,
+   "pair_id": "G2-03464",
+   "start_uv": [
+    -7.3285,
+    1.2234
+   ],
+   "goal_uv": [
+    -4.059,
+    1.9973
+   ],
+   "dist_m": 3.3598439636387876,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3908",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.39 m, G2 index 3908 (G2-03908)",
+   "g2_index": 3908,
+   "pair_id": "G2-03908",
+   "start_uv": [
+    -5.8738,
+    1.7682
+   ],
+   "goal_uv": [
+    -2.4971,
+    1.4585
+   ],
+   "dist_m": 3.3908725986093904,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2837",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.41 m, G2 index 2837 (G2-02837)",
+   "g2_index": 2837,
+   "pair_id": "G2-02837",
+   "start_uv": [
+    -4.4312,
+    0.5346
+   ],
+   "goal_uv": [
+    -7.7345,
+    1.3898
+   ],
+   "dist_m": 3.4122071932987894,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3072",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.44 m, G2 index 3072 (G2-03072)",
+   "g2_index": 3072,
+   "pair_id": "G2-03072",
+   "start_uv": [
+    -4.7303,
+    0.9501
+   ],
+   "goal_uv": [
+    -8.1531,
+    1.3124
+   ],
+   "dist_m": 3.441921139421995,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2415",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.47 m, G2 index 2415 (G2-02415)",
+   "g2_index": 2415,
+   "pair_id": "G2-02415",
+   "start_uv": [
+    -7.2152,
+    0.5818
+   ],
+   "goal_uv": [
+    -3.8115,
+    1.2643
+   ],
+   "dist_m": 3.471452137074628,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1518",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.50 m, G2 index 1518 (G2-01518)",
+   "g2_index": 1518,
+   "pair_id": "G2-01518",
+   "start_uv": [
+    -4.8071,
+    0.3288
+   ],
+   "goal_uv": [
+    -8.2965,
+    0.5792
+   ],
+   "dist_m": 3.498372838906682,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4288",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.53 m, G2 index 4288 (G2-04288)",
+   "g2_index": 4288,
+   "pair_id": "G2-04288",
+   "start_uv": [
+    -6.8021,
+    1.4672
+   ],
+   "goal_uv": [
+    -3.3617,
+    0.6886
+   ],
+   "dist_m": 3.527402744229811,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4585",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.56 m, G2 index 4585 (G2-04585)",
+   "g2_index": 4585,
+   "pair_id": "G2-04585",
+   "start_uv": [
+    -2.8379,
+    0.472
+   ],
+   "goal_uv": [
+    -6.1939,
+    1.6493
+   ],
+   "dist_m": 3.556511112031003,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0153",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.59 m, G2 index 153 (G2-00153)",
+   "g2_index": 153,
+   "pair_id": "G2-00153",
+   "start_uv": [
+    -7.6675,
+    0.4562
+   ],
+   "goal_uv": [
+    -4.3705,
+    1.8732
+   ],
+   "dist_m": 3.5886066934118044,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1087",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.63 m, G2 index 1087 (G2-01087)",
+   "g2_index": 1087,
+   "pair_id": "G2-01087",
+   "start_uv": [
+    -8.4941,
+    0.8706
+   ],
+   "goal_uv": [
+    -4.8791,
+    0.5794
+   ],
+   "dist_m": 3.6267095885940464,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3594",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.66 m, G2 index 3594 (G2-03594)",
+   "g2_index": 3594,
+   "pair_id": "G2-03594",
+   "start_uv": [
+    -7.2949,
+    0.7545
+   ],
+   "goal_uv": [
+    -3.7465,
+    1.6357
+   ],
+   "dist_m": 3.656180520707368,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4995",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.69 m, G2 index 4995 (G2-04995)",
+   "g2_index": 4995,
+   "pair_id": "G2-04995",
+   "start_uv": [
+    -8.1436,
+    1.0142
+   ],
+   "goal_uv": [
+    -4.4681,
+    0.7477
+   ],
+   "dist_m": 3.6851489115095464,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4531",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.71 m, G2 index 4531 (G2-04531)",
+   "g2_index": 4531,
+   "pair_id": "G2-04531",
+   "start_uv": [
+    -8.0651,
+    1.1074
+   ],
+   "goal_uv": [
+    -4.4476,
+    1.9484
+   ],
+   "dist_m": 3.713971896770355,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1433",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.74 m, G2 index 1433 (G2-01433)",
+   "g2_index": 1433,
+   "pair_id": "G2-01433",
+   "start_uv": [
+    -7.6511,
+    0.468
+   ],
+   "goal_uv": [
+    -3.9871,
+    1.2272
+   ],
+   "dist_m": 3.7418285155789808,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4081",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.77 m, G2 index 4081 (G2-04081)",
+   "g2_index": 4081,
+   "pair_id": "G2-04081",
+   "start_uv": [
+    -3.9752,
+    1.2159
+   ],
+   "goal_uv": [
+    -7.6552,
+    0.4157
+   ],
+   "dist_m": 3.765995225700638,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0727",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.80 m, G2 index 727 (G2-00727)",
+   "g2_index": 727,
+   "pair_id": "G2-00727",
+   "start_uv": [
+    -6.7166,
+    1.4589
+   ],
+   "goal_uv": [
+    -3.0009,
+    0.6813
+   ],
+   "dist_m": 3.7961939162798304,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0912",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.83 m, G2 index 912 (G2-00912)",
+   "g2_index": 912,
+   "pair_id": "G2-00912",
+   "start_uv": [
+    -4.6667,
+    1.46
+   ],
+   "goal_uv": [
+    -8.4594,
+    1.9796
+   ],
+   "dist_m": 3.828127146530011,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1637",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.85 m, G2 index 1637 (G2-01637)",
+   "g2_index": 1637,
+   "pair_id": "G2-01637",
+   "start_uv": [
+    -6.5242,
+    1.1294
+   ],
+   "goal_uv": [
+    -2.7312,
+    1.8084
+   ],
+   "dist_m": 3.853295991745249,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3748",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.88 m, G2 index 3748 (G2-03748)",
+   "g2_index": 3748,
+   "pair_id": "G2-03748",
+   "start_uv": [
+    -3.9412,
+    1.1721
+   ],
+   "goal_uv": [
+    -7.8002,
+    1.5932
+   ],
+   "dist_m": 3.881907547842942,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3839",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.91 m, G2 index 3839 (G2-03839)",
+   "g2_index": 3839,
+   "pair_id": "G2-03839",
+   "start_uv": [
+    -4.6679,
+    1.2823
+   ],
+   "goal_uv": [
+    -8.545,
+    1.8056
+   ],
+   "dist_m": 3.9122560371223143,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1556",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.95 m, G2 index 1556 (G2-01556)",
+   "g2_index": 1556,
+   "pair_id": "G2-01556",
+   "start_uv": [
+    -6.3606,
+    1.0494
+   ],
+   "goal_uv": [
+    -2.5446,
+    2.05
+   ],
+   "dist_m": 3.9450039746494547,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2678",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 3.98 m, G2 index 2678 (G2-02678)",
+   "g2_index": 2678,
+   "pair_id": "G2-02678",
+   "start_uv": [
+    -8.4686,
+    1.0399
+   ],
+   "goal_uv": [
+    -4.5466,
+    0.3864
+   ],
+   "dist_m": 3.976071710872429,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2427",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.01 m, G2 index 2427 (G2-02427)",
+   "g2_index": 2427,
+   "pair_id": "G2-02427",
+   "start_uv": [
+    -4.1381,
+    1.6759
+   ],
+   "goal_uv": [
+    -8.1031,
+    1.0897
+   ],
+   "dist_m": 4.008098731318878,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0815",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.05 m, G2 index 815 (G2-00815)",
+   "g2_index": 815,
+   "pair_id": "G2-00815",
+   "start_uv": [
+    -4.1555,
+    1.7752
+   ],
+   "goal_uv": [
+    -7.9661,
+    0.4149
+   ],
+   "dist_m": 4.046120172461515,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4441",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.08 m, G2 index 4441 (G2-04441)",
+   "g2_index": 4441,
+   "pair_id": "G2-04441",
+   "start_uv": [
+    -3.4006,
+    1.5046
+   ],
+   "goal_uv": [
+    -7.2996,
+    0.3129
+   ],
+   "dist_m": 4.077051617284235,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0798",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.10 m, G2 index 798 (G2-00798)",
+   "g2_index": 798,
+   "pair_id": "G2-00798",
+   "start_uv": [
+    -3.9431,
+    1.3359
+   ],
+   "goal_uv": [
+    -8.0225,
+    1.7485
+   ],
+   "dist_m": 4.100212570099264,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4720",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.14 m, G2 index 4720 (G2-04720)",
+   "g2_index": 4720,
+   "pair_id": "G2-04720",
+   "start_uv": [
+    -7.7593,
+    0.5441
+   ],
+   "goal_uv": [
+    -3.8108,
+    1.7789
+   ],
+   "dist_m": 4.13707424274692,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1152",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.16 m, G2 index 1152 (G2-01152)",
+   "g2_index": 1152,
+   "pair_id": "G2-01152",
+   "start_uv": [
+    -4.2636,
+    1.3245
+   ],
+   "goal_uv": [
+    -8.231,
+    0.0607
+   ],
+   "dist_m": 4.163826749517804,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1144",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.20 m, G2 index 1144 (G2-01144)",
+   "g2_index": 1144,
+   "pair_id": "G2-01144",
+   "start_uv": [
+    -3.9735,
+    1.1842
+   ],
+   "goal_uv": [
+    -8.155,
+    0.8447
+   ],
+   "dist_m": 4.195259527132976,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4484",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.23 m, G2 index 4484 (G2-04484)",
+   "g2_index": 4484,
+   "pair_id": "G2-04484",
+   "start_uv": [
+    -2.1077,
+    0.7429
+   ],
+   "goal_uv": [
+    -6.2778,
+    1.4299
+   ],
+   "dist_m": 4.226310803762543,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4774",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.27 m, G2 index 4774 (G2-04774)",
+   "g2_index": 4774,
+   "pair_id": "G2-04774",
+   "start_uv": [
+    -7.9706,
+    1.316
+   ],
+   "goal_uv": [
+    -3.7274,
+    0.8449
+   ],
+   "dist_m": 4.269271770454535,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3135",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.30 m, G2 index 3135 (G2-03135)",
+   "g2_index": 3135,
+   "pair_id": "G2-03135",
+   "start_uv": [
+    -7.1757,
+    1.3292
+   ],
+   "goal_uv": [
+    -2.8858,
+    0.9895
+   ],
+   "dist_m": 4.3033287232095105,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1651",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.33 m, G2 index 1651 (G2-01651)",
+   "g2_index": 1651,
+   "pair_id": "G2-01651",
+   "start_uv": [
+    -7.5582,
+    0.2959
+   ],
+   "goal_uv": [
+    -3.3469,
+    1.3129
+   ],
+   "dist_m": 4.33235925218581,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2636",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.36 m, G2 index 2636 (G2-02636)",
+   "g2_index": 2636,
+   "pair_id": "G2-02636",
+   "start_uv": [
+    -2.3611,
+    0.4908
+   ],
+   "goal_uv": [
+    -6.5014,
+    1.8648
+   ],
+   "dist_m": 4.362334247854009,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4176",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.41 m, G2 index 4176 (G2-04176)",
+   "g2_index": 4176,
+   "pair_id": "G2-04176",
+   "start_uv": [
+    -4.2895,
+    0.4684
+   ],
+   "goal_uv": [
+    -8.4808,
+    1.8263
+   ],
+   "dist_m": 4.405778943614852,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1172",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.45 m, G2 index 1172 (G2-01172)",
+   "g2_index": 1172,
+   "pair_id": "G2-01172",
+   "start_uv": [
+    -6.8521,
+    2.2108
+   ],
+   "goal_uv": [
+    -2.4469,
+    1.5885
+   ],
+   "dist_m": 4.448937438310411,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4724",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.49 m, G2 index 4724 (G2-04724)",
+   "g2_index": 4724,
+   "pair_id": "G2-04724",
+   "start_uv": [
+    -3.0568,
+    0.9073
+   ],
+   "goal_uv": [
+    -7.5237,
+    1.3758
+   ],
+   "dist_m": 4.491401547401434,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3680",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.54 m, G2 index 3680 (G2-03680)",
+   "g2_index": 3680,
+   "pair_id": "G2-03680",
+   "start_uv": [
+    -8.0575,
+    0.9804
+   ],
+   "goal_uv": [
+    -3.5243,
+    0.8046
+   ],
+   "dist_m": 4.536607529861933,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3260",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.58 m, G2 index 3260 (G2-03260)",
+   "g2_index": 3260,
+   "pair_id": "G2-03260",
+   "start_uv": [
+    -8.3016,
+    1.6367
+   ],
+   "goal_uv": [
+    -3.7223,
+    1.5658
+   ],
+   "dist_m": 4.579848829382908,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4705",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.62 m, G2 index 4705 (G2-04705)",
+   "g2_index": 4705,
+   "pair_id": "G2-04705",
+   "start_uv": [
+    -3.517,
+    0.6652
+   ],
+   "goal_uv": [
+    -8.1055,
+    0.1354
+   ],
+   "dist_m": 4.618984768323013,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3207",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.68 m, G2 index 3207 (G2-03207)",
+   "g2_index": 3207,
+   "pair_id": "G2-03207",
+   "start_uv": [
+    -6.6562,
+    2.0656
+   ],
+   "goal_uv": [
+    -2.0619,
+    1.1864
+   ],
+   "dist_m": 4.677668770872945,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0941",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.72 m, G2 index 941 (G2-00941)",
+   "g2_index": 941,
+   "pair_id": "G2-00941",
+   "start_uv": [
+    -2.9761,
+    0.5248
+   ],
+   "goal_uv": [
+    -7.6956,
+    0.3464
+   ],
+   "dist_m": 4.722870611185532,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3045",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.76 m, G2 index 3045 (G2-03045)",
+   "g2_index": 3045,
+   "pair_id": "G2-03045",
+   "start_uv": [
+    -7.9354,
+    0.1161
+   ],
+   "goal_uv": [
+    -3.4338,
+    1.6644
+   ],
+   "dist_m": 4.760423872934005,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0014",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.81 m, G2 index 14 (G2-00014)",
+   "g2_index": 14,
+   "pair_id": "G2-00014",
+   "start_uv": [
+    -1.4858,
+    0.4379
+   ],
+   "goal_uv": [
+    -6.0088,
+    2.0651
+   ],
+   "dist_m": 4.806798190063735,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2634",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.86 m, G2 index 2634 (G2-02634)",
+   "g2_index": 2634,
+   "pair_id": "G2-02634",
+   "start_uv": [
+    -8.1345,
+    0.5551
+   ],
+   "goal_uv": [
+    -3.302,
+    1.0251
+   ],
+   "dist_m": 4.85530187012095,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2306",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.91 m, G2 index 2306 (G2-02306)",
+   "g2_index": 2306,
+   "pair_id": "G2-02306",
+   "start_uv": [
+    -3.4003,
+    1.1438
+   ],
+   "goal_uv": [
+    -8.2524,
+    1.8963
+   ],
+   "dist_m": 4.910104954071756,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2532",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.95 m, G2 index 2532 (G2-02532)",
+   "g2_index": 2532,
+   "pair_id": "G2-02532",
+   "start_uv": [
+    -3.3507,
+    1.0449
+   ],
+   "goal_uv": [
+    -8.2816,
+    0.6298
+   ],
+   "dist_m": 4.948341421122839,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0791",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 4.99 m, G2 index 791 (G2-00791)",
+   "g2_index": 791,
+   "pair_id": "G2-00791",
+   "start_uv": [
+    -8.0668,
+    1.5157
+   ],
+   "goal_uv": [
+    -3.1969,
+    0.424
+   ],
+   "dist_m": 4.990764961406218,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3112",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.04 m, G2 index 3112 (G2-03112)",
+   "g2_index": 3112,
+   "pair_id": "G2-03112",
+   "start_uv": [
+    -8.2262,
+    0.0794
+   ],
+   "goal_uv": [
+    -3.4242,
+    1.6205
+   ],
+   "dist_m": 5.0432324168136455,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3145",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.08 m, G2 index 3145 (G2-03145)",
+   "g2_index": 3145,
+   "pair_id": "G2-03145",
+   "start_uv": [
+    -6.6448,
+    1.7494
+   ],
+   "goal_uv": [
+    -1.7339,
+    0.4493
+   ],
+   "dist_m": 5.080078623407319,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_1628",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.14 m, G2 index 1628 (G2-01628)",
+   "g2_index": 1628,
+   "pair_id": "G2-01628",
+   "start_uv": [
+    -2.6338,
+    1.8783
+   ],
+   "goal_uv": [
+    -7.7743,
+    1.6893
+   ],
+   "dist_m": 5.143973294059759,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3916",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.18 m, G2 index 3916 (G2-03916)",
+   "g2_index": 3916,
+   "pair_id": "G2-03916",
+   "start_uv": [
+    -2.0062,
+    0.405
+   ],
+   "goal_uv": [
+    -7.0317,
+    1.6776
+   ],
+   "dist_m": 5.18412586749203,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4454",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.22 m, G2 index 4454 (G2-04454)",
+   "g2_index": 4454,
+   "pair_id": "G2-04454",
+   "start_uv": [
+    -8.4823,
+    0.9342
+   ],
+   "goal_uv": [
+    -3.2888,
+    1.4735
+   ],
+   "dist_m": 5.221425738244297,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2238",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.26 m, G2 index 2238 (G2-02238)",
+   "g2_index": 2238,
+   "pair_id": "G2-02238",
+   "start_uv": [
+    -2.9037,
+    0.5183
+   ],
+   "goal_uv": [
+    -8.1508,
+    0.9278
+   ],
+   "dist_m": 5.263055069063975,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0607",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.32 m, G2 index 607 (G2-00607)",
+   "g2_index": 607,
+   "pair_id": "G2-00607",
+   "start_uv": [
+    -2.6503,
+    1.4649
+   ],
+   "goal_uv": [
+    -7.7903,
+    0.0962
+   ],
+   "dist_m": 5.319110798808388,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3583",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.40 m, G2 index 3583 (G2-03583)",
+   "g2_index": 3583,
+   "pair_id": "G2-03583",
+   "start_uv": [
+    -2.8359,
+    0.883
+   ],
+   "goal_uv": [
+    -8.1748,
+    1.6922
+   ],
+   "dist_m": 5.399875725421834,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4461",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.48 m, G2 index 4461 (G2-04461)",
+   "g2_index": 4461,
+   "pair_id": "G2-04461",
+   "start_uv": [
+    -7.7583,
+    0.2853
+   ],
+   "goal_uv": [
+    -2.5402,
+    1.9501
+   ],
+   "dist_m": 5.4772371365497765,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0482",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.54 m, G2 index 482 (G2-00482)",
+   "g2_index": 482,
+   "pair_id": "G2-00482",
+   "start_uv": [
+    -1.8809,
+    0.9564
+   ],
+   "goal_uv": [
+    -7.3483,
+    0.0938
+   ],
+   "dist_m": 5.535028592518741,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4559",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.62 m, G2 index 4559 (G2-04559)",
+   "g2_index": 4559,
+   "pair_id": "G2-04559",
+   "start_uv": [
+    -7.9067,
+    1.2999
+   ],
+   "goal_uv": [
+    -2.3045,
+    1.7829
+   ],
+   "dist_m": 5.622982646247452,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4367",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.70 m, G2 index 4367 (G2-04367)",
+   "g2_index": 4367,
+   "pair_id": "G2-04367",
+   "start_uv": [
+    -1.869,
+    0.8126
+   ],
+   "goal_uv": [
+    -7.5646,
+    0.6127
+   ],
+   "dist_m": 5.699106892312163,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_4906",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.79 m, G2 index 4906 (G2-04906)",
+   "g2_index": 4906,
+   "pair_id": "G2-04906",
+   "start_uv": [
+    -7.8227,
+    1.1865
+   ],
+   "goal_uv": [
+    -2.1058,
+    0.292
+   ],
+   "dist_m": 5.786456243677991,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0993",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 5.93 m, G2 index 993 (G2-00993)",
+   "g2_index": 993,
+   "pair_id": "G2-00993",
+   "start_uv": [
+    -1.8895,
+    0.8499
+   ],
+   "goal_uv": [
+    -7.8115,
+    0.4757
+   ],
+   "dist_m": 5.933810718248434,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3531",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 6.03 m, G2 index 3531 (G2-03531)",
+   "g2_index": 3531,
+   "pair_id": "G2-03531",
+   "start_uv": [
+    -2.5198,
+    1.7878
+   ],
+   "goal_uv": [
+    -8.5516,
+    1.6712
+   ],
+   "dist_m": 6.032926885020239,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2302",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 6.20 m, G2 index 2302 (G2-02302)",
+   "g2_index": 2302,
+   "pair_id": "G2-02302",
+   "start_uv": [
+    -8.5418,
+    1.759
+   ],
+   "goal_uv": [
+    -2.3459,
+    1.5448
+   ],
+   "dist_m": 6.199601475094992,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_0772",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 6.35 m, G2 index 772 (G2-00772)",
+   "g2_index": 772,
+   "pair_id": "G2-00772",
+   "start_uv": [
+    -8.3577,
+    1.758
+   ],
+   "goal_uv": [
+    -2.1239,
+    0.5478
+   ],
+   "dist_m": 6.350184759516844,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_3177",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 6.51 m, G2 index 3177 (G2-03177)",
+   "g2_index": 3177,
+   "pair_id": "G2-03177",
+   "start_uv": [
+    -8.5608,
+    0.3093
+   ],
+   "goal_uv": [
+    -2.2602,
+    1.9499
+   ],
+   "dist_m": 6.510693413147328,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_gap_2565",
+   "role": "cylinder UNKNOWN/safe_graph_disconnected_possible_connected, dist 6.68 m, G2 index 2565 (G2-02565)",
+   "g2_index": 2565,
+   "pair_id": "G2-02565",
+   "start_uv": [
+    -1.7065,
+    0.9209
+   ],
+   "goal_uv": [
+    -8.3395,
+    1.7294
+   ],
+   "dist_m": 6.68209258017277,
+   "g2_cylinder_status": "UNKNOWN",
+   "g2_cylinder_reason": "safe_graph_disconnected_possible_connected",
+   "g2_cut_pairs_by_role": null
+  },
+  {
+   "name": "F_unreach_0678",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 3.00 m, G2 index 678 (G2-00678)",
+   "g2_index": 678,
+   "pair_id": "G2-00678",
+   "start_uv": [
+    -0.0908,
+    1.56
+   ],
+   "goal_uv": [
+    -3.0684,
+    1.9345
+   ],
+   "dist_m": 3.0010584816027825,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_2389",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 3.38 m, G2 index 2389 (G2-02389)",
+   "g2_index": 2389,
+   "pair_id": "G2-02389",
+   "start_uv": [
+    1.7986,
+    1.2052
+   ],
+   "goal_uv": [
+    -1.564,
+    0.8384
+   ],
+   "dist_m": 3.38254652591801,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_4573",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 3.64 m, G2 index 4573 (G2-04573)",
+   "g2_index": 4573,
+   "pair_id": "G2-04573",
+   "start_uv": [
+    0.6367,
+    1.4509
+   ],
+   "goal_uv": [
+    -2.9277,
+    0.7268
+   ],
+   "dist_m": 3.637206093968281,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_1577",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 3.94 m, G2 index 1577 (G2-01577)",
+   "g2_index": 1577,
+   "pair_id": "G2-01577",
+   "start_uv": [
+    -3.2054,
+    0.5893
+   ],
+   "goal_uv": [
+    0.6742,
+    1.2952
+   ],
+   "dist_m": 3.9432969670061624,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_4605",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 4.17 m, G2 index 4605 (G2-04605)",
+   "g2_index": 4605,
+   "pair_id": "G2-04605",
+   "start_uv": [
+    -4.3951,
+    0.8803
+   ],
+   "goal_uv": [
+    -0.3602,
+    1.9398
+   ],
+   "dist_m": 4.171685302129105,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2268",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 4.39 m, G2 index 2268 (G2-02268)",
+   "g2_index": 2268,
+   "pair_id": "G2-02268",
+   "start_uv": [
+    -3.2866,
+    1.3626
+   ],
+   "goal_uv": [
+    1.0974,
+    1.6153
+   ],
+   "dist_m": 4.391276954372157,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_4589",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 4.58 m, G2 index 4589 (G2-04589)",
+   "g2_index": 4589,
+   "pair_id": "G2-04589",
+   "start_uv": [
+    2.1145,
+    1.4692
+   ],
+   "goal_uv": [
+    -2.3321,
+    0.3795
+   ],
+   "dist_m": 4.578176236232066,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3996",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 4.75 m, G2 index 3996 (G2-03996)",
+   "g2_index": 3996,
+   "pair_id": "G2-03996",
+   "start_uv": [
+    -2.4066,
+    1.8895
+   ],
+   "goal_uv": [
+    2.3418,
+    1.7002
+   ],
+   "dist_m": 4.752171824545068,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_4833",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 4.91 m, G2 index 4833 (G2-04833)",
+   "g2_index": 4833,
+   "pair_id": "G2-04833",
+   "start_uv": [
+    1.0933,
+    1.9593
+   ],
+   "goal_uv": [
+    -3.7976,
+    1.5104
+   ],
+   "dist_m": 4.91145742320953,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_2878",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.10 m, G2 index 2878 (G2-02878)",
+   "g2_index": 2878,
+   "pair_id": "G2-02878",
+   "start_uv": [
+    1.6523,
+    1.1734
+   ],
+   "goal_uv": [
+    -3.4327,
+    0.824
+   ],
+   "dist_m": 5.096989833225097,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3493",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.28 m, G2 index 3493 (G2-03493)",
+   "g2_index": 3493,
+   "pair_id": "G2-03493",
+   "start_uv": [
+    0.3867,
+    1.6446
+   ],
+   "goal_uv": [
+    -4.8749,
+    2.0779
+   ],
+   "dist_m": 5.279411278731749,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_1977",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.43 m, G2 index 1977 (G2-01977)",
+   "g2_index": 1977,
+   "pair_id": "G2-01977",
+   "start_uv": [
+    -2.7865,
+    0.7861
+   ],
+   "goal_uv": [
+    2.5947,
+    1.4801
+   ],
+   "dist_m": 5.425767175248123,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_4460",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.61 m, G2 index 4460 (G2-04460)",
+   "g2_index": 4460,
+   "pair_id": "G2-04460",
+   "start_uv": [
+    -3.5949,
+    0.9091
+   ],
+   "goal_uv": [
+    1.9467,
+    1.7683
+   ],
+   "dist_m": 5.607811979729705,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2425",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.78 m, G2 index 2425 (G2-02425)",
+   "g2_index": 2425,
+   "pair_id": "G2-02425",
+   "start_uv": [
+    0.9381,
+    1.9495
+   ],
+   "goal_uv": [
+    -4.8378,
+    1.8402
+   ],
+   "dist_m": 5.776934074403134,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_0706",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 5.93 m, G2 index 706 (G2-00706)",
+   "g2_index": 706,
+   "pair_id": "G2-00706",
+   "start_uv": [
+    -4.5185,
+    0.469
+   ],
+   "goal_uv": [
+    1.2202,
+    1.982
+   ],
+   "dist_m": 5.934799633517547,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2464",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 6.08 m, G2 index 2464 (G2-02464)",
+   "g2_index": 2464,
+   "pair_id": "G2-02464",
+   "start_uv": [
+    -3.9966,
+    1.6735
+   ],
+   "goal_uv": [
+    2.078,
+    1.3893
+   ],
+   "dist_m": 6.08124451078889,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_3206",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 6.30 m, G2 index 3206 (G2-03206)",
+   "g2_index": 3206,
+   "pair_id": "G2-03206",
+   "start_uv": [
+    -3.4117,
+    0.5287
+   ],
+   "goal_uv": [
+    2.831,
+    1.3803
+   ],
+   "dist_m": 6.300517903315568,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_3591",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 6.47 m, G2 index 3591 (G2-03591)",
+   "g2_index": 3591,
+   "pair_id": "G2-03591",
+   "start_uv": [
+    -4.0887,
+    0.8549
+   ],
+   "goal_uv": [
+    2.3584,
+    1.4366
+   ],
+   "dist_m": 6.4732892180096515,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_0666",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 6.66 m, G2 index 666 (G2-00666)",
+   "g2_index": 666,
+   "pair_id": "G2-00666",
+   "start_uv": [
+    -6.656,
+    0.8928
+   ],
+   "goal_uv": [
+    -0.0719,
+    1.9032
+   ],
+   "dist_m": 6.661177145970522,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_1010",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 6.83 m, G2 index 1010 (G2-01010)",
+   "g2_index": 1010,
+   "pair_id": "G2-01010",
+   "start_uv": [
+    0.4189,
+    1.8152
+   ],
+   "goal_uv": [
+    -6.3857,
+    1.2212
+   ],
+   "dist_m": 6.830477081434356,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3788",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.00 m, G2 index 3788 (G2-03788)",
+   "g2_index": 3788,
+   "pair_id": "G2-03788",
+   "start_uv": [
+    2.5433,
+    1.2124
+   ],
+   "goal_uv": [
+    -4.4581,
+    1.3689
+   ],
+   "dist_m": 7.0031488781833,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3781",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.15 m, G2 index 3781 (G2-03781)",
+   "g2_index": 3781,
+   "pair_id": "G2-03781",
+   "start_uv": [
+    -5.0425,
+    1.5843
+   ],
+   "goal_uv": [
+    2.1063,
+    1.8695
+   ],
+   "dist_m": 7.154486737705229,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2698",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.31 m, G2 index 2698 (G2-02698)",
+   "g2_index": 2698,
+   "pair_id": "G2-02698",
+   "start_uv": [
+    -4.5456,
+    1.8946
+   ],
+   "goal_uv": [
+    2.7606,
+    2.0254
+   ],
+   "dist_m": 7.307370736455076,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2419",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.48 m, G2 index 2419 (G2-02419)",
+   "g2_index": 2419,
+   "pair_id": "G2-02419",
+   "start_uv": [
+    0.9693,
+    1.6129
+   ],
+   "goal_uv": [
+    -6.497,
+    1.1665
+   ],
+   "dist_m": 7.4796329221426365,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3305",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.63 m, G2 index 3305 (G2-03305)",
+   "g2_index": 3305,
+   "pair_id": "G2-03305",
+   "start_uv": [
+    2.684,
+    1.3064
+   ],
+   "goal_uv": [
+    -4.8903,
+    2.2558
+   ],
+   "dist_m": 7.633569338782481,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_1011",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.80 m, G2 index 1011 (G2-01011)",
+   "g2_index": 1011,
+   "pair_id": "G2-01011",
+   "start_uv": [
+    -5.0397,
+    1.9678
+   ],
+   "goal_uv": [
+    2.7615,
+    1.9157
+   ],
+   "dist_m": 7.801373971935969,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2250",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 7.96 m, G2 index 2250 (G2-02250)",
+   "g2_index": 2250,
+   "pair_id": "G2-02250",
+   "start_uv": [
+    -7.9418,
+    0.9495
+   ],
+   "goal_uv": [
+    -0.0526,
+    2.0233
+   ],
+   "dist_m": 7.961942167587002,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_2010",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.12 m, G2 index 2010 (G2-02010)",
+   "g2_index": 2010,
+   "pair_id": "G2-02010",
+   "start_uv": [
+    1.4623,
+    1.6973
+   ],
+   "goal_uv": [
+    -6.6279,
+    0.9679
+   ],
+   "dist_m": 8.123014243493605,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3861",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.26 m, G2 index 3861 (G2-03861)",
+   "g2_index": 3861,
+   "pair_id": "G2-03861",
+   "start_uv": [
+    -7.1182,
+    1.9499
+   ],
+   "goal_uv": [
+    1.1431,
+    1.7951
+   ],
+   "dist_m": 8.262750191673472,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_1704",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.44 m, G2 index 1704 (G2-01704)",
+   "g2_index": 1704,
+   "pair_id": "G2-01704",
+   "start_uv": [
+    1.7862,
+    1.5552
+   ],
+   "goal_uv": [
+    -6.6164,
+    0.785
+   ],
+   "dist_m": 8.437825241138857,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_0414",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.60 m, G2 index 414 (G2-00414)",
+   "g2_index": 414,
+   "pair_id": "G2-00414",
+   "start_uv": [
+    1.7991,
+    1.4072
+   ],
+   "goal_uv": [
+    -6.7801,
+    2.03
+   ],
+   "dist_m": 8.6017761235689,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3309",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.75 m, G2 index 3309 (G2-03309)",
+   "g2_index": 3309,
+   "pair_id": "G2-03309",
+   "start_uv": [
+    -7.5528,
+    0.2273
+   ],
+   "goal_uv": [
+    1.1304,
+    1.2883
+   ],
+   "dist_m": 8.74778161821613,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_4862",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 8.98 m, G2 index 4862 (G2-04862)",
+   "g2_index": 4862,
+   "pair_id": "G2-04862",
+   "start_uv": [
+    -6.5453,
+    1.3917
+   ],
+   "goal_uv": [
+    2.4328,
+    1.6856
+   ],
+   "dist_m": 8.982909151271652,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_3436",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 9.13 m, G2 index 3436 (G2-03436)",
+   "g2_index": 3436,
+   "pair_id": "G2-03436",
+   "start_uv": [
+    1.9866,
+    1.6351
+   ],
+   "goal_uv": [
+    -7.1442,
+    1.428
+   ],
+   "dist_m": 9.133148364611186,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_1248",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 9.32 m, G2 index 1248 (G2-01248)",
+   "g2_index": 1248,
+   "pair_id": "G2-01248",
+   "start_uv": [
+    1.8151,
+    1.2551
+   ],
+   "goal_uv": [
+    -7.4934,
+    0.7785
+   ],
+   "dist_m": 9.320693097082428,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_2799",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 9.53 m, G2 index 2799 (G2-02799)",
+   "g2_index": 2799,
+   "pair_id": "G2-02799",
+   "start_uv": [
+    2.472,
+    1.5656
+   ],
+   "goal_uv": [
+    -7.041,
+    2.2076
+   ],
+   "dist_m": 9.534638587801847,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_1690",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 9.77 m, G2 index 1690 (G2-01690)",
+   "g2_index": 1690,
+   "pair_id": "G2-01690",
+   "start_uv": [
+    -8.4792,
+    1.9488
+   ],
+   "goal_uv": [
+    1.2935,
+    1.8333
+   ],
+   "dist_m": 9.773382502491142,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_0263",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 10.03 m, G2 index 263 (G2-00263)",
+   "g2_index": 263,
+   "pair_id": "G2-00263",
+   "start_uv": [
+    2.537,
+    1.4653
+   ],
+   "goal_uv": [
+    -7.4769,
+    0.9486
+   ],
+   "dist_m": 10.027221554348941,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 68,
+    "lamp": 10,
+    "back_panel": 10
+   }
+  },
+  {
+   "name": "F_unreach_3437",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 10.32 m, G2 index 3437 (G2-03437)",
+   "g2_index": 3437,
+   "pair_id": "G2-03437",
+   "start_uv": [
+    -7.3965,
+    1.2263
+   ],
+   "goal_uv": [
+    2.9218,
+    1.429
+   ],
+   "dist_m": 10.320290799197473,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  },
+  {
+   "name": "F_unreach_3222",
+   "role": "cylinder UNREACHABLE/possible_space_cut, dist 10.65 m, G2 index 3222 (G2-03222)",
+   "g2_index": 3222,
+   "pair_id": "G2-03222",
+   "start_uv": [
+    -8.3493,
+    1.6865
+   ],
+   "goal_uv": [
+    2.2898,
+    1.2868
+   ],
+   "dist_m": 10.64660551067804,
+   "g2_cylinder_status": "UNREACHABLE",
+   "g2_cylinder_reason": "possible_space_cut",
+   "g2_cut_pairs_by_role": {
+    "captured": 113,
+    "lamp": 11
+   }
+  }
+ ]
+}
