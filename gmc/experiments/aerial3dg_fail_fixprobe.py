@@ -5,7 +5,7 @@ Run via sbatch from ``gmc/`` (loads the read-only G2 compile).
 * ``kinematics``  sweeper ``shared_replay_failed`` rows: re-query on the G2 compile, rebuild the exported
                   gs3d trajectory exactly as ``api.query`` does, and record the trajectory step that breaks
                   ``verify_linear_trajectory`` (elapsed time, yaw change, rate excess).  Then rebuild it with
-                  sub-microradian in-place turns dropped (yaw carried unchanged; the path geometry is identical)
+                  every in-place turn given >= 1 ms (same poses and path geometry, only the timing of tiny turns changes)
                   and replay that with the shared gs3d oracle.
 * ``endpoints``   ``*_not_certified_free`` rows: re-query with the endpoint query cell grown with buffer 0
                   instead of the octree buffer (monkeypatch of ``api.grow_cell`` for ``kind="query"`` only);
@@ -47,8 +47,10 @@ def kin_steps(traj, body):
              float(np.linalg.norm(dif[j, :3]) / lim["max_speed_mps"])} for j in bad]
 
 
-def snapped_trajectory(path, body, start_yaw, end_yaw, min_turn=1e-6):
-    """``planner._linear_trajectory`` with in-place turns below ``min_turn`` rad dropped (yaw kept)."""
+def snapped_trajectory(path, body, start_yaw, end_yaw, min_turn=0., min_turn_s=1e-3):
+    """``planner._linear_trajectory`` with every in-place turn given at least ``min_turn_s`` seconds
+    (so its yaw rate stays below the limit after time rounding); ``min_turn`` > 0 instead drops tiny
+    turns (yaw kept), which the replay's heading-match check rejects."""
     limits = _limits(body)
     poses, times = [Pose3(path[0].xyz, start_yaw)], [0.]
 
@@ -68,11 +70,11 @@ def snapped_trajectory(path, body, start_yaw, end_yaw, min_turn=1e-6):
         turn = angle_delta(heading, yaw)
         if abs(turn) >= min_turn:
             yaw += turn
-            append(Pose3(prev.xyz, yaw), abs(turn) / limits["max_yaw_rate_radps"])
+            append(Pose3(prev.xyz, yaw), max(abs(turn) / limits["max_yaw_rate_radps"], min_turn_s))
         append(Pose3(q.xyz, yaw), length / limits["max_speed_mps"])
     turn = angle_delta(end_yaw, poses[-1].yaw)
     if abs(turn) >= min_turn:
-        append(Pose3(poses[-1].xyz, poses[-1].yaw + turn), abs(turn) / limits["max_yaw_rate_radps"])
+        append(Pose3(poses[-1].xyz, poses[-1].yaw + turn), max(abs(turn) / limits["max_yaw_rate_radps"], min_turn_s))
     from gmc.gs3d.planner import _row
     return {"poses": [_row(q) for q in poses], "time_s": times, "interpolation": "linear_xyz_yaw",
             "segments": [], "control_dt_s": .05}
