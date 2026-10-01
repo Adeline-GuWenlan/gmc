@@ -83,14 +83,21 @@ def snapped_trajectory(path, body, start_yaw, end_yaw, min_turn=0., min_turn_s=1
 def cmd_kinematics(a):
     compiled = load_compiled(a.a3c)
     body, z_c = compiled.body, compiled.domain.ground_z
-    rows = [r for r in g2_rows(a.robot).values() if r["reason"] == "shared_replay_failed"]
+    src = g2_rows(a.robot) if a.rows is None else {r["index"]: r for r in map(json.loads, open(a.rows))}
+    rows = [r for r in src.values() if r["reason"] == "shared_replay_failed"]
+    qc = QCONFIG
+    if a.fast:
+        from aerial3dg_fail_widen import FAST as qc
     out = []
     for r in sorted(rows, key=lambda r: r["index"]):
         s = compiled.frame.to_world([*r["start_uv"], z_c])
         g = compiled.frame.to_world([*r["goal_uv"], z_c])
-        q = query(compiled, s, g, config=QCONFIG, call_id=r["pair_id"])
+        q = query(compiled, s, g, config=qc, call_id=r["pair_id"])
+        if q["polyline_world"] is None:
+            out.append({"index": r["index"], "pair_id": r["pair_id"], "status_now": q["status"], "reason_now": q["reason"]})
+            continue
         poly = np.asarray(q["polyline_world"], float)
-        dens = a3api._densify(poly, QCONFIG.export_max_segment_m)
+        dens = a3api._densify(poly, qc.export_max_segment_m)
         gs = a3api._gs3d_result(compiled, dens, g, q["verification"]["own"]["clearance_lower_m"])
         bad = kin_steps(gs["trajectory"], body)
         # which knots carry the tiny turns: heading changes at densify knots vs at real vertices
@@ -101,7 +108,10 @@ def cmd_kinematics(a):
         fixed["trajectory"] = snapped_trajectory([Pose3(tuple(map(float, p))) for p in dens], body, 0., 0.)
         fixed["attained_goal"] = fixed["trajectory"]["poses"][-1]
         rep = replay_plan(fixed, GaussianBodyOracle(compiled.prepared))
+        sh = (q["verification"] or {}).get("shared") or {}
         rec = {"index": r["index"], "pair_id": r["pair_id"], "status_now": q["status"], "reason_now": q["reason"],
+               "shared_geometry": sh.get("geometry"), "shared_kinematics": sh.get("kinematics"),
+               "shared_attained_matches": sh.get("attained_matches"),
                "densified_knots": int(len(dens)), "polyline_vertices": int(len(poly)),
                "turns_between_1e-12_and_1e-6_rad": tiny, "max_tiny_turn_rad": float(dturn[(dturn > 1e-12) & (dturn < 1e-6)].max()) if tiny else None,
                "violations": bad[:5], "n_violations": len(bad),
@@ -113,7 +123,8 @@ def cmd_kinematics(a):
         print(r["pair_id"], q["reason"], "violations", len(bad), bad[0] if bad else None, "tiny turns", tiny,
               "snapped passed", rep["passed"], flush=True)
     _dump(a.out, {"robot": a.robot, "n": len(out), "rows": out,
-                  "snapped_passed": sum(x["snapped_replay"]["passed"] for x in out)})
+                  "snapped_passed": sum(x["snapped_replay"]["passed"] for x in out if "snapped_replay" in x),
+                  "a3c": str(a.a3c), "rows_source": a.rows or "G2", "fast": a.fast})
 
 
 def cmd_endpoints(a):
@@ -158,6 +169,8 @@ def main(argv=None):
     p.add_argument("--a3c", type=Path, default=None)
     p.add_argument("--buffer", type=float, default=0.)
     p.add_argument("--timeout", type=float, default=120.)
+    p.add_argument("--rows", default=None, help="JSONL rows to take shared_replay_failed from (default: G2 runs)")
+    p.add_argument("--fast", action="store_true", help="verdict-only QueryConfig (aerial3dg_fail_widen.FAST)")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
     a.a3c = a.a3c or A3C / f"{a.robot}.a3c"
