@@ -59,3 +59,12 @@
 - 22:24Z  W1 sweeper done (18980208, 18 min, MaxRSS 1.38 GB). W2 (+2 m u and v) failed at scene build: the
   fitted floor plane deviates 0.0500 m from z_floor at the box's world corners, the floor-support contract
   allows 0.05. Largest box with v+2 that passes: u+1.5 (0.0487 m). Resubmitted W2 = u[-10.5,5.2] v[-2.35,4.75].
+- 22:41Z  G2-fast control (18980789): verdict-only mode on the G2 compile reproduces all 4927 G2 non-REACHABLE
+  cylinder verdicts exactly; 8/73 REACHABLE get a replay veto (round-off). Verdict-only is faithful for this test.
+- 22:44Z  W1 cylinder complete (18980787 + resume 18986134). Pair 4217 (G2 REACHABLE) raised ZeroDivisionError
+  in `aerial3d/query.py:217 simplify` (coincident lifted points) on the W1 compile: a latent src bug, recorded as an
+  ERROR row by my wrapper (src untouched). Result: 2928 lamp cuts unchanged; 412 endpoint rows unchanged; all 1587
+  u~-5.6 rows find a route: 1122 REACHABLE + 465 own-verified/replay-vetoed. First 396 vetoes: replay geometry
+  passed on all, kinematics failed on all (339 tiny turn, 57 sub-µm translation); the 1 ms turn floor clears 330.
+  The W1 routes cross u=-5.6 at body-centre v = 2.4497..2.4704, INSIDE the old box (v <= 2.75) but above the old
+  cylinder domain limit 2.35 (world-AABB inset 0.40 m in the rotated frame vs 0.30 geometric).
