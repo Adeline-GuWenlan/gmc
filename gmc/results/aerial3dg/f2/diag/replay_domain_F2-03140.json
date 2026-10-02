@@ -1,0 +1,330 @@
+{
+ "pair_id": "F2-03140",
+ "status": "UNKNOWN",
+ "reason": "shared_replay_failed",
+ "own_verification": "CERTIFIED",
+ "route_polyline": [
+  [
+   -7.3158,
+   7.0298,
+   0.885
+  ],
+  [
+   -10.838,
+   6.792,
+   0.885
+  ]
+ ],
+ "export_max_segment_m": 0.2,
+ "segments": 18,
+ "max_pose_excess_m": -0.020000000000000018,
+ "segments_with_swept_excess": 1,
+ "max_swept_excess_m": 0.0035543688391905803,
+ "first_bad_segment": {
+  "segment": 0,
+  "a_route": [
+   -7.3158,
+   7.0298,
+   0.885
+  ],
+  "b_route": [
+   -7.5115,
+   7.0166,
+   0.885
+  ],
+  "pose_a_excess_m": -0.020000000000000018,
+  "pose_b_excess_m": -0.020000000000000018,
+  "swept_excess_m": 0.0035543688391905803
+ },
+ "rows": [
+  {
+   "segment": 0,
+   "a_route": [
+    -7.3158,
+    7.0298,
+    0.885
+   ],
+   "b_route": [
+    -7.5115,
+    7.0166,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": 0.0035543688391905803
+  },
+  {
+   "segment": 1,
+   "a_route": [
+    -7.5115,
+    7.0166,
+    0.885
+   ],
+   "b_route": [
+    -7.7072,
+    7.0034,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.009656742271921814
+  },
+  {
+   "segment": 2,
+   "a_route": [
+    -7.7072,
+    7.0034,
+    0.885
+   ],
+   "b_route": [
+    -7.9028,
+    6.9902,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 3,
+   "a_route": [
+    -7.9028,
+    6.9902,
+    0.885
+   ],
+   "b_route": [
+    -8.0985,
+    6.977,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 4,
+   "a_route": [
+    -8.0985,
+    6.977,
+    0.885
+   ],
+   "b_route": [
+    -8.2942,
+    6.9637,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 5,
+   "a_route": [
+    -8.2942,
+    6.9637,
+    0.885
+   ],
+   "b_route": [
+    -8.4899,
+    6.9505,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 6,
+   "a_route": [
+    -8.4899,
+    6.9505,
+    0.885
+   ],
+   "b_route": [
+    -8.6855,
+    6.9373,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 7,
+   "a_route": [
+    -8.6855,
+    6.9373,
+    0.885
+   ],
+   "b_route": [
+    -8.8812,
+    6.9241,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 8,
+   "a_route": [
+    -8.8812,
+    6.9241,
+    0.885
+   ],
+   "b_route": [
+    -9.0769,
+    6.9109,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 9,
+   "a_route": [
+    -9.0769,
+    6.9109,
+    0.885
+   ],
+   "b_route": [
+    -9.2726,
+    6.8977,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 10,
+   "a_route": [
+    -9.2726,
+    6.8977,
+    0.885
+   ],
+   "b_route": [
+    -9.4683,
+    6.8845,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 11,
+   "a_route": [
+    -9.4683,
+    6.8845,
+    0.885
+   ],
+   "b_route": [
+    -9.6639,
+    6.8713,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 12,
+   "a_route": [
+    -9.6639,
+    6.8713,
+    0.885
+   ],
+   "b_route": [
+    -9.8596,
+    6.8581,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 13,
+   "a_route": [
+    -9.8596,
+    6.8581,
+    0.885
+   ],
+   "b_route": [
+    -10.0553,
+    6.8448,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 14,
+   "a_route": [
+    -10.0553,
+    6.8448,
+    0.885
+   ],
+   "b_route": [
+    -10.251,
+    6.8316,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 15,
+   "a_route": [
+    -10.251,
+    6.8316,
+    0.885
+   ],
+   "b_route": [
+    -10.4466,
+    6.8184,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 16,
+   "a_route": [
+    -10.4466,
+    6.8184,
+    0.885
+   ],
+   "b_route": [
+    -10.6423,
+    6.8052,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  },
+  {
+   "segment": 17,
+   "a_route": [
+    -10.6423,
+    6.8052,
+    0.885
+   ],
+   "b_route": [
+    -10.838,
+    6.792,
+    0.885
+   ],
+   "pose_a_excess_m": -0.020000000000000018,
+   "pose_b_excess_m": -0.020000000000000018,
+   "swept_excess_m": -0.020000000000000018
+  }
+ ],
+ "rule": "F2 Task 1d: why the shared replay rejected F2-03140's route on geometry (``map_unknown``) although aerial3d's\nown verifier certified it.  Light (manifest frame + box only, no archive).\n\nThe shared oracle's edge test (``gs3d/oracle.py`` ``edge``) asks the known space to contain the WORLD AABB of the\nswept segment, ``[min(pa, pb) - half, max(pa, pb) + half]``, then maps that AABB's 8 corners into the route frame\n(``integration.RouteBoxKnownSpace.contains_aabb``).  aerial3d's domain is per pose: the body's world AABB inside the\nprism (F1 \u00a71a).  The set of such centres is convex, so a segment whose two ends satisfy it satisfies it at every\npoint; but the AABB of the union of two displaced world AABBs, re-expressed in the 64-degree rotated route frame,\ncan stick out of the prism.  This script measures, for every exported (densified, <= 0.20 m) segment, by how much\n(a) each end pose's own body AABB and (b) the swept-segment AABB exceed the prism faces."
+}

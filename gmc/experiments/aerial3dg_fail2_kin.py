@@ -31,6 +31,7 @@ from gmc.gs3d.validation import angle_delta
 from aerial3dg_fail_diag import _dump
 from aerial3dg_fail_fixprobe import kin_steps
 from aerial3dg_fail_widen import FAST
+from aerial3dg_run import QCONFIG
 
 
 def floored_trajectory(path, body, start_yaw, end_yaw, min_turn_s=1e-3, min_trans_s=0.):
@@ -73,9 +74,11 @@ def _replay(gs, traj, oracle):
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--a3c", type=Path, required=True)
-    p.add_argument("--rows", type=Path, required=True, help="F1 fast_00.jsonl of the widened run")
+    p.add_argument("--rows", type=Path, required=True, help="task JSONL whose shared_replay_failed rows to probe")
+    p.add_argument("--full", action="store_true", help="G2's full QueryConfig (QCONFIG) instead of verdict-only FAST")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
+    qc = QCONFIG if a.full else FAST
     compiled = load_compiled(a.a3c)
     body, z_c = compiled.body, compiled.domain.ground_z
     oracle = GaussianBodyOracle(compiled.prepared)
@@ -85,12 +88,12 @@ def main(argv=None):
     for r in rows:
         s = compiled.frame.to_world([*r["start_uv"], z_c])
         g = compiled.frame.to_world([*r["goal_uv"], z_c])
-        q = query(compiled, s, g, config=FAST, call_id=r["pair_id"])
+        q = query(compiled, s, g, config=qc, call_id=r["pair_id"])
         rec = {"index": r["index"], "pair_id": r["pair_id"], "status_now": q["status"], "reason_now": q["reason"]}
         if q["polyline_world"] is None:
             out.append(rec)
             continue
-        dens = a3api._densify(np.asarray(q["polyline_world"], float), FAST.export_max_segment_m)
+        dens = a3api._densify(np.asarray(q["polyline_world"], float), qc.export_max_segment_m)
         gs = a3api._gs3d_result(compiled, dens, g, q["verification"]["own"]["clearance_lower_m"])
         bad = kin_steps(gs["trajectory"], body)
         path = [Pose3(tuple(map(float, x))) for x in dens]

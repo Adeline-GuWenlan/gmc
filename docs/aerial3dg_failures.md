@@ -1,5 +1,15 @@
 # aerial3d-ground: why the 5000-pair run fails where it fails (F1, 2026-10-01)
 
+> **F2 follow-up (2026-10-02): [`aerial3dg_failures_f2.md`](aerial3dg_failures_f2.md).**
+> - On 5000 cylinder pairs independently confirmed reachable (robust-body A*, ≥ 5 cm lateral clearance) in a new
+>   open sub-region of the same archive, GMC's cylinder is REACHABLE on 4985. The other 15 (0.30 %) are UNKNOWN
+>   `shared_replay_failed`: 14 export round-off, 1 conservative swept-AABB coverage test. 0 are UNREACHABLE.
+>   The sweeper is 5000/5000.
+> - F2 also settles two open items here:
+>   - Every W1/W2 replay veto (468 + 531) is export round-off. Replay geometry passed on all; a 1 ms floor on
+>     in-place turns **and** translations clears 100 %, including the 81 W1 rows left undiagnosed below.
+>   - The cylinder buffer-0 endpoint probe below already covers all 412 rows: CY-EP-LAT 12/12 → safe_graph_disconnected.
+
 **Summary (6 lines)**
 1. **Compile range = placement box, not the hall.** One prism u[-9,3.7] v[-0.35,2.75] (582,372 of 7.1 M Gaussians) is both the compile domain and the sampling box. Its faces are walls to the planner, and they are 0.1 m more conservative than the geometry for a cylinder in this 64°-rotated frame.
 2. **The box *was* the cause of the 1587 cylinder `safe_graph_disconnected` UNKNOWNs.** Widened by 1 m, all 1587 find a route: 1122 are REACHABLE, and 465 are own-verified routes vetoed only by replay round-off (line 5). W2 (+1.5 m u, +2 m v) gives the same: 1068 REACHABLE + 519 vetoed, 0 still disconnected. The way round passes over the last floor splat at body-centre v ≥ 2.45, so the body's far edge reaches v ≥ 2.75, the box face. Wall B is missing there and the hall is open to v≈4.
@@ -84,7 +94,8 @@ W1/W2 MaxRSS 1.38 GB. All within the 4 GB per-job cap. G2 status → widened sta
 - The 1587 u≈-5.6 UNKNOWNs are a box effect. No pair stays disconnected once the box allows the body past
   v = 2.75 at u≈-5.5, and every route found is own-verifier certified, with the replay's geometry passing on all
   468 W1 vetoes analysed. On W1, 387/468 vetoed routes pass the full replay with the 1 ms turn floor; the rest
-  are the translation variant (not tested with a fix). W2's 519 vetoes were not broken down (unverified).
+  are the translation variant (not tested with a fix). W2's 519 vetoes were not broken down (unverified). *F2 §5.1: all
+  468 W1 and 531 W2 vetoes clear with a 1 ms floor on turns + translations; the 81 are all translation cases.*
 - Nothing else is box-sensitive. The lamp cut and the 651 endpoint rows do not move at all. The sweeper's 62
   replay vetoes reshuffle with any recompile, but that is float round-off, not the box: a few REACHABLE rows
   flip the other way (6 / 2 of 469 sampled in W1 / W2).
@@ -258,7 +269,7 @@ closes that gap in the window that matters.
 | SW-EP, CY-EP | Grow the **endpoint** query cell with buffer 0 (the oracle's own contract is clearance > margin; the buffer only pads SAFE leaves against the replay) | **evidence-backed** | 238/239 sweeper rows → REACHABLE, own verifier + shared replay (`fix/endpoints_buffer0_sweeper.json`). Cylinder: 30 → REACHABLE, 381 → exposes CY-GAP, 1 still uncertified |
 | SW-EP, CY-EP | Or: sample endpoints with the planner's own threshold (clearance > margin + buffer) so the test set only holds certifiable starts | guess (changes the test set, does not fix the method) | — |
 | SW-EP, CY-EP, CY-GAP | Clean the floor at the robots' effective threshold: splats with 2σ top in (0.018, 0.020) survive the plane-floor rule (`planefloor.py:34`) but act inside margin + buffer | guess (scene edit; not run) | The three named splats own 551/651 endpoint rows, and two splats form the CY-GAP corridor |
-| SW-KIN (and verdict-only vetoes) | Give in-place turns a minimum duration (e.g. 1 ms) in the gs3d export, or drop near-collinear polyline vertices before export. For the speed variant, give the same floor to sub-µm translations | turn floor **evidence-backed** (62/62); translation floor guess | `fix/kinematics_sweeper.json`; W1 verdict-only: 387/398 turn cases cleared; the 70 translation cases need the second half |
+| SW-KIN (and verdict-only vetoes) | Give in-place turns a minimum duration (e.g. 1 ms) in the gs3d export, or drop near-collinear polyline vertices before export. For the speed variant, give the same floor to sub-µm translations | turn floor **evidence-backed** (62/62); translation floor **evidence-backed** in F2 §5.1 (W1 468/468, W2 531/531 with both floors) | `fix/kinematics_sweeper.json`; W1 verdict-only: 387/398 turn cases cleared; the 70 translation cases need the second half |
 | SW-KIN | Or: make the replay's rate tolerance relative to t (ulp-aware) | guess (changes the shared oracle, which this chain treats as fixed) | — |
 | CY-GAP | **Widen the box** so the domain contains the real way round (here v ≥ 2.45 at u≈-5.5) | **evidence-backed** | W1: 1587/1587 find a route; W2 1587/1587 likewise |
 | CY-GAP | Use the exact cylinder-in-prism domain instead of "world AABB in prism" (saves 0.1 m per side in this frame) | guess, and **not sufficient here**: it moves the limit from 2.35 to 2.45, and the passage starts at 2.45 | scan, §3.2 |

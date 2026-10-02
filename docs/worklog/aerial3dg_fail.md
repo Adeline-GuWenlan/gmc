@@ -99,3 +99,19 @@
   ROUTE, re-verified with the real cylinder at 0.001 (`experiments/aerial3dg_fail2_sample.py` docstring). Cheap
   pre-filter: shared 0.1 m robust-body lattice components, built once per region. Pilot job 19029956 (150 candidates,
   audit = A* also on pre-filter rejects).
+- 13:00Z  Pilot 19029956: 150 cand -> 12 accepted, all A* ROUTE + real-cylinder re-verify; pre-filter never rejected
+  (lattice 913 free nodes, components 912 + 1); ~2.8 s per accepted -> ~4 CPU-h projected for 5000, kept N=5000.
+  NW probe 19029988: 200,755 supports, cylinder 2029 cand pairs / 11.6 s. Smoke 19030112: compile 8.5 s, 12/12 REACHABLE.
+  Note: oracle `clearance_lower_m` is a lower bound (AABB distance for pairs outside the margin), so the real-cylinder
+  re-verify reports 1.1 mm while the robust body certified > 3 mm; not a contradiction.
+- 14:48Z  Streams 19030110/111 done (1.8 h each): 187,464 draws, 67,292 distance-passing, 5000 accepted; stage pass rates
+  17.0 / 44.7 / 98.1 (pre-filter, 98 rejects unaudited) / 99.7 (13 NO_ROUTE_MARGIN) / 100 %. Distances 3.00-4.92 m.
+- 17:00Z  GMC (19030276 cylinder 2.1 h, 19030277 sweeper 1.2 h): cylinder 4985 REACHABLE + 15 UNKNOWN
+  shared_replay_failed, 0 UNREACHABLE; sweeper 5000/5000.
+- 17:12Z  Veto probe 19050913 (full config): 14 = µrad in-place turn round-off (1 ms turn floor clears 14/14); 1
+  (F2-03140) = replay geometry `map_unknown`: every exported pose inside the prism, but the swept-segment world AABB of
+  the first 0.196 m segment exceeds the north face by 3.55 mm in the rotated route frame (`aerial3dg_fail2_diag.py`).
+- 17:15Z  Task 2.1 (19030278/279): W1 468 / W2 531 vetoes, replay geometry passed on all; turn floor clears 387 / 520,
+  turn + translation floor clears 468/468 and 531/531. W1's 81 undiagnosed = 64 translation + 17 translation+turn.
+  Task 2.2: already in F1's fix/endpoints_buffer0_cylinder.json (all 412 rows); CY-EP-LAT 12/12 -> safe_graph_disconnected.
+  Report: docs/aerial3dg_failures_f2.md. Total F2 compute 7.4 CPU-h.
