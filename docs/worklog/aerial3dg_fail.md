@@ -81,3 +81,21 @@
 - 23:25Z  Corrected my own wording: the W1 routes' body centres are inside the old box, but the body's edge
   reaches the old face v=2.75. The 1 cm scan shows the passage starts at v=2.45, so any box with that face
   closes it.
+
+# Worklog: F2 (new region, confirmed-reachable cylinder benchmark, 2026-10-02)
+
+- 12:39Z  Job 19029374 (a3f2_survey, 83 s, 2.35 GB): 5 candidate boxes (NW, NSTRIP, NE, S, E) cropped with G2's rule +
+  a 5 cm oracle status / clearance map per robot (`results/aerial3dg/f2/region/survey.*`, inspected). Cylinder-free
+  share of the grid: NW 51 %, NSTRIP 32 %, E 27 %, S 23 %, NE 20 %. The north strip / NE are cut by many floater
+  blobs (oracle-occupied disks in the cylinder band, the faint squares of F1's raster). **Oracle clearance >= 0.02 m on
+  0 % of every box, both robots**: clearance is 3-D body<->ellipsoid distance and the chassis is 0.02 m over the
+  floor, so floor splats cap it. A literal ">= 5 cm oracle clearance" route exists nowhere.
+- 12:52Z  Chose NW u[-11.5,-6.4] v[2.85,7.5] (200,755 supports, floor-contract deviation 0.0288 < 0.05). East face
+  0.7 m west of the u~-5.7 wall line, south face north of wall B and of F1's three CY-GAP floor splats (v<=2.15);
+  not the lamp booth. One obstacle (exhibit table ~(-10.5, 4.8)) in an otherwise open floor.
+- 12:52Z  Probe compile, small NW crop u[-11.5,-9] v[2.85,5.2] (job 19029955): 54,503 supports; cylinder 1251
+  candidate pairs, 2.2 s; sweeper 108 pairs, 3.3 s; 1.38 GB.
+- 12:55Z  "Confirmed reachable" = robust body (cylinder r+0.05, top+0.05, same chassis bottom) at margin 0.003 gets an A*
+  ROUTE, re-verified with the real cylinder at 0.001 (`experiments/aerial3dg_fail2_sample.py` docstring). Cheap
+  pre-filter: shared 0.1 m robust-body lattice components, built once per region. Pilot job 19029956 (150 candidates,
+  audit = A* also on pre-filter rejects).
