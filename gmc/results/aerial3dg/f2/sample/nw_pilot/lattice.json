@@ -1,0 +1,64 @@
+{
+ "step_m": 0.1,
+ "nodes": 2444,
+ "free_nodes": 913,
+ "edges_tested": 3300,
+ "edges_free": 3246,
+ "components": 2,
+ "component_sizes": [
+  912,
+  1
+ ],
+ "wall_s": 13.901239660801366,
+ "oracle_calls": 5744,
+ "box_uv": [
+  -11.5,
+  2.85,
+  -6.4,
+  7.5
+ ],
+ "lat_m": 0.05,
+ "vmargin_m": 0.003,
+ "robust_body": {
+  "name": "cylinder_robust_0.05",
+  "radius_m": 0.35,
+  "half_height_m": 0.89,
+  "motion": "ground_unicycle",
+  "ground_clearance_m": 0.02
+ },
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 200755,
+  "bounds_min": [
+   7.485797023382219,
+   13.373995381680661,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.88086750256453,
+   19.980935272988297,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "load_s": 15.521396574797109,
+ "prepare_s": 0.7355638488661498,
+ "host": {
+  "node": "cs613.hpc.nyu.edu",
+  "slurm_job_id": "19029956",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   94.779296875,
+   92.63134765625,
+   91.568359375
+  ],
+  "utc": "2026-10-02T12:53:08Z",
+  "python": "3.13.5",
+  "git_commit": "3e0861928ef8655bad6da24ee0f8f1e2093cfa48"
+ },
+ "peak_rss_mb": 1383.734375
+}

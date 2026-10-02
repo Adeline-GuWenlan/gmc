@@ -16,7 +16,7 @@ ROBOT=$1; U0=$2; V0=$3; U1=$4; V1=$5; PAIRS=$6; NT=${7:-1}; T=${8:-0}
 cd /scratch/wg2381/splathjb-aerial3dg-fail/gmc
 export PYTHONPATH=src:experiments MPLBACKEND=Agg OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 PY=/scratch/wg2381/.conda/envs/gmc-venv/bin/python
-OUT=results/aerial3dg/f2/gmc/$ROBOT; A3C=outputs/aerial3dg/f2/${ROBOT}.a3c
+OUT=${OUT:-results/aerial3dg/f2/gmc/$ROBOT}; A3C=outputs/aerial3dg/f2/${ROBOT}.a3c
 mkdir -p "$OUT" "$(dirname $A3C)"
 echo "node $(hostname) job ${SLURM_JOB_ID} commit $(git rev-parse HEAD) start $(date -u +%FT%TZ) box $U0 $V0 $U1 $V1"
 if [ ! -s "$A3C" ]; then
