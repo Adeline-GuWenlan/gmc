@@ -1,0 +1,48 @@
+{
+ "a3c": "outputs/aerial3dg/f2/cylinder.a3c",
+ "compile_id": "1583582b0f891670",
+ "load_wall_s": 0.23065830394625664,
+ "pairs_in_slice": 12,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 12,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 12,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 0,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 8.389971429947764,
+ "query_cpu_s_this_run": 8.348899742999999,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 288.21875,
+ "robot": "cylinder",
+ "task": 0,
+ "n_tasks": 1,
+ "pair_index_range": [
+  0,
+  11
+ ],
+ "pairs_file": "results/aerial3dg/f2/sample/nw_pilot/pilot_collect.json",
+ "host": {
+  "node": "gr105.hpc.nyu.edu",
+  "slurm_job_id": "19030112",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   5.240234375,
+   1.5224609375,
+   0.64404296875
+  ],
+  "utc": "2026-10-02T12:57:07Z",
+  "python": "3.13.5",
+  "git_commit": "82c720c42dffedcf2254c7a635f5868815d2b366"
+ },
+ "timeout_s": 120.0
+}
