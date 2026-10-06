@@ -224,6 +224,33 @@ def cmd_run(a):
           f"peak rss {rss_mb():.0f} MB", flush=True)
 
 
+def cmd_audit(a):
+    """Pre-filter false-rejection audit: run the real-body A* (+ re-verify) on up to --n pre-filter rejects already
+    recorded in a stream file (each was endpoint-free, so only the pre-filter stood between it and the A*)."""
+    from gmc.gs3d.contracts import GoalRegion, PlannerConfig, SearchBudget
+    rows = [r for r in read_jsonl(Path(a.stream_file)) if r["stage_failed"] == "prefilter"][:a.n]
+    t = RealTester(a.box, a.max_wall, a.resolution)
+    out = []
+    for r in rows:
+        s, g = t.pose(r["start_uv"], t.robust), t.pose(r["goal_uv"], t.robust)
+        conf = PlannerConfig(resolution_m=t.resolution, margin_m=t.vmargin, seed=0,
+                             budget=SearchBudget(max_wall_s=t.max_wall, **f2s.BUDGET))
+        w0 = time.perf_counter()
+        res = t.planner.plan(t.ctx["scene"], t.robust, s, GoalRegion(g, 0., .05), conf)
+        d = res["diagnostics"]
+        out.append({"draw": r["draw"], "start_uv": r["start_uv"], "goal_uv": r["goal_uv"],
+                    "prefilter_start_comps": r.get("prefilter_start_comps"),
+                    "prefilter_goal_comps": r.get("prefilter_goal_comps"), "astar_outcome": f2s.classify(res),
+                    "astar_reason": res["reason"], "expansions": d.get("expansions"),
+                    "unproven_rejections": d.get("unproven_rejections"), "t_astar_s": time.perf_counter() - w0})
+        print(out[-1], flush=True)
+    import collections
+    summ = dict(collections.Counter(x["astar_outcome"] for x in out))
+    _dump(Path(a.out), {"stream_file": str(a.stream_file), "n": len(out), "summary": summ, "rows": out,
+                        "host": host()})
+    print(summ, flush=True)
+
+
 def funnel(rows, mode="uniform"):
     """Stage table on the distance-passing candidates (+ targeted stages first), A* reject split, costs."""
     order = (["targeted_tight", "targeted_detour"] if mode != "uniform" else []) + \
@@ -313,6 +340,13 @@ def main(argv=None):
     r.add_argument("--audit", action="store_true")
     r.add_argument("--max-hours", type=float, default=7.5)
     r.add_argument("--out-dir", type=Path, required=True)
+    au = sub.add_parser("audit")
+    au.add_argument("--box", type=float, nargs=4, required=True)
+    au.add_argument("--stream-file", type=Path, required=True)
+    au.add_argument("--n", type=int, default=60)
+    au.add_argument("--resolution", type=float, default=.1)
+    au.add_argument("--max-wall", type=float, default=120.)
+    au.add_argument("--out", type=Path, required=True)
     c = sub.add_parser("collect")
     c.add_argument("--out-dir", type=Path, required=True)
     c.add_argument("--n", type=int, default=None)
@@ -320,7 +354,7 @@ def main(argv=None):
     c.add_argument("--prefix", required=True)
     c.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
-    {"lattice": cmd_lattice, "run": cmd_run, "collect": cmd_collect}[a.cmd](a)
+    {"lattice": cmd_lattice, "run": cmd_run, "collect": cmd_collect, "audit": cmd_audit}[a.cmd](a)
 
 
 if __name__ == "__main__":

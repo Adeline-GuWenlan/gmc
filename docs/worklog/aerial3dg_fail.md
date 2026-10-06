@@ -115,3 +115,29 @@
   turn + translation floor clears 468/468 and 531/531. W1's 81 undiagnosed = 64 translation + 17 translation+turn.
   Task 2.2: already in F1's fix/endpoints_buffer0_cylinder.json (all 412 rows); CY-EP-LAT 12/12 -> safe_graph_disconnected.
   Report: docs/aerial3dg_failures_f2.md. Total F2 compute 7.4 CPU-h.
+
+# Worklog: F3 (G2 audit + hard-region search, 2026-10-06)
+
+- 23:22Z  Task 0 pilot submitted first: 19309136 (real-body A* m0.001 r0.1 on 50 cylinder rows, 1 in 100), 19309137
+  (2 mm subset body "s2" m0 r0.05 on 10 rows), 19309138/39 (global 0.05 m lattice labelling for s2 / s10 on all rows),
+  19309140 (lamp passage width). Subset bodies (strict subsets of the real cylinder r 0.30, bottom 0.02, top 1.75):
+  s2 = r -2 mm, bottom +2 mm, top -2 mm (z_c unchanged); s10 = r -10 mm, bottom +3 mm, top -10 mm. Bottom raise: every
+  surviving floor splat has a 2-sigma top < 0.020 (plane-floor rule; F1 measured 0.0180-0.019990), so +2/+3 mm gives
+  >= 2 mm vertical clearance at margin 0 and the floor stops grazing.
+- 23:30Z  Pilot: real body ~13 s/row (CY-LAMP 25: 17 NO_ROUTE_MARGIN + 8 NO_ROUTE; CY-GAP 11 NO_ROUTE_MARGIN; CY-EP 5 NRM + 1
+  ROUTE). Start components are tiny (289-565 expansions): the 0.1 m real-body lattice is fragmented; 95/188 Gaussians behind
+  "unproven" rejections lie under the chassis. s2 A* r0.05: CY-LAMP clean NO_ROUTE (4575 expansions, 0 unproven) at ~50 s,
+  CY-GAP ROUTE inside the G2 box at ~28 s. Global labelling s10: CY-LAMP 2928/2928 SEPARATED, CY-GAP/EP/EP-LAT/controls all
+  CONNECTED (397 s for all rows). s2: same, 1 CY-LAMP NO_ATTACH.
+- 23:34Z  Lamp width (19309372): the lamp + bulkhead close the crossing completely in the cylinder band (max-min clearance 0;
+  widest free v-run per column 3 cm). Sub-bands: [0.02,0.5] and [0.5,1.0] leave a 0.48 m disk (< 0.60); [1.0,1.75] 0.04 m.
+- 23:34Z  Task 0 arrays: 19309567 (real-body A*, all 5000 cylinder rows, 24 shards), 19309569 (sweeper 421 rows), 19309570 (W1
+  real-body A* on CY-GAP+CY-EP+CY-EP-LAT, 8 shards), 19309571-75 (s2 A* r0.05 sample: CY-LAMP 1-in-9 = 326, CY-GAP 1-in-16,
+  CY-EP 1-in-7, all CY-EP-LAT, controls 1-in-4). Per-row s2 A* on every non-ROUTE row would be ~60 CPU-h (lamp rows 50 s
+  each), so the global 0.05 m labelling answers every row and the per-row A* sample cross-checks it.
+- 23:36Z  Region survey (19309414, `results/aerial3dg/f3/region/survey_maps.png`): cylinder-free share ROUND 3 %, NORTH 7 %
+  (both dropped), E 27 %, S 23 %, NMID 25 %, G2MID 37 %, GAPW1 44 % (with a chain of within-margin floor-splat disks).
+- 23:38Z  Task 1: persisted compiles of both robots per region (a3f3_compile chain) + uniform pilots (quota 200, real body).
+  scontrol hold/update refused on this cluster; to stay near the 16 GB share I cancelled two of my own not-yet-started
+  pilot jobs (19309690, 19309698) and resubmitted them chained (19309716, 19309718). Transient peak ~16.5 GB requested for
+  < 20 min while the sweeper audit finished.

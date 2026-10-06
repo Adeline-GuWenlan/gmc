@@ -1,0 +1,553 @@
+{
+ "schema": "aerial3dg_fail2.region_survey.v1",
+ "host": {
+  "node": "cs613.hpc.nyu.edu",
+  "slurm_job_id": "19309414",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   106.54541015625,
+   105.8857421875,
+   106.13525390625
+  ],
+  "utc": "2026-10-06T23:32:08Z",
+  "python": "3.13.5",
+  "git_commit": "0308df45cce18b3404abbaaf87e96b22890ce8d2"
+ },
+ "near_floor": {
+  "window_uv": [
+   -13.0,
+   -5.0,
+   7.7,
+   8.0
+  ],
+  "step": 0.05,
+  "top_z_range": [
+   0.0,
+   0.07
+  ],
+  "n_selected": 50518,
+  "n_in_window": 27506
+ },
+ "boxes": {
+  "ROUND": {
+   "box_uv": [
+    4.0,
+    -2.2,
+    7.5,
+    1.0
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 103946,
+    "bounds_min": [
+     9.615856132244756,
+     30.16162427989692,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     14.012590404217478,
+     34.69960482661986,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.03807420460426103,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 11.200000000000001,
+   "robots": {
+    "cylinder": {
+     "grid_points": 4480,
+     "status_share": {
+      "free": 0.03236607142857143,
+      "geometry_or_margin_unproven": 0.0,
+      "occupied": 0.5872767857142858,
+      "map_unknown": 0.38035714285714284,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.03236607142857143,
+      "0.002": 0.031026785714285715,
+      "0.01": 0.0,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 4480,
+     "status_share": {
+      "free": 0.103125,
+      "geometry_or_margin_unproven": 0.0011160714285714285,
+      "occupied": 0.6332589285714286,
+      "map_unknown": 0.2625,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.103125,
+      "0.002": 0.09866071428571428,
+      "0.01": 0.0,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 38.78674215101637
+  },
+  "E": {
+   "box_uv": [
+    0.9,
+    2.75,
+    5.5,
+    4.7
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 32382,
+    "bounds_min": [
+     12.744434379266893,
+     25.768836169040384,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     16.48793861074622,
+     30.76001582747995,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.047992795481177186,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 8.97,
+   "robots": {
+    "cylinder": {
+     "grid_points": 3588,
+     "status_share": {
+      "free": 0.266164994425864,
+      "geometry_or_margin_unproven": 0.0008361204013377926,
+      "occupied": 0.2714604236343367,
+      "map_unknown": 0.46153846153846156,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.266164994425864,
+      "0.002": 0.26421404682274247,
+      "0.01": 0.0,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 3588,
+     "status_share": {
+      "free": 0.592809364548495,
+      "geometry_or_margin_unproven": 0.0008361204013377926,
+      "occupied": 0.08695652173913043,
+      "map_unknown": 0.3193979933110368,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.592809364548495,
+      "0.002": 0.5897435897435898,
+      "0.01": 0.0,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 12.513575837016106
+  },
+  "S": {
+   "box_uv": [
+    -5.3,
+    -1.75,
+    4.5,
+    -0.45
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 333487,
+    "bounds_min": [
+     6.010195698021096,
+     22.396819220963444,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     11.410351170466804,
+     31.798952477998604,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.023521027461559818,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 12.740000000000002,
+   "robots": {
+    "cylinder": {
+     "grid_points": 5096,
+     "status_share": {
+      "free": 0.23449764521193092,
+      "geometry_or_margin_unproven": 0.00019623233908948196,
+      "occupied": 0.1546310832025118,
+      "map_unknown": 0.6106750392464678,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.23449764521193092,
+      "0.002": 0.18897174254317112,
+      "0.01": 0.0011773940345368916,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 5096,
+     "status_share": {
+      "free": 0.46153846153846156,
+      "geometry_or_margin_unproven": 0.0017660910518053376,
+      "occupied": 0.13324175824175824,
+      "map_unknown": 0.40345368916797486,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.46153846153846156,
+      "0.002": 0.4230769230769231,
+      "0.01": 0.07672684458398744,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 15.202075975947082
+  },
+  "NMID": {
+   "box_uv": [
+    -6.3,
+    2.85,
+    0.2,
+    5.4
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 194767,
+    "bounds_min": [
+     9.728865407677667,
+     18.971187068124813,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     14.833260450337928,
+     25.93532472832958,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.036992723505473,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 16.575000000000003,
+   "robots": {
+    "cylinder": {
+     "grid_points": 6630,
+     "status_share": {
+      "free": 0.25384615384615383,
+      "geometry_or_margin_unproven": 0.0021116138763197585,
+      "occupied": 0.373604826546003,
+      "map_unknown": 0.3704374057315234,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.25384615384615383,
+      "0.002": 0.24434389140271492,
+      "0.01": 0.10467571644042233,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 6630,
+     "status_share": {
+      "free": 0.4508295625942685,
+      "geometry_or_margin_unproven": 0.0024132730015082957,
+      "occupied": 0.2984917043740573,
+      "map_unknown": 0.24826546003016592,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.4508295625942685,
+      "0.002": 0.44042232277526394,
+      "0.01": 0.26289592760180996,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 38.21511139720678
+  },
+  "G2MID": {
+   "box_uv": [
+    -5.5,
+    -0.35,
+    -1.2,
+    2.75
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 168461,
+    "bounds_min": [
+     7.186976145795413,
+     20.83603340191115,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     11.83857983945527,
+     26.052622194571867,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.022269369374534165,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 13.33,
+   "robots": {
+    "cylinder": {
+     "grid_points": 5332,
+     "status_share": {
+      "free": 0.37021755438859716,
+      "geometry_or_margin_unproven": 0.0015003750937734434,
+      "occupied": 0.26669167291822954,
+      "map_unknown": 0.36159039759939987,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.37021755438859716,
+      "0.002": 0.3278319579894974,
+      "0.01": 0.26744186046511625,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 5332,
+     "status_share": {
+      "free": 0.5200675168792198,
+      "geometry_or_margin_unproven": 0.002250562640660165,
+      "occupied": 0.2308702175543886,
+      "map_unknown": 0.24681170292573143,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.5200675168792198,
+      "0.002": 0.4898724681170293,
+      "0.01": 0.41691672918229555,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 34.73724075895734
+  },
+  "GAPW1": {
+   "box_uv": [
+    -8.5,
+    -0.35,
+    -2.8,
+    3.75
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 209126,
+    "bounds_min": [
+     5.892898231778808,
+     17.69813343572018,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     12.050585172486002,
+     24.60913384176186,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.02247079505012306,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 23.369999999999997,
+   "robots": {
+    "cylinder": {
+     "grid_points": 9348,
+     "status_share": {
+      "free": 0.436670945656825,
+      "geometry_or_margin_unproven": 0.042575952075310224,
+      "occupied": 0.23234916559691912,
+      "map_unknown": 0.28840393667094566,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.436670945656825,
+      "0.002": 0.3465982028241335,
+      "0.01": 0.14473684210526316,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 9348,
+     "status_share": {
+      "free": 0.6057980316645272,
+      "geometry_or_margin_unproven": 0.0235344458707745,
+      "occupied": 0.178540864356012,
+      "map_unknown": 0.19212665810868634,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.6057980316645272,
+      "0.002": 0.5416131792896877,
+      "0.01": 0.318142918271288,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 77.79143917514011
+  },
+  "NORTH": {
+   "box_uv": [
+    -5.4,
+    4.4,
+    -0.5,
+    7.5
+   ],
+   "crop": {
+    "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+    "input_supports": 7107732,
+    "opacity_selected": 3812458,
+    "selected_supports": 395242,
+    "bounds_min": [
+     11.515468123667343,
+     18.877294726768817,
+     -1.2271749593107995
+    ],
+    "bounds_max": [
+     16.42588740013052,
+     24.63519165173329,
+     1.2028250406892007
+    ],
+    "level": 2.0,
+    "tau": 0.3
+   },
+   "support": {
+    "contact_manifold": "constant_legacy_floor_reference",
+    "z_floor_world_m": -1.2271749593107995,
+    "fitted_plane_max_corner_deviation_m": 0.044097657499037934,
+    "allowed_height_error_m": 0.05,
+    "tile_top_clamp_m": -1.2121749593107995,
+    "chassis_bottom_m": -1.2071749593107994
+   },
+   "area_m2": 15.19,
+   "robots": {
+    "cylinder": {
+     "grid_points": 6076,
+     "status_share": {
+      "free": 0.07406188281764318,
+      "geometry_or_margin_unproven": 0.0008229098090849243,
+      "occupied": 0.576201448321264,
+      "map_unknown": 0.3489137590520079,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.07406188281764318,
+      "0.002": 0.07044107965766952,
+      "0.01": 0.007406188281764319,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    },
+    "sweeper": {
+     "grid_points": 6076,
+     "status_share": {
+      "free": 0.17676102699144175,
+      "geometry_or_margin_unproven": 0.0019749835418038184,
+      "occupied": 0.5849242922975642,
+      "map_unknown": 0.23633969716919026,
+      "other": 0.0
+     },
+     "clearance_ge_share": {
+      "0.001": 0.17676102699144175,
+      "0.002": 0.17050691244239632,
+      "0.01": 0.03456221198156682,
+      "0.02": 0.0,
+      "0.05": 0.0,
+      "0.099": 0.0
+     }
+    }
+   },
+   "wall_s": 29.07165268389508
+  }
+ },
+ "wall_s": 251.08332197996788
+}

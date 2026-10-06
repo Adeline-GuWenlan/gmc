@@ -479,6 +479,129 @@ def cmd_lampwidth(a):
           flush=True)
 
 
+# ----------------------------------------------------------------------------- per-row verdicts
+V_BLOCKED = "blocked (location picking: pair is genuinely unreachable)"
+V_BOX = "box artefact (location picking)"
+V_TOL = "reachable within <= 2 mm tolerance (by-tolerance incompleteness)"
+V_ALG = "reachable, GMC UNKNOWN (algorithm incompleteness)"
+V_SOUND = "reachable, GMC UNREACHABLE (SOUNDNESS BUG - investigate)"
+V_UNRES = "unresolved"
+V_AGREE = "control: G2 REACHABLE, A* agrees"
+V_CTRL_DIS = "control: G2 REACHABLE, A* disagrees"
+
+
+def _astar(raw, pattern):
+    out = {}
+    for p in sorted(Path(raw).glob(pattern)):
+        for r in read_jsonl(p):
+            out[(r["robot"], r["index"])] = r
+    return out
+
+
+def verdict(r, real, w1, grids, ep_clear):
+    cls, st = r["class"], r["g2_status"]
+    ro = (real or {}).get("outcome")
+    w = (w1 or {}).get("outcome")
+    g = {k: v.get("outcome") for k, v in grids.items()}
+    tol_route = g.get("real_m0") == "CONNECTED" or g.get("s2_m0") == "CONNECTED"
+    blocked = g.get("s10_m0") == "SEPARATED" and g.get("s2_m0", "SEPARATED") == "SEPARATED"
+    if cls == "CTRL-REACHABLE":
+        return V_AGREE if ro == "ROUTE" else V_CTRL_DIS, ""
+    if st == "UNREACHABLE":
+        if ro == "ROUTE":
+            return V_SOUND, "real-body A* ROUTE in the G2 box against a certified cut"
+        if blocked:
+            return V_BLOCKED, "no lattice route even for the 2 mm and 1 cm subset bodies at margin 0"
+        if tol_route:
+            return V_TOL, "route only for a <= 2 mm subset body / margin 0 (cut certificate vs tolerance: check)"
+        return V_UNRES, ""
+    # UNKNOWN rows
+    if r["g2_reason"].endswith("_not_certified_free"):
+        c = ep_clear
+        note = f"endpoint oracle clearance {c * 1e3:.2f} mm (F1)" if c is not None else "endpoint clearance unknown"
+        under = ("; pair itself: real-body route in G2 box" if ro == "ROUTE" else
+                 "; pair itself: real-body route only in W1 (box artefact underneath)" if w == "ROUTE" else
+                 "; pair itself: route only within tolerance in G2 box" if tol_route else "; pair itself: no route found")
+        if c is not None and c <= .002 + 1e-6:
+            return V_TOL, note + under
+        if ro == "ROUTE":
+            return V_ALG, note + under
+        return V_UNRES, note + under
+    if r["g2_reason"] == "shared_replay_failed":
+        return (V_ALG, "route exists (A*); GMC's own verifier certified one, the replay veto is export round-off "
+                       "(F1 3.3)") if ro == "ROUTE" else (V_UNRES, "")
+    if r["g2_reason"].startswith("safe_graph_disconnected"):
+        if ro == "ROUTE":
+            return V_ALG, "real-body A* route inside the G2 box"
+        if w == "ROUTE":
+            return V_BOX, "real-body A* ROUTE in W1 (+1 m); in the G2 box only " + (
+                "a <= 2 mm-tolerance route" if tol_route else "no route")
+        if tol_route:
+            return V_TOL, "no real-body route in G2 or W1; subset-body route in G2"
+        if blocked:
+            return V_BLOCKED, ""
+        return V_UNRES, ""
+    return V_UNRES, "unhandled G2 reason"
+
+
+def cmd_verdicts(a):
+    import csv
+    import collections
+    rows = json.loads(Path(a.rows).read_text())["rows"]
+    raw = Path(a.raw)
+    real = _astar(raw, "*_real_m0.001_r0.1_G2_*.jsonl")
+    w1 = _astar(raw, "*_real_m0.001_r0.1_W1_*.jsonl")
+    s2 = _astar(Path(a.raw_s2), "*_s2_m0_r0.05_G2_*.jsonl")
+    grids = {}
+    for p in sorted(Path(a.grid_dir).glob("grid_*_G2.json")):
+        d = json.loads(p.read_text())
+        key = f"{d['variant']}_m{d['margin_m']:g}" + ("" if d["step_m"] == .05 else f"_s{d['step_m']:g}")
+        for r in d["rows"]:
+            grids.setdefault((d["robot"], r["index"]), {})[key] = r
+    f1 = {(r["robot"], int(r["index"])): json.loads(r["evidence"]) for r in csv.DictReader(open(a.classes))}
+    out = []
+    for r in rows:
+        k = (r["robot"], r["index"])
+        ev = f1.get(k, {})
+        v, note = verdict(r, real.get(k), w1.get(k), grids.get(k, {}), ev.get("oracle_clearance_m"))
+        g = grids.get(k, {})
+        out.append({"robot": r["robot"], "index": r["index"], "pair_id": r["pair_id"], "f1_class": r["class"],
+                    "g2_status": r["g2_status"], "g2_reason": r["g2_reason"], "dist_m": round(r["dist_m"], 3),
+                    "astar_real_g2": (real.get(k) or {}).get("outcome"),
+                    "astar_real_g2_reason": (real.get(k) or {}).get("reason"),
+                    "astar_real_g2_expansions": (real.get(k) or {}).get("expansions"),
+                    "astar_real_g2_unproven": (real.get(k) or {}).get("unproven_rejections"),
+                    "astar_real_g2_unproven_gaussians": (real.get(k) or {}).get("unproven_gaussians"),
+                    "astar_real_g2_unproven_under_chassis": (real.get(k) or {}).get("unproven_under_chassis"),
+                    "astar_real_g2_wall_s": round((real.get(k) or {}).get("wall_s") or 0, 2) or None,
+                    "astar_real_w1": (w1.get(k) or {}).get("outcome"),
+                    "astar_s2_g2": (s2.get(k) or {}).get("outcome"),
+                    **{f"grid_{n}": (g.get(n) or {}).get("outcome") for n in
+                       ("real_m0.001", "real_m0", "s2_m0", "s10_m0")},
+                    "f1_endpoint_clearance_mm": round(ev["oracle_clearance_m"] * 1e3, 3)
+                    if ev.get("oracle_clearance_m") is not None else None,
+                    "verdict": v, "note": note})
+    p = Path(a.out_csv)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(out[0]))
+        w.writeheader()
+        w.writerows(out)
+    tab = collections.defaultdict(collections.Counter)
+    for r in out:
+        tab[f"{r['robot']}:{r['f1_class']}"][r["verdict"]] += 1
+    cov = {n: sum(r[n] is not None for r in out) for n in ("astar_real_g2", "astar_real_w1", "astar_s2_g2",
+                                                            "grid_real_m0.001", "grid_real_m0", "grid_s2_m0", "grid_s10_m0")}
+    agree = collections.Counter((r["f1_class"], r["astar_s2_g2"], r["grid_s2_m0"]) for r in out if r["astar_s2_g2"])
+    summ = {"n_rows": len(out), "coverage": cov, "class_x_verdict": {k: dict(v) for k, v in tab.items()},
+            "astar_real_g2_by_class": {c: dict(collections.Counter(r["astar_real_g2"] for r in out if
+                                                                    f"{r['robot']}:{r['f1_class']}" == c))
+                                       for c in tab},
+            "s2_perrow_vs_grid": {f"{a_}|{b}|{c}": n for (a_, b, c), n in agree.items()}}
+    _dump(p.with_name("summary.json"), summ)
+    print(json.dumps(summ, indent=1))
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -516,8 +639,16 @@ def main(argv=None):
     w.add_argument("--cross-u", type=float, default=-.85)
     w.add_argument("--cross-half", type=float, default=.3)
     w.add_argument("--out", default="results/aerial3dg/f3/g2_audit/lampwidth.json")
+    v = sub.add_parser("verdicts")
+    v.add_argument("--rows", default="configs/aerial3dg/f3_audit_rows.json")
+    v.add_argument("--raw", default="results/aerial3dg/f3/g2_audit/raw")
+    v.add_argument("--raw-s2", default="results/aerial3dg/f3/g2_audit/raw_s2")
+    v.add_argument("--grid-dir", default="results/aerial3dg/f3/g2_audit/raw")
+    v.add_argument("--classes", default="results/aerial3dg/f1/classes.csv")
+    v.add_argument("--out-csv", default="results/aerial3dg/f3/g2_audit/verdicts.csv")
     a = p.parse_args(argv)
-    {"rows": cmd_rows, "astar": cmd_astar, "grid": cmd_grid, "lampwidth": cmd_lampwidth}[a.cmd](a)
+    {"rows": cmd_rows, "astar": cmd_astar, "grid": cmd_grid, "lampwidth": cmd_lampwidth,
+     "verdicts": cmd_verdicts}[a.cmd](a)
 
 
 if __name__ == "__main__":
