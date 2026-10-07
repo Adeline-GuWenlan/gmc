@@ -67,6 +67,9 @@ def cmd_bufzero(a):
             st, rs = q["status"], q["reason"]
         except _Timeout:
             st, rs = "TIMEOUT", "timeout"
+        except Exception as exc:                          # a method exception is a finding, not a probe crash
+            tb = __import__("traceback").extract_tb(exc.__traceback__)[-1]
+            st, rs = "ERROR", f"{type(exc).__name__}: {exc} @ {tb.filename.split('/')[-1]}:{tb.lineno}"
         out.append({"index": r["index"], "pair_id": r["pair_id"], "orig": f"{r['status']}:{r['reason']}",
                     "buffer0": f"{st}:{rs}", "wall_s": time.perf_counter() - w0})
         print(out[-1], flush=True)
@@ -94,6 +97,9 @@ def cmd_requery(a):
                 q = query(compiled, s, g, config=QCONFIG, call_id=r["pair_id"])
         except _Timeout:
             q = {"status": "TIMEOUT", "reason": f"query_exceeded_{a.timeout:g}s"}
+        except Exception as exc:
+            tb = __import__("traceback").extract_tb(exc.__traceback__)[-1]
+            q = {"status": "ERROR", "reason": f"{type(exc).__name__}: {exc} @ {tb.filename.split('/')[-1]}:{tb.lineno}"}
         wall = time.perf_counter() - w0
         same = (q["status"], q["reason"]) == (r["status"], r["reason"]) or \
             (r["status"] == "TIMEOUT" and q["status"] == "TIMEOUT")
@@ -109,6 +115,8 @@ def cmd_requery(a):
                 rec["verdict_only"] = f"{qf['status']}:{qf['reason']}"
             except _Timeout:
                 rec["verdict_only"] = "TIMEOUT"
+            except Exception as exc:
+                rec["verdict_only"] = f"ERROR:{type(exc).__name__}"
             rec["verdict_only_wall_s"] = time.perf_counter() - w1
             if q.get("timings"):
                 rec["full_stage_s"] = {t["stage"]: round(t["seconds"], 2) for t in q["timings"]["records"]

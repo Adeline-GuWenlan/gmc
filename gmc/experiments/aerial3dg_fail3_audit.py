@@ -499,13 +499,15 @@ def _astar(raw, pattern):
     return out
 
 
-def verdict(r, real, w1, grids, ep_clear):
+def verdict(r, real, w1, grids, ep_clear, s2row=None):
     cls, st = r["class"], r["g2_status"]
     ro = (real or {}).get("outcome")
     w = (w1 or {}).get("outcome")
     g = {k: v.get("outcome") for k, v in grids.items()}
     tol_route = g.get("real_m0") == "CONNECTED" or g.get("s2_m0") == "CONNECTED"
-    blocked = g.get("s10_m0") == "SEPARATED" and g.get("s2_m0", "SEPARATED") == "SEPARATED"
+    s2_neg = g.get("s2_m0", "SEPARATED") == "SEPARATED" or (
+        g.get("s2_m0") == "NO_ATTACH" and (s2row or {}).get("outcome") in ("NO_ROUTE", "NO_ROUTE_MARGIN"))
+    blocked = g.get("s10_m0") == "SEPARATED" and s2_neg
     if cls == "CTRL-REACHABLE":
         return V_AGREE if ro == "ROUTE" else V_CTRL_DIS, ""
     if st == "UNREACHABLE":
@@ -564,7 +566,7 @@ def cmd_verdicts(a):
     for r in rows:
         k = (r["robot"], r["index"])
         ev = f1.get(k, {})
-        v, note = verdict(r, real.get(k), w1.get(k), grids.get(k, {}), ev.get("oracle_clearance_m"))
+        v, note = verdict(r, real.get(k), w1.get(k), grids.get(k, {}), ev.get("oracle_clearance_m"), s2.get(k))
         g = grids.get(k, {})
         out.append({"robot": r["robot"], "index": r["index"], "pair_id": r["pair_id"], "f1_class": r["class"],
                     "g2_status": r["g2_status"], "g2_reason": r["g2_reason"], "dist_m": round(r["dist_m"], 3),

@@ -1,0 +1,75 @@
+{
+ "n_rows": 5421,
+ "coverage": {
+  "astar_real_g2": 5421,
+  "astar_real_w1": 1999,
+  "astar_s2_g2": 515,
+  "grid_real_m0.001": 5000,
+  "grid_real_m0": 5000,
+  "grid_s2_m0": 5000,
+  "grid_s10_m0": 5000
+ },
+ "class_x_verdict": {
+  "cylinder:CY-LAMP": {
+   "blocked (location picking: pair is genuinely unreachable)": 2928
+  },
+  "cylinder:CY-GAP": {
+   "box artefact (location picking)": 1587
+  },
+  "cylinder:CY-EP": {
+   "reachable within <= 2 mm tolerance (by-tolerance incompleteness)": 400
+  },
+  "cylinder:CY-EP-LAT": {
+   "reachable within <= 2 mm tolerance (by-tolerance incompleteness)": 12
+  },
+  "cylinder:CTRL-REACHABLE": {
+   "control: G2 REACHABLE, A* agrees": 73
+  },
+  "sweeper:SW-EP": {
+   "reachable within <= 2 mm tolerance (by-tolerance incompleteness)": 239
+  },
+  "sweeper:SW-KIN": {
+   "reachable, GMC UNKNOWN (algorithm incompleteness)": 62
+  },
+  "sweeper:CTRL-REACHABLE": {
+   "control: G2 REACHABLE, A* agrees": 120
+  }
+ },
+ "astar_real_g2_by_class": {
+  "cylinder:CY-LAMP": {
+   "NO_ROUTE_MARGIN": 2511,
+   "NO_ROUTE": 417
+  },
+  "cylinder:CY-GAP": {
+   "NO_ROUTE_MARGIN": 1587
+  },
+  "cylinder:CY-EP": {
+   "NO_ROUTE_MARGIN": 370,
+   "ROUTE": 30
+  },
+  "cylinder:CY-EP-LAT": {
+   "NO_ROUTE_MARGIN": 12
+  },
+  "cylinder:CTRL-REACHABLE": {
+   "ROUTE": 73
+  },
+  "sweeper:SW-EP": {
+   "ROUTE": 239
+  },
+  "sweeper:SW-KIN": {
+   "ROUTE": 62
+  },
+  "sweeper:CTRL-REACHABLE": {
+   "ROUTE": 120
+  }
+ },
+ "s2_perrow_vs_grid": {
+  "CY-LAMP|NO_ROUTE|SEPARATED": 175,
+  "CY-GAP|ROUTE|CONNECTED": 100,
+  "CY-EP|ROUTE|CONNECTED": 58,
+  "CY-LAMP|NO_ROUTE_MARGIN|SEPARATED": 150,
+  "CY-EP-LAT|ROUTE|CONNECTED": 12,
+  "CY-LAMP|NO_ROUTE|NO_ATTACH": 1,
+  "CTRL-REACHABLE|ROUTE|CONNECTED": 19
+ }
+}
