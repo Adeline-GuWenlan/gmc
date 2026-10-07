@@ -226,3 +226,13 @@
   own_verification_unresolved (new) / 2 still not certified. Sweeper fails where the cylinder succeeds on 1 pair
   (F4S-00090, EXPORT-KIN round-off). Fixes: endpoint band uses the cylinder ladder for both robots; shared-y plot limit;
   Wilson whisker clip. Case figures 19359005-07 (36). docs/aerial3dg_failures_f4.md written. F4 compute ~48 CPU-h of 200.
+
+## F5 (post-analysis, review figures, final report), agent 19359317
+- 19:40Z  Started fresh (no F5 state). Plan: one instrumented trace per failure row (`aerial3dg_fail5_trace.py`):
+  (a) A* route re-replayed with the compile's own gs3d oracle (the one GMC's shared replay uses), real cylinder + row
+  robot, margin 0.001, goal region; (b) GMC re-run on the same compile (120 s for TIMEOUT rows) with module-global
+  wrappers (no src change) capturing path cells, endpoint cells, replay failing edge/step, simplify input, post-
+  processing stage time; (c) fine clearances (endpoints: margin bisection 0.01 mm; route: F3 lateral body bisection).
+  Probes: verdict-only + 60 s post-processing budget (TIMEOUT), guarded simplify (ERROR), buffer 0 (flagged rows).
+  Inputs: F4 failures.csv 1567 + F3's 35 genuine/borderline candidates (source F3-targeted). 35 shards.
+  Test job 19362290 on 6 WWEST cylinder rows.
