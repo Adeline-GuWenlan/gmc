@@ -1,0 +1,4024 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/pilot/cylinder/task_00.jsonl",
+ "n": 93,
+ "summary": {
+  "no_kinematic_violation|geom=False|turn_floor=False|both_floors=False": 92,
+  "turn|geom=False|turn_floor=False|both_floors=False": 1
+ },
+ "rows": [
+  {
+   "index": 0,
+   "pair_id": "F3S-00000",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 1,
+   "pair_id": "F3S-00001",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 5,
+   "pair_id": "F3S-00005",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 6,
+   "pair_id": "F3S-00006",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 11,
+   "pair_id": "F3S-00011",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 12,
+   "pair_id": "F3S-00012",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 13,
+   "pair_id": "F3S-00013",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 15,
+   "pair_id": "F3S-00015",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 19,
+   "pair_id": "F3S-00019",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 21,
+   "pair_id": "F3S-00021",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 23,
+   "pair_id": "F3S-00023",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 24,
+   "pair_id": "F3S-00024",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 26,
+   "pair_id": "F3S-00026",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 29,
+   "pair_id": "F3S-00029",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 31,
+   "pair_id": "F3S-00031",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 35,
+   "pair_id": "F3S-00035",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 36,
+   "pair_id": "F3S-00036",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 41,
+   "pair_id": "F3S-00041",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 43,
+   "pair_id": "F3S-00043",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 44,
+   "pair_id": "F3S-00044",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 46,
+   "pair_id": "F3S-00046",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 47,
+   "pair_id": "F3S-00047",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 48,
+   "pair_id": "F3S-00048",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 50,
+   "pair_id": "F3S-00050",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 52,
+   "pair_id": "F3S-00052",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 53,
+   "pair_id": "F3S-00053",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 57,
+   "pair_id": "F3S-00057",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 58,
+   "pair_id": "F3S-00058",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 60,
+   "pair_id": "F3S-00060",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 65,
+   "pair_id": "F3S-00065",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 67,
+   "pair_id": "F3S-00067",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 69,
+   "pair_id": "F3S-00069",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 70,
+   "pair_id": "F3S-00070",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 72,
+   "pair_id": "F3S-00072",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 73,
+   "pair_id": "F3S-00073",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 75,
+   "pair_id": "F3S-00075",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 81,
+   "pair_id": "F3S-00081",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 83,
+   "pair_id": "F3S-00083",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 84,
+   "pair_id": "F3S-00084",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 87,
+   "pair_id": "F3S-00087",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 90,
+   "pair_id": "F3S-00090",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 92,
+   "pair_id": "F3S-00092",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 94,
+   "pair_id": "F3S-00094",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 95,
+   "pair_id": "F3S-00095",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 97,
+   "pair_id": "F3S-00097",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 98,
+   "pair_id": "F3S-00098",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 101,
+   "pair_id": "F3S-00101",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 103,
+   "pair_id": "F3S-00103",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 104,
+   "pair_id": "F3S-00104",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 105,
+   "pair_id": "F3S-00105",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 108,
+   "pair_id": "F3S-00108",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 109,
+   "pair_id": "F3S-00109",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 110,
+   "pair_id": "F3S-00110",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 113,
+   "pair_id": "F3S-00113",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 114,
+   "pair_id": "F3S-00114",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 116,
+   "pair_id": "F3S-00116",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 117,
+   "pair_id": "F3S-00117",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 120,
+   "pair_id": "F3S-00120",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 123,
+   "pair_id": "F3S-00123",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 134,
+   "pair_id": "F3S-00134",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 137,
+   "pair_id": "F3S-00137",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 138,
+   "pair_id": "F3S-00138",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 140,
+   "pair_id": "F3S-00140",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 142,
+   "pair_id": "F3S-00142",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 144,
+   "pair_id": "F3S-00144",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 148,
+   "pair_id": "F3S-00148",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 149,
+   "pair_id": "F3S-00149",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [
+    {
+     "step": 11,
+     "steps": 21,
+     "t_s": 8.219928022431114,
+     "elapsed_s": 8.226996293103639e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 8.226996301985423e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.079590195018909e-09,
+     "elapsed_exact_s": 8.226996301985423e-07
+    }
+   ],
+   "n_violations": 1,
+   "violation_kinds": [
+    "turn"
+   ],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": false,
+     "reason": "speed_or_yaw_rate_exceeded",
+     "acceleration_verified": false
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 150,
+   "pair_id": "F3S-00150",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 154,
+   "pair_id": "F3S-00154",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 155,
+   "pair_id": "F3S-00155",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 156,
+   "pair_id": "F3S-00156",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 158,
+   "pair_id": "F3S-00158",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 161,
+   "pair_id": "F3S-00161",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 164,
+   "pair_id": "F3S-00164",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 165,
+   "pair_id": "F3S-00165",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 167,
+   "pair_id": "F3S-00167",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 169,
+   "pair_id": "F3S-00169",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 170,
+   "pair_id": "F3S-00170",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 172,
+   "pair_id": "F3S-00172",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 174,
+   "pair_id": "F3S-00174",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 176,
+   "pair_id": "F3S-00176",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 177,
+   "pair_id": "F3S-00177",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 179,
+   "pair_id": "F3S-00179",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 181,
+   "pair_id": "F3S-00181",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 183,
+   "pair_id": "F3S-00183",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 184,
+   "pair_id": "F3S-00184",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 185,
+   "pair_id": "F3S-00185",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 186,
+   "pair_id": "F3S-00186",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 188,
+   "pair_id": "F3S-00188",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 190,
+   "pair_id": "F3S-00190",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 191,
+   "pair_id": "F3S-00191",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 193,
+   "pair_id": "F3S-00193",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 194,
+   "pair_id": "F3S-00194",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  }
+ ]
+}

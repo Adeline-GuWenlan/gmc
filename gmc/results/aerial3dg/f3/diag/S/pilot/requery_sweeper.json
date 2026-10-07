@@ -1,0 +1,69 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/pilot/sweeper/task_00.jsonl",
+ "rows": [
+  {
+   "index": 4,
+   "pair_id": "F3S-00004",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 7,
+   "pair_id": "F3S-00007",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 10,
+   "pair_id": "F3S-00010",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 37,
+   "pair_id": "F3S-00037",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 111,
+   "pair_id": "F3S-00111",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 125,
+   "pair_id": "F3S-00125",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  },
+  {
+   "index": 151,
+   "pair_id": "F3S-00151",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  }
+ ]
+}

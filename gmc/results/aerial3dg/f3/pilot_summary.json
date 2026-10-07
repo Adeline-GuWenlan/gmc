@@ -1,0 +1,202 @@
+{
+ "S/pilot": {
+  "region": "S",
+  "kind": "pilot",
+  "box_uv": [
+   -5.3,
+   -1.75,
+   4.5,
+   -0.45
+  ],
+  "n_pairs": 200,
+  "funnel": {
+   "endpoint_m001": {
+    "entered": 195212,
+    "failed": 185475,
+    "pass_rate": 0.04987910579267668
+   },
+   "endpoint_real_dup": {
+    "entered": 9737,
+    "failed": 0,
+    "pass_rate": 1.0
+   },
+   "prefilter": {
+    "entered": 9737,
+    "failed": 9537,
+    "pass_rate": 0.020540207456095305
+   },
+   "astar_real": {
+    "entered": 200,
+    "failed": 0,
+    "pass_rate": 1.0
+   },
+   "reverify_m001": {
+    "entered": 200,
+    "failed": 0,
+    "pass_rate": 1.0
+   },
+   "astar_split_on_prefilter_pass": {
+    "ROUTE": 200,
+    "NO_ROUTE": 0,
+    "NO_ROUTE_MARGIN": 0,
+    "UNSURE": 0
+   },
+   "astar_split_on_prefilter_reject_audit": {
+    "ROUTE": 0,
+    "NO_ROUTE": 0,
+    "NO_ROUTE_MARGIN": 0,
+    "UNSURE": 0
+   },
+   "cost_s": {
+    "endpoint": {
+     "n": 195212,
+     "sum": 156.0687291531358,
+     "mean": 0.0007994832753782339,
+     "median": 0.00011782837100327015,
+     "p95": 0.003452198067679997,
+     "max": 0.033723630011081696
+    },
+    "targeted": null,
+    "prefilter": {
+     "n": 9737,
+     "sum": 23.349368687719107,
+     "mean": 0.002398004384073031,
+     "median": 0.00203970680013299,
+     "p95": 0.0046749660745263035,
+     "max": 0.020208078902214766
+    },
+    "astar_route": {
+     "n": 200,
+     "sum": 78.8320996297989,
+     "mean": 0.3941604981489945,
+     "median": 0.3917988691246137,
+     "p95": 0.4795097339199855,
+     "max": 0.5317161690909415
+    },
+    "astar_reject": null,
+    "astar_audit": null,
+    "reverify": {
+     "n": 200,
+     "sum": 12.648491928121075,
+     "mean": 0.06324245964060538,
+     "median": 0.060580849065445364,
+     "p95": 0.08695676092756911,
+     "max": 0.09925039601512253
+    },
+    "evidence": {
+     "n": 200,
+     "sum": 94.48664159607142,
+     "mean": 0.4724332079803571,
+     "median": 0.4708316324977204,
+     "p95": 0.6452122637303546,
+     "max": 0.7732508818153292
+    },
+    "candidate_cpu": {
+     "n": 195212,
+     "sum": 365.3128458659948,
+     "mean": 0.001871364700254056,
+     "median": 0.00012484550000380068,
+     "p95": 0.004538973699996513,
+     "max": 1.3352913519999987
+    }
+   },
+   "accepted": 200,
+   "cpu_s_total": 365.31284586599475,
+   "cpu_s_per_accepted": 1.8265642293299738,
+   "accepted_len_ratio": {
+    "min": 1.0634568010938703,
+    "p10": 1.071875120757793,
+    "median": 1.0785430276451877,
+    "p90": 1.0921524832095852,
+    "max": 1.1201373200784364
+   },
+   "accepted_lateral_m": {
+    "min": 0.0,
+    "p10": 0.0005,
+    "median": 0.005,
+    "p90": 0.05,
+    "max": 0.05
+   },
+   "accepted_clear3d_m": {
+    "min": 0.001,
+    "p10": 0.0015,
+    "median": 0.0015,
+    "p90": 0.0015,
+    "max": 0.0015
+   },
+   "accepted_vertical_m": {
+    "min": 0.0005345435253949309,
+    "p10": 0.0015124430288817568,
+    "median": 0.0015124430288817568,
+    "p90": 0.0015124430288817568,
+    "max": 0.0015124430288817568
+   },
+   "accepted_dist_m": {
+    "min": 3.0007348316704032,
+    "p10": 3.0271124781627003,
+    "median": 3.1618842807633074,
+    "p90": 3.3693939551650645,
+    "max": 3.620263063646066
+   }
+  },
+  "distance_passing_candidates": 195212,
+  "robots": {
+   "cylinder": {
+    "n": 200,
+    "status": {
+     "UNKNOWN": 122,
+     "REACHABLE": 78
+    },
+    "status_reason": {
+     "UNKNOWN:shared_replay_failed": 93,
+     "UNKNOWN:start_not_certified_free": 16,
+     "UNKNOWN:goal_not_certified_free": 13,
+     "REACHABLE:graph_path_lifted_and_verified": 78
+    },
+    "class": {
+     "EXPORT-DOMAIN": 93,
+     "EP-TOL": 29,
+     "REACHABLE": 78
+    },
+    "genuine": 0,
+    "tolerance": 29,
+    "export": 93,
+    "compile_ids": [
+     "8352bdd37aab07a2"
+    ],
+    "query_wall_s": {
+     "sum": 6.137414184398949,
+     "mean": 0.030687070921994745,
+     "max": 0.24960912205278873
+    }
+   },
+   "sweeper": {
+    "n": 200,
+    "status": {
+     "REACHABLE": 193,
+     "UNKNOWN": 7
+    },
+    "status_reason": {
+     "REACHABLE:graph_path_lifted_and_verified": 193,
+     "UNKNOWN:goal_not_certified_free": 5,
+     "UNKNOWN:start_not_certified_free": 2
+    },
+    "class": {
+     "REACHABLE": 193,
+     "EP-TOL": 7
+    },
+    "genuine": 0,
+    "tolerance": 7,
+    "export": 0,
+    "compile_ids": [
+     "a17c75430cd3fec4"
+    ],
+    "query_wall_s": {
+     "sum": 4.740859018173069,
+     "mean": 0.023704295090865343,
+     "max": 0.04061856004409492
+    }
+   }
+  }
+ }
+}

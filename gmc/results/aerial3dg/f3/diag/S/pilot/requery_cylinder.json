@@ -1,0 +1,2470 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/pilot/cylinder/task_00.jsonl",
+ "rows": [
+  {
+   "index": 0,
+   "pair_id": "F3S-00000",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5228,
+     -1.3486
+    ],
+    [
+     3.3801,
+     -1.31
+    ],
+    [
+     1.3798,
+     -1.0787
+    ],
+    [
+     0.37,
+     -0.9674
+    ]
+   ]
+  },
+  {
+   "index": 1,
+   "pair_id": "F3S-00001",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5191,
+     -0.913
+    ],
+    [
+     0.3076,
+     -1.036
+    ]
+   ]
+  },
+  {
+   "index": 2,
+   "pair_id": "F3S-00002",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 3,
+   "pair_id": "F3S-00003",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 4,
+   "pair_id": "F3S-00004",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 5,
+   "pair_id": "F3S-00005",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5136,
+     -1.3143
+    ],
+    [
+     0.6352,
+     -1.313
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     3.7271,
+     -1.2979
+    ]
+   ]
+  },
+  {
+   "index": 6,
+   "pair_id": "F3S-00006",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.365,
+     -1.3376
+    ],
+    [
+     3.773,
+     -1.0651
+    ]
+   ]
+  },
+  {
+   "index": 7,
+   "pair_id": "F3S-00007",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 8,
+   "pair_id": "F3S-00008",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 10,
+   "pair_id": "F3S-00010",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 11,
+   "pair_id": "F3S-00011",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.244,
+     -0.9653
+    ],
+    [
+     1.705,
+     -1.146
+    ],
+    [
+     0.6032,
+     -1.2753
+    ],
+    [
+     0.2593,
+     -1.3157
+    ]
+   ]
+  },
+  {
+   "index": 12,
+   "pair_id": "F3S-00012",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6032,
+     -1.3258
+    ],
+    [
+     1.7455,
+     -1.1917
+    ],
+    [
+     3.8407,
+     -0.9457
+    ]
+   ]
+  },
+  {
+   "index": 13,
+   "pair_id": "F3S-00013",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6516,
+     -1.3349
+    ],
+    [
+     0.7261,
+     -1.3277
+    ],
+    [
+     1.8484,
+     -1.2195
+    ],
+    [
+     3.8216,
+     -1.0293
+    ]
+   ]
+  },
+  {
+   "index": 15,
+   "pair_id": "F3S-00015",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8039,
+     -0.9594
+    ],
+    [
+     0.6786,
+     -1.2838
+    ],
+    [
+     0.6589,
+     -1.2858
+    ]
+   ]
+  },
+  {
+   "index": 19,
+   "pair_id": "F3S-00019",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6677,
+     -1.2198
+    ],
+    [
+     0.4186,
+     -1.3109
+    ]
+   ]
+  },
+  {
+   "index": 21,
+   "pair_id": "F3S-00021",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7638,
+     -1.3177
+    ],
+    [
+     0.4366,
+     -1.1186
+    ]
+   ]
+  },
+  {
+   "index": 23,
+   "pair_id": "F3S-00023",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3705,
+     -1.2819
+    ],
+    [
+     3.3909,
+     -0.8615
+    ]
+   ]
+  },
+  {
+   "index": 24,
+   "pair_id": "F3S-00024",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4547,
+     -1.0084
+    ],
+    [
+     0.5805,
+     -1.005
+    ],
+    [
+     1.3114,
+     -0.9849
+    ],
+    [
+     3.5881,
+     -0.9225
+    ]
+   ]
+  },
+  {
+   "index": 26,
+   "pair_id": "F3S-00026",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6796,
+     -1.1902
+    ],
+    [
+     1.8499,
+     -1.2845
+    ],
+    [
+     0.7411,
+     -1.3416
+    ],
+    [
+     0.6129,
+     -1.3482
+    ]
+   ]
+  },
+  {
+   "index": 29,
+   "pair_id": "F3S-00029",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6302,
+     -0.9708
+    ],
+    [
+     0.4847,
+     -0.8929
+    ]
+   ]
+  },
+  {
+   "index": 31,
+   "pair_id": "F3S-00031",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7177,
+     -1.0393
+    ],
+    [
+     1.2809,
+     -0.931
+    ],
+    [
+     0.5967,
+     -0.9007
+    ],
+    [
+     0.3659,
+     -0.8904
+    ]
+   ]
+  },
+  {
+   "index": 33,
+   "pair_id": "F3S-00033",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 35,
+   "pair_id": "F3S-00035",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4552,
+     -1.0117
+    ],
+    [
+     0.5804,
+     -1.0065
+    ],
+    [
+     1.3587,
+     -0.9742
+    ],
+    [
+     3.5301,
+     -0.8842
+    ]
+   ]
+  },
+  {
+   "index": 36,
+   "pair_id": "F3S-00036",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.528,
+     -0.8538
+    ],
+    [
+     0.5846,
+     -1.1635
+    ],
+    [
+     0.4198,
+     -1.1808
+    ]
+   ]
+  },
+  {
+   "index": 37,
+   "pair_id": "F3S-00037",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 39,
+   "pair_id": "F3S-00039",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 41,
+   "pair_id": "F3S-00041",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.645,
+     -1.2648
+    ],
+    [
+     0.2948,
+     -1.2957
+    ]
+   ]
+  },
+  {
+   "index": 42,
+   "pair_id": "F3S-00042",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 43,
+   "pair_id": "F3S-00043",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6668,
+     -1.3474
+    ],
+    [
+     3.3802,
+     -1.3096
+    ],
+    [
+     1.3118,
+     -1.0715
+    ],
+    [
+     0.5809,
+     -0.991
+    ],
+    [
+     0.5666,
+     -0.9894
+    ]
+   ]
+  },
+  {
+   "index": 44,
+   "pair_id": "F3S-00044",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3878,
+     -1.3378
+    ],
+    [
+     3.4961,
+     -1.1412
+    ]
+   ]
+  },
+  {
+   "index": 46,
+   "pair_id": "F3S-00046",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4645,
+     -1.0173
+    ],
+    [
+     0.4102,
+     -1.3288
+    ]
+   ]
+  },
+  {
+   "index": 47,
+   "pair_id": "F3S-00047",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4698,
+     -1.0223
+    ],
+    [
+     3.7275,
+     -1.3056
+    ]
+   ]
+  },
+  {
+   "index": 48,
+   "pair_id": "F3S-00048",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3242,
+     -0.8562
+    ],
+    [
+     0.6077,
+     -0.8571
+    ],
+    [
+     1.3188,
+     -0.8593
+    ],
+    [
+     3.5272,
+     -0.8663
+    ]
+   ]
+  },
+  {
+   "index": 50,
+   "pair_id": "F3S-00050",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2706,
+     -1.336
+    ],
+    [
+     3.7791,
+     -1.0456
+    ]
+   ]
+  },
+  {
+   "index": 52,
+   "pair_id": "F3S-00052",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6875,
+     -1.3067
+    ],
+    [
+     0.5137,
+     -1.1054
+    ]
+   ]
+  },
+  {
+   "index": 53,
+   "pair_id": "F3S-00053",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4131,
+     -1.317
+    ],
+    [
+     0.5783,
+     -1.309
+    ],
+    [
+     3.4328,
+     -1.1707
+    ]
+   ]
+  },
+  {
+   "index": 57,
+   "pair_id": "F3S-00057",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6245,
+     -0.8637
+    ],
+    [
+     0.6455,
+     -0.8598
+    ],
+    [
+     0.5953,
+     -0.8597
+    ]
+   ]
+  },
+  {
+   "index": 58,
+   "pair_id": "F3S-00058",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6801,
+     -0.8578
+    ],
+    [
+     1.7056,
+     -1.1556
+    ],
+    [
+     0.4947,
+     -1.3383
+    ]
+   ]
+  },
+  {
+   "index": 59,
+   "pair_id": "F3S-00059",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 60,
+   "pair_id": "F3S-00060",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4223,
+     -1.14
+    ],
+    [
+     0.1813,
+     -1.3148
+    ]
+   ]
+  },
+  {
+   "index": 64,
+   "pair_id": "F3S-00064",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 65,
+   "pair_id": "F3S-00065",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2684,
+     -1.1654
+    ],
+    [
+     0.583,
+     -1.1415
+    ],
+    [
+     1.3138,
+     -1.0859
+    ],
+    [
+     3.7448,
+     -0.9011
+    ]
+   ]
+  },
+  {
+   "index": 67,
+   "pair_id": "F3S-00067",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.1884,
+     -1.2798
+    ],
+    [
+     0.5804,
+     -1.2523
+    ],
+    [
+     1.7071,
+     -1.1732
+    ],
+    [
+     3.607,
+     -1.0398
+    ]
+   ]
+  },
+  {
+   "index": 68,
+   "pair_id": "F3S-00068",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 69,
+   "pair_id": "F3S-00069",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2211,
+     -1.2467
+    ],
+    [
+     1.8493,
+     -1.2738
+    ],
+    [
+     3.3814,
+     -1.3013
+    ],
+    [
+     3.7566,
+     -1.3461
+    ]
+   ]
+  },
+  {
+   "index": 70,
+   "pair_id": "F3S-00070",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5354,
+     -0.8851
+    ],
+    [
+     0.629,
+     -0.8851
+    ],
+    [
+     1.3123,
+     -0.8847
+    ],
+    [
+     3.8606,
+     -0.8835
+    ]
+   ]
+  },
+  {
+   "index": 71,
+   "pair_id": "F3S-00071",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 72,
+   "pair_id": "F3S-00072",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5985,
+     -0.8723
+    ],
+    [
+     0.6339,
+     -0.8775
+    ],
+    [
+     1.3081,
+     -0.9764
+    ],
+    [
+     3.6826,
+     -1.3246
+    ]
+   ]
+  },
+  {
+   "index": 73,
+   "pair_id": "F3S-00073",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.1847,
+     -1.2789
+    ],
+    [
+     3.5487,
+     -1.0337
+    ]
+   ]
+  },
+  {
+   "index": 74,
+   "pair_id": "F3S-00074",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 75,
+   "pair_id": "F3S-00075",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6566,
+     -0.9611
+    ],
+    [
+     0.599,
+     -0.881
+    ],
+    [
+     0.4331,
+     -0.8767
+    ]
+   ]
+  },
+  {
+   "index": 80,
+   "pair_id": "F3S-00080",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 81,
+   "pair_id": "F3S-00081",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2324,
+     -1.3286
+    ],
+    [
+     0.5787,
+     -1.3225
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     3.5863,
+     -1.3068
+    ]
+   ]
+  },
+  {
+   "index": 83,
+   "pair_id": "F3S-00083",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4601,
+     -1.3493
+    ],
+    [
+     3.6532,
+     -0.9897
+    ]
+   ]
+  },
+  {
+   "index": 84,
+   "pair_id": "F3S-00084",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4703,
+     -1.3249
+    ],
+    [
+     3.6384,
+     -1.0434
+    ]
+   ]
+  },
+  {
+   "index": 87,
+   "pair_id": "F3S-00087",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.332,
+     -1.2964
+    ],
+    [
+     0.6052,
+     -1.2871
+    ],
+    [
+     1.85,
+     -1.2447
+    ],
+    [
+     3.3856,
+     -1.1923
+    ]
+   ]
+  },
+  {
+   "index": 90,
+   "pair_id": "F3S-00090",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2293,
+     -1.304
+    ],
+    [
+     3.4026,
+     -0.966
+    ]
+   ]
+  },
+  {
+   "index": 92,
+   "pair_id": "F3S-00092",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7387,
+     -1.1959
+    ],
+    [
+     0.4232,
+     -1.3434
+    ]
+   ]
+  },
+  {
+   "index": 94,
+   "pair_id": "F3S-00094",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.829,
+     -1.3241
+    ],
+    [
+     1.6044,
+     -1.1437
+    ],
+    [
+     0.579,
+     -1.0606
+    ],
+    [
+     0.5146,
+     -1.0554
+    ]
+   ]
+  },
+  {
+   "index": 95,
+   "pair_id": "F3S-00095",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4523,
+     -1.1537
+    ],
+    [
+     0.3986,
+     -1.2851
+    ]
+   ]
+  },
+  {
+   "index": 96,
+   "pair_id": "F3S-00096",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 97,
+   "pair_id": "F3S-00097",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4088,
+     -1.2137
+    ],
+    [
+     1.8496,
+     -1.2666
+    ],
+    [
+     0.6247,
+     -1.3082
+    ],
+    [
+     0.3201,
+     -1.3185
+    ]
+   ]
+  },
+  {
+   "index": 98,
+   "pair_id": "F3S-00098",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8438,
+     -0.9196
+    ],
+    [
+     0.5733,
+     -0.9063
+    ],
+    [
+     0.436,
+     -0.9057
+    ]
+   ]
+  },
+  {
+   "index": 101,
+   "pair_id": "F3S-00101",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2973,
+     -0.9858
+    ],
+    [
+     1.7642,
+     -0.9524
+    ],
+    [
+     3.7743,
+     -0.9067
+    ]
+   ]
+  },
+  {
+   "index": 103,
+   "pair_id": "F3S-00103",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6792,
+     -1.2006
+    ],
+    [
+     1.85,
+     -1.2846
+    ],
+    [
+     0.7349,
+     -1.3359
+    ],
+    [
+     0.6467,
+     -1.3399
+    ]
+   ]
+  },
+  {
+   "index": 104,
+   "pair_id": "F3S-00104",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4771,
+     -1.1631
+    ],
+    [
+     3.7666,
+     -0.8778
+    ]
+   ]
+  },
+  {
+   "index": 105,
+   "pair_id": "F3S-00105",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4687,
+     -1.0154
+    ],
+    [
+     0.5798,
+     -1.0254
+    ],
+    [
+     1.3107,
+     -1.091
+    ],
+    [
+     3.6834,
+     -1.3041
+    ]
+   ]
+  },
+  {
+   "index": 108,
+   "pair_id": "F3S-00108",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7467,
+     -1.1617
+    ],
+    [
+     1.85,
+     -1.2473
+    ],
+    [
+     0.5232,
+     -1.3072
+    ]
+   ]
+  },
+  {
+   "index": 109,
+   "pair_id": "F3S-00109",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6715,
+     -1.3122
+    ],
+    [
+     0.7046,
+     -1.3078
+    ],
+    [
+     1.7208,
+     -1.1729
+    ],
+    [
+     3.6626,
+     -0.9151
+    ]
+   ]
+  },
+  {
+   "index": 110,
+   "pair_id": "F3S-00110",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4697,
+     -1.1835
+    ],
+    [
+     0.592,
+     -1.1723
+    ],
+    [
+     1.6011,
+     -1.0801
+    ],
+    [
+     3.8644,
+     -0.8732
+    ]
+   ]
+  },
+  {
+   "index": 111,
+   "pair_id": "F3S-00111",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 113,
+   "pair_id": "F3S-00113",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4752,
+     -0.872
+    ],
+    [
+     1.3805,
+     -1.0793
+    ],
+    [
+     0.5827,
+     -1.1582
+    ],
+    [
+     0.4689,
+     -1.1695
+    ]
+   ]
+  },
+  {
+   "index": 114,
+   "pair_id": "F3S-00114",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.557,
+     -1.0118
+    ],
+    [
+     0.3699,
+     -0.9092
+    ]
+   ]
+  },
+  {
+   "index": 116,
+   "pair_id": "F3S-00116",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5601,
+     -1.3355
+    ],
+    [
+     1.305,
+     -1.0057
+    ],
+    [
+     0.4201,
+     -0.8806
+    ]
+   ]
+  },
+  {
+   "index": 117,
+   "pair_id": "F3S-00117",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6645,
+     -1.0373
+    ],
+    [
+     0.4384,
+     -0.8611
+    ]
+   ]
+  },
+  {
+   "index": 120,
+   "pair_id": "F3S-00120",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.1685,
+     -1.3428
+    ],
+    [
+     3.3957,
+     -1.2477
+    ]
+   ]
+  },
+  {
+   "index": 123,
+   "pair_id": "F3S-00123",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4567,
+     -1.3153
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     0.3136,
+     -1.3227
+    ]
+   ]
+  },
+  {
+   "index": 125,
+   "pair_id": "F3S-00125",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 128,
+   "pair_id": "F3S-00128",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 130,
+   "pair_id": "F3S-00130",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 132,
+   "pair_id": "F3S-00132",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 134,
+   "pair_id": "F3S-00134",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7765,
+     -1.1438
+    ],
+    [
+     0.7082,
+     -1.3111
+    ],
+    [
+     0.685,
+     -1.3124
+    ]
+   ]
+  },
+  {
+   "index": 137,
+   "pair_id": "F3S-00137",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5306,
+     -0.8665
+    ],
+    [
+     0.6326,
+     -0.8794
+    ],
+    [
+     1.3111,
+     -0.9653
+    ],
+    [
+     3.6146,
+     -1.2569
+    ]
+   ]
+  },
+  {
+   "index": 138,
+   "pair_id": "F3S-00138",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2151,
+     -1.3044
+    ],
+    [
+     1.703,
+     -1.1292
+    ],
+    [
+     3.6438,
+     -0.9006
+    ]
+   ]
+  },
+  {
+   "index": 140,
+   "pair_id": "F3S-00140",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2614,
+     -1.1608
+    ],
+    [
+     0.5442,
+     -1.1722
+    ],
+    [
+     3.4138,
+     -1.2881
+    ],
+    [
+     3.7138,
+     -1.3002
+    ]
+   ]
+  },
+  {
+   "index": 142,
+   "pair_id": "F3S-00142",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2969,
+     -1.3287
+    ],
+    [
+     0.5788,
+     -1.3236
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     3.6949,
+     -1.2854
+    ]
+   ]
+  },
+  {
+   "index": 144,
+   "pair_id": "F3S-00144",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8101,
+     -1.0992
+    ],
+    [
+     0.4486,
+     -1.3239
+    ]
+   ]
+  },
+  {
+   "index": 147,
+   "pair_id": "F3S-00147",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 148,
+   "pair_id": "F3S-00148",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.344,
+     -1.0837
+    ],
+    [
+     0.5297,
+     -1.0744
+    ],
+    [
+     1.3142,
+     -1.0354
+    ],
+    [
+     3.6274,
+     -0.9201
+    ]
+   ]
+  },
+  {
+   "index": 149,
+   "pair_id": "F3S-00149",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6916,
+     -1.146
+    ],
+    [
+     1.85,
+     -1.2474
+    ],
+    [
+     0.7074,
+     -1.3104
+    ],
+    [
+     0.6433,
+     -1.3139
+    ]
+   ]
+  },
+  {
+   "index": 150,
+   "pair_id": "F3S-00150",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4155,
+     -1.0474
+    ],
+    [
+     0.414,
+     -1.3049
+    ]
+   ]
+  },
+  {
+   "index": 151,
+   "pair_id": "F3S-00151",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 152,
+   "pair_id": "F3S-00152",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 154,
+   "pair_id": "F3S-00154",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5692,
+     -1.1468
+    ],
+    [
+     0.5856,
+     -1.1475
+    ],
+    [
+     1.6027,
+     -1.1932
+    ],
+    [
+     3.7238,
+     -1.2883
+    ]
+   ]
+  },
+  {
+   "index": 155,
+   "pair_id": "F3S-00155",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4173,
+     -0.9041
+    ],
+    [
+     1.6018,
+     -1.1001
+    ],
+    [
+     0.305,
+     -1.2401
+    ]
+   ]
+  },
+  {
+   "index": 156,
+   "pair_id": "F3S-00156",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3559,
+     -1.2269
+    ],
+    [
+     0.6262,
+     -1.2334
+    ],
+    [
+     1.85,
+     -1.2627
+    ],
+    [
+     3.3742,
+     -1.3015
+    ],
+    [
+     3.4943,
+     -1.3434
+    ]
+   ]
+  },
+  {
+   "index": 158,
+   "pair_id": "F3S-00158",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7202,
+     -1.069
+    ],
+    [
+     0.7314,
+     -1.3326
+    ],
+    [
+     0.7211,
+     -1.3335
+    ]
+   ]
+  },
+  {
+   "index": 161,
+   "pair_id": "F3S-00161",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7432,
+     -0.8926
+    ],
+    [
+     1.3174,
+     -1.1032
+    ],
+    [
+     0.5867,
+     -1.1666
+    ],
+    [
+     0.4758,
+     -1.1762
+    ]
+   ]
+  },
+  {
+   "index": 163,
+   "pair_id": "F3S-00163",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 164,
+   "pair_id": "F3S-00164",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.3704,
+     -1.2513
+    ],
+    [
+     0.2119,
+     -1.2815
+    ]
+   ]
+  },
+  {
+   "index": 165,
+   "pair_id": "F3S-00165",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2934,
+     -1.3317
+    ],
+    [
+     3.576,
+     -1.244
+    ]
+   ]
+  },
+  {
+   "index": 167,
+   "pair_id": "F3S-00167",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3574,
+     -1.3068
+    ],
+    [
+     3.3893,
+     -1.232
+    ]
+   ]
+  },
+  {
+   "index": 169,
+   "pair_id": "F3S-00169",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5537,
+     -1.2938
+    ],
+    [
+     1.6243,
+     -1.1969
+    ],
+    [
+     0.5595,
+     -1.1434
+    ],
+    [
+     0.2958,
+     -1.1302
+    ]
+   ]
+  },
+  {
+   "index": 170,
+   "pair_id": "F3S-00170",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6119,
+     -1.0238
+    ],
+    [
+     1.75,
+     -1.19
+    ],
+    [
+     0.4477,
+     -1.3063
+    ]
+   ]
+  },
+  {
+   "index": 171,
+   "pair_id": "F3S-00171",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 172,
+   "pair_id": "F3S-00172",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6833,
+     -0.9657
+    ],
+    [
+     1.7192,
+     -1.1928
+    ],
+    [
+     0.7068,
+     -1.3099
+    ],
+    [
+     0.5697,
+     -1.3257
+    ]
+   ]
+  },
+  {
+   "index": 174,
+   "pair_id": "F3S-00174",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4322,
+     -1.323
+    ],
+    [
+     3.3805,
+     -1.3086
+    ],
+    [
+     1.3091,
+     -1.1147
+    ],
+    [
+     0.5292,
+     -1.0452
+    ],
+    [
+     0.2972,
+     -1.0245
+    ]
+   ]
+  },
+  {
+   "index": 176,
+   "pair_id": "F3S-00176",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6566,
+     -0.9036
+    ],
+    [
+     1.7081,
+     -1.1521
+    ],
+    [
+     0.6095,
+     -1.2922
+    ]
+   ]
+  },
+  {
+   "index": 177,
+   "pair_id": "F3S-00177",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5446,
+     -0.9514
+    ],
+    [
+     1.3114,
+     -0.9141
+    ],
+    [
+     0.5063,
+     -0.9007
+    ]
+   ]
+  },
+  {
+   "index": 179,
+   "pair_id": "F3S-00179",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3721,
+     -0.8972
+    ],
+    [
+     0.5846,
+     -0.9103
+    ],
+    [
+     1.3124,
+     -0.9551
+    ],
+    [
+     3.4798,
+     -1.0885
+    ]
+   ]
+  },
+  {
+   "index": 180,
+   "pair_id": "F3S-00180",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 181,
+   "pair_id": "F3S-00181",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.621,
+     -1.1293
+    ],
+    [
+     0.3784,
+     -1.2892
+    ]
+   ]
+  },
+  {
+   "index": 183,
+   "pair_id": "F3S-00183",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3699,
+     -0.8847
+    ],
+    [
+     0.6023,
+     -0.8863
+    ],
+    [
+     3.5688,
+     -0.9063
+    ]
+   ]
+  },
+  {
+   "index": 184,
+   "pair_id": "F3S-00184",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5367,
+     -1.0785
+    ],
+    [
+     0.5792,
+     -1.0759
+    ],
+    [
+     1.3165,
+     -1.0314
+    ],
+    [
+     3.8784,
+     -0.8766
+    ]
+   ]
+  },
+  {
+   "index": 185,
+   "pair_id": "F3S-00185",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4029,
+     -0.8521
+    ],
+    [
+     0.6049,
+     -0.8675
+    ],
+    [
+     1.327,
+     -0.9224
+    ],
+    [
+     3.7532,
+     -1.1071
+    ]
+   ]
+  },
+  {
+   "index": 186,
+   "pair_id": "F3S-00186",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4778,
+     -0.8921
+    ],
+    [
+     0.583,
+     -1.1458
+    ],
+    [
+     0.4385,
+     -1.1585
+    ]
+   ]
+  },
+  {
+   "index": 187,
+   "pair_id": "F3S-00187",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 188,
+   "pair_id": "F3S-00188",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7818,
+     -0.8872
+    ],
+    [
+     0.5157,
+     -1.1068
+    ]
+   ]
+  },
+  {
+   "index": 190,
+   "pair_id": "F3S-00190",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4731,
+     -1.2903
+    ],
+    [
+     1.85,
+     -1.2783
+    ],
+    [
+     0.6028,
+     -1.269
+    ],
+    [
+     0.401,
+     -1.2675
+    ]
+   ]
+  },
+  {
+   "index": 191,
+   "pair_id": "F3S-00191",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4893,
+     -1.0218
+    ],
+    [
+     1.3609,
+     -0.9754
+    ],
+    [
+     3.4984,
+     -0.8616
+    ]
+   ]
+  },
+  {
+   "index": 193,
+   "pair_id": "F3S-00193",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6511,
+     -1.2953
+    ],
+    [
+     0.6911,
+     -1.2954
+    ],
+    [
+     1.85,
+     -1.2971
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     3.8128,
+     -1.3287
+    ]
+   ]
+  },
+  {
+   "index": 194,
+   "pair_id": "F3S-00194",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7505,
+     -1.3409
+    ],
+    [
+     1.2699,
+     -1.0397
+    ],
+    [
+     0.4129,
+     -0.9356
+    ]
+   ]
+  }
+ ]
+}

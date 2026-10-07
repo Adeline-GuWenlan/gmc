@@ -1,0 +1,92 @@
+{
+ "schema": "aerial3dg_fail3.sample_stream.v1",
+ "stream": 1,
+ "seed": 20262100,
+ "box_uv": [
+  0.9,
+  2.75,
+  5.5,
+  4.7
+ ],
+ "mode": "uniform",
+ "body": "cylinder (real)",
+ "margin_m": 0.001,
+ "resolution_m": 0.1,
+ "astar_budget": {
+  "max_expansions": 500000,
+  "max_oracle_calls": 5000000,
+  "max_narrowphase_pairs": 20000000,
+  "max_wall_s": 120.0
+ },
+ "audit": false,
+ "min_dist_m": 3.0,
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 32382,
+  "bounds_min": [
+   12.744434379266893,
+   25.768836169040384,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   16.48793861074622,
+   30.76001582747995,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "support": {
+  "contact_manifold": "constant_legacy_floor_reference",
+  "z_floor_world_m": -1.2271749593107995,
+  "fitted_plane_max_corner_deviation_m": 0.047992795481177186,
+  "allowed_height_error_m": 0.05,
+  "tile_top_clamp_m": -1.2121749593107995,
+  "chassis_bottom_m": -1.2071749593107994
+ },
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "load_s": 2.225738727953285,
+ "prepare_s": 0.07229847181588411,
+ "lattice": {
+  "step_m": 0.1,
+  "nodes": 940,
+  "free_nodes": 225,
+  "edges_tested": 753,
+  "edges_free": 753,
+  "components": 3,
+  "component_sizes": [
+   180,
+   44,
+   1
+  ],
+  "wall_s": 1.2423135649878532,
+  "oracle_calls": 1693,
+  "built_here": true
+ },
+ "host": {
+  "node": "cs623.hpc.nyu.edu",
+  "slurm_job_id": "19309688",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   81.7919921875,
+   81.3876953125,
+   81.6376953125
+  ],
+  "utc": "2026-10-06T23:44:04Z",
+  "python": "3.13.5",
+  "git_commit": "8cb493fb2782a6895abf5932194eba3e16e9bf16"
+ },
+ "ladder": [
+  0.001,
+  0.002,
+  0.003,
+  0.005,
+  0.01,
+  0.02,
+  0.05,
+  0.1
+ ]
+}

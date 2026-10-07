@@ -26,12 +26,15 @@ Targeted discovery (``--mode``; never mixed into the uniform rates):
           chassis bottom raised 1 cm, top + 3 cm, is not free at margin 0 there) AND the straight segment is blocked.
 
 Every accepted pair also gets difficulty evidence along its A* route (real body):
-  clear3d_m   largest margin in LADDER at which ``verify_path`` still passes (oracle 3-D clearance, floor included)
-  lateral_m   largest radius / top growth in LADDER at which the body with its chassis bottom raised 1 cm (so floor
-              splats below 0.03 m are ignored) still passes at margin 0: lateral + overhead clearance
-  vertical_m  geometric under-chassis gap: min over Gaussians whose 2-sigma top is below the chassis bottom + 1 cm
+  clear3d_m   largest margin in LADDER at which ``verify_path`` of the exact re-verified route still passes (the
+              oracle's 3-D clearance, floor splats included); 0 = below the first rung (0.5 mm)
+  lateral_m   largest radius + top growth in LADDER at which the body with its chassis bottom raised 3 mm still passes
+              at margin 0: lateral + overhead clearance.  Raising the bottom 3 mm ignores the floor splats (2-sigma
+              tops < 0.020 m) but keeps every obstacle reaching above 0.023 m.
+  vertical_m  geometric under-chassis gap: min over Gaussians whose 2-sigma top is below the chassis bottom (0.02 m)
               and whose xy 2-sigma disk (max axis) comes within the body radius of the route, of (bottom - top).
-              (The xy disk over-covers the ellipse, so this is a lower bound.)
+              (The disk over-covers the ellipse, so this is a lower bound.)
+  start/goal_clear3d_m, start/goal_lateral_m: the same ladders at the endpoints alone.
 """
 from __future__ import annotations
 
@@ -48,7 +51,7 @@ from aerial3dg_run import GROUND_CONFIG, ROBOTS, _dump, host, rss_mb
 from aerial3dg_fail2_sample import MIN_DIST, Tester, draws, read_jsonl, stage_stats, _sum
 import aerial3dg_fail2_sample as f2s
 
-LADDER = (.001, .002, .003, .005, .01, .02, .05, .1)
+LADDER = (.0005, .001, .0015, .002, .003, .005, .01, .02, .05, .1)
 
 
 class RealTester(Tester):
@@ -65,7 +68,7 @@ class RealTester(Tester):
         R = self.ctx["frame"].R
         cov = np.einsum("ij,njk,lk->nil", R, g.covs, R)
         top = L[:, 2] + lev * np.sqrt(np.maximum(cov[:, 2, 2], 0.))
-        low = top < b.ground_clearance_m + .01
+        low = top < b.ground_clearance_m
         self.low_uv = L[low, :2]
         self.low_top = top[low]
         self.low_rxy = lev * np.sqrt(np.maximum(np.maximum(cov[low, 0, 0], cov[low, 1, 1]), 0.))
@@ -74,9 +77,13 @@ class RealTester(Tester):
         self.low_rxy = lev * np.sqrt(np.maximum(ev, 0.))
 
     # ------------------------------------------------------------------ difficulty evidence
-    def _passes(self, route_uv, body, margin):
+    def _passes(self, poses, body, margin):
+        """``verify_path`` of the captured real-body poses (yaw kept), each moved to ``body``'s own ground z_c."""
+        from gmc.gs3d.contracts import Pose3
         from gmc.gs3d.validation import verify_path
-        return verify_path(self.oracle, [self.pose(uv, body) for uv in route_uv], body, margin_m=margin)["passed"]
+        dz = (body.ground_clearance_m + body.half_height_m) - (self.body.ground_clearance_m + self.body.half_height_m)
+        q = [Pose3((p.xyz[0], p.xyz[1], p.xyz[2] + dz), p.yaw) for p in poses]
+        return verify_path(self.oracle, q, body, margin_m=margin)["passed"]
 
     def _ladder(self, ok):
         lo, hi = -1, len(LADDER)            # invariant: LADDER[lo] passes (lo=-1: unknown), LADDER[hi] fails
@@ -91,7 +98,7 @@ class RealTester(Tester):
     def lateral_body(self, d):
         b = self.body
         top = b.ground_clearance_m + 2 * b.half_height_m + d
-        bot = b.ground_clearance_m + .01
+        bot = b.ground_clearance_m + .003
         return replace(b, name=f"lat_probe_{d:g}", radius_m=b.radius_m + d, ground_clearance_m=bot,
                        half_height_m=(top - bot) / 2)
 
@@ -113,21 +120,37 @@ class RealTester(Tester):
                 best = min(best, float(np.min(self.body.ground_clearance_m - T[hit])))
         return None if not np.isfinite(best) else best
 
-    def evidence(self, row):
+    def evidence(self, row, s_uv, g_uv):
         t0 = time.perf_counter()
         R = row["route_uv"]
-        s, g = np.asarray(row["start_uv"]), np.asarray(row["goal_uv"])
+        P = self._last_poses
+        s, g = np.asarray(s_uv, float), np.asarray(g_uv, float)
         length = float(np.sum(np.linalg.norm(np.diff(np.asarray(R), axis=0), axis=1)))
         row.update(route_len_m=length, len_ratio=length / max(float(np.linalg.norm(g - s)), 1e-9),
-                   clear3d_m=self._ladder(lambda m: self._passes(R, self.body, m)),
-                   lateral_m=self._ladder(lambda d: self._passes(R, self.lateral_body(d), 0.)),
+                   clear3d_m=self._ladder(lambda m: self._passes(P, self.body, m)),
+                   lateral_m=self._ladder(lambda d: self._passes(P, self.lateral_body(d), 0.)),
                    vertical_m=self.vertical_gap(R),
-                   start_lateral_m=self._ladder(lambda d: self._passes([R[0]], self.lateral_body(d), 0.)),
-                   goal_lateral_m=self._ladder(lambda d: self._passes([R[-1]], self.lateral_body(d), 0.)),
+                   start_clear3d_m=self._ladder(lambda m: self._passes(P[:1], self.body, m)),
+                   goal_clear3d_m=self._ladder(lambda m: self._passes(P[-1:], self.body, m)),
+                   start_lateral_m=self._ladder(lambda d: self._passes(P[:1], self.lateral_body(d), 0.)),
+                   goal_lateral_m=self._ladder(lambda d: self._passes(P[-1:], self.lateral_body(d), 0.)),
                    t_evidence_s=time.perf_counter() - t0)
 
     # ------------------------------------------------------------------ targeted stages + evidence
     def test(self, s_uv, g_uv, audit=False) -> dict:
+        import gmc.gs3d.validation as val
+        real_verify = val.verify_path
+
+        def capture(oracle, poses, body, **kw):        # Tester.test's stage-5 re-verify: keep its exact poses
+            self._last_poses = list(poses)
+            return real_verify(oracle, poses, body, **kw)
+        val.verify_path = capture
+        try:
+            return self._test(s_uv, g_uv, audit)
+        finally:
+            val.verify_path = real_verify
+
+    def _test(self, s_uv, g_uv, audit=False) -> dict:
         if self.mode in ("detour", "tight"):
             t0 = time.perf_counter()
             pre = {}
@@ -147,12 +170,12 @@ class RealTester(Tester):
             pre["t_target_s"] = time.perf_counter() - t0
             if pre["straight_free"]:
                 return {**pre, "stage_failed": "targeted_detour"}
-            row = super().test(s_uv, g_uv, audit)
+            row = Tester.test(self, s_uv, g_uv, audit)
             row.update(pre)
         else:
-            row = super().test(s_uv, g_uv, audit)
+            row = Tester.test(self, s_uv, g_uv, audit)
         if row["stage_failed"] is None:
-            self.evidence(row)
+            self.evidence(row, s_uv, g_uv)
         return row
 
 
@@ -251,10 +274,51 @@ def cmd_audit(a):
     print(summ, flush=True)
 
 
+def cmd_witness(a):
+    """Genuine-vs-tolerance test for a GMC failure: the real-body A* at margin ``--margin`` (default 0.0021 =
+    aerial3d margin + buffer + 0.1 mm).  ROUTE = a route whose every pose keeps > 2.1 mm from every Gaussian exists,
+    i.e. one GMC's buffer could certify, so the failure is not by-tolerance.  Also re-verifies the stored A* witness
+    (margin 0.001) edge by edge with the shared oracle."""
+    from gmc.gs3d.contracts import GoalRegion, PlannerConfig, SearchBudget
+    from gmc.gs3d.validation import verify_path
+    from gmc.gs3d.planner import _linear_trajectory
+    doc = json.loads(Path(a.pairs).read_text())
+    pairs = [p for p in doc["pairs"] if p["pair_id"] in set(a.ids)] if a.ids else doc["pairs"]
+    t = RealTester(doc["box_uv"], a.max_wall, a.resolution)
+    out = []
+    for p in pairs:
+        s, g = t.pose(p["start_uv"], t.body), t.pose(p["goal_uv"], t.body)
+        rec = {"pair_id": p["pair_id"], "margin_m": a.margin}
+        for e, q in (("start", s), ("goal", g)):
+            rep = t.oracle.pose(q, t.body, margin_m=a.margin)
+            rec[f"{e}_free_at_margin"] = rep.occupancy == "free" and rep.safety == "continuous_bound"
+        stored = [t.pose(uv, t.body) for uv in p["astar_route_uv"]]
+        poses, _ = _linear_trajectory(stored, t.body, 0., 0.)
+        ver = verify_path(t.oracle, poses, t.body, margin_m=.001, goal=GoalRegion(g, 0., .05))
+        rec.update(stored_route_reverify_m001=ver["passed"], stored_route_reverify_reason=ver["reason"])
+        conf = PlannerConfig(resolution_m=t.resolution, margin_m=a.margin, seed=0,
+                             budget=SearchBudget(max_wall_s=t.max_wall, **f2s.BUDGET))
+        w0 = time.perf_counter()
+        res = t.planner.plan(t.ctx["scene"], t.body, s, GoalRegion(g, 0., .05), conf)
+        d = res["diagnostics"]
+        rec.update(astar_outcome=f2s.classify(res), astar_reason=res["reason"], expansions=d.get("expansions"),
+                   unproven_rejections=d.get("unproven_rejections"), t_astar_s=time.perf_counter() - w0,
+                   clearance_lower_m=res["clearance_lower_m"])
+        if res["status"] == "success":
+            rec["route_uv"] = t.ctx["frame"].to_route(np.asarray(res["trajectory"]["poses"], float)[:, :3])[:, :2] \
+                .round(4).tolist()
+        out.append(rec)
+        print({k: v for k, v in rec.items() if k != "route_uv"}, flush=True)
+    import collections
+    _dump(Path(a.out), {"pairs": str(a.pairs), "margin_m": a.margin, "resolution_m": a.resolution,
+                        "summary": dict(collections.Counter(r["astar_outcome"] for r in out)), "rows": out,
+                        "host": host()})
+
+
 def funnel(rows, mode="uniform"):
     """Stage table on the distance-passing candidates (+ targeted stages first), A* reject split, costs."""
-    order = (["targeted_tight", "targeted_detour"] if mode != "uniform" else []) + \
-        ["endpoint_m001", "endpoint_robust", "prefilter", "astar_robust", "reverify_m001"]
+    order = ["endpoint_m001"] + (["targeted_tight", "targeted_detour"] if mode != "uniform" else []) + \
+        ["endpoint_robust", "prefilter", "astar_robust", "reverify_m001"]
     out, alive = {}, len(rows)
     for st in order:
         failed = sum(r["stage_failed"] == st for r in rows)
@@ -301,7 +365,7 @@ def cmd_collect(a):
         pairs.append({"index": i, "pair_id": f"{a.prefix}-{i:05d}", "start_uv": r["start_uv"], "goal_uv": r["goal_uv"],
                       "dist_m": r["dist_m"], "stream": r["stream"], "draw": r["draw"], "region": a.region,
                       "clearance_m": {"cylinder": {"start": r["start_clear_m001"], "goal": r["goal_clear_m001"]}},
-                      "evidence": {k: r.get(k) for k in ("route_len_m", "len_ratio", "clear3d_m", "lateral_m",
+                      "evidence": {k: r.get(k) for k in ("route_len_m", "len_ratio", "clear3d_m", "lateral_m", "start_clear3d_m", "goal_clear3d_m",
                                                          "vertical_m", "start_lateral_m", "goal_lateral_m",
                                                          "straight_free", "tight_start", "tight_goal")},
                       "astar": {k: r.get(k) for k in ("astar_outcome", "astar_clearance_lower_m", "path_length_m",
@@ -347,6 +411,13 @@ def main(argv=None):
     au.add_argument("--resolution", type=float, default=.1)
     au.add_argument("--max-wall", type=float, default=120.)
     au.add_argument("--out", type=Path, required=True)
+    wi = sub.add_parser("witness")
+    wi.add_argument("--pairs", type=Path, required=True)
+    wi.add_argument("--ids", nargs="*", default=None)
+    wi.add_argument("--margin", type=float, default=.0021)
+    wi.add_argument("--resolution", type=float, default=.1)
+    wi.add_argument("--max-wall", type=float, default=120.)
+    wi.add_argument("--out", type=Path, required=True)
     c = sub.add_parser("collect")
     c.add_argument("--out-dir", type=Path, required=True)
     c.add_argument("--n", type=int, default=None)
@@ -354,7 +425,8 @@ def main(argv=None):
     c.add_argument("--prefix", required=True)
     c.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
-    {"lattice": cmd_lattice, "run": cmd_run, "collect": cmd_collect, "audit": cmd_audit}[a.cmd](a)
+    {"lattice": cmd_lattice, "run": cmd_run, "collect": cmd_collect, "audit": cmd_audit,
+     "witness": cmd_witness}[a.cmd](a)
 
 
 if __name__ == "__main__":

@@ -13,8 +13,10 @@ Run from ``gmc/`` with ``PYTHONPATH=src:experiments``.
               REPLAY-OTHER      shared_replay_failed, anything else                                    -> genuine
               EP-TOL            *_not_certified_free and the endpoint's oracle clearance <= margin + buffer (2 mm)
               EP-GENUINE        *_not_certified_free with endpoint clearance > 2 mm                    -> genuine
-              GAP-TOL           safe_graph_disconnected and the A* witness's 3-D clearance <= 2 mm (ladder)
-              GAP-GENUINE       safe_graph_disconnected with witness clearance >= 3 mm                 -> genuine
+              GAP-TOL           safe_graph_disconnected and no real-body A* route at margin 0.0021 (every lattice
+                                route comes within margin + buffer of a Gaussian)
+              GAP-GENUINE       safe_graph_disconnected and the A* at margin 0.0021 finds a route      -> genuine
+              GAP-UNVERIFIED    safe_graph_disconnected, witness test not run yet
               SOUNDNESS         UNREACHABLE on a confirmed-reachable pair                              -> genuine (!)
               METHOD-ERROR      TIMEOUT / ERROR / any other UNKNOWN reason                             -> genuine
 """
@@ -118,7 +120,11 @@ def cmd_requery(a):
     _dump(a.out, {"a3c": str(a.a3c), "rows_source": str(a.rows), "rows": out})
 
 
-def classify_row(r, ev, kin=None, buf0=None):
+def classify_row(r, ev, kin=None, buf0=None, witness=None):
+    """``ev`` ladders: a value m means verify_path passed at margin m (clearance > m) and failed at the next rung.
+    By-tolerance = clearance <= margin + buffer = 2 mm, i.e. the 2 mm rung failed (ladder value < 2 mm).
+    GAP rows: decided by ``witness`` (real-body A* at margin 0.0021): ROUTE -> a route GMC's buffer could certify
+    exists -> genuine; no route -> tolerance; no witness run -> GAP-UNVERIFIED."""
     st, rs = r["status"], r["reason"]
     if st == "REACHABLE":
         return "REACHABLE"
@@ -138,10 +144,11 @@ def classify_row(r, ev, kin=None, buf0=None):
         c = ev.get(f"{end}_clear3d_m")
         if c is None:
             c = (ev.get("clearance_m") or {}).get(end)
-        return "EP-TOL" if c is not None and c <= TOL else "EP-GENUINE"
+        return "EP-TOL" if c is not None and c < MARGIN + BUFFER - 1e-9 else "EP-GENUINE"
     if st == "UNKNOWN" and rs.startswith("safe_graph_disconnected"):
-        c = ev.get("clear3d_m")
-        return "GAP-TOL" if c is not None and c <= TOL else "GAP-GENUINE"
+        if witness is None:
+            return "GAP-UNVERIFIED"
+        return "GAP-GENUINE" if witness.get("astar_outcome") == "ROUTE" else "GAP-TOL"
     return "METHOD-ERROR"
 
 

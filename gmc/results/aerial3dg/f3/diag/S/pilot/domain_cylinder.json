@@ -1,0 +1,374 @@
+{
+ "F3S-00000": {
+  "max_pose_excess_m": -0.0013381424464611325,
+  "max_swept_excess_m": 0.022777871265971417
+ },
+ "F3S-00001": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.009233206606457822
+ },
+ "F3S-00005": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03326977162061562
+ },
+ "F3S-00006": {
+  "max_pose_excess_m": -0.01233814244646192,
+  "max_swept_excess_m": 0.05852663727423679
+ },
+ "F3S-00011": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02891994740574888
+ },
+ "F3S-00012": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04579348172655173
+ },
+ "F3S-00013": {
+  "max_pose_excess_m": -0.015038142446462288,
+  "max_swept_excess_m": 0.04719947478585218
+ },
+ "F3S-00015": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.006105128953153072
+ },
+ "F3S-00019": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.034343101913062446
+ },
+ "F3S-00021": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03439554049644067
+ },
+ "F3S-00023": {
+  "max_pose_excess_m": -0.011438142446463184,
+  "max_swept_excess_m": 0.057137248477262315
+ },
+ "F3S-00024": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.000428397276241832
+ },
+ "F3S-00026": {
+  "max_pose_excess_m": -0.0017381424464626427,
+  "max_swept_excess_m": 0.06180855956599607
+ },
+ "F3S-00029": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.029706217219650166
+ },
+ "F3S-00031": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.00976281780757926
+ },
+ "F3S-00035": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.041160400248673845
+ },
+ "F3S-00036": {
+  "max_pose_excess_m": -0.003738142446461923,
+  "max_swept_excess_m": 0.06878443640245152
+ },
+ "F3S-00041": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02211639183248093
+ },
+ "F3S-00043": {
+  "max_pose_excess_m": -0.0025381424464625546,
+  "max_swept_excess_m": 0.03784577382590859
+ },
+ "F3S-00044": {
+  "max_pose_excess_m": -0.012138142446462385,
+  "max_swept_excess_m": 0.06117788329320617
+ },
+ "F3S-00046": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.049528234068554555
+ },
+ "F3S-00047": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.01667320397766936
+ },
+ "F3S-00048": {
+  "max_pose_excess_m": -0.006138142446462935,
+  "max_swept_excess_m": 0.061906182876578564
+ },
+ "F3S-00050": {
+  "max_pose_excess_m": -0.013938142446461299,
+  "max_swept_excess_m": 0.05891443155017373
+ },
+ "F3S-00052": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02371712217709465
+ },
+ "F3S-00053": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03140416166408566
+ },
+ "F3S-00057": {
+  "max_pose_excess_m": -0.009638142446460884,
+  "max_swept_excess_m": 0.06733817313013563
+ },
+ "F3S-00058": {
+  "max_pose_excess_m": -0.007738142446461094,
+  "max_swept_excess_m": 0.06356106639683146
+ },
+ "F3S-00060": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03714155149151588
+ },
+ "F3S-00065": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.019090425556385016
+ },
+ "F3S-00067": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.003579494560679519
+ },
+ "F3S-00069": {
+  "max_pose_excess_m": -0.0038381424464626335,
+  "max_swept_excess_m": 0.050936979584424114
+ },
+ "F3S-00070": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.042829773677516114
+ },
+ "F3S-00072": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02805014008682094
+ },
+ "F3S-00073": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0032867140556211982
+ },
+ "F3S-00075": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.039356333156104706
+ },
+ "F3S-00081": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0456583549734515
+ },
+ "F3S-00083": {
+  "max_pose_excess_m": -0.0006381424464629859,
+  "max_swept_excess_m": 0.06852232557319504
+ },
+ "F3S-00084": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.048745044671206106
+ },
+ "F3S-00087": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0052392482392857875
+ },
+ "F3S-00090": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.027314460228704762
+ },
+ "F3S-00092": {
+  "max_pose_excess_m": -0.006538142446462114,
+  "max_swept_excess_m": 0.06774581265191348
+ },
+ "F3S-00094": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03407027782915617
+ },
+ "F3S-00095": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.00790810042707335
+ },
+ "F3S-00097": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.026873244383424977
+ },
+ "F3S-00098": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.017993331485376074
+ },
+ "F3S-00101": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0137032013798975
+ },
+ "F3S-00103": {
+  "max_pose_excess_m": -0.010038142446462839,
+  "max_swept_excess_m": 0.056697050078303945
+ },
+ "F3S-00104": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04444235249072559
+ },
+ "F3S-00105": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.01665525119541522
+ },
+ "F3S-00108": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.029432847439790466
+ },
+ "F3S-00109": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.01958974573130523
+ },
+ "F3S-00110": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04705322784769905
+ },
+ "F3S-00113": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04866267510013533
+ },
+ "F3S-00114": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0131615400586918
+ },
+ "F3S-00116": {
+  "max_pose_excess_m": -0.014438142446462132,
+  "max_swept_excess_m": 0.036325984649470344
+ },
+ "F3S-00117": {
+  "max_pose_excess_m": -0.011038142446463395,
+  "max_swept_excess_m": 0.054377570735541225
+ },
+ "F3S-00120": {
+  "max_pose_excess_m": -0.00713814244646116,
+  "max_swept_excess_m": 0.06569798595229992
+ },
+ "F3S-00123": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04961255752772087
+ },
+ "F3S-00134": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03384571595525365
+ },
+ "F3S-00137": {
+  "max_pose_excess_m": -0.016438142446462856,
+  "max_swept_excess_m": 0.01919464415732347
+ },
+ "F3S-00138": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.022766514261428172
+ },
+ "F3S-00140": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.006322533922288764
+ },
+ "F3S-00142": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04672355578517329
+ },
+ "F3S-00144": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04845386363432036
+ },
+ "F3S-00148": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0031918416045388365
+ },
+ "F3S-00149": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03261787948744965
+ },
+ "F3S-00150": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.024971982538783077
+ },
+ "F3S-00154": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.006366470567257476
+ },
+ "F3S-00155": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.01296756270861077
+ },
+ "F3S-00156": {
+  "max_pose_excess_m": -0.00653814244646167,
+  "max_swept_excess_m": 0.021759740382085502
+ },
+ "F3S-00158": {
+  "max_pose_excess_m": -0.016438142446461468,
+  "max_swept_excess_m": 0.05229214423519313
+ },
+ "F3S-00161": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.027065480952345955
+ },
+ "F3S-00164": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.008034021655170864
+ },
+ "F3S-00165": {
+  "max_pose_excess_m": -0.018238142446462158,
+  "max_swept_excess_m": 0.05594719775314472
+ },
+ "F3S-00167": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.029736090336056842
+ },
+ "F3S-00169": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.011060153950511298
+ },
+ "F3S-00170": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.025671574607864844
+ },
+ "F3S-00172": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.026176299578210882
+ },
+ "F3S-00174": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.017597593973848413
+ },
+ "F3S-00176": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.01766656972120989
+ },
+ "F3S-00177": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.009843687757120245
+ },
+ "F3S-00179": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0014542104132529987
+ },
+ "F3S-00181": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.011741264302874255
+ },
+ "F3S-00183": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.039640252648338314
+ },
+ "F3S-00184": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.047938400262540704
+ },
+ "F3S-00185": {
+  "max_pose_excess_m": -0.002038142446461777,
+  "max_swept_excess_m": 0.04164448084734934
+ },
+ "F3S-00186": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0299182100904547
+ },
+ "F3S-00188": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03522578902861323
+ },
+ "F3S-00190": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.009460153875813004
+ },
+ "F3S-00191": {
+  "max_pose_excess_m": -0.011538142446461452,
+  "max_swept_excess_m": 0.06215847841695982
+ },
+ "F3S-00193": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.026734138881939318
+ },
+ "F3S-00194": {
+  "max_pose_excess_m": -0.009038142446462283,
+  "max_swept_excess_m": 0.04636219163828903
+ }
+}
