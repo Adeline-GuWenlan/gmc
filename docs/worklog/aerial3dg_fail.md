@@ -154,3 +154,14 @@
   Added a 6th candidate WWEST u[-10,-1.3] v[-1.35,3.75] (W1 minus the lamp booth; compile cylinder 61 s, sweeper 24 s).
 - 00:55Z  My requested memory overshot 16 GB (~22 GB for some minutes: short GMC/probe jobs on top of the Task 0 arrays);
   cancelled the two pending Task 0 grid jobs to stop adding; Task 1 jobs now chained.
+- 01:00-03:20Z  Targeted runs (detour, tight) for S / G2MID / GAPW1 and a detour run for WWEST; GMC + probes. WWEST pilot
+  GMC (19313632, 1.6 h): cylinder 167 R / 20 TIMEOUT / 11 EP / 2 replay, sweeper 198 R / 2 EP. On REACHABLE rows 94.6 % of
+  stage time is tighten + shortcut; TIMEOUT pairs longer (5.6 vs 4.1 m) and more detoured (1.38 vs 1.19). Only genuine
+  class found anywhere: METHOD-TIMEOUT. 0 UNREACHABLE, 0 safe_graph_disconnected on any confirmed pair.
+  Endpoint failures: 216/217 endpoint clearance < 2 mm, 1 in (2.0, 2.1] mm (witness 19314146) -> all EP-TOL.
+  Buffer 0: 157 R / 36 replay veto / 2 TIMEOUT (GAPW1 F3W-00095, -00142).
+- 03:30Z  F4 choice: WWEST 2500 + GAPW1 1500 + S 1000, backup G2MID; f4_handoff.json drafted (38.3 CPU-h projected).
+- 03:55Z  Task 0 grids (re-run after two bugs of mine: yaw-0 route re-verify, then variable shadowing): real body margin
+  0.001, 0.05 m: 3 components (2239 / 1973 / 1171); CY-LAMP 2927 SEPARATED + 1 NO_ATTACH, CY-GAP 1587 SEPARATED, CY-EP 30
+  CONNECTED (= F1's 30 buffer-0 REACHABLE) + 370 SEPARATED, controls 73/73 CONNECTED; 103/103 routes re-verified. Real
+  body margin 0: CY-GAP/EP/EP-LAT all CONNECTED in the G2 box (300/300 routes re-verified), CY-LAMP still SEPARATED.
