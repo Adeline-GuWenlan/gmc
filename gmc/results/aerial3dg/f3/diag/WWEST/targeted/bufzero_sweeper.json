@@ -1,0 +1,14 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/WWEST/targeted/sweeper/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 84,
+   "pair_id": "F3Xt-00084",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.268565934849903
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/WWEST/pilot/sweeper/task_00.jsonl",
+ "rows": [
+  {
+   "index": 44,
+   "pair_id": "F3X-00044",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.05590490298345685,
+   "requery_timeout_s": 300.0,
+   "compile_id": "29e3d020cb81ffa1",
+   "certificate_kind": null
+  },
+  {
+   "index": 91,
+   "pair_id": "F3X-00091",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.0445220700930804,
+   "requery_timeout_s": 300.0,
+   "compile_id": "29e3d020cb81ffa1",
+   "certificate_kind": null
+  }
+ ]
+}

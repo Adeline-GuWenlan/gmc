@@ -1,0 +1,53 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/WWEST/targeted/cylinder/task_00.jsonl",
+ "n": 1,
+ "summary": {
+  "no_kinematic_violation|geom=False|turn_floor=False|both_floors=False": 1
+ },
+ "rows": [
+  {
+   "index": 49,
+   "pair_id": "F3Xt-00049",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [],
+   "n_violations": 0,
+   "violation_kinds": [],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": false,
+    "geometry_passed": false,
+    "geometry_reason": "map_unknown",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  }
+ ]
+}

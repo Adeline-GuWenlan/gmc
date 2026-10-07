@@ -3,7 +3,7 @@
 **Headline.**
 Six candidate regions, all stricter than F2: the **real** cylinder, no robust inflation. **[E]**
 - E and NMID have no usable yield.
-- In the other four, **1,280 confirmed-reachable pairs** were run through GMC (uniform pilots and targeted runs, both robots).
+- In the other four, **1,380 confirmed-reachable pairs** were run through GMC (uniform pilots and targeted runs, both robots).
 - **0 UNREACHABLE** anywhere, so no soundness problem was observed.
 - **The only genuine (method) failure is METHOD-TIMEOUT in WWEST:**
   - 20 of 200 uniform confirmed pairs exceed G2's 120 s query limit;
@@ -123,8 +123,8 @@ Uniform draw in the box (G2's rule), seeded per region (`seed_base + 1000·strea
 | WWEST/targeted | 100 | 1,414 | 11.1% | 68.0% | 100 / 0 / 0 / 0 | 17.0 | 1.20 / 1.58 | 5 / 20 |
 
 Reading **[E]**:
-- **The A* reject split is almost empty because the pre-filter does that work.** Of the 1,280 pairs that passed it,
-  1,278 got ROUTE and 2 NO_ROUTE (S/tight). The rejects themselves are audited above: 160/160 A* non-routes, NO_ROUTE 109 / NO_ROUTE_MARGIN 51.
+- **The A* reject split is almost empty because the pre-filter does that work.** Of the 1,382 pairs that passed it,
+  1,380 got ROUTE and 2 NO_ROUTE (S/tight). The rejects themselves are audited above: 160/160 A* non-routes, NO_ROUTE 109 / NO_ROUTE_MARGIN 51.
 - **Endpoint pass rates of 3–13 % are mostly geometry.** `map_unknown` comes from the 0.40 m domain inset in the
   64°-rotated frame; `occupied` / `minkowski` from obstacles.
 - **S is the tight region.** 42 % of its A* routes have lateral clearance ≤ 2 mm, and 14.5 % of its pairs have an
@@ -139,9 +139,32 @@ One persisted compile per robot per region, G2's full `QCONFIG`, 120 s timeout *
 
 | region / run | robot | REACHABLE | genuine | by-tolerance | export | unverified | classes | query wall mean / max (s) |
 |---|---|---|---|---|---|---|---|---|
-__GMCTABLE__
+| S/pilot | cylinder | 78 / 200 | 0 | 29 | 93 | 0 | EP-TOL 29, EXPORT-DOMAIN 93 | 0.03 / 0.2 |
+| S/pilot | sweeper | 193 / 200 | 0 | 7 | 0 | 0 | EP-TOL 7 | 0.02 / 0.0 |
+| S/targeted | cylinder | 38 / 100 | 0 | 23 | 39 | 0 | EP-TOL 23, EXPORT-DOMAIN 39 | 0.03 / 0.3 |
+| S/targeted | sweeper | 98 / 100 | 0 | 2 | 0 | 0 | EP-TOL 2 | 0.03 / 0.2 |
+| S/tight | cylinder | 8 / 60 | 0 | 3 | 49 | 0 | EP-TOL 3, EXPORT-DOMAIN 49 | 0.04 / 0.2 |
+| S/tight | sweeper | 59 / 60 | 0 | 1 | 0 | 0 | EP-TOL 1 | 0.02 / 0.0 |
+| G2MID/pilot | cylinder | 181 / 200 | 0 | 18 | 1 | 0 | EP-TOL 18, EXPORT-KIN 1 | 1.59 / 24.9 |
+| G2MID/pilot | sweeper | 198 / 200 | 0 | 2 | 0 | 0 | EP-TOL 2 | 0.31 / 1.2 |
+| G2MID/targeted | cylinder | 90 / 100 | 0 | 10 | 0 | 0 | EP-TOL 10 | 1.97 / 25.6 |
+| G2MID/targeted | sweeper | 99 / 100 | 0 | 1 | 0 | 0 | EP-TOL 1 | 0.36 / 1.0 |
+| G2MID/tight | cylinder | 51 / 60 | 0 | 9 | 0 | 0 | EP-TOL 9 | 1.57 / 9.5 |
+| G2MID/tight | sweeper | 60 / 60 | 0 | 0 | 0 | 0 |  | 0.31 / 1.2 |
+| GAPW1/pilot | cylinder | 158 / 200 | 0 | 39 | 3 | 0 | EP-TOL 39, EXPORT-DOMAIN 3 | 7.10 / 64.1 |
+| GAPW1/pilot | sweeper | 184 / 200 | 0 | 16 | 0 | 0 | EP-TOL 16 | 0.73 / 4.5 |
+| GAPW1/targeted | cylinder | 72 / 100 | 0 | 22 | 6 | 0 | EP-TOL 22, EXPORT-DOMAIN 6 | 6.42 / 50.3 |
+| GAPW1/targeted | sweeper | 95 / 100 | 0 | 5 | 0 | 0 | EP-TOL 5 | 0.66 / 3.3 |
+| GAPW1/tight | cylinder | 32 / 60 | 0 | 14 | 14 | 0 | EP-TOL 14, EXPORT-DOMAIN 14 | 4.04 / 18.7 |
+| GAPW1/tight | sweeper | 57 / 60 | 0 | 3 | 0 | 0 | EP-TOL 3 | 0.52 / 3.2 |
+| WWEST/pilot | cylinder | 167 / 200 | 20 | 11 | 2 | 0 | EP-TOL 11, EXPORT-DOMAIN 2, METHOD-TIMEOUT 20 | 29.16 / 120.0 |
+| WWEST/pilot | sweeper | 198 / 200 | 0 | 2 | 0 | 0 | EP-TOL 2 | 1.83 / 16.4 |
+| WWEST/targeted | cylinder | 80 / 100 | 11 | 8 | 1 | 0 | EP-TOL 8, EXPORT-DOMAIN 1, METHOD-TIMEOUT 11 | 33.76 / 120.0 |
+| WWEST/targeted | sweeper | 99 / 100 | 0 | 1 | 0 | 0 | EP-TOL 1 | 1.74 / 10.2 |
 
-- **0 UNREACHABLE on 1,280 confirmed pairs × 2 robots.**
+- **0 UNREACHABLE on 1,380 confirmed pairs × 2 robots.** Totals over all runs:
+  - cylinder: EXPORT-DOMAIN 207, EP-TOL 186, METHOD-TIMEOUT 31 (WWEST pilot 20 + targeted 11), EXPORT-KIN 1;
+  - sweeper: EP-TOL 40.
 - The sweeper only ever fails on endpoints (EP-TOL). It never hits a replay veto in these runs, and never times out.
 
 ## 4. Failure mechanisms found
@@ -150,9 +173,15 @@ __GMCTABLE__
   - in all but one the 2 mm ladder rung fails;
   - F3Wt-00000's goal passes at 2.0 mm and fails at 2.1 mm (`diag/GAPW1/targeted/witness.json`).
 - The buffer-0 probe (`diag/<R>/<run>/bufzero_<robot>.json`) re-queries every probed row with the endpoint cell grown
-  without the 1 mm buffer. Of 195 probed rows: 157 become REACHABLE, 36 become a replay veto (EXPORT-DOMAIN territory),
-  and **2 become TIMEOUT** (GAPW1 F3W-00095 and F3W-00142, detour ratio 1.33 / 1.75: the WWEST post-processing cost of
-  §4.4, seen in GAPW1 once the endpoint is unblocked). G2MID tight and WWEST rows: __BUF0_PENDING__.
+  without the 1 mm buffer. Of all 226 EP rows:
+  - 186 become REACHABLE;
+  - 36 become a replay veto (EXPORT-DOMAIN territory);
+  - 1 stays `goal_not_certified_free` (WWEST F3Xt-00094, endpoint clearance in (1.0, 1.5] mm: like F1's G2-04646);
+  - **2 become TIMEOUT** (GAPW1 F3W-00095 and F3W-00142, detour ratio 1.33 / 1.75): the post-processing cost of §4.4,
+    seen in GAPW1 once the endpoint is unblocked;
+  - **1 raises `ZeroDivisionError` in `aerial3d/query.py:217 simplify`** (WWEST F3X-00163). This is the latent src bug
+    F1 hit once on W1 (pair 4217): coincident lifted points. It is reproducible here on a persisted compile, so it is a
+    named F5 case (§5).
 - The rate is predictable from the sample alone. The share of confirmed pairs with an endpoint below 2 mm is S 14.5 %,
   GAPW1 19.5 %, G2MID 9 %, WWEST 5.5 %, and the cylinder's EP-TOL rate equals it in every region (§3).
 - The sweeper has the same chassis bottom, so the floor splats under an endpoint hit it too. Its EP-TOL rate is lower
@@ -174,35 +203,57 @@ __GMCTABLE__
 
 **4.3 EXPORT-KIN** (G2MID F3G-00013): F1's sub-µm round-off, cleared by the 1 ms floors **[E]**.
 
-**4.4 METHOD-TIMEOUT: WWEST only** **[E]** (`gmc/WWEST/pilot/cylinder/task_00.jsonl`; probe `diag/WWEST/pilot/requery_cylinder.json`, __WWEST_PROBE_STATUS__)
-- 20/200 uniform confirmed pairs exceed 120 s. The sweeper on the same pairs: 0 timeouts, mean 1.8 s.
+**4.4 METHOD-TIMEOUT: WWEST only** **[E]** (`gmc/WWEST/pilot/cylinder/task_00.jsonl`; probes `diag/WWEST/{pilot,targeted}/requery_cylinder.json`)
+- 20/200 uniform confirmed pairs exceed 120 s, and 11/100 detour-targeted ones. The sweeper on the same pairs: 0
+  timeouts, mean 1.8 s.
 - On the 167 REACHABLE cylinder rows:
   - query wall p50 / p90 / max = 12 / 51 / 115 s, with 8.4 % above 60 s;
   - **94.6 % of the summed stage time is post-processing** (tighten 56.6 %, shortcut 38.0 %, merge 3.1 %);
   - graph search is 0.5 % and lifting 0.4 %.
 - The 20 TIMEOUT pairs are longer (median 5.6 m vs 4.1 m) and more detoured (A* ratio 1.38 vs 1.19). All of them
   cross the u ≈ −5.9 partition / floor-splat field.
-- **[G]** GMC finds and certifies the route, then its optional shortening runs out of the 120 s budget. The probe
-  re-runs each TIMEOUT row with a 300 s limit and in verdict-only mode (`aerial3dg_fail_widen.FAST`: no
-  shortcut / tighten / merge) to test this.
+- **Mechanism, tested** **[E]** (`diag/WWEST/targeted/requery_cylinder.json`): each TIMEOUT row is re-queried on the
+  same compile with a 300 s limit, and once in verdict-only mode (`aerial3dg_fail_widen.FAST`: no
+  shortcut / tighten / merge).
+  - Targeted, 11 rows: with 300 s, 10 finish **REACHABLE in 119–284 s**; shortcut 47–132 s and tighten 43–190 s
+    dominate every stage record. One still exceeds 300 s.
+  - Verdict-only: all 11 answer in **0.5–3.1 s**. 6 are REACHABLE; 5 are UNKNOWN `shared_replay_failed`, i.e. the
+    unshortened polyline meets F1's replay round-off, as in F1 §3.3.
+  - Pilot, 20 rows: __WWEST_PROBE_STATUS__
+  - So GMC finds and certifies the route in seconds; the optional shortening (shortcut + tighten) is what runs past the
+    120 s budget.
 - Either way the query does not answer within G2's contract, so it is counted as **genuine**. The fix [G] is a time
   budget on the post-processing (return the certified unshortened route when it runs out).
 
-**4.5 Not observed:** `safe_graph_disconnected` (0 rows in every region and run), UNREACHABLE (0), ERROR (0).
+**4.5 METHOD-ERROR under buffer 0: `simplify` division by zero** **[E]**
+(`diag/WWEST/pilot/bufzero_cylinder.json`)
+- F3X-00163 (WWEST pilot, goal 1.5 mm over a floor splat). Re-queried with the buffer-0 endpoint cell, `query()`
+  raises `ZeroDivisionError: float division by zero` at `query.py:217`, `t = (ab·ac)/(ac·ac)` with `ac = 0`.
+- Under G2's normal config the query stops earlier (endpoint not certified), so G2-style runs never reach the bug.
+  Any fix that lets this endpoint through will.
+- `gmc/src` is read-only for this round, so it is not fixed here. **[G]** The fix is a guard for `ac·ac == 0` (drop the
+  duplicate point).
+
+**4.6 Not observed:** `safe_graph_disconnected` (0 rows in every region and run), UNREACHABLE (0), and ERROR under G2's
+own config (0; the one ERROR is the buffer-0 probe of §4.5).
 - The CY-GAP mechanism (F1 §3.2) cannot appear here: a confirmed pair must have a real-body route with clearance
   > 1 mm, which avoids the margin-grazing slivers GMC cannot certify.
 - The A* witness test at margin 0.0021 (`sample.py witness`) was built for any GAP row, but none occurred.
 
 ## 5. Genuine-failure candidates and their verification
-- **Pilots and targeted runs: no failure outside METHOD-TIMEOUT survives verification.**
-  - The one EP row whose ladder put the endpoint at ≥ 2 mm (GAPW1 targeted F3Wt-00000) resolves to EP-TOL: the goal is
-    not free at 2.1 mm. Its stored A* route re-verifies clean at 1 mm, and buffer 0 makes it REACHABLE.
-  - It stays in the F5 list as a borderline case.
-- **WWEST METHOD-TIMEOUT: 20 named candidates** (`results/aerial3dg/f3/cases/WWEST.json`, figures
-  `cases/fig/WWEST-pilot-F3X-*_cylinder.png`). Status:
-  - GMC re-query on the same compile: __WWEST_REPRO__;
-  - each A* route re-verifies clean (it passed `verify_path` at sampling, stage 5);
-  - lateral clearance median 10 mm, clear3d 1–1.5 mm (floor-capped), so these are not tolerance cases.
+Named cases for F5: `results/aerial3dg/f3/cases/<R>.json`, figures in `cases/fig/`, listed in `f4_handoff.json →
+f5_candidate_cases`.
+
+| # | case(s) | class | verification |
+|---|---|---|---|
+| 1 | WWEST pilot: 20 TIMEOUT rows (F3X-00001, -00019, -00027, …) | METHOD-TIMEOUT (genuine) | re-query on the same compile: __WWEST_REPRO__. The A* routes re-verify (stage 5). Lateral clearance median 10 mm, so not tolerance cases |
+| 2 | WWEST targeted: 11 TIMEOUT rows (F3Xt-00001, -00002, -00009, …) | METHOD-TIMEOUT (genuine) | re-query reproduces it on 11/11 at 120 s; 10/11 finish in 119–284 s; verdict-only 0.5–3.1 s (§4.4) |
+| 3 | GAPW1 pilot F3W-00095, F3W-00142 | EP-TOL, but TIMEOUT once buffer 0 unblocks the endpoint | `bufzero` probe; detour ratio 1.33 / 1.75. The same post-processing cost, appearing in GAPW1 |
+| 4 | WWEST pilot F3X-00163 | EP-TOL, but **ERROR** (`simplify` ZeroDivisionError) under buffer 0 | `bufzero` probe on the persisted compile; latent src bug (F1 saw it once on W1) |
+| 5 | GAPW1 targeted F3Wt-00000 | borderline EP-TOL (goal clearance in (2.0, 2.1] mm) | witness at margin 0.0021: goal not free; stored A* route re-verifies at 1 mm; buffer 0 → REACHABLE |
+
+Outside these, **no failure survives verification**: every other row is EP-TOL or an export artefact.
+
 - **Quick-look figures** were made for every candidate and for 2 examples of each other class per region
   (`cases/fig/`, inspected). Each shows the A* witness route, GMC's route if any, start/goal disks at the body radius,
   the 2σ footprints in the body band (grey) and the floor splats (orange). Examples:
@@ -257,4 +308,35 @@ Even doubled, the total stays under half the budget.
 - **[G]** If WWEST's yield falls short, move quota to GAPW1 first, then to the backup G2MID.
 
 ## 7. Jobs and cost
-__JOBS__
+- All jobs: 1 CPU, ≤ 3.5 GB requested, `cpu_short`, job names `a3f3_*`. IDs and purposes in
+  `/scratch/wg2381/claude_jobs/aerial3dg_fail/jobids/F3.txt`.
+- Several not-yet-started jobs of mine were cancelled and resubmitted to keep within the 16 GB memory share
+  (`scontrol update` is refused on this cluster). My requested memory still went above 16 GB, to ~22 GB, for some
+  minutes around 00:55Z (worklog).
+- **Task 1 compute: ≈ 11.5 CPU-h** of the 40 budgeted (sampling ≈ 3.5, GMC ≈ 5, probes ≈ 3), plus F3's share of the
+  probe lane. **F3 total ≈ 42 CPU-h of 80** (Task 0 ≈ 31).
+
+| step | jobs | what |
+|---|---|---|
+| survey | 19309414 | 7 boxes, oracle maps (`region/survey.*`) |
+| compiles | 19309957-62, 19311458 | persisted `.a3c` per region × robot (`outputs/aerial3dg/f3/<R>/`, SHA-256 sidecars; records in `probe/<R>/`) |
+| pilots | 19310355/58/59 (S, G2MID, GAPW1), 19311459 (WWEST); E/NMID 19309688/93 (stopped after 0 accepted) | `sample/<R>/pilot/` |
+| pre-filter audits | 19309967, 19309998, 19310766 | `sample/{E,NMID,S}/pilot/prefilter_audit.json` |
+| targeted | 19310922/23, 19311168, 19313646 (detour); 19312469-71 (tight) | `sample/<R>/{targeted,tight}/` |
+| GMC | `a3f3_gmc_<R>_<run>_<robot>` (22 jobs) | `gmc/<R>/<run>/<robot>/` |
+| probes | `a3f3_probe` lane (kin floors, buffer 0, re-query, witness) | `diag/<R>/<run>/` |
+| figures | 19314579-81, 19317415 | `cases/fig/` |
+
+```bash
+cd gmc; export PYTHONPATH=src:experiments; H=hpc/aerial3dg
+sbatch $H/f3_compile.sbatch WWEST -10.0 -1.35 -1.3 3.75
+sbatch --mem=2500M $H/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -10.0 -1.35 -1.3 3.75 --stream 1 --seed 20261600 --quota 200 --out-dir results/aerial3dg/f3/sample/WWEST/pilot
+sbatch --mem=2200M $H/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -10.0 -1.35 -1.3 3.75 --mode detour --stream 21 --seed 20261600 --quota 100 --lattice results/aerial3dg/f3/sample/WWEST/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f3/sample/WWEST/targeted
+$H/f3_post.sh WWEST pilot -10.0 -1.35 -1.3 3.75 F3X          # collect + GMC both robots on the persisted compile
+sbatch --mem=2500M $H/f3_probe.sbatch WWEST pilot cylinder    # kin floors, buffer 0, re-query (TIMEOUT: 300 s + verdict-only)
+python experiments/aerial3dg_fail3_analyze.py summary; python experiments/aerial3dg_fail3_analyze.py tables
+python experiments/aerial3dg_fail3_analyze.py cases; sbatch $H/f3_py.sbatch experiments/aerial3dg_fail3_fig.py cases --cases results/aerial3dg/f3/cases/WWEST.json --out-dir results/aerial3dg/f3/cases/fig
+python experiments/aerial3dg_fail3_analyze.py handoff --quota WWEST:2500 GAPW1:1500 S:1000 --backup G2MID --why "..."
+```
+
+Nothing under `gmc/src/` was changed. G2's, F1's and F2's results are untouched.

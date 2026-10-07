@@ -153,7 +153,8 @@ def cmd_cases(a):
     for reg, rr in by.items():
         pick, seen = [], collections.Counter()
         for r in sorted(rr, key=lambda r: float(r["lateral_mm"])):
-            if r["group"] in ("genuine", "unverified") or seen[(r["robot"], r["class"])] < a.per_class:
+            probe_hit = (r.get("buffer0") or "").startswith(("ERROR", "TIMEOUT"))    # method failure under buffer 0
+            if r["group"] in ("genuine", "unverified") or probe_hit or seen[(r["robot"], r["class"])] < a.per_class:
                 pick.append(r)
                 seen[(r["robot"], r["class"])] += 1
         cases, box = [], None
@@ -170,7 +171,9 @@ def cmd_cases(a):
                           "start_uv": p["start_uv"], "goal_uv": p["goal_uv"], "astar_route_uv": p["astar_route_uv"],
                           "gmc_status": r["status"], "gmc_reason": r["reason"], "gmc_route_uv": rq.get("gmc_route_uv"),
                           "cut_gaussians": rq.get("cut_gaussians"), "note": note, "class": r["class"],
-                          "group": r["group"]})
+                          "group": "genuine (buffer-0 probe)" if probe_hit else r["group"],
+                          "requery": {k: rq.get(k) for k in ("now", "requery_wall_s", "verdict_only",
+                                                            "verdict_only_wall_s", "full_stage_s") if k in rq}})
         _dump(F3 / "cases" / f"{reg}.json", {"region": reg, "box_uv": box, "cases": cases})
         print(reg, len(cases), collections.Counter(c["class"] for c in cases))
 

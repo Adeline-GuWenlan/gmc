@@ -1,0 +1,84 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/WWEST/pilot/cylinder/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 38,
+   "pair_id": "F3X-00038",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 24.447422905126587
+  },
+  {
+   "index": 44,
+   "pair_id": "F3X-00044",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.9534684591926634
+  },
+  {
+   "index": 51,
+   "pair_id": "F3X-00051",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 48.549281449988484
+  },
+  {
+   "index": 54,
+   "pair_id": "F3X-00054",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.754367938032374
+  },
+  {
+   "index": 57,
+   "pair_id": "F3X-00057",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 8.128896543057635
+  },
+  {
+   "index": 73,
+   "pair_id": "F3X-00073",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 8.285008762963116
+  },
+  {
+   "index": 75,
+   "pair_id": "F3X-00075",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 4.560908450977877
+  },
+  {
+   "index": 76,
+   "pair_id": "F3X-00076",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 10.963890329934657
+  },
+  {
+   "index": 91,
+   "pair_id": "F3X-00091",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.798621578142047
+  },
+  {
+   "index": 163,
+   "pair_id": "F3X-00163",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "ERROR:ZeroDivisionError: float division by zero @ query.py:217",
+   "wall_s": 1.0436638570390642
+  },
+  {
+   "index": 168,
+   "pair_id": "F3X-00168",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.874665373004973
+  }
+ ]
+}

@@ -2056,11 +2056,11 @@
      "REACHABLE": 167,
      "METHOD-TIMEOUT": 20,
      "EP-TOL": 11,
-     "REPLAY-UNPROBED": 2
+     "EXPORT-DOMAIN": 2
     },
     "genuine": 20,
     "tolerance": 11,
-    "export": 0,
+    "export": 2,
     "compile_ids": [
      "549453247f5cf37a"
     ],
@@ -2257,6 +2257,65 @@
    }
   },
   "distance_passing_candidates": 1414,
-  "robots": {}
+  "robots": {
+   "cylinder": {
+    "n": 100,
+    "status": {
+     "REACHABLE": 80,
+     "TIMEOUT": 11,
+     "UNKNOWN": 9
+    },
+    "status_reason": {
+     "REACHABLE:graph_path_lifted_and_verified": 80,
+     "TIMEOUT:query_exceeded_120s": 11,
+     "UNKNOWN:goal_not_certified_free": 6,
+     "UNKNOWN:shared_replay_failed": 1,
+     "UNKNOWN:start_not_certified_free": 2
+    },
+    "class": {
+     "REACHABLE": 80,
+     "METHOD-TIMEOUT": 11,
+     "EP-TOL": 8,
+     "EXPORT-DOMAIN": 1
+    },
+    "genuine": 11,
+    "tolerance": 8,
+    "export": 1,
+    "compile_ids": [
+     "549453247f5cf37a"
+    ],
+    "query_wall_s": {
+     "sum": 3376.268829285167,
+     "mean": 33.76268829285167,
+     "max": 120.00175431394018
+    }
+   },
+   "sweeper": {
+    "n": 100,
+    "status": {
+     "REACHABLE": 99,
+     "UNKNOWN": 1
+    },
+    "status_reason": {
+     "REACHABLE:graph_path_lifted_and_verified": 99,
+     "UNKNOWN:goal_not_certified_free": 1
+    },
+    "class": {
+     "REACHABLE": 99,
+     "EP-TOL": 1
+    },
+    "genuine": 0,
+    "tolerance": 1,
+    "export": 0,
+    "compile_ids": [
+     "29e3d020cb81ffa1"
+    ],
+    "query_wall_s": {
+     "sum": 173.88791960920207,
+     "mean": 1.7388791960920207,
+     "max": 10.241492266999558
+    }
+   }
+  }
  }
 }

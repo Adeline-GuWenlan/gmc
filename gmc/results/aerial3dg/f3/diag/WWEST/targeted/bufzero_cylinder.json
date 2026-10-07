@@ -1,0 +1,63 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/WWEST/targeted/cylinder/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 29,
+   "pair_id": "F3Xt-00029",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 32.616481208009645
+  },
+  {
+   "index": 31,
+   "pair_id": "F3Xt-00031",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.6551646369043738
+  },
+  {
+   "index": 54,
+   "pair_id": "F3Xt-00054",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 35.48624289408326
+  },
+  {
+   "index": 62,
+   "pair_id": "F3Xt-00062",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 22.679208991816267
+  },
+  {
+   "index": 69,
+   "pair_id": "F3Xt-00069",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 7.550486372085288
+  },
+  {
+   "index": 84,
+   "pair_id": "F3Xt-00084",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 8.819954314036295
+  },
+  {
+   "index": 94,
+   "pair_id": "F3Xt-00094",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:goal_not_certified_free",
+   "wall_s": 0.14822009089402854
+  },
+  {
+   "index": 99,
+   "pair_id": "F3Xt-00099",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 15.497157903853804
+  }
+ ]
+}
