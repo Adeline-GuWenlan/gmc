@@ -236,3 +236,13 @@
   Probes: verdict-only + 60 s post-processing budget (TIMEOUT), guarded simplify (ERROR), buffer 0 (flagged rows).
   Inputs: F4 failures.csv 1567 + F3's 35 genuine/borderline candidates (source F3-targeted). 35 shards.
   Test job 19362290 on 6 WWEST cylinder rows.
+- 19:05Z  Test 19362290 died: the compile's known space is `uavlamp_query.FaceLoggingKnownSpace` (wrapper) -> unwrap
+  `.inner`. Retest 19362888: 6/6 rows reproduce, A* routes re-verify; guarded simplify -> REACHABLE on F4X-02454 (the
+  spike is a 4.5 nm a -> b -> a, c == a exactly); 60 s post-processing budget -> REACHABLE on F4X-00001 in 62 s.
+  Per-edge `clearance_lower_m` of the oracle is an AABB bound, too loose to rank edges: tightest point now = first edge
+  failing 0.02 mm above the bisected lateral clearance. Full array 19363459 (35 shards, %10 x 1600M; MaxRSS ~1 GB).
+- 19:30Z  Segment probe 19365904 (8 WWEST TIMEOUT rows, every verify_segment call logged): 96 % of the 120 s is in
+  `shortcut`; 196 of its 604 calls take > 1 s and hold 97 % of its time; 195/196 of these are *rejections*
+  (COLLISION 147, UNRESOLVED 48) of 2.8-6.5 m candidate chords whose padded AABB holds a median 27k pairs. GMC spends
+  the budget proving long farthest-first shortcuts infeasible (no cache: the same chord is re-checked by the second
+  shortcut call). Results/aerial3dg/f5/segprobe_WWEST_timeout.jsonl.

@@ -212,7 +212,8 @@ def render(sc, c, out):
     else:
         ap.set_ylim(-.02, sc.top_b + .1)
         ap.set_ylabel("z above floor (m)", fontsize=8)
-    ap.set_xlabel("along local route direction through the locus (m); dark-edged = within body radius", fontsize=7)
+    ap.set_xlabel(f"distance {c.get('locus_dir_kind', 'along the route')} through the locus (m); "
+                  "dark-edged = within body radius of the cut", fontsize=7)
     ap.tick_params(labelsize=7)
     ap.legend(fontsize=6, loc="upper right", framealpha=.8)
     ap.set_title("side (z) profile at the locus" + (" (zoomed to the floor splats)" if zoomz else ""), fontsize=8)

@@ -223,7 +223,14 @@ def fact_row(r):
           "replay_floors": ((q.get("replay") or {}).get("both_floors") or {}).get("passed"),
           "endpoint_end": end if end in ("start", "goal") else "",
           "figure": ""}
+    post = q.get("post") or {}
+    for st in ("shortcut", "tighten", "merge_corners"):
+        fr[f"post_{st}_accepts"] = (post.get(st) or {}).get("accept_calls")
+        fr[f"post_{st}_s"] = None if st not in post else round(post[st]["accept_s"], 2)
+    fr["post_stage_at_end"] = q.get("stage_at_end") if q["status"] == "TIMEOUT" else ""
     vo = pr.get("verdict_only") or pr.get("b0_verdict_only")
+    fr["vo_path_cells"] = (vo or {}).get("n_path_cells")
+    fr["vo_vertices"] = len((vo or {}).get("polyline_uv") or []) or None
     if vo and vo.get("replay"):
         fr["probe_verdict_only_floors"] = (vo["replay"].get("both_floors") or {}).get("passed")
     else:
@@ -309,7 +316,13 @@ def _dir_at(P, uv):
     return [1., 0.]
 
 
-def _wrap(s, n=54):
+def _toward(a, b):
+    d = np.asarray(b, float) - np.asarray(a, float)
+    n = np.linalg.norm(d)
+    return [1., 0.] if n < 1e-9 else (d / n).round(4).tolist()
+
+
+def _wrap(s, n=47):
     out, line = [], ""
     for w in str(s).split(" "):
         if len(line) + len(w) + 1 > n:
@@ -379,9 +392,9 @@ def case_dict(r, fr):
              + (f", under buffer 0: {fr['under_buffer0']}" if fr["under_buffer0"] else "")
              + "\n" + _wrap(fr["cause"], 170))
     facts = [
-        f"case      {r['case_id']} / {r['robot']}",
+        f"case      {r['case_id']}", f"robot     {r['robot']}",
         f"source    {fr['source']}   F4 class {fr['f4_class']}",
-        f"GMC (G2)  {fr['gmc_orig'][:58]}",
+        _wrap(f"GMC (G2)  {fr['gmc_orig']}"),
         f"class     {mech} ({fr['group']})",
         "", "(a) A* route is a real route",
         _wrap(f"    re-replay {fr['a_astar_replay']} with the compile's gs3d oracle (real cylinder"
@@ -411,13 +424,13 @@ def case_dict(r, fr):
     p = r.get("_pair") or {}
     if p:
         facts += ["", f"pair: {p.get('dist_m', 0):.2f} m straight, A* detour {p.get('len_ratio', 0):.2f}"]
-    facts += ["", "human verdict: algorithm_failure / not_algorithm_failure",
-              "/ unsure -> results/aerial3dg/f5/review_verdicts.csv"]
+    facts += ["", "verdict -> f5/review_verdicts.csv"]
     return {"case_id": r["case_id"], "robot": r["robot"], "region": r["region"], "source": fr["source"],
             "mechanism": mech, "start_uv": r["endpoints"]["start"]["uv"], "goal_uv": r["endpoints"]["goal"]["uv"],
             "astar_uv": astar_uv, "tight_uv": (a.get("lateral_tightest_edge") or {}).get("uv"),
             "gmc_view": view, "blockers": blockers, "locus_uv": locus, "locus_kind": kind,
-            "locus_dir": _dir_at(ref, locus), "profile": profile, "zoom_half": zoom, "title": title,
+            "locus_dir": (_toward(locus, blockers[0]["mean_route"][:2]) if blockers else _dir_at(ref, locus)),
+            "locus_dir_kind": "toward the blocker" if blockers else "along the local route direction", "profile": profile, "zoom_half": zoom, "title": title,
             "text": "\n".join(facts)}
 
 

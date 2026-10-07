@@ -617,6 +617,60 @@ def cmd_trace(a):
               {k: v["status"] for k, v in r["probes"].items()}, f"{r['wall_s']:.0f}s", flush=True)
 
 
+def cmd_segprobe(a):
+    """POST-TIMEOUT mechanism probe: G2's query (QCONFIG, 120 s) with every ``verify_segment`` call logged -- the
+    stage it ran in, segment length, the padded segment AABB's area, pairs_checked (pairs whose AABB meets it),
+    subdivisions, status, seconds.  Rows: ``--ids`` from the shard."""
+    from gmc.aerial3d import api as A
+    from aerial3dg_batch import _Timeout, _alarm
+    items = [it for it in _jsonl(a.shard) if not a.ids or it["pair_id"] in a.ids]
+    X = Ctx(items[0]["region"], items[0]["robot"])
+    out = Path(a.out)
+    real_vs = A.verify_segment
+    saved = {k: getattr(A, k) for k in ("shortcut", "tighten", "merge_corners")}
+    for it in items:
+        log, stage = [], {"s": "pre"}
+
+        def vs(table, domain, p, q, **kw):
+            t0 = time.perf_counter()
+            r = real_vs(table, domain, p, q, **kw)
+            d = np.abs(np.asarray(q, float) - np.asarray(p, float))
+            log.append([stage["s"], round(float(np.linalg.norm(d[:2])), 4),
+                        round(float((d[0] + .1) * (d[1] + .1)), 4), r["pairs_checked"], r["subdivisions"],
+                        r["status"][:3], round(time.perf_counter() - t0, 4)])
+            return r
+
+        def wrap(name):
+            def f(*args, **kw):
+                stage["s"] = name
+                return saved[name](*args, **kw)
+            return f
+        A.verify_segment = vs
+        for n in saved:
+            setattr(A, n, wrap(n))
+        s = X.C.frame.to_world([*it["gmc"]["start_uv"], X.z_c])
+        g = X.C.frame.to_world([*it["gmc"]["goal_uv"], X.z_c])
+        w0 = time.perf_counter()
+        try:
+            with _alarm(a.timeout):
+                q = A.query(X.C, s, g, config=QCONFIG, call_id=it["pair_id"] + "-seg")
+            st = q["status"]
+        except BaseException as exc:
+            st = "TIMEOUT" if isinstance(exc, _Timeout) or isinstance(exc.__context__, _Timeout) else type(exc).__name__
+        finally:
+            A.verify_segment = real_vs
+            for k, v in saved.items():
+                setattr(A, k, v)
+        rec = {"case_id": it["case_id"], "pair_id": it["pair_id"], "status": st, "wall_s": time.perf_counter() - w0,
+               "pairs_in_compile": int(len(X.C.pairs)),
+               "columns": ["stage", "len_xy_m", "aabb_area_m2", "pairs_checked", "subdivisions", "status", "s"],
+               "calls": log}
+        with open(out, "a") as f:
+            f.write(json.dumps(rec) + "\n")
+        L = np.asarray([c[1] for c in log]) if log else np.zeros(0)
+        print(it["case_id"], st, f"{rec['wall_s']:.0f}s", len(log), "calls", flush=True)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -628,8 +682,13 @@ def main(argv=None):
     t.add_argument("--out", default=None)
     t.add_argument("--timeout", type=float, default=300.)
     t.add_argument("--post-budget", type=float, default=60.)
+    sp = sub.add_parser("segprobe")
+    sp.add_argument("--shard", required=True)
+    sp.add_argument("--ids", nargs="*", default=None)
+    sp.add_argument("--timeout", type=float, default=120.)
+    sp.add_argument("--out", required=True)
     a = p.parse_args(argv)
-    {"plan": cmd_plan, "trace": cmd_trace}[a.cmd](a)
+    {"plan": cmd_plan, "trace": cmd_trace, "segprobe": cmd_segprobe}[a.cmd](a)
 
 
 if __name__ == "__main__":
