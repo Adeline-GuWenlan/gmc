@@ -12,13 +12,15 @@ Run from ``gmc/`` with ``PYTHONPATH=src:experiments``.
               EXPORT-DOMAIN     shared_replay_failed, replay geometry map_unknown only (swept-AABB coverage, F2 4.2)
               REPLAY-OTHER      shared_replay_failed, anything else                                    -> genuine
               EP-TOL            *_not_certified_free and the endpoint's oracle clearance <= margin + buffer (2 mm)
-              EP-GENUINE        *_not_certified_free with endpoint clearance > 2 mm                    -> genuine
+              EP-GENUINE        *_not_certified_free and the endpoint is oracle-free at margin 0.0021   -> genuine
+              EP-UNVERIFIED     endpoint ladder >= 2 mm but the 2.1 mm witness check not run yet
               GAP-TOL           safe_graph_disconnected and no real-body A* route at margin 0.0021 (every lattice
                                 route comes within margin + buffer of a Gaussian)
               GAP-GENUINE       safe_graph_disconnected and the A* at margin 0.0021 finds a route      -> genuine
               GAP-UNVERIFIED    safe_graph_disconnected, witness test not run yet
               SOUNDNESS         UNREACHABLE on a confirmed-reachable pair                              -> genuine (!)
-              METHOD-ERROR      TIMEOUT / ERROR / any other UNKNOWN reason                             -> genuine
+              METHOD-TIMEOUT    the query exceeded G2's 120 s limit (re-queried with 300 s + verdict-only) -> genuine
+              METHOD-ERROR      ERROR / any other UNKNOWN reason                                       -> genuine
 """
 from __future__ import annotations
 
@@ -73,6 +75,7 @@ def cmd_bufzero(a):
 
 def cmd_requery(a):
     from gmc.aerial3d.api import load_compiled, query
+    from aerial3dg_batch import _Timeout, _alarm
     compiled = load_compiled(a.a3c)
     z_c = compiled.domain.ground_z
     pairs = {p["pair_id"]: p for p in json.loads(Path(a.pairs).read_text())["pairs"]}
@@ -85,11 +88,31 @@ def cmd_requery(a):
     for r in sorted(want, key=lambda r: r["index"]):
         s = compiled.frame.to_world([*r["start_uv"], z_c])
         g = compiled.frame.to_world([*r["goal_uv"], z_c])
-        q = query(compiled, s, g, config=QCONFIG, call_id=r["pair_id"])
+        w0 = time.perf_counter()
+        try:
+            with _alarm(a.timeout):                       # TIMEOUT rows: re-run with a much longer limit
+                q = query(compiled, s, g, config=QCONFIG, call_id=r["pair_id"])
+        except _Timeout:
+            q = {"status": "TIMEOUT", "reason": f"query_exceeded_{a.timeout:g}s"}
+        wall = time.perf_counter() - w0
+        same = (q["status"], q["reason"]) == (r["status"], r["reason"]) or \
+            (r["status"] == "TIMEOUT" and q["status"] == "TIMEOUT")
         rec = {"index": r["index"], "pair_id": r["pair_id"], "orig": f"{r['status']}:{r['reason']}",
-               "now": f"{q['status']}:{q['reason']}",
-               "reproduced": (q["status"], q["reason"]) == (r["status"], r["reason"]),
-               "compile_id": compiled.compile_id}
+               "now": f"{q['status']}:{q['reason']}", "reproduced": same, "requery_wall_s": wall,
+               "requery_timeout_s": a.timeout, "compile_id": compiled.compile_id}
+        if r["status"] == "TIMEOUT":                     # where does the time go: verdict-only (no shortcut/tighten/merge)
+            from aerial3dg_fail_widen import FAST
+            w1 = time.perf_counter()
+            try:
+                with _alarm(a.timeout):
+                    qf = query(compiled, s, g, config=FAST, call_id=r["pair_id"] + "-fast")
+                rec["verdict_only"] = f"{qf['status']}:{qf['reason']}"
+            except _Timeout:
+                rec["verdict_only"] = "TIMEOUT"
+            rec["verdict_only_wall_s"] = time.perf_counter() - w1
+            if q.get("timings"):
+                rec["full_stage_s"] = {t["stage"]: round(t["seconds"], 2) for t in q["timings"]["records"]
+                                       if t["seconds"] > .5}
         cert = q.get("certificate") or {}
         rec["certificate_kind"] = cert.get("kind")
         if q.get("polyline_world") is not None:
@@ -130,6 +153,8 @@ def classify_row(r, ev, kin=None, buf0=None, witness=None):
         return "REACHABLE"
     if st == "UNREACHABLE":
         return "SOUNDNESS"
+    if st == "TIMEOUT":
+        return "METHOD-TIMEOUT"
     if st == "UNKNOWN" and rs == "shared_replay_failed":
         if kin is None:
             return "REPLAY-UNPROBED"
@@ -144,7 +169,11 @@ def classify_row(r, ev, kin=None, buf0=None, witness=None):
         c = ev.get(f"{end}_clear3d_m")
         if c is None:
             c = (ev.get("clearance_m") or {}).get(end)
-        return "EP-TOL" if c is not None and c < MARGIN + BUFFER - 1e-9 else "EP-GENUINE"
+        if c is not None and c < MARGIN + BUFFER - 1e-9:
+            return "EP-TOL"
+        if witness is not None and witness.get(f"{end}_free_at_margin") is False:
+            return "EP-TOL"          # clearance in (2.0, 2.1] mm: within 0.1 mm of margin + buffer (+ GMC's slack)
+        return "EP-GENUINE" if witness is not None else "EP-UNVERIFIED"
     if st == "UNKNOWN" and rs.startswith("safe_graph_disconnected"):
         if witness is None:
             return "GAP-UNVERIFIED"
@@ -152,7 +181,8 @@ def classify_row(r, ev, kin=None, buf0=None, witness=None):
     return "METHOD-ERROR"
 
 
-GENUINE = {"SOUNDNESS", "REPLAY-OTHER", "EP-GENUINE", "GAP-GENUINE", "METHOD-ERROR"}
+GENUINE = {"SOUNDNESS", "REPLAY-OTHER", "EP-GENUINE", "GAP-GENUINE", "METHOD-ERROR", "METHOD-TIMEOUT"}
+UNVERIFIED = {"EP-UNVERIFIED", "GAP-UNVERIFIED", "REPLAY-UNPROBED"}
 TOLERANCE = {"EP-TOL", "GAP-TOL"}
 EXPORT = {"EXPORT-KIN", "EXPORT-DOMAIN"}
 
@@ -171,6 +201,7 @@ def main(argv=None):
     q.add_argument("--rows", type=Path, required=True)
     q.add_argument("--pairs", type=Path, required=True)
     q.add_argument("--ids", nargs="*", default=None)
+    q.add_argument("--timeout", type=float, default=300.)
     q.add_argument("--out", type=Path, required=True)
     a = p.parse_args(argv)
     {"bufzero": cmd_bufzero, "requery": cmd_requery}[a.cmd](a)

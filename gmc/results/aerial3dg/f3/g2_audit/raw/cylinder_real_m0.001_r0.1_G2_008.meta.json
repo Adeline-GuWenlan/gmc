@@ -1,0 +1,66 @@
+{
+ "robot": "cylinder",
+ "body": {
+  "name": "cylinder",
+  "radius_m": 0.3,
+  "half_height_m": 0.865,
+  "motion": "ground_unicycle",
+  "ground_clearance_m": 0.02
+ },
+ "variant": "real",
+ "margin_m": 0.001,
+ "resolution_m": 0.1,
+ "box_name": "G2",
+ "box_uv": [
+  -9.0,
+  -0.35,
+  3.7,
+  2.75
+ ],
+ "shard": 8,
+ "nshards": 24,
+ "classes": null,
+ "budget": {
+  "max_expansions": 500000,
+  "max_oracle_calls": 5000000,
+  "max_narrowphase_pairs": 20000000,
+  "max_wall_s": 300.0
+ },
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 582372,
+  "bounds_min": [
+   5.677218579442707,
+   17.678402630139257,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.952240432349058,
+   30.473305275052518,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "load_s": 9.743481737095863,
+ "prepare_s": 1.550571775995195,
+ "host": {
+  "node": "cs601.hpc.nyu.edu",
+  "slurm_job_id": "19314170",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   50.52490234375,
+   51.453125,
+   51.78076171875
+  ],
+  "utc": "2026-10-07T01:53:04Z",
+  "python": "3.13.5",
+  "git_commit": "9c78e5481e330be404dd05758ea3d502ad14d3ac"
+ },
+ "n_rows": 208,
+ "wall_s": 2459.7167303420138,
+ "peak_rss_mb": 1389.5859375
+}

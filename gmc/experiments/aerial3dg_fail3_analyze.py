@@ -175,15 +175,145 @@ def cmd_cases(a):
         print(reg, len(cases), collections.Counter(c["class"] for c in cases))
 
 
+def cmd_tables(a):
+    """Markdown tables for docs/aerial3dg_failures_f3.md from pilot_summary.json + probe/compile records."""
+    res = _load(F3 / "pilot_summary.json")
+    surv = _load(F3 / "region" / "survey.json")
+    print("| region | box u0 v0 u1 v1 | supports | cyl free | compile cyl / sw (s) | cand. pairs cyl / sw | "
+          "peak RSS (MB) |")
+    print("|---|---|---|---|---|---|---|")
+    for reg in a.regions:
+        c = {r: _load(F3 / "probe" / reg / f"compile_{r}.json") for r in ("cylinder", "sweeper")}
+        if not c["cylinder"]:
+            continue
+        sv = (surv["boxes"].get(reg) or {}) if surv else {}
+        fr = (sv.get("robots", {}).get("cylinder", {}).get("status_share", {}).get("free"))
+        cc, cs = c["cylinder"]["compile"], c["sweeper"]["compile"]
+        print(f"| {reg} | {' '.join(f'{x:g}' for x in c['cylinder']['box_route']['lower'][:2] + c['cylinder']['box_route']['upper'][:2])} "
+              f"| {c['cylinder']['crop']['selected_supports']:,} | {'' if fr is None else f'{fr:.0%}'} "
+              f"| {cc['compile_wall_s']:.0f} / {cs['compile_wall_s']:.0f} "
+              f"| {cc['pairs'].get('candidate_pairs', cc['pairs'].get('candidates', '?'))} / "
+              f"{cs['pairs'].get('candidate_pairs', cs['pairs'].get('candidates', '?'))} "
+              f"| {max(cc['peak_rss_mb'], cs['peak_rss_mb']):.0f} |")
+    print()
+    print("| region / run | n | distance-passing cand. | endpoint pass | pre-filter pass | A* ROUTE / NRM / NR / UNSURE "
+          "| CPU s per accepted | len ratio p50 / p90 | lateral p10 / p50 (mm) |")
+    print("|---|---|---|---|---|---|---|---|---|")
+    for k, v in res.items():
+        f = v["funnel"]
+        sp = f["astar_split_on_prefilter_pass"]
+        lr, la = f["accepted_len_ratio"], f["accepted_lateral_m"]
+        print(f"| {k} | {v['n_pairs']} | {v['distance_passing_candidates']:,} | {f['endpoint_m001']['pass_rate']:.1%} "
+              f"| {f['prefilter']['pass_rate']:.1%} | {sp['ROUTE']} / {sp['NO_ROUTE_MARGIN']} / {sp['NO_ROUTE']} / "
+              f"{sp['UNSURE']} | {f['cpu_s_per_accepted']:.1f} | {lr['median']:.2f} / {lr['p90']:.2f} "
+              f"| {la['p10'] * 1e3:g} / {la['median'] * 1e3:g} |")
+    print()
+    print("| region / run | robot | REACHABLE | genuine | by-tolerance | export | unverified | classes | query wall mean / max (s) |")
+    print("|---|---|---|---|---|---|---|---|---|")
+    for k, v in res.items():
+        for r, x in v["robots"].items():
+            cl = {c: n for c, n in x["class"].items() if c != "REACHABLE"}
+            unv = x["n"] - x["class"].get("REACHABLE", 0) - x["genuine"] - x["tolerance"] - x["export"]
+            print(f"| {k} | {r} | {x['class'].get('REACHABLE', 0)} / {x['n']} | {x['genuine']} | {x['tolerance']} "
+                  f"| {x['export']} | {unv} | {', '.join(f'{c} {n}' for c, n in sorted(cl.items()))} "
+                  f"| {x['query_wall_s']['mean']:.2f} / {x['query_wall_s']['max']:.1f} |")
+
+
+SEEDS = {"S": 20261200, "G2MID": 20261400, "GAPW1": 20261500, "WWEST": 20261600, "E": 20261100, "NMID": 20261300}
+
+
+def cmd_handoff(a):
+    """results/aerial3dg/f3/f4_handoff.json: region quotas, sampler / GMC command lines, compiles (+SHA-256),
+    measured per-stage costs, the projection for F4, the backup region, candidate cases for F5."""
+    res = _load(F3 / "pilot_summary.json")
+    regions, proj_total = {}, 0.
+    quotas = dict(x.split(":") for x in a.quota)
+    for reg in list(quotas) + [a.backup]:
+        pil = res[f"{reg}/pilot"]
+        box = pil["box_uv"]
+        f = pil["funnel"]
+        comp = {}
+        for r in ("cylinder", "sweeper"):
+            side = _load(Path("outputs/aerial3dg/f3") / reg / f"{r}.a3c.json")
+            rec = _load(F3 / "probe" / reg / f"compile_{r}.json")
+            comp[r] = {"a3c": f"gmc/outputs/aerial3dg/f3/{reg}/{r}.a3c", "compile_id": side["compile_id"],
+                       "sha256": side["sha256"], "bytes": side["bytes"],
+                       "compile_record": f"gmc/results/aerial3dg/f3/probe/{reg}/compile_{r}.json",
+                       "compile_wall_s": rec["compile"]["compile_wall_s"],
+                       "supports": rec["crop"]["selected_supports"]}
+        q = int(quotas.get(reg, 0))
+        samp = f["cpu_s_per_accepted"]
+        gm = {r: pil["robots"][r]["query_wall_s"]["mean"] for r in ("cylinder", "sweeper")}
+        per_pair = samp + gm["cylinder"] + gm["sweeper"]
+        n_streams = max(1, int(np.ceil(q * samp / 3600 / 5.0))) if q else 0     # <= ~5 h per stream
+        regions[reg] = {
+            "role": "benchmark" if q else "backup", "quota": q, "box_uv": box,
+            "box_route": {"lower": [box[0], box[1], 0.], "upper": [box[2], box[3], 2.43]},
+            "seed_base": SEEDS[reg], "stream_layout": f"streams 101..{100 + n_streams} (seed = seed_base + 1000*stream; "
+                                                     f"pilot used stream 1, targeted 21, tight 31: do not reuse)",
+            "n_streams": n_streams, "quota_per_stream": int(np.ceil(q / n_streams)) if q else 0,
+            "sampler": f"sbatch --job-name=a3f4_samp_{reg} --array=101-{100 + n_streams} --time=06:00:00 --mem=2200M "
+                       f"gmc/hpc/aerial3dg/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box "
+                       f"{' '.join(f'{x:g}' for x in box)} --stream $SLURM_ARRAY_TASK_ID --seed {SEEDS[reg]} "
+                       f"--quota {int(np.ceil(q / n_streams)) if q else 0} --max-hours 5.8 --lattice "
+                       f"results/aerial3dg/f3/sample/{reg}/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f4/sample/{reg}"
+                       + " (array task id == stream; collect with --n <quota>, prefix per region)",
+            "gmc": f"gmc/hpc/aerial3dg/f3_gmc.sbatch <robot> {' '.join(f'{x:g}' for x in box)} <pairs.json> "
+                   f"outputs/aerial3dg/f3/{reg}/<robot>.a3c results/aerial3dg/f4/gmc/{reg}/<robot> N_TASKS TASK",
+            "compiles": comp,
+            "measured_pilot": {"pairs": pil["n_pairs"], "distance_passing_candidates": pil["distance_passing_candidates"],
+                               "funnel": {k: v for k, v in f.items() if isinstance(v, dict) and "pass_rate" in v},
+                               "astar_split_on_prefilter_pass": f["astar_split_on_prefilter_pass"],
+                               "sampling_cpu_s_per_accepted": samp, "gmc_query_wall_s_mean": gm,
+                               "gmc_query_wall_s_max": {r: pil["robots"][r]["query_wall_s"]["max"]
+                                                        for r in ("cylinder", "sweeper")},
+                               "cylinder_classes": pil["robots"]["cylinder"]["class"],
+                               "sweeper_classes": pil["robots"]["sweeper"]["class"]},
+            "projection_cpu_h": {"per_pair_s": per_pair, "sampling": q * samp / 3600,
+                                 "gmc_cylinder": q * gm["cylinder"] / 3600, "gmc_sweeper": q * gm["sweeper"] / 3600,
+                                 "total": q * per_pair / 3600}}
+        proj_total += q * per_pair / 3600
+    cases = []
+    for p in sorted((F3 / "cases").glob("*.json")):
+        for c in _load(p)["cases"]:
+            cases.append({"case_id": c["case_id"], "robot": c["robot"], "class": c["class"], "group": c["group"],
+                          "figure": f"gmc/results/aerial3dg/f3/cases/fig/{c['case_id']}_{c['robot']}.png",
+                          "pairs_file": f"gmc/results/aerial3dg/f3/sample/{c['case_id'].split('-')[0]}/"
+                                        f"{c['case_id'].split('-')[1]}_pairs.json"})
+    doc = {"schema": "aerial3dg_fail3.f4_handoff.v1", "n_total": sum(int(q) for q in quotas.values()),
+           "regions": regions, "backup_region": a.backup, "choice_rationale": a.why,
+           "confirmation_rule": "real cylinder, margin 0.001, 0.1 m lattice A* (LatticePlanner; pos tol 0, yaw tol 0.05, "
+                                "500k expansions, 120 s wall) ROUTE + verify_path re-check; straight distance >= 3 m; "
+                                "no robust inflation (experiments/aerial3dg_fail3_sample.py docstring)",
+           "gmc_config": "aerial3dg_run.QCONFIG (G2's full QueryConfig, export_max_segment_m 0.20), timeout 120 s",
+           "projection_cpu_h_total": proj_total, "budget_cpu_h": 200,
+           "probes": {"shared_replay_failed": "experiments/aerial3dg_fail2_kin.py --full (1 ms floors) + "
+                                              "aerial3dg_fail3_analyze.py domain check",
+                      "not_certified_free": "experiments/aerial3dg_fail3_probe.py bufzero",
+                      "all failures": "experiments/aerial3dg_fail3_probe.py requery (TIMEOUT: 900 s + verdict-only)",
+                      "genuine-vs-tolerance": "experiments/aerial3dg_fail3_sample.py witness (margin 0.0021)",
+                      "sbatch": "gmc/hpc/aerial3dg/f3_probe.sbatch REGION KIND ROBOT"},
+           "f5_candidate_cases": cases}
+    _dump(F3 / "f4_handoff.json", doc)
+    print(json.dumps({k: (v["quota"], round(v["projection_cpu_h"]["total"], 1)) for k, v in regions.items()}),
+          "total", round(proj_total, 1))
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("summary")
     s.add_argument("--regions", nargs="+", default=["E", "S", "NMID", "G2MID", "GAPW1"])
+    t = sub.add_parser("tables")
+    t.add_argument("--regions", nargs="+", default=["E", "NMID", "S", "G2MID", "GAPW1", "WWEST"])
+    h = sub.add_parser("handoff")
+    h.add_argument("--quota", nargs="+", required=True, help="REGION:N ...")
+    h.add_argument("--backup", required=True)
+    h.add_argument("--why", required=True)
     c = sub.add_parser("cases")
     c.add_argument("--per-class", type=int, default=2)
     a = p.parse_args(argv)
-    {"summary": cmd_summary, "cases": cmd_cases}[a.cmd](a)
+    {"summary": cmd_summary, "cases": cmd_cases, "tables": cmd_tables, "handoff": cmd_handoff}[a.cmd](a)
 
 
 if __name__ == "__main__":

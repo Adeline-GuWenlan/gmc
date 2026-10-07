@@ -1,0 +1,198 @@
+{
+ "F3Sq-00000": {
+  "max_pose_excess_m": -0.0026381424464632097,
+  "max_swept_excess_m": 0.04490026981969808
+ },
+ "F3Sq-00001": {
+  "max_pose_excess_m": -0.016738142446461435,
+  "max_swept_excess_m": 0.02151028579084069
+ },
+ "F3Sq-00002": {
+  "max_pose_excess_m": -0.01763814244646178,
+  "max_swept_excess_m": 0.03590414788384089
+ },
+ "F3Sq-00003": {
+  "max_pose_excess_m": -0.009138142446462716,
+  "max_swept_excess_m": 0.05577299980211792
+ },
+ "F3Sq-00005": {
+  "max_pose_excess_m": -0.01213814244646294,
+  "max_swept_excess_m": 0.059663585176681466
+ },
+ "F3Sq-00006": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02595729124371471
+ },
+ "F3Sq-00008": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.042198902014055406
+ },
+ "F3Sq-00010": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04475814693372876
+ },
+ "F3Sq-00011": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03616867291305459
+ },
+ "F3Sq-00015": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.0384060837051976
+ },
+ "F3Sq-00016": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.02760303421109822
+ },
+ "F3Sq-00018": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.027962211045384544
+ },
+ "F3Sq-00019": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03871705738985437
+ },
+ "F3Sq-00020": {
+  "max_pose_excess_m": -0.011638142446461996,
+  "max_swept_excess_m": 0.052256901795038946
+ },
+ "F3Sq-00021": {
+  "max_pose_excess_m": -0.019938142446462637,
+  "max_swept_excess_m": 0.04984870882997239
+ },
+ "F3Sq-00023": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03879107739019538
+ },
+ "F3Sq-00024": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.010290272302718229
+ },
+ "F3Sq-00025": {
+  "max_pose_excess_m": -0.009338142446461806,
+  "max_swept_excess_m": 0.04284693590018174
+ },
+ "F3Sq-00026": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.004977739260265235
+ },
+ "F3Sq-00027": {
+  "max_pose_excess_m": -0.012838142446461254,
+  "max_swept_excess_m": 0.055710600332515736
+ },
+ "F3Sq-00028": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.038245997501901885
+ },
+ "F3Sq-00029": {
+  "max_pose_excess_m": -0.009338142446460806,
+  "max_swept_excess_m": 0.06011197386305889
+ },
+ "F3Sq-00030": {
+  "max_pose_excess_m": -0.009538142446462894,
+  "max_swept_excess_m": 0.0634997161484181
+ },
+ "F3Sq-00031": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.023068436633729705
+ },
+ "F3Sq-00032": {
+  "max_pose_excess_m": -0.0013381424464622427,
+  "max_swept_excess_m": 0.06298035107384914
+ },
+ "F3Sq-00033": {
+  "max_pose_excess_m": -0.016938142446462412,
+  "max_swept_excess_m": 0.05537376938527616
+ },
+ "F3Sq-00034": {
+  "max_pose_excess_m": -0.007038142446462781,
+  "max_swept_excess_m": 0.06530359823241971
+ },
+ "F3Sq-00035": {
+  "max_pose_excess_m": -0.014938142446461411,
+  "max_swept_excess_m": 0.054564282701071276
+ },
+ "F3Sq-00036": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03614297845179282
+ },
+ "F3Sq-00037": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03831931137779221
+ },
+ "F3Sq-00038": {
+  "max_pose_excess_m": -0.017538142446462457,
+  "max_swept_excess_m": 0.017233795011427855
+ },
+ "F3Sq-00039": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.024184362056309583
+ },
+ "F3Sq-00040": {
+  "max_pose_excess_m": -0.0020381424464614994,
+  "max_swept_excess_m": 0.06636254417810394
+ },
+ "F3Sq-00041": {
+  "max_pose_excess_m": -0.00983814244646175,
+  "max_swept_excess_m": 0.05508779180084078
+ },
+ "F3Sq-00042": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.043694619910240984
+ },
+ "F3Sq-00043": {
+  "max_pose_excess_m": -0.012538142446462064,
+  "max_swept_excess_m": 0.027733320575547615
+ },
+ "F3Sq-00044": {
+  "max_pose_excess_m": -0.012038142446461952,
+  "max_swept_excess_m": 0.05622552811020265
+ },
+ "F3Sq-00045": {
+  "max_pose_excess_m": -0.009438142446461295,
+  "max_swept_excess_m": 0.05107531198383497
+ },
+ "F3Sq-00046": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.04986279145937744
+ },
+ "F3Sq-00047": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03909294221108106
+ },
+ "F3Sq-00048": {
+  "max_pose_excess_m": -0.0030381424464624995,
+  "max_swept_excess_m": 0.06564654852852025
+ },
+ "F3Sq-00050": {
+  "max_pose_excess_m": -0.013538142446463564,
+  "max_swept_excess_m": 0.05204552696601694
+ },
+ "F3Sq-00051": {
+  "max_pose_excess_m": -0.017138142446462,
+  "max_swept_excess_m": 0.05586968548654453
+ },
+ "F3Sq-00053": {
+  "max_pose_excess_m": -0.0036381424464626555,
+  "max_swept_excess_m": 0.06700049596203161
+ },
+ "F3Sq-00055": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.021691499743256237
+ },
+ "F3Sq-00056": {
+  "max_pose_excess_m": -0.0025381424464632207,
+  "max_swept_excess_m": 0.033146836145970804
+ },
+ "F3Sq-00057": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.012394983028872542
+ },
+ "F3Sq-00058": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.03130099547702553
+ },
+ "F3Sq-00059": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.047043595523425796
+ }
+}

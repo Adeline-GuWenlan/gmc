@@ -1,0 +1,141 @@
+{
+ "schema": "aerial3dg.pairs.v1+f3_confirmed_real",
+ "n": 0,
+ "region": "E",
+ "mode": "uniform",
+ "box_uv": [
+  0.9,
+  2.75,
+  5.5,
+  4.7
+ ],
+ "box_route": {
+  "lower": [
+   0.9,
+   2.75,
+   0.0
+  ],
+  "upper": [
+   5.5,
+   4.7,
+   2.43
+  ]
+ },
+ "robots": [
+  "cylinder",
+  "sweeper"
+ ],
+ "min_dist_m": 3.0,
+ "margin_m": 0.001,
+ "rule": "F3 Task 1: confirmed-reachable pairs for the REAL body (no robust inflation), with difficulty evidence.\n\nRun from ``gmc/`` with ``PYTHONPATH=src:experiments`` (sbatch).\n\nThe rule is F2's (``aerial3dg_fail2_sample.py``) with the robust body replaced by the real cylinder at the shared\nmargin 0.001 (brief, \"confirmed reachable\"): F2's ``Tester`` with ``lat = 0`` and ``vmargin = 0.001`` makes the\n\"robust\" body the real cylinder, so its stages become\n\n  0. straight xy distance >= ``--min-dist`` (3 m; G2's convention)\n  1. both endpoints oracle-free for the real cylinder, margin 0.001          (stage 2 repeats it: always passes)\n  3. cheap pre-filter: both endpoints attach by one real-body oracle edge to one component of a shared 0.1 m\n     route-frame lattice of the real body at margin 0.001 (built once per region; only ever rejects; its false-\n     rejection rate is measured in the pilot with ``--audit``)\n  4. gs3d lattice A* (``LatticePlanner``, 0.1 m, position tol 0, yaw tol 0.05, 500k expansions) on the real\n     cylinder at margin 0.001 returns ROUTE (its post-build verification of every edge + kinematics passed)\n  5. that route re-verified edge by edge with ``verify_path`` (real cylinder, margin 0.001, with the goal)\n\nRejection is whole-draw, so any stream prefix is an unbiased sample of the conditional law.  A cylinder route is a\nsweeper route too (the sweeper is inside the cylinder: same axis, same chassis bottom, r 0.175 < 0.30, top 0.10 <\n1.75), so the same pairs are confirmed for both robots.\n\nTargeted discovery (``--mode``; never mixed into the uniform rates):\n  detour  extra stage 0b: the straight segment start -> goal is NOT oracle-free for the real cylinder (endpoints on\n          opposite sides of clutter); everything else identical.\n  tight   extra stage 1b: at least one endpoint is within 3 cm laterally of an obstacle (the probe body r + 3 cm,\n          chassis bottom raised 1 cm, top + 3 cm, is not free at margin 0 there) AND the straight segment is blocked.\n\nEvery accepted pair also gets difficulty evidence along its A* route (real body):\n  clear3d_m   largest margin in LADDER at which ``verify_path`` of the exact re-verified route still passes (the\n              oracle's 3-D clearance, floor splats included); 0 = below the first rung (0.5 mm)\n  lateral_m   largest radius + top growth in LADDER at which the body with its chassis bottom raised 3 mm still passes\n              at margin 0: lateral + overhead clearance.  Raising the bottom 3 mm ignores the floor splats (2-sigma\n              tops < 0.020 m) but keeps every obstacle reaching above 0.023 m.\n  vertical_m  geometric under-chassis gap: min over Gaussians whose 2-sigma top is below the chassis bottom (0.02 m)\n              and whose xy 2-sigma disk (max axis) comes within the body radius of the route, of (bottom - top).\n              (The disk over-covers the ellipse, so this is a lower bound.)\n  start/goal_clear3d_m, start/goal_lateral_m: the same ladders at the endpoints alone.",
+ "streams": [
+  {
+   "stream": 1,
+   "seed": 20262100,
+   "draws_consumed": null,
+   "audit": false,
+   "mode": "uniform",
+   "wall_s": null
+  }
+ ],
+ "funnel": {
+  "endpoint_m001": {
+   "entered": 42377,
+   "failed": 42218,
+   "pass_rate": 0.003752035302168629
+  },
+  "endpoint_real_dup": {
+   "entered": 159,
+   "failed": 0,
+   "pass_rate": 1.0
+  },
+  "prefilter": {
+   "entered": 159,
+   "failed": 159,
+   "pass_rate": 0.0
+  },
+  "astar_real": {
+   "entered": 0,
+   "failed": 0,
+   "pass_rate": 0.0
+  },
+  "reverify_m001": {
+   "entered": 0,
+   "failed": 0,
+   "pass_rate": 0.0
+  },
+  "astar_split_on_prefilter_pass": {
+   "ROUTE": 0,
+   "NO_ROUTE": 0,
+   "NO_ROUTE_MARGIN": 0,
+   "UNSURE": 0
+  },
+  "astar_split_on_prefilter_reject_audit": {
+   "ROUTE": 0,
+   "NO_ROUTE": 0,
+   "NO_ROUTE_MARGIN": 0,
+   "UNSURE": 0
+  },
+  "cost_s": {
+   "endpoint": {
+    "n": 42377,
+    "sum": 25.772875109454617,
+    "mean": 0.0006081807374154522,
+    "median": 0.00012131500989198685,
+    "p95": 0.002451536245644092,
+    "max": 0.03970234887674451
+   },
+   "targeted": null,
+   "prefilter": {
+    "n": 159,
+    "sum": 0.7274881883058697,
+    "mean": 0.00457539741072874,
+    "median": 0.0052417858969420195,
+    "p95": 0.0074217549292370675,
+    "max": 0.010485580191016197
+   },
+   "astar_route": null,
+   "astar_reject": null,
+   "astar_audit": null,
+   "reverify": null,
+   "evidence": null,
+   "candidate_cpu": {
+    "n": 42377,
+    "sum": 26.595909363999873,
+    "mean": 0.0006276024580314764,
+    "median": 0.00012659199999909276,
+    "p95": 0.002443966199999891,
+    "max": 0.02892568400000073
+   }
+  },
+  "accepted": 0,
+  "cpu_s_total": 26.59590936399987,
+  "cpu_s_per_accepted": 26.59590936399987,
+  "accepted_len_ratio": null,
+  "accepted_lateral_m": null,
+  "accepted_clear3d_m": null,
+  "accepted_vertical_m": null,
+  "accepted_dist_m": null
+ },
+ "distance_passing_candidates": 42377,
+ "crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 32382,
+  "bounds_min": [
+   12.744434379266893,
+   25.768836169040384,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   16.48793861074622,
+   30.76001582747995,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "archive_sha256": "2a3a72d610519095381a83fd741a61f32b420b20f39e0c5f60951e463fd596cc",
+ "pairs": []
+}

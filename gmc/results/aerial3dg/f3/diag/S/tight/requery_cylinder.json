@@ -1,0 +1,1300 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/tight/cylinder/task_00.jsonl",
+ "rows": [
+  {
+   "index": 0,
+   "pair_id": "F3Sq-00000",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.04659413895569742,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6854,
+     -0.9654
+    ],
+    [
+     1.7577,
+     -1.2047
+    ],
+    [
+     0.731,
+     -1.3322
+    ],
+    [
+     0.6095,
+     -1.3473
+    ]
+   ]
+  },
+  {
+   "index": 1,
+   "pair_id": "F3Sq-00001",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.15097083011642098,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5391,
+     -1.3332
+    ],
+    [
+     3.381,
+     -1.3046
+    ],
+    [
+     1.6318,
+     -1.1804
+    ],
+    [
+     0.3895,
+     -1.096
+    ]
+   ]
+  },
+  {
+   "index": 2,
+   "pair_id": "F3Sq-00002",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03733031707815826,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6141,
+     -1.1779
+    ],
+    [
+     1.85,
+     -1.2615
+    ],
+    [
+     0.6272,
+     -1.3194
+    ],
+    [
+     0.356,
+     -1.3323
+    ]
+   ]
+  },
+  {
+   "index": 3,
+   "pair_id": "F3Sq-00003",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.016336383996531367,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8558,
+     -0.8661
+    ],
+    [
+     1.711,
+     -1.1659
+    ],
+    [
+     0.4598,
+     -1.3408
+    ]
+   ]
+  },
+  {
+   "index": 5,
+   "pair_id": "F3Sq-00005",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.024392738938331604,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6688,
+     -0.8622
+    ],
+    [
+     0.5825,
+     -1.143
+    ],
+    [
+     0.469,
+     -1.1533
+    ]
+   ]
+  },
+  {
+   "index": 6,
+   "pair_id": "F3Sq-00006",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.04136725002899766,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6716,
+     -1.1689
+    ],
+    [
+     1.85,
+     -1.2501
+    ],
+    [
+     0.5783,
+     -1.3067
+    ],
+    [
+     0.4532,
+     -1.3123
+    ]
+   ]
+  },
+  {
+   "index": 7,
+   "pair_id": "F3Sq-00007",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.003379669040441513,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 8,
+   "pair_id": "F3Sq-00008",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03229288710281253,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.225,
+     -1.0899
+    ],
+    [
+     0.1776,
+     -1.3207
+    ]
+   ]
+  },
+  {
+   "index": 10,
+   "pair_id": "F3Sq-00010",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.028264103922992945,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.652,
+     -0.8747
+    ],
+    [
+     1.4103,
+     -1.0877
+    ],
+    [
+     0.5173,
+     -1.1726
+    ]
+   ]
+  },
+  {
+   "index": 11,
+   "pair_id": "F3Sq-00011",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.017364362021908164,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.2554,
+     -0.883
+    ],
+    [
+     0.2252,
+     -1.2782
+    ]
+   ]
+  },
+  {
+   "index": 13,
+   "pair_id": "F3Sq-00013",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.0033070009667426348,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 15,
+   "pair_id": "F3Sq-00015",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03470281604677439,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5405,
+     -1.0697
+    ],
+    [
+     0.3057,
+     -1.317
+    ]
+   ]
+  },
+  {
+   "index": 16,
+   "pair_id": "F3Sq-00016",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.02468327688984573,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7998,
+     -0.9056
+    ],
+    [
+     0.7036,
+     -1.3069
+    ],
+    [
+     0.6348,
+     -1.3158
+    ]
+   ]
+  },
+  {
+   "index": 18,
+   "pair_id": "F3Sq-00018",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.02358772698789835,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5224,
+     -1.3151
+    ],
+    [
+     1.6029,
+     -1.1689
+    ],
+    [
+     0.4022,
+     -1.0808
+    ]
+   ]
+  },
+  {
+   "index": 19,
+   "pair_id": "F3Sq-00019",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.01261765998788178,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6228,
+     -1.3257
+    ],
+    [
+     0.7098,
+     -1.3126
+    ],
+    [
+     1.7111,
+     -1.1621
+    ],
+    [
+     3.5925,
+     -0.8793
+    ]
+   ]
+  },
+  {
+   "index": 20,
+   "pair_id": "F3Sq-00020",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.045774494064971805,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.642,
+     -1.1773
+    ],
+    [
+     1.8499,
+     -1.2722
+    ],
+    [
+     0.7301,
+     -1.3314
+    ],
+    [
+     0.6003,
+     -1.3383
+    ]
+   ]
+  },
+  {
+   "index": 21,
+   "pair_id": "F3Sq-00021",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03682218096219003,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7004,
+     -0.9613
+    ],
+    [
+     1.7121,
+     -1.1825
+    ],
+    [
+     0.3863,
+     -1.33
+    ]
+   ]
+  },
+  {
+   "index": 23,
+   "pair_id": "F3Sq-00023",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.016277027083560824,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6059,
+     -0.8861
+    ],
+    [
+     0.6282,
+     -0.8862
+    ],
+    [
+     1.21,
+     -0.8882
+    ],
+    [
+     3.8103,
+     -0.8973
+    ]
+   ]
+  },
+  {
+   "index": 24,
+   "pair_id": "F3Sq-00024",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.015439532930031419,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5471,
+     -0.8819
+    ],
+    [
+     0.6253,
+     -0.8907
+    ],
+    [
+     1.3096,
+     -0.9676
+    ],
+    [
+     3.5406,
+     -1.2185
+    ]
+   ]
+  },
+  {
+   "index": 25,
+   "pair_id": "F3Sq-00025",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.0330003818962723,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8135,
+     -1.3406
+    ],
+    [
+     0.6176,
+     -0.9025
+    ],
+    [
+     0.6131,
+     -0.9019
+    ]
+   ]
+  },
+  {
+   "index": 26,
+   "pair_id": "F3Sq-00026",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.05242538801394403,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5,
+     -1.1681
+    ],
+    [
+     1.3159,
+     -0.9684
+    ],
+    [
+     0.5912,
+     -0.9021
+    ],
+    [
+     0.3764,
+     -0.8825
+    ]
+   ]
+  },
+  {
+   "index": 27,
+   "pair_id": "F3Sq-00027",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.029247536091133952,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.8171,
+     -0.8629
+    ],
+    [
+     1.6001,
+     -1.0789
+    ],
+    [
+     0.3087,
+     -1.2047
+    ]
+   ]
+  },
+  {
+   "index": 28,
+   "pair_id": "F3Sq-00028",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03199073509313166,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3377,
+     -1.2591
+    ],
+    [
+     3.545,
+     -0.8811
+    ]
+   ]
+  },
+  {
+   "index": 29,
+   "pair_id": "F3Sq-00029",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03135031810961664,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.2935,
+     -1.2493
+    ],
+    [
+     3.6922,
+     -0.8594
+    ]
+   ]
+  },
+  {
+   "index": 30,
+   "pair_id": "F3Sq-00030",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.06696271314285696,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4141,
+     -1.3404
+    ],
+    [
+     1.7454,
+     -1.3037
+    ],
+    [
+     2.1247,
+     -1.2992
+    ],
+    [
+     3.6654,
+     -1.2984
+    ]
+   ]
+  },
+  {
+   "index": 31,
+   "pair_id": "F3Sq-00031",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.044745619874447584,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4343,
+     -1.246
+    ],
+    [
+     0.1761,
+     -1.299
+    ]
+   ]
+  },
+  {
+   "index": 32,
+   "pair_id": "F3Sq-00032",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.011252232128754258,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3062,
+     -1.3486
+    ],
+    [
+     1.7134,
+     -1.1708
+    ],
+    [
+     3.6381,
+     -0.9277
+    ]
+   ]
+  },
+  {
+   "index": 33,
+   "pair_id": "F3Sq-00033",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.015840488951653242,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7624,
+     -0.867
+    ],
+    [
+     0.5089,
+     -1.065
+    ]
+   ]
+  },
+  {
+   "index": 34,
+   "pair_id": "F3Sq-00034",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.02455642819404602,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4793,
+     -0.9903
+    ],
+    [
+     0.5838,
+     -0.9858
+    ],
+    [
+     1.3124,
+     -0.9546
+    ],
+    [
+     3.5897,
+     -0.8571
+    ]
+   ]
+  },
+  {
+   "index": 35,
+   "pair_id": "F3Sq-00035",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03237193892709911,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.4227,
+     -1.0077
+    ],
+    [
+     0.4087,
+     -1.335
+    ]
+   ]
+  },
+  {
+   "index": 36,
+   "pair_id": "F3Sq-00036",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.011380762094631791,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6647,
+     -0.8896
+    ],
+    [
+     0.5108,
+     -0.9782
+    ]
+   ]
+  },
+  {
+   "index": 37,
+   "pair_id": "F3Sq-00037",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.009421225171536207,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3478,
+     -1.3137
+    ],
+    [
+     3.5255,
+     -1.0787
+    ]
+   ]
+  },
+  {
+   "index": 38,
+   "pair_id": "F3Sq-00038",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.16184248798526824,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4598,
+     -0.991
+    ],
+    [
+     1.3109,
+     -1.0808
+    ],
+    [
+     3.3801,
+     -1.311
+    ],
+    [
+     3.5046,
+     -1.3324
+    ]
+   ]
+  },
+  {
+   "index": 39,
+   "pair_id": "F3Sq-00039",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.12011587317101657,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4946,
+     -1.2979
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     3.6242,
+     -1.3292
+    ]
+   ]
+  },
+  {
+   "index": 40,
+   "pair_id": "F3Sq-00040",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.23801389196887612,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6074,
+     -1.3359
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     2.0892,
+     -1.2993
+    ],
+    [
+     1.7453,
+     -1.3042
+    ],
+    [
+     0.3183,
+     -1.3479
+    ]
+   ]
+  },
+  {
+   "index": 41,
+   "pair_id": "F3Sq-00041",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.009915861999616027,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4085,
+     -0.8599
+    ],
+    [
+     3.4219,
+     -1.0244
+    ]
+   ]
+  },
+  {
+   "index": 42,
+   "pair_id": "F3Sq-00042",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.030399916926398873,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5502,
+     -1.0964
+    ],
+    [
+     0.4527,
+     -0.8702
+    ]
+   ]
+  },
+  {
+   "index": 43,
+   "pair_id": "F3Sq-00043",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.01245575095526874,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.4976,
+     -0.8626
+    ],
+    [
+     0.6335,
+     -0.8781
+    ],
+    [
+     1.3106,
+     -0.9556
+    ],
+    [
+     3.5788,
+     -1.2149
+    ]
+   ]
+  },
+  {
+   "index": 44,
+   "pair_id": "F3Sq-00044",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.01688191993162036,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.6797,
+     -1.3379
+    ],
+    [
+     0.7344,
+     -1.3354
+    ],
+    [
+     1.8497,
+     -1.2846
+    ],
+    [
+     3.798,
+     -1.1959
+    ]
+   ]
+  },
+  {
+   "index": 45,
+   "pair_id": "F3Sq-00045",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.033157050143927336,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5973,
+     -1.046
+    ],
+    [
+     0.6415,
+     -0.8659
+    ],
+    [
+     0.5372,
+     -0.8595
+    ]
+   ]
+  },
+  {
+   "index": 46,
+   "pair_id": "F3Sq-00046",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.19052945100702345,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6564,
+     -1.3113
+    ],
+    [
+     3.3815,
+     -1.2993
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     0.6284,
+     -1.3253
+    ],
+    [
+     0.4447,
+     -1.329
+    ]
+   ]
+  },
+  {
+   "index": 47,
+   "pair_id": "F3Sq-00047",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.04115892481058836,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7361,
+     -0.9261
+    ],
+    [
+     1.7051,
+     -1.148
+    ],
+    [
+     0.1536,
+     -1.3175
+    ]
+   ]
+  },
+  {
+   "index": 48,
+   "pair_id": "F3Sq-00048",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.022250307956710458,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.5301,
+     -1.3469
+    ],
+    [
+     0.663,
+     -1.3404
+    ],
+    [
+     1.85,
+     -1.2822
+    ],
+    [
+     3.5963,
+     -1.1966
+    ]
+   ]
+  },
+  {
+   "index": 50,
+   "pair_id": "F3Sq-00050",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.03388562984764576,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.5786,
+     -1.273
+    ],
+    [
+     1.9046,
+     -1.2993
+    ],
+    [
+     0.6319,
+     -1.3321
+    ],
+    [
+     0.4647,
+     -1.3364
+    ]
+   ]
+  },
+  {
+   "index": 51,
+   "pair_id": "F3Sq-00051",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.02444484387524426,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.43,
+     -0.9908
+    ],
+    [
+     0.5776,
+     -0.9851
+    ],
+    [
+     3.6356,
+     -0.8672
+    ]
+   ]
+  },
+  {
+   "index": 52,
+   "pair_id": "F3Sq-00052",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.003798148827627301,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null
+  },
+  {
+   "index": 53,
+   "pair_id": "F3Sq-00053",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.011955437948927283,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3634,
+     -1.3463
+    ],
+    [
+     3.5647,
+     -1.1046
+    ]
+   ]
+  },
+  {
+   "index": 55,
+   "pair_id": "F3Sq-00055",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.17726862290874124,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     0.3632,
+     -1.1926
+    ],
+    [
+     0.5847,
+     -1.2004
+    ],
+    [
+     1.8496,
+     -1.2452
+    ],
+    [
+     3.3813,
+     -1.303
+    ],
+    [
+     3.6193,
+     -1.3162
+    ]
+   ]
+  },
+  {
+   "index": 56,
+   "pair_id": "F3Sq-00056",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.2043831259943545,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6335,
+     -1.3474
+    ],
+    [
+     3.3585,
+     -1.3036
+    ],
+    [
+     1.8592,
+     -1.2192
+    ],
+    [
+     0.5827,
+     -1.152
+    ],
+    [
+     0.4491,
+     -1.145
+    ]
+   ]
+  },
+  {
+   "index": 57,
+   "pair_id": "F3Sq-00057",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.26020317315123975,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.6364,
+     -1.1933
+    ],
+    [
+     0.1713,
+     -1.2884
+    ]
+   ]
+  },
+  {
+   "index": 58,
+   "pair_id": "F3Sq-00058",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.04414991196244955,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7979,
+     -1.2118
+    ],
+    [
+     0.633,
+     -0.8788
+    ],
+    [
+     0.6117,
+     -0.8766
+    ]
+   ]
+  },
+  {
+   "index": 59,
+   "pair_id": "F3Sq-00059",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.01839194493368268,
+   "requery_timeout_s": 900.0,
+   "compile_id": "8352bdd37aab07a2",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     3.7305,
+     -0.8742
+    ],
+    [
+     0.5115,
+     -1.1033
+    ]
+   ]
+  }
+ ]
+}

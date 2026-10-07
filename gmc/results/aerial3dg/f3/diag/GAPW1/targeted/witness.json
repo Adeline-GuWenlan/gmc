@@ -1,0 +1,38 @@
+{
+ "pairs": "results/aerial3dg/f3/sample/GAPW1/targeted_pairs.json",
+ "margin_m": 0.0021,
+ "resolution_m": 0.1,
+ "summary": {
+  "UNSURE": 1
+ },
+ "rows": [
+  {
+   "pair_id": "F3Wt-00000",
+   "margin_m": 0.0021,
+   "start_free_at_margin": true,
+   "goal_free_at_margin": false,
+   "stored_route_reverify_m001": true,
+   "stored_route_reverify_reason": "all_closed_edges_verified",
+   "astar_outcome": "UNSURE",
+   "astar_reason": "original_goal:geometry_or_margin_unproven",
+   "expansions": 0,
+   "unproven_rejections": 1,
+   "t_astar_s": 0.024976280983537436,
+   "clearance_lower_m": null
+  }
+ ],
+ "host": {
+  "node": "cs609.hpc.nyu.edu",
+  "slurm_job_id": "19314146",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   87.8076171875,
+   87.40087890625,
+   90.95556640625
+  ],
+  "utc": "2026-10-07T01:55:58Z",
+  "python": "3.13.5",
+  "git_commit": "9c78e5481e330be404dd05758ea3d502ad14d3ac"
+ }
+}

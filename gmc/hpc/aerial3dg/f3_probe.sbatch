@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=a3f3_probe
-#SBATCH --time=02:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=3500M
 #SBATCH --cpus-per-task=1
 #SBATCH --output=/scratch/wg2381/claude_jobs/logs/%x-%j.out

@@ -350,9 +350,10 @@ def cmd_grid(a):
                 pts = [r["start_uv"]] + [(float(us[i]), float(vs[j])) for i, j in path] + [r["goal_uv"]]
                 row["lattice_path_len_m"] = float(np.sum(np.hypot(*np.diff(np.asarray(pts), axis=0).T)))
                 if n_ver < a.verify_n:
+                    from gmc.gs3d.planner import _linear_trajectory
                     gq = C.pose(r["goal_uv"], body)
-                    ver = verify_path(C.oracle, [C.pose(p, body) for p in pts], body, margin_m=a.margin,
-                                      goal=GoalRegion(gq, 0., .05))
+                    vposes, _ = _linear_trajectory([C.pose(p, body) for p in pts], body, 0., 0.)   # turn, then drive
+                    ver = verify_path(C.oracle, vposes, body, margin_m=a.margin, goal=GoalRegion(gq, 0., .05))
                     row.update(verify_passed=ver["passed"], verify_reason=ver["reason"],
                                verify_clearance_lower_m=ver.get("clearance_lower_m"))
                     n_ver += 1

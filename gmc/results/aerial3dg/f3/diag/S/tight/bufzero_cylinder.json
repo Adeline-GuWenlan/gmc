@@ -1,0 +1,28 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/tight/cylinder/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 7,
+   "pair_id": "F3Sq-00007",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.2465460558887571
+  },
+  {
+   "index": 13,
+   "pair_id": "F3Sq-00013",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09640926192514598
+  },
+  {
+   "index": 52,
+   "pair_id": "F3Sq-00052",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09671481093391776
+  }
+ ]
+}

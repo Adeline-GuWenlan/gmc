@@ -1,0 +1,17 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/tight/sweeper/task_00.jsonl",
+ "rows": [
+  {
+   "index": 13,
+   "pair_id": "F3Sq-00013",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.008362493943423033,
+   "requery_timeout_s": 900.0,
+   "compile_id": "a17c75430cd3fec4",
+   "certificate_kind": null
+  }
+ ]
+}

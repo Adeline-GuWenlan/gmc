@@ -1,0 +1,26 @@
+{
+ "F3Wt-00012": {
+  "max_pose_excess_m": -0.020000000000000018,
+  "max_swept_excess_m": 0.010057914109759203
+ },
+ "F3Wt-00040": {
+  "max_pose_excess_m": -0.0008381424464629639,
+  "max_swept_excess_m": 0.043197154178526986
+ },
+ "F3Wt-00055": {
+  "max_pose_excess_m": -0.019238142446463158,
+  "max_swept_excess_m": 0.030637453343900223
+ },
+ "F3Wt-00065": {
+  "max_pose_excess_m": -0.0020381424464628317,
+  "max_swept_excess_m": 0.04293874870595493
+ },
+ "F3Wt-00072": {
+  "max_pose_excess_m": -0.00823814244646287,
+  "max_swept_excess_m": 0.00894272191501655
+ },
+ "F3Wt-00078": {
+  "max_pose_excess_m": -0.0022381424464610333,
+  "max_swept_excess_m": 0.009213861850000615
+ }
+}

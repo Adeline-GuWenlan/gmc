@@ -1,0 +1,39 @@
+{
+ "a3c": "outputs/aerial3dg/f3/GAPW1/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/GAPW1/tight/sweeper/task_00.jsonl",
+ "rows": [
+  {
+   "index": 4,
+   "pair_id": "F3Wq-00004",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.019001597072929144,
+   "requery_timeout_s": 900.0,
+   "compile_id": "a160fe048b6c47fd",
+   "certificate_kind": null
+  },
+  {
+   "index": 13,
+   "pair_id": "F3Wq-00013",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.015905548818409443,
+   "requery_timeout_s": 900.0,
+   "compile_id": "a160fe048b6c47fd",
+   "certificate_kind": null
+  },
+  {
+   "index": 25,
+   "pair_id": "F3Wq-00025",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.01566096511669457,
+   "requery_timeout_s": 900.0,
+   "compile_id": "a160fe048b6c47fd",
+   "certificate_kind": null
+  }
+ ]
+}
