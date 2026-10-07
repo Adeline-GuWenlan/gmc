@@ -1,5 +1,15 @@
 # aerial3d-ground: why the 5000-pair run fails where it fails (F1, 2026-10-01)
 
+> **F4 follow-up (2026-10-07): [`aerial3dg_failures_f4.md`](aerial3dg_failures_f4.md).**
+> - 5000 pairs confirmed reachable by **real-body** A* in F3's hard regions: WWEST 2500, GAPW1 1500, S 1000.
+> - GMC's cylinder is REACHABLE on 3614 and fails on 1386 (27.7 %):
+>   - 656 by-tolerance: every pair with an endpoint < 2 mm from a floor splat;
+>   - 534 export artefacts;
+>   - **196 genuine (3.9 %)**: 194 post-processing TIMEOUTs in WWEST (rising to 17-19 % at detour ratio >= 1.35), 1
+>     `ZeroDivisionError` in src `simplify` under G2's own config, 1 borderline endpoint.
+> - The sweeper fails on 181 (3.6 %), almost all by-tolerance. **0 UNREACHABLE** (no soundness flag).
+>   F2's 0.30 % came from a +5 cm robust body that excluded these cases.
+>
 > **F3 follow-up (2026-10-07):**
 > - G2 audit: [`aerial3dg_g2_audit.md`](aerial3dg_g2_audit.md). Every G2 non-REACHABLE row was re-checked with
 >   real-body A* (G2 box and W1), subset-body lattices and a lamp-width measurement. Verdict per row in

@@ -1,0 +1,231 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/S/sweeper/rows_all.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 52,
+   "pair_id": "F4S-00052",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.2630043188109994
+  },
+  {
+   "index": 84,
+   "pair_id": "F4S-00084",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10286203399300575
+  },
+  {
+   "index": 128,
+   "pair_id": "F4S-00128",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10173397185280919
+  },
+  {
+   "index": 165,
+   "pair_id": "F4S-00165",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10351236700080335
+  },
+  {
+   "index": 198,
+   "pair_id": "F4S-00198",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0988866500556469
+  },
+  {
+   "index": 221,
+   "pair_id": "F4S-00221",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09496581694111228
+  },
+  {
+   "index": 242,
+   "pair_id": "F4S-00242",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09394365409389138
+  },
+  {
+   "index": 246,
+   "pair_id": "F4S-00246",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0945505469571799
+  },
+  {
+   "index": 256,
+   "pair_id": "F4S-00256",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09519692393951118
+  },
+  {
+   "index": 301,
+   "pair_id": "F4S-00301",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09479205007664859
+  },
+  {
+   "index": 384,
+   "pair_id": "F4S-00384",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0963249048218131
+  },
+  {
+   "index": 392,
+   "pair_id": "F4S-00392",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09811425814405084
+  },
+  {
+   "index": 508,
+   "pair_id": "F4S-00508",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09210902987979352
+  },
+  {
+   "index": 519,
+   "pair_id": "F4S-00519",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08263965602964163
+  },
+  {
+   "index": 540,
+   "pair_id": "F4S-00540",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08851128397509456
+  },
+  {
+   "index": 594,
+   "pair_id": "F4S-00594",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08654373791068792
+  },
+  {
+   "index": 611,
+   "pair_id": "F4S-00611",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08693182794377208
+  },
+  {
+   "index": 620,
+   "pair_id": "F4S-00620",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10701247886754572
+  },
+  {
+   "index": 632,
+   "pair_id": "F4S-00632",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08752342383377254
+  },
+  {
+   "index": 633,
+   "pair_id": "F4S-00633",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08111065905541182
+  },
+  {
+   "index": 655,
+   "pair_id": "F4S-00655",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0892267927993089
+  },
+  {
+   "index": 656,
+   "pair_id": "F4S-00656",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08333431091159582
+  },
+  {
+   "index": 686,
+   "pair_id": "F4S-00686",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08742908202111721
+  },
+  {
+   "index": 704,
+   "pair_id": "F4S-00704",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08265889110043645
+  },
+  {
+   "index": 771,
+   "pair_id": "F4S-00771",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08926719496957958
+  },
+  {
+   "index": 798,
+   "pair_id": "F4S-00798",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08790985494852066
+  },
+  {
+   "index": 839,
+   "pair_id": "F4S-00839",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09095887979492545
+  },
+  {
+   "index": 892,
+   "pair_id": "F4S-00892",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09826411912217736
+  },
+  {
+   "index": 894,
+   "pair_id": "F4S-00894",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08959514810703695
+  },
+  {
+   "index": 923,
+   "pair_id": "F4S-00923",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10560232098214328
+  },
+  {
+   "index": 959,
+   "pair_id": "F4S-00959",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10855265194550157
+  },
+  {
+   "index": 995,
+   "pair_id": "F4S-00995",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10870552901178598
+  }
+ ]
+}

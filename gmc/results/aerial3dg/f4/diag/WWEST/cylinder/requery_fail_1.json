@@ -1,0 +1,1960 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/WWEST/cylinder/requery_fail_1.jsonl",
+ "rows": [
+  {
+   "index": 1229,
+   "pair_id": "F4X-01229",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1975595869589597,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1233,
+   "pair_id": "F4X-01233",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 2.6716176220215857,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.4089,
+     0.2639
+    ],
+    [
+     -6.2609,
+     3.2342
+    ],
+    [
+     -6.7763,
+     3.3413
+    ]
+   ]
+  },
+  {
+   "index": 1234,
+   "pair_id": "F4X-01234",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.17940905201248825,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1249,
+   "pair_id": "F4X-01249",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1473865769803524,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1250,
+   "pair_id": "F4X-01250",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.17866017622873187,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -7.6342,
+     1.415
+    ],
+    [
+     -7.0155,
+     1.8584
+    ],
+    [
+     -4.9775,
+     3.3189
+    ]
+   ]
+  },
+  {
+   "index": 1261,
+   "pair_id": "F4X-01261",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12712678499519825,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1268,
+   "pair_id": "F4X-01268",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13298683101311326,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1294,
+   "pair_id": "F4X-01294",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.2720783040858805,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1334,
+   "pair_id": "F4X-01334",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13797585107386112,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1342,
+   "pair_id": "F4X-01342",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.15170549391768873,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1344,
+   "pair_id": "F4X-01344",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 38.523083477979526,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -8.7395,
+     -0.9443
+    ],
+    [
+     -6.7182,
+     1.2821
+    ],
+    [
+     -5.6706,
+     2.3973
+    ],
+    [
+     -5.4733,
+     2.4724
+    ],
+    [
+     -5.3203,
+     2.4193
+    ],
+    [
+     -5.2714,
+     2.3903
+    ],
+    [
+     -2.8962,
+     0.4481
+    ]
+   ]
+  },
+  {
+   "index": 1354,
+   "pair_id": "F4X-01354",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.09295822586864233,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1370,
+   "pair_id": "F4X-01370",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 45.58991736010648,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -5.0933,
+     0.3869
+    ],
+    [
+     -4.6303,
+     2.8461
+    ],
+    [
+     -4.1561,
+     3.3437
+    ]
+   ]
+  },
+  {
+   "index": 1371,
+   "pair_id": "F4X-01371",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14566362602636218,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1394,
+   "pair_id": "F4X-01394",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 17.922872846014798,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -3.2011,
+     0.728
+    ],
+    [
+     -5.5058,
+     2.5769
+    ],
+    [
+     -6.9489,
+     1.3721
+    ],
+    [
+     -7.7501,
+     0.7033
+    ],
+    [
+     -8.7539,
+     -0.1348
+    ]
+   ]
+  },
+  {
+   "index": 1415,
+   "pair_id": "F4X-01415",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1034299349412322,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1419,
+   "pair_id": "F4X-01419",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1223136258777231,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1436,
+   "pair_id": "F4X-01436",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 45.234815989853814,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.5471,
+     2.08
+    ],
+    [
+     -9.4769,
+     1.1743
+    ],
+    [
+     -9.4015,
+     1.0824
+    ],
+    [
+     -9.3621,
+     1.0454
+    ],
+    [
+     -8.9836,
+     0.8004
+    ],
+    [
+     -8.8614,
+     0.6027
+    ],
+    [
+     -8.8744,
+     -0.0824
+    ],
+    [
+     -9.3319,
+     -0.9209
+    ]
+   ]
+  },
+  {
+   "index": 1465,
+   "pair_id": "F4X-01465",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12705400586128235,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1468,
+   "pair_id": "F4X-01468",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1113779281731695,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1472,
+   "pair_id": "F4X-01472",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 100.26997783593833,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -5.4185,
+     3.3387
+    ],
+    [
+     -6.12,
+     2.5697
+    ],
+    [
+     -7.1786,
+     2.1491
+    ],
+    [
+     -7.5535,
+     2.0055
+    ],
+    [
+     -8.8411,
+     1.85
+    ]
+   ]
+  },
+  {
+   "index": 1478,
+   "pair_id": "F4X-01478",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13139526802115142,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1486,
+   "pair_id": "F4X-01486",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13589163380675018,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1495,
+   "pair_id": "F4X-01495",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11410570610314608,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1496,
+   "pair_id": "F4X-01496",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13505796110257506,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1507,
+   "pair_id": "F4X-01507",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12758734985254705,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1509,
+   "pair_id": "F4X-01509",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11263781599700451,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1525,
+   "pair_id": "F4X-01525",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11851745494641364,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1533,
+   "pair_id": "F4X-01533",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 19.479570033028722,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.2856,
+     1.1569
+    ],
+    [
+     -5.2115,
+     2.3428
+    ],
+    [
+     -5.4883,
+     2.5546
+    ],
+    [
+     -6.9354,
+     1.3493
+    ],
+    [
+     -7.6898,
+     0.6994
+    ],
+    [
+     -8.8923,
+     -0.3366
+    ]
+   ]
+  },
+  {
+   "index": 1540,
+   "pair_id": "F4X-01540",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1305871861986816,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1548,
+   "pair_id": "F4X-01548",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14356288500130177,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1568,
+   "pair_id": "F4X-01568",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 9.596899676136672,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.1439,
+     3.3376
+    ],
+    [
+     -7.1829,
+     2.144
+    ],
+    [
+     -7.6035,
+     1.9906
+    ],
+    [
+     -7.666,
+     1.9906
+    ]
+   ]
+  },
+  {
+   "index": 1569,
+   "pair_id": "F4X-01569",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 68.55864347098395,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.7032,
+     1.2864
+    ],
+    [
+     -5.3166,
+     2.5818
+    ],
+    [
+     -5.6926,
+     2.3732
+    ],
+    [
+     -6.6758,
+     1.4866
+    ],
+    [
+     -7.6406,
+     0.5736
+    ],
+    [
+     -9.2199,
+     -0.9211
+    ]
+   ]
+  },
+  {
+   "index": 1579,
+   "pair_id": "F4X-01579",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14342530583962798,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1587,
+   "pair_id": "F4X-01587",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11110254121012986,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1591,
+   "pair_id": "F4X-01591",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1407099929638207,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1605,
+   "pair_id": "F4X-01605",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10834243590943515,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1612,
+   "pair_id": "F4X-01612",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11840845597907901,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1621,
+   "pair_id": "F4X-01621",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10556757193990052,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1641,
+   "pair_id": "F4X-01641",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10474902600981295,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1656,
+   "pair_id": "F4X-01656",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10314503009431064,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1660,
+   "pair_id": "F4X-01660",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1074430518783629,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1661,
+   "pair_id": "F4X-01661",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1156831041444093,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1681,
+   "pair_id": "F4X-01681",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11195900593884289,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1683,
+   "pair_id": "F4X-01683",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12369466386735439,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1685,
+   "pair_id": "F4X-01685",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1212248308584094,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1689,
+   "pair_id": "F4X-01689",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11784456786699593,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1693,
+   "pair_id": "F4X-01693",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 1.0436246271710843,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.1333,
+     3.3384
+    ],
+    [
+     -6.5329,
+     3.0938
+    ],
+    [
+     -6.9244,
+     2.2591
+    ],
+    [
+     -8.3286,
+     -0.9007
+    ]
+   ]
+  },
+  {
+   "index": 1696,
+   "pair_id": "F4X-01696",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11778733809478581,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1706,
+   "pair_id": "F4X-01706",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1331979800015688,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1716,
+   "pair_id": "F4X-01716",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11613395786844194,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1727,
+   "pair_id": "F4X-01727",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12194324494339526,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1741,
+   "pair_id": "F4X-01741",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12259804690256715,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1742,
+   "pair_id": "F4X-01742",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 21.80980277317576,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.2895,
+     0.4122
+    ],
+    [
+     -5.2834,
+     2.5123
+    ],
+    [
+     -5.6388,
+     2.4161
+    ],
+    [
+     -6.878,
+     1.2438
+    ],
+    [
+     -7.6039,
+     0.5262
+    ],
+    [
+     -8.5527,
+     -0.4118
+    ]
+   ]
+  },
+  {
+   "index": 1777,
+   "pair_id": "F4X-01777",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 30.795099654002115,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -8.2676,
+     -0.9407
+    ],
+    [
+     -5.6725,
+     2.4311
+    ],
+    [
+     -5.4094,
+     2.4621
+    ],
+    [
+     -5.1727,
+     2.3433
+    ],
+    [
+     -3.7038,
+     1.175
+    ]
+   ]
+  },
+  {
+   "index": 1784,
+   "pair_id": "F4X-01784",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14000493893399835,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1787,
+   "pair_id": "F4X-01787",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 52.72395259491168,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.814,
+     1.7254
+    ],
+    [
+     -4.3976,
+     2.0675
+    ],
+    [
+     -5.4918,
+     2.502
+    ],
+    [
+     -7.239,
+     1.3224
+    ],
+    [
+     -7.9358,
+     0.8254
+    ],
+    [
+     -8.8752,
+     0.1555
+    ]
+   ]
+  },
+  {
+   "index": 1788,
+   "pair_id": "F4X-01788",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11551195103675127,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1790,
+   "pair_id": "F4X-01790",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11915122484788299,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1791,
+   "pair_id": "F4X-01791",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12647884292528033,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1831,
+   "pair_id": "F4X-01831",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.26884038001298904,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -7.582,
+     0.6596
+    ],
+    [
+     -7.5482,
+     0.7013
+    ],
+    [
+     -6.9832,
+     1.3992
+    ],
+    [
+     -5.4116,
+     3.3403
+    ]
+   ]
+  },
+  {
+   "index": 1832,
+   "pair_id": "F4X-01832",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14333628420718014,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1833,
+   "pair_id": "F4X-01833",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12542557483538985,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1858,
+   "pair_id": "F4X-01858",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11815279396250844,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1865,
+   "pair_id": "F4X-01865",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12257901788689196,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1872,
+   "pair_id": "F4X-01872",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 52.00313427904621,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -3.8769,
+     1.6282
+    ],
+    [
+     -5.3177,
+     2.4193
+    ],
+    [
+     -5.5573,
+     2.5016
+    ],
+    [
+     -6.8613,
+     1.3833
+    ],
+    [
+     -9.4683,
+     -0.9275
+    ]
+   ]
+  },
+  {
+   "index": 1877,
+   "pair_id": "F4X-01877",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1192028468940407,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1881,
+   "pair_id": "F4X-01881",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11871360498480499,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1884,
+   "pair_id": "F4X-01884",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13629426108673215,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1885,
+   "pair_id": "F4X-01885",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1149129441473633,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1897,
+   "pair_id": "F4X-01897",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 90.43298664013855,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.5181,
+     -0.9266
+    ],
+    [
+     -6.7003,
+     1.5381
+    ],
+    [
+     -5.6132,
+     2.4363
+    ],
+    [
+     -5.3768,
+     2.4634
+    ],
+    [
+     -5.2694,
+     2.3889
+    ],
+    [
+     -3.2082,
+     0.7754
+    ]
+   ]
+  },
+  {
+   "index": 1898,
+   "pair_id": "F4X-01898",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10952601302415133,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1913,
+   "pair_id": "F4X-01913",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.15584641601890326,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.9578,
+     3.3291
+    ],
+    [
+     -7.0245,
+     1.6297
+    ],
+    [
+     -8.171,
+     0.687
+    ]
+   ]
+  },
+  {
+   "index": 1914,
+   "pair_id": "F4X-01914",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13251916994340718,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1927,
+   "pair_id": "F4X-01927",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11542034498415887,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1929,
+   "pair_id": "F4X-01929",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13519176305271685,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1930,
+   "pair_id": "F4X-01930",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11870403494685888,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1931,
+   "pair_id": "F4X-01931",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 15.692331724101678,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -5.2989,
+     1.5204
+    ],
+    [
+     -5.2085,
+     1.8437
+    ],
+    [
+     -5.1287,
+     2.1287
+    ],
+    [
+     -5.1874,
+     2.3067
+    ],
+    [
+     -5.4291,
+     2.5704
+    ],
+    [
+     -6.7512,
+     1.6289
+    ],
+    [
+     -7.8911,
+     0.7729
+    ],
+    [
+     -8.5779,
+     0.2571
+    ]
+   ]
+  },
+  {
+   "index": 1947,
+   "pair_id": "F4X-01947",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11849790997803211,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 1950,
+   "pair_id": "F4X-01950",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.484893242130056,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -8.4425,
+     -0.5557
+    ],
+    [
+     -7.2249,
+     0.7841
+    ],
+    [
+     -4.8944,
+     3.3484
+    ]
+   ]
+  },
+  {
+   "index": 1997,
+   "pair_id": "F4X-01997",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13517623883672059,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2023,
+   "pair_id": "F4X-02023",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1183055981528014,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2030,
+   "pair_id": "F4X-02030",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13594069215469062,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2037,
+   "pair_id": "F4X-02037",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1219830228947103,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2042,
+   "pair_id": "F4X-02042",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13023268897086382,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2049,
+   "pair_id": "F4X-02049",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12654535402543843,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2079,
+   "pair_id": "F4X-02079",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12138879811391234,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2116,
+   "pair_id": "F4X-02116",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1202274311799556,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2129,
+   "pair_id": "F4X-02129",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12379153002984822,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2133,
+   "pair_id": "F4X-02133",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12007522606290877,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2134,
+   "pair_id": "F4X-02134",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11537919496186078,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2135,
+   "pair_id": "F4X-02135",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10831151786260307,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2138,
+   "pair_id": "F4X-02138",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12192326784133911,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2145,
+   "pair_id": "F4X-02145",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 143.62316015805118,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.0468,
+     3.34
+    ],
+    [
+     -7.1747,
+     2.1492
+    ],
+    [
+     -7.5473,
+     2.0099
+    ],
+    [
+     -9.2426,
+     1.6088
+    ],
+    [
+     -9.393,
+     1.5378
+    ],
+    [
+     -9.4286,
+     1.5209
+    ]
+   ]
+  },
+  {
+   "index": 2160,
+   "pair_id": "F4X-02160",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12537356303073466,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2173,
+   "pair_id": "F4X-02173",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.0984026410151273,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2174,
+   "pair_id": "F4X-02174",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1206589718349278,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2177,
+   "pair_id": "F4X-02177",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 17.25778082711622,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.3507,
+     0.5618
+    ],
+    [
+     -5.3124,
+     2.5705
+    ],
+    [
+     -5.6991,
+     2.3734
+    ],
+    [
+     -6.8682,
+     1.2391
+    ],
+    [
+     -7.5733,
+     0.5337
+    ],
+    [
+     -8.2812,
+     -0.1745
+    ]
+   ]
+  },
+  {
+   "index": 2188,
+   "pair_id": "F4X-02188",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11201602080836892,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2189,
+   "pair_id": "F4X-02189",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.10056519298814237,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2204,
+   "pair_id": "F4X-02204",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1313226129859686,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2220,
+   "pair_id": "F4X-02220",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1082254690118134,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2231,
+   "pair_id": "F4X-02231",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 71.05454312404618,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.7133,
+     1.6743
+    ],
+    [
+     -5.3037,
+     2.4599
+    ],
+    [
+     -5.6499,
+     2.4434
+    ],
+    [
+     -5.9267,
+     2.0228
+    ],
+    [
+     -7.8413,
+     -0.9426
+    ]
+   ]
+  },
+  {
+   "index": 2233,
+   "pair_id": "F4X-02233",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11717211897484958,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2244,
+   "pair_id": "F4X-02244",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.13006808306090534,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2245,
+   "pair_id": "F4X-02245",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1155674010515213,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2251,
+   "pair_id": "F4X-02251",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12425226997584105,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2274,
+   "pair_id": "F4X-02274",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11853424296714365,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2283,
+   "pair_id": "F4X-02283",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12974273599684238,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2288,
+   "pair_id": "F4X-02288",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14461526297964156,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2294,
+   "pair_id": "F4X-02294",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11976048815995455,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2328,
+   "pair_id": "F4X-02328",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12529633194208145,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2356,
+   "pair_id": "F4X-02356",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14221175597049296,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2363,
+   "pair_id": "F4X-02363",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1191574118565768,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2373,
+   "pair_id": "F4X-02373",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11340472404845059,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2382,
+   "pair_id": "F4X-02382",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11007502698339522,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2384,
+   "pair_id": "F4X-02384",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1202244539745152,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2391,
+   "pair_id": "F4X-02391",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 0.08454625401645899,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -5.0894,
+     3.3465
+    ],
+    [
+     -6.8959,
+     0.8052
+    ]
+   ]
+  },
+  {
+   "index": 2394,
+   "pair_id": "F4X-02394",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11380523815751076,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2442,
+   "pair_id": "F4X-02442",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.1442959289997816,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2445,
+   "pair_id": "F4X-02445",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12624304299242795,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2454,
+   "pair_id": "F4X-02454",
+   "orig": "ERROR:ZeroDivisionError: float division by zero @ query.py:217",
+   "now": "ERROR:ZeroDivisionError: float division by zero @ query.py:217",
+   "reproduced": true,
+   "requery_wall_s": 0.3468824920710176,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2457,
+   "pair_id": "F4X-02457",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11503881099633873,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2461,
+   "pair_id": "F4X-02461",
+   "orig": "UNKNOWN:shared_replay_failed",
+   "now": "UNKNOWN:shared_replay_failed",
+   "reproduced": true,
+   "requery_wall_s": 3.3557920339517295,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.1596,
+     0.9772
+    ],
+    [
+     -5.1772,
+     2.2965
+    ],
+    [
+     -5.8613,
+     3.0381
+    ],
+    [
+     -6.3843,
+     3.2365
+    ],
+    [
+     -6.7276,
+     3.3408
+    ]
+   ]
+  },
+  {
+   "index": 2462,
+   "pair_id": "F4X-02462",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.114496611058712,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2467,
+   "pair_id": "F4X-02467",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.14447306795045733,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2483,
+   "pair_id": "F4X-02483",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "now": "UNKNOWN:start_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.12481319881044328,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  },
+  {
+   "index": 2498,
+   "pair_id": "F4X-02498",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "now": "UNKNOWN:goal_not_certified_free",
+   "reproduced": true,
+   "requery_wall_s": 0.11288900696672499,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "certificate_kind": null
+  }
+ ]
+}

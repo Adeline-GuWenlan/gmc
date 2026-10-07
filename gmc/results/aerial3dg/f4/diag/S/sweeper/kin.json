@@ -1,0 +1,124 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/S/sweeper/rows_all.jsonl",
+ "n": 2,
+ "summary": {
+  "turn|geom=True|turn_floor=True|both_floors=True": 2
+ },
+ "rows": [
+  {
+   "index": 29,
+   "pair_id": "F4S-00029",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [
+    {
+     "step": 10,
+     "steps": 20,
+     "t_s": 8.052888751265192,
+     "elapsed_s": 3.4032095186375955e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 3.4032095230784876e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.3049128444464486e-09,
+     "elapsed_exact_s": 3.4032095230784876e-07
+    }
+   ],
+   "n_violations": 1,
+   "violation_kinds": [
+    "turn"
+   ],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": false,
+     "reason": "speed_or_yaw_rate_exceeded",
+     "acceleration_verified": false
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  },
+  {
+   "index": 90,
+   "pair_id": "F4S-00090",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [
+    {
+     "step": 15,
+     "steps": 21,
+     "t_s": 10.972683550434846,
+     "elapsed_s": 4.498541361641628e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": -4.4985413705234123e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.9743697787788506e-09,
+     "elapsed_exact_s": 4.4985413705234123e-07
+    }
+   ],
+   "n_violations": 1,
+   "violation_kinds": [
+    "turn"
+   ],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": false,
+     "reason": "speed_or_yaw_rate_exceeded",
+     "acceleration_verified": false
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  }
+ ]
+}

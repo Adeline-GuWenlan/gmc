@@ -1,0 +1,483 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/WWEST/cylinder/requery_timeout_01.jsonl",
+ "rows": [
+  {
+   "index": 445,
+   "pair_id": "F4X-00445",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 296.69067639298737,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.298861182993278,
+   "full_stage_s": {
+    "lifting": 0.6,
+    "shortcut": 92.58,
+    "tighten": 199.79,
+    "merge_corners": 3.02
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.9483,
+     -0.177
+    ],
+    [
+     -6.7861,
+     0.3342
+    ],
+    [
+     -6.6931,
+     0.5962
+    ],
+    [
+     -6.5541,
+     0.8652
+    ],
+    [
+     -6.5541,
+     0.8653
+    ],
+    [
+     -6.5541,
+     0.8653
+    ],
+    [
+     -6.4374,
+     1.0906
+    ],
+    [
+     -5.6085,
+     2.5346
+    ],
+    [
+     -4.2216,
+     2.0048
+    ],
+    [
+     -3.3543,
+     1.9706
+    ]
+   ]
+  },
+  {
+   "index": 474,
+   "pair_id": "F4X-00474",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 143.6742019408848,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 1.4928478538058698,
+   "full_stage_s": {
+    "lifting": 0.65,
+    "shortcut": 41.83,
+    "tighten": 99.91,
+    "merge_corners": 0.72
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -7.6869,
+     -0.3651
+    ],
+    [
+     -6.1636,
+     1.7339
+    ],
+    [
+     -5.5456,
+     2.5766
+    ],
+    [
+     -2.5423,
+     0.5215
+    ],
+    [
+     -2.3516,
+     0.5339
+    ],
+    [
+     -1.8195,
+     0.8164
+    ]
+   ]
+  },
+  {
+   "index": 511,
+   "pair_id": "F4X-00511",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 296.2641124839429,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.9409991789143533,
+   "full_stage_s": {
+    "lifting": 1.43,
+    "shortcut": 84.83,
+    "tighten": 208.84,
+    "merge_corners": 0.61
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -3.1889,
+     0.7636
+    ],
+    [
+     -5.2957,
+     2.4112
+    ],
+    [
+     -5.4052,
+     2.4497
+    ],
+    [
+     -5.5239,
+     2.4497
+    ],
+    [
+     -5.6858,
+     2.4111
+    ],
+    [
+     -6.4729,
+     1.0189
+    ],
+    [
+     -6.6931,
+     0.5962
+    ],
+    [
+     -6.7396,
+     0.4652
+    ],
+    [
+     -6.8158,
+     0.2171
+    ],
+    [
+     -6.9047,
+     -0.1345
+    ],
+    [
+     -6.9006,
+     -0.1678
+    ],
+    [
+     -6.8188,
+     -0.2944
+    ],
+    [
+     -6.4869,
+     -0.6207
+    ]
+   ]
+  },
+  {
+   "index": 513,
+   "pair_id": "F4X-00513",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 206.76952409395017,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 3.647466269088909,
+   "full_stage_s": {
+    "shortcut": 67.68,
+    "tighten": 114.01,
+    "merge_corners": 20.78,
+    "shared_verification": 4.17
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.6066,
+     3.1883
+    ],
+    [
+     -6.9789,
+     2.3802
+    ],
+    [
+     -7.0976,
+     2.211
+    ],
+    [
+     -7.1776,
+     2.1485
+    ],
+    [
+     -7.8282,
+     1.9052
+    ],
+    [
+     -9.006,
+     1.8879
+    ],
+    [
+     -9.419,
+     1.8916
+    ]
+   ]
+  },
+  {
+   "index": 525,
+   "pair_id": "F4X-00525",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.0023273569532,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 2.592463156906888,
+   "certificate_kind": null
+  },
+  {
+   "index": 534,
+   "pair_id": "F4X-00534",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 150.5067575168796,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.1543642659671605,
+   "full_stage_s": {
+    "lifting": 0.71,
+    "shortcut": 72.17,
+    "tighten": 76.86
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.1026,
+     0.6909
+    ],
+    [
+     -2.2608,
+     0.5777
+    ],
+    [
+     -2.4858,
+     0.4816
+    ],
+    [
+     -5.387,
+     2.4699
+    ],
+    [
+     -5.6707,
+     2.436
+    ],
+    [
+     -6.8364,
+     0.6266
+    ]
+   ]
+  },
+  {
+   "index": 537,
+   "pair_id": "F4X-00537",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 191.70742566813715,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.9192089780699462,
+   "full_stage_s": {
+    "shortcut": 88.73,
+    "tighten": 85.71,
+    "merge_corners": 16.17
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.8443,
+     1.7978
+    ],
+    [
+     -4.3863,
+     2.0624
+    ],
+    [
+     -5.3628,
+     2.4382
+    ],
+    [
+     -5.6433,
+     2.4837
+    ],
+    [
+     -6.4333,
+     1.0349
+    ],
+    [
+     -6.6909,
+     0.4648
+    ],
+    [
+     -6.9987,
+     -0.2176
+    ],
+    [
+     -7.0836,
+     -0.4057
+    ]
+   ]
+  },
+  {
+   "index": 565,
+   "pair_id": "F4X-00565",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.00241135200486,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.3872955050319433,
+   "certificate_kind": null
+  },
+  {
+   "index": 657,
+   "pair_id": "F4X-00657",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 205.47186905005947,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.6299821939319372,
+   "full_stage_s": {
+    "shortcut": 94.33,
+    "tighten": 110.27
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.7099,
+     -0.6043
+    ],
+    [
+     -6.9006,
+     -0.1678
+    ],
+    [
+     -6.9047,
+     -0.1345
+    ],
+    [
+     -6.8158,
+     0.2171
+    ],
+    [
+     -6.7396,
+     0.4652
+    ],
+    [
+     -6.6931,
+     0.5962
+    ],
+    [
+     -6.4866,
+     0.9851
+    ],
+    [
+     -5.5986,
+     2.5615
+    ],
+    [
+     -4.5499,
+     2.0986
+    ]
+   ]
+  },
+  {
+   "index": 763,
+   "pair_id": "F4X-00763",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 223.99616593588144,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.7229729159735143,
+   "full_stage_s": {
+    "shortcut": 103.94,
+    "tighten": 118.57,
+    "merge_corners": 0.55
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.1155,
+     1.2998
+    ],
+    [
+     -2.0228,
+     0.5512
+    ],
+    [
+     -2.5483,
+     0.524
+    ],
+    [
+     -5.3113,
+     2.4174
+    ],
+    [
+     -5.3919,
+     2.4447
+    ],
+    [
+     -5.4427,
+     2.4497
+    ],
+    [
+     -5.4966,
+     2.4497
+    ],
+    [
+     -5.5491,
+     2.4439
+    ],
+    [
+     -5.5957,
+     2.4271
+    ],
+    [
+     -5.6409,
+     2.4046
+    ],
+    [
+     -5.7603,
+     2.3141
+    ],
+    [
+     -6.8916,
+     1.2161
+    ],
+    [
+     -7.446,
+     0.6617
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,358 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/WWEST/cylinder/requery_timeout_02.jsonl",
+ "rows": [
+  {
+   "index": 778,
+   "pair_id": "F4X-00778",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.0086967011448,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 2.225749525008723,
+   "certificate_kind": null
+  },
+  {
+   "index": 798,
+   "pair_id": "F4X-00798",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 185.39094448788092,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 0.6042176599148661,
+   "full_stage_s": {
+    "shortcut": 82.3,
+    "tighten": 98.53,
+    "merge_corners": 3.87
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.7822,
+     -0.3157
+    ],
+    [
+     -6.9214,
+     -0.0624
+    ],
+    [
+     -6.4333,
+     1.0349
+    ],
+    [
+     -5.5761,
+     2.6089
+    ],
+    [
+     -3.2704,
+     0.9435
+    ]
+   ]
+  },
+  {
+   "index": 805,
+   "pair_id": "F4X-00805",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.00203074514866,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.737166839884594,
+   "certificate_kind": null
+  },
+  {
+   "index": 874,
+   "pair_id": "F4X-00874",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 232.82787169888616,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.5081654170062393,
+   "full_stage_s": {
+    "shortcut": 81.77,
+    "tighten": 149.68,
+    "merge_corners": 0.91
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -2.0588,
+     1.126
+    ],
+    [
+     -2.1304,
+     0.5148
+    ],
+    [
+     -2.5612,
+     0.5333
+    ],
+    [
+     -5.3778,
+     2.4629
+    ],
+    [
+     -5.5819,
+     2.4402
+    ],
+    [
+     -7.2389,
+     1.3705
+    ],
+    [
+     -8.0502,
+     0.8166
+    ]
+   ]
+  },
+  {
+   "index": 1032,
+   "pair_id": "F4X-01032",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 250.6004351938609,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.6325239988509566,
+   "full_stage_s": {
+    "shortcut": 123.45,
+    "tighten": 125.72,
+    "merge_corners": 0.8
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -7.8942,
+     0.5255
+    ],
+    [
+     -6.9444,
+     1.3428
+    ],
+    [
+     -5.6158,
+     2.436
+    ],
+    [
+     -5.3783,
+     2.4633
+    ],
+    [
+     -2.4565,
+     0.4601
+    ],
+    [
+     -2.2294,
+     0.6075
+    ],
+    [
+     -1.8895,
+     1.0099
+    ]
+   ]
+  },
+  {
+   "index": 1101,
+   "pair_id": "F4X-01101",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 253.11124882590957,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 1.1984630851075053,
+   "full_stage_s": {
+    "shortcut": 61.77,
+    "tighten": 189.87,
+    "shared_verification": 0.9
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.2815,
+     1.9713
+    ],
+    [
+     -8.8939,
+     1.8826
+    ],
+    [
+     -7.6552,
+     1.9326
+    ],
+    [
+     -7.1113,
+     2.0734
+    ],
+    [
+     -5.5498,
+     2.4439
+    ],
+    [
+     -5.3943,
+     2.4608
+    ],
+    [
+     -3.4502,
+     1.3711
+    ]
+   ]
+  },
+  {
+   "index": 1116,
+   "pair_id": "F4X-01116",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 176.7868574440945,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 1.1133874380029738,
+   "full_stage_s": {
+    "lifting": 0.76,
+    "shortcut": 73.67,
+    "tighten": 101.73
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -3.4219,
+     0.9089
+    ],
+    [
+     -5.5012,
+     2.5746
+    ],
+    [
+     -5.7333,
+     2.3169
+    ],
+    [
+     -6.4853,
+     0.9878
+    ],
+    [
+     -6.4966,
+     0.9664
+    ],
+    [
+     -6.5494,
+     0.8681
+    ],
+    [
+     -6.6931,
+     0.5962
+    ],
+    [
+     -6.7629,
+     0.3997
+    ],
+    [
+     -6.82,
+     0.2101
+    ],
+    [
+     -6.9215,
+     -0.1625
+    ],
+    [
+     -7.0098,
+     -0.4869
+    ]
+   ]
+  },
+  {
+   "index": 1240,
+   "pair_id": "F4X-01240",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.00491678901017,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.9626989180687815,
+   "certificate_kind": null
+  },
+  {
+   "index": 1245,
+   "pair_id": "F4X-01245",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 242.68998304591514,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 0.9517949819564819,
+   "full_stage_s": {
+    "shortcut": 57.06,
+    "tighten": 182.74,
+    "shared_verification": 2.46
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -1.7502,
+     1.2139
+    ],
+    [
+     -2.402,
+     0.3902
+    ],
+    [
+     -4.5989,
+     2.2196
+    ],
+    [
+     -4.6575,
+     2.3454
+    ],
+    [
+     -4.6714,
+     2.411
+    ],
+    [
+     -4.6695,
+     2.5358
+    ],
+    [
+     -4.6411,
+     2.7206
+    ],
+    [
+     -4.3538,
+     3.3007
+    ]
+   ]
+  },
+  {
+   "index": 1258,
+   "pair_id": "F4X-01258",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.0053719209973,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 2.309861826011911,
+   "certificate_kind": null
+  }
+ ]
+}

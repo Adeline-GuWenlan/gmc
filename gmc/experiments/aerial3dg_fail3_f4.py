@@ -433,9 +433,9 @@ def band_table(rows, key, bands, label):
 
 
 def ep_min(x):
+    """Band key: the CYLINDER's endpoint ladder for every row of both robots (the sweeper's own ladder exists only for
+    its EP rows; mixing would bias the bands).  Sub-body => sweeper clearance >= cylinder clearance."""
     e = x["p"]["evidence"]
-    if x["robot"] == "sweeper" and x["epc"]:
-        return min(x["epc"]["start"]["ladder_m"], x["epc"]["goal"]["ladder_m"])
     return min(e["start_clear3d_m"], e["goal_clear3d_m"])
 
 
@@ -471,7 +471,7 @@ def cmd_summary(a):
         summ["bands"][robot] = {
             "lateral": band_table(rr, lambda x: x["p"]["evidence"]["lateral_m"], LAT_BANDS, "route lateral clearance (ladder rung passed)"),
             "detour": band_table(rr, lambda x: x["p"]["evidence"]["len_ratio"], RATIO_BANDS, "A* route length / straight distance"),
-            "endpoint": band_table(rr, ep_min, EP_BANDS, "min endpoint clearance ladder (own body for sweeper EP rows)")}
+            "endpoint": band_table(rr, ep_min, EP_BANDS, "min endpoint clearance ladder of the cylinder (mm)")}
         for reg in REGIONS:
             q = [x for x in rr if x["region"] == reg]
             summ["bands"][robot][f"detour_{reg}"] = band_table(q, lambda x: x["p"]["evidence"]["len_ratio"],
@@ -608,6 +608,57 @@ def cmd_gmctask(a):
     print(json.dumps({k: summary[k] for k in ("complete", "status_counts", "answered_this_run")}), notes, flush=True)
 
 
+def cmd_cases(a):
+    """Figure inputs (``aerial3dg_fail3_fig.py`` format) per region -> cases/<R>.json: every genuine non-TIMEOUT row,
+    up to 3 probed TIMEOUT rows (lowest / median / highest detour) + any TIMEOUT that did not reproduce, every
+    buffer-0 row that is neither REACHABLE nor a replay veto / TIMEOUT, and ``--per-class`` examples of every other
+    (robot, class), tightest lateral clearance first."""
+    pairs, rows = load_all()
+    for reg in REGIONS:
+        rr = [x for x in rows if x["region"] == reg and x["class"] != "REACHABLE"]
+        pick, seen = {}, collections.Counter()
+
+        def add(x, why):
+            pick.setdefault((x["robot"], x["r"]["pair_id"]), (x, why))
+        for x in rr:
+            fr = fail_record(x)
+            b0 = (fr["buffer0"] or "")
+            if group_of(x["class"]) == "genuine" and x["class"] != "METHOD-TIMEOUT":
+                add(x, "genuine")
+            if x["class"] == "METHOD-TIMEOUT" and fr["reproduced"] is False:
+                add(x, "TIMEOUT not reproduced on re-query")
+            if b0 and not b0.startswith(("REACHABLE", "TIMEOUT", "UNKNOWN:shared_replay_failed")):
+                add(x, f"buffer 0 -> {b0}")
+        tp = sorted([x for x in rr if x["class"] == "METHOD-TIMEOUT" and x["rq"]],
+                    key=lambda x: x["p"]["evidence"]["len_ratio"])
+        for x in ([tp[0], tp[len(tp) // 2], tp[-1]] if tp else []):
+            add(x, "TIMEOUT (probed)")
+        for x in sorted(rr, key=lambda x: x["p"]["evidence"]["lateral_m"]):
+            k = (x["robot"], x["class"])
+            if x["class"] != "METHOD-TIMEOUT" and seen[k] < a.per_class:
+                add(x, "example")
+                seen[k] += 1
+        cases = []
+        for (robot, pid), (x, why) in sorted(pick.items()):
+            fr, rq = fail_record(x), x["rq"] or {}
+            route = rq.get("gmc_route_uv") or (np.asarray(x["r"]["route_polyline"])[:, :2].tolist()
+                                               if x["r"].get("route_polyline") else None)
+            note = (f"{x['class']} ({group_of(x['class'])}; {why}); A* ratio {fr['len_ratio']}, lateral {fr['lateral_mm']} mm, "
+                    f"ep ladder {min(fr['start_ladder_mm'], fr['goal_ladder_mm'])} mm"
+                    + (f" own {fr['own_body_ep_ladder_mm']} mm" if fr["own_body_ep_ladder_mm"] is not None else "")
+                    + f"; buffer0 {fr['buffer0'] or '-'}; requery {fr['requery_now'] or '-'}"
+                    + (f" {fr['requery_wall_s']} s, verdict-only {fr['verdict_only']} {fr['verdict_only_wall_s']} s"
+                       if x["class"] == "METHOD-TIMEOUT" else ""))
+            cases.append({"case_id": f"{reg}-{pid}", "robot": robot, "start_uv": x["p"]["start_uv"],
+                          "goal_uv": x["p"]["goal_uv"], "astar_route_uv": x["p"]["astar_route_uv"],
+                          "gmc_status": x["r"]["status"], "gmc_reason": x["r"]["reason"][:60], "gmc_route_uv": route,
+                          "cut_gaussians": rq.get("cut_gaussians"), "note": note, "class": x["class"],
+                          "group": group_of(x["class"]), "why": why,
+                          "figure": f"gmc/results/aerial3dg/f4/cases/fig/{reg}-{pid}_{robot}.png"})
+        _dump(F4 / "cases" / f"{reg}.json", {"region": reg, "box_uv": REGIONS[reg]["box"], "cases": cases})
+        print(reg, len(cases), dict(collections.Counter((c["robot"], c["class"]) for c in cases)))
+
+
 # ---------------------------------------------------------------------------------------------- plots
 def cmd_plots(a):
     import matplotlib.pyplot as plt
@@ -620,6 +671,7 @@ def cmd_plots(a):
                         ("detour", "detour ratio band (A* route length / straight distance)"),
                         ("endpoint", "min endpoint clearance band (mm)")):
         fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharey=True)
+        ymax = 10.
         for ax, robot in zip(axes, ROBOTS):
             bands = [b for b in s["bands"][robot][key]["bands"] if b["n"]]
             x = np.arange(len(bands))
@@ -631,9 +683,10 @@ def cmd_plots(a):
                 bottom += v
             lo = np.array([b["ci95"][0] for b in bands]) * 100
             hi = np.array([b["ci95"][1] for b in bands]) * 100
-            ax.errorbar(x, bottom, yerr=[bottom - lo, hi - bottom], fmt="none", ecolor="#333", capsize=3, lw=.8)
+            ax.errorbar(x, bottom, yerr=[np.maximum(bottom - lo, 0), np.maximum(hi - bottom, 0)], fmt="none", ecolor="#333", capsize=3, lw=.8)
             for xi, b, top in zip(x, bands, hi):
                 ax.text(xi, top + 1., f"{b['fail']}/{b['n']}", ha="center", va="bottom", fontsize=7, color="#333")
+            ymax = max(ymax, float(hi.max()))
             ax.set_xticks(x, [b["band"] for b in bands], fontsize=8)
             ax.set_title(f"{robot}: {s['per_robot'][robot]['failed']}/{s['per_robot'][robot]['n']} failed", fontsize=10)
             ax.set_xlabel(xlabel, fontsize=8)
@@ -641,6 +694,7 @@ def cmd_plots(a):
             ax.grid(axis="y", color="#ddd", lw=.5)
             ax.set_axisbelow(True)
         axes[0].set_ylabel("failure rate (% of confirmed pairs in band)")
+        axes[0].set_ylim(0, ymax * 1.12)                       # shared y: room for the count labels above the whiskers
         hl = {}
         for ax in axes:
             for h, lab in zip(*ax.get_legend_handles_labels()):
@@ -697,11 +751,13 @@ def main(argv=None):
     gt.add_argument("--n-tasks", type=int, required=True)
     gt.add_argument("--task", type=int, required=True)
     gt.add_argument("--timeout", type=float, default=120.)
+    cs = sub.add_parser("cases")
+    cs.add_argument("--per-class", type=int, default=2)
     sub.add_parser("summary")
     sub.add_parser("plots")
     a = p.parse_args(argv)
     {"collect": cmd_collect, "merge": cmd_merge, "check": cmd_check, "prep": cmd_prep, "epclear": cmd_epclear,
-     "summary": cmd_summary, "plots": cmd_plots, "gmctask": cmd_gmctask}[a.cmd](a)
+     "summary": cmd_summary, "plots": cmd_plots, "gmctask": cmd_gmctask, "cases": cmd_cases}[a.cmd](a)
 
 
 if __name__ == "__main__":

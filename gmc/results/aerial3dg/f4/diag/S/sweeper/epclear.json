@@ -1,0 +1,595 @@
+{
+ "region": "S",
+ "robot": "sweeper",
+ "rungs": [
+  0.0005,
+  0.001,
+  0.0015,
+  0.002,
+  0.0021,
+  0.003,
+  0.005,
+  0.01,
+  0.02,
+  0.05,
+  0.1
+ ],
+ "rows": [
+  {
+   "pair_id": "F4S-00052",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00084",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00128",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00165",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00198",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00221",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00242",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00246",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00256",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00301",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00384",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00392",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00508",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00519",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00540",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00594",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00611",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00620",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00632",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00633",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00655",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00656",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00686",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00704",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00771",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00798",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00839",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00892",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00894",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4S-00923",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00959",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4S-00995",
+   "robot": "sweeper",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004999979998171358,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015124230270532246,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  }
+ ]
+}

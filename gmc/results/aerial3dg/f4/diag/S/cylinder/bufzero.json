@@ -1,0 +1,1323 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/S/cylinder/rows_all.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 13,
+   "pair_id": "F4S-00013",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.27402710798196495
+  },
+  {
+   "index": 28,
+   "pair_id": "F4S-00028",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0843668261077255
+  },
+  {
+   "index": 32,
+   "pair_id": "F4S-00032",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08706529205664992
+  },
+  {
+   "index": 33,
+   "pair_id": "F4S-00033",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0900099731516093
+  },
+  {
+   "index": 35,
+   "pair_id": "F4S-00035",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0887273601256311
+  },
+  {
+   "index": 45,
+   "pair_id": "F4S-00045",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.088195530930534
+  },
+  {
+   "index": 52,
+   "pair_id": "F4S-00052",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07042691111564636
+  },
+  {
+   "index": 56,
+   "pair_id": "F4S-00056",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08961879997514188
+  },
+  {
+   "index": 58,
+   "pair_id": "F4S-00058",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0781172898132354
+  },
+  {
+   "index": 60,
+   "pair_id": "F4S-00060",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07248116796836257
+  },
+  {
+   "index": 63,
+   "pair_id": "F4S-00063",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06231463490985334
+  },
+  {
+   "index": 73,
+   "pair_id": "F4S-00073",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09650152502581477
+  },
+  {
+   "index": 76,
+   "pair_id": "F4S-00076",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07022517709992826
+  },
+  {
+   "index": 84,
+   "pair_id": "F4S-00084",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.11047066492028534
+  },
+  {
+   "index": 91,
+   "pair_id": "F4S-00091",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09072662494145334
+  },
+  {
+   "index": 96,
+   "pair_id": "F4S-00096",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09451345191337168
+  },
+  {
+   "index": 98,
+   "pair_id": "F4S-00098",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08059286908246577
+  },
+  {
+   "index": 102,
+   "pair_id": "F4S-00102",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07154577085748315
+  },
+  {
+   "index": 115,
+   "pair_id": "F4S-00115",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08782027405686677
+  },
+  {
+   "index": 126,
+   "pair_id": "F4S-00126",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.07881578314118087
+  },
+  {
+   "index": 128,
+   "pair_id": "F4S-00128",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.10274976305663586
+  },
+  {
+   "index": 129,
+   "pair_id": "F4S-00129",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0670390089508146
+  },
+  {
+   "index": 148,
+   "pair_id": "F4S-00148",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09209450799971819
+  },
+  {
+   "index": 152,
+   "pair_id": "F4S-00152",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08835478592664003
+  },
+  {
+   "index": 153,
+   "pair_id": "F4S-00153",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08539922814816236
+  },
+  {
+   "index": 156,
+   "pair_id": "F4S-00156",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.091885567875579
+  },
+  {
+   "index": 161,
+   "pair_id": "F4S-00161",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06337429000996053
+  },
+  {
+   "index": 164,
+   "pair_id": "F4S-00164",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09646496688947082
+  },
+  {
+   "index": 165,
+   "pair_id": "F4S-00165",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08660284406505525
+  },
+  {
+   "index": 172,
+   "pair_id": "F4S-00172",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10091812489554286
+  },
+  {
+   "index": 183,
+   "pair_id": "F4S-00183",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09501102194190025
+  },
+  {
+   "index": 184,
+   "pair_id": "F4S-00184",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08495280495844781
+  },
+  {
+   "index": 195,
+   "pair_id": "F4S-00195",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10054991208016872
+  },
+  {
+   "index": 198,
+   "pair_id": "F4S-00198",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08413517498411238
+  },
+  {
+   "index": 208,
+   "pair_id": "F4S-00208",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08211855008266866
+  },
+  {
+   "index": 210,
+   "pair_id": "F4S-00210",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08897604793310165
+  },
+  {
+   "index": 211,
+   "pair_id": "F4S-00211",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08476912998594344
+  },
+  {
+   "index": 218,
+   "pair_id": "F4S-00218",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09270430402830243
+  },
+  {
+   "index": 221,
+   "pair_id": "F4S-00221",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09068602905608714
+  },
+  {
+   "index": 228,
+   "pair_id": "F4S-00228",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07055787299759686
+  },
+  {
+   "index": 242,
+   "pair_id": "F4S-00242",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0862886740360409
+  },
+  {
+   "index": 243,
+   "pair_id": "F4S-00243",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06879027793183923
+  },
+  {
+   "index": 246,
+   "pair_id": "F4S-00246",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09288721112534404
+  },
+  {
+   "index": 254,
+   "pair_id": "F4S-00254",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09131122194230556
+  },
+  {
+   "index": 256,
+   "pair_id": "F4S-00256",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06697003706358373
+  },
+  {
+   "index": 257,
+   "pair_id": "F4S-00257",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10507434303872287
+  },
+  {
+   "index": 258,
+   "pair_id": "F4S-00258",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.166016167961061
+  },
+  {
+   "index": 267,
+   "pair_id": "F4S-00267",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06313444208353758
+  },
+  {
+   "index": 268,
+   "pair_id": "F4S-00268",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08630777196958661
+  },
+  {
+   "index": 278,
+   "pair_id": "F4S-00278",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06293171504512429
+  },
+  {
+   "index": 293,
+   "pair_id": "F4S-00293",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09486783994361758
+  },
+  {
+   "index": 301,
+   "pair_id": "F4S-00301",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09449545899406075
+  },
+  {
+   "index": 309,
+   "pair_id": "F4S-00309",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0917130799498409
+  },
+  {
+   "index": 320,
+   "pair_id": "F4S-00320",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08496742486022413
+  },
+  {
+   "index": 326,
+   "pair_id": "F4S-00326",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06367522804066539
+  },
+  {
+   "index": 332,
+   "pair_id": "F4S-00332",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08374044299125671
+  },
+  {
+   "index": 337,
+   "pair_id": "F4S-00337",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08343667513690889
+  },
+  {
+   "index": 339,
+   "pair_id": "F4S-00339",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.06219005794264376
+  },
+  {
+   "index": 346,
+   "pair_id": "F4S-00346",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09533663303591311
+  },
+  {
+   "index": 347,
+   "pair_id": "F4S-00347",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08483927207998931
+  },
+  {
+   "index": 350,
+   "pair_id": "F4S-00350",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08808017894625664
+  },
+  {
+   "index": 351,
+   "pair_id": "F4S-00351",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0663069118745625
+  },
+  {
+   "index": 362,
+   "pair_id": "F4S-00362",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0853769020177424
+  },
+  {
+   "index": 370,
+   "pair_id": "F4S-00370",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08353405306115746
+  },
+  {
+   "index": 384,
+   "pair_id": "F4S-00384",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07804923504590988
+  },
+  {
+   "index": 392,
+   "pair_id": "F4S-00392",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07414448983035982
+  },
+  {
+   "index": 393,
+   "pair_id": "F4S-00393",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08548878598958254
+  },
+  {
+   "index": 394,
+   "pair_id": "F4S-00394",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.1350615918636322
+  },
+  {
+   "index": 402,
+   "pair_id": "F4S-00402",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.17965252813883126
+  },
+  {
+   "index": 406,
+   "pair_id": "F4S-00406",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06620503100566566
+  },
+  {
+   "index": 407,
+   "pair_id": "F4S-00407",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.2422665001358837
+  },
+  {
+   "index": 422,
+   "pair_id": "F4S-00422",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.059234172105789185
+  },
+  {
+   "index": 440,
+   "pair_id": "F4S-00440",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.07817523996345699
+  },
+  {
+   "index": 450,
+   "pair_id": "F4S-00450",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09514819318428636
+  },
+  {
+   "index": 451,
+   "pair_id": "F4S-00451",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.18370666494593024
+  },
+  {
+   "index": 456,
+   "pair_id": "F4S-00456",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06587479007430375
+  },
+  {
+   "index": 459,
+   "pair_id": "F4S-00459",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08843385288491845
+  },
+  {
+   "index": 462,
+   "pair_id": "F4S-00462",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08240167610347271
+  },
+  {
+   "index": 469,
+   "pair_id": "F4S-00469",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0711449149530381
+  },
+  {
+   "index": 487,
+   "pair_id": "F4S-00487",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.11072171898558736
+  },
+  {
+   "index": 495,
+   "pair_id": "F4S-00495",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08314401702955365
+  },
+  {
+   "index": 498,
+   "pair_id": "F4S-00498",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08369171502999961
+  },
+  {
+   "index": 499,
+   "pair_id": "F4S-00499",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.07759341597557068
+  },
+  {
+   "index": 506,
+   "pair_id": "F4S-00506",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08990110596641898
+  },
+  {
+   "index": 508,
+   "pair_id": "F4S-00508",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06722625601105392
+  },
+  {
+   "index": 513,
+   "pair_id": "F4S-00513",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08853572700172663
+  },
+  {
+   "index": 519,
+   "pair_id": "F4S-00519",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10133015597239137
+  },
+  {
+   "index": 527,
+   "pair_id": "F4S-00527",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.21840698411688209
+  },
+  {
+   "index": 540,
+   "pair_id": "F4S-00540",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08371226396411657
+  },
+  {
+   "index": 546,
+   "pair_id": "F4S-00546",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08882071590051055
+  },
+  {
+   "index": 560,
+   "pair_id": "F4S-00560",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06489602220244706
+  },
+  {
+   "index": 561,
+   "pair_id": "F4S-00561",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08434906811453402
+  },
+  {
+   "index": 564,
+   "pair_id": "F4S-00564",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09137133904732764
+  },
+  {
+   "index": 573,
+   "pair_id": "F4S-00573",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.25831182301044464
+  },
+  {
+   "index": 575,
+   "pair_id": "F4S-00575",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09380236407741904
+  },
+  {
+   "index": 576,
+   "pair_id": "F4S-00576",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0822165331337601
+  },
+  {
+   "index": 579,
+   "pair_id": "F4S-00579",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06188973505049944
+  },
+  {
+   "index": 586,
+   "pair_id": "F4S-00586",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07559791789390147
+  },
+  {
+   "index": 588,
+   "pair_id": "F4S-00588",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.19436099519953132
+  },
+  {
+   "index": 589,
+   "pair_id": "F4S-00589",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.10780172399245203
+  },
+  {
+   "index": 594,
+   "pair_id": "F4S-00594",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0807633229997009
+  },
+  {
+   "index": 601,
+   "pair_id": "F4S-00601",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0845276340842247
+  },
+  {
+   "index": 604,
+   "pair_id": "F4S-00604",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.05781602789647877
+  },
+  {
+   "index": 611,
+   "pair_id": "F4S-00611",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06878731097094715
+  },
+  {
+   "index": 613,
+   "pair_id": "F4S-00613",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09692289703525603
+  },
+  {
+   "index": 614,
+   "pair_id": "F4S-00614",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09307902189902961
+  },
+  {
+   "index": 616,
+   "pair_id": "F4S-00616",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.2063985310960561
+  },
+  {
+   "index": 620,
+   "pair_id": "F4S-00620",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06894827098585665
+  },
+  {
+   "index": 632,
+   "pair_id": "F4S-00632",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08477273513562977
+  },
+  {
+   "index": 633,
+   "pair_id": "F4S-00633",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0882347309961915
+  },
+  {
+   "index": 636,
+   "pair_id": "F4S-00636",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08978187292814255
+  },
+  {
+   "index": 649,
+   "pair_id": "F4S-00649",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0792290810495615
+  },
+  {
+   "index": 651,
+   "pair_id": "F4S-00651",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0906499030534178
+  },
+  {
+   "index": 653,
+   "pair_id": "F4S-00653",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08199085295200348
+  },
+  {
+   "index": 655,
+   "pair_id": "F4S-00655",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06918695289641619
+  },
+  {
+   "index": 656,
+   "pair_id": "F4S-00656",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08470685500651598
+  },
+  {
+   "index": 658,
+   "pair_id": "F4S-00658",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08860767516307533
+  },
+  {
+   "index": 660,
+   "pair_id": "F4S-00660",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.13236084301024675
+  },
+  {
+   "index": 661,
+   "pair_id": "F4S-00661",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08550681406632066
+  },
+  {
+   "index": 662,
+   "pair_id": "F4S-00662",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08209594804793596
+  },
+  {
+   "index": 669,
+   "pair_id": "F4S-00669",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.05815513292327523
+  },
+  {
+   "index": 676,
+   "pair_id": "F4S-00676",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08384892996400595
+  },
+  {
+   "index": 683,
+   "pair_id": "F4S-00683",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0896654068492353
+  },
+  {
+   "index": 686,
+   "pair_id": "F4S-00686",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09296631091274321
+  },
+  {
+   "index": 691,
+   "pair_id": "F4S-00691",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.06372268102131784
+  },
+  {
+   "index": 699,
+   "pair_id": "F4S-00699",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08288322784937918
+  },
+  {
+   "index": 700,
+   "pair_id": "F4S-00700",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.06137474114075303
+  },
+  {
+   "index": 701,
+   "pair_id": "F4S-00701",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08714507310651243
+  },
+  {
+   "index": 704,
+   "pair_id": "F4S-00704",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08111227210611105
+  },
+  {
+   "index": 708,
+   "pair_id": "F4S-00708",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09736293787136674
+  },
+  {
+   "index": 718,
+   "pair_id": "F4S-00718",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09023788711056113
+  },
+  {
+   "index": 728,
+   "pair_id": "F4S-00728",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08413863810710609
+  },
+  {
+   "index": 747,
+   "pair_id": "F4S-00747",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06569703086279333
+  },
+  {
+   "index": 749,
+   "pair_id": "F4S-00749",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09585010609589517
+  },
+  {
+   "index": 750,
+   "pair_id": "F4S-00750",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08744656504131854
+  },
+  {
+   "index": 754,
+   "pair_id": "F4S-00754",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07634590892121196
+  },
+  {
+   "index": 759,
+   "pair_id": "F4S-00759",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08451799117028713
+  },
+  {
+   "index": 761,
+   "pair_id": "F4S-00761",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08961303299292922
+  },
+  {
+   "index": 771,
+   "pair_id": "F4S-00771",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08633453701622784
+  },
+  {
+   "index": 781,
+   "pair_id": "F4S-00781",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0836090377997607
+  },
+  {
+   "index": 791,
+   "pair_id": "F4S-00791",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09378751483745873
+  },
+  {
+   "index": 796,
+   "pair_id": "F4S-00796",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08515824400819838
+  },
+  {
+   "index": 798,
+   "pair_id": "F4S-00798",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07650707592256367
+  },
+  {
+   "index": 804,
+   "pair_id": "F4S-00804",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08244361216202378
+  },
+  {
+   "index": 818,
+   "pair_id": "F4S-00818",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0796060070861131
+  },
+  {
+   "index": 821,
+   "pair_id": "F4S-00821",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.060716726118698716
+  },
+  {
+   "index": 822,
+   "pair_id": "F4S-00822",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.06397769204340875
+  },
+  {
+   "index": 833,
+   "pair_id": "F4S-00833",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.07977252406999469
+  },
+  {
+   "index": 836,
+   "pair_id": "F4S-00836",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0886226010043174
+  },
+  {
+   "index": 839,
+   "pair_id": "F4S-00839",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08197358204051852
+  },
+  {
+   "index": 842,
+   "pair_id": "F4S-00842",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.07808738783933222
+  },
+  {
+   "index": 845,
+   "pair_id": "F4S-00845",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08643363113515079
+  },
+  {
+   "index": 850,
+   "pair_id": "F4S-00850",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.048314139945432544
+  },
+  {
+   "index": 851,
+   "pair_id": "F4S-00851",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08452437608502805
+  },
+  {
+   "index": 852,
+   "pair_id": "F4S-00852",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08466885494999588
+  },
+  {
+   "index": 860,
+   "pair_id": "F4S-00860",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08055502502247691
+  },
+  {
+   "index": 861,
+   "pair_id": "F4S-00861",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08951452607288957
+  },
+  {
+   "index": 867,
+   "pair_id": "F4S-00867",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06232859403826296
+  },
+  {
+   "index": 868,
+   "pair_id": "F4S-00868",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06595937698148191
+  },
+  {
+   "index": 873,
+   "pair_id": "F4S-00873",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0705629379954189
+  },
+  {
+   "index": 876,
+   "pair_id": "F4S-00876",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0696401169989258
+  },
+  {
+   "index": 892,
+   "pair_id": "F4S-00892",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08234543818980455
+  },
+  {
+   "index": 894,
+   "pair_id": "F4S-00894",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0710689949337393
+  },
+  {
+   "index": 899,
+   "pair_id": "F4S-00899",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0928884509485215
+  },
+  {
+   "index": 907,
+   "pair_id": "F4S-00907",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09320352412760258
+  },
+  {
+   "index": 912,
+   "pair_id": "F4S-00912",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07878753705881536
+  },
+  {
+   "index": 917,
+   "pair_id": "F4S-00917",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07753024599514902
+  },
+  {
+   "index": 921,
+   "pair_id": "F4S-00921",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06362375686876476
+  },
+  {
+   "index": 922,
+   "pair_id": "F4S-00922",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.0837845781352371
+  },
+  {
+   "index": 923,
+   "pair_id": "F4S-00923",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.09509748499840498
+  },
+  {
+   "index": 936,
+   "pair_id": "F4S-00936",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09147254610434175
+  },
+  {
+   "index": 945,
+   "pair_id": "F4S-00945",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.06190775102004409
+  },
+  {
+   "index": 948,
+   "pair_id": "F4S-00948",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09772523981519043
+  },
+  {
+   "index": 953,
+   "pair_id": "F4S-00953",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08058794983662665
+  },
+  {
+   "index": 955,
+   "pair_id": "F4S-00955",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.08925957512110472
+  },
+  {
+   "index": 957,
+   "pair_id": "F4S-00957",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10617443802766502
+  },
+  {
+   "index": 958,
+   "pair_id": "F4S-00958",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09396555018611252
+  },
+  {
+   "index": 959,
+   "pair_id": "F4S-00959",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.10806208290159702
+  },
+  {
+   "index": 967,
+   "pair_id": "F4S-00967",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.10282622883096337
+  },
+  {
+   "index": 973,
+   "pair_id": "F4S-00973",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08069017413072288
+  },
+  {
+   "index": 975,
+   "pair_id": "F4S-00975",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.07978327688761055
+  },
+  {
+   "index": 979,
+   "pair_id": "F4S-00979",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09022336592897773
+  },
+  {
+   "index": 985,
+   "pair_id": "F4S-00985",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.08867502608336508
+  },
+  {
+   "index": 988,
+   "pair_id": "F4S-00988",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09161924896761775
+  },
+  {
+   "index": 994,
+   "pair_id": "F4S-00994",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.083245252026245
+  },
+  {
+   "index": 995,
+   "pair_id": "F4S-00995",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.10083438595756888
+  },
+  {
+   "index": 996,
+   "pair_id": "F4S-00996",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 0.0849186540581286
+  },
+  {
+   "index": 999,
+   "pair_id": "F4S-00999",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.12317307991907
+  }
+ ]
+}

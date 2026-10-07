@@ -1,0 +1,4753 @@
+{
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "rungs": [
+  0.0005,
+  0.001,
+  0.0015,
+  0.002,
+  0.0021,
+  0.003,
+  0.005,
+  0.01,
+  0.02,
+  0.05,
+  0.1
+ ],
+ "rows": [
+  {
+   "pair_id": "F4W-00000",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00012",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007714326447472998,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00018",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00021",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00026",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010585626181031664,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00029",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00033",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00037",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00047",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00053",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00076",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.015601893458132055,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00086",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00094",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013972671663787075,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00110",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00121",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010912064501326661,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0019688703911588234,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00128",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00133",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00139",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00143",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00147",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00148",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00152",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00153",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00155",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.003515184382386351,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00156",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00158",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00172",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00174",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00179",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00180",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001046018233617197,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00186",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.00153935056435678,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00188",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007660338691640902,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00192",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00196",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013972671663787075,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00197",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00198",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00200",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00203",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00205",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00206",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00227",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00243",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00245",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.005106203931703081,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010637096082314905,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00256",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007959666349034613,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012792684871170412,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00266",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00272",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00286",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00290",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015017459164829454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00292",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0017317224635137755,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00294",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00299",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013518134955382578,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00304",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00315",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00322",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013972671663787075,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00324",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00331",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00333",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00335",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00338",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00341",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00358",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00365",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00369",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00376",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00379",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00380",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.011321575153322385,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00382",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010429346245088304,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00389",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00396",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00399",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00401",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00410",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.003373007100248628,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00413",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00414",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00417",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00432",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.006334759596041408,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00445",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00447",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0027538791916639953,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00451",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00453",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00454",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00460",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00461",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00469",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00475",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00477",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01903802411275073,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00478",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004674626558818175,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00484",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007714326447472998,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00485",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013726596734839306,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00487",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00489",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01761188806397034,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00492",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.005106203931703081,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0014493240628890057,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00501",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00531",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001368703883028956,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00535",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00541",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00552",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00562",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00568",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00571",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.00211389422505265,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00577",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00578",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00583",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00584",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00585",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010437153920060793,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00591",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00592",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00594",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.002460457259440609,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00601",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00602",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00603",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.00120253375292151,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00613",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00615",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.009186548511667282,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00619",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00621",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00646",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0011185356419267116,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00683",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00693",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0018069743362931227,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00703",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019847602698924438,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00705",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00716",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00722",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00727",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00731",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00738",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00743",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01894949039985988,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001460326563742455,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00744",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010457788204591438,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00749",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004629204542000167,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00755",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00757",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00764",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00766",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00770",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00774",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00775",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00779",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00790",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00791",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00792",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00793",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01416003226280921,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00799",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0025589546702588523,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0021,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001343525768796985,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00801",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012669604177035722,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00812",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012021815334297152,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00817",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032674618112381597,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00823",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0011322936372634722,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00824",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001126276582358123,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007602698947580535,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00826",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00835",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010457788204591438,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00838",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0013330898063083645,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0011541883362701803,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00845",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00846",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00850",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00866",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00869",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00871",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00876",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00878",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00895",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00910",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00914",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0028216888691940407,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010545666140807793,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00918",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00922",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00929",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00942",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.009757316180982053,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00944",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00951",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00953",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00956",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00957",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00969",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00971",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007978599240000698,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00973",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00980",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00981",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00982",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-00996",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-00997",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0035753723069115746,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01000",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01003",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01009",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01398200747329284,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01011",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01013",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01015",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01024",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001767945952017848,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01026",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01030",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01039",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01044",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01048",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01050",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.004812004723605269,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01052",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01053",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01086",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010063869645917116,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01091",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.005810392193939695,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01102",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01104",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001767945952017848,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01109",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.008446465244568326,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010457788204591438,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01110",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01115",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01117",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01124",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01127",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01128",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01132",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.014742774983804665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01134",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01135",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01138",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01148",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01150",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01155",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01174",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0015254571154765266,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01175",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.003,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01176",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01177",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01195",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01435894342266292,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01208",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01213",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01219",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010400963572200787,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.015231467940138067,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01222",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01224",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01230",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01236",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01258",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01261",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.008930613238990972,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01265",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.010515889825174653,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001191228039244048,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01267",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073564382046884,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01279",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01280",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01283",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01293",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01297",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.002066144235187863,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01305",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01311",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01317",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01322",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01327",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0027188446562855257,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01328",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01331",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01337",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01351",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0021,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016458270021028454,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01356",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01363",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013911001760619825,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01372",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010052680045213329,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.005361256632367474,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01410",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01411",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007714326447472998,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.005,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01412",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01414",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01428",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01437",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.003844791216141425,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01438",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01440",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01443",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0012552929309263565,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01445",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.011641324027443724,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01451",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0028779106834106467,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0010768791447101648,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.001,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01456",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0032921964991467507,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01460",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.016213418579921146,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01469",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.007331008696977505,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01487",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.019999989999300583,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01488",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01489",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.013972671663787075,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001962022986139624,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  },
+  {
+   "pair_id": "F4W-01490",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.01943006911384665,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01491",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.012207153494959657,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   }
+  },
+  {
+   "pair_id": "F4W-01499",
+   "robot": "cylinder",
+   "start": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.0073567827746782765,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.01,
+    "free_m0021": true
+   },
+   "goal": {
+    "free_m001": true,
+    "clearance_lower_m001": 0.001973538539249588,
+    "reason_m001": "swept_support_separation_bound_capped",
+    "ladder_m": 0.0015,
+    "free_m0021": false
+   }
+  }
+ ]
+}

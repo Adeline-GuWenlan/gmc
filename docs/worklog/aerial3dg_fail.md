@@ -218,3 +218,11 @@
   safe_graph_disconnected; WWEST cylinder 194 TIMEOUT + 1 ERROR; sweeper has 4 shared_replay_failed (new vs F3).
 - 17:03Z  Probes: plan of 30 (diag/probe_plan.txt), array 19349441 %8 x 2000M (first try rejected: cpu_short refuses
   --time 07:00). TIMEOUT sample 50 of 194, strata region x robot x detour tercile, seed 20261007.
+- 18:30Z  Resumed (agent 19349904). Probe array 19349441: 30/30 COMPLETED, every output present. Classification (0
+  unverified): cylinder 1386/5000 fail = EP-TOL 656, EXPORT-DOMAIN 524, METHOD-TIMEOUT 194, EXPORT-KIN 10, METHOD-ERROR 1,
+  EP-GENUINE 1 (borderline (2.1, 3] mm); sweeper 181 = EP-TOL 176, EXPORT-KIN 4, EP-GENUINE 1 (borderline). 0 UNREACHABLE.
+  TIMEOUT sample 50: 36 finish in 98-297 s at 300 s, 14 > 300 s, verdict-only 0.38-3.6 s (tighten 59 % + shortcut 38 %);
+  F4X-02012 finished in 98.3 s (limit-edge). Buffer 0 on EP-TOL: cylinder 523 R / 101 replay / 28 TIMEOUT / 2
+  own_verification_unresolved (new) / 2 still not certified. Sweeper fails where the cylinder succeeds on 1 pair
+  (F4S-00090, EXPORT-KIN round-off). Fixes: endpoint band uses the cylinder ladder for both robots; shared-y plot limit;
+  Wilson whisker clip. Case figures 19359005-07 (36). docs/aerial3dg_failures_f4.md written. F4 compute ~48 CPU-h of 200.

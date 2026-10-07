@@ -1,0 +1,387 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f4/diag/WWEST/cylinder/requery_timeout_03.jsonl",
+ "rows": [
+  {
+   "index": 1364,
+   "pair_id": "F4X-01364",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.0018634898588,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 1.952655125176534,
+   "certificate_kind": null
+  },
+  {
+   "index": 1389,
+   "pair_id": "F4X-01389",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 225.77082603098825,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.9188231618609279,
+   "full_stage_s": {
+    "shortcut": 101.66,
+    "tighten": 122.93
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -7.2528,
+     0.2025
+    ],
+    [
+     -5.8431,
+     2.1677
+    ],
+    [
+     -5.5664,
+     2.5383
+    ],
+    [
+     -5.2738,
+     2.396
+    ],
+    [
+     -2.493,
+     0.4846
+    ],
+    [
+     -1.7344,
+     0.8088
+    ]
+   ]
+  },
+  {
+   "index": 1403,
+   "pair_id": "F4X-01403",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 192.14005626901053,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.9291154181119055,
+   "full_stage_s": {
+    "shortcut": 55.73,
+    "tighten": 135.26,
+    "shared_verification": 0.69
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.253,
+     1.9982
+    ],
+    [
+     -8.9375,
+     1.8883
+    ],
+    [
+     -7.7329,
+     1.9125
+    ],
+    [
+     -7.0809,
+     2.0813
+    ],
+    [
+     -5.2996,
+     2.5003
+    ],
+    [
+     -5.1594,
+     2.2512
+    ],
+    [
+     -4.5023,
+     0.7806
+    ]
+   ]
+  },
+  {
+   "index": 1662,
+   "pair_id": "F4X-01662",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 129.7669790550135,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.5146989088971168,
+   "full_stage_s": {
+    "shortcut": 84.83,
+    "tighten": 44.24
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -6.9858,
+     -0.5129
+    ],
+    [
+     -6.9041,
+     -0.1323
+    ],
+    [
+     -6.8156,
+     0.2176
+    ],
+    [
+     -6.7396,
+     0.4652
+    ],
+    [
+     -6.6931,
+     0.5962
+    ],
+    [
+     -6.3492,
+     1.2584
+    ],
+    [
+     -5.7745,
+     2.3302
+    ],
+    [
+     -4.017,
+     3.2918
+    ]
+   ]
+  },
+  {
+   "index": 1722,
+   "pair_id": "F4X-01722",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.0020086430013,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 0.3833927970845252,
+   "certificate_kind": null
+  },
+  {
+   "index": 1740,
+   "pair_id": "F4X-01740",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 259.56457741209306,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 2.0076482370495796,
+   "full_stage_s": {
+    "lifting": 1.38,
+    "shortcut": 66.21,
+    "tighten": 175.7,
+    "merge_corners": 15.81
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.4513,
+     1.0982
+    ],
+    [
+     -9.0517,
+     0.8433
+    ],
+    [
+     -8.4258,
+     0.9916
+    ],
+    [
+     -7.768,
+     1.3251
+    ],
+    [
+     -7.0562,
+     1.721
+    ],
+    [
+     -5.4886,
+     2.4776
+    ],
+    [
+     -5.2568,
+     2.3988
+    ],
+    [
+     -2.3613,
+     0.3949
+    ],
+    [
+     -1.9774,
+     0.955
+    ]
+   ]
+  },
+  {
+   "index": 1772,
+   "pair_id": "F4X-01772",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 146.2847255410161,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 1.0404597001615912,
+   "full_stage_s": {
+    "shortcut": 84.41,
+    "tighten": 57.67,
+    "merge_corners": 3.05,
+    "shared_verification": 0.59
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -9.0528,
+     -0.3559
+    ],
+    [
+     -7.7448,
+     0.7252
+    ],
+    [
+     -6.7307,
+     1.5633
+    ],
+    [
+     -5.4892,
+     2.5206
+    ],
+    [
+     -5.2668,
+     2.3868
+    ],
+    [
+     -2.5703,
+     0.5392
+    ],
+    [
+     -1.7668,
+     0.4389
+    ]
+   ]
+  },
+  {
+   "index": 2002,
+   "pair_id": "F4X-02002",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 211.44868656410836,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 1.5519079628866166,
+   "full_stage_s": {
+    "shortcut": 44.19,
+    "tighten": 165.13,
+    "shared_verification": 1.74
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -4.6996,
+     1.5364
+    ],
+    [
+     -5.2523,
+     2.4062
+    ],
+    [
+     -5.4192,
+     2.4497
+    ],
+    [
+     -5.5148,
+     2.4497
+    ],
+    [
+     -7.6091,
+     1.9982
+    ],
+    [
+     -8.7027,
+     1.8891
+    ],
+    [
+     -9.5653,
+     1.8858
+    ]
+   ]
+  },
+  {
+   "index": 2012,
+   "pair_id": "F4X-02012",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "REACHABLE:graph_path_lifted_and_verified",
+   "reproduced": false,
+   "requery_wall_s": 98.34483898291364,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "UNKNOWN:shared_replay_failed",
+   "verdict_only_wall_s": 2.3476592120714486,
+   "full_stage_s": {
+    "lifting": 0.86,
+    "shortcut": 44.92,
+    "tighten": 48.81,
+    "merge_corners": 2.06,
+    "shared_verification": 1.47
+   },
+   "certificate_kind": null,
+   "gmc_route_uv": [
+    [
+     -1.7692,
+     1.195
+    ],
+    [
+     -2.3838,
+     0.4118
+    ],
+    [
+     -5.3807,
+     2.4649
+    ],
+    [
+     -5.6017,
+     2.4359
+    ],
+    [
+     -7.6161,
+     1.9951
+    ],
+    [
+     -9.5064,
+     1.6624
+    ]
+   ]
+  },
+  {
+   "index": 2043,
+   "pair_id": "F4X-02043",
+   "orig": "TIMEOUT:query_exceeded_120s",
+   "now": "TIMEOUT:query_exceeded_300s",
+   "reproduced": true,
+   "requery_wall_s": 300.00221867486835,
+   "requery_timeout_s": 300.0,
+   "compile_id": "549453247f5cf37a",
+   "verdict_only": "REACHABLE:graph_path_lifted_and_verified",
+   "verdict_only_wall_s": 0.8075842799153179,
+   "certificate_kind": null
+  }
+ ]
+}
