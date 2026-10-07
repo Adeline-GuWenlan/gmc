@@ -177,3 +177,13 @@
   time tighten 51.7 % + shortcut 46.4 %. Buffer 0: F3X-00163 -> ERROR ZeroDivisionError at query.py:217 (recorded per row).
   Non-TIMEOUT failures reproduce 22/22. Case list + figures final (57 cases, every one with a figure); handoff regenerated.
   F3 compute: Task 0 30.8 CPU-h, Task 1 12.1 CPU-h.
+
+## F4 (2026-10-07): 5000 confirmed-reachable pairs in WWEST / GAPW1 / S, GMC both robots, first-pass classification
+- 10:40Z  Started fresh (no F4.json). F3 COMPLETE (e3fab18), handoff complete. Persisted compiles of WWEST/GAPW1/S/G2MID:
+  SHA-256 of every `.a3c` re-computed = sidecar = handoff -> reused, no recompile. F3 MaxRSS: sampler 1.37 GB, WWEST
+  cylinder GMC 1.13 GB, others <= 0.62 GB.
+- 10:52Z  QOS full at submission (g5 arrays ~118 GB); accept queueing. F3's quotas kept (WWEST 2500 / GAPW1 1500 /
+  S 1000) but split into more streams than the handoff's (WWEST 5 x 500 streams 101-105, GAPW1 2 x 750 streams 101-102,
+  S 1 x 1000 stream 101) for wall < 5 h; same sampler, settings, seeds (seed_base + 1000*stream), pilot lattice.
+  New wrapper `hpc/aerial3dg/f4_samp.sbatch` (f3_py.sbatch passes $SLURM_ARRAY_TASK_ID literally). Jobs 19332894-96,
+  8 x 2000M = 16 GB.
