@@ -391,7 +391,9 @@ def fail_record(x):
             "swept_excess_mm": None if not x["dom"] else round(x["dom"]["max_swept_excess_m"] * 1e3, 3),
             "pose_excess_mm": None if not x["dom"] else round(x["dom"]["max_pose_excess_m"] * 1e3, 3),
             "buffer0": b0.get("buffer0"),
-            "requery_now": rq.get("now"), "reproduced": rq.get("reproduced"),
+            "requery_now": rq.get("now"),
+            # TIMEOUT rows are re-queried with a 300 s limit: reproduced = the re-query again needs >= 120 s
+            "reproduced": (rq["requery_wall_s"] >= 120. - 1e-6) if r["status"] == "TIMEOUT" and rq else rq.get("reproduced"),
             "requery_wall_s": None if rq.get("requery_wall_s") is None else round(rq["requery_wall_s"], 1),
             "verdict_only": rq.get("verdict_only"),
             "verdict_only_wall_s": None if rq.get("verdict_only_wall_s") is None else round(rq["verdict_only_wall_s"], 2),
@@ -506,7 +508,7 @@ def cmd_summary(a):
         ("floors_clear" if (x["kin"].get("both_floors") or {}).get("passed") else
          (x["kin"].get("original") or {}).get("geometry_reason") or "other")
         for x in rows if x["robot"] == robot and x["kin"])) for robot in ROBOTS}
-    summ["reproduced"] = {robot: dict(collections.Counter(str(x["rq"].get("reproduced")) for x in rows
+    summ["reproduced"] = {robot: dict(collections.Counter(str(fail_record(x)["reproduced"]) for x in rows
                                                           if x["robot"] == robot and x["rq"]))
                           for robot in ROBOTS}
     _dump(F4 / "summary.json", summ)
@@ -580,8 +582,8 @@ def cmd_plots(a):
             lo = np.array([b["ci95"][0] for b in bands]) * 100
             hi = np.array([b["ci95"][1] for b in bands]) * 100
             ax.errorbar(x, bottom, yerr=[bottom - lo, hi - bottom], fmt="none", ecolor="#333", capsize=3, lw=.8)
-            for xi, b, top in zip(x, bands, bottom):
-                ax.text(xi, top + 1.5, f"{b['fail']}/{b['n']}", ha="center", va="bottom", fontsize=7, color="#333")
+            for xi, b, top in zip(x, bands, hi):
+                ax.text(xi, top + 1., f"{b['fail']}/{b['n']}", ha="center", va="bottom", fontsize=7, color="#333")
             ax.set_xticks(x, [b["band"] for b in bands], fontsize=8)
             ax.set_title(f"{robot}: {s['per_robot'][robot]['failed']}/{s['per_robot'][robot]['n']} failed", fontsize=10)
             ax.set_xlabel(xlabel, fontsize=8)
@@ -589,10 +591,16 @@ def cmd_plots(a):
             ax.grid(axis="y", color="#ddd", lw=.5)
             ax.set_axisbelow(True)
         axes[0].set_ylabel("failure rate (% of confirmed pairs in band)")
-        axes[0].legend(fontsize=8, frameon=False, loc="upper right")
-        fig.suptitle(f"GMC failures on 5000 confirmed-reachable pairs vs {key} (bars: share by group; "
+        hl = {}
+        for ax in axes:
+            for h, lab in zip(*ax.get_legend_handles_labels()):
+                hl.setdefault(lab, h)
+        order = [lab for _, _, lab in groups if lab in hl]
+        fig.legend([hl[k] for k in order], order, fontsize=8, frameon=False, loc="upper center", bbox_to_anchor=(.5, .89),
+                   ncol=len(order))
+        fig.suptitle(f"GMC failures on {s['n_pairs']} confirmed-reachable pairs vs {key}\n(bars: share by group; "
                      f"whiskers: Wilson 95 % CI of the total)", fontsize=9)
-        fig.tight_layout()
+        fig.tight_layout(rect=(0, 0, 1, .83))
         fig.savefig(F4 / "fig" / f"rate_vs_{key}.png", dpi=130)
         plt.close(fig)
     # per-region detour curves (cylinder): genuine rate and total rate

@@ -199,3 +199,9 @@
 - 12:55Z  GMC: WWEST cylinder 19339252 (12 tasks %4, 1700M); after the audits GAPW1 cylinder 19339387 (3, 1200M),
   WWEST sweeper 19339388 (2), GAPW1 sweeper 19339389 -> S cylinder 19339390 -> S sweeper 19339492 (chained), so my
   running memory stays <= 14 GB.
+- 13:00Z  GAPW1 audit (19338998): see prefilter_audit.json. Dry-run of `summary`/`plots` on F3's WWEST pilot rows (scratch
+  copy, deleted): reproduces F3's numbers (33 cylinder failures; TIMEOUT re-query 9 finish / 11 > 300 s; verdict-only
+  0.5-2.8 s). Fixed: TIMEOUT rows count as reproduced when the 300 s re-query again needs >= 120 s (F3's "reproduced"
+  flag is False for the ones that finish in 173-247 s); plot legend/labels; palette = dataviz reference slots 1-4
+  (validated). `scontrol update ArrayTaskThrottle` refused -> cancelled the never-started WWEST cylinder tasks 8-11 of
+  19339252 and resubmitted them as 19340214 (afterany: the small GMC jobs) so 8 WWEST tasks run at once (13.6 GB).
