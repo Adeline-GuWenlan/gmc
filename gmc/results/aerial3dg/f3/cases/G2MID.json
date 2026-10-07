@@ -200,9 +200,14 @@
    "gmc_reason": "start_not_certified_free",
    "gmc_route_uv": null,
    "cut_gaussians": null,
-   "note": "class EP-TOL (tolerance); A* ratio 1.192, clear3d 1.0 mm, lateral 1.0 mm, ep clear3d 1.0 mm; buffer0 -; replay - swept excess - mm",
+   "note": "class EP-TOL (tolerance); A* ratio 1.192, clear3d 1.0 mm, lateral 1.0 mm, ep clear3d 1.0 mm; buffer0 REACHABLE:graph_path_lifted_and_verified; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free",
+    "requery_wall_s": 0.12918845796957612
+   }
   },
   {
    "case_id": "G2MID-pilot-F3G-00013",
@@ -460,7 +465,11 @@
    "cut_gaussians": null,
    "note": "class EXPORT-KIN (export); A* ratio 1.196, clear3d 1.5 mm, lateral 2.0 mm, ep clear3d 5.0 mm; buffer0 -; replay all_closed_edges_verified swept excess -14.538 mm",
    "class": "EXPORT-KIN",
-   "group": "export"
+   "group": "export",
+   "buffer0": "",
+   "requery": {
+    "now": "UNKNOWN:shared_replay_failed"
+   }
   },
   {
    "case_id": "G2MID-pilot-F3G-00020",
@@ -685,7 +694,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.253, clear3d 1.5 mm, lateral 2.0 mm, ep clear3d 1.5 mm; buffer0 UNKNOWN:shared_replay_failed; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   },
   {
    "case_id": "G2MID-pilot-F3G-00020",
@@ -910,7 +923,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.253, clear3d 1.5 mm, lateral 2.0 mm, ep clear3d 1.5 mm; buffer0 REACHABLE:graph_path_lifted_and_verified; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   },
   {
    "case_id": "G2MID-pilot-F3G-00045",
@@ -1115,7 +1132,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.201, clear3d 1.5 mm, lateral 5.0 mm, ep clear3d 1.5 mm; buffer0 REACHABLE:graph_path_lifted_and_verified; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   }
  ]
 }

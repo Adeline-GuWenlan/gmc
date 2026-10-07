@@ -231,7 +231,11 @@
    "cut_gaussians": null,
    "note": "class EXPORT-DOMAIN (export); A* ratio 1.076, clear3d 1.5 mm, lateral 0.0 mm, ep clear3d 5.0 mm; buffer0 -; replay map_unknown swept excess 28.92 mm",
    "class": "EXPORT-DOMAIN",
-   "group": "export"
+   "group": "export",
+   "buffer0": "",
+   "requery": {
+    "now": "UNKNOWN:shared_replay_failed"
+   }
   },
   {
    "case_id": "S-pilot-F3S-00019",
@@ -505,7 +509,11 @@
    "cut_gaussians": null,
    "note": "class EXPORT-DOMAIN (export); A* ratio 1.097, clear3d 1.5 mm, lateral 0.0 mm, ep clear3d 5.0 mm; buffer0 -; replay map_unknown swept excess 34.343 mm",
    "class": "EXPORT-DOMAIN",
-   "group": "export"
+   "group": "export",
+   "buffer0": "",
+   "requery": {
+    "now": "UNKNOWN:shared_replay_failed"
+   }
   },
   {
    "case_id": "S-pilot-F3S-00002",
@@ -754,7 +762,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.119, clear3d 1.5 mm, lateral 0.5 mm, ep clear3d 1.5 mm; buffer0 UNKNOWN:shared_replay_failed; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   },
   {
    "case_id": "S-pilot-F3S-00130",
@@ -959,7 +971,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.063, clear3d 1.5 mm, lateral 0.5 mm, ep clear3d 1.5 mm; buffer0 UNKNOWN:shared_replay_failed; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   },
   {
    "case_id": "S-pilot-F3S-00007",
@@ -1180,7 +1196,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.069, clear3d 1.5 mm, lateral 1.5 mm, ep clear3d 1.5 mm; buffer0 REACHABLE:graph_path_lifted_and_verified; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "requery": {
+    "now": "UNKNOWN:start_not_certified_free"
+   }
   },
   {
    "case_id": "S-pilot-F3S-00004",
@@ -1417,7 +1437,11 @@
    "cut_gaussians": null,
    "note": "class EP-TOL (tolerance); A* ratio 1.078, clear3d 1.5 mm, lateral 10.0 mm, ep clear3d 1.5 mm; buffer0 REACHABLE:graph_path_lifted_and_verified; replay - swept excess - mm",
    "class": "EP-TOL",
-   "group": "tolerance"
+   "group": "tolerance",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "requery": {
+    "now": "UNKNOWN:goal_not_certified_free"
+   }
   }
  ]
 }

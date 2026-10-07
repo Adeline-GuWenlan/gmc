@@ -98,7 +98,7 @@
      "REACHABLE": 167,
      "METHOD-TIMEOUT": 20,
      "EP-TOL": 11,
-     "REPLAY-UNPROBED": 2
+     "EXPORT-DOMAIN": 2
     },
     "sweeper_classes": {
      "REACHABLE": 198,
@@ -445,7 +445,7 @@
   }
  },
  "backup_region": "G2MID",
- "choice_rationale": "No region produced a genuine failure except WWEST, whose cylinder query exceeds G2's 120 s limit on 20/200 uniform confirmed pairs (METHOD-TIMEOUT; 0 UNREACHABLE anywhere). Criterion = genuine + by-tolerance rate (export artefacts excluded), cylinder, uniform pilot: GAPW1 19.5 % (0 + 39), WWEST 15.5 % (20 + 11), S 14.5 % (0 + 29), G2MID 9 % (0 + 18); E and NMID yield no confirmed pair. Split: WWEST 2500 (the only genuine failures; long pairs up to 7.3 m, detour ratio p90 1.49), GAPW1 1500 (highest by-tolerance rate: endpoints over the u~-5.6 floor-splat field; detour p90 1.53), S 1000 (tightest geometry: 42 % of A* routes have lateral clearance <= 2 mm; cheapest). All three together fit F4's 200 CPU-h with > 3x margin. Backup G2MID: one lattice component (pre-filter pass 100 %), 3.5 s/pair sampling.",
+ "choice_rationale": "Genuine failures appear only in WWEST: the cylinder query exceeds G2's 120 s limit on 20/200 uniform and 11/100 detour-targeted confirmed pairs (METHOD-TIMEOUT; post-processing tighten+shortcut, verdict-only answers in 0.5-3 s). 0 UNREACHABLE anywhere. Criterion = genuine + by-tolerance rate (export artefacts excluded), cylinder, uniform pilot: GAPW1 19.5 % (0 + 39), WWEST 15.5 % (20 + 11), S 14.5 % (0 + 29), G2MID 9 % (0 + 18); E and NMID yield no confirmed pair. Split with fixed quotas: WWEST 2500 (the genuine failures; pairs up to 7.3 m, detour p90 1.49), GAPW1 1500 (highest by-tolerance rate; detour p90 1.53; 2 buffer-0 timeouts), S 1000 (tightest geometry: 42 % of A* routes have lateral clearance <= 2 mm; cheapest; keep its 47 % EXPORT-DOMAIN replay vetoes separate). Projected 38 CPU-h of 200. Backup G2MID: one lattice component (pre-filter pass 100 %), 5.4 s/pair all-in. If WWEST yield falls short move quota to GAPW1 first, then G2MID.",
  "confirmation_rule": "real cylinder, margin 0.001, 0.1 m lattice A* (LatticePlanner; pos tol 0, yaw tol 0.05, 500k expansions, 120 s wall) ROUTE + verify_path re-check; straight distance >= 3 m; no robust inflation (experiments/aerial3dg_fail3_sample.py docstring)",
  "gmc_config": "aerial3dg_run.QCONFIG (G2's full QueryConfig, export_max_segment_m 0.20), timeout 120 s",
  "projection_cpu_h_total": 38.25783501266384,
@@ -531,6 +531,14 @@
    "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/tight_pairs.json"
   },
   {
+   "case_id": "GAPW1-pilot-F3W-00142",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "genuine (buffer-0 probe)",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00142_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
    "case_id": "GAPW1-pilot-F3W-00067",
    "robot": "sweeper",
    "class": "EP-TOL",
@@ -545,6 +553,22 @@
    "group": "tolerance",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00185_sweeper.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-pilot-F3W-00095",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "genuine (buffer-0 probe)",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00095_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-targeted-F3Wt-00000",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "borderline (witness 2.1 mm)",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-targeted-F3Wt-00000_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/targeted_pairs.json"
   },
   {
    "case_id": "S-pilot-F3S-00011",
@@ -597,8 +621,8 @@
   {
    "case_id": "WWEST-pilot-F3X-00041",
    "robot": "cylinder",
-   "class": "REPLAY-UNPROBED",
-   "group": "unverified",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00041_cylinder.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
   },
@@ -609,6 +633,14 @@
    "group": "genuine",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00088_cylinder.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00065",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00065_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
   },
   {
    "case_id": "WWEST-pilot-F3X-00001",
@@ -645,10 +677,18 @@
   {
    "case_id": "WWEST-pilot-F3X-00184",
    "robot": "cylinder",
-   "class": "REPLAY-UNPROBED",
-   "group": "unverified",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00184_cylinder.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00045",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00045_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
   },
   {
    "case_id": "WWEST-pilot-F3X-00027",
@@ -691,6 +731,14 @@
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
   },
   {
+   "case_id": "WWEST-targeted-F3Xt-00030",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00030_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
    "case_id": "WWEST-pilot-F3X-00056",
    "robot": "cylinder",
    "class": "METHOD-TIMEOUT",
@@ -729,6 +777,30 @@
    "group": "genuine",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00195_cylinder.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00009",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00009_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00018",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00018_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00036",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00036_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
   },
   {
    "case_id": "WWEST-pilot-F3X-00019",
@@ -779,11 +851,43 @@
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
   },
   {
+   "case_id": "WWEST-targeted-F3Xt-00001",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00001_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00073",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00073_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00084",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00084_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
    "case_id": "WWEST-pilot-F3X-00107",
    "robot": "cylinder",
    "class": "METHOD-TIMEOUT",
    "group": "genuine",
    "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00107_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00163",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "genuine (buffer-0 probe)",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00163_cylinder.png",
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
   },
   {
@@ -795,12 +899,28 @@
    "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
   },
   {
-   "case_id": "WWEST-pilot-F3X-00091",
-   "robot": "sweeper",
-   "class": "EP-TOL",
-   "group": "tolerance",
-   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00091_sweeper.png",
-   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+   "case_id": "WWEST-targeted-F3Xt-00002",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00002_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00010",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00010_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
+  },
+  {
+   "case_id": "WWEST-targeted-F3Xt-00013",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-targeted-F3Xt-00013_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/targeted_pairs.json"
   }
  ]
 }

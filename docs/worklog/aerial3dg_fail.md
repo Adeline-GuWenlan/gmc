@@ -165,3 +165,15 @@
   0.001, 0.05 m: 3 components (2239 / 1973 / 1171); CY-LAMP 2927 SEPARATED + 1 NO_ATTACH, CY-GAP 1587 SEPARATED, CY-EP 30
   CONNECTED (= F1's 30 buffer-0 REACHABLE) + 370 SEPARATED, controls 73/73 CONNECTED; 103/103 routes re-verified. Real
   body margin 0: CY-GAP/EP/EP-LAT all CONNECTED in the G2 box (300/300 routes re-verified), CY-LAMP still SEPARATED.
+- 08:59Z  Resumed. All Task 0 arrays complete (no incomplete shard). verdicts.csv: CY-LAMP 2928 blocked, CY-GAP 1587 box
+  artefact, CY-EP 400 + CY-EP-LAT 12 + SW-EP 239 by-tolerance, SW-KIN 62 algorithm incompleteness, controls 193/193 agree,
+  0 unresolved (rule refined for G2-02515: s2 lattice no-attach but per-row s2 A* NO_ROUTE and s10 separated). W1 real
+  body: 1999/1999 ROUTE. Per-row s2 A* vs global labelling: 515/515 agree. Task 0 ~31 CPU-h.
+- 09:05Z  Probe 19315344 (WWEST pilot cylinder) died: buffer-0 re-query of F3X-00163 raised ZeroDivisionError in
+  src aerial3d/query.py:217 simplify (F1's W1 pair-4217 bug). Probe now records exceptions per row; re-run 19330445.
+  WWEST targeted re-query: 10/11 TIMEOUT rows finish REACHABLE in 119-284 s (shortcut + tighten), verdict-only 0.5-3 s.
+- 10:33Z  Re-run probe 19330445 (1.5 h): WWEST pilot 20/20 TIMEOUT rows exceed 120 s again; with 300 s 9 finish REACHABLE
+  in 173-247 s, 11 still > 300 s; verdict-only (FAST) answers all 20 in 0.5-2.8 s (13 R, 7 replay round-off); stage
+  time tighten 51.7 % + shortcut 46.4 %. Buffer 0: F3X-00163 -> ERROR ZeroDivisionError at query.py:217 (recorded per row).
+  Non-TIMEOUT failures reproduce 22/22. Case list + figures final (57 cases, every one with a figure); handoff regenerated.
+  F3 compute: Task 0 30.8 CPU-h, Task 1 12.1 CPU-h.

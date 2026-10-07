@@ -8,7 +8,9 @@ Six candidate regions, all stricter than F2: the **real** cylinder, no robust in
 - **The only genuine (method) failure is METHOD-TIMEOUT in WWEST:**
   - 20 of 200 uniform confirmed pairs exceed G2's 120 s query limit;
   - on WWEST's REACHABLE rows, 95 % of query time goes to route post-processing (tighten + shortcut);
-  - **[G]** the timeouts are post-processing, not search. Verdict-only re-query probe: __WWEST_PROBE__.
+  - **[E]** the timeouts are post-processing, not search. On the same compile all 31 TIMEOUTs (20 pilot + 11 targeted)
+    answer in 0.5–3.1 s in verdict-only mode (no shortcut / tighten / merge). With a 300 s limit, 19 finish REACHABLE in
+    119–284 s and 12 still exceed 300 s. Tighten + shortcut take 97–98 % of the stage time.
 - **Everything else is by-tolerance or an export artefact:**
   - every endpoint failure has endpoint clearance ≤ 2.1 mm, i.e. within margin + buffer; the share of confirmed pairs with
     such an endpoint equals the EP failure rate in every region;
@@ -219,7 +221,10 @@ One persisted compile per robot per region, G2's full `QCONFIG`, 120 s timeout *
     dominate every stage record. One still exceeds 300 s.
   - Verdict-only: all 11 answer in **0.5–3.1 s**. 6 are REACHABLE; 5 are UNKNOWN `shared_replay_failed`, i.e. the
     unshortened polyline meets F1's replay round-off, as in F1 §3.3.
-  - Pilot, 20 rows: __WWEST_PROBE_STATUS__
+  - Pilot, 20 rows (`diag/WWEST/pilot/requery_cylinder.json`): all 20 exceed 120 s again. With 300 s, 9 finish
+    REACHABLE in 173–247 s and 11 still exceed 300 s. Verdict-only: all 20 answer in 0.5–2.8 s (13 REACHABLE, 7
+    replay-vetoed). Stage time is tighten 51.7 % + shortcut 46.4 %.
+  - The 22 non-TIMEOUT failures of both runs reproduce exactly (22/22).
   - So GMC finds and certifies the route in seconds; the optional shortening (shortcut + tighten) is what runs past the
     120 s budget.
 - Either way the query does not answer within G2's contract, so it is counted as **genuine**. The fix [G] is a time
@@ -246,8 +251,8 @@ f5_candidate_cases`.
 
 | # | case(s) | class | verification |
 |---|---|---|---|
-| 1 | WWEST pilot: 20 TIMEOUT rows (F3X-00001, -00019, -00027, …) | METHOD-TIMEOUT (genuine) | re-query on the same compile: __WWEST_REPRO__. The A* routes re-verify (stage 5). Lateral clearance median 10 mm, so not tolerance cases |
-| 2 | WWEST targeted: 11 TIMEOUT rows (F3Xt-00001, -00002, -00009, …) | METHOD-TIMEOUT (genuine) | re-query reproduces it on 11/11 at 120 s; 10/11 finish in 119–284 s; verdict-only 0.5–3.1 s (§4.4) |
+| 1 | WWEST pilot: 20 TIMEOUT rows (F3X-00001, -00019, -00027, …) | METHOD-TIMEOUT (genuine) | re-query on the same compile exceeds 120 s on 20/20 (9 finish in 173–247 s, 11 > 300 s); verdict-only 0.5–2.8 s. The A* routes re-verify (stage 5). Lateral clearance median 10 mm, so not tolerance cases |
+| 2 | WWEST targeted: 11 TIMEOUT rows (F3Xt-00001, -00002, -00009, …) | METHOD-TIMEOUT (genuine) | re-query: 10/11 again exceed 120 s; F3Xt-00001 finishes at 119.1 s, i.e. borderline. 10/11 finish within 300 s (119–284 s); verdict-only 0.5–3.1 s (§4.4) |
 | 3 | GAPW1 pilot F3W-00095, F3W-00142 | EP-TOL, but TIMEOUT once buffer 0 unblocks the endpoint | `bufzero` probe; detour ratio 1.33 / 1.75. The same post-processing cost, appearing in GAPW1 |
 | 4 | WWEST pilot F3X-00163 | EP-TOL, but **ERROR** (`simplify` ZeroDivisionError) under buffer 0 | `bufzero` probe on the persisted compile; latent src bug (F1 saw it once on W1) |
 | 5 | GAPW1 targeted F3Wt-00000 | borderline EP-TOL (goal clearance in (2.0, 2.1] mm) | witness at margin 0.0021: goal not free; stored A* route re-verifies at 1 mm; buffer 0 → REACHABLE |
@@ -313,8 +318,9 @@ Even doubled, the total stays under half the budget.
 - Several not-yet-started jobs of mine were cancelled and resubmitted to keep within the 16 GB memory share
   (`scontrol update` is refused on this cluster). My requested memory still went above 16 GB, to ~22 GB, for some
   minutes around 00:55Z (worklog).
-- **Task 1 compute: ≈ 11.5 CPU-h** of the 40 budgeted (sampling ≈ 3.5, GMC ≈ 5, probes ≈ 3), plus F3's share of the
-  probe lane. **F3 total ≈ 42 CPU-h of 80** (Task 0 ≈ 31).
+- **Task 1 compute: ≈ 12.1 CPU-h** of the 40 budgeted: sampling, compiles, GMC and figures 8.8 h, plus probes 3.3 h.
+  The WWEST TIMEOUT re-queries alone took 2.2 h. **F3 total ≈ 43 CPU-h of 80** (Task 0 ≈ 30.8). Sums of job elapsed
+  time from `sacct` over `jobids/F3.txt`.
 
 | step | jobs | what |
 |---|---|---|
