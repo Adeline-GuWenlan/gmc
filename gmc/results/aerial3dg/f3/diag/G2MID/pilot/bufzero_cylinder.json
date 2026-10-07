@@ -1,0 +1,133 @@
+{
+ "a3c": "outputs/aerial3dg/f3/G2MID/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/G2MID/pilot/cylinder/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 2,
+   "pair_id": "F3G-00002",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.1132973809726536
+  },
+  {
+   "index": 11,
+   "pair_id": "F3G-00011",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.7400330379605293
+  },
+  {
+   "index": 20,
+   "pair_id": "F3G-00020",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "UNKNOWN:shared_replay_failed",
+   "wall_s": 1.8339632849674672
+  },
+  {
+   "index": 45,
+   "pair_id": "F3G-00045",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.3203842700459063
+  },
+  {
+   "index": 60,
+   "pair_id": "F3G-00060",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.4231970261316746
+  },
+  {
+   "index": 68,
+   "pair_id": "F3G-00068",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.163186938036233
+  },
+  {
+   "index": 72,
+   "pair_id": "F3G-00072",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.801879128906876
+  },
+  {
+   "index": 83,
+   "pair_id": "F3G-00083",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.9794772809837013
+  },
+  {
+   "index": 97,
+   "pair_id": "F3G-00097",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.400314497994259
+  },
+  {
+   "index": 128,
+   "pair_id": "F3G-00128",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.6823351429775357
+  },
+  {
+   "index": 142,
+   "pair_id": "F3G-00142",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.5604027269873768
+  },
+  {
+   "index": 146,
+   "pair_id": "F3G-00146",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.4030364151112735
+  },
+  {
+   "index": 150,
+   "pair_id": "F3G-00150",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.648565520066768
+  },
+  {
+   "index": 158,
+   "pair_id": "F3G-00158",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.0629818870220333
+  },
+  {
+   "index": 169,
+   "pair_id": "F3G-00169",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.887012223014608
+  },
+  {
+   "index": 192,
+   "pair_id": "F3G-00192",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.7486539978999645
+  },
+  {
+   "index": 195,
+   "pair_id": "F3G-00195",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.3055228041484952
+  },
+  {
+   "index": 197,
+   "pair_id": "F3G-00197",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 1.1003016619943082
+  }
+ ]
+}

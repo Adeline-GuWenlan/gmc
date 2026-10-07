@@ -1,0 +1,48 @@
+{
+ "a3c": "outputs/aerial3dg/f3/G2MID/cylinder.a3c",
+ "compile_id": "4ae61e88a24656fc",
+ "load_wall_s": 0.445497338892892,
+ "pairs_in_slice": 100,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 100,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 90,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 10,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 197.40108799096197,
+ "query_cpu_s_this_run": 196.4975445829999,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 366.19140625,
+ "robot": "cylinder",
+ "task": 0,
+ "n_tasks": 1,
+ "pair_index_range": [
+  0,
+  99
+ ],
+ "pairs_file": "results/aerial3dg/f3/sample/G2MID/targeted_pairs.json",
+ "host": {
+  "node": "cs609.hpc.nyu.edu",
+  "slurm_job_id": "19311180",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   93.7099609375,
+   96.880859375,
+   97.28369140625
+  ],
+  "utc": "2026-10-07T01:01:27Z",
+  "python": "3.13.5",
+  "git_commit": "9c24eb084c404ab475c8aa95461b5ec2c9b0d037"
+ },
+ "timeout_s": 120.0
+}

@@ -1,0 +1,67 @@
+{
+ "a3c": "outputs/aerial3dg/f3/G2MID/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/G2MID/pilot/cylinder/task_00.jsonl",
+ "n": 1,
+ "summary": {
+  "turn|geom=True|turn_floor=True|both_floors=True": 1
+ },
+ "rows": [
+  {
+   "index": 13,
+   "pair_id": "F3G-00013",
+   "status_now": "UNKNOWN",
+   "reason_now": "shared_replay_failed",
+   "violations": [
+    {
+     "step": 11,
+     "steps": 26,
+     "t_s": 8.64287072548316,
+     "elapsed_s": 6.383213531080401e-07,
+     "translation_m": 0.0,
+     "yaw_change_rad": 6.383213537741739e-07,
+     "speed_excess": -0.3,
+     "yaw_rate_excess": 1.0435712294309951e-09,
+     "elapsed_exact_s": 6.383213537741739e-07
+    }
+   ],
+   "n_violations": 1,
+   "violation_kinds": [
+    "turn"
+   ],
+   "min_translation_m": null,
+   "original": {
+    "passed": false,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": false,
+     "reason": "speed_or_yaw_rate_exceeded",
+     "acceleration_verified": false
+    },
+    "attained_matches": true
+   },
+   "turn_floor": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   },
+   "both_floors": {
+    "passed": true,
+    "geometry_passed": true,
+    "geometry_reason": "all_closed_edges_verified",
+    "kinematics": {
+     "passed": true,
+     "acceleration_verified": false,
+     "limitation": "piecewise_linear_velocity_discontinuities_at_knots"
+    },
+    "attained_matches": true
+   }
+  }
+ ]
+}

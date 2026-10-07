@@ -1,0 +1,77 @@
+{
+ "a3c": "outputs/aerial3dg/f3/G2MID/cylinder.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/G2MID/targeted/cylinder/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 3,
+   "pair_id": "F3Gt-00003",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 4.4918772170785815
+  },
+  {
+   "index": 14,
+   "pair_id": "F3Gt-00014",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.8432747728656977
+  },
+  {
+   "index": 20,
+   "pair_id": "F3Gt-00020",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.2561623570509255
+  },
+  {
+   "index": 50,
+   "pair_id": "F3Gt-00050",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.217886881204322
+  },
+  {
+   "index": 59,
+   "pair_id": "F3Gt-00059",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.3526835329830647
+  },
+  {
+   "index": 65,
+   "pair_id": "F3Gt-00065",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.463027171092108
+  },
+  {
+   "index": 67,
+   "pair_id": "F3Gt-00067",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.17121988395229
+  },
+  {
+   "index": 73,
+   "pair_id": "F3Gt-00073",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.6997484059538692
+  },
+  {
+   "index": 76,
+   "pair_id": "F3Gt-00076",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 2.0987864690832794
+  },
+  {
+   "index": 78,
+   "pair_id": "F3Gt-00078",
+   "orig": "UNKNOWN:goal_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 3.305502930888906
+  }
+ ]
+}

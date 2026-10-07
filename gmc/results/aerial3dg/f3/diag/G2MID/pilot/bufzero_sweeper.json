@@ -1,0 +1,21 @@
+{
+ "a3c": "outputs/aerial3dg/f3/G2MID/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/G2MID/pilot/sweeper/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 20,
+   "pair_id": "F3G-00020",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.25684665190055966
+  },
+  {
+   "index": 45,
+   "pair_id": "F3G-00045",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.20506349694915116
+  }
+ ]
+}

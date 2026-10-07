@@ -143,13 +143,47 @@ def cmd_summary(a):
         print(k, v["n_pairs"], {r: (x["status"], x["class"]) for r, x in v["robots"].items()})
 
 
+def cmd_cases(a):
+    """Figure inputs per region: every genuine / unverified failure + up to ``--per-class`` examples of each other class
+    (tightest lateral clearance first) -> results/aerial3dg/f3/cases/<REGION>.json (input of aerial3dg_fail3_fig.py)."""
+    rows = list(csv.DictReader(open(F3 / "failures_pilot.csv")))
+    by = collections.defaultdict(list)
+    for r in rows:
+        by[r["region"]].append(r)
+    for reg, rr in by.items():
+        pick, seen = [], collections.Counter()
+        for r in sorted(rr, key=lambda r: float(r["lateral_mm"])):
+            if r["group"] in ("genuine", "unverified") or seen[(r["robot"], r["class"])] < a.per_class:
+                pick.append(r)
+                seen[(r["robot"], r["class"])] += 1
+        cases, box = [], None
+        for r in pick:
+            pairs = _load(F3 / "sample" / reg / f"{r['kind']}_pairs.json")
+            box = pairs["box_uv"]
+            p = next(x for x in pairs["pairs"] if x["pair_id"] == r["pair_id"])
+            rq = {x["pair_id"]: x for x in (_load(F3 / "diag" / reg / r["kind"] / f"requery_{r['robot']}.json") or {})
+                  .get("rows", [])}.get(r["pair_id"], {})
+            note = (f"class {r['class']} ({r['group']}); A* ratio {r['len_ratio']}, clear3d {r['clear3d_mm']} mm, "
+                    f"lateral {r['lateral_mm']} mm, ep clear3d {r.get('ep_clear3d_mm')} mm; buffer0 {r['buffer0'] or '-'}; "
+                    f"replay {r['replay_geometry'] or '-'} swept excess {r['swept_excess_mm'] or '-'} mm")
+            cases.append({"case_id": f"{reg}-{r['kind']}-{r['pair_id']}", "robot": r["robot"],
+                          "start_uv": p["start_uv"], "goal_uv": p["goal_uv"], "astar_route_uv": p["astar_route_uv"],
+                          "gmc_status": r["status"], "gmc_reason": r["reason"], "gmc_route_uv": rq.get("gmc_route_uv"),
+                          "cut_gaussians": rq.get("cut_gaussians"), "note": note, "class": r["class"],
+                          "group": r["group"]})
+        _dump(F3 / "cases" / f"{reg}.json", {"region": reg, "box_uv": box, "cases": cases})
+        print(reg, len(cases), collections.Counter(c["class"] for c in cases))
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("summary")
     s.add_argument("--regions", nargs="+", default=["E", "S", "NMID", "G2MID", "GAPW1"])
+    c = sub.add_parser("cases")
+    c.add_argument("--per-class", type=int, default=2)
     a = p.parse_args(argv)
-    {"summary": cmd_summary}[a.cmd](a)
+    {"summary": cmd_summary, "cases": cmd_cases}[a.cmd](a)
 
 
 if __name__ == "__main__":

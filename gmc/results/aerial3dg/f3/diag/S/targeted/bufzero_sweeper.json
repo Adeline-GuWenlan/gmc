@@ -1,0 +1,21 @@
+{
+ "a3c": "outputs/aerial3dg/f3/S/sweeper.a3c",
+ "rows_source": "results/aerial3dg/f3/gmc/S/targeted/sweeper/task_00.jsonl",
+ "query_cell_buffer_m": 0.0,
+ "rows": [
+  {
+   "index": 22,
+   "pair_id": "F3St-00022",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.24360072915442288
+  },
+  {
+   "index": 37,
+   "pair_id": "F3St-00037",
+   "orig": "UNKNOWN:start_not_certified_free",
+   "buffer0": "REACHABLE:graph_path_lifted_and_verified",
+   "wall_s": 0.09012541803531349
+  }
+ ]
+}

@@ -141,3 +141,16 @@
   scontrol hold/update refused on this cluster; to stay near the 16 GB share I cancelled two of my own not-yet-started
   pilot jobs (19309690, 19309698) and resubmitted them chained (19309716, 19309718). Transient peak ~16.5 GB requested for
   < 20 min while the sweeper audit finished.
+- 00:10-00:55Z  Task 1 pilots (real body, margin 0.001, uniform, quota 200): S 200/195,212 distance-passing candidates (635 s),
+  G2MID 200/6,124 (729 s), GAPW1 200/1,965 (1,650 s). E and NMID: 0 accepted; their free space is split into two lattice
+  components by an obstacle that meets the domain inset at the box face (`region/lattice_NMID_E.png`); pre-filter audits
+  (A* on recorded rejects) 60/60 and 40/40 A* non-routes -> regions inadequate. First evidence ladder was wrong (yaw-0
+  poses fail verify_path's heading check); fixed (capture the exact re-verified poses), streams restarted.
+- 00:16Z  GMC S pilot: cylinder 78 R / 93 shared_replay_failed / 29 endpoint; sweeper 193 R / 7 endpoint. All 93 vetoes:
+  replay geometry map_unknown, no exported pose leaves the prism (max pose excess -0.64 mm) but the swept-segment world
+  AABB overshoots by 0.4-69 mm -> F2's CY-REPLAY-DOMAIN artefact, frequent in a thin box. All endpoint rows: endpoint
+  oracle clearance <= 1.5 mm (floor splats) -> by-tolerance; buffer 0 -> REACHABLE or replay veto.
+- 00:45Z  G2MID pilot: cylinder 181 R / 18 EP-TOL / 1 EXPORT-KIN; GAPW1 pilot: cylinder 158 R / 39 endpoint / 3 replay.
+  Added a 6th candidate WWEST u[-10,-1.3] v[-1.35,3.75] (W1 minus the lamp booth; compile cylinder 61 s, sweeper 24 s).
+- 00:55Z  My requested memory overshot 16 GB (~22 GB for some minutes: short GMC/probe jobs on top of the Task 0 arrays);
+  cancelled the two pending Task 0 grid jobs to stop adding; Task 1 jobs now chained.
