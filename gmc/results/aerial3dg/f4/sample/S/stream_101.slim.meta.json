@@ -1,0 +1,12 @@
+{
+ "source": "stream_101.jsonl (uncommitted, 335 MB; reproducible from seed 20261200+1000*101)",
+ "rows": 874655,
+ "kept_rows_full": 43519,
+ "endpoint_m001_rejects_by_reason": {
+  "map_unknown": 655522,
+  "minkowski_interior_witness": 120560,
+  "body_exceeds_workspace_bounds": 54208,
+  "geometry_or_margin_unproven": 846
+ },
+ "endpoint_m001_rejects": 831136
+}

@@ -187,3 +187,15 @@
   S 1 x 1000 stream 101) for wall < 5 h; same sampler, settings, seeds (seed_base + 1000*stream), pilot lattice.
   New wrapper `hpc/aerial3dg/f4_samp.sbatch` (f3_py.sbatch passes $SLURM_ARRAY_TASK_ID literally). Jobs 19332894-96,
   8 x 2000M = 16 GB.
+- 12:48Z  Resumed (agent job 19333172). Samplers all COMPLETED at quota (WWEST 5 x 500 in 1.9-2.1 h, GAPW1 2 x 750 in
+  1.7 h, S 1000 in 51 min; MaxRSS 1.38 GB). Collect 19338996 (4 GB): 5000 pairs (F4X 2500, F4W 1500, F4S 1000).
+  Funnel: endpoint pass WWEST 12.9 % / GAPW1 10.6 % / S 5.0 %; pre-filter pass 74.5 / 96.3 / 2.3 %; A* on pre-filter
+  passes ROUTE 2500/2500, 1500/1503 (3 NRM), 1000/1014 (12 NR + 2 NRM). Sampling 13.6 CPU-h.
+- 12:50Z  Pre-filter audits 19338997/98 + S 19339250 (first S attempt 19338999 OOM at 2 GB reading the 335 MB stream).
+  S: 60/60 audited rejects are A* non-routes (NR 44 / NRM 16). Fixed a print bug in `merge` (cost_s values are dicts).
+  S raw stream (335 MB, 59 MB gz) not committed: committed `stream_101.slim.jsonl.gz` (every row past the endpoint
+  stage, 43,519) + `stream_101.slim.meta.json` (831,136 endpoint rejects by reason: map_unknown 655,522, minkowski
+  120,560, workspace bounds 54,208, unproven 846).
+- 12:55Z  GMC: WWEST cylinder 19339252 (12 tasks %4, 1700M); after the audits GAPW1 cylinder 19339387 (3, 1200M),
+  WWEST sweeper 19339388 (2), GAPW1 sweeper 19339389 -> S cylinder 19339390 -> S sweeper 19339492 (chained), so my
+  running memory stays <= 14 GB.

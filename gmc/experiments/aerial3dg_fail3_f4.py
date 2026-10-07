@@ -152,13 +152,17 @@ def print_funnel(funnels):
     print("|---|---|---|---|---|---|")
     cost_key = {"endpoint_m001": "endpoint", "endpoint_real_dup": None, "prefilter": "prefilter",
                 "astar_real": "astar_route", "reverify_m001": "reverify"}
+    def cs(f, k):
+        return (f["cost_s"].get(k) or {}).get("sum", 0.)
     for reg, f in funnels.items():
         for st, v in f["stages"].items():
-            c = f["cost_s"].get(cost_key.get(st) or "", None)
+            k = cost_key.get(st)
+            c = None if k is None else cs(f, k)
             if st == "astar_real":
-                c = f["cost_s"]["astar_route"] + f["cost_s"]["astar_reject"]
+                c = cs(f, "astar_route") + cs(f, "astar_reject")
             print(f"| {reg} | {st} | {v['entered']:,} | {v['failed']:,} | {v['pass_rate']:.1%} | "
                   f"{'' if c is None else f'{c:,.0f}'} |")
+        print(f"| {reg} | evidence (accepted pairs) | {f['accepted']:,} | | | {cs(f, 'evidence'):,.0f} |")
 
 
 # ---------------------------------------------------------------------------------------------- GMC
@@ -557,8 +561,9 @@ def cmd_plots(a):
     import matplotlib.pyplot as plt
     s = _load(F4 / "summary.json")
     (F4 / "fig").mkdir(parents=True, exist_ok=True)
-    groups = [("genuine", "#c0392b", "genuine (method)"), ("tolerance", "#e1a95f", "by-tolerance"),
-              ("export", "#7f8c8d", "export artefact"), ("unverified", "#8e44ad", "unverified")]
+    # categorical slots 1-4 of the dataviz reference palette, fixed order (validated: validate_palette.js, light)
+    groups = [("genuine", "#2a78d6", "genuine (method)"), ("tolerance", "#eb6834", "by-tolerance"),
+              ("export", "#1baf7a", "export artefact"), ("unverified", "#eda100", "unverified")]
     for key, xlabel in (("lateral", "route lateral clearance band (mm; largest ladder rung passed)"),
                         ("detour", "detour ratio band (A* route length / straight distance)"),
                         ("endpoint", "min endpoint clearance band (mm)")):
@@ -570,7 +575,7 @@ def cmd_plots(a):
             for g, col, lab in groups:
                 v = np.array([b[g] / b["n"] for b in bands]) * 100
                 if v.any():
-                    ax.bar(x, v, bottom=bottom, color=col, label=lab, width=.7, edgecolor="white", linewidth=.5)
+                    ax.bar(x, v, bottom=bottom, color=col, label=lab, width=.7, edgecolor="white", linewidth=1.5)
                 bottom += v
             lo = np.array([b["ci95"][0] for b in bands]) * 100
             hi = np.array([b["ci95"][1] for b in bands]) * 100
@@ -592,7 +597,7 @@ def cmd_plots(a):
         plt.close(fig)
     # per-region detour curves (cylinder): genuine rate and total rate
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharey=False)
-    cols = {"WWEST": "#1f77b4", "GAPW1": "#2ca02c", "S": "#d62728"}
+    cols = {"WWEST": "#2a78d6", "GAPW1": "#eb6834", "S": "#1baf7a"}
     for ax, (what, ttl) in zip(axes, (("rate", "all failures"), ("genuine_rate", "genuine failures only"))):
         for reg in REGIONS:
             bands = s["bands"]["cylinder"][f"detour_{reg}"]["bands"]

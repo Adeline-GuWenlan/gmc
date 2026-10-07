@@ -1,0 +1,1344 @@
+{
+ "stream_file": "results/aerial3dg/f4/sample/S/stream_101.jsonl",
+ "n": 60,
+ "summary": {
+  "NO_ROUTE": 44,
+  "NO_ROUTE_MARGIN": 16
+ },
+ "rows": [
+  {
+   "draw": 2,
+   "start_uv": [
+    1.8838,
+    -0.8542
+   ],
+   "goal_uv": [
+    -2.1499,
+    -1.1515
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 177,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.415158606832847
+  },
+  {
+   "draw": 137,
+   "start_uv": [
+    -3.8912,
+    -1.0971
+   ],
+   "goal_uv": [
+    0.8486,
+    -1.05
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.12482361402362585
+  },
+  {
+   "draw": 218,
+   "start_uv": [
+    1.9084,
+    -1.0608
+   ],
+   "goal_uv": [
+    -1.6223,
+    -0.9915
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3972205761820078
+  },
+  {
+   "draw": 247,
+   "start_uv": [
+    1.2588,
+    -1.0647
+   ],
+   "goal_uv": [
+    -2.3718,
+    -1.16
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.39593964419327676
+  },
+  {
+   "draw": 253,
+   "start_uv": [
+    -2.2578,
+    -1.0917
+   ],
+   "goal_uv": [
+    3.2044,
+    -1.1227
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 9,
+   "t_astar_s": 0.29460397083312273
+  },
+  {
+   "draw": 339,
+   "start_uv": [
+    2.6781,
+    -1.2835
+   ],
+   "goal_uv": [
+    -1.8426,
+    -0.9629
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 177,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.37092988891527057
+  },
+  {
+   "draw": 357,
+   "start_uv": [
+    3.6957,
+    -1.0071
+   ],
+   "goal_uv": [
+    -1.6608,
+    -1.2765
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4963604018557817
+  },
+  {
+   "draw": 387,
+   "start_uv": [
+    -1.6718,
+    -0.9827
+   ],
+   "goal_uv": [
+    2.1065,
+    -1.2534
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1619236678816378
+  },
+  {
+   "draw": 404,
+   "start_uv": [
+    3.5276,
+    -0.9914
+   ],
+   "goal_uv": [
+    -4.52,
+    -0.866
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 180,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.38671875395812094
+  },
+  {
+   "draw": 471,
+   "start_uv": [
+    -1.7339,
+    -0.8605
+   ],
+   "goal_uv": [
+    2.262,
+    -1.0879
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.16678966488689184
+  },
+  {
+   "draw": 484,
+   "start_uv": [
+    -4.0245,
+    -1.2309
+   ],
+   "goal_uv": [
+    3.1787,
+    -1.2302
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.13574212579987943
+  },
+  {
+   "draw": 525,
+   "start_uv": [
+    2.9431,
+    -0.9044
+   ],
+   "goal_uv": [
+    -4.2648,
+    -1.092
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 177,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.440697074867785
+  },
+  {
+   "draw": 700,
+   "start_uv": [
+    -4.1397,
+    -0.8613
+   ],
+   "goal_uv": [
+    0.697,
+    -1.2634
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 54,
+   "unproven_rejections": 4,
+   "t_astar_s": 0.19595571514219046
+  },
+  {
+   "draw": 771,
+   "start_uv": [
+    -4.2454,
+    -1.3373
+   ],
+   "goal_uv": [
+    2.9493,
+    -0.8837
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 55,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.15827270899899304
+  },
+  {
+   "draw": 781,
+   "start_uv": [
+    1.8363,
+    -0.9395
+   ],
+   "goal_uv": [
+    -2.578,
+    -1.1842
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4031189300585538
+  },
+  {
+   "draw": 887,
+   "start_uv": [
+    -2.2381,
+    -1.2966
+   ],
+   "goal_uv": [
+    2.5554,
+    -0.8858
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 4,
+   "t_astar_s": 0.23117112508043647
+  },
+  {
+   "draw": 911,
+   "start_uv": [
+    -1.873,
+    -1.3275
+   ],
+   "goal_uv": [
+    3.1984,
+    -0.9433
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1545861770864576
+  },
+  {
+   "draw": 913,
+   "start_uv": [
+    -2.6269,
+    -1.1862
+   ],
+   "goal_uv": [
+    2.0172,
+    -1.1567
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 3,
+   "t_astar_s": 0.21319661615416408
+  },
+  {
+   "draw": 936,
+   "start_uv": [
+    -3.6897,
+    -0.9983
+   ],
+   "goal_uv": [
+    3.7655,
+    -1.0686
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 52,
+   "unproven_rejections": 8,
+   "t_astar_s": 0.24733848706819117
+  },
+  {
+   "draw": 1020,
+   "start_uv": [
+    -4.531,
+    -1.2663
+   ],
+   "goal_uv": [
+    1.858,
+    -1.2921
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 56,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.13319787778891623
+  },
+  {
+   "draw": 1048,
+   "start_uv": [
+    -3.8395,
+    -0.8937
+   ],
+   "goal_uv": [
+    1.7805,
+    -1.3007
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 55,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1193482019007206
+  },
+  {
+   "draw": 1073,
+   "start_uv": [
+    -1.9652,
+    -1.0138
+   ],
+   "goal_uv": [
+    3.3763,
+    -1.0931
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 1,
+   "t_astar_s": 0.15506671904586256
+  },
+  {
+   "draw": 1192,
+   "start_uv": [
+    3.8172,
+    -1.0041
+   ],
+   "goal_uv": [
+    -3.559,
+    -1.1712
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 176,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4603375820443034
+  },
+  {
+   "draw": 1332,
+   "start_uv": [
+    2.5556,
+    -1.32
+   ],
+   "goal_uv": [
+    -2.5737,
+    -1.2941
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 179,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3871503099799156
+  },
+  {
+   "draw": 1333,
+   "start_uv": [
+    -4.4043,
+    -1.2301
+   ],
+   "goal_uv": [
+    0.3509,
+    -1.3354
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 55,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1497203758917749
+  },
+  {
+   "draw": 1334,
+   "start_uv": [
+    2.3792,
+    -1.005
+   ],
+   "goal_uv": [
+    -3.7241,
+    -1.3064
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.39729081210680306
+  },
+  {
+   "draw": 1373,
+   "start_uv": [
+    3.1287,
+    -0.9336
+   ],
+   "goal_uv": [
+    -3.9183,
+    -0.8598
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 4,
+   "t_astar_s": 0.4074440218973905
+  },
+  {
+   "draw": 1374,
+   "start_uv": [
+    0.7193,
+    -0.8823
+   ],
+   "goal_uv": [
+    -4.4375,
+    -1.0333
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 179,
+   "unproven_rejections": 1,
+   "t_astar_s": 0.3641501080710441
+  },
+  {
+   "draw": 1426,
+   "start_uv": [
+    2.5397,
+    -1.0039
+   ],
+   "goal_uv": [
+    -2.7209,
+    -1.1264
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 4,
+   "t_astar_s": 0.46649200399406254
+  },
+  {
+   "draw": 1441,
+   "start_uv": [
+    3.4092,
+    -1.138
+   ],
+   "goal_uv": [
+    -2.2592,
+    -1.3379
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 176,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.43124368810094893
+  },
+  {
+   "draw": 1479,
+   "start_uv": [
+    -2.5863,
+    -1.0268
+   ],
+   "goal_uv": [
+    2.6772,
+    -1.1992
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 1,
+   "t_astar_s": 0.15107760089449584
+  },
+  {
+   "draw": 1503,
+   "start_uv": [
+    -2.6088,
+    -1.2649
+   ],
+   "goal_uv": [
+    1.73,
+    -1.0323
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 2,
+   "t_astar_s": 0.17883525392971933
+  },
+  {
+   "draw": 1517,
+   "start_uv": [
+    -2.2962,
+    -1.2064
+   ],
+   "goal_uv": [
+    1.547,
+    -1.2161
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 3,
+   "t_astar_s": 0.20492713479325175
+  },
+  {
+   "draw": 1558,
+   "start_uv": [
+    2.2331,
+    -1.1025
+   ],
+   "goal_uv": [
+    -3.8232,
+    -0.8946
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 181,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3682454051449895
+  },
+  {
+   "draw": 1578,
+   "start_uv": [
+    -3.6358,
+    -0.8657
+   ],
+   "goal_uv": [
+    0.5727,
+    -1.0745
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.12780267209745944
+  },
+  {
+   "draw": 1587,
+   "start_uv": [
+    -2.7284,
+    -1.3026
+   ],
+   "goal_uv": [
+    0.8038,
+    -1.0972
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 2,
+   "t_astar_s": 0.1828768919222057
+  },
+  {
+   "draw": 1611,
+   "start_uv": [
+    2.8545,
+    -1.0468
+   ],
+   "goal_uv": [
+    -4.636,
+    -1.3392
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 181,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4487765980884433
+  },
+  {
+   "draw": 1665,
+   "start_uv": [
+    2.9114,
+    -0.8759
+   ],
+   "goal_uv": [
+    -4.16,
+    -1.2965
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 177,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4318625528831035
+  },
+  {
+   "draw": 1671,
+   "start_uv": [
+    3.1372,
+    -0.9726
+   ],
+   "goal_uv": [
+    -1.5093,
+    -1.0151
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3969116590451449
+  },
+  {
+   "draw": 1733,
+   "start_uv": [
+    -4.2061,
+    -1.0604
+   ],
+   "goal_uv": [
+    1.5912,
+    -1.2133
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.11548784398473799
+  },
+  {
+   "draw": 1810,
+   "start_uv": [
+    -1.6262,
+    -1.0023
+   ],
+   "goal_uv": [
+    2.0499,
+    -1.1694
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.13590875011868775
+  },
+  {
+   "draw": 1847,
+   "start_uv": [
+    -2.0763,
+    -1.1096
+   ],
+   "goal_uv": [
+    1.3449,
+    -1.0278
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 4,
+   "t_astar_s": 0.20605651894584298
+  },
+  {
+   "draw": 1901,
+   "start_uv": [
+    -3.7432,
+    -1.1545
+   ],
+   "goal_uv": [
+    2.4894,
+    -1.2259
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 54,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.12018176703713834
+  },
+  {
+   "draw": 1912,
+   "start_uv": [
+    -4.1151,
+    -1.1824
+   ],
+   "goal_uv": [
+    2.5544,
+    -1.3184
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.12542676483280957
+  },
+  {
+   "draw": 1953,
+   "start_uv": [
+    3.1535,
+    -1.2756
+   ],
+   "goal_uv": [
+    -1.7172,
+    -0.8712
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 176,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3460773420520127
+  },
+  {
+   "draw": 1954,
+   "start_uv": [
+    1.1803,
+    -1.2502
+   ],
+   "goal_uv": [
+    -3.5513,
+    -1.1606
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 179,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3685531949158758
+  },
+  {
+   "draw": 1987,
+   "start_uv": [
+    -2.674,
+    -1.1564
+   ],
+   "goal_uv": [
+    3.5202,
+    -1.0168
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.155586461070925
+  },
+  {
+   "draw": 1999,
+   "start_uv": [
+    1.744,
+    -0.9759
+   ],
+   "goal_uv": [
+    -2.1414,
+    -1.0341
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 180,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3994662829209119
+  },
+  {
+   "draw": 2048,
+   "start_uv": [
+    3.3001,
+    -1.059
+   ],
+   "goal_uv": [
+    -2.4797,
+    -1.1335
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.43409008882008493
+  },
+  {
+   "draw": 2080,
+   "start_uv": [
+    -2.6165,
+    -1.2938
+   ],
+   "goal_uv": [
+    1.4135,
+    -0.9238
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 66,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.17042591306380928
+  },
+  {
+   "draw": 2084,
+   "start_uv": [
+    -1.8639,
+    -1.1403
+   ],
+   "goal_uv": [
+    1.2765,
+    -1.3087
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 65,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.14134996896609664
+  },
+  {
+   "draw": 2169,
+   "start_uv": [
+    3.4216,
+    -1.2396
+   ],
+   "goal_uv": [
+    -4.3522,
+    -1.0675
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    2
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.4510705750435591
+  },
+  {
+   "draw": 2182,
+   "start_uv": [
+    2.7599,
+    -1.0781
+   ],
+   "goal_uv": [
+    -2.3479,
+    -0.9071
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 178,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3483997960574925
+  },
+  {
+   "draw": 2208,
+   "start_uv": [
+    -3.876,
+    -0.9435
+   ],
+   "goal_uv": [
+    3.1214,
+    -1.2223
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.12350906594656408
+  },
+  {
+   "draw": 2281,
+   "start_uv": [
+    -4.0548,
+    -1.0635
+   ],
+   "goal_uv": [
+    2.0133,
+    -1.3223
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 53,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1307030140887946
+  },
+  {
+   "draw": 2288,
+   "start_uv": [
+    1.3176,
+    -1.0006
+   ],
+   "goal_uv": [
+    -1.6743,
+    -1.2873
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 176,
+   "unproven_rejections": 2,
+   "t_astar_s": 0.41755347489379346
+  },
+  {
+   "draw": 2356,
+   "start_uv": [
+    -1.8536,
+    -1.002
+   ],
+   "goal_uv": [
+    2.0895,
+    -1.1134
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.14295662310905755
+  },
+  {
+   "draw": 2360,
+   "start_uv": [
+    -3.7156,
+    -1.2068
+   ],
+   "goal_uv": [
+    0.6678,
+    -0.8663
+   ],
+   "prefilter_start_comps": [
+    2
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 54,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.1244670778978616
+  },
+  {
+   "draw": 2361,
+   "start_uv": [
+    2.0814,
+    -0.9043
+   ],
+   "goal_uv": [
+    -2.8166,
+    -0.8797
+   ],
+   "prefilter_start_comps": [
+    0
+   ],
+   "prefilter_goal_comps": [
+    1
+   ],
+   "astar_outcome": "NO_ROUTE",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 176,
+   "unproven_rejections": 0,
+   "t_astar_s": 0.3655188539996743
+  },
+  {
+   "draw": 2377,
+   "start_uv": [
+    -2.1477,
+    -1.0901
+   ],
+   "goal_uv": [
+    3.0063,
+    -1.0884
+   ],
+   "prefilter_start_comps": [
+    1
+   ],
+   "prefilter_goal_comps": [
+    0
+   ],
+   "astar_outcome": "NO_ROUTE_MARGIN",
+   "astar_reason": "reachable_frontier_meets_unknown_coverage",
+   "expansions": 67,
+   "unproven_rejections": 5,
+   "t_astar_s": 0.23382292897440493
+  }
+ ],
+ "host": {
+  "node": "cs601.hpc.nyu.edu",
+  "slurm_job_id": "19339250",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   69.935546875,
+   69.89892578125,
+   69.619140625
+  ],
+  "utc": "2026-10-07T12:51:59Z",
+  "python": "3.13.5",
+  "git_commit": "7a5b8bf0bd093bfe6462cb7a58668318fb963c36"
+ }
+}
