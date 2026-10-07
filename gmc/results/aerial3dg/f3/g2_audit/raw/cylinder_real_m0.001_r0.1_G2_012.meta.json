@@ -17,7 +17,7 @@
   3.7,
   2.75
  ],
- "shard": 9,
+ "shard": 12,
  "nshards": 24,
  "classes": null,
  "budget": {
@@ -44,23 +44,21 @@
   "level": 2.0,
   "tau": 0.3
  },
- "load_s": 2.6479213759303093,
- "prepare_s": 1.5068195501808077,
+ "load_s": 2.6159628198947757,
+ "prepare_s": 1.9475116021931171,
  "host": {
-  "node": "cs601.hpc.nyu.edu",
-  "slurm_job_id": "19315182",
+  "node": "cs634.hpc.nyu.edu",
+  "slurm_job_id": "19317199",
   "cpus_per_task": "1",
   "affinity_cpus": 1,
   "loadavg": [
-   57.11767578125,
-   56.91748046875,
-   56.6865234375
+   101.25,
+   126.67529296875,
+   134.52685546875
   ],
-  "utc": "2026-10-07T02:34:12Z",
+  "utc": "2026-10-07T03:15:49Z",
   "python": "3.13.5",
-  "git_commit": "9c78e5481e330be404dd05758ea3d502ad14d3ac"
+  "git_commit": "b824ee6a567d0d421c7a6761ade1bdd77cd3dbef"
  },
- "n_rows": 208,
- "wall_s": 2448.3913795221597,
- "peak_rss_mb": 1388.40625
+ "n_rows": 208
 }

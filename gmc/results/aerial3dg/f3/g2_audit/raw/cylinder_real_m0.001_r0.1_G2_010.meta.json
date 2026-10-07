@@ -60,5 +60,7 @@
   "python": "3.13.5",
   "git_commit": "9c78e5481e330be404dd05758ea3d502ad14d3ac"
  },
- "n_rows": 208
+ "n_rows": 208,
+ "wall_s": 2398.1763265458867,
+ "peak_rss_mb": 1389.20703125
 }

@@ -290,7 +290,7 @@ def cmd_handoff(a):
            "probes": {"shared_replay_failed": "experiments/aerial3dg_fail2_kin.py --full (1 ms floors) + "
                                               "aerial3dg_fail3_analyze.py domain check",
                       "not_certified_free": "experiments/aerial3dg_fail3_probe.py bufzero",
-                      "all failures": "experiments/aerial3dg_fail3_probe.py requery (TIMEOUT: 900 s + verdict-only)",
+                      "all failures": "experiments/aerial3dg_fail3_probe.py requery (TIMEOUT rows: 300 s re-run + verdict-only mode; F4: probe a stratified <= 50 of them, ~6 min each)",
                       "genuine-vs-tolerance": "experiments/aerial3dg_fail3_sample.py witness (margin 0.0021)",
                       "sbatch": "gmc/hpc/aerial3dg/f3_probe.sbatch REGION KIND ROBOT"},
            "f5_candidate_cases": cases}

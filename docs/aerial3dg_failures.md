@@ -1,5 +1,13 @@
 # aerial3d-ground: why the 5000-pair run fails where it fails (F1, 2026-10-01)
 
+> **F3 follow-up (2026-10-07):**
+> - G2 audit: [`aerial3dg_g2_audit.md`](aerial3dg_g2_audit.md). Every G2 non-REACHABLE row was re-checked with
+>   real-body A* (G2 box and W1), subset-body lattices and a lamp-width measurement. Verdict per row in
+>   `gmc/results/aerial3dg/f3/g2_audit/verdicts.csv`.
+> - Hard-region search: [`aerial3dg_failures_f3.md`](aerial3dg_failures_f3.md). On confirmed-reachable pairs of the real
+>   cylinder: 0 UNREACHABLE. The genuine failures are timeouts in the large WWEST box; everything else is by-tolerance
+>   (endpoint ≤ 2 mm) or an export artefact.
+>
 > **F2 follow-up (2026-10-02): [`aerial3dg_failures_f2.md`](aerial3dg_failures_f2.md).**
 > - On 5000 cylinder pairs independently confirmed reachable (robust-body A*, ≥ 5 cm lateral clearance) in a new
 >   open sub-region of the same archive, GMC's cylinder is REACHABLE on 4985. The other 15 (0.30 %) are UNKNOWN

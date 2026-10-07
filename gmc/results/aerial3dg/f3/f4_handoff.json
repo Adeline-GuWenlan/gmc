@@ -1,0 +1,806 @@
+{
+ "schema": "aerial3dg_fail3.f4_handoff.v1",
+ "n_total": 5000,
+ "regions": {
+  "WWEST": {
+   "role": "benchmark",
+   "quota": 2500,
+   "box_uv": [
+    -10.0,
+    -1.35,
+    -1.3,
+    3.75
+   ],
+   "box_route": {
+    "lower": [
+     -10.0,
+     -1.35,
+     0.0
+    ],
+    "upper": [
+     -1.3,
+     3.75,
+     2.43
+    ]
+   },
+   "seed_base": 20261600,
+   "stream_layout": "streams 101..102 (seed = seed_base + 1000*stream; pilot used stream 1, targeted 21, tight 31: do not reuse)",
+   "n_streams": 2,
+   "quota_per_stream": 1250,
+   "sampler": "sbatch --job-name=a3f4_samp_WWEST --array=101-102 --time=06:00:00 --mem=2200M gmc/hpc/aerial3dg/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -10 -1.35 -1.3 3.75 --stream $SLURM_ARRAY_TASK_ID --seed 20261600 --quota 1250 --max-hours 5.8 --lattice results/aerial3dg/f3/sample/WWEST/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f4/sample/WWEST (array task id == stream; collect with --n <quota>, prefix per region)",
+   "gmc": "gmc/hpc/aerial3dg/f3_gmc.sbatch <robot> -10 -1.35 -1.3 3.75 <pairs.json> outputs/aerial3dg/f3/WWEST/<robot>.a3c results/aerial3dg/f4/gmc/WWEST/<robot> N_TASKS TASK",
+   "compiles": {
+    "cylinder": {
+     "a3c": "gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+     "compile_id": "549453247f5cf37a",
+     "sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+     "bytes": 267207849,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/WWEST/compile_cylinder.json",
+     "compile_wall_s": 61.22645300789736,
+     "supports": 390716
+    },
+    "sweeper": {
+     "a3c": "gmc/outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+     "compile_id": "29e3d020cb81ffa1",
+     "sha256": "b6c467cb71c45e5c0ac65c866e9d436fd15a605eb667bfb3b326415af793dc87",
+     "bytes": 126833610,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/WWEST/compile_sweeper.json",
+     "compile_wall_s": 24.050639339955524,
+     "supports": 390716
+    }
+   },
+   "measured_pilot": {
+    "pairs": 200,
+    "distance_passing_candidates": 1992,
+    "funnel": {
+     "endpoint_m001": {
+      "entered": 1992,
+      "failed": 1726,
+      "pass_rate": 0.13353413654618473
+     },
+     "endpoint_real_dup": {
+      "entered": 266,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "prefilter": {
+      "entered": 266,
+      "failed": 66,
+      "pass_rate": 0.7518796992481203
+     },
+     "astar_real": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "reverify_m001": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     }
+    },
+    "astar_split_on_prefilter_pass": {
+     "ROUTE": 200,
+     "NO_ROUTE": 0,
+     "NO_ROUTE_MARGIN": 0,
+     "UNSURE": 0
+    },
+    "sampling_cpu_s_per_accepted": 13.835550683565,
+    "gmc_query_wall_s_mean": {
+     "cylinder": 29.163931610340953,
+     "sweeper": 1.8301861745503265
+    },
+    "gmc_query_wall_s_max": {
+     "cylinder": 120.00077074603178,
+     "sweeper": 16.40632618102245
+    },
+    "cylinder_classes": {
+     "REACHABLE": 167,
+     "METHOD-TIMEOUT": 20,
+     "EP-TOL": 11,
+     "REPLAY-UNPROBED": 2
+    },
+    "sweeper_classes": {
+     "REACHABLE": 198,
+     "EP-TOL": 2
+    }
+   },
+   "projection_cpu_h": {
+    "per_pair_s": 44.82966846845628,
+    "sampling": 9.60802130803125,
+    "gmc_cylinder": 20.252730284958993,
+    "gmc_sweeper": 1.2709626212155045,
+    "total": 31.131714214205754
+   }
+  },
+  "GAPW1": {
+   "role": "benchmark",
+   "quota": 1500,
+   "box_uv": [
+    -8.5,
+    -0.35,
+    -2.8,
+    3.75
+   ],
+   "box_route": {
+    "lower": [
+     -8.5,
+     -0.35,
+     0.0
+    ],
+    "upper": [
+     -2.8,
+     3.75,
+     2.43
+    ]
+   },
+   "seed_base": 20261500,
+   "stream_layout": "streams 101..101 (seed = seed_base + 1000*stream; pilot used stream 1, targeted 21, tight 31: do not reuse)",
+   "n_streams": 1,
+   "quota_per_stream": 1500,
+   "sampler": "sbatch --job-name=a3f4_samp_GAPW1 --array=101-101 --time=06:00:00 --mem=2200M gmc/hpc/aerial3dg/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -8.5 -0.35 -2.8 3.75 --stream $SLURM_ARRAY_TASK_ID --seed 20261500 --quota 1500 --max-hours 5.8 --lattice results/aerial3dg/f3/sample/GAPW1/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f4/sample/GAPW1 (array task id == stream; collect with --n <quota>, prefix per region)",
+   "gmc": "gmc/hpc/aerial3dg/f3_gmc.sbatch <robot> -8.5 -0.35 -2.8 3.75 <pairs.json> outputs/aerial3dg/f3/GAPW1/<robot>.a3c results/aerial3dg/f4/gmc/GAPW1/<robot> N_TASKS TASK",
+   "compiles": {
+    "cylinder": {
+     "a3c": "gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+     "compile_id": "abfa278e193c88d4",
+     "sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+     "bytes": 124108451,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/GAPW1/compile_cylinder.json",
+     "compile_wall_s": 23.944383329944685,
+     "supports": 209126
+    },
+    "sweeper": {
+     "a3c": "gmc/outputs/aerial3dg/f3/GAPW1/sweeper.a3c",
+     "compile_id": "a160fe048b6c47fd",
+     "sha256": "70d2c65be222eb7203105c3a07214078affde2025efb8c8b447f572814c67cb9",
+     "bytes": 66768095,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/GAPW1/compile_sweeper.json",
+     "compile_wall_s": 11.029508786974475,
+     "supports": 209126
+    }
+   },
+   "measured_pilot": {
+    "pairs": 200,
+    "distance_passing_candidates": 1965,
+    "funnel": {
+     "endpoint_m001": {
+      "entered": 1965,
+      "failed": 1754,
+      "pass_rate": 0.10737913486005089
+     },
+     "endpoint_real_dup": {
+      "entered": 211,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "prefilter": {
+      "entered": 211,
+      "failed": 11,
+      "pass_rate": 0.9478672985781991
+     },
+     "astar_real": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "reverify_m001": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     }
+    },
+    "astar_split_on_prefilter_pass": {
+     "ROUTE": 200,
+     "NO_ROUTE": 0,
+     "NO_ROUTE_MARGIN": 0,
+     "UNSURE": 0
+    },
+    "sampling_cpu_s_per_accepted": 8.014076357105015,
+    "gmc_query_wall_s_mean": {
+     "cylinder": 7.101501996362349,
+     "sweeper": 0.7331411659368314
+    },
+    "gmc_query_wall_s_max": {
+     "cylinder": 64.05874546500854,
+     "sweeper": 4.483238676097244
+    },
+    "cylinder_classes": {
+     "EP-TOL": 39,
+     "REACHABLE": 158,
+     "EXPORT-DOMAIN": 3
+    },
+    "sweeper_classes": {
+     "REACHABLE": 184,
+     "EP-TOL": 16
+    }
+   },
+   "projection_cpu_h": {
+    "per_pair_s": 15.848719519404195,
+    "sampling": 3.33919848212709,
+    "gmc_cylinder": 2.958959165150979,
+    "gmc_sweeper": 0.30547548580701306,
+    "total": 6.603633133085081
+   }
+  },
+  "S": {
+   "role": "benchmark",
+   "quota": 1000,
+   "box_uv": [
+    -5.3,
+    -1.75,
+    4.5,
+    -0.45
+   ],
+   "box_route": {
+    "lower": [
+     -5.3,
+     -1.75,
+     0.0
+    ],
+    "upper": [
+     4.5,
+     -0.45,
+     2.43
+    ]
+   },
+   "seed_base": 20261200,
+   "stream_layout": "streams 101..101 (seed = seed_base + 1000*stream; pilot used stream 1, targeted 21, tight 31: do not reuse)",
+   "n_streams": 1,
+   "quota_per_stream": 1000,
+   "sampler": "sbatch --job-name=a3f4_samp_S --array=101-101 --time=06:00:00 --mem=2200M gmc/hpc/aerial3dg/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -5.3 -1.75 4.5 -0.45 --stream $SLURM_ARRAY_TASK_ID --seed 20261200 --quota 1000 --max-hours 5.8 --lattice results/aerial3dg/f3/sample/S/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f4/sample/S (array task id == stream; collect with --n <quota>, prefix per region)",
+   "gmc": "gmc/hpc/aerial3dg/f3_gmc.sbatch <robot> -5.3 -1.75 4.5 -0.45 <pairs.json> outputs/aerial3dg/f3/S/<robot>.a3c results/aerial3dg/f4/gmc/S/<robot> N_TASKS TASK",
+   "compiles": {
+    "cylinder": {
+     "a3c": "gmc/outputs/aerial3dg/f3/S/cylinder.a3c",
+     "compile_id": "8352bdd37aab07a2",
+     "sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4",
+     "bytes": 96713426,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/S/compile_cylinder.json",
+     "compile_wall_s": 4.98939391085878,
+     "supports": 333487
+    },
+    "sweeper": {
+     "a3c": "gmc/outputs/aerial3dg/f3/S/sweeper.a3c",
+     "compile_id": "a17c75430cd3fec4",
+     "sha256": "ff1c13699719d2d28a4b6411658e8b1a2376d921fb5fc83a5ff79cf5439ea4f5",
+     "bytes": 97194120,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/S/compile_sweeper.json",
+     "compile_wall_s": 6.675172574119642,
+     "supports": 333487
+    }
+   },
+   "measured_pilot": {
+    "pairs": 200,
+    "distance_passing_candidates": 195212,
+    "funnel": {
+     "endpoint_m001": {
+      "entered": 195212,
+      "failed": 185475,
+      "pass_rate": 0.04987910579267668
+     },
+     "endpoint_real_dup": {
+      "entered": 9737,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "prefilter": {
+      "entered": 9737,
+      "failed": 9537,
+      "pass_rate": 0.020540207456095305
+     },
+     "astar_real": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "reverify_m001": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     }
+    },
+    "astar_split_on_prefilter_pass": {
+     "ROUTE": 200,
+     "NO_ROUTE": 0,
+     "NO_ROUTE_MARGIN": 0,
+     "UNSURE": 0
+    },
+    "sampling_cpu_s_per_accepted": 1.8265642293299738,
+    "gmc_query_wall_s_mean": {
+     "cylinder": 0.030687070921994745,
+     "sweeper": 0.023704295090865343
+    },
+    "gmc_query_wall_s_max": {
+     "cylinder": 0.24960912205278873,
+     "sweeper": 0.04061856004409492
+    },
+    "cylinder_classes": {
+     "EXPORT-DOMAIN": 93,
+     "EP-TOL": 29,
+     "REACHABLE": 78
+    },
+    "sweeper_classes": {
+     "REACHABLE": 193,
+     "EP-TOL": 7
+    }
+   },
+   "projection_cpu_h": {
+    "per_pair_s": 1.8809555953428339,
+    "sampling": 0.5073789525916594,
+    "gmc_cylinder": 0.008524186367220762,
+    "gmc_sweeper": 0.006584526414129262,
+    "total": 0.5224876653730094
+   }
+  },
+  "G2MID": {
+   "role": "backup",
+   "quota": 0,
+   "box_uv": [
+    -5.5,
+    -0.35,
+    -1.2,
+    2.75
+   ],
+   "box_route": {
+    "lower": [
+     -5.5,
+     -0.35,
+     0.0
+    ],
+    "upper": [
+     -1.2,
+     2.75,
+     2.43
+    ]
+   },
+   "seed_base": 20261400,
+   "stream_layout": "streams 101..100 (seed = seed_base + 1000*stream; pilot used stream 1, targeted 21, tight 31: do not reuse)",
+   "n_streams": 0,
+   "quota_per_stream": 0,
+   "sampler": "sbatch --job-name=a3f4_samp_G2MID --array=101-100 --time=06:00:00 --mem=2200M gmc/hpc/aerial3dg/f3_py.sbatch experiments/aerial3dg_fail3_sample.py run --box -5.5 -0.35 -1.2 2.75 --stream $SLURM_ARRAY_TASK_ID --seed 20261400 --quota 0 --max-hours 5.8 --lattice results/aerial3dg/f3/sample/G2MID/pilot/stream_01.lattice.npz --out-dir results/aerial3dg/f4/sample/G2MID (array task id == stream; collect with --n <quota>, prefix per region)",
+   "gmc": "gmc/hpc/aerial3dg/f3_gmc.sbatch <robot> -5.5 -0.35 -1.2 2.75 <pairs.json> outputs/aerial3dg/f3/G2MID/<robot>.a3c results/aerial3dg/f4/gmc/G2MID/<robot> N_TASKS TASK",
+   "compiles": {
+    "cylinder": {
+     "a3c": "gmc/outputs/aerial3dg/f3/G2MID/cylinder.a3c",
+     "compile_id": "4ae61e88a24656fc",
+     "sha256": "647609756e7e45852a22c81bfbb805be873ea236c3854c02ddc1ad5f8caa9e50",
+     "bytes": 107169918,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/G2MID/compile_cylinder.json",
+     "compile_wall_s": 16.340802989900112,
+     "supports": 168461
+    },
+    "sweeper": {
+     "a3c": "gmc/outputs/aerial3dg/f3/G2MID/sweeper.a3c",
+     "compile_id": "7da07ff6baf01ec4",
+     "sha256": "66170661e74277959c9059e85e0a433c64f5f423a2ede44634498b2e7e363352",
+     "bytes": 53510393,
+     "compile_record": "gmc/results/aerial3dg/f3/probe/G2MID/compile_sweeper.json",
+     "compile_wall_s": 7.500447990139946,
+     "supports": 168461
+    }
+   },
+   "measured_pilot": {
+    "pairs": 200,
+    "distance_passing_candidates": 6124,
+    "funnel": {
+     "endpoint_m001": {
+      "entered": 6124,
+      "failed": 5924,
+      "pass_rate": 0.032658393207054215
+     },
+     "endpoint_real_dup": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "prefilter": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "astar_real": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     },
+     "reverify_m001": {
+      "entered": 200,
+      "failed": 0,
+      "pass_rate": 1.0
+     }
+    },
+    "astar_split_on_prefilter_pass": {
+     "ROUTE": 200,
+     "NO_ROUTE": 0,
+     "NO_ROUTE_MARGIN": 0,
+     "UNSURE": 0
+    },
+    "sampling_cpu_s_per_accepted": 3.5030901553900122,
+    "gmc_query_wall_s_mean": {
+     "cylinder": 1.5924219396081754,
+     "sweeper": 0.3091678173211403
+    },
+    "gmc_query_wall_s_max": {
+     "cylinder": 24.85506614111364,
+     "sweeper": 1.1539242889266461
+    },
+    "cylinder_classes": {
+     "REACHABLE": 181,
+     "EP-TOL": 18,
+     "EXPORT-KIN": 1
+    },
+    "sweeper_classes": {
+     "REACHABLE": 198,
+     "EP-TOL": 2
+    }
+   },
+   "projection_cpu_h": {
+    "per_pair_s": 5.404679912319327,
+    "sampling": 0.0,
+    "gmc_cylinder": 0.0,
+    "gmc_sweeper": 0.0,
+    "total": 0.0
+   }
+  }
+ },
+ "backup_region": "G2MID",
+ "choice_rationale": "No region produced a genuine failure except WWEST, whose cylinder query exceeds G2's 120 s limit on 20/200 uniform confirmed pairs (METHOD-TIMEOUT; 0 UNREACHABLE anywhere). Criterion = genuine + by-tolerance rate (export artefacts excluded), cylinder, uniform pilot: GAPW1 19.5 % (0 + 39), WWEST 15.5 % (20 + 11), S 14.5 % (0 + 29), G2MID 9 % (0 + 18); E and NMID yield no confirmed pair. Split: WWEST 2500 (the only genuine failures; long pairs up to 7.3 m, detour ratio p90 1.49), GAPW1 1500 (highest by-tolerance rate: endpoints over the u~-5.6 floor-splat field; detour p90 1.53), S 1000 (tightest geometry: 42 % of A* routes have lateral clearance <= 2 mm; cheapest). All three together fit F4's 200 CPU-h with > 3x margin. Backup G2MID: one lattice component (pre-filter pass 100 %), 3.5 s/pair sampling.",
+ "confirmation_rule": "real cylinder, margin 0.001, 0.1 m lattice A* (LatticePlanner; pos tol 0, yaw tol 0.05, 500k expansions, 120 s wall) ROUTE + verify_path re-check; straight distance >= 3 m; no robust inflation (experiments/aerial3dg_fail3_sample.py docstring)",
+ "gmc_config": "aerial3dg_run.QCONFIG (G2's full QueryConfig, export_max_segment_m 0.20), timeout 120 s",
+ "projection_cpu_h_total": 38.25783501266384,
+ "budget_cpu_h": 200,
+ "probes": {
+  "shared_replay_failed": "experiments/aerial3dg_fail2_kin.py --full (1 ms floors) + aerial3dg_fail3_analyze.py domain check",
+  "not_certified_free": "experiments/aerial3dg_fail3_probe.py bufzero",
+  "all failures": "experiments/aerial3dg_fail3_probe.py requery (TIMEOUT rows: 300 s re-run + verdict-only mode; F4: probe a stratified <= 50 of them, ~6 min each)",
+  "genuine-vs-tolerance": "experiments/aerial3dg_fail3_sample.py witness (margin 0.0021)",
+  "sbatch": "gmc/hpc/aerial3dg/f3_probe.sbatch REGION KIND ROBOT"
+ },
+ "f5_candidate_cases": [
+  {
+   "case_id": "G2MID-tight-F3Gq-00040",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/G2MID-tight-F3Gq-00040_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/G2MID/tight_pairs.json"
+  },
+  {
+   "case_id": "G2MID-pilot-F3G-00013",
+   "robot": "cylinder",
+   "class": "EXPORT-KIN",
+   "group": "export",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/G2MID-pilot-F3G-00013_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/G2MID/pilot_pairs.json"
+  },
+  {
+   "case_id": "G2MID-pilot-F3G-00020",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/G2MID-pilot-F3G-00020_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/G2MID/pilot_pairs.json"
+  },
+  {
+   "case_id": "G2MID-pilot-F3G-00020",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/G2MID-pilot-F3G-00020_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/G2MID/pilot_pairs.json"
+  },
+  {
+   "case_id": "G2MID-pilot-F3G-00045",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/G2MID-pilot-F3G-00045_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/G2MID/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-pilot-F3W-00176",
+   "robot": "cylinder",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00176_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-pilot-F3W-00170",
+   "robot": "cylinder",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00170_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-tight-F3Wq-00010",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-tight-F3Wq-00010_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/tight_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-tight-F3Wq-00018",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-tight-F3Wq-00018_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/tight_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-pilot-F3W-00067",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00067_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "GAPW1-pilot-F3W-00185",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/GAPW1-pilot-F3W-00185_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/GAPW1/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00011",
+   "robot": "cylinder",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00011_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00019",
+   "robot": "cylinder",
+   "class": "EXPORT-DOMAIN",
+   "group": "export",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00019_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00002",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00002_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00130",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00130_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00007",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00007_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "S-pilot-F3S-00004",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/S-pilot-F3S-00004_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/S/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00041",
+   "robot": "cylinder",
+   "class": "REPLAY-UNPROBED",
+   "group": "unverified",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00041_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00088",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00088_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00001",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00001_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00037",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00037_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00073",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00073_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00181",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00181_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00184",
+   "robot": "cylinder",
+   "class": "REPLAY-UNPROBED",
+   "group": "unverified",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00184_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00027",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00027_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00038",
+   "robot": "cylinder",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00038_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00093",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00093_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00126",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00126_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00160",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00160_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00056",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00056_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00082",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00082_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00147",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00147_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00183",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00183_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00195",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00195_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00019",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00019_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00059",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00059_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00155",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00155_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00169",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00169_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00192",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00192_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00044",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00044_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00107",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00107_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00197",
+   "robot": "cylinder",
+   "class": "METHOD-TIMEOUT",
+   "group": "genuine",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00197_cylinder.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  },
+  {
+   "case_id": "WWEST-pilot-F3X-00091",
+   "robot": "sweeper",
+   "class": "EP-TOL",
+   "group": "tolerance",
+   "figure": "gmc/results/aerial3dg/f3/cases/fig/WWEST-pilot-F3X-00091_sweeper.png",
+   "pairs_file": "gmc/results/aerial3dg/f3/sample/WWEST/pilot_pairs.json"
+  }
+ ]
+}
