@@ -1,0 +1,12 @@
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/GAPW1_cylinder_fast_00.jsonl --out results/aerial3dg/f5/aabbprobe/GAPW1_cylinder_fast_00.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/GAPW1_cylinder_fast_01.jsonl --out results/aerial3dg/f5/aabbprobe/GAPW1_cylinder_fast_01.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/GAPW1_cylinder_fast_02.jsonl --out results/aerial3dg/f5/aabbprobe/GAPW1_cylinder_fast_02.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_00.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_00.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_01.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_01.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_02.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_02.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_03.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_03.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_04.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_04.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/S_cylinder_fast_05.jsonl --out results/aerial3dg/f5/aabbprobe/S_cylinder_fast_05.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/WWEST_cylinder_fast_00.jsonl --out results/aerial3dg/f5/aabbprobe/WWEST_cylinder_fast_00.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/WWEST_cylinder_fast_01.jsonl --out results/aerial3dg/f5/aabbprobe/WWEST_cylinder_fast_01.jsonl
+experiments/aerial3dg_fail5_trace.py aabbprobe --shard results/aerial3dg/f5/plan/WWEST_cylinder_fast_02.jsonl --out results/aerial3dg/f5/aabbprobe/WWEST_cylinder_fast_02.jsonl

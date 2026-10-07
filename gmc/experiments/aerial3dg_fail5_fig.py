@@ -189,6 +189,16 @@ def render(sc, c, out):
     ap = fig.add_subplot(gs[1, 1])
     t = np.asarray(c.get("locus_dir") or [1., 0.], float)
     t = t / max(np.linalg.norm(t), 1e-12)
+    dir_kind = c.get("locus_dir_kind", "along the route")
+    if not c.get("blockers"):                       # cut toward the nearest body-band Gaussian (its 2-sigma xy box)
+        kk = sc.local(L, .7)
+        kk = kk[sc.band[kk]]
+        if len(kk):
+            gap = np.linalg.norm(sc.mu[kk, :2] - L, axis=1) - sc.sd[kk, :2].max(1)
+            j = kk[int(np.argmin(gap))]
+            d = sc.mu[j, :2] - L
+            if np.linalg.norm(d) > 1e-6:
+                t, dir_kind = d / np.linalg.norm(d), "toward the nearest body-band Gaussian"
     nrm = np.array([-t[1], t[0]])
     k = sc.local(L, .7)
     rel = sc.mu[k, :2] - L
@@ -212,7 +222,7 @@ def render(sc, c, out):
     else:
         ap.set_ylim(-.02, sc.top_b + .1)
         ap.set_ylabel("z above floor (m)", fontsize=8)
-    ap.set_xlabel(f"distance {c.get('locus_dir_kind', 'along the route')} through the locus (m); "
+    ap.set_xlabel(f"distance {dir_kind} through the locus (m); "
                   "dark-edged = within body radius of the cut", fontsize=7)
     ap.tick_params(labelsize=7)
     ap.legend(fontsize=6, loc="upper right", framealpha=.8)

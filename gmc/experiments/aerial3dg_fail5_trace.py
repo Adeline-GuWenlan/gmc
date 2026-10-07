@@ -671,6 +671,80 @@ def cmd_segprobe(a):
         print(it["case_id"], st, f"{rec['wall_s']:.0f}s", len(log), "calls", flush=True)
 
 
+class CylinderKnownSpace:
+    """Fix probe for REPLAY-AABB (shared replay only, never GMC): the route prism tested against the swept *vertical
+    cylinder* instead of its world AABB.  ``contains_aabb(lower, upper)`` gets the oracle's world box of the body over
+    one edge; its centre box [lower + half, upper - half] holds both edge endpoints at two opposite corners.  A vertical
+    cylinder is rotation invariant in xy, and the swept hull of two such cylinders extends, along any route axis, no
+    further than one of its endpoint cylinders: so it suffices (conservatively, all 4 xy corners) that every centre-box
+    corner +- (r, r, half_height) in the route frame lies in the prism."""
+
+    def __init__(self, inner, body):
+        self.inner = inner
+        self.half = np.array([body.radius_m, body.radius_m, body.half_height_m])
+        self.R = np.asarray(inner.world_to_route, float)
+        assert abs(abs(self.R[2, 2]) - 1.) < 1e-9, "route z must be world z"
+        self.o = np.asarray(inner.origin_world_m, float)
+        self.lo, self.hi = np.asarray(inner.lower_route_m, float), np.asarray(inner.upper_route_m, float)
+        self.calls, self.aabb_rejects, self.cyl_rejects = 0, 0, 0
+
+    def contains_aabb(self, lower, upper):
+        from itertools import product
+        self.calls += 1
+        if self.inner.contains_aabb(lower, upper):
+            return True
+        self.aabb_rejects += 1
+        lo, hi = np.asarray(lower, float) + self.half, np.asarray(upper, float) - self.half
+        if np.any(lo > hi + 1e-12):
+            self.cyl_rejects += 1
+            return False
+        C = (np.asarray(list(product(*zip(lo, hi))), float) - self.o) @ self.R.T
+        ok = bool(np.all(C - self.half >= self.lo - 1e-12) and np.all(C + self.half <= self.hi + 1e-12))
+        self.cyl_rejects += not ok
+        return ok
+
+
+def cmd_aabbprobe(a):
+    """Every REPLAY-AABB row of the shard (F4 class EXPORT-DOMAIN): GMC re-queried on the same compile with G2's
+    QCONFIG, but the shared replay's coverage test is ``CylinderKnownSpace``.  GMC itself is untouched."""
+    from gmc.aerial3d import api as A
+    from aerial3dg_batch import _Timeout, _alarm
+    items = [it for it in _jsonl(a.shard) if it["class_f4"] == "EXPORT-DOMAIN"]
+    if not items:
+        return
+    X = Ctx(items[0]["region"], items[0]["robot"])
+    scene = X.C.prepared.scene
+    ks0 = scene.known_space
+    cks = CylinderKnownSpace(X.ks, X.C.body)
+    object.__setattr__(scene, "known_space", cks)
+    out = Path(a.out)
+    done = {json.loads(l)["case_id"] for l in open(out)} if out.exists() else set()
+    try:
+        for it in items:
+            if it["case_id"] in done:
+                continue
+            c0 = (cks.calls, cks.aabb_rejects, cks.cyl_rejects)
+            s = X.C.frame.to_world([*it["gmc"]["start_uv"], X.z_c])
+            g = X.C.frame.to_world([*it["gmc"]["goal_uv"], X.z_c])
+            w0 = time.perf_counter()
+            try:
+                with _alarm(a.timeout):
+                    q = A.query(X.C, s, g, config=QCONFIG, call_id=it["pair_id"] + "-cylks")
+                st, rs = q["status"], q["reason"]
+                geo = ((q.get("verification") or {}).get("shared") or {}).get("geometry") or {}
+            except _Timeout:
+                st, rs, geo = "TIMEOUT", "timeout", {}
+            rec = {"case_id": it["case_id"], "pair_id": it["pair_id"], "status": st, "reason": rs,
+                   "replay_geometry": geo.get("reason"), "wall_s": time.perf_counter() - w0,
+                   "coverage_calls": cks.calls - c0[0], "aabb_rejects": cks.aabb_rejects - c0[1],
+                   "cylinder_rejects": cks.cyl_rejects - c0[2]}
+            with open(out, "a") as f:
+                f.write(json.dumps(rec) + "\n")
+            print(rec, flush=True)
+    finally:
+        object.__setattr__(scene, "known_space", ks0)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -687,8 +761,12 @@ def main(argv=None):
     sp.add_argument("--ids", nargs="*", default=None)
     sp.add_argument("--timeout", type=float, default=120.)
     sp.add_argument("--out", required=True)
+    ap = sub.add_parser("aabbprobe")
+    ap.add_argument("--shard", required=True)
+    ap.add_argument("--timeout", type=float, default=300.)
+    ap.add_argument("--out", required=True)
     a = p.parse_args(argv)
-    {"plan": cmd_plan, "trace": cmd_trace, "segprobe": cmd_segprobe}[a.cmd](a)
+    {"plan": cmd_plan, "trace": cmd_trace, "segprobe": cmd_segprobe, "aabbprobe": cmd_aabbprobe}[a.cmd](a)
 
 
 if __name__ == "__main__":

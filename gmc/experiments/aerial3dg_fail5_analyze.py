@@ -42,6 +42,7 @@ F4 = Path("results/aerial3dg/f4")
 F5 = Path("results/aerial3dg/f5")
 DOCS = Path("../docs")
 TOL_MM = 2.0
+EP_SLACK_MM = .1
 
 CODE = {
     "EP-FLOOR": "aerial3d/cells.py:121-126 (grow_cell: refine_gap <= buffer + slack -> None) -> aerial3d/api.py:330-333",
@@ -94,6 +95,13 @@ def classify(r):
         if q["status"] == "TIMEOUT" and q.get("stage_at_end") in ("shortcut", "tighten", "merge_corners",
                                                                   "after_shortcut", "after_tighten"):
             return "POST-TIMEOUT", "post"
+        # alarm just after post-processing (own verification / replay), post-processing ~ the whole budget
+        if q["status"] == "TIMEOUT" and sum(v.get("wall_s", 0) for v in post.values()) > .5 * q["wall_s"]:
+            return "POST-TIMEOUT", "post"
+        # limit-edge: the re-query finished just inside the limit, with post-processing most of the time
+        if q["status"] != "TIMEOUT" and sum(v.get("wall_s", 0) for v in post.values()) > .5 * q["wall_s"] \
+                and q["wall_s"] > 60:
+            return "POST-TIMEOUT", "post"
         return "OTHER", None
     if st == "ERROR" or rs.startswith("ZeroDivisionError"):
         if q.get("simplify_spikes"):
@@ -105,7 +113,7 @@ def classify(r):
         c = x.get("clearance_fine_m")
         tr = x.get("grow_cell_trace") or {}
         bl = tr.get("blockers") or []
-        if c is not None and c * 1e3 > TOL_MM + 1e-6:
+        if c is not None and c * 1e3 > TOL_MM + EP_SLACK_MM:     # F3/F4's cut: (2.0, 2.1] mm is still tolerance
             return "EP-SLACK", e
         if bl and not bl[0]["centre_below_chassis_bottom"] and tr.get("cause") == "lateral_gaussian":
             return "EP-SIDE", e
@@ -213,7 +221,7 @@ def fact_row(r):
           "c_start_mm": mm(r["endpoints"]["start"].get("clearance_fine_m")),
           "c_goal_mm": mm(r["endpoints"]["goal"].get("clearance_fine_m")),
           "c_route_lateral_mm": mm(a.get("lateral_fine_m")), "c_locus_mm": mm(loc), "c_locus_def": loc_def,
-          "c_by_tolerance": None if loc is None else bool(loc * 1e3 <= TOL_MM + 1e-6),
+          "c_by_tolerance": None if loc is None else bool(loc * 1e3 <= TOL_MM + EP_SLACK_MM + 1e-6),
           "probe_verdict_only": (pr.get("verdict_only") or pr.get("b0_verdict_only") or {}).get("status"),
           "probe_verdict_only_wall_s": (pr.get("verdict_only") or pr.get("b0_verdict_only") or {}).get("wall_s"),
           "probe_budget60": (pr.get("budget") or pr.get("b0_budget") or {}).get("status"),
@@ -402,11 +410,11 @@ def case_dict(r, fr):
               f"min 3-D clearance bound {_fmt(fr['a_clearance3d_mm'])} mm; from {fr['a_replayed_from']}"),
         "", "(b) GMC's failure reproduces on the same compile",
         _wrap(f"    {fr['b_reproduced']}: {fr['b_requery']} ({fr['b_requery_wall_s']} s), compile {fr['compile_id']}"),
-        "", "(c) clearance vs margin + buffer (2 mm)",
+        "", "(c) clearance vs margin + buffer (2 mm, +0.1)",
         f"    start {_fmt(fr['c_start_mm'])} mm, goal {_fmt(fr['c_goal_mm'])} mm",
         f"    route lateral {_fmt(fr['c_route_lateral_mm'])} mm" + (" (cap)" if fr['c_route_lateral_mm'] == 100 else ""),
         _wrap(f"    locus: {_fmt(fr['c_locus_mm'])} mm -> "
-              + ("by-tolerance (<= 2 mm)" if fr["c_by_tolerance"] else "above 2 mm")),
+              + ("by-tolerance (<= 2.1 mm)" if fr["c_by_tolerance"] else "above 2.1 mm")),
         "", "mechanism", _wrap("    " + fr["cause"]), _wrap("    code: " + fr["code"]),
     ]
     pl = []
@@ -534,14 +542,14 @@ def main(argv=None):
 
 
 CAUSE = {
-    "POST-TIMEOUT": "GMC finds and certifies a route in seconds, but the optional route shortening (shortcut / tighten) "
-                    "verifies one long candidate segment per accept() call and runs past G2's 120 s limit",
+    "POST-TIMEOUT": "GMC finds and certifies a route in seconds, but the optional route shortening runs past G2's 120 s "
+                    "limit, mostly in `shortcut` proving that long farthest-first candidate chords collide",
     "SIMPLIFY-ZERODIV": "the lifted polyline contains an a -> b -> a spike of a few nm; `simplify` divides by |ac|^2 = 0",
     "EP-SLACK": "the endpoint is > 2 mm clear by the oracle, yet GMC's refined envelope gap is <= the 1 mm buffer",
     "CUT-WRONG": "certified UNREACHABLE contradicted by a demonstrated route (soundness)",
     "OTHER": "not explained by the trace",
-    "EP-FLOOR": "the endpoint is only 1-2 mm above a sub-floor Gaussian; GMC needs margin + buffer = 2 mm to grow a "
-                "certified endpoint cell (by design)",
+    "EP-FLOOR": "the endpoint is only 1-2 mm from a Gaussian below the chassis (809/832: a sub-floor splat); GMC needs "
+                "margin + buffer = 2 mm to grow a certified endpoint cell (by design)",
     "EP-SIDE": "the endpoint is within margin + buffer of an obstacle beside the body",
     "REPLAY-AABB": "the shared replay's known-space test checks the world AABB of each swept 0.20 m export segment; near "
                    "a box face in the 64-degree-rotated frame that AABB leaves the prism although the body does not",
@@ -573,7 +581,7 @@ def cmd_review(a):
          "Columns: (a) = the A* route re-replayed with the compile's own gs3d oracle on the real body, margin 1 mm "
          "(PASS = a real route); (b) = GMC's failure reproduced on the same persisted compile; (c) = clearance at the "
          "failure locus in mm (endpoint rows: the endpoint's oracle clearance; route rows: the A* route's lateral "
-         "clearance), `tol` when <= margin + buffer = 2 mm. For export classes (c) is context only: their mechanism "
+         "clearance), `tol` when <= margin + buffer (2 mm) + 0.1 mm (F3/F4's cut for GMC's slack). For export classes (c) is context only: their mechanism "
          "is not a clearance.",
          "",
          "## Classes", "",

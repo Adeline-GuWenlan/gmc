@@ -246,3 +246,14 @@
   (COLLISION 147, UNRESOLVED 48) of 2.8-6.5 m candidate chords whose padded AABB holds a median 27k pairs. GMC spends
   the budget proving long farthest-first shortcuts infeasible (no cache: the same chord is re-checked by the second
   shortcut call). Results/aerial3dg/f5/segprobe_WWEST_timeout.jsonl.
+- 20:50Z  Usage-limit pause; resumed as agent 19377357 at 21:33Z. Trace array 19363459 complete (1602/1602 rows, 14.5
+  CPU-h); aabbprobe 19368400 complete. Facts: (a) A* re-replay PASS 1602/1602 (5 S rows needed the exact-pose A* re-run,
+  0.1 mm rounding); (b) reproduced 1595/1602 (7 limit-edge POST-TIMEOUT rows finish in 103-117 s); 0 OTHER, 0 soundness.
+  Classifier refinements (stated in the report): EP-SLACK only above 2.1 mm (F3/F4's cut); TIMEOUT rows whose alarm fires
+  just after post-processing, or that finish near the limit with post-processing > 50 % of the wall, are POST-TIMEOUT.
+  Probes: 60 s post-processing budget 185/194 REACHABLE (rest: 7 AABB vetoes, 1 rate round-off, 1 own-verify unresolved
+  F4X-00303); guarded simplify REACHABLE (F4X-02454, F3X-00163 under buffer 0); exact swept-cylinder coverage in the
+  replay 521/524 REACHABLE (3 left = rate round-off). EP-SLACK: GMC's refined gap is 0.962 mm on 5 endpoints near splat
+  5337920 while the oracle clearance is 1.95-2.31 mm (horizontal separating plane; conservative by up to 0.35 mm).
+  Figures 19385030, re-rendered 19385412 after inspection (side profile toward the nearest Gaussian). Review index +
+  verdict sheet written; report docs/aerial3dg_failures_f5.md. F5 compute 15.7 CPU-h of 40.

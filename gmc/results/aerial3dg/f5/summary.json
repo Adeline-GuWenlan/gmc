@@ -1,0 +1,122 @@
+{
+ "n": 1602,
+ "by_source": {
+  "F4": 1567,
+  "F3-targeted": 35
+ },
+ "F4": {
+  "n": 1567,
+  "mechanism_by_robot": {
+   "EP-FLOOR/cylinder": 652,
+   "EP-FLOOR/sweeper": 176,
+   "EP-SIDE/cylinder": 4,
+   "EP-SLACK/cylinder": 1,
+   "EP-SLACK/sweeper": 1,
+   "POST-TIMEOUT/cylinder": 194,
+   "REPLAY-AABB/cylinder": 524,
+   "REPLAY-RATE/cylinder": 10,
+   "REPLAY-RATE/sweeper": 4,
+   "SIMPLIFY-ZERODIV/cylinder": 1
+  },
+  "f4_class_vs_mechanism": {
+   "EP-GENUINE -> EP-SLACK": 2,
+   "EP-TOL -> EP-FLOOR": 828,
+   "EP-TOL -> EP-SIDE": 4,
+   "EXPORT-DOMAIN -> REPLAY-AABB": 524,
+   "EXPORT-KIN -> REPLAY-RATE": 14,
+   "METHOD-ERROR -> SIMPLIFY-ZERODIV": 1,
+   "METHOD-TIMEOUT -> POST-TIMEOUT": 194
+  },
+  "a_astar_replay": {
+   "PASS": 1567
+  },
+  "a_replayed_from": {
+   "stored_route_uv_0.1mm": 1562,
+   "astar_rerun_exact_poses": 5
+  },
+  "b_reproduced": {
+   "True": 1560,
+   "False": 7
+  },
+  "c_by_tolerance_by_mechanism": {
+   "EP-FLOOR: True": 828,
+   "EP-SIDE: True": 4,
+   "EP-SLACK: False": 2,
+   "POST-TIMEOUT: False": 184,
+   "POST-TIMEOUT: True": 10,
+   "REPLAY-AABB: False": 315,
+   "REPLAY-AABB: True": 209,
+   "REPLAY-RATE: False": 13,
+   "REPLAY-RATE: True": 1,
+   "SIMPLIFY-ZERODIV: False": 1
+  },
+  "all_three_facts": 1560,
+  "post_timeout_probes": {
+   "verdict_only": {
+    "UNKNOWN": 78,
+    "REACHABLE": 116
+   },
+   "verdict_only_floors_on_replay_veto": {
+    "True": 71,
+    "False": 6,
+    "None": 1
+   },
+   "verdict_only_wall_s_max": 5.243617411004379,
+   "budget60": {
+    "REACHABLE": 185,
+    "UNKNOWN": 9
+   },
+   "budget60_wall_s_max": 96.19340604590252
+  },
+  "guard_probe": {
+   "WWEST-F4X-02454": "REACHABLE"
+  }
+ },
+ "F3-targeted": {
+  "n": 35,
+  "mechanism_by_robot": {
+   "EP-FLOOR/cylinder": 4,
+   "POST-TIMEOUT/cylinder": 31
+  },
+  "f4_class_vs_mechanism": {
+   "EP-TOL -> EP-FLOOR": 4,
+   "METHOD-TIMEOUT -> POST-TIMEOUT": 31
+  },
+  "a_astar_replay": {
+   "PASS": 35
+  },
+  "a_replayed_from": {
+   "stored_route_uv_0.1mm": 35
+  },
+  "b_reproduced": {
+   "True": 35
+  },
+  "c_by_tolerance_by_mechanism": {
+   "EP-FLOOR: True": 4,
+   "POST-TIMEOUT: False": 30,
+   "POST-TIMEOUT: True": 1
+  },
+  "all_three_facts": 35,
+  "post_timeout_probes": {
+   "verdict_only": {
+    "REACHABLE": 20,
+    "UNKNOWN": 13
+   },
+   "verdict_only_floors_on_replay_veto": {
+    "True": 13
+   },
+   "verdict_only_wall_s_max": 3.2623673458583653,
+   "budget60": {
+    "REACHABLE": 32,
+    "UNKNOWN": 1
+   },
+   "budget60_wall_s_max": 72.41765315691009
+  },
+  "guard_probe": {
+   "WWEST-pilot-F3X-00163": "REACHABLE"
+  }
+ },
+ "soundness_rows": [],
+ "unexplained_rows": [],
+ "mismatch_f4_vs_f5": []
+}

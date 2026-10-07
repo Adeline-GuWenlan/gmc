@@ -1,0 +1,2 @@
+{"case_id": "WWEST-F4X-02391", "pair_id": "F4X-02391", "status": "REACHABLE", "reason": "graph_path_lifted_and_verified", "replay_geometry": "all_closed_edges_verified", "wall_s": 0.09288739413022995, "coverage_calls": 18, "aabb_rejects": 1, "cylinder_rejects": 0}
+{"case_id": "WWEST-F4X-02461", "pair_id": "F4X-02461", "status": "REACHABLE", "reason": "graph_path_lifted_and_verified", "replay_geometry": "all_closed_edges_verified", "wall_s": 2.9862598089966923, "coverage_calls": 25, "aabb_rejects": 1, "cylinder_rejects": 0}

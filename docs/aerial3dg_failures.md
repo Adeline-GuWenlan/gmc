@@ -1,5 +1,15 @@
 # aerial3d-ground: why the 5000-pair run fails where it fails (F1, 2026-10-01)
 
+> **F5 final report (2026-10-07): [`aerial3dg_failures_f5.md`](aerial3dg_failures_f5.md); review index for human approval:
+> [`aerial3dg_f5_review.md`](aerial3dg_f5_review.md), verdict sheet `gmc/results/aerial3dg/f5/review_verdicts.csv`.**
+> - Every failure row was re-verified (A* route re-replayed with the compile's oracle 1602/1602; GMC failure reproduced
+>   1595/1602, the other 7 are limit-edge timeouts) and traced through the code.
+> - Genuine algorithm failures on the 5000 confirmed pairs: cylinder 196 (3.9 %) = 194 post-processing timeouts
+>   (`shortcut` proving long chords collide; a 60 s shortening budget clears 185/194) + 1 `simplify` ZeroDivisionError
+>   (a guard clears it) + 1 borderline endpoint (envelope gap conservative by 0.29 mm); sweeper 1. 0 UNREACHABLE.
+> - Not algorithm failures: 656 + 176 endpoints within margin + buffer (by design), 538 shared-replay export vetoes
+>   (an exact swept-cylinder coverage test clears 521/524 REPLAY-AABB).
+>
 > **F4 follow-up (2026-10-07): [`aerial3dg_failures_f4.md`](aerial3dg_failures_f4.md).**
 > - 5000 pairs confirmed reachable by **real-body** A* in F3's hard regions: WWEST 2500, GAPW1 1500, S 1000.
 > - GMC's cylinder is REACHABLE on 3614 and fails on 1386 (27.7 %):
