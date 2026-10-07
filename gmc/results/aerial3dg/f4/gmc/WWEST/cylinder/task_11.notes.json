@@ -1,0 +1,11 @@
+{
+ "events": [
+  {
+   "pair_id": "F4X-02454",
+   "event": "method_exception",
+   "exception": "ZeroDivisionError: float division by zero @ query.py:217",
+   "traceback": "Traceback (most recent call last):\n  File \"/scratch/wg2381/splathjb-aerial3dg-fail/gmc/experiments/aerial3dg_fail3_f4.py\", line 579, in safe\n    return real(compiled, s, g, config=config, call_id=call_id)\n  File \"/scratch/wg2381/splathjb-aerial3dg-fail/gmc/src/gmc/aerial3d/api.py\", line 364, in query\n    pts = simplify(pts)\n  File \"/scratch/wg2381/splathjb-aerial3dg-fail/gmc/src/gmc/aerial3d/query.py\", line 217, in simplify\n    t = float(ab @ ac) / float(ac @ ac)\n        ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~\nZeroDivisionError: float division by zero\n",
+   "wall_s": 0.26864332100376487
+  }
+ ]
+}

@@ -1,0 +1,255 @@
+{
+ "all_ok": true,
+ "per_region_robot": {
+  "WWEST/cylinder": {
+   "rows": 2500,
+   "expected": 2500,
+   "compile_ids": [
+    "549453247f5cf37a"
+   ],
+   "expected_compile_id": "549453247f5cf37a",
+   "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 12,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "REACHABLE": 2049,
+    "TIMEOUT": 194,
+    "UNKNOWN": 256,
+    "ERROR": 1
+   },
+   "ok": true
+  },
+  "WWEST/sweeper": {
+   "rows": 2500,
+   "expected": 2500,
+   "compile_ids": [
+    "29e3d020cb81ffa1"
+   ],
+   "expected_compile_id": "29e3d020cb81ffa1",
+   "a3c_sha256": "b6c467cb71c45e5c0ac65c866e9d436fd15a605eb667bfb3b326415af793dc87",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 2,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "REACHABLE": 2440,
+    "UNKNOWN": 60
+   },
+   "ok": true
+  },
+  "GAPW1/cylinder": {
+   "rows": 1500,
+   "expected": 1500,
+   "compile_ids": [
+    "abfa278e193c88d4"
+   ],
+   "expected_compile_id": "abfa278e193c88d4",
+   "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 3,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    },
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "UNKNOWN": 309,
+    "REACHABLE": 1191
+   },
+   "ok": true
+  },
+  "GAPW1/sweeper": {
+   "rows": 1500,
+   "expected": 1500,
+   "compile_ids": [
+    "a160fe048b6c47fd"
+   ],
+   "expected_compile_id": "a160fe048b6c47fd",
+   "a3c_sha256": "70d2c65be222eb7203105c3a07214078affde2025efb8c8b447f572814c67cb9",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 1,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "REACHABLE": 1413,
+    "UNKNOWN": 87
+   },
+   "ok": true
+  },
+  "S/cylinder": {
+   "rows": 1000,
+   "expected": 1000,
+   "compile_ids": [
+    "8352bdd37aab07a2"
+   ],
+   "expected_compile_id": "8352bdd37aab07a2",
+   "a3c_sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 1,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "REACHABLE": 374,
+    "UNKNOWN": 626
+   },
+   "ok": true
+  },
+  "S/sweeper": {
+   "rows": 1000,
+   "expected": 1000,
+   "compile_ids": [
+    "a17c75430cd3fec4"
+   ],
+   "expected_compile_id": "a17c75430cd3fec4",
+   "a3c_sha256": "ff1c13699719d2d28a4b6411658e8b1a2376d921fb5fc83a5ff79cf5439ea4f5",
+   "rows_with_compile_stage_in_call": 0,
+   "task_summaries": 1,
+   "task_compile_once_proofs": [
+    {
+     "compiles_in_this_process": 0,
+     "loads_in_this_process": 1,
+     "compile_records_changed_by_queries": false,
+     "same_compile_id_all_rows": true,
+     "any_compile_stage_inside_a_query_call": false
+    }
+   ],
+   "status": {
+    "REACHABLE": 966,
+    "UNKNOWN": 34
+   },
+   "ok": true
+  }
+ }
+}

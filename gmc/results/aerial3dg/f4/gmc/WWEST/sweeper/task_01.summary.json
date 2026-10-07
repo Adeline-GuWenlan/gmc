@@ -1,0 +1,48 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+ "compile_id": "29e3d020cb81ffa1",
+ "load_wall_s": 0.7510473788715899,
+ "pairs_in_slice": 1250,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 1250,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 1219,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 31,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 2057.8682218829636,
+ "query_cpu_s_this_run": 2047.8125578939998,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 490.09765625,
+ "robot": "sweeper",
+ "task": 1,
+ "n_tasks": 2,
+ "pair_index_range": [
+  1250,
+  2499
+ ],
+ "pairs_file": "results/aerial3dg/f4/sample/WWEST_pairs.json",
+ "host": {
+  "node": "cs609.hpc.nyu.edu",
+  "slurm_job_id": "19339388",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   89.18798828125,
+   92.201171875,
+   95.94580078125
+  ],
+  "utc": "2026-10-07T13:52:55Z",
+  "python": "3.13.5",
+  "git_commit": "3b5339d23dbf003fcf06d414955fee245ad6612d"
+ },
+ "timeout_s": 120.0
+}

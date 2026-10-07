@@ -1,0 +1,10 @@
+{
+ "events": [
+  {
+   "pair_id": "F4X-00196",
+   "event": "timeout_alarm_surfaced_as_exception",
+   "source": "first run, job 19339252_0 (log a3f4_gmc_WWEST_cylinder-19339257.out): G2's 120 s SIGALRM _Timeout raised inside numpy linalg.norm's int(axis) try/except -> TypeError \"'axis' must be None, an integer or a tuple of integers\" (chained from _Timeout) at verify.py:34 via shortcut -> task crashed",
+   "rerun": "gmctask job 19348000: TIMEOUT query_exceeded_120s (row 196)"
+  }
+ ]
+}

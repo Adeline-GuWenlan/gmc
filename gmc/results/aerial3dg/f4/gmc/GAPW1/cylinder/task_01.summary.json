@@ -1,0 +1,48 @@
+{
+ "a3c": "outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+ "compile_id": "abfa278e193c88d4",
+ "load_wall_s": 0.3518319590948522,
+ "pairs_in_slice": 500,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 500,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 407,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 93,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 3195.4606462870724,
+ "query_cpu_s_this_run": 3178.480090424003,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 599.25,
+ "robot": "cylinder",
+ "task": 1,
+ "n_tasks": 3,
+ "pair_index_range": [
+  500,
+  999
+ ],
+ "pairs_file": "results/aerial3dg/f4/sample/GAPW1_pairs.json",
+ "host": {
+  "node": "cs606.hpc.nyu.edu",
+  "slurm_job_id": "19341132",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   90.306640625,
+   91.53173828125,
+   90.18798828125
+  ],
+  "utc": "2026-10-07T14:11:52Z",
+  "python": "3.13.5",
+  "git_commit": "3b5339d23dbf003fcf06d414955fee245ad6612d"
+ },
+ "timeout_s": 120.0
+}

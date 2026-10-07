@@ -1,0 +1,50 @@
+{
+ "a3c": "outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "compile_id": "549453247f5cf37a",
+ "load_wall_s": 0.7951126068364829,
+ "pairs_in_slice": 209,
+ "resumed_from_checkpoint": 163,
+ "answered_this_run": 46,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 172,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 17,
+  "TIMEOUT": 19
+ },
+ "query_wall_s_this_run": 1437.874766826164,
+ "query_cpu_s_this_run": 1431.0033522309996,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 874.296875,
+ "robot": "cylinder",
+ "task": 11,
+ "n_tasks": 12,
+ "pair_index_range": [
+  2291,
+  2499
+ ],
+ "pairs_file": "results/aerial3dg/f4/sample/WWEST_pairs.json",
+ "host": {
+  "node": "cs608.hpc.nyu.edu",
+  "slurm_job_id": "19348031",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   64.1708984375,
+   63.01025390625,
+   61.81396484375
+  ],
+  "utc": "2026-10-07T16:59:01Z",
+  "python": "3.13.5",
+  "git_commit": "3b5339d23dbf003fcf06d414955fee245ad6612d"
+ },
+ "timeout_s": 120.0,
+ "runner": "aerial3dg_fail3_f4.py gmctask (run_task + exception-safe query)",
+ "events": 1
+}

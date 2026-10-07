@@ -349,8 +349,11 @@ def load_all():
         for robot in ROBOTS:
             d = F4 / "diag" / reg / robot
             g = gmc_rows(reg, robot)
-            kin = _by_pid(d / "kin.json")
-            b0 = _by_pid(d / "bufzero.json")
+            kin, b0 = {}, {}
+            for f in sorted(d.glob("kin*.json")):             # probe shards: kin.json / kin_0.json ...
+                kin.update(_by_pid(f))
+            for f in sorted(d.glob("bufzero*.json")):
+                b0.update(_by_pid(f))
             wit = _by_pid(d / "witness.json")
             epc = _by_pid(d / "epclear.json")
             rq = {}
@@ -558,6 +561,53 @@ def print_summary(s):
           "\nprobes:", s["probes"])
 
 
+def cmd_gmctask(a):
+    """``aerial3dg_batch.run_task`` (G2's runner, unchanged) with ``query`` wrapped so that one pair cannot kill a task:
+      * an exception raised while G2's 120 s SIGALRM was being handled (``_Timeout`` as ``__cause__``/``__context__``;
+        numpy's ``norm`` turns it into ``TypeError: 'axis' must be ...``) -> re-raised as ``_Timeout`` -> TIMEOUT row
+      * any other exception from the method -> an ERROR row (reason = exception type, message, file:line)
+    Every such event is listed in ``task_NN.notes.json``.  Resumes from the task JSONL like ``run_task``."""
+    import time as _t
+    import traceback
+    import aerial3dg_batch as B
+    from aerial3dg_run import host as _host
+    doc = _load(F4 / "sample" / f"{a.region}_pairs.json")
+    pairs = [doc["pairs"][i] for i in B.task_slice(len(doc["pairs"]), a.n_tasks, a.task)]
+    real = B.query
+    notes = []
+
+    def safe(compiled, s, g, *, config, call_id):
+        w0 = _t.perf_counter()
+        try:
+            return real(compiled, s, g, config=config, call_id=call_id)
+        except B._Timeout:
+            raise
+        except Exception as exc:
+            tb = traceback.extract_tb(exc.__traceback__)[-1]
+            where = f"{type(exc).__name__}: {exc} @ {tb.filename.split('/')[-1]}:{tb.lineno}"
+            if isinstance(exc.__cause__, B._Timeout) or isinstance(exc.__context__, B._Timeout):
+                notes.append({"pair_id": call_id, "event": "timeout_alarm_surfaced_as_exception", "exception": where,
+                              "wall_s": _t.perf_counter() - w0})
+                raise B._Timeout() from exc
+            notes.append({"pair_id": call_id, "event": "method_exception", "exception": where,
+                          "traceback": traceback.format_exc()[-3000:], "wall_s": _t.perf_counter() - w0})
+            return {"status": "ERROR", "reason": where, "compile_id": compiled.compile_id,
+                    "timings": {"algorithm_wall_s": _t.perf_counter() - w0, "records": []}}
+    B.query = safe
+    out_dir = F4 / "gmc" / a.region / a.robot
+    a3c = Path("outputs/aerial3dg/f3") / a.region / f"{a.robot}.a3c"
+    print(f"{a.robot} task {a.task}/{a.n_tasks}: pairs {pairs[0]['index']}..{pairs[-1]['index']} (gmctask)", flush=True)
+    summary = B.run_task(a3c, pairs, out_dir / f"task_{a.task:02d}.jsonl", timeout_s=a.timeout,
+                         manifest=json.loads(B.MANIFEST.read_text()) if hasattr(B, "MANIFEST") else None)
+    summary.update(robot=a.robot, task=a.task, n_tasks=a.n_tasks, pair_index_range=[pairs[0]["index"], pairs[-1]["index"]],
+                   pairs_file=str(F4 / "sample" / f"{a.region}_pairs.json"), host=_host(), timeout_s=a.timeout,
+                   runner="aerial3dg_fail3_f4.py gmctask (run_task + exception-safe query)", events=len(notes))
+    _dump(out_dir / f"task_{a.task:02d}.summary.json", summary)
+    prev = _load(out_dir / f"task_{a.task:02d}.notes.json") or {"events": []}
+    _dump(out_dir / f"task_{a.task:02d}.notes.json", {"events": prev["events"] + notes})
+    print(json.dumps({k: summary[k] for k in ("complete", "status_counts", "answered_this_run")}), notes, flush=True)
+
+
 # ---------------------------------------------------------------------------------------------- plots
 def cmd_plots(a):
     import matplotlib.pyplot as plt
@@ -641,11 +691,17 @@ def main(argv=None):
     e.add_argument("--robot", required=True)
     e.add_argument("--ids-file", required=True)
     e.add_argument("--out", required=True)
+    gt = sub.add_parser("gmctask")
+    gt.add_argument("--region", required=True)
+    gt.add_argument("--robot", required=True)
+    gt.add_argument("--n-tasks", type=int, required=True)
+    gt.add_argument("--task", type=int, required=True)
+    gt.add_argument("--timeout", type=float, default=120.)
     sub.add_parser("summary")
     sub.add_parser("plots")
     a = p.parse_args(argv)
     {"collect": cmd_collect, "merge": cmd_merge, "check": cmd_check, "prep": cmd_prep, "epclear": cmd_epclear,
-     "summary": cmd_summary, "plots": cmd_plots}[a.cmd](a)
+     "summary": cmd_summary, "plots": cmd_plots, "gmctask": cmd_gmctask}[a.cmd](a)
 
 
 if __name__ == "__main__":

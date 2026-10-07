@@ -205,3 +205,16 @@
   flag is False for the ones that finish in 173-247 s); plot legend/labels; palette = dataviz reference slots 1-4
   (validated). `scontrol update ArrayTaskThrottle` refused -> cancelled the never-started WWEST cylinder tasks 8-11 of
   19339252 and resubmitted them as 19340214 (afterany: the small GMC jobs) so 8 WWEST tasks run at once (13.6 GB).
+- 16:32Z  Resumed (agent 19340248). GMC done except two crashed WWEST cylinder tasks:
+  - task 0 (19339252_0) at F4X-00196: G2's 120 s SIGALRM `_Timeout` fired inside numpy `linalg.norm`'s `int(axis)`
+    try/except and came out as `TypeError: 'axis' must be None, an integer or a tuple` (chained from `_Timeout`) at
+    verify.py:34 (shortcut); `aerial3dg_batch.run_task` only catches `_Timeout`, so the task died. Re-run: TIMEOUT.
+    A harness artefact, not a method error (recorded in task_00.notes.json).
+  - task 11 (19340214_11) at F4X-02454: **`ZeroDivisionError` in src `aerial3d/query.py:217 simplify` under G2's own
+    QCONFIG** (F3 only reached it with buffer 0). Reproduces on re-run (0.27 s) -> METHOD-ERROR row.
+  New `aerial3dg_fail3_f4.py gmctask` = run_task with an exception-safe `query` (alarm-chained exception -> TIMEOUT,
+  other exception -> ERROR row); resumed tasks 0/11 (19348000, 19348031). compile_once.json: ALL OK (one compile id
+  per robot per region = F3's, no compile stage in any call). 10,000 rows, **0 UNREACHABLE**, 0
+  safe_graph_disconnected; WWEST cylinder 194 TIMEOUT + 1 ERROR; sweeper has 4 shared_replay_failed (new vs F3).
+- 17:03Z  Probes: plan of 30 (diag/probe_plan.txt), array 19349441 %8 x 2000M (first try rejected: cpu_short refuses
+  --time 07:00). TIMEOUT sample 50 of 194, strata region x robot x detour tercile, seed 20261007.

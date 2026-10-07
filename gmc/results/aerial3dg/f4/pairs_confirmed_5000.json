@@ -127,7 +127,14 @@
     "NO_ROUTE_MARGIN": 0,
     "UNSURE": 0
    },
-   "prefilter_reject_audit": null,
+   "prefilter_reject_audit": {
+    "n": 60,
+    "split": {
+     "NO_ROUTE_MARGIN": 37,
+     "NO_ROUTE": 23
+    },
+    "file": "results/aerial3dg/f4/sample/WWEST/prefilter_audit.json"
+   },
    "cost_s": {
     "endpoint": {
      "n": 26052,
@@ -282,7 +289,14 @@
     "NO_ROUTE_MARGIN": 3,
     "UNSURE": 0
    },
-   "prefilter_reject_audit": null,
+   "prefilter_reject_audit": {
+    "n": 33,
+    "split": {
+     "NO_ROUTE": 14,
+     "NO_ROUTE_MARGIN": 19
+    },
+    "file": "results/aerial3dg/f4/sample/GAPW1/prefilter_audit.json"
+   },
    "cost_s": {
     "endpoint": {
      "n": 14709,
@@ -436,7 +450,14 @@
     "NO_ROUTE_MARGIN": 2,
     "UNSURE": 0
    },
-   "prefilter_reject_audit": null,
+   "prefilter_reject_audit": {
+    "n": 60,
+    "split": {
+     "NO_ROUTE": 44,
+     "NO_ROUTE_MARGIN": 16
+    },
+    "file": "results/aerial3dg/f4/sample/S/prefilter_audit.json"
+   },
    "cost_s": {
     "endpoint": {
      "n": 874655,
