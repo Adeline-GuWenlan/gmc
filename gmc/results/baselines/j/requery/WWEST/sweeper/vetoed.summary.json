@@ -1,0 +1,49 @@
+{
+ "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+ "compile_id": "29e3d020cb81ffa1",
+ "load_wall_s": 0.6591424441430718,
+ "pairs_in_slice": 2,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 2,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 2,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 0,
+  "TIMEOUT": 0
+ },
+ "query_wall_s_this_run": 4.827946576057002,
+ "query_cpu_s_this_run": 4.806584995,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 457.4375,
+ "region": "WWEST",
+ "robot": "sweeper",
+ "pairs_file": "results/baselines/j/plan/requery_WWEST_sweeper_vetoed.json",
+ "a3c_sha256_verified": "b6c467cb71c45e5c0ac65c866e9d436fd15a605eb667bfb3b326415af793dc87",
+ "code": {
+  "label": "new",
+  "oracle_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/oracle.py",
+  "validation_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/validation.py"
+ },
+ "host": {
+  "node": "cs610.hpc.nyu.edu",
+  "slurm_job_id": "19488901",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   102.89404296875,
+   100.37744140625,
+   96.44189453125
+  ],
+  "utc": "2026-10-09T15:23:12Z",
+  "python": "3.13.5",
+  "git_commit": "55246306db639b520a7a83d0e9457e4549ddbb13"
+ },
+ "timeout_s": 120.0
+}

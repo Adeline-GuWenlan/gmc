@@ -1,0 +1,2 @@
+new requery --region WWEST --robot cylinder --pairs results/baselines/j/plan/requery_WWEST_cylinder_vetoed.json --ids F4X-02145 --timeout 300 --out results/baselines/j/requery300/WWEST/cylinder/vetoed.jsonl
+new requery --region WWEST --robot cylinder --pairs results/baselines/j/plan/requery_WWEST_cylinder_regression.json --ids F4X-01566 --timeout 300 --out results/baselines/j/requery300/WWEST/cylinder/regression.jsonl

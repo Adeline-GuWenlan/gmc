@@ -1,0 +1,49 @@
+{
+ "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+ "compile_id": "549453247f5cf37a",
+ "load_wall_s": 0.9936472168192267,
+ "pairs_in_slice": 50,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 50,
+ "complete": true,
+ "status_counts": {
+  "REACHABLE": 49,
+  "UNREACHABLE": 0,
+  "UNKNOWN": 0,
+  "TIMEOUT": 1
+ },
+ "query_wall_s_this_run": 1421.3303149100393,
+ "query_cpu_s_this_run": 1414.647825994,
+ "compile_once_proof": {
+  "compiles_in_this_process": 0,
+  "loads_in_this_process": 1,
+  "compile_records_changed_by_queries": false,
+  "same_compile_id_all_rows": true,
+  "any_compile_stage_inside_a_query_call": false
+ },
+ "peak_rss_mb": 896.52734375,
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_file": "results/baselines/j/plan/requery_WWEST_cylinder_vetoed.json",
+ "a3c_sha256_verified": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+ "code": {
+  "label": "new",
+  "oracle_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/oracle.py",
+  "validation_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/validation.py"
+ },
+ "host": {
+  "node": "cs610.hpc.nyu.edu",
+  "slurm_job_id": "19488899",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   103.19580078125,
+   109.0732421875,
+   105.70068359375
+  ],
+  "utc": "2026-10-09T15:46:48Z",
+  "python": "3.13.5",
+  "git_commit": "3865b7134467e2bec69705421a733e1d86f53f5d"
+ },
+ "timeout_s": 120.0
+}
