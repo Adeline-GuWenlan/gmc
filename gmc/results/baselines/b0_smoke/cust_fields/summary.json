@@ -1,0 +1,19 @@
+{
+ "demo": "cust_fields test_nf.py (CONFIG/world_demo.yaml)",
+ "start": [
+  0.6,
+  1.0
+ ],
+ "goal": [
+  6.4,
+  3.0
+ ],
+ "points": 180,
+ "path_length": 8.150117490016502,
+ "final_dist_to_goal": 0.049762415879316235,
+ "goal_tol": 0.05,
+ "reached_goal": true,
+ "wall_s": 3.5313359170686454,
+ "figure": "/scratch/wg2381/splathjb-baselines/gmc/results/baselines/b0_smoke/cust_fields/test_nf.png",
+ "python": "3.10.22"
+}

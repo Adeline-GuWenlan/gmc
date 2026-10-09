@@ -1,0 +1,39 @@
+diff --git a/foci/convolution/gaussian_robot_warp.py b/foci/convolution/gaussian_robot_warp.py
+index 08cd1b1..22623e0 100644
+--- a/foci/convolution/gaussian_robot_warp.py
++++ b/foci/convolution/gaussian_robot_warp.py
+@@ -395,7 +395,7 @@ if __name__ == "__main__":
+                     "print_time": 0, 
+                     "ipopt.acceptable_tol": 1e-9, 
+                     "ipopt.hessian_approximation": "limited-memory",
+-                    "ipopt.linear_solver": "ma27",
++                    "ipopt.linear_solver": "mumps",
+                     }
+ 
+     solver = nlpsol("solver", "ipopt", nlp, ipopt_options)
+diff --git a/foci/optim/initial_guess.py b/foci/optim/initial_guess.py
+index 21306f5..8fd2c63 100644
+--- a/foci/optim/initial_guess.py
++++ b/foci/optim/initial_guess.py
+@@ -132,7 +132,7 @@ def astar_path_spline_fit(start_point, end_point, means, voxel_size = 1.0, num_c
+                      "ipopt.acceptable_obj_change_tol": 1e-3, 
+                      "ipopt.hessian_approximation": "limited-memory", 
+                      "ipopt.mu_strategy": "adaptive", 
+-                     "ipopt.linear_solver": "ma27"}
++                     "ipopt.linear_solver": "mumps"}
+ 
+     # define solver
+     nlp = {'x': dec_vars, 'f': cost, 'g': cons}
+diff --git a/foci/optim/solvers.py b/foci/optim/solvers.py
+index 9786260..54aff52 100644
+--- a/foci/optim/solvers.py
++++ b/foci/optim/solvers.py
+@@ -193,7 +193,7 @@ def create_solver(num_control_points,
+                     "ipopt.acceptable_obj_change_tol": 1e-1,
+                     "ipopt.constr_viol_tol": 1e-2,
+                     "ipopt.acceptable_iter": 1,
+-                    "ipopt.linear_solver": "ma27",
++                    "ipopt.linear_solver": "mumps",
+                     "ipopt.hessian_approximation": "limited-memory",
+                     }
+ 
