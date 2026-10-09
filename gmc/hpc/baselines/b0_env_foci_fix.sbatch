@@ -11,8 +11,9 @@
 # bl B0: repair the existing foci env (built 2026-09-24) instead of rebuilding it.
 #  1. open3d (pip 0.20.0) links libEGL.so.1 + libGL.so.1, which the nodes lack. FOCI needs open3d for real
 #     (initial_guess.py builds its A* occupancy as an o3d VoxelGrid), so guarding the import is not enough.
-#     Fix: the glvnd dispatch libraries from conda-forge (libegl, libgl) into the env, found through
-#     LD_LIBRARY_PATH=$E/lib. No system packages, nothing outside the env.
+#     Fix: the glvnd dispatch libraries from conda-forge (libegl, libgl) into the env. No system packages,
+#     nothing outside the env. (Checked after this ran: open3d's RUNPATH contains $ORIGIN/../../../ = $E/lib, so
+#     the libs are found WITHOUT LD_LIBRARY_PATH; the export below is harmless but not needed.)
 #  2. `foci` was installed editable from the pristine clone; re-point it at the patched copy
 #     /scratch/wg2381/ext_repos/foci_bl (MA27 -> MUMPS, gmc/baselines/patches/foci_mumps.patch).
 # Run ALONE (no other conda install running), own fresh CONDA_PKGS_DIRS.
