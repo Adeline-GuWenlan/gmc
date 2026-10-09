@@ -1,0 +1,3125 @@
+{
+ "schema": "bl.gmc_rejudged.v1",
+ "judge": "gmc.gs3d.trajectory.replay_plan at gmc/src d757729a0fb11d93a1017a34a4693f121afd719d",
+ "rule": "bl J ``collect`` (inline, json only): the (a)-(e) tables of the judge check and GMC's re-judged F4 rows.\n\nReads results/baselines/j/{tests,astar,straight,requery}/ (written by the sbatch jobs of ``bl_judge_check.py``) and\nF4's rows; writes results/baselines/j/judge_check.json and results/baselines/gmc_rejudged/<R>/<robot>/rows.jsonl +\nsummary.json.  Re-judged rows: F4's row wherever the fix cannot change the verdict (the row never reached the shared\nreplay, or passed it: the fix only loosens), J's re-query row for the 538 judge-vetoed rows.",
+ "n_pairs": 5000,
+ "regions": [
+  "WWEST",
+  "GAPW1",
+  "S"
+ ],
+ "per_robot": {
+  "cylinder": {
+   "n": 5000,
+   "reachable": 4147,
+   "failed": 853,
+   "fail_rate": 0.1706,
+   "class": {
+    "REACHABLE": 4147,
+    "METHOD-TIMEOUT": 195,
+    "EP-TOL": 656,
+    "METHOD-ERROR": 1,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "reachable": 4147,
+    "genuine": 197,
+    "tolerance": 656
+   },
+   "status": {
+    "REACHABLE": 4147,
+    "TIMEOUT": 195,
+    "UNKNOWN": 657,
+    "ERROR": 1
+   },
+   "status_reason": {
+    "REACHABLE:graph_path_lifted_and_verified": 4147,
+    "TIMEOUT:query_exceeded_120s": 195,
+    "UNKNOWN:start_not_certified_free": 332,
+    "UNKNOWN:goal_not_certified_free": 325,
+    "ERROR:ZeroDivisionError: float division by zero @ query.py:217": 1
+   },
+   "source": {
+    "F4": 4466,
+    "J-requery": 534
+   }
+  },
+  "sweeper": {
+   "n": 5000,
+   "reachable": 4823,
+   "failed": 177,
+   "fail_rate": 0.0354,
+   "class": {
+    "REACHABLE": 4823,
+    "EP-TOL": 176,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "reachable": 4823,
+    "tolerance": 176,
+    "genuine": 1
+   },
+   "status": {
+    "REACHABLE": 4823,
+    "UNKNOWN": 177
+   },
+   "status_reason": {
+    "REACHABLE:graph_path_lifted_and_verified": 4823,
+    "UNKNOWN:goal_not_certified_free": 76,
+    "UNKNOWN:start_not_certified_free": 101
+   },
+   "source": {
+    "F4": 4996,
+    "J-requery": 4
+   }
+  }
+ },
+ "per_region_robot": {
+  "WWEST/cylinder": {
+   "n": 2500,
+   "reachable": 2098,
+   "class": {
+    "REACHABLE": 2098,
+    "METHOD-TIMEOUT": 195,
+    "EP-TOL": 206,
+    "METHOD-ERROR": 1
+   },
+   "group": {
+    "reachable": 2098,
+    "genuine": 196,
+    "tolerance": 206
+   },
+   "query_wall_s": {
+    "sum": 73315.74455043836,
+    "mean": 29.326297820175345,
+    "p50": 14.066855287528597,
+    "p90": 97.70609534149989,
+    "max": 120.00058304704726
+   },
+   "compile_id": [
+    "549453247f5cf37a"
+   ],
+   "f4_reachable": 2049
+  },
+  "GAPW1/cylinder": {
+   "n": 1500,
+   "reachable": 1237,
+   "class": {
+    "EP-TOL": 262,
+    "REACHABLE": 1237,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "tolerance": 262,
+    "reachable": 1237,
+    "genuine": 1
+   },
+   "query_wall_s": {
+    "sum": 10211.6239005276,
+    "mean": 6.8077492670184006,
+    "p50": 2.867996808490716,
+    "p90": 18.29814050907736,
+    "max": 88.77922480995767
+   },
+   "compile_id": [
+    "abfa278e193c88d4"
+   ],
+   "f4_reachable": 1191
+  },
+  "S/cylinder": {
+   "n": 1000,
+   "reachable": 812,
+   "class": {
+    "REACHABLE": 812,
+    "EP-TOL": 188
+   },
+   "group": {
+    "reachable": 812,
+    "tolerance": 188
+   },
+   "query_wall_s": {
+    "sum": 42.876550551038235,
+    "mean": 0.042876550551038235,
+    "p50": 0.03829271043650806,
+    "p90": 0.0660131041891873,
+    "max": 0.5521089669782668
+   },
+   "compile_id": [
+    "8352bdd37aab07a2"
+   ],
+   "f4_reachable": 374
+  },
+  "WWEST/sweeper": {
+   "n": 2500,
+   "reachable": 2442,
+   "class": {
+    "REACHABLE": 2442,
+    "EP-TOL": 57,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "reachable": 2442,
+    "tolerance": 57,
+    "genuine": 1
+   },
+   "query_wall_s": {
+    "sum": 3899.1882543584798,
+    "mean": 1.559675301743392,
+    "p50": 1.0225291535025463,
+    "p90": 3.3479398776777085,
+    "max": 22.89045434887521
+   },
+   "compile_id": [
+    "29e3d020cb81ffa1"
+   ],
+   "f4_reachable": 2440
+  },
+  "GAPW1/sweeper": {
+   "n": 1500,
+   "reachable": 1413,
+   "class": {
+    "REACHABLE": 1413,
+    "EP-TOL": 87
+   },
+   "group": {
+    "reachable": 1413,
+    "tolerance": 87
+   },
+   "query_wall_s": {
+    "sum": 1206.9725843870547,
+    "mean": 0.8046483895913698,
+    "p50": 0.6303080149227753,
+    "p90": 1.7424673244357112,
+    "max": 6.275994088966399
+   },
+   "compile_id": [
+    "a160fe048b6c47fd"
+   ],
+   "f4_reachable": 1413
+  },
+  "S/sweeper": {
+   "n": 1000,
+   "reachable": 968,
+   "class": {
+    "REACHABLE": 968,
+    "EP-TOL": 32
+   },
+   "group": {
+    "reachable": 968,
+    "tolerance": 32
+   },
+   "query_wall_s": {
+    "sum": 28.04011691478081,
+    "mean": 0.02804011691478081,
+    "p50": 0.02751933259423822,
+    "p90": 0.03224700374994427,
+    "max": 0.25254199700430036
+   },
+   "compile_id": [
+    "a17c75430cd3fec4"
+   ],
+   "f4_reachable": 966
+  }
+ },
+ "bands": {
+  "cylinder": {
+   "lateral": {
+    "by": "route lateral clearance (ladder rung passed)",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 92,
+      "fail": 11,
+      "rate": 0.11956521739130435,
+      "ci95": [
+       0.06809064764004356,
+       0.2015375722561184
+      ],
+      "genuine": 0,
+      "tolerance": 11,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.04008280329209862
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 239,
+      "fail": 52,
+      "rate": 0.2175732217573222,
+      "ci95": [
+       0.16995482838738366,
+       0.2741272399238118
+      ],
+      "genuine": 11,
+      "tolerance": 41,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.04602510460251046,
+      "genuine_ci95": [
+       0.0258908994211064,
+       0.08052249927170405
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 340,
+      "fail": 81,
+      "rate": 0.23823529411764705,
+      "ci95": [
+       0.19603621171848296,
+       0.2862835541271855
+      ],
+      "genuine": 28,
+      "tolerance": 53,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.08235294117647059,
+      "genuine_ci95": [
+       0.057589626674467674,
+       0.11644865141637414
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 365,
+      "fail": 88,
+      "rate": 0.2410958904109589,
+      "ci95": [
+       0.20005520763221182,
+       0.287529706867671
+      ],
+      "genuine": 41,
+      "tolerance": 47,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.11232876712328767,
+      "genuine_ci95": [
+       0.08388842339812161,
+       0.14884454381598872
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 560,
+      "fail": 105,
+      "rate": 0.1875,
+      "ci95": [
+       0.15734151502560423,
+       0.22191677311773245
+      ],
+      "genuine": 45,
+      "tolerance": 60,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.08035714285714286,
+      "genuine_ci95": [
+       0.06059607180992567,
+       0.10583648655398363
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 1299,
+      "fail": 200,
+      "rate": 0.15396458814472672,
+      "ci95": [
+       0.13536023202307804,
+       0.17460960621358865
+      ],
+      "genuine": 54,
+      "tolerance": 146,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.04157043879907621,
+      "genuine_ci95": [
+       0.031999377859843345,
+       0.05384497958161384
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 1107,
+      "fail": 147,
+      "rate": 0.13279132791327913,
+      "ci95": [
+       0.11406472760462605,
+       0.15405774818310103
+      ],
+      "genuine": 17,
+      "tolerance": 130,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.015356820234869015,
+      "genuine_ci95": [
+       0.00960980126181641,
+       0.02445590171509767
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 998,
+      "fail": 169,
+      "rate": 0.16933867735470942,
+      "ci95": [
+       0.14734751238190116,
+       0.19386570934895933
+      ],
+      "genuine": 1,
+      "tolerance": 168,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.001002004008016032,
+      "genuine_ci95": [
+       0.00017689566411348105,
+       0.005653966220639558
+      ]
+     }
+    ]
+   },
+   "detour": {
+    "by": "A* route length / straight distance",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 343,
+      "fail": 34,
+      "rate": 0.09912536443148688,
+      "ci95": [
+       0.07180395759057001,
+       0.13532690560461763
+      ],
+      "genuine": 2,
+      "tolerance": 32,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0058309037900874635,
+      "genuine_ci95": [
+       0.0016004697401066168,
+       0.02100812161687017
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 1927,
+      "fail": 293,
+      "rate": 0.15204981837052414,
+      "ci95": [
+       0.13671089400668598,
+       0.168773305215042
+      ],
+      "genuine": 16,
+      "tolerance": 277,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.008303061754021795,
+      "genuine_ci95": [
+       0.005117253520182364,
+       0.01344542919806858
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 802,
+      "fail": 145,
+      "rate": 0.18079800498753118,
+      "ci95": [
+       0.15570420830811618,
+       0.20893519477060304
+      ],
+      "genuine": 22,
+      "tolerance": 123,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.02743142144638404,
+      "genuine_ci95": [
+       0.018183863670532516,
+       0.041184627606165036
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 963,
+      "fail": 174,
+      "rate": 0.1806853582554517,
+      "ci95": [
+       0.1576679559908825,
+       0.20624025813643682
+      ],
+      "genuine": 50,
+      "tolerance": 124,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.05192107995846314,
+      "genuine_ci95": [
+       0.039603262890704,
+       0.06779964571397334
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 573,
+      "fail": 126,
+      "rate": 0.2198952879581152,
+      "ci95": [
+       0.187909618207966,
+       0.25561179217575114
+      ],
+      "genuine": 60,
+      "tolerance": 66,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.10471204188481675,
+      "genuine_ci95": [
+       0.08221963580839738,
+       0.13246945734993243
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 384,
+      "fail": 80,
+      "rate": 0.20833333333333334,
+      "ci95": [
+       0.17070076767983164,
+       0.2517438591987704
+      ],
+      "genuine": 46,
+      "tolerance": 34,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.11979166666666667,
+      "genuine_ci95": [
+       0.09102168089329066,
+       0.15609363628774411
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 8,
+      "fail": 1,
+      "rate": 0.125,
+      "ci95": [
+       0.02241690886329617,
+       0.4708948057698615
+      ],
+      "genuine": 1,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.125,
+      "genuine_ci95": [
+       0.02241690886329617,
+       0.4708948057698615
+      ]
+     }
+    ]
+   },
+   "endpoint": {
+    "by": "min endpoint clearance ladder of the cylinder (mm)",
+    "bands": [
+     {
+      "band": "<1.5",
+      "lo": 0,
+      "hi": 0.0015,
+      "n": 93,
+      "fail": 93,
+      "rate": 1.0,
+      "ci95": [
+       0.9603310973796383,
+       0.9999999999999999
+      ],
+      "genuine": 0,
+      "tolerance": 93,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0396689026203615
+      ]
+     },
+     {
+      "band": "1.5",
+      "lo": 0.0015,
+      "hi": 0.002,
+      "n": 563,
+      "fail": 563,
+      "rate": 1.0,
+      "ci95": [
+       0.9932227980444626,
+       1.0
+      ],
+      "genuine": 0,
+      "tolerance": 563,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.00677720195553749
+      ]
+     },
+     {
+      "band": "2",
+      "lo": 0.002,
+      "hi": 0.003,
+      "n": 342,
+      "fail": 30,
+      "rate": 0.08771929824561403,
+      "ci95": [
+       0.06213461335864842,
+       0.1224631909540774
+      ],
+      "genuine": 30,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.08771929824561403,
+      "genuine_ci95": [
+       0.06213461335864842,
+       0.1224631909540774
+      ]
+     },
+     {
+      "band": "3-5",
+      "lo": 0.003,
+      "hi": 0.01,
+      "n": 2923,
+      "fail": 119,
+      "rate": 0.04071159767362299,
+      "ci95": [
+       0.03412947566611772,
+       0.04849938952426361
+      ],
+      "genuine": 119,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.04071159767362299,
+      "genuine_ci95": [
+       0.03412947566611772,
+       0.04849938952426361
+      ]
+     },
+     {
+      "band": ">=10",
+      "lo": 0.01,
+      "hi": 1.0,
+      "n": 1079,
+      "fail": 48,
+      "rate": 0.04448563484708063,
+      "ci95": [
+       0.03371568227257131,
+       0.058487646450669464
+      ],
+      "genuine": 48,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.04448563484708063,
+      "genuine_ci95": [
+       0.03371568227257131,
+       0.058487646450669464
+      ]
+     }
+    ]
+   },
+   "detour_WWEST": {
+    "by": "detour, WWEST",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 246,
+      "fail": 20,
+      "rate": 0.08130081300813008,
+      "ci95": [
+       0.053243764562454284,
+       0.12223381803387875
+      ],
+      "genuine": 2,
+      "tolerance": 18,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.008130081300813009,
+      "genuine_ci95": [
+       0.002232353583609169,
+       0.029153932767422848
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 599,
+      "fail": 52,
+      "rate": 0.08681135225375626,
+      "ci95": [
+       0.06681448485125713,
+       0.11207429787375722
+      ],
+      "genuine": 16,
+      "tolerance": 36,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.02671118530884808,
+      "genuine_ci95": [
+       0.016507287673558357,
+       0.04294713617509442
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 484,
+      "fail": 80,
+      "rate": 0.1652892561983471,
+      "ci95": [
+       0.13485828370037403,
+       0.2009917135118359
+      ],
+      "genuine": 22,
+      "tolerance": 58,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.045454545454545456,
+      "genuine_ci95": [
+       0.03020624467194503,
+       0.06786165277673503
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 573,
+      "fail": 105,
+      "rate": 0.18324607329842932,
+      "ci95": [
+       0.1537139928778284,
+       0.21699713475235644
+      ],
+      "genuine": 50,
+      "tolerance": 55,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.08726003490401396,
+      "genuine_ci95": [
+       0.06681451502357305,
+       0.11320301491878895
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 351,
+      "fail": 82,
+      "rate": 0.2336182336182336,
+      "ci95": [
+       0.19238123326883927,
+       0.28062305935074083
+      ],
+      "genuine": 60,
+      "tolerance": 22,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.17094017094017094,
+      "genuine_ci95": [
+       0.13517096114378574,
+       0.21383434150393088
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 240,
+      "fail": 62,
+      "rate": 0.25833333333333336,
+      "ci95": [
+       0.20706787759769646,
+       0.3172134591389391
+      ],
+      "genuine": 45,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.1875,
+      "genuine_ci95": [
+       0.14318572407835667,
+       0.2416608320466031
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 7,
+      "fail": 1,
+      "rate": 0.14285714285714285,
+      "ci95": [
+       0.02567895594897479,
+       0.51313450331903
+      ],
+      "genuine": 1,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.14285714285714285,
+      "genuine_ci95": [
+       0.02567895594897479,
+       0.51313450331903
+      ]
+     }
+    ]
+   },
+   "lateral_WWEST": {
+    "by": "lateral, WWEST",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 3,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.5615060804490177
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.5615060804490177
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 31,
+      "fail": 15,
+      "rate": 0.4838709677419355,
+      "ci95": [
+       0.3196998603127883,
+       0.6515988171302683
+      ],
+      "genuine": 11,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.3548387096774194,
+      "genuine_ci95": [
+       0.21116447741565816,
+       0.530523619571851
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 126,
+      "fail": 45,
+      "rate": 0.35714285714285715,
+      "ci95": [
+       0.2788422340709708,
+       0.44389685725261124
+      ],
+      "genuine": 28,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.2222222222222222,
+      "genuine_ci95": [
+       0.15845942425845522,
+       0.3024221422040653
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 201,
+      "fail": 58,
+      "rate": 0.2885572139303483,
+      "ci95": [
+       0.23034729419176855,
+       0.354697930996865
+      ],
+      "genuine": 41,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.20398009950248755,
+      "genuine_ci95": [
+       0.15407041994454715,
+       0.2649928953195398
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 295,
+      "fail": 60,
+      "rate": 0.2033898305084746,
+      "ci95": [
+       0.16140611232001875,
+       0.25299937874949774
+      ],
+      "genuine": 45,
+      "tolerance": 15,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.15254237288135594,
+      "genuine_ci95": [
+       0.11599974497631194,
+       0.1980181159908359
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 664,
+      "fail": 101,
+      "rate": 0.15210843373493976,
+      "ci95": [
+       0.12679875140545863,
+       0.1814204430861693
+      ],
+      "genuine": 54,
+      "tolerance": 47,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.08132530120481928,
+      "genuine_ci95": [
+       0.06286354984865747,
+       0.10460370585988177
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 579,
+      "fail": 64,
+      "rate": 0.11053540587219343,
+      "ci95": [
+       0.08751699298635869,
+       0.1386878626725373
+      ],
+      "genuine": 16,
+      "tolerance": 48,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.027633851468048358,
+      "genuine_ci95": [
+       0.017079835375252088,
+       0.04441474565671268
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 601,
+      "fail": 59,
+      "rate": 0.09816971713810316,
+      "ci95": [
+       0.07687196376029963,
+       0.12457185227351812
+      ],
+      "genuine": 1,
+      "tolerance": 58,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0016638935108153079,
+      "genuine_ci95": [
+       0.0002937709114766065,
+       0.009364294935846063
+      ]
+     }
+    ]
+   },
+   "detour_GAPW1": {
+    "by": "detour, GAPW1",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 97,
+      "fail": 14,
+      "rate": 0.14432989690721648,
+      "ci95": [
+       0.08796276624676438,
+       0.2277958095790852
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.03809538920445529
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 363,
+      "fail": 59,
+      "rate": 0.162534435261708,
+      "ci95": [
+       0.12814850421222157,
+       0.20398830906086418
+      ],
+      "genuine": 0,
+      "tolerance": 59,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.010472094767878016
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 283,
+      "fail": 59,
+      "rate": 0.20848056537102475,
+      "ci95": [
+       0.16521206754192871,
+       0.2595575614100783
+      ],
+      "genuine": 0,
+      "tolerance": 59,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.013392757535866485
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 390,
+      "fail": 69,
+      "rate": 0.17692307692307693,
+      "ci95": [
+       0.142254501184151,
+       0.217894350536947
+      ],
+      "genuine": 0,
+      "tolerance": 69,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009754175282651703
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 222,
+      "fail": 44,
+      "rate": 0.1981981981981982,
+      "ci95": [
+       0.15108694468694997,
+       0.25557684090436705
+      ],
+      "genuine": 0,
+      "tolerance": 44,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.017010152248301463
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 144,
+      "fail": 18,
+      "rate": 0.125,
+      "ci95": [
+       0.08055000891669836,
+       0.1889384165332427
+      ],
+      "genuine": 1,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.006944444444444444,
+      "genuine_ci95": [
+       0.001226887030401979,
+       0.03828567235748344
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 1,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.7934567085261071
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.7934567085261071
+      ]
+     }
+    ]
+   },
+   "lateral_GAPW1": {
+    "by": "lateral, GAPW1",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 2,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.6576280471103807
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.6576280471103807
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 18,
+      "fail": 3,
+      "rate": 0.16666666666666666,
+      "ci95": [
+       0.05836470400465757,
+       0.39222499638359243
+      ],
+      "genuine": 0,
+      "tolerance": 3,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.1758845505823749
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 42,
+      "fail": 8,
+      "rate": 0.19047619047619047,
+      "ci95": [
+       0.09981889609856436,
+       0.33301067354996444
+      ],
+      "genuine": 0,
+      "tolerance": 8,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.08380161250916197
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 80,
+      "fail": 13,
+      "rate": 0.1625,
+      "ci95": [
+       0.09749727334375492,
+       0.2584310486348333
+      ],
+      "genuine": 0,
+      "tolerance": 13,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0458197362645751
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 129,
+      "fail": 14,
+      "rate": 0.10852713178294573,
+      "ci95": [
+       0.06575537038687869,
+       0.17394062845685698
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.028918651988533713
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 432,
+      "fail": 57,
+      "rate": 0.13194444444444445,
+      "ci95": [
+       0.10325017062475561,
+       0.1671269572125137
+      ],
+      "genuine": 0,
+      "tolerance": 57,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       8.673617379884035e-19,
+       0.008814211401573416
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 407,
+      "fail": 59,
+      "rate": 0.14496314496314497,
+      "ci95": [
+       0.1140774964817135,
+       0.18248838194929246
+      ],
+      "genuine": 1,
+      "tolerance": 58,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.002457002457002457,
+      "genuine_ci95": [
+       0.00043384184977681827,
+       0.013784776712705653
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 390,
+      "fail": 109,
+      "rate": 0.2794871794871795,
+      "ci95": [
+       0.2372662094314161,
+       0.3260099909496507
+      ],
+      "genuine": 0,
+      "tolerance": 109,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009754175282651703
+      ]
+     }
+    ]
+   },
+   "detour_S": {
+    "by": "detour, S",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 965,
+      "fail": 182,
+      "rate": 0.18860103626943006,
+      "ci95": [
+       0.16517175972923148,
+       0.2144997985523287
+      ],
+      "genuine": 0,
+      "tolerance": 182,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0039651476567480175
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 35,
+      "fail": 6,
+      "rate": 0.17142857142857143,
+      "ci95": [
+       0.08102529944856719,
+       0.3268260763958882
+      ],
+      "genuine": 0,
+      "tolerance": 6,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.09890426758938868
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     }
+    ]
+   },
+   "lateral_S": {
+    "by": "lateral, S",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 87,
+      "fail": 11,
+      "rate": 0.12643678160919541,
+      "ci95": [
+       0.07208878776350036,
+       0.2123800018659206
+      ],
+      "genuine": 0,
+      "tolerance": 11,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.04228899535014795
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 190,
+      "fail": 34,
+      "rate": 0.17894736842105263,
+      "ci95": [
+       0.13097514823744372,
+       0.23964498696573244
+      ],
+      "genuine": 0,
+      "tolerance": 34,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.019818243349208835
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 172,
+      "fail": 28,
+      "rate": 0.16279069767441862,
+      "ci95": [
+       0.11509600538971568,
+       0.22521936935664696
+      ],
+      "genuine": 0,
+      "tolerance": 28,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.021846934968744597
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 84,
+      "fail": 17,
+      "rate": 0.20238095238095238,
+      "ci95": [
+       0.1303734963013758,
+       0.30042011401537616
+      ],
+      "genuine": 0,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.043733265332143306
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 136,
+      "fail": 31,
+      "rate": 0.22794117647058823,
+      "ci95": [
+       0.16548404884189266,
+       0.30534580436344816
+      ],
+      "genuine": 0,
+      "tolerance": 31,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.02747108156657246
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 203,
+      "fail": 42,
+      "rate": 0.20689655172413793,
+      "ci95": [
+       0.15686748123634006,
+       0.2678130472453579
+      ],
+      "genuine": 0,
+      "tolerance": 42,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       1.734723475976807e-18,
+       0.01857266623348494
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 121,
+      "fail": 24,
+      "rate": 0.19834710743801653,
+      "ci95": [
+       0.13706713532662643,
+       0.27819188089873426
+      ],
+      "genuine": 0,
+      "tolerance": 24,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.03077179401737882
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 7,
+      "fail": 1,
+      "rate": 0.14285714285714285,
+      "ci95": [
+       0.02567895594897479,
+       0.51313450331903
+      ],
+      "genuine": 0,
+      "tolerance": 1,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.35433884297520657
+      ]
+     }
+    ]
+   }
+  },
+  "sweeper": {
+   "lateral": {
+    "by": "route lateral clearance (ladder rung passed)",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 92,
+      "fail": 2,
+      "rate": 0.021739130434782608,
+      "ci95": [
+       0.005981915837670909,
+       0.0758364177460756
+      ],
+      "genuine": 0,
+      "tolerance": 2,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.04008280329209862
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 239,
+      "fail": 6,
+      "rate": 0.02510460251046025,
+      "ci95": [
+       0.011555162068919971,
+       0.053679130572867925
+      ],
+      "genuine": 0,
+      "tolerance": 6,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.015819365380560824
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 340,
+      "fail": 15,
+      "rate": 0.04411764705882353,
+      "ci95": [
+       0.026915183896032896,
+       0.07150688021720995
+      ],
+      "genuine": 0,
+      "tolerance": 15,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.01117258644678247
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 365,
+      "fail": 14,
+      "rate": 0.038356164383561646,
+      "ci95": [
+       0.02298297900470298,
+       0.06334567806651675
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.010415311071202379
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 560,
+      "fail": 9,
+      "rate": 0.01607142857142857,
+      "ci95": [
+       0.008477733258779553,
+       0.030259387237473283
+      ],
+      "genuine": 0,
+      "tolerance": 9,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.006813261029338736
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 1299,
+      "fail": 48,
+      "rate": 0.03695150115473441,
+      "ci95": [
+       0.02798271955221167,
+       0.048651001692182116
+      ],
+      "genuine": 1,
+      "tolerance": 47,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0007698229407236335,
+      "genuine_ci95": [
+       0.00013590208377685896,
+       0.004347835616953605
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 1107,
+      "fail": 34,
+      "rate": 0.03071364046973803,
+      "ci95": [
+       0.022060965178942026,
+       0.04261216193477067
+      ],
+      "genuine": 0,
+      "tolerance": 34,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.003458278840115458
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 998,
+      "fail": 49,
+      "rate": 0.04909819639278557,
+      "ci95": [
+       0.03733591452769567,
+       0.06431847874165951
+      ],
+      "genuine": 0,
+      "tolerance": 49,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0038345383142404945
+      ]
+     }
+    ]
+   },
+   "detour": {
+    "by": "A* route length / straight distance",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 343,
+      "fail": 8,
+      "rate": 0.023323615160349854,
+      "ci95": [
+       0.011864662573673777,
+       0.04534185475296755
+      ],
+      "genuine": 0,
+      "tolerance": 8,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.011075949367088606
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 1927,
+      "fail": 59,
+      "rate": 0.03061754021795537,
+      "ci95": [
+       0.023810386913128166,
+       0.039292459016853874
+      ],
+      "genuine": 0,
+      "tolerance": 59,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0019895987324905365
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 802,
+      "fail": 36,
+      "rate": 0.04488778054862843,
+      "ci95": [
+       0.032597432006416176,
+       0.06151734191441393
+      ],
+      "genuine": 0,
+      "tolerance": 36,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0047671899787749845
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 963,
+      "fail": 37,
+      "rate": 0.03842159916926272,
+      "ci95": [
+       0.028001611334925167,
+       0.05250961201334617
+      ],
+      "genuine": 0,
+      "tolerance": 37,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.003973349926192667
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 573,
+      "fail": 23,
+      "rate": 0.04013961605584642,
+      "ci95": [
+       0.026893646305277744,
+       0.059510662953971255
+      ],
+      "genuine": 1,
+      "tolerance": 22,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0017452006980802793,
+      "genuine_ci95": [
+       0.0003081293064030417,
+       0.00981874087771683
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 384,
+      "fail": 14,
+      "rate": 0.036458333333333336,
+      "ci95": [
+       0.021839394731586338,
+       0.0602601015576204
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009905074649031977
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 8,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.3244156195108769
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.3244156195108769
+      ]
+     }
+    ]
+   },
+   "endpoint": {
+    "by": "min endpoint clearance ladder of the cylinder (mm)",
+    "bands": [
+     {
+      "band": "<1.5",
+      "lo": 0,
+      "hi": 0.0015,
+      "n": 93,
+      "fail": 26,
+      "rate": 0.27956989247311825,
+      "ci95": [
+       0.19850210044898137,
+       0.3781261254374145
+      ],
+      "genuine": 0,
+      "tolerance": 26,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0396689026203615
+      ]
+     },
+     {
+      "band": "1.5",
+      "lo": 0.0015,
+      "hi": 0.002,
+      "n": 563,
+      "fail": 151,
+      "rate": 0.2682060390763766,
+      "ci95": [
+       0.23327161463161616,
+       0.30628229249164374
+      ],
+      "genuine": 1,
+      "tolerance": 150,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0017761989342806395,
+      "genuine_ci95": [
+       0.0003136034977208836,
+       0.009991921008596225
+      ]
+     },
+     {
+      "band": "2",
+      "lo": 0.002,
+      "hi": 0.003,
+      "n": 342,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.011107975443093023
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.011107975443093023
+      ]
+     },
+     {
+      "band": "3-5",
+      "lo": 0.003,
+      "hi": 0.01,
+      "n": 2923,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0013125411364933448
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0013125411364933448
+      ]
+     },
+     {
+      "band": ">=10",
+      "lo": 0.01,
+      "hi": 1.0,
+      "n": 1079,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.0035477026372093567
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0035477026372093567
+      ]
+     }
+    ]
+   },
+   "detour_WWEST": {
+    "by": "detour, WWEST",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 246,
+      "fail": 5,
+      "rate": 0.02032520325203252,
+      "ci95": [
+       0.008712074899017055,
+       0.046689427492898464
+      ],
+      "genuine": 0,
+      "tolerance": 5,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.015376142323776345
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 599,
+      "fail": 12,
+      "rate": 0.02003338898163606,
+      "ci95": [
+       0.011496284960164666,
+       0.03468765456889238
+      ],
+      "genuine": 0,
+      "tolerance": 12,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.006372486570269868
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 484,
+      "fail": 13,
+      "rate": 0.026859504132231406,
+      "ci95": [
+       0.015762687001640265,
+       0.04540798806994034
+      ],
+      "genuine": 0,
+      "tolerance": 13,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.00787468719354807
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 573,
+      "fail": 11,
+      "rate": 0.019197207678883072,
+      "ci95": [
+       0.010752481149217957,
+       0.03404595225086969
+      ],
+      "genuine": 0,
+      "tolerance": 11,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0066597138625230905
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 351,
+      "fail": 8,
+      "rate": 0.022792022792022793,
+      "ci95": [
+       0.011593205812697474,
+       0.044323575083341775
+      ],
+      "genuine": 1,
+      "tolerance": 7,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.002849002849002849,
+      "genuine_ci95": [
+       0.000503083172408339,
+       0.01595947364167434
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 240,
+      "fail": 9,
+      "rate": 0.0375,
+      "ci95": [
+       0.019851917405050365,
+       0.06972098565989014
+      ],
+      "genuine": 0,
+      "tolerance": 9,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.015754489799935698
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 7,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.35433884297520657
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.35433884297520657
+      ]
+     }
+    ]
+   },
+   "lateral_WWEST": {
+    "by": "lateral, WWEST",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 3,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.5615060804490177
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.5615060804490177
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 31,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.11025900073475385
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.11025900073475385
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 126,
+      "fail": 4,
+      "rate": 0.031746031746031744,
+      "ci95": [
+       0.012413078146214646,
+       0.07878727674774846
+      ],
+      "genuine": 0,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.029586819632536877
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 201,
+      "fail": 4,
+      "rate": 0.01990049751243781,
+      "ci95": [
+       0.007765339064164056,
+       0.050043231070027436
+      ],
+      "genuine": 0,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.018754003093121707
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 295,
+      "fail": 4,
+      "rate": 0.013559322033898305,
+      "ci95": [
+       0.005285166317945109,
+       0.03433983903606183
+      ],
+      "genuine": 0,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.012854970660041976
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 664,
+      "fail": 18,
+      "rate": 0.02710843373493976,
+      "ci95": [
+       0.017214862220434873,
+       0.04244239782446199
+      ],
+      "genuine": 1,
+      "tolerance": 17,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0015060240963855422,
+      "genuine_ci95": [
+       0.0002658928795698824,
+       0.008481091435273638
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 579,
+      "fail": 14,
+      "rate": 0.024179620034542316,
+      "ci95": [
+       0.014456825869341057,
+       0.04017482705316825
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.006591156156321031
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 601,
+      "fail": 14,
+      "rate": 0.02329450915141431,
+      "ci95": [
+       0.013925735953655293,
+       0.03871879114236455
+      ],
+      "genuine": 0,
+      "tolerance": 14,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0063514149820382716
+      ]
+     }
+    ]
+   },
+   "detour_GAPW1": {
+    "by": "detour, GAPW1",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 97,
+      "fail": 3,
+      "rate": 0.030927835051546393,
+      "ci95": [
+       0.010573153364052894,
+       0.08702149011641547
+      ],
+      "genuine": 0,
+      "tolerance": 3,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.03809538920445529
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 363,
+      "fail": 16,
+      "rate": 0.0440771349862259,
+      "ci95": [
+       0.027310238666944143,
+       0.07039296620404105
+      ],
+      "genuine": 0,
+      "tolerance": 16,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.010472094767878016
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 283,
+      "fail": 22,
+      "rate": 0.07773851590106007,
+      "ci95": [
+       0.05189489244143106,
+       0.11489263070723357
+      ],
+      "genuine": 0,
+      "tolerance": 22,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.013392757535866485
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 390,
+      "fail": 26,
+      "rate": 0.06666666666666667,
+      "ci95": [
+       0.04589762872475556,
+       0.0958893231868759
+      ],
+      "genuine": 0,
+      "tolerance": 26,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009754175282651703
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 222,
+      "fail": 15,
+      "rate": 0.06756756756756757,
+      "ci95": [
+       0.04137060724334188,
+       0.10847601091735126
+      ],
+      "genuine": 0,
+      "tolerance": 15,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.017010152248301463
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 144,
+      "fail": 5,
+      "rate": 0.034722222222222224,
+      "ci95": [
+       0.014920522321761262,
+       0.0787040055513137
+      ],
+      "genuine": 0,
+      "tolerance": 5,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.025984567266588023
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 1,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.7934567085261071
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.7934567085261071
+      ]
+     }
+    ]
+   },
+   "lateral_GAPW1": {
+    "by": "lateral, GAPW1",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 2,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.6576280471103807
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.6576280471103807
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 18,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.1758845505823749
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.1758845505823749
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 42,
+      "fail": 4,
+      "rate": 0.09523809523809523,
+      "ci95": [
+       0.0376616388283121,
+       0.2206539522505333
+      ],
+      "genuine": 0,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.08380161250916197
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 80,
+      "fail": 8,
+      "rate": 0.1,
+      "ci95": [
+       0.05154699917768554,
+       0.18510878983397458
+      ],
+      "genuine": 0,
+      "tolerance": 8,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0458197362645751
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 129,
+      "fail": 3,
+      "rate": 0.023255813953488372,
+      "ci95": [
+       0.00793999360511028,
+       0.06614523270953815
+      ],
+      "genuine": 0,
+      "tolerance": 3,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.028918651988533713
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 432,
+      "fail": 21,
+      "rate": 0.04861111111111111,
+      "ci95": [
+       0.032011365668431775,
+       0.07316813073576645
+      ],
+      "genuine": 0,
+      "tolerance": 21,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       8.673617379884035e-19,
+       0.008814211401573416
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 407,
+      "fail": 16,
+      "rate": 0.03931203931203931,
+      "ci95": [
+       0.024340332969034175,
+       0.06289912866289403
+      ],
+      "genuine": 0,
+      "tolerance": 16,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009350562357852756
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 390,
+      "fail": 35,
+      "rate": 0.08974358974358974,
+      "ci95": [
+       0.06523514408886857,
+       0.12225546127125589
+      ],
+      "genuine": 0,
+      "tolerance": 35,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.009754175282651703
+      ]
+     }
+    ]
+   },
+   "detour_S": {
+    "by": "detour, S",
+    "bands": [
+     {
+      "band": "[1, 1.05)",
+      "lo": 1.0,
+      "hi": 1.05,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.05, 1.1)",
+      "lo": 1.05,
+      "hi": 1.1,
+      "n": 965,
+      "fail": 31,
+      "rate": 0.03212435233160622,
+      "ci95": [
+       0.02272221193680586,
+       0.04523688478241014
+      ],
+      "genuine": 0,
+      "tolerance": 31,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.0039651476567480175
+      ]
+     },
+     {
+      "band": "[1.1, 1.2)",
+      "lo": 1.1,
+      "hi": 1.2,
+      "n": 35,
+      "fail": 1,
+      "rate": 0.02857142857142857,
+      "ci95": [
+       0.005061361365853362,
+       0.1453340909327131
+      ],
+      "genuine": 0,
+      "tolerance": 1,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.09890426758938868
+      ]
+     },
+     {
+      "band": "[1.2, 1.35)",
+      "lo": 1.2,
+      "hi": 1.35,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.35, 1.5)",
+      "lo": 1.35,
+      "hi": 1.5,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[1.5, 2)",
+      "lo": 1.5,
+      "hi": 2.0,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "band": "[2, 99)",
+      "lo": 2.0,
+      "hi": 99.0,
+      "n": 0,
+      "fail": 0,
+      "rate": null,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": null,
+      "genuine_ci95": [
+       0.0,
+       0.0
+      ]
+     }
+    ]
+   },
+   "lateral_S": {
+    "by": "lateral, S",
+    "bands": [
+     {
+      "band": "0",
+      "lo": 0,
+      "hi": 0.0005,
+      "n": 87,
+      "fail": 2,
+      "rate": 0.022988505747126436,
+      "ci95": [
+       0.006326952471398799,
+       0.07999473274770788
+      ],
+      "genuine": 0,
+      "tolerance": 2,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.04228899535014795
+      ]
+     },
+     {
+      "band": "0.5-1.5",
+      "lo": 0.0005,
+      "hi": 0.002,
+      "n": 190,
+      "fail": 6,
+      "rate": 0.031578947368421054,
+      "ci95": [
+       0.014551485760764173,
+       0.06717297379796831
+      ],
+      "genuine": 0,
+      "tolerance": 6,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.019818243349208835
+      ]
+     },
+     {
+      "band": "2-3",
+      "lo": 0.002,
+      "hi": 0.005,
+      "n": 172,
+      "fail": 7,
+      "rate": 0.040697674418604654,
+      "ci95": [
+       0.019851243755243646,
+       0.08161280115790545
+      ],
+      "genuine": 0,
+      "tolerance": 7,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.021846934968744597
+      ]
+     },
+     {
+      "band": "5",
+      "lo": 0.005,
+      "hi": 0.01,
+      "n": 84,
+      "fail": 2,
+      "rate": 0.023809523809523808,
+      "ci95": [
+       0.006553765293517748,
+       0.0827160112132854
+      ],
+      "genuine": 0,
+      "tolerance": 2,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.043733265332143306
+      ]
+     },
+     {
+      "band": "10",
+      "lo": 0.01,
+      "hi": 0.02,
+      "n": 136,
+      "fail": 2,
+      "rate": 0.014705882352941176,
+      "ci95": [
+       0.004042106772879195,
+       0.05203276651232348
+      ],
+      "genuine": 0,
+      "tolerance": 2,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.02747108156657246
+      ]
+     },
+     {
+      "band": "20",
+      "lo": 0.02,
+      "hi": 0.05,
+      "n": 203,
+      "fail": 9,
+      "rate": 0.04433497536945813,
+      "ci95": [
+       0.023497149647962446,
+       0.0820986299244253
+      ],
+      "genuine": 0,
+      "tolerance": 9,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       1.734723475976807e-18,
+       0.01857266623348494
+      ]
+     },
+     {
+      "band": "50",
+      "lo": 0.05,
+      "hi": 0.1,
+      "n": 121,
+      "fail": 4,
+      "rate": 0.03305785123966942,
+      "ci95": [
+       0.0129289722168894,
+       0.08192402550181974
+      ],
+      "genuine": 0,
+      "tolerance": 4,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.03077179401737882
+      ]
+     },
+     {
+      "band": ">=100",
+      "lo": 0.1,
+      "hi": 1.0,
+      "n": 7,
+      "fail": 0,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.35433884297520657
+      ],
+      "genuine": 0,
+      "tolerance": 0,
+      "export": 0,
+      "unverified": 0,
+      "genuine_rate": 0.0,
+      "genuine_ci95": [
+       0.0,
+       0.35433884297520657
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "before_f4": {
+  "cylinder": {
+   "n": 5000,
+   "reachable": 3614,
+   "failed": 1386,
+   "fail_rate": 0.2772,
+   "class": {
+    "REACHABLE": 3614,
+    "METHOD-TIMEOUT": 194,
+    "EP-TOL": 656,
+    "EXPORT-DOMAIN": 524,
+    "EXPORT-KIN": 10,
+    "METHOD-ERROR": 1,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "reachable": 3614,
+    "genuine": 196,
+    "tolerance": 656,
+    "export": 534
+   },
+   "status": {
+    "REACHABLE": 3614,
+    "TIMEOUT": 194,
+    "UNKNOWN": 1191,
+    "ERROR": 1
+   },
+   "status_reason": {
+    "REACHABLE:graph_path_lifted_and_verified": 3614,
+    "TIMEOUT:query_exceeded_120s": 194,
+    "UNKNOWN:start_not_certified_free": 332,
+    "UNKNOWN:goal_not_certified_free": 325,
+    "UNKNOWN:shared_replay_failed": 534,
+    "ERROR:ZeroDivisionError: float division by zero @ query.py:217": 1
+   }
+  },
+  "sweeper": {
+   "n": 5000,
+   "reachable": 4819,
+   "failed": 181,
+   "fail_rate": 0.0362,
+   "class": {
+    "REACHABLE": 4819,
+    "EP-TOL": 176,
+    "EXPORT-KIN": 4,
+    "EP-GENUINE": 1
+   },
+   "group": {
+    "reachable": 4819,
+    "tolerance": 176,
+    "export": 4,
+    "genuine": 1
+   },
+   "status": {
+    "REACHABLE": 4819,
+    "UNKNOWN": 181
+   },
+   "status_reason": {
+    "REACHABLE:graph_path_lifted_and_verified": 4819,
+    "UNKNOWN:goal_not_certified_free": 76,
+    "UNKNOWN:shared_replay_failed": 4,
+    "UNKNOWN:start_not_certified_free": 101
+   }
+  }
+ },
+ "transitions": {
+  "cylinder": {
+   "EXPORT-DOMAIN -> REACHABLE": 523,
+   "EXPORT-KIN -> REACHABLE": 10,
+   "EXPORT-DOMAIN -> METHOD-TIMEOUT": 1
+  },
+  "sweeper": {
+   "EXPORT-KIN -> REACHABLE": 4
+  }
+ }
+}

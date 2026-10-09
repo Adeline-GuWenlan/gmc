@@ -15,3 +15,14 @@
 - Script: `gmc/experiments/bl_judge_check.py` (plan/astar/straight/requery), `bl_judge_collect.py` (collect).
   Old runs use `python -P` + old PYTHONPATH; every output's `.meta.json` records the imported oracle file and
   whether it contains the fix (`code_label`), and a run aborts on mismatch.
+- Results (collect, `results/baselines/j/judge_check.json`): (a) 1 HEAD-only failure,
+  `test_route_prism_domain_matches_the_baseline_oracle_in_an_empty_scene`. It pins GMC domain == judge; the new judge
+  is looser by r(|c|+|s|-1). `bl_judge_domcheck.py`: GMC-only 0, judge-only 980, all inside the band.
+  (b) 5000/5000 (4 needed the exact-pose A* re-run).
+  (c) 537/538 REACHABLE; F4X-02145 TIMEOUT (REACHABLE at 121.5 s in a 300 s re-run, job 19490619).
+  (d) 368/369 same SHA; F4X-01566 TIMEOUT at 120 s, same SHA at 113.1 s with 300 s.
+  (e) 0 disallowed transitions in 199,970 edges; wide crop agrees on 2993/2993 freed edges.
+- J's nodes ran ~11 % slower than F4's (median wall ratio 1.107, 66 WWEST-cylinder rows): both timeouts are
+  that effect.
+- **Gate (a) fails as written → BLOCKED for the user** (prompt hard stop). Recommended option 1 (test-only change)
+  in `docs/baselines_judge_check.md` §8. Total 5.59 CPU-h.
