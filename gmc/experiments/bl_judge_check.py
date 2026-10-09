@@ -52,7 +52,9 @@ VETO = ("EXPORT-DOMAIN", "EXPORT-KIN")
 
 
 def _jsonl(p):
-    return [json.loads(x) for x in open(p) if x.strip()]
+    import gzip
+    with (gzip.open(p, "rt") if str(p).endswith(".gz") else open(p)) as f:
+        return [json.loads(x) for x in f if x.strip()]
 
 
 def _dump(path, doc):
@@ -326,7 +328,7 @@ def cmd_widecheck(a):
     for robot in ROBOTS:
         new, old = {}, {}
         for d, code_ in ((new, "new"), (old, "old")):
-            for f in sorted((J / "straight" / code_ / robot).glob(f"pairs_{a.region}_*.jsonl")):
+            for f in sorted((J / "straight" / code_ / robot).glob(f"pairs_{a.region}_*.jsonl*")):
                 d.update({r["pair_id"]: r for r in _jsonl(f)})
         for pid in sorted(set(new) & set(old)):
             for i, (o, n) in enumerate(zip(old[pid]["edges"], new[pid]["edges"])):
@@ -380,9 +382,11 @@ def cmd_requery(a):
     path, sha = verified_a3c(a.region, a.robot)
     pairs = json.loads(Path(a.pairs).read_text())
     out = Path(a.out)
-    s = run_task(path, pairs, out, timeout_s=120., manifest=json.loads(MANIFEST.read_text()))
+    if a.ids:
+        pairs = [p for p in pairs if p["pair_id"] in a.ids]
+    s = run_task(path, pairs, out, timeout_s=a.timeout, manifest=json.loads(MANIFEST.read_text()))
     s.update(region=a.region, robot=a.robot, pairs_file=a.pairs, a3c_sha256_verified=sha, code=code, host=host(),
-             timeout_s=120.)
+             timeout_s=a.timeout, ids=a.ids)
     _dump(out.with_suffix(".summary.json"), s)
     print(json.dumps({k: s[k] for k in ("status_counts", "answered_this_run", "compile_once_proof", "peak_rss_mb")}),
           flush=True)
@@ -409,6 +413,8 @@ def main(argv=None):
     p.add_argument("--robot", choices=ROBOTS, required=True)
     p.add_argument("--pairs", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--timeout", type=float, default=120.)
+    p.add_argument("--ids", nargs="*", help="only these pair ids (probe re-runs)")
     p = sub.add_parser("widecheck")
     p.add_argument("--region", required=True)
     p.add_argument("--pad", type=float, default=1.)

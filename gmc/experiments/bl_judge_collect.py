@@ -101,7 +101,7 @@ def straight_table():
     data = {}
     for code in ("new", "old"):
         for robot in ROBOTS:
-            for f in sorted((J / "straight" / code / robot).glob("*.jsonl")):
+            for f in sorted((J / "straight" / code / robot).glob("*.jsonl*")):
                 for r in _jsonl(f):
                     data[(code, robot, r["pair_id"])] = r
     keys = sorted({(rb, p) for c, rb, p in data if c == "new"} & {(rb, p) for c, rb, p in data if c == "old"})
