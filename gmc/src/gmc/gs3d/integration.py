@@ -54,6 +54,25 @@ class RouteBoxKnownSpace:
         domain_lo, domain_hi = np.asarray(self.lower_route_m), np.asarray(self.upper_route_m)
         return bool(np.all(route >= domain_lo - 1e-12) and np.all(route <= domain_hi + 1e-12))
 
+    def contains_swept_cylinder(self, a, b, radius_m, half_height_m) -> bool:
+        """Exact coverage of a vertical cylinder swept along the straight edge ``a -> b`` (world xyz).
+
+        The swept body is the convex hull of its two end cylinders and the prism is convex, so it is
+        covered iff both end cylinders are.  With route z = world z an end cylinder's route-frame box,
+        centre +- (r, r, h), is tight.  The world AABB that ``contains_aabb`` gets overshoots that by
+        r(|cos|+|sin|-1) in a rotated frame.  Any other frame falls back to the world AABB.
+        """
+        ends = np.asarray([a, b], float)
+        half = np.array([radius_m, radius_m, half_height_m], float)
+        rotation = np.asarray(self.world_to_route, float)
+        if ends.shape != (2, 3) or not np.isfinite([*ends.ravel(), *half]).all() or np.any(half < 0):
+            return False
+        if abs(abs(rotation[2, 2]) - 1.) > 1e-12:
+            return self.contains_aabb(ends.min(axis=0) - half, ends.max(axis=0) + half)
+        route = (ends - np.asarray(self.origin_world_m)) @ rotation.T
+        domain_lo, domain_hi = np.asarray(self.lower_route_m), np.asarray(self.upper_route_m)
+        return bool(np.all(route - half >= domain_lo - 1e-12) and np.all(route + half <= domain_hi + 1e-12))
+
 
 def concatenate_linear_trajectories(results: list[dict]) -> dict:
     """Join successful leg trajectories without hiding their planner results."""

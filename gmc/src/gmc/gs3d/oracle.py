@@ -162,7 +162,13 @@ class GaussianBodyOracle:
         boundary = float(min(np.min(lower - p.lower), np.min(p.upper - upper))) - slack
         if boundary < -2 * slack:
             return OracleReport("occupied", "continuous_bound", 0., "body_exceeds_workspace_bounds")
-        if not p.scene.known_space.contains_aabb(tuple(lower), tuple(upper)):
+        # A known space that can test the swept vertical cylinder itself is asked that; the world
+        # AABB is only a sufficient test, too strict in a rotated route frame (F5 REPLAY-AABB).
+        known = p.scene.known_space
+        swept = getattr(known, "contains_swept_cylinder", None)
+        covered = (swept(pa, pb, body.radius_m, body.half_height_m) if swept is not None
+                   else known.contains_aabb(tuple(lower), tuple(upper)))
+        if not covered:
             return OracleReport("unknown", "unresolved", None, "map_unknown")
         if boundary <= margin_m:
             return OracleReport("unknown", "unresolved", max(0., boundary), "workspace_margin_unproven")

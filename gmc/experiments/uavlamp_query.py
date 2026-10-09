@@ -96,14 +96,27 @@ class FaceLoggingKnownSpace:
             lo, hi = np.asarray(lower, float), np.asarray(upper, float)
             corners = np.asarray([[a, b, c] for a in (lo[0], hi[0]) for b in (lo[1], hi[1])
                                   for c in (lo[2], hi[2])])
-            route = (corners - np.asarray(self.inner.origin_world_m)) @ np.asarray(self.inner.world_to_route).T
-            dlo, dhi = np.asarray(self.inner.lower_route_m), np.asarray(self.inner.upper_route_m)
-            faces = [f"{ax}_{side}" for k, ax in enumerate("uvz")
-                     for side, bad in (("min", np.any(route[:, k] < dlo[k] - 1e-12)),
-                                       ("max", np.any(route[:, k] > dhi[k] + 1e-12))) if bad]
-            key = "+".join(faces) or "invalid"
-            self.face_counts[key] = self.face_counts.get(key, 0) + 1
+            self._count(self._route(corners))
         return ok
+
+    def contains_swept_cylinder(self, a, b, radius_m, half_height_m):
+        ok = self.inner.contains_swept_cylinder(a, b, radius_m, half_height_m)
+        if not ok:
+            half = np.array([radius_m, radius_m, half_height_m], float)
+            ends = self._route(np.asarray([a, b], float))
+            self._count(np.vstack([ends - half, ends + half]))
+        return ok
+
+    def _route(self, world):
+        return (world - np.asarray(self.inner.origin_world_m)) @ np.asarray(self.inner.world_to_route).T
+
+    def _count(self, route):
+        dlo, dhi = np.asarray(self.inner.lower_route_m), np.asarray(self.inner.upper_route_m)
+        faces = [f"{ax}_{side}" for k, ax in enumerate("uvz")
+                 for side, bad in (("min", np.any(route[:, k] < dlo[k] - 1e-12)),
+                                   ("max", np.any(route[:, k] > dhi[k] + 1e-12))) if bad]
+        key = "+".join(faces) or "invalid"
+        self.face_counts[key] = self.face_counts.get(key, 0) + 1
 
 
 def build_scene(spec, full, manifest_doc):

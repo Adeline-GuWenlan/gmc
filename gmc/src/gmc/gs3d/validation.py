@@ -88,11 +88,21 @@ def verify_linear_trajectory(trajectory, body: BodySpec, limits: dict) -> dict:
         if len(rows) > 1:
             elapsed = np.diff(times)
             difference = np.diff(rows, axis=0)
-            speed = np.linalg.norm(difference[:, :3], axis=1) / elapsed
-            yaw_rate = np.abs(difference[:, 3]) / elapsed
-            if np.any(speed > limits["max_speed_mps"] + 1e-9) or np.any(yaw_rate > limits["max_yaw_rate_radps"] + 1e-9):
+            # Absolute float times and poses fix each step only to one ulp, so a turn or translation
+            # timed exactly at a limit over microseconds can read ~1e-9 over it (F5 REPLAY-RATE).
+            # Allow that representation error and nothing more, on top of the 1e-9 rate tolerance.
+            t_ulp = np.spacing(np.maximum(np.abs(times[:-1]), np.abs(times[1:])))
+            q_ulp = 2 * np.spacing(np.maximum(np.abs(rows[:-1]), np.abs(rows[1:])))
+
+            def exceeded(amount, slack, limit):
+                return np.any(amount > limit * (elapsed + t_ulp) + slack + 1e-9 * elapsed)
+
+            if (exceeded(np.linalg.norm(difference[:, :3], axis=1), np.linalg.norm(q_ulp[:, :3], axis=1),
+                         limits["max_speed_mps"])
+                    or exceeded(np.abs(difference[:, 3]), q_ulp[:, 3], limits["max_yaw_rate_radps"])):
                 raise ValueError("speed_or_yaw_rate_exceeded")
-            if body.motion == "uav_translation" and np.any(np.abs(difference[:, 2]) / elapsed > limits["max_vertical_speed_mps"] + 1e-9):
+            if body.motion == "uav_translation" and exceeded(np.abs(difference[:, 2]), q_ulp[:, 2],
+                                                             limits["max_vertical_speed_mps"]):
                 raise ValueError("vertical_speed_exceeded")
         return {"passed": True, "acceleration_verified": False,
                 "limitation": "piecewise_linear_velocity_discontinuities_at_knots"}
