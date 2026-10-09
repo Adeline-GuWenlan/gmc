@@ -1,0 +1,17 @@
+{
+ "code": {
+  "label": "old",
+  "oracle_file": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/j/old/gmc/src/gmc/gs3d/oracle.py",
+  "validation_file": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/j/old/gmc/src/gmc/gs3d/validation.py"
+ },
+ "compile_id": "abfa278e193c88d4",
+ "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+ "load_s": 0.430902908090502,
+ "known_space": "uavlamp_query.FaceLoggingKnownSpace",
+ "node": "cs624.hpc.nyu.edu",
+ "job": "19489983",
+ "answered": 250,
+ "resumed": 0,
+ "wall_s": 92.91114901914261,
+ "peak_rss_mb": 406.26171875
+}

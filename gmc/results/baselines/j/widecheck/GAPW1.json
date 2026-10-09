@@ -1,0 +1,778 @@
+{
+ "region": "GAPW1",
+ "code": {
+  "label": "new",
+  "oracle_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/oracle.py",
+  "validation_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/validation.py"
+ },
+ "box_route_region": {
+  "lower": [
+   -8.5,
+   -0.35,
+   0.0
+  ],
+  "upper": [
+   -2.8,
+   3.75,
+   2.43
+  ]
+ },
+ "box_route_wide": {
+  "lower": [
+   -9.5,
+   -1.35,
+   0.0
+  ],
+  "upper": [
+   -1.7999999999999998,
+   4.75,
+   2.43
+  ]
+ },
+ "pad_m": 1.0,
+ "wide_crop": {
+  "crop_rule": "full_3d_ellipsoid_aabb_overlap",
+  "input_supports": 7107732,
+  "opacity_selected": 3812458,
+  "selected_supports": 391758,
+  "bounds_min": [
+   4.559358706600352,
+   16.364593910541725,
+   -1.2271749593107995
+  ],
+  "bounds_max": [
+   13.384124697664458,
+   25.94267336694032,
+   1.2028250406892007
+  ],
+  "level": 2.0,
+  "tau": 0.3
+ },
+ "load_s": 21.436569635057822,
+ "per_robot": {
+  "cylinder": {
+   "edges": 64,
+   "verdicts": {
+    "free|continuous_bound|swept_support_separation_bound_capped || wide free|continuous_bound|swept_support_separation_bound_capped": 56,
+    "occupied|continuous_bound|ellipsoid_centre_in_swept_body || wide occupied|continuous_bound|minkowski_interior_witness": 2,
+    "occupied|continuous_bound|minkowski_interior_witness || wide occupied|continuous_bound|ellipsoid_centre_in_swept_body": 1,
+    "unknown|unresolved|geometry_or_margin_unproven || wide unknown|unresolved|geometry_or_margin_unproven": 2,
+    "occupied|continuous_bound|ellipsoid_centre_in_swept_body || wide occupied|continuous_bound|ellipsoid_centre_in_swept_body": 3
+   },
+   "not_ok": [],
+   "rows": [
+    {
+     "pair_id": "F4W-00002",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00018",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0032921964991467507,
+     "wide_clearance_m": 0.003292196499058223,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00020",
+     "edge": 20,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00054",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0032921964991467507,
+     "wide_clearance_m": 0.003292196499058223,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00074",
+     "edge": 21,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00079",
+     "edge": 15,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.003350781022760203,
+     "wide_clearance_m": 0.003350781022760203,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00087",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0016299422901248405,
+     "wide_clearance_m": 0.0016299422901248405,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00094",
+     "edge": 19,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00128",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_again": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "wide": "occupied|continuous_bound|minkowski_interior_witness",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00157",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00159",
+     "edge": 18,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00193",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00196",
+     "edge": 19,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0032921964991467507,
+     "wide_clearance_m": 0.003292196499058223,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00215",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00224",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00224",
+     "edge": 1,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00274",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.012207153494959657,
+     "wide_clearance_m": 0.012207153494871129,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00276",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00290",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|minkowski_interior_witness",
+     "new_again": "occupied|continuous_bound|minkowski_interior_witness",
+     "wide": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00315",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00347",
+     "edge": 18,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00381",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.002170965630592406,
+     "wide_clearance_m": 0.002170965630592406,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00465",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00468",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00602",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00655",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00660",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00660",
+     "edge": 1,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0010768791447101648,
+     "wide_clearance_m": 0.0010768791446216374,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00766",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "unknown|unresolved|geometry_or_margin_unproven",
+     "new_again": "unknown|unresolved|geometry_or_margin_unproven",
+     "wide": "unknown|unresolved|geometry_or_margin_unproven",
+     "new_clearance_m": 0.0008708985108192897,
+     "wide_clearance_m": 0.0008708985108192897,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00882",
+     "edge": 20,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00910",
+     "edge": 18,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_again": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "wide": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00947",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0016070229017634567,
+     "wide_clearance_m": 0.0016070229016758174,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00976",
+     "edge": 14,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00976",
+     "edge": 15,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00982",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_again": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "wide": "occupied|continuous_bound|minkowski_interior_witness",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00990",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0019427441530014981,
+     "wide_clearance_m": 0.0019427441529138588,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00998",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_again": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "wide": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-00998",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "unknown|unresolved|geometry_or_margin_unproven",
+     "new_again": "unknown|unresolved|geometry_or_margin_unproven",
+     "wide": "unknown|unresolved|geometry_or_margin_unproven",
+     "new_clearance_m": 0.0008708985108192897,
+     "wide_clearance_m": 0.0008708985108192897,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01035",
+     "edge": 16,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.012207153494959657,
+     "wide_clearance_m": 0.012207153494871129,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01073",
+     "edge": 19,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01073",
+     "edge": 20,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01096",
+     "edge": 21,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01102",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01120",
+     "edge": 15,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0010768791447101648,
+     "wide_clearance_m": 0.0010768791446216374,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01125",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01128",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01216",
+     "edge": 19,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01218",
+     "edge": 20,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0010768791447101648,
+     "wide_clearance_m": 0.0010768791446216374,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01219",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01250",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01252",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0010880490421202886,
+     "wide_clearance_m": 0.0010880490420326493,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01283",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_again": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "wide": "occupied|continuous_bound|ellipsoid_centre_in_swept_body",
+     "new_clearance_m": 0.0,
+     "wide_clearance_m": 0.0,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01315",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0037399432778936776,
+     "wide_clearance_m": 0.00373994327780515,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01323",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01338",
+     "edge": 17,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01347",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01349",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01385",
+     "edge": 20,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01399",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01424",
+     "edge": 18,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01463",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0074375508351307035,
+     "wide_clearance_m": 0.007437550835042175,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01463",
+     "edge": 1,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01463",
+     "edge": 2,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.008446465244568326,
+     "wide_clearance_m": 0.008446465244479798,
+     "ok": true
+    },
+    {
+     "pair_id": "F4W-01474",
+     "edge": 0,
+     "old": "unknown|unresolved|map_unknown",
+     "new": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_again": "free|continuous_bound|swept_support_separation_bound_capped",
+     "wide": "free|continuous_bound|swept_support_separation_bound_capped",
+     "new_clearance_m": 0.0073564382046884,
+     "wide_clearance_m": 0.007356438204599872,
+     "ok": true
+    }
+   ]
+  },
+  "sweeper": {
+   "edges": 0,
+   "verdicts": {},
+   "not_ok": [],
+   "rows": []
+  }
+ },
+ "passed": true
+}
