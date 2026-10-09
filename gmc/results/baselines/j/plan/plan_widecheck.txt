@@ -1,0 +1,3 @@
+new widecheck --region WWEST
+new widecheck --region GAPW1
+new widecheck --region S

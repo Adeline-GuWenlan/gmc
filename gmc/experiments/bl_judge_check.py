@@ -20,6 +20,7 @@ The judge = ``api._gs3d_result(compiled, api._densify(poly_w, QCONFIG.export_max
               segment (``export``: judge verdict; ``edges``: every densified 0.20 m edge's own oracle verdict, so a
               change on an edge after the first failure is seen too; ``overspeed``: the export trajectory with its
               times shrunk by 1e-6 / 1e-8 (relative) must fail kinematics).  Run once per code.
+  widecheck (sbatch) (e+) every straight edge that left map_unknown, re-judged on a 1 m wider crop of the archive
   requery   (sbatch) (c)/(d) GMC re-run with ``aerial3dg_batch.run_task`` (G2 QCONFIG, 120 s, compile-once proof) on
               the persisted F3 compile after checking its SHA-256 against the sidecar and F3's handoff.
   collect   (inline) tables for (b)-(e), gmc_rejudged/<R>/<robot>/rows.jsonl + summary.json, judge_check.json
@@ -311,6 +312,66 @@ def cmd_straight(a):
     _run_shard(a, a.robot, _straight)
 
 
+# ---------------------------------------------------------------------------------------------- (e+) wide-crop check
+def cmd_widecheck(a):
+    """Every straight-segment edge whose verdict went map_unknown (old) -> anything (new), re-judged by an oracle on a
+    scene cropped from the archive with the region box widened by ``--pad`` m in u and v (z unchanged: route z =
+    world z, so the z faces were tested exactly by both codes).  The fix is sound only if no such edge that the
+    region's crop calls free is occupied or margin-unproven against the wider scene."""
+    from gmc.gs3d.contracts import Pose3
+    from gmc.gs3d.oracle import GaussianBodyOracle, PreparedScene
+    from aerial3dg_run import load_booth
+    code = check_code("new")
+    todo = collections.defaultdict(list)
+    for robot in ROBOTS:
+        new, old = {}, {}
+        for d, code_ in ((new, "new"), (old, "old")):
+            for f in sorted((J / "straight" / code_ / robot).glob(f"pairs_{a.region}_*.jsonl")):
+                d.update({r["pair_id"]: r for r in _jsonl(f)})
+        for pid in sorted(set(new) & set(old)):
+            for i, (o, n) in enumerate(zip(old[pid]["edges"], new[pid]["edges"])):
+                if o.endswith("|map_unknown") and n != o:
+                    todo[robot].append((pid, i, o, n, new[pid]["edge_clearance_lower_m"][i]))
+    rec = json.loads((F3 / "probe" / a.region / "compile_cylinder.json").read_text())["box_route"]
+    box = {"lower": [rec["lower"][0] - a.pad, rec["lower"][1] - a.pad, rec["lower"][2]],
+           "upper": [rec["upper"][0] + a.pad, rec["upper"][1] + a.pad, rec["upper"][2]]}
+    t0 = time.perf_counter()
+    ctx = load_booth(box)
+    wide = GaussianBodyOracle(PreparedScene(ctx["scene"]))
+    load_s = time.perf_counter() - t0
+    shards = {}
+    for f in sorted((J / "plan").glob(f"pairs_{a.region}_*.json")):
+        shards.update({p["pair_id"]: p for p in json.loads(f.read_text())})
+    out = {"region": a.region, "code": code, "box_route_region": rec, "box_route_wide": box, "pad_m": a.pad,
+           "wide_crop": ctx["crop"], "load_s": load_s, "per_robot": {}}
+    for robot in ROBOTS:
+        X = make_ctx(a.region, robot)
+        rows, cnt = [], collections.Counter()
+        cache = {}
+        for pid, i, o, n, c_new in todo[robot]:
+            if pid not in cache:
+                body = X.C.body
+                poly = np.asarray([X.world(shards[pid]["start_uv"], body), X.world(shards[pid]["goal_uv"], body)])
+                res, _ = judge(X, poly)
+                P = np.asarray(res["trajectory"]["poses"], float)
+                cache[pid] = [(p, q) for p, q in zip(P[:-1], P[1:]) if np.linalg.norm(q[:3] - p[:3]) > 1e-12]
+            p, q = cache[pid][i]
+            A, B = Pose3(tuple(p[:3]), float(p[3])), Pose3(tuple(q[:3]), float(q[3]))
+            w = wide.edge(A, B, X.C.body, margin_m=MARGIN)
+            again = X.oracle.edge(A, B, X.C.body, margin_m=MARGIN)
+            wv = f"{w.occupancy}|{w.safety}|{w.reason}"
+            ok = not (n.startswith("free") and not wv.startswith("free"))
+            cnt[f"{n} || wide {wv}"] += 1
+            rows.append({"pair_id": pid, "edge": i, "old": o, "new": n, "new_again": f"{again.occupancy}|{again.safety}|{again.reason}",
+                         "wide": wv, "new_clearance_m": c_new, "wide_clearance_m": w.clearance_lower_m, "ok": ok})
+        out["per_robot"][robot] = {"edges": len(rows), "verdicts": dict(cnt), "not_ok": [r for r in rows if not r["ok"]],
+                                   "rows": rows}
+    out["passed"] = all(not v["not_ok"] for v in out["per_robot"].values())
+    _dump(J / "widecheck" / f"{a.region}.json", out)
+    print(a.region, {r: (v["edges"], v["verdicts"]) for r, v in out["per_robot"].items()}, "passed", out["passed"],
+          "rss", _rss(), flush=True)
+
+
 # ---------------------------------------------------------------------------------------------- (c)/(d) re-query
 def cmd_requery(a):
     from aerial3dg_batch import run_task
@@ -348,6 +409,9 @@ def main(argv=None):
     p.add_argument("--robot", choices=ROBOTS, required=True)
     p.add_argument("--pairs", required=True)
     p.add_argument("--out", required=True)
+    p = sub.add_parser("widecheck")
+    p.add_argument("--region", required=True)
+    p.add_argument("--pad", type=float, default=1.)
     sub.add_parser("collect")
     a = ap.parse_args(argv)
     if a.cmd == "collect":
