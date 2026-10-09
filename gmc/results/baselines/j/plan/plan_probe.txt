@@ -1,0 +1,8 @@
+new astar --code new --region WWEST --shard results/baselines/j/plan/probe_WWEST.json --out results/baselines/j/probe/astar_new_WWEST.jsonl
+new straight --code new --region WWEST --robot cylinder --shard results/baselines/j/plan/probe_WWEST.json --out results/baselines/j/probe/straight_new_WWEST.jsonl
+old astar --code old --region WWEST --shard results/baselines/j/plan/probe_WWEST.json --out results/baselines/j/probe/astar_old_WWEST.jsonl
+old straight --code old --region WWEST --robot cylinder --shard results/baselines/j/plan/probe_WWEST.json --out results/baselines/j/probe/straight_old_WWEST.jsonl
+new astar --code new --region S --shard results/baselines/j/plan/probe_S.json --out results/baselines/j/probe/astar_new_S.jsonl
+new straight --code new --region S --robot cylinder --shard results/baselines/j/plan/probe_S.json --out results/baselines/j/probe/straight_new_S.jsonl
+old astar --code old --region S --shard results/baselines/j/plan/probe_S.json --out results/baselines/j/probe/astar_old_S.jsonl
+old straight --code old --region S --robot cylinder --shard results/baselines/j/plan/probe_S.json --out results/baselines/j/probe/straight_old_S.jsonl

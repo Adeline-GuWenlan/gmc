@@ -1,0 +1,11 @@
+new requery --region WWEST --robot cylinder --pairs results/baselines/j/plan/requery_WWEST_cylinder_vetoed.json --out results/baselines/j/requery/WWEST/cylinder/vetoed.jsonl
+new requery --region WWEST --robot cylinder --pairs results/baselines/j/plan/requery_WWEST_cylinder_regression.json --out results/baselines/j/requery/WWEST/cylinder/regression.jsonl
+new requery --region WWEST --robot sweeper --pairs results/baselines/j/plan/requery_WWEST_sweeper_vetoed.json --out results/baselines/j/requery/WWEST/sweeper/vetoed.jsonl
+new requery --region WWEST --robot sweeper --pairs results/baselines/j/plan/requery_WWEST_sweeper_regression.json --out results/baselines/j/requery/WWEST/sweeper/regression.jsonl
+new requery --region GAPW1 --robot cylinder --pairs results/baselines/j/plan/requery_GAPW1_cylinder_vetoed.json --out results/baselines/j/requery/GAPW1/cylinder/vetoed.jsonl
+new requery --region GAPW1 --robot cylinder --pairs results/baselines/j/plan/requery_GAPW1_cylinder_regression.json --out results/baselines/j/requery/GAPW1/cylinder/regression.jsonl
+new requery --region GAPW1 --robot sweeper --pairs results/baselines/j/plan/requery_GAPW1_sweeper_regression.json --out results/baselines/j/requery/GAPW1/sweeper/regression.jsonl
+new requery --region S --robot cylinder --pairs results/baselines/j/plan/requery_S_cylinder_vetoed.json --out results/baselines/j/requery/S/cylinder/vetoed.jsonl
+new requery --region S --robot cylinder --pairs results/baselines/j/plan/requery_S_cylinder_regression.json --out results/baselines/j/requery/S/cylinder/regression.jsonl
+new requery --region S --robot sweeper --pairs results/baselines/j/plan/requery_S_sweeper_vetoed.json --out results/baselines/j/requery/S/sweeper/vetoed.jsonl
+new requery --region S --robot sweeper --pairs results/baselines/j/plan/requery_S_sweeper_regression.json --out results/baselines/j/requery/S/sweeper/regression.jsonl
