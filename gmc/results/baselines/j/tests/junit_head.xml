@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="26" skipped="0" tests="802" time="2673.737" timestamp="2026-10-09T11:17:09.728380-04:00" hostname="cs607.hpc.nyu.edu"><testcase classname="tests.integration.test_atlas_benchmark" name="test_blind_is_forbidden_without_explicit_opt_in" time="0.006"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_blind_is_forbidden_without_explicit_opt_in():
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_blind_opt_in_keeps_withheld_manifest_scope_explicit" time="0.003"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_blind_opt_in_keeps_withheld_manifest_scope_explicit():
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_oracle_record_analytic_truth_is_cross_checked_against_manifest" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_oracle_record_analytic_truth_is_cross_checked_against_manifest():
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_one_sealed_atlas_case_runs_both_arms_at_equal_cap" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_one_sealed_atlas_case_runs_both_arms_at_equal_cap():
+        spec = {
+            "name": "atlas-integration-smoke",
+            "kind": "atlas_g1_paired_event",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "robot_ids": ["R_long_ellipse"],
+            "partial_gate_only": True,
+            "case_ids": ["dev_001"],
+            "budget": {
+                "currency": "support_value_evals",
+                "cap_per_arm_per_case": 1024,
+            },
+            "search": {"event_tolerance_deg": 0.5, "initial_intervals": 8},
+        }
+&gt;       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_benchmark.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:94: in run_benchmark_spec
+    store = AtlasAssetStore(_resolve(base, spec["atlas_root"]))
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_scaling_curve_uses_ordered_equal_caps_and_keeps_max_cap_details():
+        caps = [64, 128, 256]
+        spec = {
+            "name": "atlas-scaling-smoke",
+            "kind": "atlas_g1_paired_event",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "robot_ids": ["R_long_ellipse"],
+            "partial_gate_only": True,
+            "case_ids": ["dev_001"],
+            "budget": {
+                "currency": "support_value_evals",
+                "caps_per_arm_per_case": caps,
+            },
+            "search": {"event_tolerance_deg": 0.5, "initial_intervals": 8},
+        }
+&gt;       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_benchmark.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:94: in run_benchmark_spec
+    store = AtlasAssetStore(_resolve(base, spec["atlas_root"]))
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_split_manifest_is_hashed_and_parsed_from_one_read" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e22017230&gt;
+
+    def test_split_manifest_is_hashed_and_parsed_from_one_read(monkeypatch):
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_split_manifest_tamper_is_rejected" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e22017360&gt;
+
+    def test_split_manifest_tamper_is_rejected(monkeypatch):
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_package_inventory_cannot_reseal_pinned_generator" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/scratch/wg2381/splathjb-baselines/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e2e8af890&gt;
+
+    def test_package_inventory_cannot_reseal_pinned_generator(monkeypatch):
+        package = ATLAS / "outputs" / "round4_final_package"
+        inventory = (package / "MANIFEST.sha256").resolve()
+        generator = (
+            package / "src_snapshot" / "src" / "splatc" / "datasets"
+            / "g1_gate.py"
+        ).resolve()
+        original_read_bytes = Path.read_bytes
+&gt;       original_generator = original_read_bytes(generator)
+
+tests/integration/test_atlas_benchmark.py:244: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/share/apps/anaconda3/2025.06/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/scratch/wg2381/splathjb-baselines/splatc_atlas/outputs/round4_final_package/src_snapshot/src/splatc/datasets/g1_gate.py'
+
+/share/apps/anaconda3/2025.06/lib/python3.13/pathlib/_local.py:537: FileNotFoundError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_selected_oracle_record_is_checked_against_package_inventory" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21e23020&gt;
+
+    def test_selected_oracle_record_is_checked_against_package_inventory(
+            monkeypatch):
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:268: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_benchmark" name="test_runtime_guard_rejects_new_legacy_import_only" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e22007570&gt;
+
+    def test_runtime_guard_rejects_new_legacy_import_only(monkeypatch):
+&gt;       store = AtlasAssetStore(ATLAS)
+
+tests/integration/test_atlas_benchmark.py:284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_full_s1_truth_is_recomputed_with_four_partial_gate_events" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_full_s1_truth_is_recomputed_with_four_partial_gate_events():
+&gt;       case = _case("val_004")
+
+tests/integration/test_atlas_gate_intervals.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21f2e150&gt;
+
+    def test_tuple_predictions_and_truth_shaped_fake_unknown_are_rejected(
+            monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21f2e450&gt;
+
+    def test_nonmaximal_bracket_and_leaf_provenance_drift_are_rejected(
+            monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:202: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_report_from_different_scene_binding_is_rejected" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21f434d0&gt;
+
+    def test_report_from_different_scene_binding_is_rejected(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_fake_report_numeric_budget_overflows_fail_postcheck" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21f43a70&gt;
+
+    def test_fake_report_numeric_budget_overflows_fail_postcheck(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:254: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_runner_rejects_a_non_support_budget_stop_reason" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21f135b0&gt;
+
+    def test_runner_rejects_a_non_support_budget_stop_reason(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:325: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_budget_stop_keeps_leaf_resolution_without_claiming_completion" time="0.003"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e2e73ecf0&gt;
+
+    def test_budget_stop_keeps_leaf_resolution_without_claiming_completion(
+            monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:383: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_budget_stopped_report_cannot_forge_resolution_completion" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21d472b0&gt;
+
+    def test_budget_stopped_report_cannot_forge_resolution_completion(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:419: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_report_completion_flag_must_be_a_strict_bool" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21b8c350&gt;
+
+    def test_report_completion_flag_must_be_a_strict_bool(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_fifty_two_degree_brackets_cannot_pass_five_degree_gate" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21b8c050&gt;
+
+    def test_fifty_two_degree_brackets_cannot_pass_five_degree_gate(monkeypatch):
+&gt;       case = _case("dev_007")
+
+tests/integration/test_atlas_gate_intervals.py:466: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_four_degree_partial_brackets_satisfy_strict_acceptance" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21e75700&gt;
+
+    def test_four_degree_partial_brackets_satisfy_strict_acceptance(monkeypatch):
+        for query_id in ("dev_007", "val_004"):
+&gt;           case = _case(query_id)
+
+tests/integration/test_atlas_gate_intervals.py:489: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_four_representative_cases_use_all_supports_and_full_compiler" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_four_representative_cases_use_all_supports_and_full_compiler():
+        spec = {
+            "name": "atlas-full-compiler-four-case-smoke",
+            "kind": "atlas_g1_full_gate_intervals",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev", "validation"],
+            "families": ["G1"],
+            "partial_gate_only": False,
+            "event_tolerance_deg": 5.0,
+            "case_ids": ["dev_000", "dev_002", "dev_007", "val_004"],
+            "expected": {
+                "expected_n_cases": 4,
+                "expected_case_ids": [
+                    "dev_000", "dev_002", "dev_007", "val_004",
+                ],
+                "acceptance_policy": "all_cases_containment",
+            },
+            "compiler": {
+                "geometry": {
+                    "support_level_scene": 1.0,
+                    "support_level_robot": 1.0,
+                },
+                "pair_approx": {
+                    "initial_directions": 8,
+                    "max_directions": 8,
+                    "eps_pair": 0.25,
+                    "certificate_mode": "theorem",
+                },
+                "orientation": {
+                    "initial_intervals": 1,
+                    "theta_min": 0.1,
+                    "max_depth": 0,
+                },
+                "query": {
+                    "max_support_calls": 1_000_000,
+                    "max_wall_seconds": 120,
+                    "eps_clear": 2e-3,
+                    "max_refinement_rounds": 0,
+                },
+            },
+            "budget": {
+                "limits_per_case": {
+                    "support_value_evals": 1_000_000,
+                    "support_point_evals": 1_000_000,
+                },
+                "max_refinements_per_case": 1,
+                "wall_warning_seconds_per_case": 120,
+            },
+        }
+&gt;       report = run_benchmark_spec(spec)
+
+tests/integration/test_atlas_gate_intervals.py:559: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:84: in run_benchmark_spec
+    return run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1461: in run_atlas_gate_interval_spec
+    return _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1542: in _run_atlas_gate_interval_spec
+    store = AtlasAssetStore(atlas_path)
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_staged_report_keeps_initial_and_refined_aggregates_separate" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">def test_staged_report_keeps_initial_and_refined_aggregates_separate():
+        common_compiler = {
+            "geometry": {
+                "support_level_scene": 1.0,
+                "support_level_robot": 1.0,
+            },
+            "pair_approx": {
+                "initial_directions": 8,
+                "max_directions": 8,
+                "eps_pair": 0.25,
+                "certificate_mode": "theorem",
+            },
+            "orientation": {
+                "initial_intervals": 1,
+                "theta_min": 0.1,
+                "max_depth": 0,
+            },
+            "query": {
+                "max_support_calls": 1_000_000,
+                "max_wall_seconds": 120,
+                "eps_clear": 2e-3,
+            },
+        }
+        common_budget = {
+            "limits_per_case": {
+                "support_value_evals": 1_000_000,
+                "support_point_evals": 1_000_000,
+            },
+            "max_refinements_per_case": 1,
+        }
+&gt;       report = run_benchmark_spec({
+            "name": "two-stage-smoke",
+            "kind": "atlas_g1_full_gate_intervals",
+            "atlas_root": str(ATLAS),
+            "splits": ["dev"],
+            "families": ["G1"],
+            "partial_gate_only": False,
+            "event_tolerance_deg": 5.0,
+            "compiler": common_compiler,
+            "budget": common_budget,
+            "stages": [
+                {
+                    "stage": "initial",
+                    "case_ids": ["dev_000"],
+                    "expected": {
+                        "expected_n_cases": 1,
+                        "expected_case_ids": ["dev_000"],
+                        "acceptance_policy": "all_cases_containment",
+                    },
+                },
+                {
+                    "stage": "refined",
+                    "case_ids": ["dev_002"],
+                    "expected": {
+                        "expected_n_cases": 1,
+                        "expected_case_ids": ["dev_002"],
+                        "acceptance_policy": "all_cases_containment",
+                    },
+                },
+            ],
+        })
+
+tests/integration/test_atlas_gate_intervals.py:622: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gmc/benchmarking/runner.py:84: in run_benchmark_spec
+    return run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1461: in run_atlas_gate_interval_spec
+    return _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1489: in _run_atlas_gate_interval_spec
+    result = _run_atlas_gate_interval_spec(
+src/gmc/benchmarking/gate_intervals.py:1542: in _run_atlas_gate_interval_spec
+    store = AtlasAssetStore(atlas_path)
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_formal_profile_rejects_stage_case_tolerance_and_budget_drift" time="0.015" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_stage_gate_rejects_expected_case_and_policy_drift" time="0.002" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_all_cases_accept_recomputes_and_rejects_forged_cached_pass" time="0.002" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_stage_gate_recovers_budget_stops_hidden_by_cleared_timing" time="0.002" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_stage_gate_rejects_forged_budget_completion_and_non_bool_flag" time="0.001" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_cross_stage_truth_asset_and_metric_contract_drift_is_rejected" time="0.002" /><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_budget_exception_keeps_finally_timing_and_fails_acceptance" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21e76570&gt;
+
+    def test_budget_exception_keeps_finally_timing_and_fails_acceptance(
+            monkeypatch):
+&gt;       case = _case("dev_000")
+
+tests/integration/test_atlas_gate_intervals.py:1020: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_atlas_gate_intervals" name="test_case_deadline_skips_connectivity_and_builder_gets_all_pairs" time="0.002"><failure message="gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x150e21db6710&gt;
+
+    def test_case_deadline_skips_connectivity_and_builder_gets_all_pairs(
+            monkeypatch):
+&gt;       case = _case("dev_000")
+
+tests/integration/test_atlas_gate_intervals.py:1070: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_atlas_gate_intervals.py:50: in _case
+    return AtlasAssetStore(ATLAS).load_cases(
+src/gmc/benchmarking/atlas.py:259: in __init__
+    self._resolve_package_layout(self.root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/scratch/wg2381/splathjb-baselines/splatc_atlas')
+
+    @staticmethod
+    def _resolve_package_layout(
+            root: Path) -&gt; tuple[Path, Path, Path]:
+        """Accept a live Atlas root, package root, or sealed snapshot root."""
+        if (root / "outputs" / "round4_final_package"
+                / "MANIFEST.sha256").is_file():
+            package = root / "outputs" / "round4_final_package"
+            return package.resolve(), (package / "src_snapshot").resolve(), root
+        if (root / "MANIFEST.sha256").is_file() and (
+                root / "src_snapshot").is_dir():
+            package = root
+            live = package.parent.parent
+            return package.resolve(), (package / "src_snapshot").resolve(), live
+        if root.name == "src_snapshot" and (
+                root.parent / "MANIFEST.sha256").is_file():
+            package = root.parent
+            live = package.parent.parent
+            return package.resolve(), root, live
+&gt;       raise AtlasAssetError(
+            "Atlas root does not contain the sealed round4_final_package: "
+            f"{root}"
+        )
+E       gmc.benchmarking.atlas.AtlasAssetError: Atlas root does not contain the sealed round4_final_package: /scratch/wg2381/splathjb-baselines/splatc_atlas
+
+src/gmc/benchmarking/atlas.py:315: AtlasAssetError</failure></testcase><testcase classname="tests.integration.test_dual_graph_query.TestDualGraph" name="test_possible_contains_safe" time="1.778" /><testcase classname="tests.integration.test_dual_graph_query.TestDualGraph" name="test_cross_wall_reachable" time="0.373" /><testcase classname="tests.integration.test_dual_graph_query.TestDualGraph" name="test_pose_inside_obstacle_invalid" time="0.019" /><testcase classname="tests.integration.test_height_plane_case" name="test_the_precomputed_section_agrees_with_showcase_scene_section" time="0.083" /><testcase classname="tests.integration.test_height_plane_case" name="test_the_case_passes_every_criterion_including_the_unchanged_criterion_1" time="0.002" /><testcase classname="tests.integration.test_height_plane_case" name="test_the_straight_line_is_free_for_the_sweeper_and_blocked_for_the_cylinder" time="0.002" /><testcase classname="tests.integration.test_height_plane_case" name="test_all_three_robots_share_the_window_the_start_and_the_goal" time="0.002" /><testcase classname="tests.integration.test_height_plane_case" name="test_d1_is_what_the_endpoints_are_judged_by_and_it_is_per_robot" time="0.001" /><testcase classname="tests.integration.test_height_plane_case" name="test_the_three_routes_are_visibly_different" time="0.003" /><testcase classname="tests.integration.test_height_plane_case" name="test_the_cylinder_sees_the_tabletop_and_the_sweeper_does_not" time="0.003" /><testcase classname="tests.integration.test_height_table" name="test_scene_boundaries_match_the_spec" time="0.003" /><testcase classname="tests.integration.test_height_table" name="test_T2_7_maps_by_provenance" time="0.021" /><testcase classname="tests.integration.test_height_table" name="test_T2_6_replay_rejects_cylinder_through_the_table" time="17.519" /><testcase classname="tests.integration.test_height_table" name="test_sweeper_straight_line_under_the_table_replays_clean" time="0.020" /><testcase classname="tests.integration.test_interval_cover_graph" name="test_hidden_narrow_gate_stays_in_possible_cover" time="6.415" /><testcase classname="tests.integration.test_interval_cover_graph" name="test_safe_cover_edges_still_require_and_replay_rotation_witness" time="2.182" /><testcase classname="tests.integration.test_interval_cover_graph" name="test_certified_interval_cover_closes_a_sealed_door" time="17.602" /><testcase classname="tests.integration.test_keyhole_pipeline.TestKeyhole" name="test_enter_chamber" time="22.144" /><testcase classname="tests.integration.test_keyhole_pipeline.TestKeyhole" name="test_chamber_to_outside_far_side" time="3.693" /><testcase classname="tests.integration.test_p5_system_benchmark" name="test_p5_system_curves_are_conservative_and_incremental_work_is_bounded" time="0.939" /><testcase classname="tests.integration.test_path_lifting.TestLifting" name="test_reachable_and_curve_shape" time="167.752" /><testcase classname="tests.integration.test_path_lifting.TestLifting" name="test_c0_continuity" time="0.002" /><testcase classname="tests.integration.test_path_lifting.TestLifting" name="test_independent_verifier_repasses" time="9.285" /><testcase classname="tests.integration.test_path_lifting.TestLifting" name="test_reversible_dd_rejects_holonomic_sideways_legs" time="0.003" /><testcase classname="tests.integration.test_query_refinement" name="test_one_refinement_turns_unknown_into_terminal_result" time="0.022" /><testcase classname="tests.integration.test_query_refinement" name="test_terminal_result_commit_crossing_wall_deadline_abstains[reachable]" time="0.010" /><testcase classname="tests.integration.test_query_refinement" name="test_terminal_result_commit_crossing_wall_deadline_abstains[unreachable]" time="0.010" /><testcase classname="tests.integration.test_query_refinement" name="test_zero_support_budget_performs_no_refinement" time="0.011" /><testcase classname="tests.integration.test_query_refinement" name="test_nonrefinable_target_returns_unknown_no_progress" time="0.010" /><testcase classname="tests.integration.test_query_refinement" name="test_runtime_graph_invariant_failure_is_internal_error" time="0.009" /><testcase classname="tests.integration.test_query_refinement" name="test_same_target_produces_deterministic_revision_and_split" time="0.035" /><testcase classname="tests.integration.test_query_refinement" name="test_refine_slab_keeps_parent_cache_atomic_on_builder_failure" time="0.010" /><testcase classname="tests.integration.test_query_refinement" name="test_witness_failure_never_deletes_possible_adjacency" time="0.016" /><testcase classname="tests.integration.test_query_refinement" name="test_strict_owner_and_all_exact_boundary_memberships" time="0.008" /><testcase classname="tests.integration.test_query_refinement" name="test_query_uses_all_endpoint_memberships_before_any_formal_cut" time="0.011" /><testcase classname="tests.integration.test_query_refinement" name="test_formal_cut_invariant_replay_crossing_wall_deadline_abstains[otherwise_unreachable]" time="0.009" /><testcase classname="tests.integration.test_query_refinement" name="test_formal_cut_invariant_replay_crossing_wall_deadline_abstains[otherwise_internal_error]" time="0.008" /><testcase classname="tests.integration.test_query_refinement" name="test_compile_rejects_truncated_interval_possible_components" time="0.008" /><testcase classname="tests.integration.test_query_refinement" name="test_uncertified_possible_cut_targets_missing_interval_cover_first" time="0.006" /><testcase classname="tests.integration.test_single_door_pipeline.TestSingleDoor" name="test_invariants" time="154.192" /><testcase classname="tests.integration.test_single_door_pipeline.TestSingleDoor" name="test_cross_door_reachable_with_certified_path" time="2.625" /><testcase classname="tests.integration.test_single_door_pipeline.TestSingleDoor" name="test_closed_theta_start_still_reachable_via_rotation" time="72.733" /><testcase classname="tests.integration.test_single_door_pipeline.TestSealedDoor" name="test_cut_without_global_cover_abstains" time="22.487" /><testcase classname="tests.regression.test_artifact_integrity" name="test_scene_hash_includes_workspace_holes" time="0.002" /><testcase classname="tests.regression.test_artifact_integrity" name="test_input_hashes_include_primitive_ids" time="0.002" /><testcase classname="tests.regression.test_artifact_integrity" name="test_hashes_bind_the_tuple_order_used_by_pair_enumeration" time="0.005" /><testcase classname="tests.regression.test_artifact_integrity" name="test_i7_checker_does_not_turn_honest_missing_artifacts_into_pass" time="0.001" /><testcase classname="tests.regression.test_artifact_replay" name="test_make_run_dir_rejects_nonempty_existing_run" time="0.003" /><testcase classname="tests.regression.test_artifact_replay" name="test_bundle_is_movable_and_external_config_changes_do_not_affect_replay" time="0.383" /><testcase classname="tests.regression.test_artifact_replay" name="test_structured_result_and_certificate_ids_are_not_stringified" time="0.004" /><testcase classname="tests.regression.test_artifact_replay" name="test_verify_failure_is_persisted_and_returns_nonzero" time="0.096" /><testcase classname="tests.regression.test_artifact_replay" name="test_nonterminal_query_automatically_writes_regression_case" time="0.115" /><testcase classname="tests.regression.test_artifact_replay" name="test_tampered_run_input_is_rejected_by_query" time="0.125" /><testcase classname="tests.regression.test_artifact_replay" name="test_tampered_frozen_config_is_rejected_field_by_field" time="0.061" /><testcase classname="tests.regression.test_artifact_replay" name="test_graphml_preserves_semantics_and_safe_witness_is_recheckable" time="0.009" /><testcase classname="tests.regression.test_artifact_replay" name="test_large_coordinate_numerics_and_sandwich_slacks_are_replayable" time="0.076" /><testcase classname="tests.regression.test_cache_identity" name="test_pair_frame_cache_does_not_quantize_close_angles" time="0.004" /><testcase classname="tests.regression.test_cache_identity" name="test_pair_frame_is_exactly_periodic_even_with_large_body_offset" time="0.002" /><testcase classname="tests.regression.test_cache_identity" name="test_support_oracle_rejects_degenerate_directions_without_nan[bad0]" time="0.002" /><testcase classname="tests.regression.test_cache_identity" name="test_support_oracle_rejects_degenerate_directions_without_nan[bad1]" time="0.002" /><testcase classname="tests.regression.test_cache_identity" name="test_support_oracle_rejects_degenerate_directions_without_nan[bad2]" time="0.003" /><testcase classname="tests.regression.test_cache_identity" name="test_pair_frame_cache_hits_are_accounted" time="0.002" /><testcase classname="tests.regression.test_collision_oracle" name="test_ill_conditioned_deep_collision_is_not_solver_failure_free_space" time="0.002" /><testcase classname="tests.regression.test_collision_oracle" name="test_high_condition_analytic_contacts_and_sided_offsets" time="0.330" /><testcase classname="tests.regression.test_collision_oracle" name="test_pose_collision_oracle_is_large_translation_equivariant" time="0.003" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_translation_cannot_change_heading" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_rotation_cannot_change_position" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_curve_endpoints_are_part_of_certificate" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_periodic_c0_join_is_accepted" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_empty_curve_is_not_an_executable_edge_certificate" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_sideways_translation_is_not_differential_drive_executable" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_backward_translation_is_reversible_drive_executable" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_missing_corridor_cannot_be_certified" time="0.001" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_zero_dynamic_budget_fails_closed" time="0.003" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_long_translation_cannot_hide_macroscopic_lateral_motion" time="0.002" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_raw_polygon_is_not_a_collision_free_corridor_certificate" time="0.001" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_curve_through_obstacle_cannot_receive_dynamic_certificate" time="0.005" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_zero_area_corridor_is_invalid" time="0.001" /><testcase classname="tests.regression.test_dynamics_certifier" name="test_name_spoof_does_not_substitute_for_capability_model" time="0.004" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean0-covariance0-1.0-0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean1-covariance1-1.0-0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean2-covariance2-1.0-0]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean3-covariance3-1.0-0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean4-covariance4-1.0-0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean5-covariance5-1.0-0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean6-covariance6-0.0-0]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean7-covariance7-nan-0]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean8-covariance8-1-0]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean9-covariance9-1.0-1.2]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_supports_are_rejected[mean10-covariance10-1.0-1]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_support_and_pose_arrays_are_copied_and_immutable" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_poses_are_rejected[xy0-0.0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_poses_are_rejected[xy1-0.0]" time="0.005" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_poses_are_rejected[xy2-nan]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_robot_and_workspace_invariants_are_enforced" time="0.003" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;0]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;1]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;2]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;3]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;4]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;5]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;6]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;7]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;8]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;9]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;10]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;11]" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_invalid_direct_config_values_are_rejected[&lt;lambda&gt;12]" time="0.001" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_yaml_boolean_is_not_coerced_from_a_string" time="0.004" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_loaders_do_not_coerce_primitive_ids[scene-1.2]" time="0.004" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_loaders_do_not_coerce_primitive_ids[robot-1]" time="0.004" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_configured_covariance_floor_is_enforced" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_numerical_nan_fails_closed_in_continuous_checks" time="0.002" /><testcase classname="tests.regression.test_fail_closed_inputs" name="test_negative_clearance_floor_is_illegal" time="0.001" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_interval_pair_cover_tree_and_nondefault_rounds_are_persisted" time="0.081" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_interval_artifact_tamper_is_detected" time="0.071" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_interval_artifact_missing_file_is_detected" time="0.070" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_fixed_slice_direction_file_tamper_is_detected" time="0.083" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_certified_cover_does_not_claim_hidden_interval_event_exclusion" time="0.562" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_manifest_extra_cannot_override_reserved_evidence" time="0.004" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_boolean_i7_upgrade_cannot_bypass_full_replay_contract" time="0.077" /><testcase classname="tests.regression.test_interval_artifact_tree" name="test_full_i7_roles_cannot_alias_one_unrelated_hashed_file" time="0.080" /><testcase classname="tests.regression.test_invariant_gates" name="test_garbage_safe_edge_witness_fails_i4" time="0.018" /><testcase classname="tests.regression.test_invariant_gates" name="test_missing_possible_counterpart_fails_i3" time="0.019" /><testcase classname="tests.regression.test_invariant_gates" name="test_missing_periodic_wrap_edge_fails_i6" time="0.018" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_pair_local_margin_rejects_locked_large_coordinate_collision" time="0.003" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_independent_curve_verifier_cannot_certify_that_collision" time="0.004" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_sub_femtoredian_rotation_is_not_treated_as_zero" time="0.008" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_large_world_translation_cannot_step_over_sub_ulp_obstacle" time="0.008" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_pair_margin_is_equivariant_under_exact_large_translation" time="0.004" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_large_coordinate_envelope_keeps_dense_outer_and_inner_directions" time="0.049" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_compile_rejects_unrepresentable_world_precision" time="0.010" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_bvh_fail_includes_when_tiny_world_buffer_would_collapse" time="0.004" /><testcase classname="tests.regression.test_large_coordinate_soundness" name="test_bvh_candidate_set_is_large_translation_equivariant_for_slanted_ws" time="0.006" /><testcase classname="tests.regression.test_oracle_provenance" name="test_empty_oracle_override_cannot_create_certified_free_slice" time="0.004" /><testcase classname="tests.regression.test_oracle_provenance" name="test_mutating_a_bound_candidate_set_is_detected_before_query" time="0.087" /><testcase classname="tests.regression.test_orientation_soundness" name="test_three_sample_regular_candidates_do_not_certify_global_cover" time="27.434" /><testcase classname="tests.regression.test_orientation_soundness" name="test_hidden_narrow_gate_cut_abstains_instead_of_false_unreachable" time="35.631" /><testcase classname="tests.regression.test_orientation_soundness" name="test_zero_motion_query_emits_stationary_primitive_and_checks_contact" time="0.005" /><testcase classname="tests.regression.test_orientation_soundness" name="test_lift_does_not_drop_tiny_nonzero_endpoint_rotation" time="0.004" /><testcase classname="tests.regression.test_orientation_soundness" name="test_zero_support_budget_is_hard_and_returns_unknown" time="0.004" /><testcase classname="tests.regression.test_orientation_soundness" name="test_verification_finishing_after_wall_deadline_cannot_return_reachable" time="0.004" /><testcase classname="tests.regression.test_orientation_soundness" name="test_free_pose_missing_from_finite_possible_graph_is_unknown" time="0.004" /><testcase classname="tests.regression.test_p3_provenance_guards" name="test_certified_decomposition_cannot_be_reused_for_another_scene" time="9.931" /><testcase classname="tests.regression.test_p3_provenance_guards" name="test_substituting_a_midpoint_slice_for_interval_proof_is_rejected" time="0.232" /><testcase classname="tests.regression.test_p3_provenance_guards" name="test_certified_cover_cannot_omit_a_pair_outer_obstacle" time="0.250" /><testcase classname="tests.regression.test_p3_provenance_guards" name="test_sub_tolerance_angular_gap_never_certifies_full_circle" time="0.002" /><testcase classname="tests.regression.test_p3_provenance_guards" name="test_missing_possible_lineage_turns_formal_cut_into_internal_error" time="4.203" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[0]" time="0.752" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[1]" time="0.229" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[2]" time="0.227" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[3]" time="0.607" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[4]" time="0.502" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[5]" time="0.581" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[6]" time="0.599" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[7]" time="0.340" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[8]" time="0.568" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[9]" time="0.400" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[10]" time="0.232" /><testcase classname="tests.regression.test_p5_adversarial" name="test_clean_and_incremental_match_across_updates_and_cache_eviction[11]" time="0.759" /><testcase classname="tests.regression.test_pair_pruning_artifacts" name="test_pair_pruning_payload_covers_cartesian_product_and_replays" time="0.005" /><testcase classname="tests.regression.test_pair_pruning_artifacts" name="test_pair_pruning_replay_rejects_edited_bound_and_deleted_pair" time="0.005" /><testcase classname="tests.regression.test_possible_graph_soundness" name="test_three_box_lineage_without_single_anchor_is_still_possible" time="0.003" /><testcase classname="tests.regression.test_possible_graph_soundness" name="test_three_box_transition_is_retained_in_possible_graph" time="0.003" /><testcase classname="tests.regression.test_precision_soundness" name="test_outer_precision_cannot_shrink_a_collision_boundary" time="0.003" /><testcase classname="tests.regression.test_precision_soundness" name="test_inner_precision_cannot_expand_a_free_boundary" time="0.003" /><testcase classname="tests.regression.test_precision_soundness" name="test_slice_union_keeps_direction_after_fixed_precision_intersections" time="0.004" /><testcase classname="tests.regression.test_precision_soundness" name="test_possible_side_never_drops_a_positive_area_component" time="0.003" /><testcase classname="tests.regression.test_precision_soundness" name="test_equal_area_component_order_is_canonical" time="0.002" /><testcase classname="tests.regression.test_precision_soundness" name="test_component_extraction_rejects_unrepaired_invalid_ring" time="0.003" /><testcase classname="tests.regression.test_scale_invariant_lineage" name="test_tiny_component_matches_itself_just_like_scaled_copy" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_rotation_cannot_teleport" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_translation_cannot_change_theta" time="0.003" /><testcase classname="tests.regression.test_verifier_semantics" name="test_control_points_must_obey_segment_primitive" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_c0_and_fixed_theta_are_periodic" time="0.003" /><testcase classname="tests.regression.test_verifier_semantics" name="test_empty_curve_is_not_a_certificate" time="0.001" /><testcase classname="tests.regression.test_verifier_semantics" name="test_requested_endpoint_is_bound_without_fixed_tolerance" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_requested_periodic_endpoint_representation_is_accepted" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_degenerate_segment_still_checks_collision" time="0.003" /><testcase classname="tests.regression.test_verifier_semantics" name="test_workspace_boundary_contributes_to_clearance_and_eps_floor" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_no_obstacle_clearance_is_bounded_by_workspace_not_infinity" time="0.003" /><testcase classname="tests.regression.test_verifier_semantics" name="test_rotation_near_workspace_boundary_obeys_eps_floor" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_slanted_workspace_distance_is_rounded_down_for_eps_certificate" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_translation_reports_a_swept_clearance_lower_bound" time="0.005" /><testcase classname="tests.regression.test_verifier_semantics" name="test_clearance_branch_and_bound_matches_naive_pair_minimum" time="0.004" /><testcase classname="tests.regression.test_verifier_semantics" name="test_verifier_fails_closed_on_nonfinite_oracle_output" time="0.002" /><testcase classname="tests.regression.test_verifier_semantics" name="test_one_shot_oracle_iterable_is_reused_for_every_segment" time="0.006" /><testcase classname="tests.theorem.test_boundary_pinch.TestBoundaryPinch" name="test_pinch_splits_free_space" time="0.209" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_door_above_major_diameter_is_certified_open_for_full_s1" time="4.701" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_door_below_minor_diameter_is_certified_closed_for_full_s1" time="6.537" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_partial_gate_bounds_contain_the_analytic_truth" time="19.949" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_tangent_angles_abstain_and_seam_is_merged" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_opposite_certified_neighbours_only_guarantee_a_transition" time="0.001" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_explicit_sweep_api_preserves_leaf_lower_upper_contract" time="7.294" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_explicit_sweep_charges_leaf_artifact_postprocessing_to_wall_budget" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_zero_independent_budget_accepts_no_refinement[0-60.0-support_budget_exhausted]" time="0.409" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_zero_independent_budget_accepts_no_refinement[1000000-0.0-wall_budget_exhausted]" time="0.003" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_cross_scene_decomposition_binding_is_rejected" time="0.228" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_split_finishing_after_wall_deadline_is_not_accepted" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_expired_wall_budget_skips_deep_validation_and_classification" time="0.003" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_specialized_split_classifies_only_new_children" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_resolved_specialized_revision_gets_one_final_full_validation" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_resolved_classification_crossing_wall_deadline_is_not_accepted" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_support_budget_rejects_batch_before_oracle_work" time="0.003" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_non_support_ledger_budget_preserves_its_currency" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_ledger_support_budgets_share_public_stop_reason[support_value_evals]" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_ledger_support_budgets_share_public_stop_reason[support_point_evals]" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_pre_rotated_hidden_narrow_gate_is_not_lost_by_upper_bound" time="29.624" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_safe_boundary_and_touching_upper_components_both_abstain" time="0.006" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_periodic_unknown_runs_merge_and_form_nonisolating_bracket" time="0.003" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_resolution_limits_leave_full_s1_unresolved[6.283185307179586-10-theta_min_reached]" time="0.002" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_resolution_limits_leave_full_s1_unresolved[0.0-0-max_depth_reached]" time="0.007" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_injected_interval_certificate_failure_remains_unknown" time="0.068" /><testcase classname="tests.theorem.test_connectivity_intervals" name="test_lower_exceeding_upper_is_an_internal_invariant_error" time="0.018" /><testcase classname="tests.theorem.test_connectivity_slab_builder" name="test_connectivity_build_uses_every_pair_and_only_cover_assemblies" time="0.156" /><testcase classname="tests.theorem.test_connectivity_slab_builder" name="test_connectivity_refinement_builds_only_two_children_transactionally" time="0.043" /><testcase classname="tests.theorem.test_connectivity_slab_builder" name="test_connectivity_refinement_discards_first_child_on_deadline" time="0.033" /><testcase classname="tests.theorem.test_connectivity_slab_builder" name="test_build_slice_forwards_the_incoming_ledger" time="0.010" /><testcase classname="tests.theorem.test_connectivity_slab_builder" name="test_expired_connectivity_build_starts_no_pair_work" time="0.003" /><testcase classname="tests.theorem.test_event_isolation.TestEventIsolation" name="test_uncertain_slabs_bracket_analytic_events" time="114.350" /><testcase classname="tests.theorem.test_event_isolation.TestEventIsolation" name="test_regular_slabs_have_stable_counts" time="118.232" /><testcase classname="tests.theorem.test_interval_global_soundness" name="test_true_free_random_poses_are_in_corresponding_possible_projection" time="0.148" /><testcase classname="tests.theorem.test_interval_global_soundness" name="test_interval_safe_points_are_free_at_many_orientations" time="0.013" /><testcase classname="tests.theorem.test_interval_global_soundness" name="test_verified_positive_clearance_crossings_remain_connected_in_possible" time="0.007" /><testcase classname="tests.theorem.test_interval_global_soundness" name="test_zero_two_pi_endpoint_and_wrap_lineage_are_periodic" time="0.003" /><testcase classname="tests.theorem.test_interval_global_soundness" name="test_large_coordinate_cover_is_certified_sound_or_explicitly_unresolved" time="0.109" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_interval_pair_support_containment_random_theta_and_directions" time="0.079" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_inner_common_sampled_points_collide_throughout_interval" time="0.099" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_single_orientation_interval_reduces_to_midpoint_certificate" time="0.035" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_empty_midpoint_inner_remains_empty_without_poisoning_outer_proof" time="0.030" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_unresolvable_large_coordinate_precision_fails_closed" time="0.009" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_uncertified_midpoint_is_never_promoted" time="0.021" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_corrupted_certified_direction_schedule_is_not_hidden_as_unknown" time="0.028" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_stored_direction_rows_cannot_be_substituted_behind_same_angles" time="0.029" /><testcase classname="tests.theorem.test_interval_pair_certificate" name="test_exact_convex_nesting_rejects_one_ulp_protrusion" time="0.004" /><testcase classname="tests.theorem.test_interval_slab_cover" name="test_theorem_interval_projections_tile_the_full_circle" time="0.071" /><testcase classname="tests.theorem.test_interval_slab_cover" name="test_hidden_narrow_gate_can_have_cover_without_no_event_certificate" time="28.877" /><testcase classname="tests.theorem.test_interval_slab_cover" name="test_prototype_mode_keeps_legacy_unknown_cover_status" time="0.022" /><testcase classname="tests.theorem.test_interval_slab_cover" name="test_one_failed_interval_pair_certificate_prevents_global_certification" time="0.064" /><testcase classname="tests.theorem.test_interval_slab_cover" name="test_programming_error_is_not_silently_converted_to_unknown" time="0.049" /><testcase classname="tests.theorem.test_margin_guarantee.TestMarginGuarantee" name="test_f_safe_has_no_false_safe" time="8.920" /><testcase classname="tests.theorem.test_maximal_simplex.TestNerve" name="test_quad_common_intersection_stored" time="0.018" /><testcase classname="tests.theorem.test_maximal_simplex.TestNerve" name="test_pairwise_only_no_triangle" time="0.016" /><testcase classname="tests.theorem.test_maximal_simplex.TestNerve" name="test_triple_common_intersection" time="0.016" /><testcase classname="tests.theorem.test_pair_equivalence.TestPairEquivalence" name="test_sandwich_vs_independent_oracle" time="0.096" /><testcase classname="tests.theorem.test_sandwich_nesting.TestCertifiedBound" name="test_bound_dominates_dense_audit" time="0.110" /><testcase classname="tests.theorem.test_sandwich_nesting.TestCertifiedBound" name="test_certified_status_reached" time="0.014" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_open_vertical_ascent_climbs_straight" time="0.212" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_low_wall_is_overflown" time="13.059" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_closed_full_height_wall_is_certified_unreachable" time="23.545" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_full_height_wall_with_gap_is_passed_around" time="40.541" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_overhang_is_not_penetrated" time="5.811" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_bridge_gives_two_distinct_z_routes_at_the_same_xy" time="43.743" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_vertical_shaft_is_climbed_through_the_hole" time="52.637" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_two_uav_sizes_take_different_routes" time="100.418" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_codex_under_over_fixture_in_one_query" time="5.736" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_mini_booth_route_passes_under_the_lamp[low_start]" time="25.080" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_mini_booth_route_passes_under_the_lamp[high_start]" time="3.157" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_mini_booth_plug_is_certified_unreachable[low_start]" time="26.037" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_mini_booth_plug_is_certified_unreachable[high_start]" time="0.069" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_graph_boundaries_trace_to_pair_ids" time="2.297" /><testcase classname="tests.unit.test_aerial3d_acceptance" name="test_backend_never_loads_mesh_voxel_esdf_or_projection_code" time="16.388" /><testcase classname="tests.unit.test_aerial3d_api" name="test_compile_records_timed_substeps_and_is_reused_by_queries" time="16.471" /><testcase classname="tests.unit.test_aerial3d_api" name="test_reachable_result_contract_and_shared_replay" time="2.206" /><testcase classname="tests.unit.test_aerial3d_api" name="test_open_ascent_is_a_straight_vertical_segment" time="0.029" /><testcase classname="tests.unit.test_aerial3d_api" name="test_closed_wall_is_certified_unreachable_with_a_pair_cut" time="25.211" /><testcase classname="tests.unit.test_aerial3d_api" name="test_gap_wall_goes_around_through_the_gap" time="42.496" /><testcase classname="tests.unit.test_aerial3d_api" name="test_start_in_collision_is_reported" time="11.632" /><testcase classname="tests.unit.test_aerial3d_api" name="test_status_names_match_the_shared_plan_status_enum" time="0.005" /><testcase classname="tests.unit.test_aerial3d_api" name="test_lifted_path_is_shortest_within_its_cell_sequence" time="12.586" /><testcase classname="tests.unit.test_aerial3d_api" name="test_default_path_is_tightened_to_a_taut_string" time="13.693" /><testcase classname="tests.unit.test_aerial3d_api" name="test_post_processing_keeps_the_certificate_buffer" time="13.888" /><testcase classname="tests.unit.test_aerial3d_api" name="test_corner_wraps_are_merged_after_tightening" time="41.740" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_grown_cell_contains_seed_and_every_facet_is_a_pair_support_plane_or_domain" time="5.597" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_cell_points_are_free_for_the_baseline_oracle" time="29.294" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_every_safe_leaf_is_covered_and_portals_lie_in_both_cells" time="33.437" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_cell_graph_is_at_least_as_connected_as_the_safe_leaf_face_graph" time="29.454" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_cell_budget_falls_back_to_box_cells_and_still_covers_every_safe_leaf" time="0.129" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_empty_scene_is_one_cell_equal_to_the_domain" time="0.025" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_traceability_fractions_are_reported" time="22.569" /><testcase classname="tests.unit.test_aerial3d_cells" name="test_portals_keep_several_spread_regions_per_cell_pair" time="28.805" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_direction_set_is_half_sphere_with_axes_and_fine_cover" time="0.021" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_outer_polytope_contains_exact_support_points" time="0.015" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_inner_polytope_is_inside_exact_and_excludes_outside_points" time="0.808" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_sandwich_audit_passes_on_analytic_random_and_adversarial_pairs" time="0.032" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_box_separation_gap_is_a_certified_disjointness_witness" time="6.488" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_direction_refinement_separates_where_fixed_directions_fail" time="0.005" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_box_in_inner_is_sound_and_depth_is_necessary" time="0.872" /><testcase classname="tests.unit.test_aerial3d_envelopes" name="test_covering_radius_and_refinement_bound_are_sound" time="0.746" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_ground_domain_is_a_thin_slab_at_the_body_centre_height" time="0.024" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_ground_domain_needs_a_support_surface" time="0.002" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_band_prunes_gaussians_the_body_cannot_reach" time="3.482" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_short_body_threads_under_the_table_tall_body_detours" time="2.004" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_exported_ground_result_passes_a_fresh_independent_replay" time="1.931" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_off_manifold_endpoint_is_unknown_not_planned" time="0.002" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_repeat_query_reuses_the_compile_and_is_identical" time="3.922" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_persisted_compile_reloads_and_answers_identically" time="0.017" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_uav_path_is_unchanged" time="0.012" /><testcase classname="tests.unit.test_aerial3d_ground" name="test_export_densifies_the_shared_replay_trajectory_without_changing_the_path" time="0.016" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_straight_line_has_no_turning" time="0.004" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_right_angle_turn" time="0.002" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_polygonal_circle_converges_to_the_continuous_curvature" time="0.002" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_zero_length_segments_are_ignored" time="0.002" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_jerk_of_a_straight_eased_bezier_matches_the_closed_form" time="0.002" /><testcase classname="tests.unit.test_aerial3d_metrics" name="test_smoothed_segment_metrics_sum_segments" time="0.002" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_empty_scene_is_one_safe_component_tiling_the_roots" time="0.017" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_leaf_labels_agree_with_the_baseline_oracle" time="12.756" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_every_leaf_carries_pair_provenance" time="5.392" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_closed_full_height_wall_separates_the_possible_graph" time="3.045" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_open_wall_gap_keeps_the_possible_graph_connected" time="5.496" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_locate_returns_the_leaves_whose_closed_box_contains_the_point" time="5.443" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_outside_leaves_contain_no_domain_point" time="5.446" /><testcase classname="tests.unit.test_aerial3d_octree" name="test_grid_tiles_an_axis_aligned_domain_without_boundary_leaves" time="5.524" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_support_value_of_spherical_gaussian_matches_closed_form" time="0.002" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_support_points_are_on_the_boundary_and_inside_the_c_obstacle" time="0.031" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_c_obstacle_membership_agrees_with_the_baseline_oracle" time="0.486" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_exact_aabb_is_the_support_on_the_axes" time="0.003" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_planning_frame_is_rigid_rotation_about_z_and_round_trips" time="0.002" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_pairs_from_scene_keeps_opacity_above_tau_and_full_covariance" time="0.014" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_route_frame_pairs_rotate_covariance_and_preserve_support" time="0.016" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_known_box_domain_matches_the_baseline_oracle_in_an_empty_scene" time="0.096" /><testcase classname="tests.unit.test_aerial3d_pairs" name="test_route_prism_domain_matches_the_baseline_oracle_in_an_empty_scene" time="0.017"><failure message="AssertionError: (array([3.21362828, 2.44770808, 2.04313962]), -0.03047607536751684)&#10;assert True == (-0.03047607536751684 &gt; 0)">def test_route_prism_domain_matches_the_baseline_oracle_in_an_empty_scene():
+        t = 1.13  # the gallery frame is ~64 degrees off the world axes
+        Rw = np.array([[np.cos(t), np.sin(t), 0], [np.sin(t), -np.cos(t), 0], [0, 0, 1]])
+        origin = np.array([9.8, 26.9, -1.2])
+        known = RouteBoxKnownSpace(tuple(origin), tuple(map(tuple, Rw)), (-3., -.35, 0.), (3.7, 2.75, 2.43))
+        lo, hi = known.world_bounds()
+        scene = make_scene(lower=lo, upper=hi, known=known)
+        frame, domain = domain_from_scene(scene, UAV, margin_m=M)
+        assert np.allclose(frame.R, Rw) and np.allclose(frame.origin, origin)
+        oracle = GaussianBodyOracle(scene)
+        rng = np.random.default_rng(2)
+        agree = inside = 0
+        for qp in rng.uniform((-3.2, -.5, -.1), (3.9, 2.9, 2.6), size=(3000, 3)):
+            slack = domain.row_slack(qp)
+            if abs(slack) &lt; 1e-6:
+                continue
+            q = frame.to_world(qp)
+            free = oracle.pose(Pose3(tuple(q)), UAV, margin_m=M).occupancy == "free"
+&gt;           assert free == (slack &gt; 0), (qp, slack)
+E           AssertionError: (array([3.21362828, 2.44770808, 2.04313962]), -0.03047607536751684)
+E           assert True == (-0.03047607536751684 &gt; 0)
+
+tests/unit/test_aerial3d_pairs.py:170: AssertionError</failure></testcase><testcase classname="tests.unit.test_aerial3d_query" name="test_corner_wrap_is_merged_into_the_tangent_intersection" time="0.003" /><testcase classname="tests.unit.test_aerial3d_query" name="test_merge_is_refused_without_certification_or_beyond_the_length_budget" time="0.003" /><testcase classname="tests.unit.test_aerial3d_verify" name="test_between_waypoint_obstacle_is_caught_although_endpoints_are_free" time="0.017" /><testcase classname="tests.unit.test_aerial3d_verify" name="test_certified_segments_agree_with_the_baseline_edge_oracle" time="1.317" /><testcase classname="tests.unit.test_aerial3d_verify" name="test_clearance_bound_matches_the_analytic_value_for_a_sphere" time="0.016" /><testcase classname="tests.unit.test_aerial3d_verify" name="test_polyline_trace_and_domain_exit" time="0.013" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_sampler_is_seeded_and_every_pair_meets_the_rules" time="0.082" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_sampler_counts_every_rejection" time="0.017" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_sampler_prefix_is_the_smaller_run" time="0.018" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_task_slices_partition_the_list" time="0.002" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_checkpoint_drops_a_torn_tail" time="0.003" /><testcase classname="tests.unit.test_aerial3dg_batch" name="test_run_task_answers_from_one_load_and_resumes" time="0.080" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_circular_distance_wraps_at_period" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_event_metrics_count_hits_spurious_and_widths" time="0.001" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_empty_prediction_has_zero_recall_for_nonempty_truth" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_budget_caps_support_legacy_and_reject_unordered_schedules" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_periodic_boundary_bracket_matches_zero_without_spurious_count" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_search_merges_first_and_last_brackets_for_boundary_root" time="0.003" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_pair_min_ignores_root_of_pair_dominated_by_negative_pair" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_continuous_zero_region_is_unresolved_not_complete_event" time="0.003" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_event_search_rejects_invalid_bounds_and_outputs" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_one_bracket_cannot_match_two_truth_events" time="0.002" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_cli_prints_staged_aggregate_without_post_write_failure" time="0.004" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_cli_returns_nonzero_for_written_failed_gate" time="0.003" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_full_gate_cli_fails_closed_on_missing_or_malformed_gate" time="0.004" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_main_propagates_benchmark_return_code" time="0.004" /><testcase classname="tests.unit.test_benchmark_metrics" name="test_runner_atomically_publishes_failed_gate_report" time="0.003" /><testcase classname="tests.unit.test_budget" name="test_support_budget_is_atomic_and_batch_counts_scalar_evals" time="0.002" /><testcase classname="tests.unit.test_budget" name="test_phases_and_oracle_currencies_stay_separate" time="0.002" /><testcase classname="tests.unit.test_budget" name="test_scene_collision_counts_pose_and_actual_early_exit_pairs" time="0.002" /><testcase classname="tests.unit.test_budget" name="test_hard_cap_check_and_increment_are_atomic_across_threads" time="0.005" /><testcase classname="tests.unit.test_budget" name="test_phase_context_is_isolated_between_threads" time="0.002" /><testcase classname="tests.unit.test_budget" name="test_pair_oracle_fourth_positional_argument_remains_calls" time="0.002" /><testcase classname="tests.unit.test_budget" name="test_topology_currencies_are_independent_and_visible_in_snapshots" time="0.001" /><testcase classname="tests.unit.test_bvh" name="test_pair_bounding_disc_contains_anisotropic_obstacle_samples" time="0.004" /><testcase classname="tests.unit.test_bvh" name="test_hierarchy_exactly_matches_flat_candidate_set_and_order[1]" time="0.051" /><testcase classname="tests.unit.test_bvh" name="test_hierarchy_exactly_matches_flat_candidate_set_and_order[3]" time="0.046" /><testcase classname="tests.unit.test_bvh" name="test_hierarchy_exactly_matches_flat_candidate_set_and_order[8]" time="0.046" /><testcase classname="tests.unit.test_bvh" name="test_hierarchy_exactly_matches_flat_candidate_set_and_order[32]" time="0.049" /><testcase classname="tests.unit.test_bvh" name="test_far_scene_clusters_are_pruned_before_leaf_pair_tests" time="0.145" /><testcase classname="tests.unit.test_bvh" name="test_empty_scene_has_zero_work_and_no_candidates" time="0.002" /><testcase classname="tests.unit.test_bvh" name="test_reused_index_rejects_a_different_scene" time="0.002" /><testcase classname="tests.unit.test_coreset" name="test_hierarchy_is_deterministic" time="0.152" /><testcase classname="tests.unit.test_coreset" name="test_hierarchy_leaves_partition_the_scene" time="0.104" /><testcase classname="tests.unit.test_coreset" name="test_parent_members_are_the_union_of_children" time="0.106" /><testcase classname="tests.unit.test_coreset" name="test_bounding_disc_covers_every_member_ellipse" time="0.141" /><testcase classname="tests.unit.test_coreset" name="test_node_features_are_finite_and_robot_normalised" time="0.113" /><testcase classname="tests.unit.test_coreset" name="test_c0_cut_is_legal[0.01]" time="13.347" /><testcase classname="tests.unit.test_coreset" name="test_c0_cut_is_legal[0.05]" time="3.666" /><testcase classname="tests.unit.test_coreset" name="test_c0_cut_is_legal[0.2]" time="1.574" /><testcase classname="tests.unit.test_coreset" name="test_c0_finest_cut_reproduces_the_scene" time="0.251" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[0]" time="0.023" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[1]" time="0.018" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[2]" time="0.021" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[3]" time="0.021" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[4]" time="0.019" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[5]" time="0.019" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[6]" time="0.018" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[7]" time="0.023" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[8]" time="0.021" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[9]" time="0.017" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[10]" time="0.020" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_union_dense_directions[11]" time="0.015" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[0]" time="0.014" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[1]" time="0.018" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[2]" time="0.016" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[3]" time="0.014" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[4]" time="0.017" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[5]" time="0.017" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[6]" time="0.017" /><testcase classname="tests.unit.test_coreset" name="test_c1_macro_contains_member_interiors_pointwise[7]" time="0.013" /><testcase classname="tests.unit.test_coreset" name="test_c1_survives_a_deliberately_loose_mvee" time="0.012" /><testcase classname="tests.unit.test_coreset" name="test_c1_handles_a_collinear_group" time="0.016" /><testcase classname="tests.unit.test_coreset" name="test_c1_single_member_is_the_identity" time="0.002" /><testcase classname="tests.unit.test_coreset" name="test_certification_rejects_a_shrunken_ellipse" time="0.018" /><testcase classname="tests.unit.test_coreset" name="test_c2_coarse_obstacles_cover_the_original_obstacles[door]" time="3.641" /><testcase classname="tests.unit.test_coreset" name="test_c2_coarse_obstacles_cover_the_original_obstacles[keyhole]" time="3.604" /><testcase classname="tests.unit.test_coreset" name="test_smaller_tolerance_never_compresses_more" time="36.691" /><testcase classname="tests.unit.test_coreset" name="test_critical_radius_locates_the_door" time="18.829" /><testcase classname="tests.unit.test_coreset" name="test_passage_test_can_be_disabled" time="37.442" /><testcase classname="tests.unit.test_coreset" name="test_robot_conditioning_changes_the_cut_on_a_multi_scale_scene" time="4.880" /><testcase classname="tests.unit.test_coreset" name="test_gate_sensitivity_matches_the_analytic_derivative" time="0.002" /><testcase classname="tests.unit.test_coreset" name="test_gate_sensitivity_abstains_outside_the_gate_band" time="0.002" /><testcase classname="tests.unit.test_coreset" name="test_near_circular_robot_needs_a_tighter_radius_tolerance" time="0.002" /><testcase classname="tests.unit.test_coreset" name="test_target_gate_tol_is_honoured[axes0]" time="15.929" /><testcase classname="tests.unit.test_coreset" name="test_target_gate_tol_is_honoured[axes1]" time="19.445" /><testcase classname="tests.unit.test_coreset" name="test_target_gate_tol_is_honoured[axes2]" time="20.084" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[0]" time="0.060" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[1]" time="0.061" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[2]" time="0.096" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[3]" time="0.048" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[4]" time="0.059" /><testcase classname="tests.unit.test_coreset" name="test_inner_macro_is_contained_pointwise[5]" time="0.087" /><testcase classname="tests.unit.test_coreset" name="test_full_sandwich_holds_analytically_on_the_real_partition" time="17.855" /><testcase classname="tests.unit.test_coreset" name="test_inner_scene_is_group_aligned_and_smaller" time="15.555" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_prototype_cannot_call_theorem_proof_gates" time="0.007" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_exact_convex_audit_rejects_one_ulp_outward_tamper" time="0.004" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_exact_convex_audit_is_stable_under_large_translation" time="0.004" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_locked_cross_platform_sandwich_is_exactly_nested" time="0.012" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_inner_true_outer_support_ordering" time="0.089" /><testcase classname="tests.unit.test_envelopes.TestNesting" name="test_boundary_points_inside_outer" time="0.007" /><testcase classname="tests.unit.test_envelopes.TestMonotoneRefinement" name="test_adaptive_rounds_reuse_promoted_midpoint_supports" time="0.005" /><testcase classname="tests.unit.test_envelopes.TestMonotoneRefinement" name="test_gap_decreases_with_directions" time="0.036" /><testcase classname="tests.unit.test_envelopes.TestNoFalseSafe" name="test_random_colliding_points_never_outside_outer" time="0.072" /><testcase classname="tests.unit.test_geometry_validity.TestM0" name="test_spd_check" time="0.065" /><testcase classname="tests.unit.test_geometry_validity.TestM0" name="test_roundtrip" time="0.346" /><testcase classname="tests.unit.test_geometry_validity.TestM0" name="test_scale_equivariance" time="0.087" /><testcase classname="tests.unit.test_geometry_validity.TestM0" name="test_workspace_valid" time="0.053" /><testcase classname="tests.unit.test_geometry_validity.TestComponents" name="test_sliver_filter" time="0.003" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_nerve_counts_index_query_and_recursive_intersections" time="0.002" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_nerve_index_budget_fails_before_query_and_does_not_cross_charge" time="0.002" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_nerve_intersection_budget_is_atomic" time="0.003" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_nerve_counts_bbox_candidates_even_when_they_are_not_edges" time="0.002" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_slice_counts_both_workspace_differences_even_without_obstacles" time="0.003" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_slice_difference_budget_fails_before_over_budget_geos_call" time="0.002" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_base_slice_ledger_records_all_topology_currency_families" time="0.016" /><testcase classname="tests.unit.test_geometry_work_accounting" name="test_slab_builder_forwards_ledger_to_every_base_slice" time="0.031" /><testcase classname="tests.unit.test_gs3d_benchmark" name="test_three_robot_benchmark_has_cold_warm_and_physical_dt" time="0.981" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_endpoints_free_but_whole_edge_crosses_obstacle[False]" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_endpoints_free_but_whole_edge_crosses_obstacle[True]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_tangency_and_margin[0.45-False]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_tangency_and_margin[0.499-False]" time="0.004" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_tangency_and_margin[0.501-True]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_tangency_and_margin[0.8-True]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_rotated_anisotropy_changes_actual_collision" time="0.004" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_conservative_broadphase_matches_brute_force_with_distant_large_support" time="0.006" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_large_support_center_outside_workspace_still_blocks" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_body_extent_and_ground_support_are_not_points" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_coverage_hole_swept_body_and_bounds" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_missing_ground_footprint_support_not_just_centre" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_invalid_pose_body_and_margin_fail_closed[nan]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_invalid_pose_body_and_margin_fail_closed[inf]" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_invalid_pose_body_and_margin_fail_closed[-1]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_covariance_validation_and_counted_outward_floor" time="0.007" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_zero_edge_and_bounded_solver_failure" time="0.004" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_budget_caps_inside_geometry" time="0.009" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_random_pose_bounds_never_exceed_exact_sphere_cylinder_distance" time="0.007" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_rotated_support_normal_witness_has_known_exact_distance" time="0.009" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_high_condition_covariance_support_cancellation_fails_closed" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_geometry" name="test_prepared_snapshot_and_opacity_filter" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_projection_trap_and_same_xy_different_z" time="2.302" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_under_over_impossible_for_fixed_z[0.2]" time="0.159" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_under_over_impossible_for_fixed_z[0.1]" time="7.157" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_under_over_impossible_for_fixed_z[0.05]" time="63.338" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_supported_ground_paths_have_stopped_turns[body0]" time="0.060" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_supported_ground_paths_have_stopped_turns[body1]" time="0.103" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_relaxed_goal_preserves_unsafe_original_and_reaches_safe_candidate[False]" time="0.019" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_relaxed_goal_preserves_unsafe_original_and_reaches_safe_candidate[True]" time="0.019" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_goal_candidate_reachability_not_nearest_free_selection" time="0.013" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_distinct_bounded_failure_with_no_executable_path[budget0-max_expansions]" time="0.006" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_distinct_bounded_failure_with_no_executable_path[budget1-max_oracle_calls]" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_distinct_bounded_failure_with_no_executable_path[budget2-max_narrowphase_pairs]" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_distinct_bounded_failure_with_no_executable_path[budget3-max_wall_s]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_goal_tolerance_json_serializable[-0.1]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_goal_tolerance_json_serializable[0.51]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_goal_tolerance_json_serializable[nan]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_goal_tolerance_json_serializable[inf]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_singleton_path_timing_and_warm_reset" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_ground_validator_rejects_sideways_motion_and_bad_timing" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_timer_hooks_include_endpoint_search_verify" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_no_path_on_coarse_lattice_is_not_map_unknown_or_budget" time="0.003" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change0]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change1]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change2]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change3]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change4]" time="0.002" /><testcase classname="tests.unit.test_gs3d_core_planner" name="test_invalid_config_cannot_enter_search[change5]" time="0.002" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_smooth_verifier_rejects_hidden_yaw_jump_with_matching_replay" time="0.008" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_smooth_verifier_rejects_nonfinite_limits" time="0.002" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_control_heights_do_not_prove_nonlinear_ground_manifold" time="0.002" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_ordered_bezier_gate_uses_controls_not_favorable_endpoint_samples" time="0.002" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_uav_preparation_includes_crop_and_index_before_algorithm" time="0.021" /><testcase classname="tests.unit.test_gs3d_final_audit" name="test_rendered_body_keyframes_follow_actual_lateral_path" time="0.011" /><testcase classname="tests.unit.test_gs3d_integration" name="test_rotated_route_coverage_checks_complete_world_aabb" time="0.002" /><testcase classname="tests.unit.test_gs3d_integration" name="test_concatenated_mission_replays_actual_variable_z" time="0.005" /><testcase classname="tests.unit.test_gs3d_integration" name="test_ordered_gate_evidence_uses_exported_linear_path" time="0.002" /><testcase classname="tests.unit.test_gs3d_integration" name="test_ordered_high_gate_merges_safe_lattice_staircase" time="0.003" /><testcase classname="tests.unit.test_gs3d_judge" name="test_body_inside_rotated_prism_is_covered_though_its_world_aabb_is_not" time="0.003" /><testcase classname="tests.unit.test_gs3d_judge" name="test_body_leaving_rotated_prism_is_still_rejected" time="0.003" /><testcase classname="tests.unit.test_gs3d_judge" name="test_microsecond_turn_timed_at_the_limit_passes_despite_time_roundoff" time="0.002" /><testcase classname="tests.unit.test_gs3d_judge" name="test_real_overspeed_is_still_rejected" time="0.002" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_frozen_robot_dimensions_and_supported_manifold" time="0.004" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_whole_footprint_support_and_contact_travel_fail_closed" time="0.002" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_support_crop_uses_ellipsoid_overlap_not_centres" time="0.002" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_ground_adapters_plan_3d_swept_unicycle[body0]" time="0.124" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_ground_adapters_plan_3d_swept_unicycle[body1]" time="0.149" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_uav_variable_z_survives_serialization_sampling_and_replay" time="0.164" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_goal_policy_preserves_original_and_records_attained_error" time="0.019" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_cylinder_exact_relaxed_matrix_and_separate_failure_causes" time="0.012" /><testcase classname="tests.unit.test_gs3d_robots_goals" name="test_refinement_is_at_most_once_and_not_used_for_budget" time="0.002" /><testcase classname="tests.unit.test_gs3d_scene" name="test_manual_edit_covariances_keep_route_axes_and_are_spd" time="0.002" /><testcase classname="tests.unit.test_gs3d_scene" name="test_derivative_manifest_and_archive_use_identical_manual_rows" time="3.080" /><testcase classname="tests.unit.test_gs3d_smoothing" name="test_uav_shortcut_spline_reduces_turn_and_certifies_continuous_dynamics" time="0.005" /><testcase classname="tests.unit.test_gs3d_smoothing" name="test_protected_uav_positions_prevent_low_rise_diagonal_rounding" time="0.009" /><testcase classname="tests.unit.test_gs3d_smoothing" name="test_ground_output_uses_tangent_yaw_support_and_bounded_rotation" time="0.007" /><testcase classname="tests.unit.test_gs3d_smoothing" name="test_unqualified_candidate_retains_verified_raw_fallback" time="0.025" /><testcase classname="tests.unit.test_gs3d_smoothing" name="test_independent_verifier_recomputes_dynamics_and_replay" time="0.007" /><testcase classname="tests.unit.test_gs3d_timing" name="test_stage_boundaries_failure_and_no_nested_sum" time="0.001" /><testcase classname="tests.unit.test_gs3d_timing" name="test_call_sink_labels_hooks_and_latency_nearest_rank" time="0.004" /><testcase classname="tests.unit.test_height_band_shadow" name="test_overlap_is_exact_and_touching_counts" time="0.002" /><testcase classname="tests.unit.test_height_band_shadow" name="test_unclipped_band_is_the_full_projection" time="0.009" /><testcase classname="tests.unit.test_height_band_shadow" name="test_outer_ellipse_dominates_shadow_support" time="0.070" /><testcase classname="tests.unit.test_height_band_shadow" name="test_points_inside_ellipsoid_and_band_project_inside" time="0.151" /><testcase classname="tests.unit.test_height_band_shadow" name="test_clipping_a_tilted_needle_shrinks_the_bound" time="0.002" /><testcase classname="tests.unit.test_height_band_shadow" name="test_degenerate_needle_is_floored_not_dropped" time="0.002" /><testcase classname="tests.unit.test_height_floor" name="test_flat_floor_splats_with_small_tilt_are_removed" time="0.007" /><testcase classname="tests.unit.test_height_floor" name="test_vertical_leg_needles_are_kept" time="0.002" /><testcase classname="tests.unit.test_height_floor" name="test_isotropic_blob_near_floor_is_kept" time="0.003" /><testcase classname="tests.unit.test_height_floor" name="test_flat_splat_above_offset_is_kept" time="0.003" /><testcase classname="tests.unit.test_height_floor" name="test_flat_splat_tilted_30_degrees_is_kept" time="0.002" /><testcase classname="tests.unit.test_height_floor" name="test_offset_is_measured_along_the_plane_normal" time="0.002" /><testcase classname="tests.unit.test_height_floor" name="test_table_scene_loses_nothing" time="0.004" /><testcase classname="tests.unit.test_height_floor" name="test_chunked_mask_equals_unchunked" time="0.031" /><testcase classname="tests.unit.test_height_floor" name="test_apply_floor_rule_removes_floor_and_reports_stats" time="0.002" /><testcase classname="tests.unit.test_height_pathio" name="test_round_trip_matches_artifact_schema" time="0.003" /><testcase classname="tests.unit.test_height_pathio" name="test_local_steering_is_rejected" time="0.002" /><testcase classname="tests.unit.test_height_pathio" name="test_sampling_bounds_footprint_motion" time="0.002" /><testcase classname="tests.unit.test_height_pathio" name="test_translation_control_points_are_part_of_the_path" time="0.005" /><testcase classname="tests.unit.test_height_pathio" name="test_rotation_control_points_are_sampled_in_order" time="0.002" /><testcase classname="tests.unit.test_height_pathio" name="test_polyline_crossing_and_thetas" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_takes_the_first_candidate_in_rank_order_that_fits_and_passes" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_over_cap_candidates_never_reach_the_exact_check" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_every_candidate_tried_is_recorded_with_its_cylinder_count" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_no_affordable_passing_candidate_returns_none_and_the_full_record" time="0.003" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_max_checks_bounds_the_walk" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_the_filter_cannot_admit_a_candidate_the_exact_check_rejects" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_p5_shared_preset_carries_the_boundary_and_fits_one_title_line" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_compare_output_names_default_to_p2s_and_follow_the_tag" time="0.002" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_step_affordable_end_to_end_on_the_synthetic_table_scene" time="0.601" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_step_affordable_skips_a_window_over_the_cap" time="0.016" /><testcase classname="tests.unit.test_height_plane_affordable" name="test_overlay_layer_paints_occupied_cells_in_its_colour_and_leaves_the_rest_clear" time="0.002" /><testcase classname="tests.unit.test_height_plane_camera_scan" name="test_a_wall_between_target_and_camera_blocks" time="0.003" /><testcase classname="tests.unit.test_height_plane_camera_scan" name="test_the_same_wall_behind_the_target_does_not" time="0.002" /><testcase classname="tests.unit.test_height_plane_camera_scan" name="test_a_wall_inside_the_near_cull_is_ignored" time="0.002" /><testcase classname="tests.unit.test_height_plane_camera_scan" name="test_low_density_is_not_a_wall" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_cell_of_is_the_floor_index_and_is_clamped_to_the_raster" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_edt_clearance_is_distance_in_metres_to_the_nearest_occupied_cell" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_with_border_marks_the_window_edge_occupied_and_does_not_mutate_its_input" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_clearance_at_reads_the_metre_distance_under_a_world_point" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_free_components_and_same_component_split_a_wall_that_spans_the_window" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_same_component_is_true_across_a_gap_wider_than_the_disc" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_d1_precheck_requires_r_plus_0_05_clearance_at_both_endpoints" time="0.004" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_d1_precheck_fails_on_connectivity_even_when_both_endpoints_are_clear" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_line_clearance_reports_the_minimum_along_the_segment_not_at_its_ends" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_line_clearance_measures_how_much_of_the_line_a_disc_cannot_use" time="0.003" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_geodesic_path_is_the_straight_line_when_nothing_is_in_the_way" time="0.007" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_geodesic_path_detours_around_a_blocking_table_and_reports_the_longer_route" time="0.007" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_geodesic_path_returns_none_when_the_two_cells_are_disconnected" time="0.005" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_path_separation_is_zero_for_identical_routes_and_large_for_a_detour" time="0.005" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_contrast_prefers_a_long_detour_over_a_short_one_at_equal_separation" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_contrast_is_zero_when_the_two_routes_coincide" time="0.001" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_finds_a_tabletop_with_free_floor_under_it" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_rejects_a_line_whose_floor_is_blocked_under_the_overhang" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_rejects_an_overhang_the_uav_would_hit" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_requires_z_c_a_quarter_metre_above_the_overhang_top" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_requires_0_30_m_below_the_next_thing_up" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_overhang_on_line_matches_step_case_criterion_1_bin_for_bin" time="0.002" /><testcase classname="tests.unit.test_height_plane_casesearch" name="test_free_graph_reused_over_many_sources_agrees_with_geodesic_path" time="0.016" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win0-sweeper]" time="0.008" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win0-cylinder]" time="0.011" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win0-uav]" time="0.007" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win1-sweeper]" time="0.006" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win1-cylinder]" time="0.010" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win1-uav]" time="0.008" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win2-sweeper]" time="0.005" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win2-cylinder]" time="0.009" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win2-uav]" time="0.005" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win3-sweeper]" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win3-cylinder]" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win3-uav]" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win4-sweeper]" time="0.006" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win4-cylinder]" time="0.010" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win4-uav]" time="0.007" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win5-sweeper]" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win5-cylinder]" time="0.006" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_project_scenes_kept_count[win5-uav]" time="0.006" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_support_count_is_monotone_in_the_window" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_density_grid_counts_every_support_once" time="0.004" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_route_window_is_the_bbox_of_everything_plus_margin" time="0.002" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_route_window_rejects_a_side_over_the_cap_and_clips_to_bounds" time="0.005" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_min_pool_dist_never_reports_more_clearance_than_the_fine_map" time="0.002" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_ladder_goals_step_up_in_separation_and_stay_near_the_line" time="0.006" /><testcase classname="tests.unit.test_height_plane_longrange" name="test_ladder_goals_reports_a_target_it_cannot_reach" time="0.002" /><testcase classname="tests.unit.test_height_plane_render" name="test_ids_inside_the_ply_keep_exactly_the_dc_colour_load_dc_colors_gives" time="0.006" /><testcase classname="tests.unit.test_height_plane_render" name="test_inserted_tiles_are_height_coloured_instead_of_raising_index_error" time="0.003" /><testcase classname="tests.unit.test_height_plane_render" name="test_without_heights_the_unknown_ids_fall_back_to_grey" time="0.004" /><testcase classname="tests.unit.test_height_plane_render" name="test_every_id_missing_is_handled_not_just_some" time="0.003" /><testcase classname="tests.unit.test_height_plane_render_camera" name="test_default_camera_is_unchanged" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_camera" name="test_azim_reaches_both_the_video_and_the_overview_and_the_manifest" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_camera" name="test_p2_shared_preset_says_the_cylinder_has_no_route_and_fits_one_line" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_default_claims_are_unchanged" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_p3_presets_carry_the_claims_boundary_and_not_p2s_three_robot_claim[p3long]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_p3_presets_carry_the_claims_boundary_and_not_p2s_three_robot_claim[p3rung]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_p3_long_preset_names_the_two_robots_it_shows" time="0.001" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_unknown_preset_is_an_error_not_a_silent_default" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_headline_keeps_three_significant_figures_of_the_clearance_bound[0.00014671492565643263-0.000147 m]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_headline_keeps_three_significant_figures_of_the_clearance_bound[0.017685-0.0177 m]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_headline_keeps_three_significant_figures_of_the_clearance_bound[0.05-0.05 m]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_p3_presets_fit_one_title_line_so_the_claims_boundary_is_not_clipped[p3long]" time="0.002" /><testcase classname="tests.unit.test_height_plane_render_claims" name="test_p3_presets_fit_one_title_line_so_the_claims_boundary_is_not_clipped[p3rung]" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_stage_list_is_the_one_amendment_3_p1e_names" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_stage_records_its_name_its_seconds_and_its_input_size" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_input_size_can_be_filled_in_after_the_work_returns" time="0.001" /><testcase classname="tests.unit.test_height_plane_timing" name="test_an_unknown_stage_is_a_typo_not_a_new_stage" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_repeated_stages_are_kept_apart_and_summed_per_stage" time="0.003" /><testcase classname="tests.unit.test_height_plane_timing" name="test_to_dict_names_the_stages_that_never_ran" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_a_failed_stage_is_still_timed_and_the_error_propagates" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_compile_and_query_times_every_stage_it_owns" time="146.983" /><testcase classname="tests.unit.test_height_plane_timing" name="test_compile_seconds_and_query_seconds_keep_their_current_meaning" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_each_stage_records_the_input_size_p4_will_regress_against" time="0.001" /><testcase classname="tests.unit.test_height_plane_timing" name="test_the_result_json_carries_the_timing_block" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing" name="test_a_caller_that_passes_no_timer_is_unaffected" time="146.712" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_grow_window_returns_the_base_when_the_target_is_not_larger" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_grow_window_contains_the_base_and_hits_the_area" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_grow_window_shifts_off_a_wall_instead_of_losing_area" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_grow_window_is_none_when_the_bounds_cannot_hold_the_area" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_power_fit_refuses_fewer_than_four_points" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_power_fit_recovers_an_exact_power_law_and_reports_its_range" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_power_fit_drops_non_positive_and_non_finite_points_before_counting" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_linear_fit_reports_slope_intercept_and_refuses_three_points" time="0.003" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_day_capacity_inverts_the_power_fit_and_labels_itself_an_extrapolation" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_row_from_a_timed_run_has_every_stage_and_the_geometry" time="0.003" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_row_from_an_amendment2_run_carries_compile_and_query_only" time="0.001" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_an_unknown_run_is_a_lower_bound_and_not_a_success" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_success_needs_reachable_and_certified_and_replay3d" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_stage_groups_follow_the_users_four_questions" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_compile_total_sums_the_three_compile_stages_and_is_none_without_them" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_a_cold_sweep_row_has_compile_and_query_like_a_run_row" time="0.002" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_a_warm_sweep_row_has_a_query_but_no_compile" time="0.001" /><testcase classname="tests.unit.test_height_plane_timing_report" name="test_a_run_row_is_mode_single" time="0.001" /><testcase classname="tests.unit.test_height_planefloor" name="test_phantom_is_low_occupancy_with_nothing_above" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_phantom_needs_every_band_above_to_be_free" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_phantom_mask_rejects_shape_mismatch" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_speckle_stats_counts_components_and_areas" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_monotone_toward_floor_is_about_the_lowest_band" time="0.001" /><testcase classname="tests.unit.test_height_planefloor" name="test_open_floor_is_the_phantom_test_without_the_low_band_half" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_open_floor_rejects_shape_mismatch_and_empty_input" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_footprint_cell_span_clips_to_the_grid" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_replace_needs_the_whole_footprint_inside_phantom_cells" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_replace_needs_the_rho_top_below_the_ceiling_of_the_rule" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_plane_tiles_stay_below_the_band_and_cover_the_extent" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_plane_tiles_reject_a_sigma_that_reaches_the_band" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_build_plane_floor_swaps_phantom_splats_for_an_invisible_plane" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_plane_scene_round_trips_with_its_metadata" time="0.004" /><testcase classname="tests.unit.test_height_planefloor" name="test_replaced_splats_never_have_mass_above_the_overhead_test_height" time="0.003" /><testcase classname="tests.unit.test_height_planefloor" name="test_footprint_modes_are_ordered_by_how_much_they_cover" time="0.002" /><testcase classname="tests.unit.test_height_planefloor" name="test_unknown_footprint_mode_is_rejected" time="0.003" /><testcase classname="tests.unit.test_height_planefloor" name="test_a_wide_floor_splat_is_not_protected_by_a_distant_table_leg" time="0.004" /><testcase classname="tests.unit.test_height_planefloor" name="test_the_footprint_mode_is_recorded_in_the_build_stats" time="0.003" /><testcase classname="tests.unit.test_height_ply3d" name="test_load_decodes_opacity_scale_and_rotation" time="0.003" /><testcase classname="tests.unit.test_height_ply3d" name="test_load_rejects_missing_field" time="0.002" /><testcase classname="tests.unit.test_height_ply3d" name="test_covariances_are_spd_and_normalise_quaternion" time="0.002" /><testcase classname="tests.unit.test_height_ply3d" name="test_fit_floor_ignores_sparse_floaters_and_measures_tilt" time="0.040" /><testcase classname="tests.unit.test_height_ply3d" name="test_gravity_rotation_levels_the_floor" time="0.065" /><testcase classname="tests.unit.test_height_ply3d" name="test_crop_box_and_subset_keep_provenance" time="0.004" /><testcase classname="tests.unit.test_height_project" name="test_robot_table_bands" time="0.003" /><testcase classname="tests.unit.test_height_project" name="test_sweeper_sees_leg_not_tabletop" time="0.003" /><testcase classname="tests.unit.test_height_project" name="test_cylinder_sees_leg_and_tabletop" time="0.003" /><testcase classname="tests.unit.test_height_project" name="test_uav_above_table_sees_nothing" time="0.003" /><testcase classname="tests.unit.test_height_project" name="test_lower_tau_only_adds_obstacles" time="0.003" /><testcase classname="tests.unit.test_height_project" name="test_stacked_identical_shadows_are_kept_once" time="0.002" /><testcase classname="tests.unit.test_height_project" name="test_projected_maps_pass_gmc_input_validation" time="0.005" /><testcase classname="tests.unit.test_height_replay3d" name="test_gap_is_a_lower_bound_on_true_distance" time="0.002" /><testcase classname="tests.unit.test_height_replay3d" name="test_overlap_never_certifies_even_after_refinement" time="0.007" /><testcase classname="tests.unit.test_height_replay3d" name="test_splat_above_band_is_separated_vertically" time="0.002" /><testcase classname="tests.unit.test_height_replay3d" name="test_straight_path_through_pillar_fails" time="5.890" /><testcase classname="tests.unit.test_height_replay3d" name="test_clearance_below_delta_is_flagged_conservatively" time="1.984" /><testcase classname="tests.unit.test_height_replay3d" name="test_clear_path_passes_with_bounded_clearance" time="1.097" /><testcase classname="tests.unit.test_height_replay3d" name="test_replay_imports_nothing_from_the_projection_or_core" time="0.018" /><testcase classname="tests.unit.test_height_replay3d" name="test_diagonal_splat_beyond_kdtree_reach_still_collides" time="0.303" /><testcase classname="tests.unit.test_height_replay3d" name="test_kdtree_prefilter_keeps_every_pair_the_aabb_test_keeps" time="0.005" /><testcase classname="tests.unit.test_height_run" name="test_door_is_reachable_and_independently_verified" time="146.496" /><testcase classname="tests.unit.test_height_run" name="test_safe_areas_cover_every_slab" time="0.005" /><testcase classname="tests.unit.test_height_run" name="test_overrides_touch_only_named_fields" time="0.002" /><testcase classname="tests.unit.test_height_viz" name="test_robot_video_writes_video_and_readable_frames" time="1.928" /><testcase classname="tests.unit.test_height_viz" name="test_robot_video_without_curve_renders_status_png" time="0.055" /><testcase classname="tests.unit.test_height_viz" name="test_corridor_profile_keeps_only_nearby_splats" time="0.003" /><testcase classname="tests.unit.test_height_viz" name="test_scene_ply_vertex_count_matches_header" time="0.004" /><testcase classname="tests.unit.test_height_viz3d" name="test_layout_reads_mixed_types_and_ignores_later_elements" time="0.002" /><testcase classname="tests.unit.test_height_viz3d" name="test_dc_colors_known_values_and_id_selection" time="0.003" /><testcase classname="tests.unit.test_height_viz3d" name="test_dc_colors_rejects_bad_ids_and_missing_fields" time="0.003" /><testcase classname="tests.unit.test_height_viz3d" name="test_weighted_subsample_excludes_zero_weight" time="0.002" /><testcase classname="tests.unit.test_height_viz3d" name="test_pointcloud_video_smoke" time="4.418" /><testcase classname="tests.unit.test_incremental" name="test_repeated_orientation_reuses_all_pair_envelopes" time="0.014" /><testcase classname="tests.unit.test_incremental" name="test_one_scene_edit_recomputes_only_affected_pairs" time="0.024" /><testcase classname="tests.unit.test_incremental" name="test_removed_pair_cannot_survive_cache" time="0.011" /><testcase classname="tests.unit.test_incremental" name="test_support_arrays_are_value_immutable" time="0.002" /><testcase classname="tests.unit.test_incremental" name="test_duplicate_primitive_ids_are_rejected_before_pair_cache_keying" time="0.002" /><testcase classname="tests.unit.test_incremental" name="test_incremental_pipeline_matches_clean_full_rebuild_after_edit" time="0.123" /><testcase classname="tests.unit.test_incremental" name="test_same_theta_edit_updates_one_union_leaf_not_whole_tree" time="0.047" /><testcase classname="tests.unit.test_incremental" name="test_adjacent_orientation_bypasses_history_dependent_direction_seed" time="0.047" /><testcase classname="tests.unit.test_incremental" name="test_orientation_result_is_stable_after_cache_eviction" time="0.089" /><testcase classname="tests.unit.test_incremental" name="test_pair_approximation_seed_argument_cannot_change_result" time="0.014" /><testcase classname="tests.unit.test_incremental" name="test_theta_invariant_body_reuses_envelopes_and_union_without_work" time="0.007" /><testcase classname="tests.unit.test_incremental" name="test_nearly_isotropic_large_body_is_not_reused_as_exactly_invariant" time="0.014" /><testcase classname="tests.unit.test_incremental" name="test_pair_config_change_invalidates_cached_envelopes" time="0.007" /><testcase classname="tests.unit.test_incremental" name="test_budget_failure_does_not_commit_partial_slice_cache" time="0.003" /><testcase classname="tests.unit.test_incremental" name="test_seed_lookup_is_pair_indexed_and_orientation_cache_is_bounded" time="0.334" /><testcase classname="tests.unit.test_interval_convex_containment_fast" name="test_random_convex_polygons_match_quadratic_reference" time="1.118" /><testcase classname="tests.unit.test_interval_convex_containment_fast" name="test_collinear_outer_vertices_retain_quadratic_semantics" time="0.004" /><testcase classname="tests.unit.test_interval_convex_containment_fast" name="test_nonconvex_outer_fails_closed" time="0.002" /><testcase classname="tests.unit.test_interval_convex_containment_fast" name="test_boundary_and_one_ulp_protrusion_match_at_large_coordinates" time="0.005" /><testcase classname="tests.unit.test_interval_convex_containment_fast" name="test_empty_inner_keeps_vacuous_containment_contract" time="0.002" /><testcase classname="tests.unit.test_periodic_angles.TestPartition" name="test_covers_period_without_gaps" time="0.001" /><testcase classname="tests.unit.test_periodic_angles.TestPartition" name="test_halves" time="0.001" /><testcase classname="tests.unit.test_periodic_angles.TestWrap" name="test_wrap_angle" time="0.001" /><testcase classname="tests.unit.test_periodic_angles.TestWrap" name="test_adjacent_slab_pairs_periodic" time="0.073" /><testcase classname="tests.unit.test_support.TestTPair01" name="test_support_point_achieves_support_value" time="0.044" /><testcase classname="tests.unit.test_support.TestTPair02" name="test_translation_equivariance" time="0.002" /><testcase classname="tests.unit.test_support.TestTPair02" name="test_rotation_equivariance" time="0.002" /><testcase classname="tests.unit.test_support.TestTPair04" name="test_high_condition_covariance_no_nan" time="0.003" /><testcase classname="tests.unit.test_support.TestTPair04" name="test_batch_matches_scalar" time="0.003" /><testcase classname="tests.unit.test_uavconn_run" name="test_query_api_takes_only_start_and_goal" time="0.001" /><testcase classname="tests.unit.test_uavconn_run" name="test_one_compile_start_goal_queries_replay_and_evidence" time="28.567" /><testcase classname="tests.unit.test_uavconn_run" name="test_plug_variant_is_certified_unreachable_and_attributed" time="12.981" /><testcase classname="tests.unit.test_uavconn_run" name="test_specs_of_different_scenes_are_rejected" time="0.003" /><testcase classname="tests.unit.test_uavconn_run" name="test_route_steering_keys_are_rejected[waypoints]" time="0.003" /><testcase classname="tests.unit.test_uavconn_run" name="test_route_steering_keys_are_rejected[candidate_path_world_m]" time="0.002" /><testcase classname="tests.unit.test_uavconn_run" name="test_route_steering_keys_are_rejected[z_schedule]" time="0.002" /><testcase classname="tests.unit.test_uavconn_run" name="test_route_steering_keys_are_rejected[altitude_cost]" time="0.003" /><testcase classname="tests.unit.test_uavconn_run" name="test_frozen_archive_hash_is_enforced" time="0.028" /><testcase classname="tests.unit.test_uavconn_run" name="test_tight_slice_is_never_certified_unreachable" time="5.561" /><testcase classname="tests.unit.test_uavconn_run" name="test_extended_pairs_are_seeded_oracle_free_and_share_the_template_scene" time="2.132" /><testcase classname="tests.unit.test_uavconn_run" name="test_same_smoothing_on_both_methods_is_freshly_reverified" time="42.950" /><testcase classname="tests.unit.test_uavlamp_run" name="test_single_query_contract_end_to_end_with_cold_and_warm_calls" time="39.801" /><testcase classname="tests.unit.test_uavlamp_run" name="test_plug_under_lamp_exhausts_without_route" time="32.485" /><testcase classname="tests.unit.test_uavlamp_run" name="test_spec_with_route_steering_keys_is_rejected[waypoints]" time="0.002" /><testcase classname="tests.unit.test_uavlamp_run" name="test_spec_with_route_steering_keys_is_rejected[candidate_path_world_m]" time="0.002" /><testcase classname="tests.unit.test_uavlamp_run" name="test_spec_with_route_steering_keys_is_rejected[z_schedule]" time="0.002" /><testcase classname="tests.unit.test_uavlamp_run" name="test_spec_with_route_steering_keys_is_rejected[altitude_cost]" time="0.002" /><testcase classname="tests.unit.test_uavlamp_run" name="test_single_plan_call_accepts_no_waypoints" time="0.001" /><testcase classname="tests.unit.test_uavlamp_run" name="test_ordered_evidence_under_then_above_table" time="0.004" /><testcase classname="tests.unit.test_uavlamp_run" name="test_ordered_evidence_rejects_over_and_wrong_order" time="0.004" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_panel_samples_include_both_edges_on_regular_grid" time="0.002" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_panel_union_is_a_solid_slab_without_holes" time="0.398" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_body_cannot_cross_panel_between_or_at_samples[0.0-1.0]" time="0.165" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_body_cannot_cross_panel_between_or_at_samples[0.025-1.025]" time="0.130" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_body_cannot_cross_panel_between_or_at_samples[0.2749-0.9751]" time="0.028" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_body_cannot_cross_panel_between_or_at_samples[-0.3-1.3]" time="0.130" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_gap_rule_closes_below_body_minus_one_cell_and_opens_above[v-0.5-0.8]" time="0.478" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_gap_rule_closes_below_body_minus_one_cell_and_opens_above[z-0.20000000000000004-0.5]" time="0.747" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_builder_is_deterministic_and_records_identity" time="0.015" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_loader_rejects_hash_mismatch" time="0.007" /><testcase classname="tests.unit.test_uavlamp_scene" name="test_opening_slice_single_query_goes_under_and_plug_exhausts" time="61.630" /><testcase classname="tests.unit.test_union_tree" name="test_union_tree_replacement_matches_clean_union_and_is_logarithmic" time="0.004" /><testcase classname="tests.unit.test_union_tree" name="test_union_tree_clone_is_transactionally_independent" time="0.002" /><testcase classname="tests.unit.test_union_tree" name="test_union_ledger_counts_only_actual_geos_calls_not_empty_padding" time="0.003" /><testcase classname="tests.unit.test_union_tree" name="test_union_counts_real_calls_with_explicit_empty_leaves" time="0.002" /><testcase classname="tests.unit.test_union_tree" name="test_union_update_budget_failure_leaves_tree_unchanged" time="0.003" /></testsuite></testsuites>

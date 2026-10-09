@@ -1,0 +1,1 @@
+{"counts": {"both": 9463, "neither": 9557, "gmc_only": 0, "judge_only": 980}, "band_m": 0.08276799932724582, "worst_judge_only_slack_m": -0.08276790916114715, "judge_only_within_band": true, "oracle_file": "/scratch/wg2381/splathjb-baselines/gmc/src/gmc/gs3d/oracle.py"}
