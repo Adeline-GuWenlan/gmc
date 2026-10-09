@@ -1,0 +1,22 @@
+=== 2026-10-09T19:43:40-04:00 host=cs614.hpc.nyu.edu job=19506845
+data: 90 maps 256x256, mask values [0. 1.], goal[0]=[57 93]
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_smoke_pno.py", line 183, in <module>
+    main()
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_smoke_pno.py", line 131, in main
+    out = model(chi, goals[:1]) * mask[:1]
+  File "/scratch/wg2381/.conda/envs/pno/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch/wg2381/.conda/envs/pno/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch/wg2381/ext_repos/PNO/examples/models/deepnormMultiGoal.py", line 63, in forward
+    conv_chi = self._modules['conv%d' % i](chi)
+  File "/scratch/wg2381/.conda/envs/pno/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch/wg2381/.conda/envs/pno/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch/wg2381/ext_repos/PNO/examples/models/spectralLayer.py", line 30, in forward
+    x_ft = torch.fft.rfft2(x)
+  File "/scratch/wg2381/.conda/envs/pno/lib/python3.10/site-packages/torch/utils/_device.py", line 106, in __torch_function__
+    return func(*args, **kwargs)
+RuntimeError: MKL FFT error: Intel oneMKL DFTI ERROR: Inconsistent configuration parameters

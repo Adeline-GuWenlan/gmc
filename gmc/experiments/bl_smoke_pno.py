@@ -74,6 +74,12 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     dev = torch.device(a.device)
     torch.set_default_device(dev)  # the notebook does this with 'cuda'; model internals rely on it
+    if dev.type == "cpu":
+        # DEEPNORM2dMultiGoal.forward feeds `chi.expand(...)` (a stride-0 view) to torch.fft.rfft2; oneMKL rejects
+        # that layout on CPU ("DFTI ERROR: Inconsistent configuration parameters", job 19506845) while cuFFT, which
+        # the notebook used, accepts it. Same values, contiguous copy first; repo code untouched.
+        _rfft2 = torch.fft.rfft2
+        torch.fft.rfft2 = lambda x, *args, **kw: _rfft2(x.contiguous(), *args, **kw)
     sys.path.insert(0, os.path.join(a.repo, "examples"))
     from models.deepnormMultiGoal import DEEPNORM2dMultiGoal
     from models.fno import FNO2d
