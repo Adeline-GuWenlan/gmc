@@ -149,7 +149,10 @@ def test_known_box_domain_matches_the_baseline_oracle_in_an_empty_scene():
     assert np.allclose(domain.bbox_upper, np.array(upper) - (R + M, R + M, H + M))
 
 
-def test_route_prism_domain_matches_the_baseline_oracle_in_an_empty_scene():
+def test_route_prism_domain_is_sound_for_the_baseline_oracle_in_an_empty_scene():
+    """GMC's domain lies inside the judge's free set. Since d757729 the judge tests the swept cylinder against the
+    rotated prism exactly, so it also accepts a band r(|cos|+|sin|-1) wide along the u/v faces that GMC's world-AABB
+    inset leaves out: a GMC-side conservatism (docs/baselines_judge_check.md section 8, user decision 2026-10-09)."""
     t = 1.13  # the gallery frame is ~64 degrees off the world axes
     Rw = np.array([[np.cos(t), np.sin(t), 0], [np.sin(t), -np.cos(t), 0], [0, 0, 1]])
     origin = np.array([9.8, 26.9, -1.2])
@@ -159,18 +162,25 @@ def test_route_prism_domain_matches_the_baseline_oracle_in_an_empty_scene():
     frame, domain = domain_from_scene(scene, UAV, margin_m=M)
     assert np.allclose(frame.R, Rw) and np.allclose(frame.origin, origin)
     oracle = GaussianBodyOracle(scene)
+    e = R * (abs(Rw[0, 0]) + abs(Rw[0, 1]))
+    face_lo, face_hi = np.array([-3., -.35]), np.array([3.7, 2.75])
     rng = np.random.default_rng(2)
-    agree = inside = 0
+    agree = inside = band = 0
     for qp in rng.uniform((-3.2, -.5, -.1), (3.9, 2.9, 2.6), size=(3000, 3)):
         slack = domain.row_slack(qp)
         if abs(slack) < 1e-6:
             continue
         q = frame.to_world(qp)
         free = oracle.pose(Pose3(tuple(q)), UAV, margin_m=M).occupancy == "free"
-        assert free == (slack > 0), (qp, slack)
+        if slack > 0:
+            assert free, (qp, slack)  # GMC never plans where the judge rejects
+            inside += 1
+        elif free:  # judge-free but outside GMC's domain: only inside the band
+            face = np.minimum(qp[:2] - face_lo, face_hi - qp[:2])
+            assert np.any((face >= R - 1e-9) & (face < e + 1e-9)), (qp, face)
+            band += 1
+            continue
         agree += 1
-        inside += free
-    assert agree > 2500 and inside > 500
-    e = R * (abs(Rw[0, 0]) + abs(Rw[0, 1]))
+    assert agree > 2500 and inside > 500 and band > 0
     assert domain.bbox_lower[0] == pytest.approx(-3. + e, abs=1e-7)
     assert domain.bbox_lower[2] == pytest.approx(H + M, abs=1e-7)  # world z bound with margin binds

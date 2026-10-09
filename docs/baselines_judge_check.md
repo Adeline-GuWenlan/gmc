@@ -204,3 +204,13 @@ Reproduce from `gmc/` with `PYTHONPATH=src:experiments`:
 3. `sbatch --array=1-120%10 --mem=1500M hpc/baselines/j_py_array.sbatch results/baselines/j/plan/plan_main.txt`
 4. `... plan_requery.txt` (11), `plan_widecheck.txt` (3), `plan_timeout300.txt` (2)
 5. `python experiments/bl_judge_check.py collect`
+
+## 10. Resolution of gate (a) (2026-10-09, user decision: option 1)
+The user chose option 1. The regressed test is replaced by
+`test_route_prism_domain_is_sound_for_the_baseline_oracle_in_an_empty_scene`. It asserts:
+- GMC's domain ⊆ the judge's free set;
+- every judge-free pose outside GMC's domain lies in the band r(|cos θ|+|sin θ|−1) along the rotated u/v faces;
+- the band is exercised.
+
+`tests/unit/test_aerial3d_pairs.py` passes 9/9. No other code changes, no re-runs; every number above stands.
+B4 must name the band as a GMC-side conservatism (it cannot cost GMC an F4 pair, §8).
