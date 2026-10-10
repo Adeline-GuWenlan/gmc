@@ -1,0 +1,7 @@
+{"definition": "rows re-run because of infrastructure loss (plan B3 task 3); a rerun resumes the task from its fsync'd checkpoint, so rows already written are kept unchanged and only unanswered pairs are run",
+ "reruns": [
+  {"method": "pno", "region": "GAPW1", "robot": "cylinder", "tasks": [0, 1], "n_tasks": 2,
+   "lost_job": "19525658", "cause": "job CANCELLED by uid 0 (sacct State 'CANCELLED by 0') at 2026-10-10T12:31:13Z after 2:08:27 of a 5 h limit; not cancelled by this stage",
+   "rows_kept": {"task_00": 702, "task_01": 645}, "rows_to_answer": 153,
+   "rerun_job": "19528737", "other_tasks_of_19525658": "all 6 other PNO tasks had finished (summary complete) before the cancel"}
+ ]}

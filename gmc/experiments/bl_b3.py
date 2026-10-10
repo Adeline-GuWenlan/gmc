@@ -284,6 +284,50 @@ def _rows_of_dir(d):
     return rows
 
 
+# ================================================================================================ storage
+FULL_ROWS = H.OUTB / "b3_rows"
+SLIM_DROP = ("route_polyline", "method_path_uv")
+
+
+def cmd_store(a):
+    """Gzip the finished task files for commit (``bl_harness archive`` semantics: the raw ``method_path_uv`` of a
+    judged row is dropped, ``route_polyline`` is the exact judged path). ``--slim`` methods (SplatNav: dense exact
+    Bezier polylines, ~30 kB per row) keep the full gzipped rows under ``outputs/baselines/b3_rows/`` (uncommitted,
+    SHA-256 sidecar) and commit slim rows without the polylines; every slim row names its full file + SHA, and
+    ``polyline_sha256`` (of the exported world polyline) stays in the slim row."""
+    import gzip
+    for m in a.methods:
+        for f in sorted((H.RES / m).glob("*/*/task_*.jsonl")):
+            rows = [json.loads(x) for x in open(f) if x.strip()]
+            if any(r["status"] == "CLAIMED_PENDING_JUDGE" for r in rows):
+                raise SystemExit(f"pending judge rows in {f}")
+            for r in rows:
+                if r.get("route_polyline") is not None:
+                    r.pop("method_path_uv", None)
+            if m in a.slim:
+                full = FULL_ROWS / f.relative_to(H.RES).with_suffix(".jsonl.gz")
+                full.parent.mkdir(parents=True, exist_ok=True)
+                with gzip.open(full, "wt") as g:
+                    for r in rows:
+                        g.write(json.dumps(r, default=float) + "\n")
+                sha = H.sha256_file(full)
+                Path(f"{full}.sha256").write_text(f"{sha}  {full.name}\n")
+                out = []
+                for r in rows:
+                    r = {k: v for k, v in r.items() if k not in SLIM_DROP}
+                    r["full_row_file"], r["full_row_file_sha256"] = str(full), sha
+                    out.append(r)
+                rows = out
+            with gzip.open(f"{f}.gz", "wt") as g:
+                for r in rows:
+                    g.write(json.dumps(r, default=float) + "\n")
+            n = sum(1 for _ in gzip.open(f"{f}.gz", "rt"))
+            if n != len(rows):
+                raise SystemExit(f"{f}.gz has {n} rows, expected {len(rows)}")
+            f.unlink()
+            print(m, f, len(rows), "slim" if m in a.slim else "full", flush=True)
+
+
 # ================================================================================================ spot check
 def cmd_spotpick(a):
     rng = np.random.default_rng(a.seed)
@@ -312,6 +356,11 @@ def cmd_spotcheck(a):
         for cls, v in d.items():
             for robot, region, pid, status in v["rows"]:
                 row = next(r for r in _rows_of_dir(H.RES / m / region / robot) if r["pair_id"] == pid)
+                if "route_polyline" not in row:             # slim committed row: the full row is under outputs/
+                    full = Path(row["full_row_file"])
+                    if H.sha256_file(full) != row["full_row_file_sha256"]:
+                        raise SystemExit(f"{full} differs from the SHA in the slim row")
+                    row = next(r for r in _rows_of(full) if r["pair_id"] == pid)
                 if (region, robot) not in judges:
                     judges[(region, robot)] = H.Judge(region, robot)
                 J = judges[(region, robot)]
@@ -347,9 +396,12 @@ def main(argv=None):
     sp = sub.add_parser("spotpick")
     sp.add_argument("--seed", type=int, default=20261012)
     sub.add_parser("spotcheck")
+    st = sub.add_parser("store")
+    st.add_argument("--methods", nargs="+", default=list(METHODS))
+    st.add_argument("--slim", nargs="*", default=["splatnav"])
     a = ap.parse_args(argv)
     {"plan": cmd_plan, "streams": cmd_streams, "task": cmd_task, "collect": cmd_collect, "spotpick": cmd_spotpick,
-     "spotcheck": cmd_spotcheck}[a.cmd](a)
+     "spotcheck": cmd_spotcheck, "store": cmd_store}[a.cmd](a)
 
 
 if __name__ == "__main__":
