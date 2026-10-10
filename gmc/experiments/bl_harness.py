@@ -838,6 +838,13 @@ def cmd_project(a):
             tot["setup_h"] += setup_s / 3600
         tot["wall_h_at_concurrency"] = tot["method_gpu_h"] / a.gpus
         tot["cpu_h_harness_parents"] = tot["method_gpu_h"] * a.streams       # one CPU per harness stream
+        # scenario B: judge inline (the GPU stream also waits for each judge call)
+        tot["gpu_h_if_judge_inline"] = (tot["method_gpu_h"] * a.streams + tot["judge_cpu_h"]) / a.streams
+        tot["wall_h_if_judge_inline"] = tot["gpu_h_if_judge_inline"] / a.gpus
+        tot["scenarios"] = ("A (recommended): run --judge defer on the GPU (method_gpu_h, wall_h_at_concurrency), "
+                            "then `bl_harness judge` as CPU array jobs (judge_cpu_h). B: judge inline "
+                            "(gpu_h_if_judge_inline, wall_h_if_judge_inline). GPU-h assume linear scaling to "
+                            f"{a.streams} streams per GPU at the pilot's per-stream speed")
         m["projection_5000x2"] = tot
         doc["methods"][method] = m
         print(method, json.dumps(tot))

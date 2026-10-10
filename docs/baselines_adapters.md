@@ -180,3 +180,77 @@ soft overlap cost, so a "cover" bounds the shape the cost sees, not a guarantee.
 - FOCI's goal is a soft cost and its start a soft constraint (‖·‖² ≤ 0.05, incl. heading): its curves start up to
   0.22 m and end 0.4–2.6 m from the endpoints on the probe **[E]**; the harness completes them (§1.1), and that
   completion is part of what is judged.
+
+## 4. Tuning (both methods, same procedure)
+
+Pre-registered rule, committed before any tuning result (`gmc/configs/baselines/tuning/RULE.md`, fbdbf18): tuning set
+= plan §3.5 (50 pairs, disjoint from the 5000), both robots, unchanged harness (judge inline, 120 s); 8 candidates per
+method, one pass each; per robot pick the most SUCCESS, then fewest CLAIMED_*, then lowest median
+`algorithm_wall_s`; candidates that break §3 (SplatNav 1σ obstacles; FOCI without the plane constraint) are run for
+information and are ineligible. Applied mechanically by `bl_harness tunetable`
+(`results/baselines/tuning/<method>/tuning_table.json`). Jobs: 19508642 (all 16 candidates, 4 streams on one L40S,
+43 min), 19510034 (FOCI F1 rerun, below), 19510126/19510253 (fail locations: `bl_harness locate` re-exports the stored
+exact polylines and places the judge's failing edge on the method's path or on a completion segment). Rows:
+`results/baselines/tuning/<method>/<candidate>/<R>/<robot>/task_00.jsonl.gz` **[E]**.
+
+**One rerun, disclosed.** In 19508642 FOCI's `F1_zband` (config `{}`) reused a setup artifact built before the FOCI
+defaults gained `kin_scale`/`z_half`, because the artifact directory was keyed on the explicit config only; all 100
+rows were SETUP_FAIL (kept in `outputs/baselines/stale/`). Fix (a502739: `artifact_path` now also hashes the adapter's
+source), then F1 alone was rerun unchanged (19510034). No other candidate was rerun or edited between passes.
+
+**splatnav** (pick: cylinder `S6_eps05_noshrink`, sweeper `S1_eps05`)
+
+| candidate | what | robot | SUCCESS | COLLIDES | UNPROVEN | FAIL | median s | unsafe claims on a completion segment |
+|---|---|---|---|---|---|---|---|---|
+| S0_sphere | ε = 1: the plain enclosing sphere (R = 0.98 m cylinder, 0.21 m sweeper) | cylinder | 2 | 3 | 0 | 45 | 0.00 | 3/3 |
+| S0_sphere |  | sweeper | 50 | 0 | 0 | 0 | 0.32 | 0/0 |
+| S1_eps05 | ε = 0.05, 2 cm cells, vmax = amax = 0.1 (authors') | cylinder | 47 | 0 | 0 | 3 | 0.57 | 0/0 |
+| **S1_eps05** |  | sweeper | 50 | 0 | 0 | 0 | 0.30 | 0/0 |
+| S2_eps05_cell1 | S1 + 1 cm cells | cylinder | 46 | 0 | 0 | 4 | 0.67 | 0/0 |
+| S2_eps05_cell1 |  | sweeper | 50 | 0 | 0 | 0 | 0.38 | 0/0 |
+| S3_eps05_cell4 | S1 + 4 cm cells | cylinder | 47 | 0 | 0 | 3 | 0.66 | 0/0 |
+| S3_eps05_cell4 |  | sweeper | 49 | 0 | 0 | 1 | 0.26 | 0/0 |
+| S4_eps02 | ε = 0.02 | cylinder | 48 | 0 | 0 | 2 | 0.80 | 0/0 |
+| S4_eps02 |  | sweeper | 50 | 0 | 0 | 0 | 0.36 | 0/0 |
+| S5_eps05_narrow | S1 + amax 0.5 (corridor half-width 0.01) | cylinder | 47 | 0 | 0 | 3 | 2.78 | 0/0 |
+| S5_eps05_narrow |  | sweeper | 49 | 0 | 0 | 1 | 1.54 | 0/0 |
+| **S6_eps05_noshrink** | S1, A* grid = whole known box (not shrunk by r + m + Δ) | cylinder | 49 | 0 | 0 | 1 | 0.56 | 0/0 |
+| S6_eps05_noshrink |  | sweeper | 50 | 0 | 0 | 0 | 0.45 | 0/0 |
+| S7_eps05_native1sigma | S1 with 1σ obstacles (contract **not** matched; ineligible) | cylinder | 38 | 6 | 6 | 0 | 0.53 | 1/12 |
+| S7_eps05_native1sigma |  | sweeper | 43 | 3 | 4 | 0 | 0.30 | 0/7 |
+
+**foci** (pick: cylinder `F3_cov05`, sweeper `F3_cov05`)
+
+| candidate | what | robot | SUCCESS | COLLIDES | UNPROVEN | FAIL | median s | unsafe claims on a completion segment |
+|---|---|---|---|---|---|---|---|---|
+| F0_repo_zband | repo's z band (0, 1) (plane **not** enforced; ineligible) | cylinder | 18 | 5 | 27 | 0 | 0.21 | 2/32 |
+| F0_repo_zband |  | sweeper | 27 | 7 | 16 | 0 | 0.19 | 0/23 |
+| F1_zband | F-defaults: z band ±0.01, 1σ covs, cov_scale 1, 10 cp, 40 samples | cylinder | 20 | 4 | 26 | 0 | 0.23 | 0/0 |
+| F1_zband |  | sweeper | 33 | 1 | 3 | 13 | 0.39 | 0/0 |
+| F2_judge_sigma | F1 + obstacle covs × 4 (2σ shape) | cylinder | 19 | 4 | 27 | 0 | 0.26 | 2/31 |
+| F2_judge_sigma |  | sweeper | 31 | 6 | 7 | 6 | 0.55 | 12/13 |
+| **F3_cov05** | F1 + robot cov_scale 0.5 | cylinder | 23 | 2 | 24 | 1 | 0.35 | 0/26 |
+| **F3_cov05** |  | sweeper | 35 | 2 | 1 | 12 | 0.47 | 2/3 |
+| F4_cp20 | F1 + 20 control points | cylinder | 19 | 4 | 27 | 0 | 0.48 | 4/31 |
+| F4_cp20 |  | sweeper | 34 | 2 | 7 | 7 | 0.50 | 5/9 |
+| F5_kin0 | F1 + body points coincident (kin_scale 0) | cylinder | 22 | 3 | 25 | 0 | 0.24 | 2/28 |
+| F5_kin0 |  | sweeper | 29 | 5 | 7 | 9 | 0.56 | 9/12 |
+| F6_samples80 | F1 + 80 samples | cylinder | 20 | 3 | 27 | 0 | 0.41 | 2/30 |
+| F6_samples80 |  | sweeper | 29 | 1 | 6 | 14 | 0.73 | 5/7 |
+| F7_cp20_samples80 | F1 + 20 cp + 80 samples | cylinder | 17 | 3 | 29 | 1 | 0.67 | 4/32 |
+| F7_cp20_samples80 |  | sweeper | 35 | 3 | 8 | 4 | 0.57 | 6/11 |
+
+Reading the tables **[E]** (all from the files above):
+- **SplatNav** is insensitive to resolution and corridor width on this set (46–49/50 cylinder, 49–50/50 sweeper,
+  zero unsafe claims for every eligible candidate). Its FAILs are `qp_infeasible` / `astar_no_path`. The cylinder pick
+  (`S6`) only differs from the authors'-defaults candidate S1 by letting the A* grid span the whole known box.
+- The **plain enclosing sphere** (S0, 0.98 m for the cylinder) makes SplatNav fail 45/50 cylinder pairs
+  (`astar_no_path` 33, `qp_infeasible` 12); its 3 unsafe claims all lie on harness completion segments (A* endpoint
+  moved off an occupied voxel). For the sweeper (0.21 m sphere) it is as good as S1. So the ε-squash cover is what
+  makes SplatNav viable for the tall body — an adaptation choice, stated as such.
+- **Matched contract matters for SplatNav**: with 1σ obstacles (S7) 12/50 cylinder and 7/50 sweeper claims are unsafe,
+  11 resp. 7 of them on SplatNav's own path; with the judge's 2σ none are.
+- **FOCI** is far weaker under the judge: cylinder 17–23/50, with 26–32 unsafe claims per candidate, almost all
+  `geometry_or_margin_unproven` on FOCI's own curve (it grazes Gaussians: a soft overlap cost has no margin). Sweeper
+  29–35/50. The plane constraint costs nothing measurable (F0 18 vs F1 20 cylinder) while removing ±0.5 m z drift.
+  Pick `F3_cov05` (robot covariance halved) for both robots.

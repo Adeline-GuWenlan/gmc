@@ -1,0 +1,284 @@
+{
+ "definition": "Cost projection for the full run (5000 pairs x 2 robots per method) from pilot task files.\n\nPer method and robot: method time = mean ``outer_wall_s`` per query (parent send -> receive: what the worker holds\nthe GPU for; TIMEOUT rows count their full 120 s) x the F4 pair count of each region, + setup (build once per\nregion; one worker instantiate per task); judge CPU = mean ``judge_wall_s`` x pairs (CPU, separable with\n``--judge defer``). GPU-h assume ``--streams`` concurrent harness streams per GPU at the measured per-stream\nspeed (the pilot ran that many streams on one L40S), ``--gpus`` GPU jobs at a time (plan: <= 2).",
+ "pairs_per_region": {
+  "WWEST": 2500,
+  "GAPW1": 1500,
+  "S": 1000
+ },
+ "streams_per_gpu": 4,
+ "gpu_jobs_at_a_time": 2,
+ "tasks_per_region_robot": 1,
+ "methods": {
+  "splatnav": {
+   "pilot_root": "results/baselines/pilot/splatnav",
+   "robots": {
+    "cylinder": {
+     "summary": {
+      "n": 100,
+      "status_counts": {
+       "SUCCESS": 100
+      },
+      "success_rate": 1.0,
+      "appended_goal_segment": 100,
+      "prepended_start_segment": 100,
+      "algorithm_wall_s": {
+       "median": 0.5978228256572038,
+       "p95": 1.567647228296845,
+       "max": 2.96866412111558,
+       "sum": 75.38763595977798
+      },
+      "outer_wall_s": {
+       "median": 0.5999751209747046,
+       "p95": 1.5708055615774343,
+       "sum": 75.61057266173884
+      },
+      "judge_wall_s": {
+       "median": 1.4449687254382297,
+       "p95": 13.88326536050298,
+       "sum": 322.4261077318806
+      }
+     },
+     "regions": {
+      "WWEST": {
+       "pilot_rows": 50,
+       "mean_outer_wall_s": 1.1118733547255397,
+       "mean_judge_wall_s": 4.605951172872446,
+       "build_setup_wall_s": 2.4838413349352777,
+       "instantiate_s": 31.169538913993165,
+       "projected_method_s": 2810.8529257278424,
+       "projected_judge_s": 11514.877932181116
+      },
+      "GAPW1": {
+       "pilot_rows": 30,
+       "mean_outer_wall_s": 0.4980125933963185,
+       "mean_judge_wall_s": 2.2346235122531652,
+       "build_setup_wall_s": 1.159990340936929,
+       "instantiate_s": 18.65159081388265,
+       "projected_method_s": 765.6704809083603,
+       "projected_judge_s": 3351.935268379748
+      },
+      "S": {
+       "pilot_rows": 20,
+       "mean_outer_wall_s": 0.25382635617861526,
+       "mean_judge_wall_s": 1.254492186033167,
+       "build_setup_wall_s": 0.9329017919953912,
+       "instantiate_s": 17.644359416794032,
+       "projected_method_s": 271.4707155954093,
+       "projected_judge_s": 1254.492186033167
+      }
+     },
+     "method_h_one_stream": 1.0688872561754477,
+     "judge_cpu_h": 4.478140385165009,
+     "setup_build_h": 0.001271314852185444
+    },
+    "sweeper": {
+     "summary": {
+      "n": 100,
+      "status_counts": {
+       "SUCCESS": 100
+      },
+      "success_rate": 1.0,
+      "appended_goal_segment": 100,
+      "prepended_start_segment": 100,
+      "algorithm_wall_s": {
+       "median": 0.39576417801436037,
+       "p95": 1.3012122755870221,
+       "max": 1.8753423430025578,
+       "sum": 51.46932539320551
+      },
+      "outer_wall_s": {
+       "median": 0.39826580381486565,
+       "p95": 1.3033149488386697,
+       "sum": 51.69358243024908
+      },
+      "judge_wall_s": {
+       "median": 0.9771036545280367,
+       "p95": 1.6376465310109778,
+       "sum": 108.01981061208062
+      }
+     },
+     "regions": {
+      "WWEST": {
+       "pilot_rows": 50,
+       "mean_outer_wall_s": 0.7720014352630824,
+       "mean_judge_wall_s": 1.2433056959602982,
+       "build_setup_wall_s": 2.0030446611344814,
+       "instantiate_s": 31.34817863116041,
+       "projected_method_s": 1961.3517667888664,
+       "projected_judge_s": 3108.2642399007455
+      },
+      "GAPW1": {
+       "pilot_rows": 30,
+       "mean_outer_wall_s": 0.3536766308515022,
+       "mean_judge_wall_s": 0.942786020746765,
+       "build_setup_wall_s": 0.7912246130872518,
+       "instantiate_s": 18.22398306406103,
+       "projected_method_s": 548.7389293413144,
+       "projected_judge_s": 1414.1790311201476
+      },
+      "S": {
+       "pilot_rows": 20,
+       "mean_outer_wall_s": 0.12416058707749471,
+       "mean_judge_wall_s": 0.878547259583138,
+       "build_setup_wall_s": 0.7506998209282756,
+       "instantiate_s": 18.711123602930456,
+       "projected_method_s": 142.87171068042517,
+       "projected_judge_s": 878.5472595831379
+      }
+     },
+     "method_h_one_stream": 0.736934001891835,
+     "judge_cpu_h": 1.5002751473900087,
+     "setup_build_h": 0.000984713637541669
+    }
+   },
+   "projection_5000x2": {
+    "method_gpu_h": 0.45145531451682064,
+    "judge_cpu_h": 5.978415532555018,
+    "setup_h": 0.0022560284897271132,
+    "wall_h_at_concurrency": 0.22572765725841032,
+    "cpu_h_harness_parents": 1.8058212580672826,
+    "gpu_h_if_judge_inline": 1.946059197655575,
+    "wall_h_if_judge_inline": 0.9730295988277875,
+    "scenarios": "A (recommended): run --judge defer on the GPU (method_gpu_h, wall_h_at_concurrency), then `bl_harness judge` as CPU array jobs (judge_cpu_h). B: judge inline (gpu_h_if_judge_inline, wall_h_if_judge_inline). GPU-h assume linear scaling to 4 streams per GPU at the pilot's per-stream speed"
+   }
+  },
+  "foci": {
+   "pilot_root": "results/baselines/pilot/foci",
+   "robots": {
+    "cylinder": {
+     "summary": {
+      "n": 100,
+      "status_counts": {
+       "SUCCESS": 44,
+       "CLAIMED_UNPROVEN": 54,
+       "CLAIMED_COLLIDES": 2
+      },
+      "success_rate": 0.44,
+      "appended_goal_segment": 100,
+      "prepended_start_segment": 100,
+      "algorithm_wall_s": {
+       "median": 0.39082203910220414,
+       "p95": 1.068697301496286,
+       "max": 1.2149877371266484,
+       "sum": 45.764616744127125
+      },
+      "outer_wall_s": {
+       "median": 0.39128159801475704,
+       "p95": 1.0693305381108076,
+       "sum": 45.80669646267779
+      },
+      "judge_wall_s": {
+       "median": 0.06596505455672741,
+       "p95": 0.21199921581428474,
+       "sum": 9.055978495627642
+      }
+     },
+     "regions": {
+      "WWEST": {
+       "pilot_rows": 50,
+       "mean_outer_wall_s": 0.37509046249091627,
+       "mean_judge_wall_s": 0.10478239928837865,
+       "build_setup_wall_s": 0.043441802030429244,
+       "instantiate_s": 23.48614878207445,
+       "projected_method_s": 961.2123050093651,
+       "projected_judge_s": 261.95599822094664
+      },
+      "GAPW1": {
+       "pilot_rows": 30,
+       "mean_outer_wall_s": 0.47372712251575044,
+       "mean_judge_wall_s": 0.06091190376318991,
+       "build_setup_wall_s": 0.016520408913493156,
+       "instantiate_s": 15.6797532630153,
+       "projected_method_s": 726.2704370366409,
+       "projected_judge_s": 91.36785564478487
+      },
+      "S": {
+       "pilot_rows": 20,
+       "mean_outer_wall_s": 0.6420179831329733,
+       "mean_judge_wall_s": 0.09947507091565058,
+       "build_setup_wall_s": 0.02604149398393929,
+       "instantiate_s": 11.867825109045953,
+       "projected_method_s": 653.8858082420193,
+       "projected_judge_s": 99.47507091565058
+      }
+     },
+     "method_h_one_stream": 0.6503801528577848,
+     "judge_cpu_h": 0.12577747910593948,
+     "setup_build_h": 2.3889918035517137e-05
+    },
+    "sweeper": {
+     "summary": {
+      "n": 100,
+      "status_counts": {
+       "SUCCESS": 77,
+       "FAIL": 16,
+       "CLAIMED_UNPROVEN": 2,
+       "CLAIMED_COLLIDES": 5
+      },
+      "success_rate": 0.77,
+      "appended_goal_segment": 84,
+      "prepended_start_segment": 84,
+      "algorithm_wall_s": {
+       "median": 0.45973166555631906,
+       "p95": 2.9643490905174987,
+       "max": 3.3782326858490705,
+       "sum": 91.97992458706722
+      },
+      "outer_wall_s": {
+       "median": 0.46036947693210095,
+       "p95": 2.964654903335031,
+       "sum": 92.02823175140657
+      },
+      "judge_wall_s": {
+       "median": 0.0598858289886266,
+       "p95": 0.07533277494367212,
+       "sum": 5.142772146733478
+      }
+     },
+     "regions": {
+      "WWEST": {
+       "pilot_rows": 50,
+       "mean_outer_wall_s": 1.0129496592562646,
+       "mean_judge_wall_s": 0.05819371856590051,
+       "build_setup_wall_s": 0.017037405166774988,
+       "instantiate_s": 22.62427784106694,
+       "projected_method_s": 2554.9984259817284,
+       "projected_judge_s": 145.48429641475127
+      },
+      "GAPW1": {
+       "pilot_rows": 30,
+       "mean_outer_wall_s": 1.006027983974976,
+       "mean_judge_wall_s": 0.056126877335676305,
+       "build_setup_wall_s": 0.00912161497399211,
+       "instantiate_s": 12.527705527143553,
+       "projected_method_s": 1521.5696814896075,
+       "projected_judge_s": 84.19031600351445
+      },
+      "S": {
+       "pilot_rows": 20,
+       "mean_outer_wall_s": 0.5599954634672031,
+       "mean_judge_wall_s": 0.07419919102501712,
+       "build_setup_wall_s": 0.015495961997658014,
+       "instantiate_s": 12.896262689027935,
+       "projected_method_s": 572.891726156231,
+       "projected_judge_s": 74.19919102501713
+      }
+     },
+     "method_h_one_stream": 1.2915166204521018,
+     "judge_cpu_h": 0.08440938984535634,
+     "setup_build_h": 1.1570828371784754e-05
+    }
+   },
+   "projection_5000x2": {
+    "method_gpu_h": 0.48547419332747166,
+    "judge_cpu_h": 0.21018686895129582,
+    "setup_h": 3.5460746407301895e-05,
+    "wall_h_at_concurrency": 0.24273709666373583,
+    "cpu_h_harness_parents": 1.9418967733098866,
+    "gpu_h_if_judge_inline": 0.5380209105652957,
+    "wall_h_if_judge_inline": 0.26901045528264783,
+    "scenarios": "A (recommended): run --judge defer on the GPU (method_gpu_h, wall_h_at_concurrency), then `bl_harness judge` as CPU array jobs (judge_cpu_h). B: judge inline (gpu_h_if_judge_inline, wall_h_if_judge_inline). GPU-h assume linear scaling to 4 streams per GPU at the pilot's per-stream speed"
+   }
+  }
+ }
+}
