@@ -84,3 +84,14 @@
   `world_check_C*.json` (segment-checked snap, tightening) and removed.
 - Agent allocation 19511086 ended OUT_OF_MEMORY (2 GB) after 2.5 h; resumed by the wrapper, no work lost.
 - Projection (4 methods, 5000 × 2): 2.3 GPU-h, 26 CPU-h total; no subset needed. Budget 19.1 CPU-h, 1.01 GPU-h.
+
+## 2026-10-10 — stage B3 (full runs, 4 methods × 5000 × 2) — agent jobs 19525431/19525820/19528751
+- Setup artifacts from B1/B2 reused (24/24: SHA = sidecar, path = hash(frozen config, adapter source), setup id = pilot
+  rows); plan committed before any row (8c5f2ef): judge inline, 4 streams per L40S, cust_fields CPU array 26 tasks.
+- Jobs: FOCI 19525656 (0:40), SplatNav 19525657 (1:54), PNO 19525658 (CANCELLED by uid 0 after 2:08 — 2 GAPW1
+  cylinder tasks cut at 702 + 645 rows; resumed by 19528737, 153 rows), cust_fields 19525659 (26/26).
+- collect.json ok: 40 000 rows, every cell complete, one setup id + artifact per cell, 0 setup builds, 0 restarts,
+  0 ERROR/TIMEOUT. SUCCESS cylinder/sweeper: SplatNav 4958/5000, FOCI 2102/3665 (2884/449 unsafe claims), PNO
+  5000/5000, cust_fields 0/113. Spot-check 25/25 agree (only FOCI has CLAIMED_* rows).
+- SplatNav full rows (133 MB gz) kept under outputs/baselines/b3_rows/ with SHA sidecars; slim rows committed.
+- Budget 29.1 CPU-h, 4.88 GPU-h. Doc `docs/baselines_b3.md`.

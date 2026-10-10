@@ -221,8 +221,9 @@ def cmd_collect(a):
                     "every_start_setup_calls_zero": all(p["every_start_setup_calls_zero"] for p in proofs),
                     "rows_with_a_setup_stage": stages_setup,
                     "instantiate_s_per_start": [t for p in proofs for t in p["instantiate_s_per_start"]],
-                    "hosts": sorted({(s.get("host") or {}).get("hostname", "?") for s in sums}),
-                    "commits": sorted({(s.get("host") or {}).get("commit", "?") for s in sums}),
+                    "hosts": sorted({(s.get("host") or {}).get("node", "?") for s in sums}),
+                    "commits": sorted({(s.get("host") or {}).get("git_commit", "?") for s in sums}),
+                    "slurm_jobs": sorted({(s.get("host") or {}).get("slurm_job_id", "?") for s in sums}),
                     "summary": H.summarize(rows),
                     "judge_fail_location": dict(collections.Counter(
                         f"{r['status']}|{r.get('judge_fail_location')}" for r in rows

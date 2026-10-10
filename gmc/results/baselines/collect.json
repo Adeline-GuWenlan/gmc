@@ -1,0 +1,2458 @@
+{
+ "schema": "bl.b3_collect.v1",
+ "plan": "results/baselines/b3/plan.json",
+ "definition": "Completeness: every method x robot x F4 pair answered exactly once (subset: none). Setup-once: per method x robot x region one setup id over all rows, every task setup_builds_in_this_task = 0 and every worker start loaded the plan's artifact SHA. Outcome classes plan \u00a75. Cost: sacct allocated cores x elapsed (GPU jobs: 4 cores).",
+ "methods": {
+  "foci": {
+   "robots": {
+    "cylinder": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "59527dabc75aacee"
+       ],
+       "plan_setup_id": "59527dabc75aacee",
+       "artifact_sha256s": [
+        "7fba0e664f8ffeb3cada15512f8356403ce47778e47d8520356f658c6908e059"
+       ],
+       "plan_artifact_sha256": "7fba0e664f8ffeb3cada15512f8356403ce47778e47d8520356f658c6908e059",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        25.382267640903592
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "CLAIMED_UNPROVEN": 1611,
+         "CLAIMED_COLLIDES": 201,
+         "SUCCESS": 681,
+         "FAIL": 7
+        },
+        "success_rate": 0.2724,
+        "appended_goal_segment": 2493,
+        "prepended_start_segment": 2493,
+        "algorithm_wall_s": {
+         "median": 0.3121798763750121,
+         "p95": 0.9167260165791953,
+         "max": 4.835513761034235,
+         "sum": 1024.4874610945117
+        },
+        "outer_wall_s": {
+         "median": 0.3123933133902028,
+         "p95": 0.9169552138890134,
+         "sum": 1025.0453641531058
+        },
+        "judge_wall_s": {
+         "median": 0.04101936286315322,
+         "p95": 0.19008001363836288,
+         "sum": 143.22670297510922
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_UNPROVEN|method_path": 1566,
+        "CLAIMED_COLLIDES|method_path": 140,
+        "CLAIMED_UNPROVEN|prepended_start_segment": 43,
+        "CLAIMED_COLLIDES|prepended_start_segment": 48,
+        "CLAIMED_COLLIDES|appended_goal_segment": 13,
+        "CLAIMED_UNPROVEN|appended_goal_segment": 2
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 7
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "e8576f7025ad2c7b"
+       ],
+       "plan_setup_id": "e8576f7025ad2c7b",
+       "artifact_sha256s": [
+        "4a8f61f3e7536e8b14da881d2d93f78a795e70eab71e1a30944f3eb9e85893fb"
+       ],
+       "plan_artifact_sha256": "4a8f61f3e7536e8b14da881d2d93f78a795e70eab71e1a30944f3eb9e85893fb",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        24.035216273972765
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 423,
+         "CLAIMED_UNPROVEN": 1049,
+         "CLAIMED_COLLIDES": 22,
+         "FAIL": 6
+        },
+        "success_rate": 0.282,
+        "appended_goal_segment": 1494,
+        "prepended_start_segment": 1494,
+        "algorithm_wall_s": {
+         "median": 0.3221079605864361,
+         "p95": 1.0432154390029609,
+         "max": 3.580458879005164,
+         "sum": 638.2657023484353
+        },
+        "outer_wall_s": {
+         "median": 0.3223168340045959,
+         "p95": 1.043484308826737,
+         "sum": 638.5994646891486
+        },
+        "judge_wall_s": {
+         "median": 0.040568678406998515,
+         "p95": 0.06727951947832476,
+         "sum": 71.00160110532306
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_UNPROVEN|method_path": 1044,
+        "CLAIMED_COLLIDES|appended_goal_segment": 10,
+        "CLAIMED_UNPROVEN|appended_goal_segment": 2,
+        "CLAIMED_UNPROVEN|prepended_start_segment": 3,
+        "CLAIMED_COLLIDES|prepended_start_segment": 9,
+        "CLAIMED_COLLIDES|method_path": 3
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 6
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "1d0c0b2351ade62a"
+       ],
+       "plan_setup_id": "1d0c0b2351ade62a",
+       "artifact_sha256s": [
+        "ef719beaaa0de3e1706f13c4b5c1a76fa4f7dca0a98fe65903c7e205a98f9a91"
+       ],
+       "plan_artifact_sha256": "ef719beaaa0de3e1706f13c4b5c1a76fa4f7dca0a98fe65903c7e205a98f9a91",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        14.985915672965348
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 998,
+         "CLAIMED_COLLIDES": 1,
+         "FAIL": 1
+        },
+        "success_rate": 0.998,
+        "appended_goal_segment": 999,
+        "prepended_start_segment": 999,
+        "algorithm_wall_s": {
+         "median": 0.5833168739918619,
+         "p95": 1.5212364949285984,
+         "max": 3.117639530915767,
+         "sum": 702.3224220937118
+        },
+        "outer_wall_s": {
+         "median": 0.5835364869562909,
+         "p95": 1.5214558935607783,
+         "sum": 702.5466892009135
+        },
+        "judge_wall_s": {
+         "median": 0.06862753606401384,
+         "p95": 0.08587034484371543,
+         "sum": 70.96100896084681
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_COLLIDES|method_path": 1
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 1
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "CLAIMED_UNPROVEN": 2660,
+       "CLAIMED_COLLIDES": 224,
+       "SUCCESS": 2102,
+       "FAIL": 14
+      },
+      "success_rate": 0.4204,
+      "appended_goal_segment": 4986,
+      "prepended_start_segment": 4986,
+      "algorithm_wall_s": {
+       "median": 0.35814303858205676,
+       "p95": 1.1351868367986755,
+       "max": 4.835513761034235,
+       "sum": 2365.0755855366588
+      },
+      "outer_wall_s": {
+       "median": 0.35836509510409087,
+       "p95": 1.1354057702585123,
+       "sum": 2366.191518043168
+      },
+      "judge_wall_s": {
+       "median": 0.04407609149347991,
+       "p95": 0.10473156115040183,
+       "sum": 285.1893130412791
+      }
+     }
+    },
+    "sweeper": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "94cb35e9adf11aeb"
+       ],
+       "plan_setup_id": "94cb35e9adf11aeb",
+       "artifact_sha256s": [
+        "7af5dea3ad7d3526a11c274f279500a5b7b0e43f5c8ca0ee5bbe036d5132cca2"
+       ],
+       "plan_artifact_sha256": "7af5dea3ad7d3526a11c274f279500a5b7b0e43f5c8ca0ee5bbe036d5132cca2",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        24.17590303090401
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "SUCCESS": 1670,
+         "FAIL": 554,
+         "CLAIMED_COLLIDES": 165,
+         "CLAIMED_UNPROVEN": 111
+        },
+        "success_rate": 0.668,
+        "appended_goal_segment": 1946,
+        "prepended_start_segment": 1946,
+        "algorithm_wall_s": {
+         "median": 0.38404405291657895,
+         "p95": 3.31506528018508,
+         "max": 4.467785050161183,
+         "sum": 2307.918268550653
+        },
+        "outer_wall_s": {
+         "median": 0.38439892849419266,
+         "p95": 3.315212159208021,
+         "sum": 2308.781169777736
+        },
+        "judge_wall_s": {
+         "median": 0.03936020552646369,
+         "p95": 0.05041559709934518,
+         "sum": 78.42731739487499
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_COLLIDES|appended_goal_segment": 146,
+        "CLAIMED_UNPROVEN|appended_goal_segment": 80,
+        "CLAIMED_UNPROVEN|method_path": 31,
+        "CLAIMED_COLLIDES|method_path": 17,
+        "CLAIMED_COLLIDES|prepended_start_segment": 2
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 553,
+        "ipopt_Error_In_Step_Computation": 1
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "fdce9f81397b9a96"
+       ],
+       "plan_setup_id": "fdce9f81397b9a96",
+       "artifact_sha256s": [
+        "427ef832cb57be029bd1a0e43d830acb5c34fc0ee7f1b5c17d16633f4d886c03"
+       ],
+       "plan_artifact_sha256": "427ef832cb57be029bd1a0e43d830acb5c34fc0ee7f1b5c17d16633f4d886c03",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        23.835811966098845
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 1030,
+         "FAIL": 308,
+         "CLAIMED_UNPROVEN": 88,
+         "CLAIMED_COLLIDES": 74
+        },
+        "success_rate": 0.6866666666666666,
+        "appended_goal_segment": 1192,
+        "prepended_start_segment": 1192,
+        "algorithm_wall_s": {
+         "median": 0.4650594019331038,
+         "p95": 3.679137537581846,
+         "max": 4.574156161863357,
+         "sum": 1631.1641366099939
+        },
+        "outer_wall_s": {
+         "median": 0.4652722096070647,
+         "p95": 3.6792876599589364,
+         "sum": 1631.5466807833873
+        },
+        "judge_wall_s": {
+         "median": 0.03925668797455728,
+         "p95": 0.05129678266821429,
+         "sum": 47.09505806630477
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_UNPROVEN|appended_goal_segment": 55,
+        "CLAIMED_UNPROVEN|method_path": 33,
+        "CLAIMED_COLLIDES|appended_goal_segment": 68,
+        "CLAIMED_COLLIDES|method_path": 6
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 308
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "ea8d47d4ace4ea01"
+       ],
+       "plan_setup_id": "ea8d47d4ace4ea01",
+       "artifact_sha256s": [
+        "174efbc109f84a566900fe29e989d21a0b40aa36eb9a450268735569912d4298"
+       ],
+       "plan_artifact_sha256": "174efbc109f84a566900fe29e989d21a0b40aa36eb9a450268735569912d4298",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        13.823878396069631
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525656"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 965,
+         "FAIL": 24,
+         "CLAIMED_UNPROVEN": 11
+        },
+        "success_rate": 0.965,
+        "appended_goal_segment": 976,
+        "prepended_start_segment": 976,
+        "algorithm_wall_s": {
+         "median": 0.30759315250907093,
+         "p95": 1.3518293226370584,
+         "max": 2.732475428143516,
+         "sum": 476.71063256426714
+        },
+        "outer_wall_s": {
+         "median": 0.30796062748413533,
+         "p95": 1.3520395128056404,
+         "sum": 477.056707855314
+        },
+        "judge_wall_s": {
+         "median": 0.051595011027529836,
+         "p95": 0.0540036071324721,
+         "sum": 50.10870128846727
+        }
+       },
+       "judge_fail_location": {
+        "CLAIMED_UNPROVEN|method_path": 11
+       },
+       "fail_reasons": {
+        "ipopt_Maximum_Iterations_Exceeded": 24
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "SUCCESS": 3665,
+       "FAIL": 886,
+       "CLAIMED_COLLIDES": 239,
+       "CLAIMED_UNPROVEN": 210
+      },
+      "success_rate": 0.733,
+      "appended_goal_segment": 4114,
+      "prepended_start_segment": 4114,
+      "algorithm_wall_s": {
+       "median": 0.39117134851403534,
+       "p95": 3.4088465368840843,
+       "max": 4.574156161863357,
+       "sum": 4415.793037724914
+      },
+      "outer_wall_s": {
+       "median": 0.391679025022313,
+       "p95": 3.4089953426620925,
+       "sum": 4417.384558416437
+      },
+      "judge_wall_s": {
+       "median": 0.040439420961774886,
+       "p95": 0.052868819946888836,
+       "sum": 175.63107674964704
+      }
+     }
+    }
+   },
+   "config_file_sha256_in_summaries": [
+    "1c38cc2ee4a25c6f6504a7bb4044ee110df32af124f92945bd28dfd0ff2c990b"
+   ],
+   "ok": true,
+   "config_file_sha256_plan": "1c38cc2ee4a25c6f6504a7bb4044ee110df32af124f92945bd28dfd0ff2c990b",
+   "one_config": true
+  },
+  "splatnav": {
+   "robots": {
+    "cylinder": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 3,
+       "tasks_expected": 3,
+       "tasks_complete": 3,
+       "setup_ids": [
+        "74bdcc7bfdbb15ea"
+       ],
+       "plan_setup_id": "74bdcc7bfdbb15ea",
+       "artifact_sha256s": [
+        "7fb85d15bd2664c04a7e0b5c3762037802aa997ef81ede3c742607cc8075aea0"
+       ],
+       "plan_artifact_sha256": "7fb85d15bd2664c04a7e0b5c3762037802aa997ef81ede3c742607cc8075aea0",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 3,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        35.22039009700529,
+        35.13658179715276,
+        34.579559687990695
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "SUCCESS": 2459,
+         "FAIL": 41
+        },
+        "success_rate": 0.9836,
+        "appended_goal_segment": 2459,
+        "prepended_start_segment": 2459,
+        "algorithm_wall_s": {
+         "median": 1.0901121464557946,
+         "p95": 2.291071702796034,
+         "max": 3.7253770479001105,
+         "sum": 2930.5433574307244
+        },
+        "outer_wall_s": {
+         "median": 1.0919310465687886,
+         "p95": 2.293204652459826,
+         "sum": 2934.4863219584804
+        },
+        "judge_wall_s": {
+         "median": 1.2943471691105515,
+         "p95": 12.894047673395828,
+         "sum": 8171.210846165195
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "astar_no_path": 39,
+        "qp_infeasible": 2
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "86c2cec34ac0b547"
+       ],
+       "plan_setup_id": "86c2cec34ac0b547",
+       "artifact_sha256s": [
+        "eae55552b47fe41ea6bd77959a53bb45844862193a0b4f5711005afb69507f21"
+       ],
+       "plan_artifact_sha256": "eae55552b47fe41ea6bd77959a53bb45844862193a0b4f5711005afb69507f21",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        19.1841580751352
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 1499,
+         "FAIL": 1
+        },
+        "success_rate": 0.9993333333333333,
+        "appended_goal_segment": 1499,
+        "prepended_start_segment": 1499,
+        "algorithm_wall_s": {
+         "median": 0.4516848480561748,
+         "p95": 0.8889992375974544,
+         "max": 1.2631025929003954,
+         "sum": 740.4047797902022
+        },
+        "outer_wall_s": {
+         "median": 0.4531075729755685,
+         "p95": 0.890241111582145,
+         "sum": 742.6429332625121
+        },
+        "judge_wall_s": {
+         "median": 0.877500528935343,
+         "p95": 6.797077662940134,
+         "sum": 2340.77019563457
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "qp_infeasible": 1
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "1a886b9eef671e51"
+       ],
+       "plan_setup_id": "1a886b9eef671e51",
+       "artifact_sha256s": [
+        "6c3978db4b702819d1c1ce1dd24e3c886dec7682643597f11058d78d2d38d4a6"
+       ],
+       "plan_artifact_sha256": "6c3978db4b702819d1c1ce1dd24e3c886dec7682643597f11058d78d2d38d4a6",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        16.506526862969622
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 1000
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1000,
+        "prepended_start_segment": 1000,
+        "algorithm_wall_s": {
+         "median": 0.27025553258135915,
+         "p95": 0.6399911440443247,
+         "max": 1.0303386861924082,
+         "sum": 305.60070725157857
+        },
+        "outer_wall_s": {
+         "median": 0.2713464804692194,
+         "p95": 0.640931850252673,
+         "sum": 306.67897371342406
+        },
+        "judge_wall_s": {
+         "median": 0.8475355275440961,
+         "p95": 1.175765337620396,
+         "sum": 893.0918043211568
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "SUCCESS": 4958,
+       "FAIL": 42
+      },
+      "success_rate": 0.9916,
+      "appended_goal_segment": 4958,
+      "prepended_start_segment": 4958,
+      "algorithm_wall_s": {
+       "median": 0.6044562484603375,
+       "p95": 1.9952798178419477,
+       "max": 3.7253770479001105,
+       "sum": 3976.548844472505
+      },
+      "outer_wall_s": {
+       "median": 0.6058628944447264,
+       "p95": 1.997457982623019,
+       "sum": 3983.8082289344165
+      },
+      "judge_wall_s": {
+       "median": 0.9917905938345939,
+       "p95": 11.352668632473787,
+       "sum": 11405.072846120922
+      }
+     }
+    },
+    "sweeper": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "10b888254f15f365"
+       ],
+       "plan_setup_id": "10b888254f15f365",
+       "artifact_sha256s": [
+        "1eee8a4820ad183b766d462b62e282916834ec31b218b33744b2b4ea468a2b70"
+       ],
+       "plan_artifact_sha256": "1eee8a4820ad183b766d462b62e282916834ec31b218b33744b2b4ea468a2b70",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        35.684020693879575
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "SUCCESS": 2500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 2500,
+        "prepended_start_segment": 2500,
+        "algorithm_wall_s": {
+         "median": 0.503829455585219,
+         "p95": 1.43677321113646,
+         "max": 3.0319813180249184,
+         "sum": 1549.5610386934131
+        },
+        "outer_wall_s": {
+         "median": 0.5053183661075309,
+         "p95": 1.4389822359196838,
+         "sum": 1553.515646723099
+        },
+        "judge_wall_s": {
+         "median": 0.8239215929061174,
+         "p95": 1.2588161487830798,
+         "sum": 2107.8260355631355
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "a79b677a74fd11a6"
+       ],
+       "plan_setup_id": "a79b677a74fd11a6",
+       "artifact_sha256s": [
+        "d51993ec8a25bde4fbef6fbec4be90d65ed9aea6285336d33f12532ed505d875"
+       ],
+       "plan_artifact_sha256": "d51993ec8a25bde4fbef6fbec4be90d65ed9aea6285336d33f12532ed505d875",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        18.519400956109166
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 1500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1500,
+        "prepended_start_segment": 1500,
+        "algorithm_wall_s": {
+         "median": 0.29421499150339514,
+         "p95": 0.7160154203651472,
+         "max": 1.1413149510044605,
+         "sum": 517.9997272109613
+        },
+        "outer_wall_s": {
+         "median": 0.29592053056694567,
+         "p95": 0.7174497898202389,
+         "sum": 520.2123072450049
+        },
+        "judge_wall_s": {
+         "median": 0.6580264695221558,
+         "p95": 0.8696021148120052,
+         "sum": 994.188973903656
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "f98b7fec974b2937"
+       ],
+       "plan_setup_id": "f98b7fec974b2937",
+       "artifact_sha256s": [
+        "0ffc03e62b074ecbefe0113626e434f40048a01439a34f988e0fc22ec6566f4c"
+       ],
+       "plan_artifact_sha256": "0ffc03e62b074ecbefe0113626e434f40048a01439a34f988e0fc22ec6566f4c",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        17.601160140009597
+       ],
+       "hosts": [
+        "gl023.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525657"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 1000
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1000,
+        "prepended_start_segment": 1000,
+        "algorithm_wall_s": {
+         "median": 0.11906668252777308,
+         "p95": 0.29528239395003764,
+         "max": 0.5242177811451256,
+         "sum": 149.52418098878115
+        },
+        "outer_wall_s": {
+         "median": 0.12008236499968916,
+         "p95": 0.29641672255238516,
+         "sum": 150.51988979266025
+        },
+        "judge_wall_s": {
+         "median": 0.6086058969376609,
+         "p95": 0.6753544987179338,
+         "sum": 612.0830020043068
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "SUCCESS": 5000
+      },
+      "success_rate": 1.0,
+      "appended_goal_segment": 5000,
+      "prepended_start_segment": 5000,
+      "algorithm_wall_s": {
+       "median": 0.32715895189903677,
+       "p95": 1.196105597377755,
+       "max": 3.0319813180249184,
+       "sum": 2217.0849468931556
+      },
+      "outer_wall_s": {
+       "median": 0.3286820355569944,
+       "p95": 1.198019117873628,
+       "sum": 2224.247843760764
+      },
+      "judge_wall_s": {
+       "median": 0.680156002053991,
+       "p95": 1.1562916258000773,
+       "sum": 3714.0980114710983
+      }
+     }
+    }
+   },
+   "config_file_sha256_in_summaries": [
+    "b2456335d0e2def449ca00993120e81bebbfa4fb0682e5f5d1befff3437f670c"
+   ],
+   "ok": true,
+   "config_file_sha256_plan": "b2456335d0e2def449ca00993120e81bebbfa4fb0682e5f5d1befff3437f670c",
+   "one_config": true
+  },
+  "pno": {
+   "robots": {
+    "cylinder": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 2,
+       "tasks_expected": 2,
+       "tasks_complete": 2,
+       "setup_ids": [
+        "6c640d36261b80fb"
+       ],
+       "plan_setup_id": "6c640d36261b80fb",
+       "artifact_sha256s": [
+        "223f26d36e89fd64992933d5fce3b91a3c4f900f487fc5fb16f8ae8176915071"
+       ],
+       "plan_artifact_sha256": "223f26d36e89fd64992933d5fce3b91a3c4f900f487fc5fb16f8ae8176915071",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 2,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        12.804886194877326,
+        11.858120023040101
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525658"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "SUCCESS": 2500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 2500,
+        "prepended_start_segment": 2500,
+        "algorithm_wall_s": {
+         "median": 2.132697524037212,
+         "p95": 4.356694002763834,
+         "max": 5.999834309099242,
+         "sum": 5642.399385984754
+        },
+        "outer_wall_s": {
+         "median": 2.1331063044490293,
+         "p95": 4.356996397103648,
+         "sum": 5643.701833020896
+        },
+        "judge_wall_s": {
+         "median": 0.32709674804937094,
+         "p95": 8.696174605307165,
+         "sum": 3658.719384968048
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 2,
+       "tasks_expected": 2,
+       "tasks_complete": 2,
+       "setup_ids": [
+        "cbafe946672c3473"
+       ],
+       "plan_setup_id": "cbafe946672c3473",
+       "artifact_sha256s": [
+        "abafa02cdc408dd3ecb286f2dd2f1410029d5a1522e765fff32952dec3881343"
+       ],
+       "plan_artifact_sha256": "abafa02cdc408dd3ecb286f2dd2f1410029d5a1522e765fff32952dec3881343",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 2,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        14.33614691812545,
+        14.513256655074656
+       ],
+       "hosts": [
+        "gl031.hpc.nyu.edu"
+       ],
+       "commits": [
+        "03ed70c63e79fe604026dc01f348803d5e552c81"
+       ],
+       "slurm_jobs": [
+        "19528737"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 1500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1500,
+        "prepended_start_segment": 1500,
+        "algorithm_wall_s": {
+         "median": 3.780666784965433,
+         "p95": 6.288032609189394,
+         "max": 7.935766828944907,
+         "sum": 5652.208865291439
+        },
+        "outer_wall_s": {
+         "median": 3.7815014073858038,
+         "p95": 6.289005292835645,
+         "sum": 5653.340960951522
+        },
+        "judge_wall_s": {
+         "median": 0.3532724140677601,
+         "p95": 5.001928397885056,
+         "sum": 1664.6621377703268
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "788304da5b98afa0"
+       ],
+       "plan_setup_id": "788304da5b98afa0",
+       "artifact_sha256s": [
+        "b1d921da803a4c1547bafb651aef83bb59ba79e85420b7c14dc6c08587761f77"
+       ],
+       "plan_artifact_sha256": "b1d921da803a4c1547bafb651aef83bb59ba79e85420b7c14dc6c08587761f77",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        4.874642007052898
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525658"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 1000
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1000,
+        "prepended_start_segment": 1000,
+        "algorithm_wall_s": {
+         "median": 0.4352295830613002,
+         "p95": 0.6916911274776794,
+         "max": 0.8583715099375695,
+         "sum": 438.62458953331225
+        },
+        "outer_wall_s": {
+         "median": 0.4354711576597765,
+         "p95": 0.6919842804549261,
+         "sum": 438.86264303396456
+        },
+        "judge_wall_s": {
+         "median": 0.038157950853928924,
+         "p95": 0.08207029270706691,
+         "sum": 43.92815505806357
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "SUCCESS": 5000
+      },
+      "success_rate": 1.0,
+      "appended_goal_segment": 5000,
+      "prepended_start_segment": 5000,
+      "algorithm_wall_s": {
+       "median": 2.1301822430687025,
+       "p95": 5.502479075710291,
+       "max": 7.935766828944907,
+       "sum": 11733.232840809505
+      },
+      "outer_wall_s": {
+       "median": 2.1308086139615625,
+       "p95": 5.503200779901819,
+       "sum": 11735.905437006382
+      },
+      "judge_wall_s": {
+       "median": 0.25961373397149146,
+       "p95": 7.027000593696737,
+       "sum": 5367.309677796438
+      }
+     }
+    },
+    "sweeper": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "419452d799bc9476"
+       ],
+       "plan_setup_id": "419452d799bc9476",
+       "artifact_sha256s": [
+        "0b716f3d2d30490e4ad01e64f561ec0866869a640b824a055f22fb90f41d18d3"
+       ],
+       "plan_artifact_sha256": "0b716f3d2d30490e4ad01e64f561ec0866869a640b824a055f22fb90f41d18d3",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        12.805134642170742
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525658"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "SUCCESS": 2500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 2500,
+        "prepended_start_segment": 2500,
+        "algorithm_wall_s": {
+         "median": 1.591744013945572,
+         "p95": 3.649367957084905,
+         "max": 5.712444483069703,
+         "sum": 4433.991837885696
+        },
+        "outer_wall_s": {
+         "median": 1.5921945915324613,
+         "p95": 3.6497727540787306,
+         "sum": 4435.111182756955
+        },
+        "judge_wall_s": {
+         "median": 0.12872643349692225,
+         "p95": 0.28715505605796343,
+         "sum": 349.7148211814929
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "66090d19e7fdeaee"
+       ],
+       "plan_setup_id": "66090d19e7fdeaee",
+       "artifact_sha256s": [
+        "e92776e641935c1c7f3697569ab09a80f4cb2e6348c13b28830964da4a14d035"
+       ],
+       "plan_artifact_sha256": "e92776e641935c1c7f3697569ab09a80f4cb2e6348c13b28830964da4a14d035",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        12.77016463316977
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525658"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "SUCCESS": 1500
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1500,
+        "prepended_start_segment": 1500,
+        "algorithm_wall_s": {
+         "median": 2.5746193459490314,
+         "p95": 4.746356135210954,
+         "max": 8.125717869959772,
+         "sum": 3971.4966240811627
+        },
+        "outer_wall_s": {
+         "median": 2.5754623230313882,
+         "p95": 4.746843318431638,
+         "sum": 3972.267152809771
+        },
+        "judge_wall_s": {
+         "median": 0.15616578597109765,
+         "p95": 0.35688962370622895,
+         "sum": 263.5170102363918
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "ea924afd04f73b3e"
+       ],
+       "plan_setup_id": "ea924afd04f73b3e",
+       "artifact_sha256s": [
+        "4d1a2368ccccf050dcdb66fae1c6cc03672c2f508db34843ad4b7241cd2845fa"
+       ],
+       "plan_artifact_sha256": "4d1a2368ccccf050dcdb66fae1c6cc03672c2f508db34843ad4b7241cd2845fa",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        5.66010375902988
+       ],
+       "hosts": [
+        "gl026.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525658"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "SUCCESS": 1000
+        },
+        "success_rate": 1.0,
+        "appended_goal_segment": 1000,
+        "prepended_start_segment": 1000,
+        "algorithm_wall_s": {
+         "median": 0.46213839401025325,
+         "p95": 0.7527677984442561,
+         "max": 0.9237560310866684,
+         "sum": 467.2094200775027
+        },
+        "outer_wall_s": {
+         "median": 0.4623877645935863,
+         "p95": 0.753020611789543,
+         "sum": 467.4611998591572
+        },
+        "judge_wall_s": {
+         "median": 0.02271500986535102,
+         "p95": 0.028144523256924004,
+         "sum": 23.105256356997415
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {},
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "SUCCESS": 5000
+      },
+      "success_rate": 1.0,
+      "appended_goal_segment": 5000,
+      "prepended_start_segment": 5000,
+      "algorithm_wall_s": {
+       "median": 1.5712110105669126,
+       "p95": 3.947074204613455,
+       "max": 8.125717869959772,
+       "sum": 8872.697882044362
+      },
+      "outer_wall_s": {
+       "median": 1.5715076045598835,
+       "p95": 3.9476114264805804,
+       "sum": 8874.839535425883
+      },
+      "judge_wall_s": {
+       "median": 0.11121682706288993,
+       "p95": 0.30488239588448784,
+       "sum": 636.3370877748821
+      }
+     }
+    }
+   },
+   "config_file_sha256_in_summaries": [
+    "24f7a570bf908211dc185fe2867ba6068833f5f752458b668a87cf97030bacbe"
+   ],
+   "ok": true,
+   "config_file_sha256_plan": "24f7a570bf908211dc185fe2867ba6068833f5f752458b668a87cf97030bacbe",
+   "one_config": true
+  },
+  "cust_fields": {
+   "robots": {
+    "cylinder": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "d4701c569cc4e1a3"
+       ],
+       "plan_setup_id": "d4701c569cc4e1a3",
+       "artifact_sha256s": [
+        "5a21332145fae45b89cfd74398c0c7a7bbfb70a67b097b030daaa850a8f2c205"
+       ],
+       "plan_artifact_sha256": "5a21332145fae45b89cfd74398c0c7a7bbfb70a67b097b030daaa850a8f2c205",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        2.0564893749542534
+       ],
+       "hosts": [
+        "cs603.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19526337"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "FAIL": 2500
+        },
+        "success_rate": 0.0,
+        "appended_goal_segment": 0,
+        "prepended_start_segment": 0,
+        "algorithm_wall_s": {
+         "median": 8.422054816037416e-05,
+         "p95": 9.3251874204725e-05,
+         "max": 0.003280258970335126,
+         "sum": 0.21635973546653986
+        },
+        "outer_wall_s": {
+         "median": 0.00013061799108982086,
+         "p95": 0.00014408263377845284,
+         "sum": 0.3334406039211899
+        },
+        "judge_wall_s": {
+         "median": null,
+         "p95": null,
+         "sum": 0.0
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "endpoint_in_obstacle_cover": 2500
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "1f934ee8f0944bcf"
+       ],
+       "plan_setup_id": "1f934ee8f0944bcf",
+       "artifact_sha256s": [
+        "553ed3d76088678f9428794e48aadf5e20b44ca26d2c8607a0d1ce46c4ecd894"
+       ],
+       "plan_artifact_sha256": "553ed3d76088678f9428794e48aadf5e20b44ca26d2c8607a0d1ce46c4ecd894",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        1.7948719828855246
+       ],
+       "hosts": [
+        "cs603.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19526377"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "FAIL": 1500
+        },
+        "success_rate": 0.0,
+        "appended_goal_segment": 0,
+        "prepended_start_segment": 0,
+        "algorithm_wall_s": {
+         "median": 8.680159226059914e-05,
+         "p95": 9.376924717798829e-05,
+         "max": 0.0001629670150578022,
+         "sum": 0.12953692115843296
+        },
+        "outer_wall_s": {
+         "median": 0.00013437296729534864,
+         "p95": 0.00014679031446576118,
+         "sum": 0.20157131389714777
+        },
+        "judge_wall_s": {
+         "median": null,
+         "p95": null,
+         "sum": 0.0
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "endpoint_in_obstacle_cover": 1500
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "d01b834fc0a74a49"
+       ],
+       "plan_setup_id": "d01b834fc0a74a49",
+       "artifact_sha256s": [
+        "cb3bfbeeb58df5ae046b9c8805b16d583f747430f327d7a3b144b5fc5e801699"
+       ],
+       "plan_artifact_sha256": "cb3bfbeeb58df5ae046b9c8805b16d583f747430f327d7a3b144b5fc5e801699",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        1.3343078270554543
+       ],
+       "hosts": [
+        "cs603.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19526376"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "FAIL": 1000
+        },
+        "success_rate": 0.0,
+        "appended_goal_segment": 0,
+        "prepended_start_segment": 0,
+        "algorithm_wall_s": {
+         "median": 0.00011533102951943874,
+         "p95": 0.00030862543499097226,
+         "max": 0.003139487002044916,
+         "sum": 0.16206719703041017
+        },
+        "outer_wall_s": {
+         "median": 0.00017042842227965593,
+         "p95": 0.00037233460461720823,
+         "sum": 0.21793157747015357
+        },
+        "judge_wall_s": {
+         "median": null,
+         "p95": null,
+         "sum": 0.0
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "endpoint_in_obstacle_cover": 1000
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "FAIL": 5000
+      },
+      "success_rate": 0.0,
+      "appended_goal_segment": 0,
+      "prepended_start_segment": 0,
+      "algorithm_wall_s": {
+       "median": 8.693651761859655e-05,
+       "p95": 0.0001786092412658036,
+       "max": 0.003280258970335126,
+       "sum": 0.507963853655383
+      },
+      "outer_wall_s": {
+       "median": 0.00013431650586426258,
+       "p95": 0.0002649399684742096,
+       "sum": 0.7529434952884912
+      },
+      "judge_wall_s": {
+       "median": null,
+       "p95": null,
+       "sum": 0.0
+      }
+     }
+    },
+    "sweeper": {
+     "regions": {
+      "WWEST": {
+       "rows": 2500,
+       "expected": 2500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 1,
+       "tasks_expected": 1,
+       "tasks_complete": 1,
+       "setup_ids": [
+        "e6e67c608b7078cf"
+       ],
+       "plan_setup_id": "e6e67c608b7078cf",
+       "artifact_sha256s": [
+        "f27133fdade830d40f37d8818346720687bab19bded3c023c792bc182357de2b"
+       ],
+       "plan_artifact_sha256": "f27133fdade830d40f37d8818346720687bab19bded3c023c792bc182357de2b",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 1,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        1.5314082948025316
+       ],
+       "hosts": [
+        "cs607.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525659"
+       ],
+       "summary": {
+        "n": 2500,
+        "status_counts": {
+         "FAIL": 2500
+        },
+        "success_rate": 0.0,
+        "appended_goal_segment": 0,
+        "prepended_start_segment": 0,
+        "algorithm_wall_s": {
+         "median": 0.00010136142373085022,
+         "p95": 0.00011578628327697515,
+         "max": 0.00020838691852986813,
+         "sum": 0.25619754008948803
+        },
+        "outer_wall_s": {
+         "median": 0.00015722541138529778,
+         "p95": 0.00017640814185142513,
+         "sum": 0.39705886226147413
+        },
+        "judge_wall_s": {
+         "median": null,
+         "p95": null,
+         "sum": 0.0
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "endpoint_in_obstacle_cover": 2500
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "GAPW1": {
+       "rows": 1500,
+       "expected": 1500,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 13,
+       "tasks_expected": 13,
+       "tasks_complete": 13,
+       "setup_ids": [
+        "cd6e919d4298890f"
+       ],
+       "plan_setup_id": "cd6e919d4298890f",
+       "artifact_sha256s": [
+        "fffc280dec22ded52d838e0aa2486ab0d528883eb0577699413be7808c8366f8"
+       ],
+       "plan_artifact_sha256": "fffc280dec22ded52d838e0aa2486ab0d528883eb0577699413be7808c8366f8",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 13,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        1.8949910060036927,
+        1.2122082670684904,
+        1.20029828697443,
+        1.5091215870343149,
+        1.9995085049886256,
+        1.487796357832849,
+        1.3584858500398695,
+        1.4761930871754885,
+        1.0408197389915586,
+        1.056790066184476,
+        1.2194373980164528,
+        1.3698416841216385,
+        1.8136866530403495
+       ],
+       "hosts": [
+        "cs601.hpc.nyu.edu",
+        "cs607.hpc.nyu.edu",
+        "cs609.hpc.nyu.edu",
+        "gr102.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525681",
+        "19525682",
+        "19525683",
+        "19526183",
+        "19526184",
+        "19526206",
+        "19526207",
+        "19526228",
+        "19526229",
+        "19526233",
+        "19526234",
+        "19526266",
+        "19526336"
+       ],
+       "summary": {
+        "n": 1500,
+        "status_counts": {
+         "FAIL": 1387,
+         "SUCCESS": 113
+        },
+        "success_rate": 0.07533333333333334,
+        "appended_goal_segment": 113,
+        "prepended_start_segment": 9,
+        "algorithm_wall_s": {
+         "median": 4.164858922129497,
+         "p95": 53.81175602520816,
+         "max": 72.11961396806873,
+         "sum": 19980.226687712828
+        },
+        "outer_wall_s": {
+         "median": 4.165161094046198,
+         "p95": 53.812063365103675,
+         "sum": 19980.68980821478
+        },
+        "judge_wall_s": {
+         "median": 0.14927872898988426,
+         "p95": 0.6013878861442203,
+         "sum": 23.3332571007777
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "nf_stuck": 484,
+        "endpoint_in_obstacle_cover": 384,
+        "nf_max_steps": 519
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      },
+      "S": {
+       "rows": 1000,
+       "expected": 1000,
+       "missing": [],
+       "n_missing": 0,
+       "duplicated": [],
+       "n_duplicated": 0,
+       "foreign": [],
+       "tasks": 9,
+       "tasks_expected": 9,
+       "tasks_complete": 9,
+       "setup_ids": [
+        "cdd6a92a24993742"
+       ],
+       "plan_setup_id": "cdd6a92a24993742",
+       "artifact_sha256s": [
+        "e159c94efaf3db88517304cbcbc8db46a1efc4680ac92f4471eb3f137ac42df2"
+       ],
+       "plan_artifact_sha256": "e159c94efaf3db88517304cbcbc8db46a1efc4680ac92f4471eb3f137ac42df2",
+       "setup_builds_in_tasks": 0,
+       "worker_starts": 9,
+       "restarts": 0,
+       "worker_start_failures": 0,
+       "every_start_same_artifact": true,
+       "every_start_setup_calls_zero": true,
+       "rows_with_a_setup_stage": 0,
+       "instantiate_s_per_start": [
+        1.650078625883907,
+        1.6721815108321607,
+        2.2101610391400754,
+        1.0828254919033498,
+        1.5233829799108207,
+        1.5452253338880837,
+        1.116182911908254,
+        1.2241872090380639,
+        1.8382236619945616
+       ],
+       "hosts": [
+        "cs601.hpc.nyu.edu",
+        "cs604.hpc.nyu.edu",
+        "cs607.hpc.nyu.edu"
+       ],
+       "commits": [
+        "8c5f2ef785ef7400d828969fd5a807b8b6e1933c"
+       ],
+       "slurm_jobs": [
+        "19525672",
+        "19525673",
+        "19525674",
+        "19525675",
+        "19525676",
+        "19525677",
+        "19525678",
+        "19525679",
+        "19525680"
+       ],
+       "summary": {
+        "n": 1000,
+        "status_counts": {
+         "FAIL": 1000
+        },
+        "success_rate": 0.0,
+        "appended_goal_segment": 0,
+        "prepended_start_segment": 0,
+        "algorithm_wall_s": {
+         "median": 6.939438751083799,
+         "p95": 50.26025587713811,
+         "max": 54.39088891912252,
+         "sum": 14071.39813284413
+        },
+        "outer_wall_s": {
+         "median": 6.939753255923279,
+         "p95": 50.26063216334441,
+         "sum": 14071.69617580832
+        },
+        "judge_wall_s": {
+         "median": null,
+         "p95": null,
+         "sum": 0.0
+        }
+       },
+       "judge_fail_location": {},
+       "fail_reasons": {
+        "endpoint_in_obstacle_cover": 121,
+        "nf_stuck": 527,
+        "nf_max_steps": 352
+       },
+       "complete": true,
+       "setup_once": true,
+       "pending_judge": 0
+      }
+     },
+     "all": {
+      "n": 5000,
+      "status_counts": {
+       "FAIL": 4887,
+       "SUCCESS": 113
+      },
+      "success_rate": 0.0226,
+      "appended_goal_segment": 113,
+      "prepended_start_segment": 9,
+      "algorithm_wall_s": {
+       "median": 0.00012396706733852625,
+       "p95": 43.9246017332771,
+       "max": 72.11961396806873,
+       "sum": 34051.88101809705
+      },
+      "outer_wall_s": {
+       "median": 0.00019557296764105558,
+       "p95": 43.92492276658305,
+       "sum": 34052.78304288536
+      },
+      "judge_wall_s": {
+       "median": 0.14927872898988426,
+       "p95": 0.6013878861442203,
+       "sum": 23.3332571007777
+      }
+     }
+    }
+   },
+   "config_file_sha256_in_summaries": [
+    "4cb0109ef09d074179cb3590b97acc50d000b1753fb0611315875ecc3c984286"
+   ],
+   "ok": true,
+   "config_file_sha256_plan": "4cb0109ef09d074179cb3590b97acc50d000b1753fb0611315875ecc3c984286",
+   "one_config": true
+  }
+ },
+ "ok": true,
+ "cost": {
+  "jobs": [
+   {
+    "jobid": "19525656",
+    "name": "bl_b3_foci",
+    "state": "COMPLETED",
+    "elapsed_s": 2433,
+    "cpus": 4,
+    "gpus": 1,
+    "node": "gl026",
+    "cpu_h": 2.703333333333333,
+    "gpu_h": 0.6758333333333333
+   },
+   {
+    "jobid": "19525657",
+    "name": "bl_b3_splatnav",
+    "state": "COMPLETED",
+    "elapsed_s": 6863,
+    "cpus": 4,
+    "gpus": 1,
+    "node": "gl023",
+    "cpu_h": 7.625555555555556,
+    "gpu_h": 1.906388888888889
+   },
+   {
+    "jobid": "19525658",
+    "name": "bl_b3_pno",
+    "state": "CANCELLED by 0",
+    "elapsed_s": 7707,
+    "cpus": 4,
+    "gpus": 1,
+    "node": "gl026",
+    "cpu_h": 8.563333333333333,
+    "gpu_h": 2.140833333333333
+   },
+   {
+    "jobid": "19525659_0",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1423,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs601",
+    "cpu_h": 0.3952777777777778,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_1",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1739,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs604",
+    "cpu_h": 0.48305555555555557,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_2",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1624,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs604",
+    "cpu_h": 0.45111111111111113,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_3",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1433,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.39805555555555555,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_4",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1555,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.43194444444444446,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_5",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1600,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.4444444444444444,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_6",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1283,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.35638888888888887,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_7",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1623,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.4508333333333333,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_8",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1901,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.5280555555555555,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_9",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1855,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.5152777777777777,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_10",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1321,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.36694444444444446,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_11",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1918,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.5327777777777778,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_12",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1348,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs601",
+    "cpu_h": 0.37444444444444447,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_13",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1567,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs609",
+    "cpu_h": 0.43527777777777776,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_14",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1164,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs601",
+    "cpu_h": 0.3233333333333333,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_15",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1820,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.5055555555555555,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_16",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1403,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.38972222222222225,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_17",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1596,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.44333333333333336,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_18",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1783,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.49527777777777776,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_19",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1301,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.36138888888888887,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_20",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1701,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.4725,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_21",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 1384,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "gr102",
+    "cpu_h": 0.3844444444444444,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_22",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 19,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs603",
+    "cpu_h": 0.005277777777777778,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_23",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 12,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs603",
+    "cpu_h": 0.0033333333333333335,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_24",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 13,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs603",
+    "cpu_h": 0.003611111111111111,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19525659_25",
+    "name": "bl_b3_cf",
+    "state": "COMPLETED",
+    "elapsed_s": 15,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.004166666666666667,
+    "gpu_h": 0.0
+   },
+   {
+    "jobid": "19528737",
+    "name": "bl_b3_pnorerun",
+    "state": "COMPLETED",
+    "elapsed_s": 576,
+    "cpus": 4,
+    "gpus": 1,
+    "node": "gl031",
+    "cpu_h": 0.64,
+    "gpu_h": 0.16
+   },
+   {
+    "jobid": "19529048",
+    "name": "bl_b3_collect",
+    "state": "COMPLETED",
+    "elapsed_s": 149,
+    "cpus": 1,
+    "gpus": 0,
+    "node": "cs607",
+    "cpu_h": 0.04138888888888889,
+    "gpu_h": 0.0
+   }
+  ],
+  "cpu_h": 29.129444444444445,
+  "gpu_h": 4.883055555555555,
+  "budget": {
+   "cpu_h": 600,
+   "gpu_h": 100
+  },
+  "job_purpose": {
+   "19525656": "FOCI full run 5000x2, frozen F3_cov05, 4 streams on one L40S, judge inline",
+   "19525657": "SplatNav full run 5000x2, frozen config, 4 streams on one L40S, judge inline",
+   "19525658": "PNO full run 5000x2, frozen P2_S1024_pinn, 4 streams on one L40S, judge inline (after FOCI: <=2 GPU jobs)",
+   "19525659": "cust_fields full run 5000x2, frozen C0_convex, CPU array 26 tasks %12, judge inline",
+   "19528737": "infrastructure rerun: PNO GAPW1 cylinder tasks 0,1 of 2 resumed from checkpoint (702+645 rows kept) after 19525658 was CANCELLED by uid 0 at 12:31Z",
+   "19529048": "collect.json (completeness, setup-once, outcomes, sacct) -> spotpick -> spotcheck (fresh process) -> store (gzip; splatnav slim)"
+  }
+ },
+ "infrastructure_reruns": {
+  "definition": "rows re-run because of infrastructure loss (plan B3 task 3); a rerun resumes the task from its fsync'd checkpoint, so rows already written are kept unchanged and only unanswered pairs are run",
+  "reruns": [
+   {
+    "method": "pno",
+    "region": "GAPW1",
+    "robot": "cylinder",
+    "tasks": [
+     0,
+     1
+    ],
+    "n_tasks": 2,
+    "lost_job": "19525658",
+    "cause": "job CANCELLED by uid 0 (sacct State 'CANCELLED by 0') at 2026-10-10T12:31:13Z after 2:08:27 of a 5 h limit; not cancelled by this stage",
+    "rows_kept": {
+     "task_00": 702,
+     "task_01": 645
+    },
+    "rows_to_answer": 153,
+    "rerun_job": "19528737",
+    "other_tasks_of_19525658": "all 6 other PNO tasks had finished (summary complete) before the cancel"
+   }
+  ]
+ }
+}

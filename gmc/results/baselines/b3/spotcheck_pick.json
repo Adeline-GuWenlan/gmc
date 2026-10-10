@@ -1,0 +1,201 @@
+{
+ "seed": 20261012,
+ "rule": "per method 5 SUCCESS + 5 CLAIMED_* rows, uniform without replacement over the sorted (robot, region, pair_id) pool",
+ "pick": {
+  "foci": {
+   "SUCCESS": {
+    "pool": 5767,
+    "rows": [
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00230",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00393",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00927",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "S",
+      "F4S-00399",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "WWEST",
+      "F4X-01144",
+      "SUCCESS"
+     ]
+    ]
+   },
+   "CLAIMED_*": {
+    "pool": 3333,
+    "rows": [
+     [
+      "cylinder",
+      "GAPW1",
+      "F4W-01470",
+      "CLAIMED_UNPROVEN"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-00459",
+      "CLAIMED_COLLIDES"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-01334",
+      "CLAIMED_UNPROVEN"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-01775",
+      "CLAIMED_UNPROVEN"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-01984",
+      "CLAIMED_UNPROVEN"
+     ]
+    ]
+   }
+  },
+  "splatnav": {
+   "SUCCESS": {
+    "pool": 9958,
+    "rows": [
+     [
+      "cylinder",
+      "GAPW1",
+      "F4W-00619",
+      "SUCCESS"
+     ],
+     [
+      "cylinder",
+      "GAPW1",
+      "F4W-01015",
+      "SUCCESS"
+     ],
+     [
+      "cylinder",
+      "GAPW1",
+      "F4W-01107",
+      "SUCCESS"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-01440",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "WWEST",
+      "F4X-01903",
+      "SUCCESS"
+     ]
+    ]
+   },
+   "CLAIMED_*": {
+    "pool": 0,
+    "rows": []
+   }
+  },
+  "pno": {
+   "SUCCESS": {
+    "pool": 10000,
+    "rows": [
+     [
+      "cylinder",
+      "S",
+      "F4S-00565",
+      "SUCCESS"
+     ],
+     [
+      "cylinder",
+      "WWEST",
+      "F4X-02214",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "S",
+      "F4S-00528",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "WWEST",
+      "F4X-01042",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "WWEST",
+      "F4X-02067",
+      "SUCCESS"
+     ]
+    ]
+   },
+   "CLAIMED_*": {
+    "pool": 0,
+    "rows": []
+   }
+  },
+  "cust_fields": {
+   "SUCCESS": {
+    "pool": 113,
+    "rows": [
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00532",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00536",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00665",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-00936",
+      "SUCCESS"
+     ],
+     [
+      "sweeper",
+      "GAPW1",
+      "F4W-01233",
+      "SUCCESS"
+     ]
+    ]
+   },
+   "CLAIMED_*": {
+    "pool": 0,
+    "rows": []
+   }
+  }
+ }
+}
