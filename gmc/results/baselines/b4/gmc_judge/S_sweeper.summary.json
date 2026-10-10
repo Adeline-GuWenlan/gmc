@@ -1,0 +1,32 @@
+{
+ "schema": "bl.b4_gmc_judge.v1",
+ "region": "S",
+ "robot": "sweeper",
+ "source": "results/baselines/gmc_rejudged/S/sweeper/rows.jsonl",
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/S/sweeper.a3c",
+  "a3c_sha256": "ff1c13699719d2d28a4b6411658e8b1a2376d921fb5fc83a5ff79cf5439ea4f5"
+ },
+ "reachable_rows": 968,
+ "status_counts": {
+  "SUCCESS": 968
+ },
+ "not_success": [],
+ "sha_equal_to_gmc": 494,
+ "judge_wall_s_sum": 16.72485452145338,
+ "wall_s": 22.24191752797924,
+ "host": {
+  "node": "cs621.hpc.nyu.edu",
+  "slurm_job_id": "19529261",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   86.49609375,
+   85.22998046875,
+   85.85205078125
+  ],
+  "utc": "2026-10-10T13:11:38Z",
+  "python": "3.13.5",
+  "git_commit": "8b931bc8b6de7cff4746b04301304f16b785b97d"
+ }
+}

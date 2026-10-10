@@ -1,0 +1,32 @@
+{
+ "schema": "bl.b4_gmc_judge.v1",
+ "region": "S",
+ "robot": "cylinder",
+ "source": "results/baselines/gmc_rejudged/S/cylinder/rows.jsonl",
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/S/cylinder.a3c",
+  "a3c_sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4"
+ },
+ "reachable_rows": 812,
+ "status_counts": {
+  "SUCCESS": 812
+ },
+ "not_success": [],
+ "sha_equal_to_gmc": 278,
+ "judge_wall_s_sum": 26.4424242884852,
+ "wall_s": 32.79669491900131,
+ "host": {
+  "node": "cs621.hpc.nyu.edu",
+  "slurm_job_id": "19529266",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   87.88671875,
+   85.5556640625,
+   85.9501953125
+  ],
+  "utc": "2026-10-10T13:11:48Z",
+  "python": "3.13.5",
+  "git_commit": "8b931bc8b6de7cff4746b04301304f16b785b97d"
+ }
+}
