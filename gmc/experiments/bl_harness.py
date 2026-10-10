@@ -372,7 +372,7 @@ def run_task(method, region, robot, pairs, out_jsonl, *, artifact, config, timeo
     if art_sha != art_meta["sha256"]:
         raise ValueError("setup artifact hash differs from its sidecar")
     J = Judge(region, robot) if judge_mode == "inline" else None
-    worker = Worker(method, artifact, config, out_jsonl.with_suffix(".worker.log"), python=python)
+    worker = Worker(method, artifact, config, worker_log_path(out_jsonl), python=python)
     starts, rows = [], []
     gen = -1
     try:
@@ -460,7 +460,17 @@ def run_task(method, region, robot, pairs, out_jsonl, *, artifact, config, timeo
                               "query"},
             "worker_starts": starts, "config": config, "config_sha256": sha_json(config),
             "config_file": config_file, "config_file_sha256": sha256_file(config_file) if config_file else None,
-            "timeout_s": timeout_s, "judge_mode": judge_mode, "host": host()}
+            "timeout_s": timeout_s, "judge_mode": judge_mode, "worker_log": str(worker.log_path), "host": host()}
+
+
+def worker_log_path(out_jsonl):
+    """Method stdout/stderr (IPOPT is verbose): under outputs/ (uncommitted), mirroring the rows' path."""
+    p = Path(out_jsonl).resolve()
+    try:
+        rel = p.relative_to(Path.cwd().resolve() / "results")
+    except ValueError:
+        return p.with_suffix(".worker.log")
+    return (OUTB / "worker_logs" / rel).with_suffix(".worker.log")
 
 
 def _base_row(method, region, robot, p, art_meta, gen):
