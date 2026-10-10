@@ -1,0 +1,208 @@
+{
+ "schema": "bl.pair_list.v1",
+ "purpose": "B1 pilot: 100 F4 pairs per robot",
+ "source": "results/aerial3dg/f4/pairs_confirmed_5000.json",
+ "n": 100,
+ "seed": 20261010,
+ "rule": "strata = region x F4 lateral-clearance band (aerial3dg_fail3_f4.LAT_BANDS); allocation proportional to stratum size, >= 1 per stratum, largest remainders; uniform without replacement inside a stratum (numpy default_rng(seed))",
+ "strata": {
+  "GAPW1/0": {
+   "population": 2,
+   "picked": 1
+  },
+  "GAPW1/0.5-1.5": {
+   "population": 18,
+   "picked": 1
+  },
+  "GAPW1/10": {
+   "population": 129,
+   "picked": 2
+  },
+  "GAPW1/2-3": {
+   "population": 42,
+   "picked": 1
+  },
+  "GAPW1/20": {
+   "population": 432,
+   "picked": 8
+  },
+  "GAPW1/5": {
+   "population": 80,
+   "picked": 1
+  },
+  "GAPW1/50": {
+   "population": 407,
+   "picked": 8
+  },
+  "GAPW1/>=100": {
+   "population": 390,
+   "picked": 8
+  },
+  "S/0": {
+   "population": 87,
+   "picked": 2
+  },
+  "S/0.5-1.5": {
+   "population": 190,
+   "picked": 4
+  },
+  "S/10": {
+   "population": 136,
+   "picked": 3
+  },
+  "S/2-3": {
+   "population": 172,
+   "picked": 3
+  },
+  "S/20": {
+   "population": 203,
+   "picked": 4
+  },
+  "S/5": {
+   "population": 84,
+   "picked": 1
+  },
+  "S/50": {
+   "population": 121,
+   "picked": 2
+  },
+  "S/>=100": {
+   "population": 7,
+   "picked": 1
+  },
+  "WWEST/0": {
+   "population": 3,
+   "picked": 1
+  },
+  "WWEST/0.5-1.5": {
+   "population": 31,
+   "picked": 1
+  },
+  "WWEST/10": {
+   "population": 295,
+   "picked": 6
+  },
+  "WWEST/2-3": {
+   "population": 126,
+   "picked": 2
+  },
+  "WWEST/20": {
+   "population": 664,
+   "picked": 13
+  },
+  "WWEST/5": {
+   "population": 201,
+   "picked": 4
+  },
+  "WWEST/50": {
+   "population": 579,
+   "picked": 11
+  },
+  "WWEST/>=100": {
+   "population": 601,
+   "picked": 12
+  }
+ },
+ "pair_ids": [
+  "F4X-00002",
+  "F4X-00039",
+  "F4X-00058",
+  "F4X-00080",
+  "F4X-00237",
+  "F4X-00251",
+  "F4X-00313",
+  "F4X-00487",
+  "F4X-00510",
+  "F4X-00553",
+  "F4X-00589",
+  "F4X-00684",
+  "F4X-00951",
+  "F4X-00952",
+  "F4X-00955",
+  "F4X-01010",
+  "F4X-01025",
+  "F4X-01101",
+  "F4X-01115",
+  "F4X-01139",
+  "F4X-01140",
+  "F4X-01154",
+  "F4X-01155",
+  "F4X-01178",
+  "F4X-01202",
+  "F4X-01211",
+  "F4X-01219",
+  "F4X-01227",
+  "F4X-01346",
+  "F4X-01495",
+  "F4X-01523",
+  "F4X-01614",
+  "F4X-01640",
+  "F4X-01681",
+  "F4X-01684",
+  "F4X-01711",
+  "F4X-01752",
+  "F4X-01761",
+  "F4X-01769",
+  "F4X-01778",
+  "F4X-01843",
+  "F4X-01874",
+  "F4X-02001",
+  "F4X-02022",
+  "F4X-02030",
+  "F4X-02046",
+  "F4X-02329",
+  "F4X-02370",
+  "F4X-02437",
+  "F4X-02438",
+  "F4W-00018",
+  "F4W-00020",
+  "F4W-00022",
+  "F4W-00132",
+  "F4W-00217",
+  "F4W-00229",
+  "F4W-00311",
+  "F4W-00327",
+  "F4W-00423",
+  "F4W-00459",
+  "F4W-00465",
+  "F4W-00486",
+  "F4W-00502",
+  "F4W-00536",
+  "F4W-00632",
+  "F4W-00671",
+  "F4W-00693",
+  "F4W-00704",
+  "F4W-00721",
+  "F4W-00844",
+  "F4W-00965",
+  "F4W-01018",
+  "F4W-01038",
+  "F4W-01102",
+  "F4W-01181",
+  "F4W-01266",
+  "F4W-01343",
+  "F4W-01398",
+  "F4W-01475",
+  "F4W-01490",
+  "F4S-00056",
+  "F4S-00080",
+  "F4S-00087",
+  "F4S-00120",
+  "F4S-00156",
+  "F4S-00225",
+  "F4S-00271",
+  "F4S-00361",
+  "F4S-00439",
+  "F4S-00454",
+  "F4S-00543",
+  "F4S-00564",
+  "F4S-00592",
+  "F4S-00651",
+  "F4S-00670",
+  "F4S-00714",
+  "F4S-00859",
+  "F4S-00886",
+  "F4S-00941",
+  "F4S-00944"
+ ]
+}
