@@ -563,3 +563,26 @@ choices (weights, erosion, grid size) only move the time; the rule therefore pic
 **P2_S1024_pinn for both robots** (PNOwPINN weights, S = 1024, erosion 4, 5 mm raster). At S = 1024 the model grid is
 coarser than the raster (WWEST 8.5 mm, GAPW1 5.6 mm, S 9.6 mm cells: resolution loss ×1.7 / ×1.1 / ×1.9), which closes
 no tuning passage.
+
+### 10.5 Pilot (frozen P2_S1024_pinn; job 19520299; `results/baselines/pilot/pno/`) [E]
+Same 100 F4 pairs per robot as B1 (`results/baselines/pilot/pilot_pairs.json`, 50 WWEST / 30 GAPW1 / 20 S), one L40S,
+2 streams (one per robot), judge inline, 6.3 min wall.
+
+| robot | SUCCESS | CLAIMED_* | FAIL / TIMEOUT / ERROR | algorithm s median / p95 / max | judge s median / p95 | path / straight (median) | path / F4 A* route (median, p95) |
+|---|---|---|---|---|---|---|---|
+| cylinder | **100/100** | 0 | 0 / 0 / 0 | 2.12 / 5.53 / 6.36 | 0.23 / 3.04 | 1.111 | 0.981, 1.033 |
+| sweeper | **100/100** | 0 | 0 / 0 / 0 | 1.20 / 3.87 / 5.12 | 0.10 / 0.29 | 1.062 | 0.933, 0.995 |
+
+- **Stage breakdown** (medians): value-function inference 0.054 s (GPU), heuristic 0.035 s, the repo's A* 2.00 s
+  (cylinder; 59 k expansions, p95 160 k) / 1.09 s (sweeper; 33 k). PNO's own inference is ~3 % of the query; the
+  Python grid A* is the rest.
+- **Endpoints**: 4 of 200 cylinder endpoints (0 sweeper) had a map-occupied model-grid cell and moved to the nearest
+  free cell (≤ 14.8 mm); every row has the two millimetre completion segments (start → cell centre, last cell centre →
+  goal), all judged free.
+- **Paths** are 8-connected grid paths (collinear vertices merged): median 98 (cylinder) / 56 (sweeper) vertices; they
+  are *shorter* than F4's A* routes (0.98 / 0.93), which run on a 0.1 m lattice.
+- Setup once: per task 1 worker start, 0 restarts, 0 setup builds in the task, same artifact SHA and setup id on
+  every row; setup build (CPU: raster load + resample + labels + erosion) 0.8–2.5 s + the shared raster build (§9.2,
+  5 mm: 5–138 s); instantiate per worker start (weights + FNOSDF χ on the GPU, first CUDA use) 4.2–5.7 s (GAPW1, S),
+  13.1–13.4 s (WWEST) (`task_00.summary.json` `setup_once_proof`).
+- GPU memory: peak 8.5 GB for the two S = 1024 workers (`gpu_mem_log.txt`), so ≥ 4 streams fit one L40S.
