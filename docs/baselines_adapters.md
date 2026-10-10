@@ -273,7 +273,7 @@ summaries `task_00.summary.json`, `report.json` **[E]**.
 Per region (SUCCESS/n), cylinder: SplatNav WWEST 50/50, GAPW1 30/30, S 20/20; FOCI WWEST 16/50, GAPW1 8/30, S 20/20.
 Sweeper: SplatNav all; FOCI WWEST 37/50, GAPW1 21/30, S 19/20 **[E]**.
 
-Where the unsafe claims are **[E]** (`judge_fail_location`, inline): FOCI cylinder 53 of 56 on FOCI's own curve
+Where the unsafe claims are **[E]** (`judge_fail_location`, inline): FOCI cylinder 54 of 56 on FOCI's own curve
 (`geometry_or_margin_unproven` 53 — clearance below the 1 mm margin — and 1 `minkowski_interior_witness`), 2 on the
 prepended start segment; FOCI sweeper 6 of 7 on the appended goal segment (FOCI stops short: goal gap median 0.20 m,
 p90 1.19 m) and 1 on its own curve. FOCI sweeper FAILs are all `ipopt_Maximum_Iterations_Exceeded` (16). So FOCI's
@@ -333,7 +333,8 @@ should decide whether to commit them or keep them under `outputs/` with SHA side
   `BL_HEAVY=1 pytest tests/unit/test_bl_harness.py` in an sbatch job after any harness change.
 
 ## 8. Budget and jobs
-B1 used **4.0 CPU-h and 0.96 GPU-h** of 40 / 10 (`sacct` over the 18 jobs in `jobids/B1.txt`, excluding the agent's
-own 1-CPU allocation) **[E]**. Jobs: 19508155 export + tests, 19508232 sanity, 19508233 setup, 19508258 GPU probe,
-19508642 tuning, 19508644 rounding sanity, 19510034 F1 rerun, 19510126 / 19510253 fail locations, 19510252 pilot,
-19510647 / 19510776 (failed: script on node-local /tmp) / 19510804 / figure re-renders and diagnosis.
+B1 used **4.0 CPU-h and 0.96 GPU-h** of 40 / 10 (`sacct` over the 15 compute jobs in `jobids/B1.txt`, excluding the
+agent's own 1-CPU allocation 19507514) **[E]**. Jobs: 19508155 export + tests, 19508232 sanity, 19508233 setup,
+19508258 GPU probe, 19508642 tuning, 19508644 rounding sanity, 19510034 F1 rerun, 19510126 / 19510253 fail
+locations, 19510252 pilot, 19510647 / 19510683 / 19510875 figure renders, 19510776 (failed: script on node-local
+/tmp) / 19510804 flagged-Gaussian diagnosis (`experiments/bl_b1_diag_f4x00002.py`). Jobs still running: none.
