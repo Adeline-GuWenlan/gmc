@@ -1,0 +1,41 @@
+{
+ "method": "astar_replay",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "config": {},
+ "artifact": "outputs/baselines/astar_replay/44136fa355b3/GAPW1_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 0.7603711639530957,
+ "host": {
+  "node": "cs602.hpc.nyu.edu",
+  "slurm_job_id": "19508232",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   115.94970703125,
+   113.74951171875,
+   113.771484375
+  ],
+  "utc": "2026-10-10T00:30:09Z",
+  "python": "3.13.5",
+  "git_commit": "9dbd90da6ea932837833e9656f0de84ff8158073"
+ },
+ "scene_export_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+ "log": "outputs/baselines/astar_replay/44136fa355b3/GAPW1_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "d014fdf973c00d74",
+  "method": "astar_replay",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_cylinder.npz",
+  "scene_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+  "config": {},
+  "build_setup_wall_s": 1.0358169674873352e-05,
+  "build_setup_cpu_s": 7.796000000004355e-06,
+  "region": "GAPW1",
+  "robot": "cylinder",
+  "info": {},
+  "python": "3.13.5",
+  "pid": 1763859,
+  "bytes": 248,
+  "sha256": "cab42d26a2bac8edbfb38cd195efe0342d2f07c3bf1cc6cd066cde7749d7611e"
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "method": "foci",
+ "region": "GAPW1",
+ "robot": "sweeper",
+ "config": {},
+ "artifact": "outputs/baselines/foci/a26bb64a7361/GAPW1_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.3257927680388093,
+ "host": {
+  "node": "gl033.hpc.nyu.edu",
+  "slurm_job_id": "19510034",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   26.76025390625,
+   30.6279296875,
+   44.42431640625
+  ],
+  "utc": "2026-10-10T01:26:16Z",
+  "python": "3.13.5",
+  "git_commit": "a50273922d333242822767e62c8935acd28686f9"
+ },
+ "scene_export_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+ "log": "outputs/baselines/foci/a26bb64a7361/GAPW1_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "b7173fbe24137125",
+  "method": "foci",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_sweeper.npz",
+  "scene_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+  "config": {},
+  "build_setup_wall_s": 0.007894695969298482,
+  "build_setup_cpu_s": 0.007855276999999994,
+  "region": "GAPW1",
+  "robot": "sweeper",
+  "info": {
+   "n_input": 209126,
+   "n_kept_slab_and_box": 2737,
+   "slab_z": [
+    0.018999999999999996,
+    0.101
+   ],
+   "centre_offset_plan": [
+    -5.65,
+    1.7,
+    -0.44
+   ],
+   "robot_cov_diag": [
+    0.011615999999999998,
+    0.011615999999999998,
+    0.0012607499999999997
+   ],
+   "cover_level_sigma_semi_axes_m": [
+    0.21555509736491965,
+    0.21555509736491965,
+    0.07101408311032396
+   ],
+   "cylinder_r_h_plus_margin": [
+    0.176,
+    0.041
+   ],
+   "obstacle_cov_factor": 1.0,
+   "z_range_real": [
+    -0.44,
+    0.56
+   ]
+  },
+  "python": "3.10.21",
+  "pid": 2643793,
+  "bytes": 263652,
+  "sha256": "601a0570277c9770e875228452fc566bf059cab8f73617f75a9fcb0df57be08a"
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "method": "splatnav",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "config": {
+  "eps": 0.02
+ },
+ "artifact": "outputs/baselines/splatnav/d6ce8eafe47a/WWEST_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 2.499826833140105,
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508642",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   108.00439453125,
+   100.857421875,
+   82.20263671875
+  ],
+  "utc": "2026-10-10T00:56:52Z",
+  "python": "3.13.5",
+  "git_commit": "5afdd94f70fe30543dcbe819957c4b020635cfc9"
+ },
+ "scene_export_sha256": "a88e78b8e1e8b204f1f25f0de097e618da7f717ad1a111871c9500753804234c",
+ "log": "outputs/baselines/splatnav/d6ce8eafe47a/WWEST_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "e4f755fbfdff902b",
+  "method": "splatnav",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/WWEST_cylinder.npz",
+  "scene_sha256": "a88e78b8e1e8b204f1f25f0de097e618da7f717ad1a111871c9500753804234c",
+  "config": {
+   "eps": 0.02
+  },
+  "build_setup_wall_s": 1.3757611748296767,
+  "build_setup_cpu_s": 0.667087089,
+  "region": "WWEST",
+  "robot": "cylinder",
+  "info": {
+   "n_input": 390716,
+   "n_kept_slab_and_box": 206505,
+   "kept_extending_beyond_slab": 10340,
+   "zero_vector_quaternions_rewritten": 0,
+   "slab_z": [
+    0.019000000000000017,
+    1.751
+   ],
+   "centre_plan": [
+    -5.65,
+    1.2,
+    0.885
+   ],
+   "eps": 0.02,
+   "corridor_half_width": 0.05000000000000001,
+   "dz_squashed_max": 0.07071067811865477,
+   "dz_real_max_m": 3.535533905932738,
+   "sphere_radius_squashed": 0.31360867381185453,
+   "cover_semi_axes_real_m": [
+    0.31360867381185453,
+    0.31360867381185453,
+    15.680433690592727
+   ],
+   "cover_lateral_ratio_vs_body": 1.045362246039515,
+   "cover_lateral_excess_m": 0.013608673811854544,
+   "grid_lower": [
+    -3.978289321881345,
+    -2.178289321881345,
+    -0.31360867381185453
+   ],
+   "grid_upper": [
+    3.9782893218813458,
+    2.178289321881345,
+    0.31360867381185453
+   ],
+   "grid_resolution": [
+    398,
+    218,
+    1
+   ],
+   "grid_inset_m": 0.37171067811865477,
+   "scale_level": 2.0,
+   "judge_level": 2.0,
+   "margin_m": 0.001
+  },
+  "python": "3.10.22",
+  "pid": 2808455,
+  "bytes": 8261507,
+  "sha256": "c15635c012752f7e01ed49d5545a675f8eddca992d0139e8d45cc6c3fc165bb4"
+ }
+}

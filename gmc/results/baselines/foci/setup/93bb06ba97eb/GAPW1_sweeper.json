@@ -1,0 +1,88 @@
+{
+ "method": "foci",
+ "region": "GAPW1",
+ "robot": "sweeper",
+ "config": {
+  "num_control_points": 10,
+  "num_samples": 40,
+  "sigma_level": "native",
+  "cov_scale": 0.5,
+  "kin_scale": 0.2,
+  "z_half": 0.01,
+  "heading": "start_to_goal"
+ },
+ "artifact": "outputs/baselines/foci/93bb06ba97eb/GAPW1_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.1558424858376384,
+ "host": {
+  "node": "gl015.hpc.nyu.edu",
+  "slurm_job_id": "19510252",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   73.81005859375,
+   73.9375,
+   77.5
+  ],
+  "utc": "2026-10-10T01:30:39Z",
+  "python": "3.13.5",
+  "git_commit": "0f0e04990705be762da5e09b80a1eed60a487a29"
+ },
+ "scene_export_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+ "log": "outputs/baselines/foci/93bb06ba97eb/GAPW1_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "fdce9f81397b9a96",
+  "method": "foci",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_sweeper.npz",
+  "scene_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+  "config": {
+   "num_control_points": 10,
+   "num_samples": 40,
+   "sigma_level": "native",
+   "cov_scale": 0.5,
+   "kin_scale": 0.2,
+   "z_half": 0.01,
+   "heading": "start_to_goal"
+  },
+  "build_setup_wall_s": 0.00912161497399211,
+  "build_setup_cpu_s": 0.009048414000000005,
+  "region": "GAPW1",
+  "robot": "sweeper",
+  "info": {
+   "n_input": 209126,
+   "n_kept_slab_and_box": 2737,
+   "slab_z": [
+    0.018999999999999996,
+    0.101
+   ],
+   "centre_offset_plan": [
+    -5.65,
+    1.7,
+    -0.44
+   ],
+   "robot_cov_diag": [
+    0.0029039999999999995,
+    0.0029039999999999995,
+    0.00031518749999999993
+   ],
+   "cover_level_sigma_semi_axes_m": [
+    0.10777754868245983,
+    0.10777754868245983,
+    0.03550704155516198
+   ],
+   "cylinder_r_h_plus_margin": [
+    0.176,
+    0.041
+   ],
+   "obstacle_cov_factor": 1.0,
+   "z_range_real": [
+    -0.44,
+    0.56
+   ]
+  },
+  "python": "3.10.21",
+  "pid": 3869418,
+  "bytes": 263652,
+  "sha256": "427ef832cb57be029bd1a0e43d830acb5c34fc0ee7f1b5c17d16633f4d886c03"
+ }
+}
