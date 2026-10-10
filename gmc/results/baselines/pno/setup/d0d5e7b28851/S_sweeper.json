@@ -1,0 +1,77 @@
+{
+ "method": "pno",
+ "region": "S",
+ "robot": "sweeper",
+ "config": {
+  "raster_res_m": 0.005,
+  "S": 1024,
+  "model": "PNOwPINN",
+  "erosion": 4,
+  "smooth_coef": 5.0,
+  "v_unit": "S/64",
+  "snap_max_m": 1.0,
+  "collinear_merge": true
+ },
+ "artifact": "outputs/baselines/pno/d0d5e7b28851/S_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 2.0630547869950533,
+ "host": {
+  "node": "gl012.hpc.nyu.edu",
+  "slurm_job_id": "19520299",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   7.26708984375,
+   8.5087890625,
+   8.4150390625
+  ],
+  "utc": "2026-10-10T06:06:40Z",
+  "python": "3.13.5",
+  "git_commit": "3a841e9931d127c05cae04462030f236ba7dfc45"
+ },
+ "scene_export_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+ "log": "outputs/baselines/pno/d0d5e7b28851/S_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "ea924afd04f73b3e",
+  "method": "pno",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_sweeper.npz",
+  "scene_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+  "config": {
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "model": "PNOwPINN",
+   "erosion": 4,
+   "smooth_coef": 5.0,
+   "v_unit": "S/64",
+   "snap_max_m": 1.0,
+   "collinear_merge": true
+  },
+  "build_setup_wall_s": 0.8730669019278139,
+  "build_setup_cpu_s": 0.14030248799999998,
+  "region": "S",
+  "robot": "sweeper",
+  "info": {
+   "raster": "outputs/baselines/raster/S_sweeper_r5mm.npz",
+   "raster_sha256": "4b68cc9e991e704da11ffe834a8e2498e6537a2806dc6e782a66fa78f04f6da2",
+   "raster_build_wall_s": 4.8834662470035255,
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "grid_res_m": 0.0095703125,
+   "resolution_loss_factor": 1.9140625,
+   "side_m": 9.8,
+   "box_m": [
+    9.8,
+    1.3
+   ],
+   "free_frac_box": 0.5360394646139706,
+   "free_frac_fine": 0.549142464678179,
+   "free_components_8conn": 1,
+   "erosion": 4,
+   "resample_wall_s": 0.03613130981102586
+  },
+  "python": "3.10.22",
+  "pid": 4143465,
+  "bytes": 6292349,
+  "sha256": "4d1a2368ccccf050dcdb66fae1c6cc03672c2f508db34843ad4b7241cd2845fa"
+ }
+}

@@ -531,3 +531,35 @@ Reading the table [E]:
   in the NF world and in the map, within `snap_max_m`, reachable by a straight segment whose samples are map-free
   outside the endpoint's own cell (`snap_point`, unit test); else FAIL `endpoint_in_obstacle_cover`. The harness adds the
   exact endpoint segments (judged).
+
+### 10.4 Tuning → frozen (`configs/baselines/pno.json`, 3a841e9, before the pilot)
+Same pre-registered rule and tuning set as B1 (`configs/baselines/tuning/RULE.md`, B2 addendum committed 9446778
+before any B2 result); 8 candidates, one pass each; jobs 19518559 (4 streams on one L40S) and 19518925 (rerun, below).
+Rows `results/baselines/tuning/pno/<candidate>/<R>/<robot>/task_00.jsonl.gz`, table `tuning_table.json` [E].
+
+**One rerun, disclosed.** In 19518559 the S = 2048 candidates' cylinder streams ran out of GPU memory: an S = 2048
+worker holds 13–15 GB and the four concurrent streams (two of them S = 2048) exceeded the L40S's 44 GB → `CUDA out of
+memory` ERROR rows (P1 50, P3 13, P5 59 of 100), plus one SETUP_FAIL each in P1 and P5 (worker starts that died during
+start-up; the P5 one inside FNOSDF's forward pass computing χ, the P1 log tail is truncated [G: same cause]). This is
+our stream layout, not the method. The OOM'd rows were moved to
+`outputs/baselines/stale/pno_tuning_oom_19518559/` and P1/P3/P5 rerun unchanged with ≤ 2 S = 2048 workers at a time
+(19518925); P7 (S = 4096) was then run alone and still does not fit: one worker alone holds 38 GB and asks for 8 GB
+more (`CUDA out of memory`, every row) — S = 4096 is infeasible on this hardware [E].
+
+| candidate | what | cylinder S / unsafe / median s | sweeper S / unsafe / median s |
+|---|---|---|---|
+| P0_S1024 | S = 1024, PNO weights, erosion 4 (`heuristics.py` default), 5 mm raster | 50 / 0 / 2.32 | 50 / 0 / 1.56 |
+| P1_S2048 | S = 2048 | 50 / 0 / 9.05 | 50 / 0 / 6.42 |
+| **P2_S1024_pinn** | P0 with the PNOwPINN weights | **50 / 0 / 2.03** | **50 / 0 / 1.53** |
+| P3_S2048_pinn | P1 with PNOwPINN | 50 / 0 / 8.52 | 50 / 0 / 5.86 |
+| P4_S1024_ero1 | P0 with erosion 1 | 50 / 0 / 2.26 | 50 / 0 / 1.56 |
+| P5_S2048_ero1 | P1 with erosion 1 | 50 / 0 / 9.19 | 50 / 0 / 5.87 |
+| P6_S1024_r10 | P0 on the 10 mm raster | 50 / 0 / 2.24 | 50 / 0 / 1.55 |
+| P7_S4096_r2.5 | S = 4096 on the 2.5 mm raster | 0 (ERROR: GPU OOM) | 0 (ERROR: GPU OOM) |
+
+Reading [E]: every candidate that fits the GPU solves all 100 tuning queries with zero unsafe claims — expected, since
+the grid A* is complete on a map that is sound for the judge (§9) and the completion segments are millimetres. PNO's
+choices (weights, erosion, grid size) only move the time; the rule therefore picks on median time:
+**P2_S1024_pinn for both robots** (PNOwPINN weights, S = 1024, erosion 4, 5 mm raster). At S = 1024 the model grid is
+coarser than the raster (WWEST 8.5 mm, GAPW1 5.6 mm, S 9.6 mm cells: resolution loss ×1.7 / ×1.1 / ×1.9), which closes
+no tuning passage.

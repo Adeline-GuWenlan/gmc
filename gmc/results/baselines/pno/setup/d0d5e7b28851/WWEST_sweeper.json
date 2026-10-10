@@ -1,0 +1,77 @@
+{
+ "method": "pno",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "config": {
+  "raster_res_m": 0.005,
+  "S": 1024,
+  "model": "PNOwPINN",
+  "erosion": 4,
+  "smooth_coef": 5.0,
+  "v_unit": "S/64",
+  "snap_max_m": 1.0,
+  "collinear_merge": true
+ },
+ "artifact": "outputs/baselines/pno/d0d5e7b28851/WWEST_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 4.9589855580125,
+ "host": {
+  "node": "gl012.hpc.nyu.edu",
+  "slurm_job_id": "19520299",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   7.46484375,
+   8.568359375,
+   8.43359375
+  ],
+  "utc": "2026-10-10T06:06:35Z",
+  "python": "3.13.5",
+  "git_commit": "3a841e9931d127c05cae04462030f236ba7dfc45"
+ },
+ "scene_export_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+ "log": "outputs/baselines/pno/d0d5e7b28851/WWEST_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "419452d799bc9476",
+  "method": "pno",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/WWEST_sweeper.npz",
+  "scene_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+  "config": {
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "model": "PNOwPINN",
+   "erosion": 4,
+   "smooth_coef": 5.0,
+   "v_unit": "S/64",
+   "snap_max_m": 1.0,
+   "collinear_merge": true
+  },
+  "build_setup_wall_s": 2.5112332310527563,
+  "build_setup_cpu_s": 0.19378154400000003,
+  "region": "WWEST",
+  "robot": "sweeper",
+  "info": {
+   "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+   "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+   "raster_build_wall_s": 17.955699437996373,
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "grid_res_m": 0.00849609375,
+   "resolution_loss_factor": 1.6992187499999998,
+   "side_m": 8.7,
+   "box_m": [
+    8.7,
+    5.1
+   ],
+   "free_frac_box": 0.6182144342762064,
+   "free_frac_fine": 0.6265996168582375,
+   "free_components_8conn": 4,
+   "erosion": 4,
+   "resample_wall_s": 0.04829769697971642
+  },
+  "python": "3.10.22",
+  "pid": 4142893,
+  "bytes": 6292353,
+  "sha256": "0b716f3d2d30490e4ad01e64f561ec0866869a640b824a055f22fb90f41d18d3"
+ }
+}

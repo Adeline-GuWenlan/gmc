@@ -1,0 +1,77 @@
+{
+ "method": "pno",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "config": {
+  "raster_res_m": 0.005,
+  "S": 1024,
+  "model": "PNOwPINN",
+  "erosion": 4,
+  "smooth_coef": 5.0,
+  "v_unit": "S/64",
+  "snap_max_m": 1.0,
+  "collinear_merge": true
+ },
+ "artifact": "outputs/baselines/pno/d0d5e7b28851/GAPW1_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 2.0453658460173756,
+ "host": {
+  "node": "gl012.hpc.nyu.edu",
+  "slurm_job_id": "19520299",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   7.26708984375,
+   8.5087890625,
+   8.4150390625
+  ],
+  "utc": "2026-10-10T06:06:37Z",
+  "python": "3.13.5",
+  "git_commit": "3a841e9931d127c05cae04462030f236ba7dfc45"
+ },
+ "scene_export_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+ "log": "outputs/baselines/pno/d0d5e7b28851/GAPW1_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "cbafe946672c3473",
+  "method": "pno",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_cylinder.npz",
+  "scene_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+  "config": {
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "model": "PNOwPINN",
+   "erosion": 4,
+   "smooth_coef": 5.0,
+   "v_unit": "S/64",
+   "snap_max_m": 1.0,
+   "collinear_merge": true
+  },
+  "build_setup_wall_s": 0.9699380612000823,
+  "build_setup_cpu_s": 0.15266749799999998,
+  "region": "GAPW1",
+  "robot": "cylinder",
+  "info": {
+   "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+   "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+   "raster_build_wall_s": 83.75322364689782,
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "grid_res_m": 0.00556640625,
+   "resolution_loss_factor": 1.11328125,
+   "side_m": 5.7,
+   "box_m": [
+    5.7,
+    4.1
+   ],
+   "free_frac_box": 0.4687009731173677,
+   "free_frac_fine": 0.47242832691484815,
+   "free_components_8conn": 2,
+   "erosion": 4,
+   "resample_wall_s": 0.04088418302126229
+  },
+  "python": "3.10.22",
+  "pid": 4143453,
+  "bytes": 6292354,
+  "sha256": "abafa02cdc408dd3ecb286f2dd2f1410029d5a1522e765fff32952dec3881343"
+ }
+}

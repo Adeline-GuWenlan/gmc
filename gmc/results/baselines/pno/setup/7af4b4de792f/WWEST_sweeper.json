@@ -1,0 +1,63 @@
+{
+ "method": "pno",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "config": {
+  "S": 2048
+ },
+ "artifact": "outputs/baselines/pno/7af4b4de792f/WWEST_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 3.125519676832482,
+ "host": {
+  "node": "gl051.hpc.nyu.edu",
+  "slurm_job_id": "19518559",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   22.05029296875,
+   20.66943359375,
+   19.99560546875
+  ],
+  "utc": "2026-10-10T05:11:56Z",
+  "python": "3.13.5",
+  "git_commit": "75f069582ad151d0cbf6a01f9e5431358f8c71ea"
+ },
+ "scene_export_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+ "log": "outputs/baselines/pno/7af4b4de792f/WWEST_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "4c2e95a096f64e73",
+  "method": "pno",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/WWEST_sweeper.npz",
+  "scene_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+  "config": {
+   "S": 2048
+  },
+  "build_setup_wall_s": 1.984587592072785,
+  "build_setup_cpu_s": 0.33200175200000004,
+  "region": "WWEST",
+  "robot": "sweeper",
+  "info": {
+   "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+   "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+   "raster_build_wall_s": 17.955699437996373,
+   "raster_res_m": 0.005,
+   "S": 2048,
+   "grid_res_m": 0.004248046875,
+   "resolution_loss_factor": 0.8496093749999999,
+   "side_m": 8.7,
+   "box_m": [
+    8.7,
+    5.1
+   ],
+   "free_frac_box": 0.6222341570826395,
+   "free_frac_fine": 0.6265996168582375,
+   "free_components_8conn": 6,
+   "erosion": 4,
+   "resample_wall_s": 0.20057920506224036
+  },
+  "python": "3.10.22",
+  "pid": 513615,
+  "bytes": 25166716,
+  "sha256": "d333fcc272e02d22ae94363eb36b71683bacd6b57b01cf09ad5a05db792d51a7"
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "method": "pno",
+ "region": "S",
+ "robot": "cylinder",
+ "config": {
+  "S": 1024
+ },
+ "artifact": "outputs/baselines/pno/18d06052f6c2/S_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 2.5803052908740938,
+ "host": {
+  "node": "gl027.hpc.nyu.edu",
+  "slurm_job_id": "19518250",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   6.5400390625,
+   9.08056640625,
+   11.82568359375
+  ],
+  "utc": "2026-10-10T04:52:23Z",
+  "python": "3.13.5",
+  "git_commit": "ecbf21d58572f05888ab0a1dfafa11221880ff26"
+ },
+ "scene_export_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+ "log": "outputs/baselines/pno/18d06052f6c2/S_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "d21bd60027dc217d",
+  "method": "pno",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_cylinder.npz",
+  "scene_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+  "config": {
+   "S": 1024
+  },
+  "build_setup_wall_s": 1.113949207821861,
+  "build_setup_cpu_s": 0.15478629300000002,
+  "region": "S",
+  "robot": "cylinder",
+  "info": {
+   "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+   "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+   "raster_build_wall_s": 15.207640344975516,
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "grid_res_m": 0.0095703125,
+   "resolution_loss_factor": 1.9140625,
+   "side_m": 9.8,
+   "box_m": [
+    9.8,
+    1.3
+   ],
+   "free_frac_box": 0.31255026424632354,
+   "free_frac_fine": 0.3213304552590267,
+   "free_components_8conn": 3,
+   "erosion": 4,
+   "resample_wall_s": 0.050431506941094995
+  },
+  "python": "3.10.22",
+  "pid": 3845813,
+  "bytes": 6292345,
+  "sha256": "4bd220d48f4e86641b04436ef48260dec8bdaab9480b859def5bf052b29e6cd1"
+ }
+}
