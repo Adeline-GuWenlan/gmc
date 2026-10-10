@@ -1,0 +1,137 @@
+{
+ "method": "pno",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "pairs_in_slice": 15,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 15,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 15
+ },
+ "query_outer_wall_s_this_run": 58.0503000470344,
+ "query_algorithm_wall_s_this_run": 58.04088111850433,
+ "judge_wall_s_this_run": 12.206065056379884,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+  "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+  "compile_id": "abfa278e193c88d4",
+  "load_s": 0.3713940370362252
+ },
+ "setup": {
+  "setup_id": "cb5590cb732864c0",
+  "artifact": "outputs/baselines/pno/b9590efcd0ad/GAPW1_cylinder.setup.pkl",
+  "artifact_sha256": "6153dbfcb739381451a6e660e799d42b09f93b4ccfbd78de5b6a74daa6deeeac",
+  "build_setup_wall_s": 0.9135461549740285,
+  "config": {
+   "S": 1024,
+   "raster_res_m": 0.01
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   4.624397861072794
+  ],
+  "load_s_per_start": [
+   0.016050711972638965
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "cb5590cb732864c0",
+   "artifact_sha256": "6153dbfcb739381451a6e660e799d42b09f93b4ccfbd78de5b6a74daa6deeeac",
+   "load_s": 0.016050711972638965,
+   "instantiate_s": 4.624397861072794,
+   "instantiate_cpu_s": 1.261220042,
+   "pid": 518935,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "raster": "outputs/baselines/raster/GAPW1_cylinder_r10mm.npz",
+    "raster_sha256": "d06c2fa1a12649c77c1c2e420661a1431097776eea14bec3f11f17e59a611deb",
+    "raster_build_wall_s": 40.3546492238529,
+    "raster_res_m": 0.01,
+    "S": 1024,
+    "grid_res_m": 0.00556640625,
+    "resolution_loss_factor": 0.556640625,
+    "side_m": 5.7,
+    "box_m": [
+     5.7,
+     4.1
+    ],
+    "free_frac_box": 0.46622445301899595,
+    "free_frac_fine": 0.46995721009841673,
+    "free_components_8conn": 2,
+    "erosion": 4,
+    "resample_wall_s": 0.03221920598298311,
+    "weights_sha256": {
+     "FNOSDF": "977bd774eae64b4a9a047cfcfa98eb6dea90c18260e9671fbcd86b0f24405730",
+     "PNO": "11756e3802f15556a4a9c4cfc356c1d70a29768d84cd097da640d631632cf254"
+    },
+    "device": "cuda",
+    "gpu": "NVIDIA L40S",
+    "torch": "2.5.1+cu121",
+    "chi_wall_s": 0.35714528197422624,
+    "sdf_cells_p50_p99": [
+     4.014270305633545,
+     15.429196348190317
+    ]
+   },
+   "ready_wall_s": 5.653032746165991,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "S": 1024,
+  "raster_res_m": 0.01
+ },
+ "config_sha256": "956278d539ddf975229c7f759db9bfbf9830c1b696146f8fd34184d25acb3afe",
+ "config_file": "configs/baselines/tuning/pno/P6_S1024_r10.json",
+ "config_file_sha256": "0cfa504450123256ac0279e31873b92a7a7e295e8fa5e8bdb187ee53cb98bb6c",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/pno/P6_S1024_r10/GAPW1/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gl051.hpc.nyu.edu",
+  "slurm_job_id": "19518559",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   22.29150390625,
+   21.77294921875,
+   20.69921875
+  ],
+  "utc": "2026-10-10T05:17:32Z",
+  "python": "3.13.5",
+  "git_commit": "3bd593b1144ad9d99f9538572a1360493dba6d92"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3W-00000",
+  "F3W-00001",
+  "F3W-00002",
+  "F3W-00003",
+  "F3W-00004",
+  "F3W-00005",
+  "F3W-00006",
+  "F3W-00007",
+  "F3W-00008",
+  "F3W-00009",
+  "F3W-00010",
+  "F3W-00011",
+  "F3W-00012",
+  "F3W-00013",
+  "F3W-00014"
+ ]
+}

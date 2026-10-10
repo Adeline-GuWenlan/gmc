@@ -1,0 +1,92 @@
+{
+ "method": "pno",
+ "frozen_utc": "2026-10-10T06:05Z",
+ "stage": "bl B2",
+ "selected_by": "configs/baselines/tuning/RULE.md (pre-registered, B2 addendum), applied by bl_harness tunetable",
+ "tuning_table": "results/baselines/tuning/pno/tuning_table.json",
+ "tuning_set": "plan \u00a73.5: first 25 WWEST + 15 GAPW1 + 10 S of F3 pilot_pairs.json (disjoint from the F4 5000)",
+ "adapter": "experiments/bl_pno.py",
+ "adapter_sha256": "05aeaa9a050672701f62882e9016126ba36985b89b00b680703189ec7807a836",
+ "bl_raster_sha256": "7bfaec0141456dfb89c37e670e5234d4216e4cfe1416030d817e9025b3efd8d7",
+ "tuned_on": {
+  "cylinder": {
+   "n": 50,
+   "SUCCESS": 50,
+   "CLAIMED_COLLIDES": 0,
+   "CLAIMED_UNPROVEN": 0,
+   "FAIL": 0,
+   "TIMEOUT": 0,
+   "ERROR": 0,
+   "median_alg_s": 2.0313796725822613
+  },
+  "sweeper": {
+   "n": 50,
+   "SUCCESS": 50,
+   "CLAIMED_COLLIDES": 0,
+   "CLAIMED_UNPROVEN": 0,
+   "FAIL": 0,
+   "TIMEOUT": 0,
+   "ERROR": 0,
+   "median_alg_s": 1.5272565020713955
+  }
+ },
+ "common": {},
+ "robots": {
+  "cylinder": {
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "model": "PNOwPINN",
+   "erosion": 4,
+   "smooth_coef": 5.0,
+   "v_unit": "S/64",
+   "snap_max_m": 1.0,
+   "collinear_merge": true
+  },
+  "sweeper": {
+   "raster_res_m": 0.005,
+   "S": 1024,
+   "model": "PNOwPINN",
+   "erosion": 4,
+   "smooth_coef": 5.0,
+   "v_unit": "S/64",
+   "snap_max_m": 1.0,
+   "collinear_merge": true
+  }
+ },
+ "candidate": {
+  "cylinder": "P2_S1024_pinn",
+  "sweeper": "P2_S1024_pinn"
+ },
+ "rasters": {
+  "WWEST_cylinder": {
+   "path": "outputs/baselines/raster/WWEST_cylinder_r5mm.npz",
+   "sha256": "98f603b496f59d0eae7aa9a3f860c4b9f2c04554f66f89e4c5313318ea325ca1",
+   "build_wall_s": 138.1730459590908
+  },
+  "GAPW1_cylinder": {
+   "path": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+   "sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+   "build_wall_s": 83.75322364689782
+  },
+  "S_cylinder": {
+   "path": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+   "sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+   "build_wall_s": 15.207640344975516
+  },
+  "WWEST_sweeper": {
+   "path": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+   "sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+   "build_wall_s": 17.955699437996373
+  },
+  "GAPW1_sweeper": {
+   "path": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+   "sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+   "build_wall_s": 12.171052247984335
+  },
+  "S_sweeper": {
+   "path": "outputs/baselines/raster/S_sweeper_r5mm.npz",
+   "sha256": "4b68cc9e991e704da11ffe834a8e2498e6537a2806dc6e782a66fa78f04f6da2",
+   "build_wall_s": 4.8834662470035255
+  }
+ }
+}
