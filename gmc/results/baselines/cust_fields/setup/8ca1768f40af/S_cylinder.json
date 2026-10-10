@@ -1,0 +1,76 @@
+{
+ "method": "cust_fields",
+ "region": "S",
+ "robot": "cylinder",
+ "config": {
+  "cover": "chain",
+  "waste": 2.0,
+  "tighten": []
+ },
+ "artifact": "outputs/baselines/cust_fields/8ca1768f40af/S_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 4.695895885117352,
+ "host": {
+  "node": "cs634.hpc.nyu.edu",
+  "slurm_job_id": "19518621",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   77.3037109375,
+   77.03662109375,
+   79.40625
+  ],
+  "utc": "2026-10-10T05:13:34Z",
+  "python": "3.13.5",
+  "git_commit": "75f069582ad151d0cbf6a01f9e5431358f8c71ea"
+ },
+ "scene_export_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+ "log": "outputs/baselines/cust_fields/8ca1768f40af/S_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "835179c6bbcc38e0",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_cylinder.npz",
+  "scene_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+  "config": {
+   "cover": "chain",
+   "waste": 2.0,
+   "tighten": []
+  },
+  "build_setup_wall_s": 3.8218967949505895,
+  "build_setup_cpu_s": 3.7673998539999998,
+  "region": "S",
+  "robot": "cylinder",
+  "info": {
+   "pieces": 5,
+   "chains": 5,
+   "stars": 11,
+   "max_chain_len": 5,
+   "leaf_chunks": 64,
+   "piece_merges": 0,
+   "tightenings": 0,
+   "waste_levels_used": [
+    2.0
+   ],
+   "pieces_in_merged_groups": 0,
+   "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+   "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+   "raster_build_wall_s": 15.207640344975516,
+   "raster_res_m": 0.005,
+   "cover": "chain",
+   "n_stars": 11,
+   "covers_crossing_workspace_boundary": 11,
+   "covers_below_repo_pad": 2,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.6356754658385093,
+   "nf_free_frac_in_ws": 0.5087189440993789,
+   "map_free_cells_lost_to_covers": 32704,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 3.7636988980229944
+  },
+  "python": "3.10.22",
+  "pid": 3339595,
+  "bytes": 1022553,
+  "sha256": "bbc542bc77c66a5626eec7aad24b90c3d5b338479c21cf97ab9a85fc438ba1ad"
+ }
+}

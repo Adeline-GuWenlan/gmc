@@ -1,0 +1,149 @@
+{
+ "method": "cust_fields",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "pairs_in_slice": 25,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 25,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 25
+ },
+ "query_outer_wall_s_this_run": 1806.369887440931,
+ "query_algorithm_wall_s_this_run": 1806.3636036077514,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+  "a3c_sha256": "b6c467cb71c45e5c0ac65c866e9d436fd15a605eb667bfb3b326415af793dc87",
+  "compile_id": "29e3d020cb81ffa1",
+  "load_s": 0.5064455720130354
+ },
+ "setup": {
+  "setup_id": "9c96f0dc53127775",
+  "artifact": "outputs/baselines/cust_fields/71d4662c36bd/WWEST_sweeper.setup.pkl",
+  "artifact_sha256": "76b048e4b748b365f4a9dfd271a5efb3e74eeb9535477872cffa7efb227a7480",
+  "build_setup_wall_s": 308.1103249148,
+  "config": {
+   "s": 0.99,
+   "snap_max_m": 0.5,
+   "dt": 0.02
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.5937624250072986
+  ],
+  "load_s_per_start": [
+   0.015370291890576482
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "9c96f0dc53127775",
+   "artifact_sha256": "76b048e4b748b365f4a9dfd271a5efb3e74eeb9535477872cffa7efb227a7480",
+   "load_s": 0.015370291890576482,
+   "instantiate_s": 1.5937624250072986,
+   "instantiate_cpu_s": 0.277974911,
+   "pid": 355300,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 18,
+    "chains": 8,
+    "stars": 12,
+    "max_chain_len": 5,
+    "leaf_chunks": 48,
+    "piece_merges": 10,
+    "tightenings": 26,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 11,
+    "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+    "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+    "raster_build_wall_s": 17.955699437996373,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 12,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.99,
+    "map_free_frac_in_ws": 0.7009700598802395,
+    "nf_free_frac_in_ws": 0.457491963441538,
+    "map_free_cells_lost_to_covers": 386278,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 308.0364014089573,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C7_adapt_s99_snap05_dt02/WWEST/sweeper/cwd_cust_fields/bl_world_355300.yaml",
+    "n_obstacles": 8,
+    "world_load_s": 1.4221440360415727
+   },
+   "ready_wall_s": 2.599333147983998,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "s": 0.99,
+  "snap_max_m": 0.5,
+  "dt": 0.02
+ },
+ "config_sha256": "803cdc54817ff28452a41aae2fb7670a164da9e37e5bfd2c4024171f8722741e",
+ "config_file": "configs/baselines/tuning/cust_fields/C7_adapt_s99_snap05_dt02.json",
+ "config_file_sha256": "2c42b4a26021b27b35d5b86a94cb8ee224c5cc6c6dc6729ced05b0894829c1b5",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C7_adapt_s99_snap05_dt02/WWEST/sweeper/task_00.worker.log",
+ "host": {
+  "node": "gr102.hpc.nyu.edu",
+  "slurm_job_id": "19520413",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   11.11328125,
+   11.68896484375,
+   12.76220703125
+  ],
+  "utc": "2026-10-10T06:51:06Z",
+  "python": "3.13.5",
+  "git_commit": "9dd35b00951cd7e293a8bf27b0494a922cba040f"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003",
+  "F3X-00004",
+  "F3X-00005",
+  "F3X-00006",
+  "F3X-00007",
+  "F3X-00008",
+  "F3X-00009",
+  "F3X-00010",
+  "F3X-00011",
+  "F3X-00012",
+  "F3X-00013",
+  "F3X-00014",
+  "F3X-00015",
+  "F3X-00016",
+  "F3X-00017",
+  "F3X-00018",
+  "F3X-00019",
+  "F3X-00020",
+  "F3X-00021",
+  "F3X-00022",
+  "F3X-00023",
+  "F3X-00024"
+ ]
+}

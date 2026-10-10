@@ -1,0 +1,138 @@
+{
+ "method": "cust_fields",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_in_slice": 25,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 25,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 25
+ },
+ "query_outer_wall_s_this_run": 0.003371182130649686,
+ "query_algorithm_wall_s_this_run": 0.002082511782646179,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+  "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+  "compile_id": "549453247f5cf37a",
+  "load_s": 0.8318715069908649
+ },
+ "setup": {
+  "setup_id": "2e4de362a6924123",
+  "artifact": "outputs/baselines/cust_fields/61609c0f1949/WWEST_cylinder.setup.pkl",
+  "artifact_sha256": "1a99cd780590186baf8e6a55a8b2e02b5ba1738fe4ac65a8c098157b9aeecbfa",
+  "build_setup_wall_s": 0.7083105719648302,
+  "config": {
+   "cover": "convex"
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.4017630750313401
+  ],
+  "load_s_per_start": [
+   0.011032148962840438
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "2e4de362a6924123",
+   "artifact_sha256": "1a99cd780590186baf8e6a55a8b2e02b5ba1738fe4ac65a8c098157b9aeecbfa",
+   "load_s": 0.011032148962840438,
+   "instantiate_s": 1.4017630750313401,
+   "instantiate_cpu_s": 0.26165965199999996,
+   "pid": 3830862,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 10,
+    "covers": 1,
+    "merges": 9,
+    "pieces_in_merged_covers": 10,
+    "raster": "outputs/baselines/raster/WWEST_cylinder_r5mm.npz",
+    "raster_sha256": "98f603b496f59d0eae7aa9a3f860c4b9f2c04554f66f89e4c5313318ea325ca1",
+    "raster_build_wall_s": 138.1730459590908,
+    "raster_res_m": 0.005,
+    "cover": "convex",
+    "n_stars": 1,
+    "covers_crossing_workspace_boundary": 1,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.5256927297668038,
+    "nf_free_frac_in_ws": 0.00021056241426611796,
+    "map_free_cells_lost_to_covers": 766153,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 0.6275727080646902,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C0_convex/WWEST/cylinder/cwd_cust_fields/bl_world_3830862.yaml",
+    "n_obstacles": 1,
+    "world_load_s": 1.263252249918878
+   },
+   "ready_wall_s": 2.0962933420669287,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "cover": "convex"
+ },
+ "config_sha256": "4f2cc22c65fb5739d3a88a48d052d4c7ad3429ef93a0536e6a62c1e87c9ef17d",
+ "config_file": "configs/baselines/tuning/cust_fields/C0_convex.json",
+ "config_file_sha256": "798a50d5c05e512aaad1fdcc2ccda536275c4de4d79e25f4755af48260d03948",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C0_convex/WWEST/cylinder/task_00.worker.log",
+ "host": {
+  "node": "cs605.hpc.nyu.edu",
+  "slurm_job_id": "19518617",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   46.82958984375,
+   35.93896484375,
+   24.91552734375
+  ],
+  "utc": "2026-10-10T05:12:26Z",
+  "python": "3.13.5",
+  "git_commit": "75f069582ad151d0cbf6a01f9e5431358f8c71ea"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003",
+  "F3X-00004",
+  "F3X-00005",
+  "F3X-00006",
+  "F3X-00007",
+  "F3X-00008",
+  "F3X-00009",
+  "F3X-00010",
+  "F3X-00011",
+  "F3X-00012",
+  "F3X-00013",
+  "F3X-00014",
+  "F3X-00015",
+  "F3X-00016",
+  "F3X-00017",
+  "F3X-00018",
+  "F3X-00019",
+  "F3X-00020",
+  "F3X-00021",
+  "F3X-00022",
+  "F3X-00023",
+  "F3X-00024"
+ ]
+}

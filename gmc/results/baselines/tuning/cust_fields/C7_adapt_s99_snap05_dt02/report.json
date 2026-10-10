@@ -1,0 +1,207 @@
+{
+ "cylinder/ALL": {
+  "n": 50,
+  "status_counts": {
+   "FAIL": 47,
+   "TIMEOUT": 3
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 56.70218784199096,
+   "p95": 112.63039090640376,
+   "max": 118.28251418308355,
+   "sum": 2198.046748043038
+  },
+  "outer_wall_s": {
+   "median": 57.03626526950393,
+   "p95": 119.28249360254267,
+   "sum": 2558.3632657001726
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "cylinder/GAPW1": {
+  "n": 15,
+  "status_counts": {
+   "FAIL": 15
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 56.55318779498339,
+   "p95": 65.41387793172613,
+   "max": 83.19299430702813,
+   "sum": 799.225409247214
+  },
+  "outer_wall_s": {
+   "median": 56.55354439117946,
+   "p95": 65.41421038191763,
+   "sum": 799.2305429016706
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "cylinder/S": {
+  "n": 10,
+  "status_counts": {
+   "FAIL": 7,
+   "TIMEOUT": 3
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 111.61774697899818,
+   "p95": 118.22818961730226,
+   "max": 118.28251418308355,
+   "sum": 558.2029323924799
+  },
+  "outer_wall_s": {
+   "median": 115.58330736646894,
+   "p95": 120.10101581052876,
+   "sum": 918.5077514217701
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "cylinder/WWEST": {
+  "n": 25,
+  "status_counts": {
+   "FAIL": 25
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 55.554722901200876,
+   "p95": 66.66256020101719,
+   "max": 66.84714399999939,
+   "sum": 840.6184064033441
+  },
+  "outer_wall_s": {
+   "median": 55.55500345490873,
+   "p95": 66.66289533888921,
+   "sum": 840.624971376732
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "sweeper/ALL": {
+  "n": 50,
+  "status_counts": {
+   "TIMEOUT": 13,
+   "FAIL": 37
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 70.53533807513304,
+   "p95": 96.52281240914017,
+   "max": 100.1077688888181,
+   "sum": 2277.286967421649
+  },
+  "outer_wall_s": {
+   "median": 96.03485681500752,
+   "p95": 120.10097108990885,
+   "sum": 3838.6096118150745
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "sweeper/GAPW1": {
+  "n": 15,
+  "status_counts": {
+   "TIMEOUT": 5,
+   "FAIL": 10
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 50.31363920099102,
+   "p95": 76.30519609865732,
+   "max": 81.02598902699538,
+   "sum": 430.6020128149539
+  },
+  "outer_wall_s": {
+   "median": 67.27870269306004,
+   "p95": 120.10161163120065,
+   "sum": 1031.1109576025046
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "sweeper/S": {
+  "n": 10,
+  "status_counts": {
+   "TIMEOUT": 8,
+   "FAIL": 2
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 20.160675499471836,
+   "p95": 26.319269552838524,
+   "max": 27.003557780990377,
+   "sum": 40.32135099894367
+  },
+  "outer_wall_s": {
+   "median": 120.10084433294833,
+   "p95": 120.10095698463265,
+   "sum": 1001.1287667716388
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ },
+ "sweeper/WWEST": {
+  "n": 25,
+  "status_counts": {
+   "FAIL": 25
+  },
+  "success_rate": 0.0,
+  "appended_goal_segment": 0,
+  "prepended_start_segment": 0,
+  "algorithm_wall_s": {
+   "median": 96.00822098879144,
+   "p95": 96.69647542871535,
+   "max": 100.1077688888181,
+   "sum": 1806.3636036077514
+  },
+  "outer_wall_s": {
+   "median": 96.00850974395871,
+   "p95": 96.69672542586923,
+   "sum": 1806.369887440931
+  },
+  "judge_wall_s": {
+   "median": null,
+   "p95": null,
+   "sum": 0.0
+  }
+ }
+}

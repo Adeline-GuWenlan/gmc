@@ -1,0 +1,68 @@
+{
+ "method": "cust_fields",
+ "region": "S",
+ "robot": "sweeper",
+ "config": {},
+ "artifact": "outputs/baselines/cust_fields/89001a0cbf70/S_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 153.59197319718078,
+ "host": {
+  "node": "gr102.hpc.nyu.edu",
+  "slurm_job_id": "19518803",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   14.40673828125,
+   14.8583984375,
+   17.15673828125
+  ],
+  "utc": "2026-10-10T05:38:26Z",
+  "python": "3.13.5",
+  "git_commit": "984f40e43b3ff62a831cafb71b54b0bf9eef7120"
+ },
+ "scene_export_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+ "log": "outputs/baselines/cust_fields/89001a0cbf70/S_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "3fd200789bcb6bba",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_sweeper.npz",
+  "scene_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+  "config": {},
+  "build_setup_wall_s": 152.40718472516164,
+  "build_setup_cpu_s": 151.714717304,
+  "region": "S",
+  "robot": "sweeper",
+  "info": {
+   "pieces": 9,
+   "chains": 6,
+   "stars": 12,
+   "max_chain_len": 4,
+   "leaf_chunks": 55,
+   "piece_merges": 3,
+   "tightenings": 6,
+   "waste_levels_used": [
+    2.0
+   ],
+   "pieces_in_merged_groups": 5,
+   "raster": "outputs/baselines/raster/S_sweeper_r5mm.npz",
+   "raster_sha256": "4b68cc9e991e704da11ffe834a8e2498e6537a2806dc6e782a66fa78f04f6da2",
+   "raster_build_wall_s": 4.8834662470035255,
+   "raster_res_m": 0.005,
+   "cover": "chain",
+   "n_stars": 12,
+   "covers_crossing_workspace_boundary": 11,
+   "covers_below_repo_pad": 3,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.7792898913951546,
+   "nf_free_frac_in_ws": 0.671759955444166,
+   "map_free_cells_lost_to_covers": 38614,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 152.35339920897968
+  },
+  "python": "3.10.22",
+  "pid": 272100,
+  "bytes": 1022761,
+  "sha256": "cddb98db1f777e1698f43561a041c97426b193a5dd0e0fb54061807a98838de3"
+ }
+}

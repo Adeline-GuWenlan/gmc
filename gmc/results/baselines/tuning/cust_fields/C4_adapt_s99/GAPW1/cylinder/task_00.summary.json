@@ -1,0 +1,136 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "pairs_in_slice": 15,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 15,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 15
+ },
+ "query_outer_wall_s_this_run": 416.1628315891139,
+ "query_algorithm_wall_s_this_run": 416.15896715712734,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+  "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+  "compile_id": "abfa278e193c88d4",
+  "load_s": 0.5274002240039408
+ },
+ "setup": {
+  "setup_id": "01b0815fc8b2fc8b",
+  "artifact": "outputs/baselines/cust_fields/030b92f80d3b/GAPW1_cylinder.setup.pkl",
+  "artifact_sha256": "e1d8f55d109d3e0e38302956bf8883962947d7e4d9a3391e6eb4623f73067408",
+  "build_setup_wall_s": 38.303683396894485,
+  "config": {
+   "s": 0.99
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.5432214520405978
+  ],
+  "load_s_per_start": [
+   0.00936483801342547
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "01b0815fc8b2fc8b",
+   "artifact_sha256": "e1d8f55d109d3e0e38302956bf8883962947d7e4d9a3391e6eb4623f73067408",
+   "load_s": 0.00936483801342547,
+   "instantiate_s": 1.5432214520405978,
+   "instantiate_cpu_s": 0.28683914499999996,
+   "pid": 269765,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 4,
+    "chains": 4,
+    "stars": 8,
+    "max_chain_len": 4,
+    "leaf_chunks": 503,
+    "piece_merges": 0,
+    "tightenings": 2,
+    "waste_levels_used": [
+     1.25,
+     2.0
+    ],
+    "pieces_in_merged_groups": 0,
+    "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+    "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+    "raster_build_wall_s": 83.75322364689782,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 8,
+    "covers_crossing_workspace_boundary": 5,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.99,
+    "map_free_frac_in_ws": 0.6185238095238095,
+    "nf_free_frac_in_ws": 0.49474929971988796,
+    "map_free_cells_lost_to_covers": 88375,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 38.25183245516382,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C4_adapt_s99/GAPW1/cylinder/cwd_cust_fields/bl_world_269765.yaml",
+    "n_obstacles": 4,
+    "world_load_s": 1.376611014129594
+   },
+   "ready_wall_s": 2.2430443840567023,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "s": 0.99
+ },
+ "config_sha256": "5f84052056630823f717cde759435cadff0746812748c4bdb1093880d10f6712",
+ "config_file": "configs/baselines/tuning/cust_fields/C4_adapt_s99.json",
+ "config_file_sha256": "c73995da3c33054d677dd71defd32d7ae2c67ae349c0176d143fdced27d9dd85",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C4_adapt_s99/GAPW1/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gr102.hpc.nyu.edu",
+  "slurm_job_id": "19518832",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   14.044921875,
+   14.56396484375,
+   16.74462890625
+  ],
+  "utc": "2026-10-10T05:40:37Z",
+  "python": "3.13.5",
+  "git_commit": "984f40e43b3ff62a831cafb71b54b0bf9eef7120"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3W-00000",
+  "F3W-00001",
+  "F3W-00002",
+  "F3W-00003",
+  "F3W-00004",
+  "F3W-00005",
+  "F3W-00006",
+  "F3W-00007",
+  "F3W-00008",
+  "F3W-00009",
+  "F3W-00010",
+  "F3W-00011",
+  "F3W-00012",
+  "F3W-00013",
+  "F3W-00014"
+ ]
+}

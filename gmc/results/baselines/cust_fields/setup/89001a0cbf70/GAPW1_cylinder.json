@@ -1,0 +1,69 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "config": {},
+ "artifact": "outputs/baselines/cust_fields/89001a0cbf70/GAPW1_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 32.92629708815366,
+ "host": {
+  "node": "cs605.hpc.nyu.edu",
+  "slurm_job_id": "19518733",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   25.513671875,
+   33.1796875,
+   34.2080078125
+  ],
+  "utc": "2026-10-10T05:27:14Z",
+  "python": "3.13.5",
+  "git_commit": "3bd593b1144ad9d99f9538572a1360493dba6d92"
+ },
+ "scene_export_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+ "log": "outputs/baselines/cust_fields/89001a0cbf70/GAPW1_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "2c2a4d93baa86a11",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_cylinder.npz",
+  "scene_sha256": "2a158f8ace6804ab2726c06f7d4e65053b0898fcafcab95b36511b8fb83fb815",
+  "config": {},
+  "build_setup_wall_s": 31.84970472101122,
+  "build_setup_cpu_s": 31.700227626999997,
+  "region": "GAPW1",
+  "robot": "cylinder",
+  "info": {
+   "pieces": 4,
+   "chains": 4,
+   "stars": 9,
+   "max_chain_len": 4,
+   "leaf_chunks": 305,
+   "piece_merges": 0,
+   "tightenings": 1,
+   "waste_levels_used": [
+    1.5,
+    2.0
+   ],
+   "pieces_in_merged_groups": 0,
+   "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+   "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+   "raster_build_wall_s": 83.75322364689782,
+   "raster_res_m": 0.005,
+   "cover": "chain",
+   "n_stars": 9,
+   "covers_crossing_workspace_boundary": 8,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.6185238095238095,
+   "nf_free_frac_in_ws": 0.4568697478991597,
+   "map_free_cells_lost_to_covers": 115421,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 31.796240933937952
+  },
+  "python": "3.10.22",
+  "pid": 3879399,
+  "bytes": 1872655,
+  "sha256": "c385f00e473419b55ba1fb83fa02f0a3eb748e8efd8e49f500963110cd5bf41c"
+ }
+}

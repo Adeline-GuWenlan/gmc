@@ -1,0 +1,72 @@
+{
+ "method": "cust_fields",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "config": {
+  "snap_max_m": 0.5
+ },
+ "artifact": "outputs/baselines/cust_fields/569918277779/WWEST_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 787.7342403039802,
+ "host": {
+  "node": "cs605.hpc.nyu.edu",
+  "slurm_job_id": "19519360",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   42.2666015625,
+   42.46533203125,
+   41.1123046875
+  ],
+  "utc": "2026-10-10T05:55:59Z",
+  "python": "3.13.5",
+  "git_commit": "984f40e43b3ff62a831cafb71b54b0bf9eef7120"
+ },
+ "scene_export_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+ "log": "outputs/baselines/cust_fields/569918277779/WWEST_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "fd972e1a5a798e74",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/WWEST_sweeper.npz",
+  "scene_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+  "config": {
+   "snap_max_m": 0.5
+  },
+  "build_setup_wall_s": 786.9260437129997,
+  "build_setup_cpu_s": 784.3736616499999,
+  "region": "WWEST",
+  "robot": "sweeper",
+  "info": {
+   "pieces": 18,
+   "chains": 7,
+   "stars": 12,
+   "max_chain_len": 4,
+   "leaf_chunks": 86,
+   "piece_merges": 11,
+   "tightenings": 28,
+   "waste_levels_used": [
+    2.0
+   ],
+   "pieces_in_merged_groups": 13,
+   "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+   "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+   "raster_build_wall_s": 17.955699437996373,
+   "raster_res_m": 0.005,
+   "cover": "chain",
+   "n_stars": 12,
+   "covers_crossing_workspace_boundary": 6,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.7009700598802395,
+   "nf_free_frac_in_ws": 0.39811723920579895,
+   "map_free_cells_lost_to_covers": 480476,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 786.8454147058073
+  },
+  "python": "3.10.22",
+  "pid": 3914788,
+  "bytes": 3553205,
+  "sha256": "4de5637130d12ddb828902592344d10219c3cb10b99c316d887cd4c2ce9f0012"
+ }
+}

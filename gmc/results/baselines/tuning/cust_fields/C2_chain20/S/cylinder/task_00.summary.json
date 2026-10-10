@@ -1,0 +1,134 @@
+{
+ "method": "cust_fields",
+ "region": "S",
+ "robot": "cylinder",
+ "pairs_in_slice": 10,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 10,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 10
+ },
+ "query_outer_wall_s_this_run": 586.972207879182,
+ "query_algorithm_wall_s_this_run": 586.9694880631287,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/S/cylinder.a3c",
+  "a3c_sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4",
+  "compile_id": "8352bdd37aab07a2",
+  "load_s": 0.5339088379405439
+ },
+ "setup": {
+  "setup_id": "835179c6bbcc38e0",
+  "artifact": "outputs/baselines/cust_fields/8ca1768f40af/S_cylinder.setup.pkl",
+  "artifact_sha256": "bbc542bc77c66a5626eec7aad24b90c3d5b338479c21cf97ab9a85fc438ba1ad",
+  "build_setup_wall_s": 3.8218967949505895,
+  "config": {
+   "cover": "chain",
+   "waste": 2.0,
+   "tighten": []
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.1628424159716815
+  ],
+  "load_s_per_start": [
+   0.008120287908241153
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "835179c6bbcc38e0",
+   "artifact_sha256": "bbc542bc77c66a5626eec7aad24b90c3d5b338479c21cf97ab9a85fc438ba1ad",
+   "load_s": 0.008120287908241153,
+   "instantiate_s": 1.1628424159716815,
+   "instantiate_cpu_s": 0.301079789,
+   "pid": 3355009,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 5,
+    "chains": 5,
+    "stars": 11,
+    "max_chain_len": 5,
+    "leaf_chunks": 64,
+    "piece_merges": 0,
+    "tightenings": 0,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 0,
+    "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+    "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+    "raster_build_wall_s": 15.207640344975516,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 11,
+    "covers_crossing_workspace_boundary": 11,
+    "covers_below_repo_pad": 2,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.6356754658385093,
+    "nf_free_frac_in_ws": 0.5087189440993789,
+    "map_free_cells_lost_to_covers": 32704,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 3.7636988980229944,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C2_chain20/S/cylinder/cwd_cust_fields/bl_world_3355009.yaml",
+    "n_obstacles": 5,
+    "world_load_s": 1.0268501681275666
+   },
+   "ready_wall_s": 1.8410426611080766,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "cover": "chain",
+  "waste": 2.0,
+  "tighten": []
+ },
+ "config_sha256": "cc0c771ad5d8c435afbae5823f3737340036e0a56b406f081124cfc3f6d0fa37",
+ "config_file": "configs/baselines/tuning/cust_fields/C2_chain20.json",
+ "config_file_sha256": "9375fae7fe0aa1b41182d442e842afd59e091723fe1cdc63166512231aba994c",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C2_chain20/S/cylinder/task_00.worker.log",
+ "host": {
+  "node": "cs634.hpc.nyu.edu",
+  "slurm_job_id": "19518621",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   88.12109375,
+   81.28564453125,
+   79.9521484375
+  ],
+  "utc": "2026-10-10T05:23:47Z",
+  "python": "3.13.5",
+  "git_commit": "3bd593b1144ad9d99f9538572a1360493dba6d92"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3S-00000",
+  "F3S-00001",
+  "F3S-00002",
+  "F3S-00003",
+  "F3S-00004",
+  "F3S-00005",
+  "F3S-00006",
+  "F3S-00007",
+  "F3S-00008",
+  "F3S-00009"
+ ]
+}

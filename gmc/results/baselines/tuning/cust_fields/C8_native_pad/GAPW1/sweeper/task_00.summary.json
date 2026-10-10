@@ -1,0 +1,232 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "sweeper",
+ "pairs_in_slice": 15,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 15,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 13,
+  "TIMEOUT": 2
+ },
+ "query_outer_wall_s_this_run": 758.4497374820057,
+ "query_algorithm_wall_s_this_run": 518.2421755017713,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/sweeper.a3c",
+  "a3c_sha256": "70d2c65be222eb7203105c3a07214078affde2025efb8c8b447f572814c67cb9",
+  "compile_id": "a160fe048b6c47fd",
+  "load_s": 0.33933343715034425
+ },
+ "setup": {
+  "setup_id": "ce79c5ea8034ce6f",
+  "artifact": "outputs/baselines/cust_fields/4eda57f909ce/GAPW1_sweeper.setup.pkl",
+  "artifact_sha256": "b44d07b0bb5ce7aa5959f07bf121f11edbdaa6527d11ffdb35c8eb54451e5c0a",
+  "build_setup_wall_s": 84.86281741503626,
+  "config": {
+   "s": 0.99,
+   "snap_max_m": 0.5,
+   "native_pad": true
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 3,
+  "worker_start_failures": 0,
+  "restarts": 2,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.5824070589151233,
+   1.3207416799850762,
+   1.2920408782083541
+  ],
+  "load_s_per_start": [
+   0.008853692095726728,
+   0.009753190213814378,
+   0.010653005912899971
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "ce79c5ea8034ce6f",
+   "artifact_sha256": "b44d07b0bb5ce7aa5959f07bf121f11edbdaa6527d11ffdb35c8eb54451e5c0a",
+   "load_s": 0.008853692095726728,
+   "instantiate_s": 1.5824070589151233,
+   "instantiate_cpu_s": 0.333541946,
+   "pid": 2427711,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 9,
+    "chains": 7,
+    "stars": 10,
+    "max_chain_len": 4,
+    "leaf_chunks": 10,
+    "piece_merges": 2,
+    "tightenings": 4,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 4,
+    "raster": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+    "raster_sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+    "raster_build_wall_s": 12.171052247984335,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 10,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": true,
+    "squareness": 0.99,
+    "map_free_frac_in_ws": 0.7460199376947041,
+    "nf_free_frac_in_ws": 0.6051626168224299,
+    "map_free_cells_lost_to_covers": 113038,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 84.79776015505195,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C8_native_pad/GAPW1/sweeper/cwd_cust_fields/bl_world_2427711.yaml",
+    "n_obstacles": 7,
+    "world_load_s": 1.4569506219122559
+   },
+   "ready_wall_s": 2.36860114405863,
+   "reason": "first"
+  },
+  {
+   "op": "ready",
+   "setup_id": "ce79c5ea8034ce6f",
+   "artifact_sha256": "b44d07b0bb5ce7aa5959f07bf121f11edbdaa6527d11ffdb35c8eb54451e5c0a",
+   "load_s": 0.009753190213814378,
+   "instantiate_s": 1.3207416799850762,
+   "instantiate_cpu_s": 0.348003065,
+   "pid": 2441734,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 9,
+    "chains": 7,
+    "stars": 10,
+    "max_chain_len": 4,
+    "leaf_chunks": 10,
+    "piece_merges": 2,
+    "tightenings": 4,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 4,
+    "raster": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+    "raster_sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+    "raster_build_wall_s": 12.171052247984335,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 10,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": true,
+    "squareness": 0.99,
+    "map_free_frac_in_ws": 0.7460199376947041,
+    "nf_free_frac_in_ws": 0.6051626168224299,
+    "map_free_cells_lost_to_covers": 113038,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 84.79776015505195,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C8_native_pad/GAPW1/sweeper/cwd_cust_fields/bl_world_2441734.yaml",
+    "n_obstacles": 7,
+    "world_load_s": 1.1915029638912529
+   },
+   "ready_wall_s": 2.129521322902292,
+   "reason": "restart"
+  },
+  {
+   "op": "ready",
+   "setup_id": "ce79c5ea8034ce6f",
+   "artifact_sha256": "b44d07b0bb5ce7aa5959f07bf121f11edbdaa6527d11ffdb35c8eb54451e5c0a",
+   "load_s": 0.010653005912899971,
+   "instantiate_s": 1.2920408782083541,
+   "instantiate_cpu_s": 0.33107471499999996,
+   "pid": 2447081,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 9,
+    "chains": 7,
+    "stars": 10,
+    "max_chain_len": 4,
+    "leaf_chunks": 10,
+    "piece_merges": 2,
+    "tightenings": 4,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 4,
+    "raster": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+    "raster_sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+    "raster_build_wall_s": 12.171052247984335,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 10,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": true,
+    "squareness": 0.99,
+    "map_free_frac_in_ws": 0.7460199376947041,
+    "nf_free_frac_in_ws": 0.6051626168224299,
+    "map_free_cells_lost_to_covers": 113038,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 84.79776015505195,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C8_native_pad/GAPW1/sweeper/cwd_cust_fields/bl_world_2447081.yaml",
+    "n_obstacles": 7,
+    "world_load_s": 1.1793062698561698
+   },
+   "ready_wall_s": 2.0581199459265918,
+   "reason": "restart"
+  }
+ ],
+ "config": {
+  "s": 0.99,
+  "snap_max_m": 0.5,
+  "native_pad": true
+ },
+ "config_sha256": "81e754d6b64af1ef250e9141642a5df494d4c8abe4a4a473a9d7d7c2a2ff48b0",
+ "config_file": "configs/baselines/tuning/cust_fields/C8_native_pad.json",
+ "config_file_sha256": "fa7a63cfb6043c37296ac1428b13bb91a07a432f2ac4fef582a540baf8c93db4",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C8_native_pad/GAPW1/sweeper/task_00.worker.log",
+ "host": {
+  "node": "cs602.hpc.nyu.edu",
+  "slurm_job_id": "19518610",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   126.2548828125,
+   125.74755859375,
+   125.35888671875
+  ],
+  "utc": "2026-10-10T07:26:46Z",
+  "python": "3.13.5",
+  "git_commit": "9dd35b00951cd7e293a8bf27b0494a922cba040f"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3W-00000",
+  "F3W-00001",
+  "F3W-00002",
+  "F3W-00003",
+  "F3W-00004",
+  "F3W-00005",
+  "F3W-00006",
+  "F3W-00007",
+  "F3W-00008",
+  "F3W-00009",
+  "F3W-00010",
+  "F3W-00011",
+  "F3W-00012",
+  "F3W-00013",
+  "F3W-00014"
+ ]
+}

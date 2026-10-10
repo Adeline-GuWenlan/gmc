@@ -1,0 +1,65 @@
+{
+ "method": "cust_fields",
+ "region": "S",
+ "robot": "sweeper",
+ "config": {
+  "cover": "convex"
+ },
+ "artifact": "outputs/baselines/cust_fields/61609c0f1949/S_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.1280254740267992,
+ "host": {
+  "node": "cs605.hpc.nyu.edu",
+  "slurm_job_id": "19518618",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   46.7275390625,
+   35.7353515625,
+   24.79052734375
+  ],
+  "utc": "2026-10-10T05:12:20Z",
+  "python": "3.13.5",
+  "git_commit": "75f069582ad151d0cbf6a01f9e5431358f8c71ea"
+ },
+ "scene_export_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+ "log": "outputs/baselines/cust_fields/61609c0f1949/S_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "27fb61d85292b36d",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_sweeper.npz",
+  "scene_sha256": "b03063fc267078fdbe3f2cf2ae049178057c4892a2c3970522d7921b1df673a6",
+  "config": {
+   "cover": "convex"
+  },
+  "build_setup_wall_s": 0.19837278313934803,
+  "build_setup_cpu_s": 0.18242423500000002,
+  "region": "S",
+  "robot": "sweeper",
+  "info": {
+   "pieces": 9,
+   "covers": 5,
+   "merges": 4,
+   "pieces_in_merged_covers": 7,
+   "raster": "outputs/baselines/raster/S_sweeper_r5mm.npz",
+   "raster_sha256": "4b68cc9e991e704da11ffe834a8e2498e6537a2806dc6e782a66fa78f04f6da2",
+   "raster_build_wall_s": 4.8834662470035255,
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "n_stars": 5,
+   "covers_crossing_workspace_boundary": 4,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.7792898913951546,
+   "nf_free_frac_in_ws": 0.588526872737399,
+   "map_free_cells_lost_to_covers": 68503,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 0.1456411879044026
+  },
+  "python": "3.10.22",
+  "pid": 3830809,
+  "bytes": 1021549,
+  "sha256": "7d55a7da335c0f83773254c38710195dcd38436ca2df6eaceb22684cb5d90605"
+ }
+}

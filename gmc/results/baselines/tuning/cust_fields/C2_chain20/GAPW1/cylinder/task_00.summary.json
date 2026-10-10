@@ -1,0 +1,139 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "pairs_in_slice": 15,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 15,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 15
+ },
+ "query_outer_wall_s_this_run": 7.118034710176289,
+ "query_algorithm_wall_s_this_run": 7.1162016917951405,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+  "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+  "compile_id": "abfa278e193c88d4",
+  "load_s": 0.5328647000715137
+ },
+ "setup": {
+  "setup_id": "f1153d830475db9b",
+  "artifact": "outputs/baselines/cust_fields/8ca1768f40af/GAPW1_cylinder.setup.pkl",
+  "artifact_sha256": "f7f4a0cb145e27789414438fee93b4ba1e52fd6ec07d8b56952b51c528918787",
+  "build_setup_wall_s": 9.30645498400554,
+  "config": {
+   "cover": "chain",
+   "waste": 2.0,
+   "tighten": []
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.3388898060657084
+  ],
+  "load_s_per_start": [
+   0.01186408195644617
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "f1153d830475db9b",
+   "artifact_sha256": "f7f4a0cb145e27789414438fee93b4ba1e52fd6ec07d8b56952b51c528918787",
+   "load_s": 0.01186408195644617,
+   "instantiate_s": 1.3388898060657084,
+   "instantiate_cpu_s": 0.299018954,
+   "pid": 3348140,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 4,
+    "chains": 3,
+    "stars": 5,
+    "max_chain_len": 2,
+    "leaf_chunks": 79,
+    "piece_merges": 1,
+    "tightenings": 0,
+    "waste_levels_used": [
+     2.0
+    ],
+    "pieces_in_merged_groups": 2,
+    "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+    "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+    "raster_build_wall_s": 83.75322364689782,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 5,
+    "covers_crossing_workspace_boundary": 4,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.6185238095238095,
+    "nf_free_frac_in_ws": 0.22462605042016806,
+    "map_free_cells_lost_to_covers": 281243,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 9.246014006901532,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/tuning/cust_fields/C2_chain20/GAPW1/cylinder/cwd_cust_fields/bl_world_3348140.yaml",
+    "n_obstacles": 3,
+    "world_load_s": 1.1532890289090574
+   },
+   "ready_wall_s": 2.0128871540073305,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "cover": "chain",
+  "waste": 2.0,
+  "tighten": []
+ },
+ "config_sha256": "cc0c771ad5d8c435afbae5823f3737340036e0a56b406f081124cfc3f6d0fa37",
+ "config_file": "configs/baselines/tuning/cust_fields/C2_chain20.json",
+ "config_file_sha256": "9375fae7fe0aa1b41182d442e842afd59e091723fe1cdc63166512231aba994c",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/cust_fields/C2_chain20/GAPW1/cylinder/task_00.worker.log",
+ "host": {
+  "node": "cs634.hpc.nyu.edu",
+  "slurm_job_id": "19518621",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   75.91455078125,
+   76.74072265625,
+   79.2578125
+  ],
+  "utc": "2026-10-10T05:13:55Z",
+  "python": "3.13.5",
+  "git_commit": "75f069582ad151d0cbf6a01f9e5431358f8c71ea"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3W-00000",
+  "F3W-00001",
+  "F3W-00002",
+  "F3W-00003",
+  "F3W-00004",
+  "F3W-00005",
+  "F3W-00006",
+  "F3W-00007",
+  "F3W-00008",
+  "F3W-00009",
+  "F3W-00010",
+  "F3W-00011",
+  "F3W-00012",
+  "F3W-00013",
+  "F3W-00014"
+ ]
+}
