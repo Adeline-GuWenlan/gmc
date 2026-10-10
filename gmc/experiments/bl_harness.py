@@ -228,6 +228,23 @@ class Judge:
                 "judge_wall_s": wall, "export_poses": len(res["trajectory"]["poses"])}
 
 
+def fail_location(res, edge, info):
+    """Where the judge's failing edge lies: on the start segment the harness prepended, on the goal segment it
+    appended, or on the method's own path (by arc length along the exported poses; a turn in place at a vertex belongs
+    to the method's path unless it is inside a completion segment)."""
+    P = np.asarray(res["trajectory"]["poses"], float)[:, :2]
+    s = np.r_[0., np.cumsum(np.linalg.norm(np.diff(P, axis=0), axis=1))]
+    a, b = s[edge], s[min(edge + 1, len(s) - 1)]
+    pre = info["start_gap_m"] if info["prepended_start_segment"] else 0.
+    app = info["goal_gap_m"] if info["appended_goal_segment"] else 0.
+    tol = 1e-9
+    if pre and b <= pre + tol and (b > a or a < pre - tol):
+        return "prepended_start_segment"
+    if app and a >= s[-1] - app - tol and (b > a or a > s[-1] - app + tol):
+        return "appended_goal_segment"
+    return "method_path"
+
+
 def outcome(claimed, j):
     """§5 status from the method's claim and the judge verdict."""
     if not claimed:
@@ -245,6 +262,8 @@ def judge_row(J, row):
     P, res = J.export(uv, row["goal_uv"])
     j = J.judge(res)
     seg = np.linalg.norm(np.diff(P, axis=0), axis=1)
+    j["judge_fail_location"] = None if j["judge_geometry_passed"] or j["judge_failed_edge"] is None else \
+        fail_location(res, j["judge_failed_edge"], info)
     row.update(info, **j)
     row.update(route_polyline=uv.tolist(), polyline_sha256=poly_sha(P), path_length_m=float(seg.sum()),
                vertices=int(len(P)), status=outcome(True, j))
@@ -422,6 +441,7 @@ def run_task(method, region, robot, pairs, out_jsonl, *, artifact, config, timeo
                     elif J is not None:
                         try:
                             judge_row(J, row)
+                            row.pop("method_path_uv")     # route_polyline holds the exact judged path
                         except ValueError as exc:
                             row.update(status="ERROR", reason=f"unexportable_path: {exc}"[:500])
                     else:
@@ -551,9 +571,15 @@ def load_config(method, robot, config_file=None, override=None):
     return cfg
 
 
+def adapter_sha(method):
+    """SHA-256 of the method's adapter source: a code change must never reuse an artifact built by older code."""
+    from bl_worker import ADAPTERS
+    return sha256_file(Path(__file__).resolve().parent / f"{ADAPTERS[method]}.py")
+
+
 def artifact_path(method, region, robot, config):
-    return OUTB / method / sha_json({k: v for k, v in config.items() if not k.startswith("q_")})[:12] / \
-        f"{region}_{robot}.setup.pkl"
+    key = {"config": {k: v for k, v in config.items() if not k.startswith("q_")}, "adapter_sha256": adapter_sha(method)}
+    return OUTB / method / sha_json(key)[:12] / f"{region}_{robot}.setup.pkl"
 
 
 def cmd_setup(a):
@@ -631,6 +657,7 @@ def cmd_judge(a):
         for r in todo:
             try:
                 judge_row(J, r)
+                r.pop("method_path_uv")
             except ValueError as exc:
                 r.update(status="ERROR", reason=f"unexportable_path: {exc}"[:500])
         tmp = path.with_name(path.name + ".tmp")
@@ -775,6 +802,43 @@ def cmd_project(a):
     _dump(a.out, doc)
 
 
+def cmd_tunetable(a):
+    """Tuning table per method x robot x candidate + the pre-registered pick (configs/baselines/tuning/RULE.md):
+    most SUCCESS, then fewest CLAIMED_*, then lowest median algorithm_wall_s; ``--ineligible`` names are reported only."""
+    root = RES / "tuning" / a.method
+    table, pick = {}, {}
+    for d in sorted(p for p in root.iterdir() if p.is_dir()):
+        for robot in ROBOTS:
+            rows = [r for r in iter_rows(d / "WWEST" / robot)] + [r for r in iter_rows(d / "GAPW1" / robot)] + \
+                [r for r in iter_rows(d / "S" / robot)]
+            if not rows:
+                continue
+            sm = summarize(rows)
+            st = sm["status_counts"]
+            claimed_bad = sum(v for k, v in st.items() if k.startswith("CLAIMED_"))
+            table.setdefault(robot, {})[d.name] = {
+                "n": sm["n"], **{k: st.get(k, 0) for k in STATUSES[:-1]}, "claimed_unsafe": claimed_bad,
+                "median_alg_s": sm["algorithm_wall_s"]["median"], "p95_alg_s": sm["algorithm_wall_s"]["p95"],
+                "appended_goal": sm["appended_goal_segment"], "prepended_start": sm["prepended_start_segment"],
+                "median_judge_s": sm["judge_wall_s"]["median"],
+                "max_abs_dz_m": max((r.get("max_abs_dz_m") or 0.) for r in rows),
+                "eligible": d.name not in a.ineligible}
+    for robot, t in table.items():
+        el = {k: v for k, v in t.items() if v["eligible"] and v["n"] == 50}
+        pick[robot] = min(el, key=lambda k: (-el[k]["SUCCESS"], el[k]["claimed_unsafe"],
+                                             el[k]["median_alg_s"] or 1e9)) if el else None
+    doc = {"method": a.method, "rule": "configs/baselines/tuning/RULE.md", "ineligible": a.ineligible,
+           "table": table, "pick": pick}
+    _dump(root / "tuning_table.json", doc)
+    for robot, t in table.items():
+        print(f"== {a.method} {robot}  pick: {pick[robot]}")
+        for k, v in t.items():
+            print(f"  {k:24s} n={v['n']:3d} S={v['SUCCESS']:3d} COLL={v['CLAIMED_COLLIDES']:3d} "
+                  f"UNPR={v['CLAIMED_UNPROVEN']:3d} KIN={v['CLAIMED_KINEMATICS']:2d} FAIL={v['FAIL']:3d} "
+                  f"TO={v['TIMEOUT']:2d} ERR={v['ERROR']:2d} med={v['median_alg_s']} app={v['appended_goal']} "
+                  f"pre={v['prepended_start']} dz={v['max_abs_dz_m']:.3f}{'' if v['eligible'] else '  (ineligible)'}")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -818,9 +882,13 @@ def main(argv=None):
     pj.add_argument("--gpus", type=int, default=2)
     pj.add_argument("--tasks", type=int, default=1, help="tasks (worker starts) per region x robot in the full run")
     pj.add_argument("--out", type=Path, required=True)
+    tt = sub.add_parser("tunetable")
+    tt.add_argument("--method", required=True)
+    tt.add_argument("--ineligible", nargs="*", default=[])
     a = ap.parse_args(argv)
     {"export": cmd_export, "setup": cmd_setup, "run": cmd_run, "judge": cmd_judge, "sample": cmd_sample,
-     "report": cmd_report, "project": cmd_project}[a.cmd](a)
+     "report": cmd_report, "project": cmd_project,
+     "tunetable": cmd_tunetable}[a.cmd](a)
 
 
 if __name__ == "__main__":

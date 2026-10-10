@@ -199,3 +199,16 @@ def test_sleeping_method_with_inline_judge_times_out(tmp_path):
     H.run_task("sleep", "S", "cylinder", _s_pairs(["F4S-00000"]), out, artifact=art, config={"sleep_s": 60},
                timeout_s=3.)
     assert json.loads(open(out).readline())["status"] == "TIMEOUT"
+
+
+def test_fail_location_by_arc_length():
+    # poses: start (0,0) -> prepended to (0.1,0) [turn] -> method path to (1,0) -> appended to (1.2,0)
+    poses = [[0, 0, 0, 0], [.1, 0, 0, 0], [.1, 0, 0, .5], [1., 0, 0, .5], [1.2, 0, 0, .5]]
+    res = {"trajectory": {"poses": poses}}
+    info = {"prepended_start_segment": True, "start_gap_m": .1, "appended_goal_segment": True, "goal_gap_m": .2}
+    assert H.fail_location(res, 0, info) == "prepended_start_segment"
+    assert H.fail_location(res, 1, info) == "method_path"          # turn in place at the method's first vertex
+    assert H.fail_location(res, 2, info) == "method_path"
+    assert H.fail_location(res, 3, info) == "appended_goal_segment"
+    none = {"prepended_start_segment": False, "start_gap_m": 0., "appended_goal_segment": False, "goal_gap_m": 0.}
+    assert H.fail_location(res, 0, none) == "method_path"
