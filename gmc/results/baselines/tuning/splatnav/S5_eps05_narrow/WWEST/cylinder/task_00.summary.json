@@ -1,0 +1,172 @@
+{
+ "method": "splatnav",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_in_slice": 25,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 25,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 24,
+  "FAIL": 1
+ },
+ "query_outer_wall_s_this_run": 98.51590618747286,
+ "query_algorithm_wall_s_this_run": 98.33410001266748,
+ "judge_wall_s_this_run": 365.02022114465944,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+  "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+  "compile_id": "549453247f5cf37a",
+  "load_s": 0.9736477739643306
+ },
+ "setup": {
+  "setup_id": "9f80faae722d0da4",
+  "artifact": "outputs/baselines/splatnav/4f12d83366c1/WWEST_cylinder.setup.pkl",
+  "artifact_sha256": "8a5d038ef1860e4faae1eae4a27cabbe9bf27e818596f096e8014f053e884dca",
+  "build_setup_wall_s": 1.338842357043177,
+  "config": {
+   "eps": 0.05,
+   "amax": 0.5
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   14.67058323090896
+  ],
+  "load_s_per_start": [
+   0.02273958595469594
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "9f80faae722d0da4",
+   "artifact_sha256": "8a5d038ef1860e4faae1eae4a27cabbe9bf27e818596f096e8014f053e884dca",
+   "load_s": 0.02273958595469594,
+   "instantiate_s": 14.67058323090896,
+   "instantiate_cpu_s": 3.797973726,
+   "pid": 2814973,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "n_input": 390716,
+    "n_kept_slab_and_box": 205643,
+    "kept_extending_beyond_slab": 10315,
+    "zero_vector_quaternions_rewritten": 0,
+    "slab_z": [
+     0.019000000000000017,
+     1.751
+    ],
+    "centre_plan": [
+     -5.65,
+     1.2,
+     0.885
+    ],
+    "eps": 0.05,
+    "corridor_half_width": 0.010000000000000002,
+    "dz_squashed_max": 0.014142135623730954,
+    "dz_real_max_m": 0.28284271247461906,
+    "sphere_radius_squashed": 0.306432046210926,
+    "cover_semi_axes_real_m": [
+     0.306432046210926,
+     0.306432046210926,
+     6.12864092421852
+    ],
+    "cover_lateral_ratio_vs_body": 1.0214401540364202,
+    "cover_lateral_excess_m": 0.0064320462109260235,
+    "grid_lower": [
+     -4.034857864376269,
+     -2.234857864376269,
+     -0.306432046210926
+    ],
+    "grid_upper": [
+     4.03485786437627,
+     2.234857864376269,
+     0.306432046210926
+    ],
+    "grid_resolution": [
+     404,
+     224,
+     1
+    ],
+    "grid_inset_m": 0.31514213562373095,
+    "scale_level": 2.0,
+    "judge_level": 2.0,
+    "margin_m": 0.001,
+    "splatplan_init_s": 0.7270466829650104,
+    "grid_shape": [
+     404,
+     224,
+     1
+    ],
+    "grid_occupied_fraction": 0.5649421215057373,
+    "gpu": "NVIDIA L40S",
+    "torch": "2.1.2+cu118"
+   },
+   "ready_wall_s": 15.495456470176578,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "eps": 0.05,
+  "amax": 0.5
+ },
+ "config_sha256": "4f12d83366c1e7561175e08efc91f06a3140978bdf631846db97a99c46ea0139",
+ "config_file": "configs/baselines/tuning/splatnav/S5_eps05_narrow.json",
+ "config_file_sha256": "71323154b606fdc17f2de9260dec1e3737c71bd19c48ef9fe804e85f1b91f4b5",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/splatnav/S5_eps05_narrow/WWEST/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508642",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   104.8271484375,
+   105.09130859375,
+   95.9345703125
+  ],
+  "utc": "2026-10-10T01:10:10Z",
+  "python": "3.13.5",
+  "git_commit": "5afdd94f70fe30543dcbe819957c4b020635cfc9"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003",
+  "F3X-00004",
+  "F3X-00005",
+  "F3X-00006",
+  "F3X-00007",
+  "F3X-00008",
+  "F3X-00009",
+  "F3X-00010",
+  "F3X-00011",
+  "F3X-00012",
+  "F3X-00013",
+  "F3X-00014",
+  "F3X-00015",
+  "F3X-00016",
+  "F3X-00017",
+  "F3X-00018",
+  "F3X-00019",
+  "F3X-00020",
+  "F3X-00021",
+  "F3X-00022",
+  "F3X-00023",
+  "F3X-00024"
+ ]
+}

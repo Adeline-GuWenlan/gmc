@@ -1,0 +1,150 @@
+{
+ "method": "foci",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "pairs_in_slice": 25,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 25,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 9,
+  "CLAIMED_COLLIDES": 5,
+  "CLAIMED_UNPROVEN": 11
+ },
+ "query_outer_wall_s_this_run": 4.994052249472588,
+ "query_algorithm_wall_s_this_run": 4.982802472310141,
+ "judge_wall_s_this_run": 0.7949261157773435,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/sweeper.a3c",
+  "a3c_sha256": "b6c467cb71c45e5c0ac65c866e9d436fd15a605eb667bfb3b326415af793dc87",
+  "compile_id": "29e3d020cb81ffa1",
+  "load_s": 0.7069625020958483
+ },
+ "setup": {
+  "setup_id": "18ce4273a3c95618",
+  "artifact": "outputs/baselines/foci/51cf4f040d1e/WWEST_sweeper.setup.pkl",
+  "artifact_sha256": "172f21094353bb66cf0f358132a9c6565b532f03456be95425dba1e81e6a6cd9",
+  "build_setup_wall_s": 0.024529548827558756,
+  "config": {
+   "z_half": 0.5
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   16.94029314396903
+  ],
+  "load_s_per_start": [
+   0.00830836407840252
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "18ce4273a3c95618",
+   "artifact_sha256": "172f21094353bb66cf0f358132a9c6565b532f03456be95425dba1e81e6a6cd9",
+   "load_s": 0.00830836407840252,
+   "instantiate_s": 16.94029314396903,
+   "instantiate_cpu_s": 2.176352724,
+   "pid": 2758178,
+   "setup_calls": 0,
+   "python": "3.10.21",
+   "info": {
+    "n_input": 390716,
+    "n_kept_slab_and_box": 5541,
+    "slab_z": [
+     0.018999999999999996,
+     0.101
+    ],
+    "centre_offset_plan": [
+     -5.65,
+     1.2,
+     -0.44
+    ],
+    "robot_cov_diag": [
+     0.011615999999999998,
+     0.011615999999999998,
+     0.0012607499999999997
+    ],
+    "cover_level_sigma_semi_axes_m": [
+     0.21555509736491965,
+     0.21555509736491965,
+     0.07101408311032396
+    ],
+    "cylinder_r_h_plus_margin": [
+     0.176,
+     0.041
+    ],
+    "obstacle_cov_factor": 1.0,
+    "z_range_real": [
+     -0.44,
+     0.56
+    ],
+    "planner_init_s": 16.92338682897389,
+    "foci_file": "/scratch/wg2381/ext_repos/foci_bl/foci/__init__.py"
+   },
+   "ready_wall_s": 17.788471125997603,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "z_half": 0.5
+ },
+ "config_sha256": "51cf4f040d1ea0ccc524593287140eca02f8b305e1132e6328cf7f06eab08f35",
+ "config_file": "configs/baselines/tuning/foci/F0_repo_zband.json",
+ "config_file_sha256": "b4af45ba86dc79f915615c8befa73afaa13263a63ede012a9cc979588876c3dd",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/foci/F0_repo_zband/WWEST/sweeper/task_00.worker.log",
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508642",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   8.39111328125,
+   37.8876953125,
+   59.60595703125
+  ],
+  "utc": "2026-10-10T00:42:29Z",
+  "python": "3.13.5",
+  "git_commit": "4eba6627103642b964d8021be3218da26d380d2a"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003",
+  "F3X-00004",
+  "F3X-00005",
+  "F3X-00006",
+  "F3X-00007",
+  "F3X-00008",
+  "F3X-00009",
+  "F3X-00010",
+  "F3X-00011",
+  "F3X-00012",
+  "F3X-00013",
+  "F3X-00014",
+  "F3X-00015",
+  "F3X-00016",
+  "F3X-00017",
+  "F3X-00018",
+  "F3X-00019",
+  "F3X-00020",
+  "F3X-00021",
+  "F3X-00022",
+  "F3X-00023",
+  "F3X-00024"
+ ]
+}

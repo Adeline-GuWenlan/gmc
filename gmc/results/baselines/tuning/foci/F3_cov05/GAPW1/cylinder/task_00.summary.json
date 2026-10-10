@@ -1,0 +1,139 @@
+{
+ "method": "foci",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "pairs_in_slice": 15,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 15,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 6,
+  "CLAIMED_UNPROVEN": 9
+ },
+ "query_outer_wall_s_this_run": 4.976452141534537,
+ "query_algorithm_wall_s_this_run": 4.971073547378182,
+ "judge_wall_s_this_run": 1.3344055882189423,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+  "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+  "compile_id": "abfa278e193c88d4",
+  "load_s": 0.4834138290025294
+ },
+ "setup": {
+  "setup_id": "51f85f080d355131",
+  "artifact": "outputs/baselines/foci/46a37b3e5ad3/GAPW1_cylinder.setup.pkl",
+  "artifact_sha256": "4a8f61f3e7536e8b14da881d2d93f78a795e70eab71e1a30944f3eb9e85893fb",
+  "build_setup_wall_s": 0.0165251640137285,
+  "config": {
+   "cov_scale": 0.5
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   11.776164636947215
+  ],
+  "load_s_per_start": [
+   0.024902790086343884
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "51f85f080d355131",
+   "artifact_sha256": "4a8f61f3e7536e8b14da881d2d93f78a795e70eab71e1a30944f3eb9e85893fb",
+   "load_s": 0.024902790086343884,
+   "instantiate_s": 11.776164636947215,
+   "instantiate_cpu_s": 3.3765260809999997,
+   "pid": 2806100,
+   "setup_calls": 0,
+   "python": "3.10.21",
+   "info": {
+    "n_input": 209126,
+    "n_kept_slab_and_box": 101557,
+    "slab_z": [
+     0.019000000000000017,
+     1.751
+    ],
+    "centre_offset_plan": [
+     -5.65,
+     1.7,
+     0.385
+    ],
+    "robot_cov_diag": [
+     0.008493843749999997,
+     0.008493843749999997,
+     0.14061674999999998
+    ],
+    "cover_level_sigma_semi_axes_m": [
+     0.18432410314443412,
+     0.18432410314443412,
+     0.7499779996773238
+    ],
+    "cylinder_r_h_plus_margin": [
+     0.301,
+     0.866
+    ],
+    "obstacle_cov_factor": 1.0,
+    "z_range_real": [
+     0.385,
+     1.385
+    ],
+    "planner_init_s": 11.76629772502929,
+    "foci_file": "/scratch/wg2381/ext_repos/foci_bl/foci/__init__.py"
+   },
+   "ready_wall_s": 12.698715087026358,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "cov_scale": 0.5
+ },
+ "config_sha256": "46a37b3e5ad3c26f9337355c24c116d83a8397fb462b85584a60d961445d3fa1",
+ "config_file": "configs/baselines/tuning/foci/F3_cov05.json",
+ "config_file_sha256": "751ed08a8a5acf38024293398f631e5c72192d35b1e602f897f05e0cfe0c3347",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/foci/F3_cov05/GAPW1/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508642",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   108.18798828125,
+   98.69287109375,
+   79.88818359375
+  ],
+  "utc": "2026-10-10T00:55:31Z",
+  "python": "3.13.5",
+  "git_commit": "5afdd94f70fe30543dcbe819957c4b020635cfc9"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3W-00000",
+  "F3W-00001",
+  "F3W-00002",
+  "F3W-00003",
+  "F3W-00004",
+  "F3W-00005",
+  "F3W-00006",
+  "F3W-00007",
+  "F3W-00008",
+  "F3W-00009",
+  "F3W-00010",
+  "F3W-00011",
+  "F3W-00012",
+  "F3W-00013",
+  "F3W-00014"
+ ]
+}

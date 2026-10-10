@@ -1,0 +1,155 @@
+{
+ "method": "splatnav",
+ "region": "S",
+ "robot": "cylinder",
+ "pairs_in_slice": 10,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 10,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 8,
+  "FAIL": 2
+ },
+ "query_outer_wall_s_this_run": 4.233501311391592,
+ "query_algorithm_wall_s_this_run": 4.219730193959549,
+ "judge_wall_s_this_run": 11.87234066776,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/S/cylinder.a3c",
+  "a3c_sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4",
+  "compile_id": "8352bdd37aab07a2",
+  "load_s": 0.5190405522007495
+ },
+ "setup": {
+  "setup_id": "b976d00040786df4",
+  "artifact": "outputs/baselines/splatnav/c7703be54c80/S_cylinder.setup.pkl",
+  "artifact_sha256": "e002ab0acc25df4a73a2d02c9b7f358c7ff7e5943eda2cf2350633359cb7911d",
+  "build_setup_wall_s": 1.0448481431230903,
+  "config": {
+   "eps": 0.05
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   17.21410986687988
+  ],
+  "load_s_per_start": [
+   0.012556528905406594
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "b976d00040786df4",
+   "artifact_sha256": "e002ab0acc25df4a73a2d02c9b7f358c7ff7e5943eda2cf2350633359cb7911d",
+   "load_s": 0.012556528905406594,
+   "instantiate_s": 17.21410986687988,
+   "instantiate_cpu_s": 3.851881191,
+   "pid": 2792560,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "n_input": 333487,
+    "n_kept_slab_and_box": 81475,
+    "kept_extending_beyond_slab": 5320,
+    "zero_vector_quaternions_rewritten": 0,
+    "slab_z": [
+     0.019000000000000017,
+     1.751
+    ],
+    "centre_plan": [
+     -0.3999999999999999,
+     -1.1,
+     0.885
+    ],
+    "eps": 0.05,
+    "corridor_half_width": 0.05000000000000001,
+    "dz_squashed_max": 0.07071067811865477,
+    "dz_real_max_m": 1.4142135623730951,
+    "sphere_radius_squashed": 0.32186866067555486,
+    "cover_semi_axes_real_m": [
+     0.32186866067555486,
+     0.32186866067555486,
+     6.437373213511097
+    ],
+    "cover_lateral_ratio_vs_body": 1.072895535585183,
+    "cover_lateral_excess_m": 0.021868660675554874,
+    "grid_lower": [
+     -4.528289321881346,
+     -0.27828932188134514,
+     -0.32186866067555486
+    ],
+    "grid_upper": [
+     4.528289321881346,
+     0.27828932188134536,
+     0.32186866067555486
+    ],
+    "grid_resolution": [
+     453,
+     28,
+     1
+    ],
+    "grid_inset_m": 0.37171067811865477,
+    "scale_level": 2.0,
+    "judge_level": 2.0,
+    "margin_m": 0.001,
+    "splatplan_init_s": 0.7452480031643063,
+    "grid_shape": [
+     453,
+     28,
+     1
+    ],
+    "grid_occupied_fraction": 0.4081520140171051,
+    "gpu": "NVIDIA L40S",
+    "torch": "2.1.2+cu118"
+   },
+   "ready_wall_s": 18.091504561016336,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "eps": 0.05
+ },
+ "config_sha256": "c7703be54c80810619a71fbe376da0c525144cfc1354bac19e7dac14aba8e8a2",
+ "config_file": "configs/baselines/tuning/splatnav/S1_eps05.json",
+ "config_file_sha256": "4f1f17b3af1adeb6afed658a5fde8dbc2254f1e0acc7eba423adcd44ac4c6d4e",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/splatnav/S1_eps05/S/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508642",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   110.82861328125,
+   62.94091796875,
+   61.44384765625
+  ],
+  "utc": "2026-10-10T00:47:47Z",
+  "python": "3.13.5",
+  "git_commit": "4eba6627103642b964d8021be3218da26d380d2a"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3S-00000",
+  "F3S-00001",
+  "F3S-00002",
+  "F3S-00003",
+  "F3S-00004",
+  "F3S-00005",
+  "F3S-00006",
+  "F3S-00007",
+  "F3S-00008",
+  "F3S-00009"
+ ]
+}

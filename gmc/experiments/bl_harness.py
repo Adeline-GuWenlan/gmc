@@ -703,10 +703,31 @@ def cmd_sample(a):
 
 
 def iter_rows(root):
-    for f in sorted(Path(root).rglob("task_*.jsonl")):
-        for x in open(f):
-            if x.strip():
-                yield json.loads(x)
+    """Rows of every task file under ``root`` (``task_NN.jsonl``, or ``.jsonl.gz`` once archived)."""
+    import gzip
+    for f in sorted(list(Path(root).rglob("task_*.jsonl")) + list(Path(root).rglob("task_*.jsonl.gz"))):
+        with (gzip.open(f, "rt") if f.suffix == ".gz" else open(f)) as fh:
+            for x in fh:
+                if x.strip():
+                    yield json.loads(x)
+
+
+def cmd_archive(a):
+    """Compress finished task files for commit: drop the raw ``method_path_uv`` of judged rows (``route_polyline``
+    is the exact judged path) and gzip ``task_NN.jsonl`` -> ``.jsonl.gz`` (rows otherwise byte-for-byte)."""
+    import gzip
+    for f in sorted(Path(a.root).rglob("task_*.jsonl")):
+        rows = [json.loads(x) for x in open(f) if x.strip()]
+        if any(r["status"] == "CLAIMED_PENDING_JUDGE" for r in rows):
+            print("skip (pending judge)", f)
+            continue
+        with gzip.open(f"{f}.gz", "wt") as g:
+            for r in rows:
+                if r.get("route_polyline") is not None:
+                    r.pop("method_path_uv", None)
+                g.write(json.dumps(r, default=float) + "\n")
+        f.unlink()
+    print("archived", a.root)
 
 
 def summarize(rows):
@@ -882,13 +903,15 @@ def main(argv=None):
     pj.add_argument("--gpus", type=int, default=2)
     pj.add_argument("--tasks", type=int, default=1, help="tasks (worker starts) per region x robot in the full run")
     pj.add_argument("--out", type=Path, required=True)
+    ar = sub.add_parser("archive")
+    ar.add_argument("root")
     tt = sub.add_parser("tunetable")
     tt.add_argument("--method", required=True)
     tt.add_argument("--ineligible", nargs="*", default=[])
     a = ap.parse_args(argv)
     {"export": cmd_export, "setup": cmd_setup, "run": cmd_run, "judge": cmd_judge, "sample": cmd_sample,
      "report": cmd_report, "project": cmd_project,
-     "tunetable": cmd_tunetable}[a.cmd](a)
+     "tunetable": cmd_tunetable, "archive": cmd_archive}[a.cmd](a)
 
 
 if __name__ == "__main__":
