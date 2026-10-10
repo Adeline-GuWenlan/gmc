@@ -1,0 +1,252 @@
+{
+ "schema": "bl.b4_figures.v1",
+ "commit": "a56567cc4ac4577e51bb0005f30a50c6a467fbb6",
+ "figures": {
+  "results/baselines/fig/overview_WWEST.png": {
+   "picks": [
+    {
+     "robot": "cylinder",
+     "pair_id": "F4X-01917",
+     "rule": "GMC, SplatNav, PNO SUCCESS; FOCI CLAIMED_UNPROVEN on its own curve (its typical cylinder failure)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4X-00445",
+     "rule": "GMC fails (TIMEOUT if any in the region, else EP-TOL FAIL) while SplatNav and PNO succeed",
+     "statuses": {
+      "gmc": "TIMEOUT",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "METHOD-TIMEOUT",
+      "splatnav": "feasible",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4X-00354",
+     "rule": "SplatNav FAIL (its typical failure)",
+     "statuses": {
+      "gmc": "TIMEOUT",
+      "splatnav": "FAIL",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "METHOD-TIMEOUT",
+      "splatnav": "astar_no_path",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "sweeper",
+     "pair_id": "F4X-01027",
+     "rule": "sweeper: FOCI unsafe claim on the appended goal segment (its typical sweeper failure); cust_fields FAIL",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "appended_goal_segment",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    }
+   ]
+  },
+  "results/baselines/fig/overview_GAPW1.png": {
+   "picks": [
+    {
+     "robot": "cylinder",
+     "pair_id": "F4W-00109",
+     "rule": "GMC, SplatNav, PNO SUCCESS; FOCI CLAIMED_UNPROVEN on its own curve (its typical cylinder failure)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4W-01490",
+     "rule": "GMC fails (TIMEOUT if any in the region, else EP-TOL FAIL) while SplatNav and PNO succeed",
+     "statuses": {
+      "gmc": "FAIL",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_UNPROVEN",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "EP-TOL",
+      "splatnav": "feasible",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4W-00873",
+     "rule": "SplatNav FAIL (its typical failure)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "FAIL",
+      "foci": "SUCCESS",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "qp_infeasible",
+      "foci": "ipopt_Solved_To_Acceptable_Level",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "sweeper",
+     "pair_id": "F4W-01257",
+     "rule": "sweeper: cust_fields SUCCESS",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "SUCCESS",
+      "pno": "SUCCESS",
+      "cust_fields": "SUCCESS"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "ipopt_Solved_To_Acceptable_Level",
+      "pno": "astar_path",
+      "cust_fields": "goal_reached"
+     }
+    }
+   ]
+  },
+  "results/baselines/fig/overview_S.png": {
+   "picks": [
+    {
+     "robot": "cylinder",
+     "pair_id": "F4S-00706",
+     "rule": "GMC, SplatNav, FOCI, PNO all SUCCESS (no FOCI unsafe claim on its own curve in this region)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "SUCCESS",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "ipopt_Solve_Succeeded",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4S-00332",
+     "rule": "GMC fails (TIMEOUT if any in the region, else EP-TOL FAIL) while SplatNav and PNO succeed",
+     "statuses": {
+      "gmc": "FAIL",
+      "splatnav": "SUCCESS",
+      "foci": "SUCCESS",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "EP-TOL",
+      "splatnav": "feasible",
+      "foci": "ipopt_Solve_Succeeded",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "cylinder",
+     "pair_id": "F4S-00763",
+     "rule": "FOCI CLAIMED_COLLIDES (no SplatNav FAIL in this region)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "CLAIMED_COLLIDES",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "method_path",
+      "pno": "astar_path",
+      "cust_fields": "endpoint_in_obstacle_cover"
+     }
+    },
+    {
+     "robot": "sweeper",
+     "pair_id": "F4S-00597",
+     "rule": "sweeper: cust_fields FAIL nf_stuck (its own descent stalls; no FOCI goal-segment claim in this region)",
+     "statuses": {
+      "gmc": "SUCCESS",
+      "splatnav": "SUCCESS",
+      "foci": "SUCCESS",
+      "pno": "SUCCESS",
+      "cust_fields": "FAIL"
+     },
+     "details": {
+      "gmc": "REACHABLE",
+      "splatnav": "feasible",
+      "foci": "ipopt_Solved_To_Acceptable_Level",
+      "pno": "astar_path",
+      "cust_fields": "nf_stuck"
+     }
+    }
+   ]
+  },
+  "results/baselines/fig/bands.png": {
+   "source": "analysis.json bands.<robot>.<method>.{lateral,detour}"
+  },
+  "results/baselines/fig/timing.png": {
+   "source": "analysis.json timing.<robot>.<method>"
+  }
+ }
+}

@@ -567,8 +567,8 @@ def sheet_values(doc, m, robot):
     gpu = {"splatnav": "L40S（4 流共享一卡）峰值 5.8 GB（4 流合计，nvidia-smi 30 s 采样）",
            "foci": "L40S（4 流共享一卡）峰值 2.4 GB（4 流合计）",
            "pno": "L40S（4 流共享一卡）峰值 17.1 GB（4 流合计）", "cust_fields": "N/A（CPU 方法）"}[m]
-    rss = {"splatnav": "6.5 GB（sacct MaxRSS，整个 4 流作业含裁判）", "foci": "3.7 GB（同上）",
-           "pno": "5.1 GB（同上）", "cust_fields": "≤ 0.44 GB（每个数组任务，含裁判）"}[m]
+    rss = {"splatnav": "6.5 GB（sacct MaxRSS，整个 4 流作业含裁判）", "foci": "3.7 GB（sacct MaxRSS，整个 4 流作业含裁判）",
+           "pno": "5.1 GB（sacct MaxRSS，整个 4 流作业含裁判）", "cust_fields": "≤ 0.44 GB（每个数组任务，含裁判）"}[m]
     hw = ("CPU：Torch cpu_short 节点（每数组任务 1 核）；GPU：无；RAM：每任务申请 2 GB；OS：Linux (RHEL)，方法 env Python 3.10.22，"
           "裁判 gmc-venv Python 3.13.5" if m == "cust_fields" else
           "CPU：Torch l40s_public 节点 4 核（4 个 harness 流）；GPU：NVIDIA L40S 44 GB（一卡 4 流）；RAM：申请 12 GB；"
@@ -676,10 +676,10 @@ def sheet_values(doc, m, robot):
         "机器人对比｜轻微改变机器人宽度 / 长度 / 高度后结果突然翻转的比例": NA,
         "A–B 扩展｜测试距离档位": "L1：<2 m；L2：2–4 m；L3：4–6 m；L4：≥6 m（直线距离；n = " +
             " / ".join(str(b["n"]) for b in lr) + "）",
-        "A–B 扩展｜不同距离下的总规划时间": "；".join(f"L{i + 1}：{b['algorithm_wall_s'].get('median', 0):.3f} s"
-                                             for i, b in enumerate(lr)) + "（中位数）",
-        "A–B 扩展｜不同距离下的规划成功率": "；".join(f"L{i + 1}：{100 * (b['success']['rate'] or 0):.1f}%"
-                                             for i, b in enumerate(lr)),
+        "A–B 扩展｜不同距离下的总规划时间": "；".join(f"L{i + 1}：{b['algorithm_wall_s']['median']:.3f} s" if b["n"]
+                                             else f"L{i + 1}：N/A（0 对）" for i, b in enumerate(lr)) + "（中位数）",
+        "A–B 扩展｜不同距离下的规划成功率": "；".join(f"L{i + 1}：{100 * b['success']['rate']:.1f}%" if b["n"]
+                                             else f"L{i + 1}：N/A（0 对）" for i, b in enumerate(lr)),
         "A–B 扩展｜不同距离下的输出路径长度": "；".join(
             f"L{i + 1}：" + (f"{b['path_length_m']['median']:.2f} m" if b["path_length_m"].get("n") else "N/A")
             for i, b in enumerate(lr)) + "（成功行中位数）",
@@ -816,8 +816,11 @@ def pick_pairs(rowsets, region):
     ok = lambda D, k, m: D[m][k]["status"] == "SUCCESS"  # noqa: E731
     r1 = [k for k in cy["gmc"] if all(ok(cy, k, m) for m in ("gmc", "splatnav", "pno"))
           and cy["foci"][k]["status"] == "CLAIMED_UNPROVEN" and cy["foci"][k].get("judge_fail_location") == "method_path"]
-    rules.append(("cylinder", best(r1, cy), "GMC, SplatNav, PNO SUCCESS; FOCI CLAIMED_UNPROVEN on its own curve "
-                                           "(its typical cylinder failure)"))
+    why = "GMC, SplatNav, PNO SUCCESS; FOCI CLAIMED_UNPROVEN on its own curve (its typical cylinder failure)"
+    if not r1:
+        r1 = [k for k in cy["gmc"] if all(ok(cy, k, m) for m in ("gmc", "splatnav", "foci", "pno"))]
+        why = "GMC, SplatNav, FOCI, PNO all SUCCESS (no FOCI unsafe claim on its own curve in this region)"
+    rules.append(("cylinder", best(r1, cy), why))
     r2 = [k for k in cy["gmc"] if cy["gmc"][k]["status"] != "SUCCESS" and ok(cy, k, "splatnav") and ok(cy, k, "pno")]
     tm = [k for k in r2 if cy["gmc"][k]["status"] == "TIMEOUT"]
     rules.append(("cylinder", best(tm or r2, cy), "GMC fails (TIMEOUT if any in the region, else EP-TOL FAIL) while "
@@ -837,8 +840,16 @@ def pick_pairs(rowsets, region):
         r4 = [k for k in sw["gmc"] if sw["foci"][k]["status"].startswith("CLAIMED")
               and sw["foci"][k].get("judge_fail_location") == "appended_goal_segment"]
         why = "sweeper: FOCI unsafe claim on the appended goal segment (its typical sweeper failure); cust_fields FAIL"
+    if not r4:
+        r4 = [k for k in sw["gmc"] if sw["cust_fields"][k]["reason"] == "nf_stuck"]
+        why = "sweeper: cust_fields FAIL nf_stuck (its own descent stalls; no FOCI goal-segment claim in this region)"
     rules.append(("sweeper", best(r4, sw), why))
-    return [{"robot": rb, "pair_id": k, "rule": w} for rb, k, w in rules if k]
+    out, seen = [], set()
+    for rb, k, w in rules:
+        if k and (k, rb) not in seen:
+            seen.add((k, rb))
+            out.append({"robot": rb, "pair_id": k, "rule": w})
+    return out
 
 
 def polylines_for(picks, region):
@@ -856,7 +867,7 @@ def polylines_for(picks, region):
                     poly = sn.get(r["pair_id"]) if m == "splatnav" else r.get("route_polyline")
                     out.setdefault((r["pair_id"], robot), {})[m] = {
                         "poly": None if poly is None else np.asarray(poly, float)[:, :2],
-                        "status": r["status"] if m != "gmc" else GMC_STATUS[r["status"]],
+                        "status": r["status"],
                         "detail": (r.get("class") if m == "gmc" else
                                    (r.get("judge_fail_location") or r.get("reason") or ""))}
     return out
@@ -877,7 +888,7 @@ def cf_covers(region, robot):
 def fig_overview(region, picks, polys, P):
     import matplotlib.pyplot as plt
     import bl_raster as R
-    fig, axs = plt.subplots(2, 2, figsize=(15, 12.5))
+    fig, axs = plt.subplots(2, 2, figsize=(15, 15))
     for ax, pk in zip(axs.flat, picks):
         k, robot = pk["pair_id"], pk["robot"]
         arr, info = R.load(R.raster_path(region, robot, 0.005))
@@ -913,15 +924,16 @@ def fig_overview(region, picks, polys, P):
         ax.set_aspect("equal")
         ax.set_title(f"{k} · {robot} · {p['dist_m']:.2f} m straight, lateral {1000 * p['lateral_clearance_m']:g} mm, "
                      f"detour {p['len_ratio']:.2f}\n{pk['rule']}", fontsize=9, color="#0b0b0b")
-        ax.legend(fontsize=7.5, loc="best", framealpha=.9)
+        ax.legend(fontsize=7.5, loc="upper center", bbox_to_anchor=(.5, -.09), ncol=2, framealpha=.9)
         ax.set_xlabel("u (m, plan frame)", fontsize=8)
         ax.set_ylabel("v (m)", fontsize=8)
         ax.tick_params(labelsize=7)
     for ax in list(axs.flat)[len(picks):]:
         ax.axis("off")
-    fig.suptitle(f"{region}: C-space map for the panel's robot (dark = body centre cannot be; 5 mm shared raster), "
-                 f"cust_fields squircle covers (pink outlines), start ○ goal □", fontsize=11)
-    fig.tight_layout()
+    fig.suptitle(f"{region}: C-space map for the panel's robot (dark = body centre cannot be; 5 mm shared raster),\n"
+                 f"cust_fields squircle covers (pink outlines where inside the view; in WWEST one cover encloses the room), "
+                 f"start ○ goal □", fontsize=11)
+    fig.tight_layout(rect=[0, 0, 1, .96])
     out = FIG / f"overview_{region}.png"
     fig.savefig(out, dpi=85)
     plt.close(fig)
@@ -940,7 +952,7 @@ def fig_bands(doc):
                 y = np.array([x_["fail"]["rate"] for x_ in b]) * 100
                 lo = np.array([x_["fail"]["ci95"][0] for x_ in b]) * 100
                 hi = np.array([x_["fail"]["ci95"][1] for x_ in b]) * 100
-                ax.errorbar(x, y, yerr=[y - lo, hi - y], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=7, lw=2,
+                ax.errorbar(x, y, yerr=[np.clip(y - lo, 0, None), np.clip(hi - y, 0, None)], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=7, lw=2,
                             capsize=2, elinewidth=1, label=LABEL[m], mec="white", mew=1)
             bb = [x_ for x_ in doc["bands"][robot]["gmc"][key] if x_["n"]]
             ax.set_xticks(range(len(bb)), [f"{x_['band']}\nn={x_['n']}" for x_ in bb], fontsize=8)
@@ -961,7 +973,7 @@ def fig_bands(doc):
 
 def fig_timing(doc):
     import matplotlib.pyplot as plt
-    fig, axs = plt.subplots(1, 3, figsize=(17, 5.2))
+    fig, axs = plt.subplots(1, 3, figsize=(17, 6))
     y = np.arange(len(METHODS))
     for k, robot in enumerate(ROBOTS):
         off = -.17 if robot == "cylinder" else .17
@@ -974,17 +986,17 @@ def fig_timing(doc):
             axs[0].plot(a_, yi, mk, color=c_, ms=8, mec="white", mew=1)
             axs[0].plot(b_, yi, "|", color=c_, ms=10, mew=2)
         st = [sum(doc["timing"][robot][m]["setup"][r]["total_s"] for r in REGIONS) for m in METHODS]
-        axs[1].barh(y + off, st, height=.32, color=cols, edgecolor="white", linewidth=2,
-                    hatch=None if robot == "cylinder" else "//")
+        for yi, v, c_ in zip(y + off, st, cols):
+            axs[1].plot(v, yi, mk, color=c_, ms=9, mec="white", mew=1)
         am = [doc["timing"][robot][m]["amortised_5000"]["per_query_s"] for m in METHODS]
-        axs[2].barh(y + off, am, height=.32, color=cols, edgecolor="white", linewidth=2,
-                    hatch=None if robot == "cylinder" else "//")
+        for yi, v, c_ in zip(y + off, am, cols):
+            axs[2].plot(v, yi, mk, color=c_, ms=9, mec="white", mew=1)
         for yi, v in zip(y + off, st):
-            axs[1].text(v * 1.05, yi, f"{v:.0f} s", va="center", fontsize=7.5, color="#52514e")
+            axs[1].text(v * 1.12, yi, f"{v:.0f} s", va="center", fontsize=7.5, color="#52514e")
         for yi, v in zip(y + off, am):
-            axs[2].text(v * 1.05, yi, f"{v:.2f} s", va="center", fontsize=7.5, color="#52514e")
+            axs[2].text(v * 1.15, yi, f"{v:.2f} s", va="center", fontsize=7.5, color="#52514e")
     for ax, t in zip(axs, ("per-query method time: median (marker) to p95 (bar), s",
-                           "setup ('compile'), sum of 3 regions, s", "amortised cost per query over 5000 queries, s")):
+                           "setup ('compile'), sum of 3 regions, s", "amortised cost per query over 5000 queries\n(setup + all queries) / 5000, s")):
         ax.set_xscale("log")
         ax.set_yticks(y, [LABEL[m] for m in METHODS], fontsize=9)
         ax.invert_yaxis()
@@ -992,10 +1004,13 @@ def fig_timing(doc):
         ax.grid(axis="x", color="#e5e4e0", lw=.6)
     axs[0].plot([], [], "o", color="#52514e", label="cylinder (upper)")
     axs[0].plot([], [], "s", color="#52514e", label="sweeper (lower)")
-    axs[0].legend(fontsize=8, loc="lower right")
-    axs[1].bar([], [], color="#52514e", label="cylinder (solid)")
-    axs[1].bar([], [], color="#52514e", hatch="//", label="sweeper (hatched)")
-    axs[1].legend(fontsize=8, loc="lower right")
+    axs[0].legend(fontsize=8, loc="upper center", bbox_to_anchor=(.5, -.1), ncol=2)
+    for ax in axs[1:]:
+        ax.plot([], [], "o", color="#52514e", label="cylinder (upper)")
+        ax.plot([], [], "s", color="#52514e", label="sweeper (lower)")
+        ax.legend(fontsize=8, loc="upper center", bbox_to_anchor=(.5, -.1), ncol=2)
+        lo_, hi_ = ax.get_xlim()
+        ax.set_xlim(lo_, hi_ * 2.5)
     fig.suptitle("Timing (judge excluded for baselines; GMC's time includes its in-query shared replay). "
                  "cust_fields cylinder fails at the endpoint snap (~0.1 ms).", fontsize=10)
     fig.tight_layout()
