@@ -1,0 +1,11 @@
+{
+ "method": "cust_fields",
+ "name": "C1_chain15",
+ "what": "chain star decomposition, waste 1.5, no tightening",
+ "common": {
+  "cover": "chain",
+  "waste": 1.5,
+  "tighten": []
+ },
+ "robots": {}
+}

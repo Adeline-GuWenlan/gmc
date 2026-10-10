@@ -57,7 +57,8 @@ def main(argv=None):
                     e = []
                     for uv in (p["start_uv"], p["goal_uv"]):
                         hm = R.nearest_free(arrays, info, uv)
-                        hn = R.nearest_free({"occ": 1 - st["nf_free"]}, g, uv, max_m=float(cfg["snap_max_m"]))
+                        c, dd = C.snap_point(st["occ"], st["nf_free"], g, uv, float(cfg["snap_max_m"]))
+                        hn = None if c is None else (*(int(v[0]) for v in R.to_index(g, c)), c, dd)
                         e.append((hm, hn))
                     map_conn = all(h[0] is not None for h in e) and \
                         lab_map[e[0][0][0], e[0][0][1]] == lab_map[e[1][0][0], e[1][0][1]]

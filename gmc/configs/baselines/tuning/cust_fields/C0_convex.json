@@ -1,0 +1,9 @@
+{
+ "method": "cust_fields",
+ "name": "C0_convex",
+ "what": "one convex squircle cover per map piece (merging), s 0.85, snap 0.10 m",
+ "common": {
+  "cover": "convex"
+ },
+ "robots": {}
+}

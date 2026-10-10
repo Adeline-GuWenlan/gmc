@@ -1,0 +1,11 @@
+{
+ "method": "cust_fields",
+ "name": "C2_chain20",
+ "what": "chain, waste 2.0, no tightening",
+ "common": {
+  "cover": "chain",
+  "waste": 2.0,
+  "tighten": []
+ },
+ "robots": {}
+}

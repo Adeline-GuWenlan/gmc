@@ -68,3 +68,21 @@ def test_overlap_test_and_merging():
     assert st["pieces"] == 3 and st["merges"] >= 1 and st["covers"] == 2
     cm = C.cover_mask(covers, s, info, m2.shape)
     assert cm[m2].all()                               # every piece cell centre is covered
+
+
+def test_snap_point_needs_a_map_free_segment():
+    grid = {"res_m": .01, "u0": 0., "v0": 0.}
+    occ = np.zeros((50, 50), np.uint8)
+    occ[:, 24:27] = 1                                  # a wall at x in [0.24, 0.27)
+    nf_free = (occ == 0).astype(np.uint8)
+    nf_free[:, 15:24] = 0                              # the NF world swallowed the wall's left side
+    p = np.array([.105, .255])                         # left of the wall
+    c, d = C.snap_point(occ, nf_free, grid, p, max_m=.5)
+    assert c is not None and c[0] < .24                # the left free strip, not the nearer cell across the wall
+    nf_free[:, :24] = 0                                # nothing free on the left: across the wall is not allowed
+    assert C.snap_point(occ, nf_free, grid, p, max_m=.5) == (None, None)
+    occ2 = occ.copy()
+    occ2[25, 10] = 1                                   # the endpoint's own cell occupied (map conservatism): allowed
+    nf2 = (occ2 == 0).astype(np.uint8)
+    c, d = C.snap_point(occ2, nf2, grid, np.array([.105, .255]), max_m=.5)
+    assert c is not None and d <= .01

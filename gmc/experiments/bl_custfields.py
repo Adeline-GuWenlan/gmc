@@ -45,7 +45,7 @@ import bl_raster as R
 
 REPO = "/scratch/wg2381/ext_repos/cust_fields"
 GMC = Path(__file__).resolve().parents[1]
-DEFAULTS = {"raster_res_m": 0.005, "cover": "chain", "waste": 1.5, "max_chain": 7, "s": 0.85, "ws_s": 0.9999, "native_pad": False, "merge_gap_m": 0.0,
+DEFAULTS = {"raster_res_m": 0.005, "cover": "chain", "waste": 2.0, "tighten": [1.5, 1.25], "max_chain": 7, "s": 0.85, "ws_s": 0.9999, "native_pad": False, "merge_gap_m": 0.0,
             "nf_lambda": 1e3, "nf_mu": [1e10, 1e8, 1e6, 1e4, 1e2, 1e1], "dt": 0.05, "max_steps": 3000,
             "goal_tol": 0.05, "snap_max_m": 0.10, "seed": 0}
 REPO_PAD = 0.1
@@ -339,9 +339,10 @@ def decompose_piece(ys, xs, info, s, gap, waste, max_chain, min_cells=40, max_de
         nxt += 1
 
 
-def build_obstacles_chain(gauss, ws_mask, info, s, gap, waste, max_chain):
-    """Pieces -> chains of squircles (``decompose_piece``); pieces whose chains overlap are merged (union of cells)
-    and decomposed again, until all chains are pairwise disjoint.  Returns chains, piece groups, stats."""
+def build_obstacles_chain(gauss, ws_mask, info, s, gap, waste, max_chain, tighten=()):
+    """Pieces -> chains of squircles (``decompose_piece``); pieces whose chains overlap are first re-decomposed with
+    the next stricter waste bound in ``tighten`` (both of them, as long as one can still tighten), then merged (union
+    of cells) and decomposed again, until all chains are pairwise disjoint.  Returns chains, piece groups, stats."""
     pieces, n = label8(gauss & ws_mask)
     ys, xs = np.nonzero(pieces)
     lab = pieces[ys, xs]
@@ -350,18 +351,21 @@ def build_obstacles_chain(gauss, ws_mask, info, s, gap, waste, max_chain):
     cuts = np.r_[0, np.nonzero(np.diff(lab))[0] + 1, len(lab)]
     cells = {int(lab[cuts[k]]): (ys[cuts[k]:cuts[k + 1]], xs[cuts[k]:cuts[k + 1]]) for k in range(len(cuts) - 1)}
     groups = [[k] for k in sorted(cells)]
+    levels = [waste, *tighten]
+    lvl = [0] * len(groups)
     dec = {}
 
-    def decomp(g):
-        key = tuple(sorted(g))
+    def decomp(g, li):
+        key = (tuple(sorted(g)), li)
         if key not in dec:
             yy = np.concatenate([cells[k][0] for k in g])
             xx = np.concatenate([cells[k][1] for k in g])
-            dec[key] = decompose_piece(yy, xx, info, s, gap, waste, max_chain)
+            dec[key] = decompose_piece(yy, xx, info, s, gap, levels[li], max_chain,
+                                       max_depth=6 + li)
         return dec[key]
-    merges = 0
+    merges, tightenings = 0, 0
     while True:
-        chains = [decomp(g)[0] for g in groups]
+        chains = [decomp(g, li)[0] for g, li in zip(groups, lvl)]
         hit = None
         boxes = []
         for chs in chains:
@@ -383,19 +387,26 @@ def build_obstacles_chain(gauss, ws_mask, info, s, gap, waste, max_chain):
         if hit is None:
             break
         a, b = hit
+        if lvl[a] < len(levels) - 1 or lvl[b] < len(levels) - 1:
+            lvl[a], lvl[b] = min(lvl[a] + 1, len(levels) - 1), min(lvl[b] + 1, len(levels) - 1)
+            tightenings += 1
+            continue
         groups[a] = groups[a] + groups[b]
-        del groups[b]
+        lvl[a] = 0
+        del groups[b], lvl[b]
         merges += 1
     out_chains, out_groups = [], []
+    chains = [decomp(g, li)[0] for g, li in zip(groups, lvl)]
     for g, chs in zip(groups, chains):
         for ch in chs:
             out_chains.append(ch)
             out_groups.append(g)
-    n_leaf = sum(decomp(g)[1] for g in groups)
+    n_leaf = sum(decomp(g, li)[1] for g, li in zip(groups, lvl))
     return out_chains, out_groups, {"pieces": int(n), "chains": len(out_chains),
                                     "stars": int(sum(len(c) for c in out_chains)),
                                     "max_chain_len": int(max((len(c) for c in out_chains), default=0)),
-                                    "leaf_chunks": int(n_leaf), "piece_merges": merges,
+                                    "leaf_chunks": int(n_leaf), "piece_merges": merges, "tightenings": tightenings,
+                                    "waste_levels_used": sorted({levels[li] for li in lvl}),
                                     "pieces_in_merged_groups": int(sum(len(g) for g in groups if len(g) > 1))}
 
 
@@ -415,6 +426,43 @@ def cover_mask(covers, s, info, shape):
         inside = squircle_level(np.c_[X.ravel(), Y.ravel()], c, a, b, th, s).reshape(X.shape) <= 0
         out[np.ix_(iy, ix)] |= inside
     return out
+
+
+def snap_point(occ, nf_free, grid, uv, max_m, accept=None):
+    """Nearest cell centre that is free in the NF world (``nf_free``) within ``max_m`` of ``uv`` and reachable by a
+    straight segment whose samples (res/8) are map-free outside the endpoint's own cell (that cell may be marked by
+    the map's conservatism: F4 endpoints are 1-5 mm from obstacles).  ``accept(c)`` is an extra test (the repo's
+    free-space check).  Returns (centre, distance) or (None, None)."""
+    p = np.asarray(uv, float)
+    res = grid["res_m"]
+    ny, nx = occ.shape
+    iy0, ix0 = (int(v[0]) for v in R.to_index(grid, p))
+    w = int(math.ceil(max_m / res)) + 1
+    y0, y1, x0, x1 = max(iy0 - w, 0), min(iy0 + w + 1, ny), max(ix0 - w, 0), min(ix0 + w + 1, nx)
+    if y0 >= y1 or x0 >= x1:
+        return None, None
+    fy, fx = np.nonzero(nf_free[y0:y1, x0:x1])
+    if not len(fy):
+        return None, None
+    c = R.centre(grid, fy + y0, fx + x0)
+    d = np.linalg.norm(c - p[None, :], axis=1)
+    order = np.argsort(d, kind="stable")
+    for k in order[:400]:
+        if d[k] > max_m:
+            break
+        n = max(2, int(math.ceil(d[k] / (res / 8))) + 1)
+        t = np.linspace(0., 1., n)[:, None]
+        sy, sx = R.to_index(grid, p + t * (c[k] - p))
+        own = (sy == iy0) & (sx == ix0)
+        inside = (sy >= 0) & (sy < ny) & (sx >= 0) & (sx < nx)
+        if not inside.all():
+            continue
+        if (occ[sy[~own], sx[~own]] != 0).any():
+            continue
+        if accept is not None and not accept(c[k]):
+            continue
+        return c[k], float(d[k])
+    return None, None
 
 
 def _test_nf_module():
@@ -453,7 +501,7 @@ class Adapter:
         else:
             chains, groups, st = build_obstacles_chain(arrays["gauss"].astype(bool), ws_mask, info, sq,
                                                        float(cfg["merge_gap_m"]), float(cfg["waste"]),
-                                                       int(cfg["max_chain"]))
+                                                       int(cfg["max_chain"]), tuple(cfg["tighten"]))
         covers = [c for ch in chains for c in ch]
         cmask = cover_mask(covers, sq, info, free.shape)
         ws_c, ws_size = (ws_lo + ws_hi) / 2, ws_hi - ws_lo
@@ -519,22 +567,16 @@ class Adapter:
         return {"world": world, "NF": NavigationFunction, "tnf": tnf, "state": state, "cfg": cfg}
 
     def _snap(self, live, uv):
-        """Nearest point (cell centre at the raster resolution) free in the NF world and in the map; distance."""
+        """The endpoint itself if it is free in the map and in the NF world, else ``snap_point`` (recorded)."""
         world, st, cfg = live["world"], live["state"], live["cfg"]
         p = np.asarray(uv, float)
         g = st["grid"]
         iy, ix = (int(v[0]) for v in R.to_index(g, p))
-        ok_here = (0 <= iy < st["occ"].shape[0] and 0 <= ix < st["occ"].shape[1] and st["occ"][iy, ix] == 0
-                   and world.check_point_in_free_space(p, threshold=0.0))
-        if ok_here:
+        if (0 <= iy < st["occ"].shape[0] and 0 <= ix < st["occ"].shape[1] and st["occ"][iy, ix] == 0
+                and world.check_point_in_free_space(p, threshold=0.0)):
             return p, 0.
-        hit = R.nearest_free({"occ": 1 - st["nf_free"]}, g, p, max_m=float(cfg["snap_max_m"]))
-        if hit is None:
-            return None, None
-        c = np.asarray(hit[2], float)
-        if not world.check_point_in_free_space(c, threshold=0.0):      # cover raster is by cell centre: re-check
-            return None, None
-        return c, hit[3]
+        return snap_point(st["occ"], st["nf_free"], g, p, float(cfg["snap_max_m"]),
+                          accept=lambda c: world.check_point_in_free_space(c, threshold=0.0))
 
     def plan(self, live, start_uv, goal_uv, query):
         world, tnf, cfg = live["world"], live["tnf"], live["cfg"]

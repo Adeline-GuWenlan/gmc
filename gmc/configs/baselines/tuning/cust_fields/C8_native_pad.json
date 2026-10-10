@@ -1,0 +1,11 @@
+{
+ "method": "cust_fields",
+ "name": "C8_native_pad",
+ "what": "C6 keeping the repo's hidden +0.1 m pad (contract NOT matched; ineligible)",
+ "common": {
+  "s": 0.99,
+  "snap_max_m": 0.5,
+  "native_pad": true
+ },
+ "robots": {}
+}

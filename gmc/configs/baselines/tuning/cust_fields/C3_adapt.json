@@ -1,0 +1,7 @@
+{
+ "method": "cust_fields",
+ "name": "C3_adapt",
+ "what": "chain, waste 2.0 tightened to 1.5 / 1.25 before merging pieces (adapter default)",
+ "common": {},
+ "robots": {}
+}

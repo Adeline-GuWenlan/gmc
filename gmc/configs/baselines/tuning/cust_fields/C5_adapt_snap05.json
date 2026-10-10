@@ -1,0 +1,9 @@
+{
+ "method": "cust_fields",
+ "name": "C5_adapt_snap05",
+ "what": "C3 with endpoint snap up to 0.5 m (map-free segment)",
+ "common": {
+  "snap_max_m": 0.5
+ },
+ "robots": {}
+}

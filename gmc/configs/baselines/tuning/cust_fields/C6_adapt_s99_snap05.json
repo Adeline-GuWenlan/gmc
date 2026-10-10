@@ -1,0 +1,10 @@
+{
+ "method": "cust_fields",
+ "name": "C6_adapt_s99_snap05",
+ "what": "C3 + s 0.99 + snap 0.5 m",
+ "common": {
+  "s": 0.99,
+  "snap_max_m": 0.5
+ },
+ "robots": {}
+}

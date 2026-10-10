@@ -1,0 +1,9 @@
+{
+ "method": "cust_fields",
+ "name": "C4_adapt_s99",
+ "what": "C3 with squareness 0.99",
+ "common": {
+  "s": 0.99
+ },
+ "robots": {}
+}
