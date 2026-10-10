@@ -586,3 +586,73 @@ Same 100 F4 pairs per robot as B1 (`results/baselines/pilot/pilot_pairs.json`, 5
   5 mm: 5–138 s); instantiate per worker start (weights + FNOSDF χ on the GPU, first CUDA use) 4.2–5.7 s (GAPW1, S),
   13.1–13.4 s (WWEST) (`task_00.summary.json` `setup_once_proof`).
 - GPU memory: peak 8.5 GB for the two S = 1024 workers (`gpu_mem_log.txt`), so ≥ 4 streams fit one L40S.
+
+### 11.2 What the construction does to the map (job 19520414; `results/baselines/cust_fields/world_check_<candidate>.json`) [E]
+Per tuning candidate's construction, per region × robot (5 mm raster): pieces → star obstacles (chains / squircles),
+piece merges, re-decompositions ("tight"), covers crossing the workspace boundary, the free fraction of the workspace
+(map vs NF world = map-free and outside every cover), and over F4's 5000 pairs: endpoints swallowed (no NF-free point
+reachable within `snap_max_m`), pairs whose snapped endpoints are connected in the NF world, and **passages closed by
+the construction** (connected in the map, not in the NF world). (Three earlier checks with a nearest-cell snap and no
+tightening, `world_check_{convex,chain,chain_w2}.json`, are superseded and removed.)
+
+| candidate | region | robot | pieces | obstacles (stars) | piece merges / tightenings | covers crossing ws boundary | free: map / NF world | F4 swallowed | F4 connected in NF world | passages closed |
+|---|---|---|---|---|---|---|---|---|---|---|
+| C0_convex | WWEST | cylinder | 10 | 1 (1) | 9 / – | 1 | 0.53 / 0.00 | 2500/2500 | 0/2500 | 0 |
+| C0_convex | WWEST | sweeper | 18 | 1 (1) | 17 / – | 1 | 0.70 / 0.00 | 2500/2500 | 0/2500 | 0 |
+| C0_convex | GAPW1 | cylinder | 4 | 1 (1) | 3 / – | 1 | 0.62 / 0.00 | 1500/1500 | 0/1500 | 0 |
+| C0_convex | GAPW1 | sweeper | 9 | 5 (5) | 4 / – | 3 | 0.75 / 0.48 | 384/1500 | 1116/1500 | 0 |
+| C0_convex | S | cylinder | 5 | 4 (4) | 1 / – | 4 | 0.64 / 0.25 | 1000/1000 | 0/1000 | 0 |
+| C0_convex | S | sweeper | 9 | 5 (5) | 4 / – | 4 | 0.78 / 0.59 | 121/1000 | 879/1000 | 0 |
+| C1_chain15 | WWEST | cylinder | 10 | 5 (10) | 5 / 0 | 7 | 0.53 / 0.18 | 2246/2500 | 172/2500 | 82 |
+| C1_chain15 | WWEST | sweeper | 18 | 8 (16) | 10 / 0 | 7 | 0.70 / 0.46 | 837/2500 | 1663/2500 | 0 |
+| C1_chain15 | GAPW1 | cylinder | 4 | 3 (6) | 1 / 0 | 5 | 0.62 / 0.23 | 1349/1500 | 151/1500 | 0 |
+| C1_chain15 | GAPW1 | sweeper | 9 | 6 (14) | 3 / 0 | 10 | 0.75 / 0.65 | 2/1500 | 1498/1500 | 0 |
+| C1_chain15 | S | cylinder | 5 | 5 (17) | 0 / 0 | 17 | 0.64 / 0.56 | 4/1000 | 996/1000 | 0 |
+| C1_chain15 | S | sweeper | 9 | 5 (16) | 4 / 0 | 14 | 0.78 / 0.70 | 0/1000 | 1000/1000 | 0 |
+| C2_chain20 | WWEST | cylinder | 10 | 1 (2) | 9 / 0 | 2 | 0.53 / 0.00 | 2500/2500 | 0/2500 | 0 |
+| C2_chain20 | WWEST | sweeper | 18 | 8 (15) | 10 / 0 | 8 | 0.70 / 0.46 | 549/2500 | 1951/2500 | 0 |
+| C2_chain20 | GAPW1 | cylinder | 4 | 3 (5) | 1 / 0 | 4 | 0.62 / 0.22 | 1350/1500 | 150/1500 | 0 |
+| C2_chain20 | GAPW1 | sweeper | 9 | 6 (15) | 3 / 0 | 8 | 0.75 / 0.66 | 0/1500 | 1500/1500 | 0 |
+| C2_chain20 | S | cylinder | 5 | 5 (11) | 0 / 0 | 11 | 0.64 / 0.51 | 496/1000 | 504/1000 | 0 |
+| C2_chain20 | S | sweeper | 9 | 6 (12) | 3 / 0 | 11 | 0.78 / 0.67 | 121/1000 | 879/1000 | 0 |
+| C3_adapt | WWEST | cylinder | 10 | 4 (8) | 6 / 13 | 6 | 0.53 / 0.21 | 2155/2500 | 345/2500 | 0 |
+| C3_adapt | WWEST | sweeper | 18 | 7 (12) | 11 / 28 | 6 | 0.70 / 0.40 | 1148/2500 | 1352/2500 | 0 |
+| C3_adapt | GAPW1 | cylinder | 4 | 4 (9) | 0 / 1 | 8 | 0.62 / 0.46 | 350/1500 | 1150/1500 | 0 |
+| C3_adapt | GAPW1 | sweeper | 9 | 6 (15) | 3 / 6 | 8 | 0.75 / 0.66 | 0/1500 | 1500/1500 | 0 |
+| C3_adapt | S | cylinder | 5 | 5 (11) | 0 / 0 | 11 | 0.64 / 0.51 | 496/1000 | 504/1000 | 0 |
+| C3_adapt | S | sweeper | 9 | 6 (12) | 3 / 6 | 11 | 0.78 / 0.67 | 121/1000 | 879/1000 | 0 |
+| C4_adapt_s99 | WWEST | cylinder | 10 | 4 (9) | 6 / 15 | 7 | 0.53 / 0.28 | 1794/2500 | 680/2500 | 26 |
+| C4_adapt_s99 | WWEST | sweeper | 18 | 8 (12) | 10 / 26 | 7 | 0.70 / 0.46 | 654/2500 | 1829/2500 | 17 |
+| C4_adapt_s99 | GAPW1 | cylinder | 4 | 4 (8) | 0 / 2 | 5 | 0.62 / 0.49 | 238/1500 | 1262/1500 | 0 |
+| C4_adapt_s99 | GAPW1 | sweeper | 9 | 7 (10) | 2 / 4 | 7 | 0.75 / 0.61 | 206/1500 | 1294/1500 | 0 |
+| C4_adapt_s99 | S | cylinder | 5 | 5 (13) | 0 / 1 | 6 | 0.64 / 0.55 | 196/1000 | 804/1000 | 0 |
+| C4_adapt_s99 | S | sweeper | 9 | 7 (15) | 2 / 6 | 7 | 0.78 / 0.69 | 99/1000 | 901/1000 | 0 |
+| C5_adapt_snap05 | WWEST | cylinder | 10 | 4 (8) | 6 / 13 | 6 | 0.53 / 0.21 | 1700/2500 | 800/2500 | 0 |
+| C5_adapt_snap05 | WWEST | sweeper | 18 | 7 (12) | 11 / 28 | 6 | 0.70 / 0.40 | 533/2500 | 1967/2500 | 0 |
+| C5_adapt_snap05 | GAPW1 | cylinder | 4 | 4 (9) | 0 / 1 | 8 | 0.62 / 0.46 | 15/1500 | 1485/1500 | 0 |
+| C5_adapt_snap05 | GAPW1 | sweeper | 9 | 6 (15) | 3 / 6 | 8 | 0.75 / 0.66 | 0/1500 | 1500/1500 | 0 |
+| C5_adapt_snap05 | S | cylinder | 5 | 5 (11) | 0 / 0 | 11 | 0.64 / 0.51 | 3/1000 | 997/1000 | 0 |
+| C5_adapt_snap05 | S | sweeper | 9 | 6 (12) | 3 / 6 | 11 | 0.78 / 0.67 | 0/1000 | 1000/1000 | 0 |
+| C6_adapt_s99_snap05 | WWEST | cylinder | 10 | 4 (9) | 6 / 15 | 7 | 0.53 / 0.28 | 1117/2500 | 1161/2500 | 222 |
+| C6_adapt_s99_snap05 | WWEST | sweeper | 18 | 8 (12) | 10 / 26 | 7 | 0.70 / 0.46 | 99/2500 | 2169/2500 | 232 |
+| C6_adapt_s99_snap05 | GAPW1 | cylinder | 4 | 4 (8) | 0 / 2 | 5 | 0.62 / 0.49 | 1/1500 | 1499/1500 | 0 |
+| C6_adapt_s99_snap05 | GAPW1 | sweeper | 9 | 7 (10) | 2 / 4 | 7 | 0.75 / 0.61 | 42/1500 | 1458/1500 | 0 |
+| C6_adapt_s99_snap05 | S | cylinder | 5 | 5 (13) | 0 / 1 | 6 | 0.64 / 0.55 | 2/1000 | 998/1000 | 0 |
+| C6_adapt_s99_snap05 | S | sweeper | 9 | 7 (15) | 2 / 6 | 7 | 0.78 / 0.69 | 0/1000 | 1000/1000 | 0 |
+
+Reading [E]:
+- **One convex squircle per piece (C0) collapses the big rooms**: in WWEST (both robots) and GAPW1 cylinder every
+  piece's cover overlaps a neighbour's and all merge into one obstacle covering the room (NF-free 0.00), so every
+  endpoint is swallowed; S cylinder too (25 % NF-free, all 1000 endpoints swallowed). Only GAPW1 / S sweeper survive
+  (74 % / 88 % of pairs connected).
+- **The chain star decomposition** (C1–C6) keeps far more: with adaptive tightening, squareness 0.99 and the 0.5 m
+  segment-checked snap (C6), 96–100 % of F4 pairs are connected in the NF world everywhere except WWEST cylinder
+  (1161/2500). The price is passages closed by the construction itself: up to 222 (WWEST cylinder) and 232 (WWEST
+  sweeper) pairs whose endpoints the map connects but the NF world does not; GAPW1 and S: 0.
+- **Every construction violates the forest-world assumption**: 1–17 covers per region cross the workspace boundary
+  (the walls), which the repo cannot represent otherwise (its workspace-tree path raises `TypeError`).
+- Construction cost (CPU, single thread, part of the setup "compile"): convex < 1 s; chain with tightening up to
+  13 min (WWEST sweeper, C3) because each re-decomposition re-fits and re-tests covers (`results/baselines/
+  cust_fields/setup/*/*.json`).
+So for the better constructions most pairs are topologically solvable in the NF world; what fails on the tuning set is
+the navigation-function descent itself (§11.3).
