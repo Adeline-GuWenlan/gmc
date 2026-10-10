@@ -50,7 +50,11 @@ def build_scene(rng):
         if 0.25 < y < 0.65:
             continue
         for z in (0.1, 0.3, 0.5):
-            means.append([0.0, y, z]); scales.append([0.04, 0.07, 0.12]); quats.append([1, 0, 0, 0])
+            # world extents (0.04, 0.07, 0.12) written as a 90-degree yaw of local (0.07, 0.04, 0.12): the repo's
+            # quaternion_to_rotation_matrix returns NaN for an exact identity quaternion (zero vector part), which
+            # silently removed this wall from the planner in job 19506846 (kept under splatnav_invalid_identity_quat/)
+            means.append([0.0, y, z]); scales.append([0.07, 0.04, 0.12])
+            quats.append([np.cos(np.pi / 4), 0, 0, np.sin(np.pi / 4)])
     # pillars (rotated ellipsoids)
     for (x, y) in [(-0.5, 0.0), (0.5, -0.4), (0.45, 0.55), (-0.45, -0.6)]:
         for z in (0.15, 0.45):
@@ -104,6 +108,9 @@ def main():
     torch.manual_seed(0); rng = np.random.default_rng(0)
     means, quats, scales = build_scene(rng)
     gs = SyntheticGSplat(means, quats, scales, dev, compute_cov)
+    Rm = quaternion_to_rotation_matrix(gs.rots)
+    assert torch.isfinite(Rm).all() and torch.isfinite(gs.covs).all() and torch.isfinite(gs.covs_inv).all(), \
+        "non-finite rotations/covariances: the planner would ignore those Gaussians"
     radius, vmax, amax = 0.05, 0.1, 0.1
     robot_config = {"radius": radius, "vmax": vmax, "amax": amax}
     voxel_config = {"lower_bound": torch.tensor([-1.0, -1.0, 0.0], device=dev),
@@ -115,8 +122,13 @@ def main():
     queries = [((-0.8, -0.5, 0.3), (0.8, -0.5, 0.3)),
                ((-0.8, 0.8, 0.3), (0.8, -0.8, 0.3)),
                ((0.8, 0.0, 0.3), (-0.8, 0.5, 0.3))]
-    Rm = quaternion_to_rotation_matrix(gs.rots)
     rows = []
+    # negative control for the clearance check: the straight line of query 0 crosses the wall
+    seg = torch.linspace(0, 1, 200, device=dev)[:, None]
+    q0s, q0g = torch.tensor(queries[0][0], device=dev), torch.tensor(queries[0][1], device=dev)
+    _, straight_inside = min_clearance(q0s + seg * (q0g - q0s), gs.means, Rm, gs.scales, radius)
+    summary["negative_control_straight_q0_hits_ellipsoid"] = straight_inside
+    print("negative control (straight q0 line inside an ellipsoid, expect True):", straight_inside)
     for q0, q1 in queries:
         x0 = torch.tensor(q0, device=dev, dtype=torch.float32)
         xf = torch.tensor(q1, device=dev, dtype=torch.float32)

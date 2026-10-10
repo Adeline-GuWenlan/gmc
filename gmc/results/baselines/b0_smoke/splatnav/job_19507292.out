@@ -1,0 +1,129 @@
+=== 2026-10-09T19:59:27-04:00 host=gl052.hpc.nyu.edu job=19507292 gpus=0
+name, driver_version, memory.total [MiB]
+NVIDIA L40S, 610.43.02, 46068 MiB
+PARTS: splatnav
+
+=== 19:59:27 [1] splatnav
+{
+ "python": "3.10.22",
+ "torch": "2.1.2+cu118",
+ "torch_cuda_build": "11.8",
+ "cuda_available": true,
+ "gpu": "NVIDIA L40S",
+ "gpu_capability": [
+  8,
+  9
+ ],
+ "matmul_ok": true
+}
+/scratch/wg2381/ext_repos/splatnav/initialization/grid_utils.py:21: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.max_index = torch.tensor(self.resolution, dtype=int, device=self.device) - 1
+/scratch/wg2381/.conda/envs/splatnav/lib/python3.10/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Iteration: 0
+Iteration: 1
+Iteration: 2
+Iteration: 3
+Iteration: 4
+Iteration: 5
+Iteration: 6
+Iteration: 7
+Iteration: 8
+Iteration: 9
+Iteration: 10
+Iteration: 11
+Iteration: 12
+Iteration: 13
+Iteration: 14
+Iteration: 15
+Time to create GSplatVoxel: 1.2499604225158691
+negative control (straight q0 line inside an ellipsoid, expect True): True
+{
+ "start": [
+  -0.8,
+  -0.5,
+  0.3
+ ],
+ "goal": [
+  0.8,
+  -0.5,
+  0.3
+ ],
+ "plan_time_s": 0.26204919815063477,
+ "error": null,
+ "feasible": true,
+ "num_polytopes": 44,
+ "traj_points": 397,
+ "astar_points": 169,
+ "times": {
+  "times_astar": 0.07769417762756348,
+  "times_collision_set": 0.03516554832458496,
+  "times_polytope": 0.0542144775390625,
+  "times_opt": 0.06512713432312012
+ },
+ "end_error_m": 0.014456823468208313,
+ "start_error_m": 0.014456823468208313,
+ "min_clearance_to_ellipsoids_m": 0.05167021602392197,
+ "clearance_ge_radius": true,
+ "any_sample_inside_ellipsoid": false
+}
+{
+ "start": [
+  -0.8,
+  0.8,
+  0.3
+ ],
+ "goal": [
+  0.8,
+  -0.8,
+  0.3
+ ],
+ "plan_time_s": 0.2613565921783447,
+ "error": null,
+ "feasible": true,
+ "num_polytopes": 47,
+ "traj_points": 424,
+ "astar_points": 161,
+ "times": {
+  "times_astar": 0.0724332332611084,
+  "times_collision_set": 0.02178812026977539,
+  "times_polytope": 0.11220097541809082,
+  "times_opt": 0.046831607818603516
+ },
+ "end_error_m": 0.014456823468208313,
+ "start_error_m": 0.014456823468208313,
+ "min_clearance_to_ellipsoids_m": 0.051708269864320755,
+ "clearance_ge_radius": true,
+ "any_sample_inside_ellipsoid": false
+}
+{
+ "start": [
+  0.8,
+  0.0,
+  0.3
+ ],
+ "goal": [
+  -0.8,
+  0.5,
+  0.3
+ ],
+ "plan_time_s": 0.1077883243560791,
+ "error": null,
+ "feasible": true,
+ "num_polytopes": 31,
+ "traj_points": 280,
+ "astar_points": 105,
+ "times": {
+  "times_astar": 0.04346346855163574,
+  "times_collision_set": 0.013643980026245117,
+  "times_polytope": 0.020396709442138672,
+  "times_opt": 0.02514934539794922
+ },
+ "end_error_m": 0.014456823468208313,
+ "start_error_m": 0.014456852339208126,
+ "min_clearance_to_ellipsoids_m": 0.05261995270848274,
+ "clearance_ge_radius": true,
+ "any_sample_inside_ellipsoid": false
+}
+
+=== 2026-10-09T20:00:12-04:00 done: splatnav=0

@@ -1,0 +1,51 @@
+data: 90 maps 256x256, mask values [0. 1.], goal[0]=[57 93]
+PNO {'rel_l2_test_loss': 0.17360655632283953, 'maps': 90, 'ms_sdf': 5.041652808431536, 'ms_vf': 5.483318604528904}
+PNOwPINN {'rel_l2_test_loss': 0.16392760674158732, 'maps': 90, 'ms_sdf': 1.3323943177238107, 'ms_vf': 3.6017445870675147}
+{
+ "demo": "PNO examples/2DexampleNotebook.ipynb \u00a73 test_model, Real-world City 256x256 test set",
+ "device": "cuda",
+ "torch": "2.5.1+cu121",
+ "cuda_available": true,
+ "model_load_s": 0.5845208230894059,
+ "weights": {
+  "FNOSDF": {
+   "path": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/pno/models/FNOSDF/best_model.pt",
+   "sha256": "977bd774eae64b4a9a047cfcfa98eb6dea90c18260e9671fbcd86b0f24405730"
+  },
+  "PNO": {
+   "path": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/pno/models/PNO/best_model.pt",
+   "sha256": "11756e3802f15556a4a9c4cfc356c1d70a29768d84cd097da640d631632cf254"
+  },
+  "PNOwPINN": {
+   "path": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/pno/models/PNOwPINN/best_model.pt",
+   "sha256": "30b6bff89ef484a6b89ed2ba009019482f6cb9e3883cd26012f3f3c870051292"
+  }
+ },
+ "results": {
+  "PNO": {
+   "rel_l2_test_loss": 0.17360655632283953,
+   "maps": 90,
+   "ms_sdf": 5.041652808431536,
+   "ms_vf": 5.483318604528904
+  },
+  "PNOwPINN": {
+   "rel_l2_test_loss": 0.16392760674158732,
+   "maps": 90,
+   "ms_sdf": 1.3323943177238107,
+   "ms_vf": 3.6017445870675147
+  }
+ },
+ "illustration_descent": {
+  "start_rc": [
+   230,
+   145
+  ],
+  "goal_xy": [
+   57,
+   93
+  ],
+  "reached": false,
+  "cells": 43
+ },
+ "figure": "/scratch/wg2381/splathjb-baselines/gmc/results/baselines/b0_smoke/pno_cuda/pno_city256_map0.png"
+}
