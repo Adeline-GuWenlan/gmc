@@ -1,0 +1,334 @@
+{
+ "region": "S",
+ "robot": "cylinder",
+ "judge_a3c_sha256": "0493f8577cdffa8c2505f53efdf5f134c5681ae993500ff95a1985ac591633b4",
+ "scene_export_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+ "judge_bounds_equal_raster_world_bounds": true,
+ "uniform": {
+  "n": 3000,
+  "judge_free": 927,
+  "judge_verdicts": {
+   "free:swept_support_separation_bound_capped": 927,
+   "unknown:map_unknown": 1379,
+   "occupied:minkowski_interior_witness": 575,
+   "occupied:body_exceeds_workspace_bounds": 111,
+   "unknown:geometry_or_margin_unproven": 8
+  },
+  "judge_wall_s": 2.9945123128127307
+ },
+ "by_res": {
+  "10mm": {
+   "raster": "outputs/baselines/raster/S_cylinder_r10mm.npz",
+   "raster_sha256": "ddef718075fc69f43d96e6a603c1c4a3b669e8e4b1b08a733110e1cceec13b4b",
+   "build_wall_s": 6.832359023857862,
+   "grid": [
+    980,
+    130
+   ],
+   "occupied_frac": 0.6806514913657771,
+   "occupied_components_8conn": 1,
+   "free_components_8conn": 3,
+   "n_in_slab_and_near": 77979,
+   "n_cut_by_slab": 5004,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 13,
+    "conservatism_frac_of_judge_free": 0.014023732470334413,
+    "map_free": 914,
+    "judge_free": 927
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 2062,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 24.79186202096753,
+    "clearance_lower_m_p0_p5_p50": [
+     0.001000433846069062,
+     0.001124394370262837,
+     0.003614841267529747
+    ]
+   },
+   "routes_tuning": {
+    "n": 10,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.0,
+    "route_samples_occupied_frac_mean": 0.0,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.00455795845293853,
+     0.005684828015446331,
+     0.005798275605729522
+    ]
+   },
+   "routes_f4": {
+    "n": 1000,
+    "start_cell_occupied": 0.027,
+    "goal_cell_occupied": 0.027,
+    "route_crosses_occupied": 0.071,
+    "route_samples_occupied_frac_mean": 0.0002718615591459219,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.004786961201563359,
+     0.006859300255857054,
+     0.015086749152816792
+    ],
+    "by_lateral_band": {
+     "10": {
+      "n": 136,
+      "route_crosses_occupied": 0.09558823529411764,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 84,
+      "route_crosses_occupied": 0.16666666666666666,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 87,
+      "route_crosses_occupied": 0.09195402298850575,
+      "connected": 1.0
+     },
+     "20": {
+      "n": 203,
+      "route_crosses_occupied": 0.0049261083743842365,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 172,
+      "route_crosses_occupied": 0.10465116279069768,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 190,
+      "route_crosses_occupied": 0.08947368421052632,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 121,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 7,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 1.2055010001640767
+  },
+  "5mm": {
+   "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+   "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+   "build_wall_s": 15.207640344975516,
+   "grid": [
+    1960,
+    260
+   ],
+   "occupied_frac": 0.6786695447409733,
+   "occupied_components_8conn": 1,
+   "free_components_8conn": 3,
+   "n_in_slab_and_near": 76495,
+   "n_cut_by_slab": 4893,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 8,
+    "conservatism_frac_of_judge_free": 0.008629989212513484,
+    "map_free": 919,
+    "judge_free": 927
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 4202,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 29.769068917958066,
+    "clearance_lower_m_p0_p5_p50": [
+     0.0010001952253476576,
+     0.0010713206094227527,
+     0.002370760481002946
+    ]
+   },
+   "routes_tuning": {
+    "n": 10,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.0,
+    "route_samples_occupied_frac_mean": 0.0,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0024509996003192996,
+     0.002678116071190239,
+     0.002690724809414074
+    ]
+   },
+   "routes_f4": {
+    "n": 1000,
+    "start_cell_occupied": 0.014,
+    "goal_cell_occupied": 0.016,
+    "route_crosses_occupied": 0.041,
+    "route_samples_occupied_frac_mean": 8.497805788790808e-05,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.002376972864800466,
+     0.003255764119219869,
+     0.007495331880576362
+    ],
+    "by_lateral_band": {
+     "10": {
+      "n": 136,
+      "route_crosses_occupied": 0.051470588235294115,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 84,
+      "route_crosses_occupied": 0.08333333333333333,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 87,
+      "route_crosses_occupied": 0.034482758620689655,
+      "connected": 1.0
+     },
+     "20": {
+      "n": 203,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 172,
+      "route_crosses_occupied": 0.06976744186046512,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 190,
+      "route_crosses_occupied": 0.06315789473684211,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 121,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 7,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 1.2534980231430382
+  },
+  "2.5mm": {
+   "raster": "outputs/baselines/raster/S_cylinder_r2.5mm.npz",
+   "raster_sha256": "36fb6d9eb4d16dbcaa5d92ac79085727f9b35d2377de9f566e28c99a7b4379aa",
+   "build_wall_s": 40.414081518072635,
+   "grid": [
+    3920,
+    520
+   ],
+   "occupied_frac": 0.6777084968602826,
+   "occupied_components_8conn": 1,
+   "free_components_8conn": 3,
+   "n_in_slab_and_near": 75764,
+   "n_cut_by_slab": 4832,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 5,
+    "conservatism_frac_of_judge_free": 0.005393743257820928,
+    "map_free": 922,
+    "judge_free": 927
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 8483,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 27.934121108148247,
+    "clearance_lower_m_p0_p5_p50": [
+     0.0010001123320429928,
+     0.001066193018996116,
+     0.002128259651662181
+    ]
+   },
+   "routes_tuning": {
+    "n": 10,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.0,
+    "route_samples_occupied_frac_mean": 0.0,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0011894708788050996,
+     0.0016985287751462034,
+     0.0016985287751462858
+    ]
+   },
+   "routes_f4": {
+    "n": 1000,
+    "start_cell_occupied": 0.01,
+    "goal_cell_occupied": 0.009,
+    "route_crosses_occupied": 0.026,
+    "route_samples_occupied_frac_mean": 3.1312158639371104e-05,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0011768602295940905,
+     0.001626345596728888,
+     0.0039223717314913475
+    ],
+    "by_lateral_band": {
+     "10": {
+      "n": 136,
+      "route_crosses_occupied": 0.029411764705882353,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 84,
+      "route_crosses_occupied": 0.047619047619047616,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 87,
+      "route_crosses_occupied": 0.022988505747126436,
+      "connected": 1.0
+     },
+     "20": {
+      "n": 203,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 172,
+      "route_crosses_occupied": 0.05232558139534884,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 190,
+      "route_crosses_occupied": 0.03684210526315789,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 121,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 7,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 1.402927716029808
+  }
+ },
+ "wall_s": 134.1765108529944
+}

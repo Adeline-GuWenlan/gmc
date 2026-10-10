@@ -1,0 +1,51 @@
+{
+ "level_agreement": {
+  "points": 40000,
+  "mismatches": 0
+ },
+ "workspace_inside_implies_rectangle": true,
+ "workspace_frac_of_rectangle_points_inside": 0.9994343891402715,
+ "workspace_tree": "TypeError: Rectangular.__init__() missing 2 required positional arguments: 'theta' and 's'",
+ "workspace_tree_where": [
+  "  File \"/scratch/wg2381/ext_repos/cust_fields/NF/transformation.py\", line 106, in compute_virtual_ws",
+  "    virtual_parent = Rectangular(_type, center, width - 0.16, height + 0.16)",
+  "TypeError: Rectangular.__init__() missing 2 required positional arguments: 'theta' and 's'"
+ ],
+ "nf_cost": [
+  {
+   "M": 1,
+   "potential_s": 0.00021845181938260795,
+   "neg_gradient_s": 0.0010696479585021734
+  },
+  {
+   "M": 2,
+   "potential_s": 0.00041258645709604027,
+   "neg_gradient_s": 0.0017240219749510288
+  },
+  {
+   "M": 4,
+   "potential_s": 0.0009528578771278262,
+   "neg_gradient_s": 0.0039331631269305944
+  },
+  {
+   "M": 8,
+   "potential_s": 0.00274961126036942,
+   "neg_gradient_s": 0.011104121105745435
+  },
+  {
+   "M": 16,
+   "potential_s": 0.009157272879965603,
+   "neg_gradient_s": 0.03659612196497619
+  },
+  {
+   "M": 32,
+   "potential_s": 0.034202234880067406,
+   "neg_gradient_s": 0.1336036331485957
+  },
+  {
+   "M": 64,
+   "potential_s": 0.13829908760574958,
+   "neg_gradient_s": 0.5526505049783736
+  }
+ ]
+}

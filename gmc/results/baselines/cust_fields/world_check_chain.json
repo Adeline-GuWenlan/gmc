@@ -1,0 +1,527 @@
+{
+ "variant": "chain",
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "chain",
+  "waste": 1.5,
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "by": {
+  "WWEST_cylinder": {
+   "setup": {
+    "pieces": 10,
+    "chains": 5,
+    "stars": 10,
+    "max_chain_len": 3,
+    "leaf_chunks": 193,
+    "piece_merges": 5,
+    "pieces_in_merged_groups": 6,
+    "raster": "outputs/baselines/raster/WWEST_cylinder_r5mm.npz",
+    "raster_sha256": "98f603b496f59d0eae7aa9a3f860c4b9f2c04554f66f89e4c5313318ea325ca1",
+    "raster_build_wall_s": 138.1730459590908,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 10,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.5256927297668038,
+    "nf_free_frac_in_ws": 0.1825658436213992,
+    "map_free_cells_lost_to_covers": 500279,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 66.64925297396258
+   },
+   "construction_wall_s": 66.71990545396693,
+   "tuning": {
+    "n": 25,
+    "map_connected": 25,
+    "endpoint_swallowed": 20,
+    "nf_connected": 3,
+    "passage_closed_by_construction": 2
+   },
+   "f4": {
+    "n": 2500,
+    "map_connected": 2500,
+    "endpoint_swallowed": 2246,
+    "nf_connected": 172,
+    "passage_closed_by_construction": 82,
+    "by_lateral_band": {
+     "20": {
+      "n": 664,
+      "nf_connected": 41,
+      "swallowed": 608
+     },
+     "5": {
+      "n": 201,
+      "nf_connected": 22,
+      "swallowed": 155
+     },
+     ">=100": {
+      "n": 601,
+      "nf_connected": 44,
+      "swallowed": 557
+     },
+     "50": {
+      "n": 579,
+      "nf_connected": 26,
+      "swallowed": 551
+     },
+     "2-3": {
+      "n": 126,
+      "nf_connected": 14,
+      "swallowed": 95
+     },
+     "0.5-1.5": {
+      "n": 31,
+      "nf_connected": 2,
+      "swallowed": 26
+     },
+     "10": {
+      "n": 295,
+      "nf_connected": 23,
+      "swallowed": 251
+     },
+     "0": {
+      "n": 3,
+      "nf_connected": 0,
+      "swallowed": 3
+     }
+    }
+   }
+  },
+  "WWEST_sweeper": {
+   "setup": {
+    "pieces": 18,
+    "chains": 8,
+    "stars": 16,
+    "max_chain_len": 4,
+    "leaf_chunks": 260,
+    "piece_merges": 10,
+    "pieces_in_merged_groups": 13,
+    "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+    "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+    "raster_build_wall_s": 17.955699437996373,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 16,
+    "covers_crossing_workspace_boundary": 7,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.7009700598802395,
+    "nf_free_frac_in_ws": 0.45589410652379453,
+    "map_free_cells_lost_to_covers": 388813,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 113.13580869184807
+   },
+   "construction_wall_s": 113.20149246696383,
+   "tuning": {
+    "n": 25,
+    "map_connected": 25,
+    "endpoint_swallowed": 5,
+    "nf_connected": 20,
+    "passage_closed_by_construction": 0
+   },
+   "f4": {
+    "n": 2500,
+    "map_connected": 2500,
+    "endpoint_swallowed": 837,
+    "nf_connected": 1663,
+    "passage_closed_by_construction": 0,
+    "by_lateral_band": {
+     "20": {
+      "n": 664,
+      "nf_connected": 389,
+      "swallowed": 275
+     },
+     "5": {
+      "n": 201,
+      "nf_connected": 145,
+      "swallowed": 56
+     },
+     ">=100": {
+      "n": 601,
+      "nf_connected": 486,
+      "swallowed": 115
+     },
+     "50": {
+      "n": 579,
+      "nf_connected": 342,
+      "swallowed": 237
+     },
+     "2-3": {
+      "n": 126,
+      "nf_connected": 84,
+      "swallowed": 42
+     },
+     "0.5-1.5": {
+      "n": 31,
+      "nf_connected": 16,
+      "swallowed": 15
+     },
+     "10": {
+      "n": 295,
+      "nf_connected": 199,
+      "swallowed": 96
+     },
+     "0": {
+      "n": 3,
+      "nf_connected": 2,
+      "swallowed": 1
+     }
+    }
+   }
+  },
+  "GAPW1_cylinder": {
+   "setup": {
+    "pieces": 4,
+    "chains": 3,
+    "stars": 6,
+    "max_chain_len": 3,
+    "leaf_chunks": 129,
+    "piece_merges": 1,
+    "pieces_in_merged_groups": 2,
+    "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+    "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+    "raster_build_wall_s": 83.75322364689782,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 6,
+    "covers_crossing_workspace_boundary": 5,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.6185238095238095,
+    "nf_free_frac_in_ws": 0.22913305322128852,
+    "map_free_cells_lost_to_covers": 278025,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 23.127022115979344
+   },
+   "construction_wall_s": 23.175814192043617,
+   "tuning": {
+    "n": 15,
+    "map_connected": 15,
+    "endpoint_swallowed": 12,
+    "nf_connected": 3,
+    "passage_closed_by_construction": 0
+   },
+   "f4": {
+    "n": 1500,
+    "map_connected": 1500,
+    "endpoint_swallowed": 1349,
+    "nf_connected": 151,
+    "passage_closed_by_construction": 0,
+    "by_lateral_band": {
+     "50": {
+      "n": 407,
+      "nf_connected": 35,
+      "swallowed": 372
+     },
+     "2-3": {
+      "n": 42,
+      "nf_connected": 3,
+      "swallowed": 39
+     },
+     "10": {
+      "n": 129,
+      "nf_connected": 16,
+      "swallowed": 113
+     },
+     ">=100": {
+      "n": 390,
+      "nf_connected": 52,
+      "swallowed": 338
+     },
+     "20": {
+      "n": 432,
+      "nf_connected": 36,
+      "swallowed": 396
+     },
+     "5": {
+      "n": 80,
+      "nf_connected": 8,
+      "swallowed": 72
+     },
+     "0.5-1.5": {
+      "n": 18,
+      "nf_connected": 1,
+      "swallowed": 17
+     },
+     "0": {
+      "n": 2,
+      "nf_connected": 0,
+      "swallowed": 2
+     }
+    }
+   }
+  },
+  "GAPW1_sweeper": {
+   "setup": {
+    "pieces": 9,
+    "chains": 6,
+    "stars": 14,
+    "max_chain_len": 4,
+    "leaf_chunks": 258,
+    "piece_merges": 3,
+    "pieces_in_merged_groups": 5,
+    "raster": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+    "raster_sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+    "raster_build_wall_s": 12.171052247984335,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 14,
+    "covers_crossing_workspace_boundary": 10,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.7460199376947041,
+    "nf_free_frac_in_ws": 0.6543638629283489,
+    "map_free_cells_lost_to_covers": 73554,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 39.08431952097453
+   },
+   "construction_wall_s": 39.12691139592789,
+   "tuning": {
+    "n": 15,
+    "map_connected": 15,
+    "endpoint_swallowed": 0,
+    "nf_connected": 15,
+    "passage_closed_by_construction": 0
+   },
+   "f4": {
+    "n": 1500,
+    "map_connected": 1500,
+    "endpoint_swallowed": 2,
+    "nf_connected": 1498,
+    "passage_closed_by_construction": 0,
+    "by_lateral_band": {
+     "50": {
+      "n": 407,
+      "nf_connected": 407,
+      "swallowed": 0
+     },
+     "2-3": {
+      "n": 42,
+      "nf_connected": 42,
+      "swallowed": 0
+     },
+     "10": {
+      "n": 129,
+      "nf_connected": 128,
+      "swallowed": 1
+     },
+     ">=100": {
+      "n": 390,
+      "nf_connected": 390,
+      "swallowed": 0
+     },
+     "20": {
+      "n": 432,
+      "nf_connected": 431,
+      "swallowed": 1
+     },
+     "5": {
+      "n": 80,
+      "nf_connected": 80,
+      "swallowed": 0
+     },
+     "0.5-1.5": {
+      "n": 18,
+      "nf_connected": 18,
+      "swallowed": 0
+     },
+     "0": {
+      "n": 2,
+      "nf_connected": 2,
+      "swallowed": 0
+     }
+    }
+   }
+  },
+  "S_cylinder": {
+   "setup": {
+    "pieces": 5,
+    "chains": 5,
+    "stars": 17,
+    "max_chain_len": 6,
+    "leaf_chunks": 320,
+    "piece_merges": 0,
+    "pieces_in_merged_groups": 0,
+    "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+    "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+    "raster_build_wall_s": 15.207640344975516,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 17,
+    "covers_crossing_workspace_boundary": 17,
+    "covers_below_repo_pad": 3,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.6356754658385093,
+    "nf_free_frac_in_ws": 0.5615489130434783,
+    "map_free_cells_lost_to_covers": 19095,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 23.294506886042655
+   },
+   "construction_wall_s": 23.340403743088245,
+   "tuning": {
+    "n": 10,
+    "map_connected": 10,
+    "endpoint_swallowed": 0,
+    "nf_connected": 10,
+    "passage_closed_by_construction": 0
+   },
+   "f4": {
+    "n": 1000,
+    "map_connected": 1000,
+    "endpoint_swallowed": 4,
+    "nf_connected": 996,
+    "passage_closed_by_construction": 0,
+    "by_lateral_band": {
+     "10": {
+      "n": 136,
+      "nf_connected": 136,
+      "swallowed": 0
+     },
+     "5": {
+      "n": 84,
+      "nf_connected": 82,
+      "swallowed": 2
+     },
+     "0": {
+      "n": 87,
+      "nf_connected": 87,
+      "swallowed": 0
+     },
+     "20": {
+      "n": 203,
+      "nf_connected": 203,
+      "swallowed": 0
+     },
+     "2-3": {
+      "n": 172,
+      "nf_connected": 171,
+      "swallowed": 1
+     },
+     "0.5-1.5": {
+      "n": 190,
+      "nf_connected": 189,
+      "swallowed": 1
+     },
+     "50": {
+      "n": 121,
+      "nf_connected": 121,
+      "swallowed": 0
+     },
+     ">=100": {
+      "n": 7,
+      "nf_connected": 7,
+      "swallowed": 0
+     }
+    }
+   }
+  },
+  "S_sweeper": {
+   "setup": {
+    "pieces": 9,
+    "chains": 5,
+    "stars": 16,
+    "max_chain_len": 6,
+    "leaf_chunks": 257,
+    "piece_merges": 4,
+    "pieces_in_merged_groups": 7,
+    "raster": "outputs/baselines/raster/S_sweeper_r5mm.npz",
+    "raster_sha256": "4b68cc9e991e704da11ffe834a8e2498e6537a2806dc6e782a66fa78f04f6da2",
+    "raster_build_wall_s": 4.8834662470035255,
+    "raster_res_m": 0.005,
+    "cover": "chain",
+    "n_stars": 16,
+    "covers_crossing_workspace_boundary": 14,
+    "covers_below_repo_pad": 4,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.7792898913951546,
+    "nf_free_frac_in_ws": 0.7033528265107213,
+    "map_free_cells_lost_to_covers": 27269,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 49.026802440872416
+   },
+   "construction_wall_s": 49.07621950190514,
+   "tuning": {
+    "n": 10,
+    "map_connected": 10,
+    "endpoint_swallowed": 0,
+    "nf_connected": 10,
+    "passage_closed_by_construction": 0
+   },
+   "f4": {
+    "n": 1000,
+    "map_connected": 1000,
+    "endpoint_swallowed": 0,
+    "nf_connected": 1000,
+    "passage_closed_by_construction": 0,
+    "by_lateral_band": {
+     "10": {
+      "n": 136,
+      "nf_connected": 136,
+      "swallowed": 0
+     },
+     "5": {
+      "n": 84,
+      "nf_connected": 84,
+      "swallowed": 0
+     },
+     "0": {
+      "n": 87,
+      "nf_connected": 87,
+      "swallowed": 0
+     },
+     "20": {
+      "n": 203,
+      "nf_connected": 203,
+      "swallowed": 0
+     },
+     "2-3": {
+      "n": 172,
+      "nf_connected": 172,
+      "swallowed": 0
+     },
+     "0.5-1.5": {
+      "n": 190,
+      "nf_connected": 190,
+      "swallowed": 0
+     },
+     "50": {
+      "n": 121,
+      "nf_connected": 121,
+      "swallowed": 0
+     },
+     ">=100": {
+      "n": 7,
+      "nf_connected": 7,
+      "swallowed": 0
+     }
+    }
+   }
+  }
+ }
+}

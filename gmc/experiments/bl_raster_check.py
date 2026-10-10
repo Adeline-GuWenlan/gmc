@@ -84,7 +84,40 @@ def summarise_routes(rows, band_fn=None):
     return out
 
 
+def summary():
+    """Collect ``check_<R>_<robot>.json`` into ``summary.json`` + markdown rows (doc table)."""
+    rows, md = [], []
+    for p in sorted(OUT.glob("check_*_*.json")):
+        d = json.loads(p.read_text())
+        for res, v in d["by_res"].items():
+            u, b, rt = v["uniform"], v["boundary"], v["routes_f4"]
+            r = {"region": d["region"], "robot": d["robot"], "res": res, "grid": v["grid"],
+                 "build_wall_s": v["build_wall_s"], "occupied_frac": v["occupied_frac"],
+                 "uniform_n": d["uniform"]["n"], "judge_free": u["judge_free"],
+                 "unsafe_uniform": u["map_free_judge_not_free"], "conservatism": u["conservatism_frac_of_judge_free"],
+                 "boundary_points": b["points_judged"], "boundary_not_free": b["points_not_free"],
+                 "boundary_clear_min_mm": None if not b["clearance_lower_m_p0_p5_p50"] else
+                 1000 * b["clearance_lower_m_p0_p5_p50"][0],
+                 "f4_n": rt["n"], "f4_start_or_goal_cell_occ": max(rt["start_cell_occupied"], rt["goal_cell_occupied"]),
+                 "f4_route_crosses_occ": rt["route_crosses_occupied"], "f4_connected": rt["snapped_endpoints_connected"],
+                 "f4_snap_p95_mm": 1000 * rt["max_snap_m_p50_p95_max"][1],
+                 "tuning_route_crosses_occ": v["routes_tuning"]["route_crosses_occupied"],
+                 "tuning_connected": v["routes_tuning"]["snapped_endpoints_connected"],
+                 "judge_bounds_equal": d["judge_bounds_equal_raster_world_bounds"]}
+            rows.append(r)
+            md.append(f"| {r['region']} | {r['robot']} | {res} | {r['grid'][0]}x{r['grid'][1]} | {r['build_wall_s']:.0f} | "
+                      f"{r['occupied_frac']:.3f} | **{r['unsafe_uniform']}**/{r['uniform_n'] - r['judge_free']} | "
+                      f"{100 * r['conservatism']:.2f} % of {r['judge_free']} | **{r['boundary_not_free']}**/"
+                      f"{r['boundary_points']} ({r['boundary_clear_min_mm']:.4f}) | "
+                      f"{100 * r['f4_route_crosses_occ']:.1f} % | {100 * r['f4_start_or_goal_cell_occ']:.1f} % | "
+                      f"{r['f4_snap_p95_mm']:.1f} | {100 * r['f4_connected']:.1f} % |")
+    (OUT / "summary.json").write_text(json.dumps(rows, indent=1) + "\n")
+    print("\n".join(md))
+
+
 def main(argv=None):
+    if argv is None and len(sys.argv) > 1 and sys.argv[1] == "summary":
+        return summary()
     ap = argparse.ArgumentParser()
     ap.add_argument("--region", required=True)
     ap.add_argument("--robot", required=True)

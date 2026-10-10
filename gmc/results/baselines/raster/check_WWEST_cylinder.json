@@ -1,0 +1,335 @@
+{
+ "region": "WWEST",
+ "robot": "cylinder",
+ "judge_a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+ "scene_export_sha256": "a88e78b8e1e8b204f1f25f0de097e618da7f717ad1a111871c9500753804234c",
+ "judge_bounds_equal_raster_world_bounds": true,
+ "uniform": {
+  "n": 3000,
+  "judge_free": 1256,
+  "judge_verdicts": {
+   "occupied:minkowski_interior_witness": 975,
+   "free:swept_support_separation_bound_capped": 1256,
+   "unknown:map_unknown": 509,
+   "occupied:ellipsoid_centre_in_swept_body": 100,
+   "unknown:geometry_or_margin_unproven": 133,
+   "occupied:body_exceeds_workspace_bounds": 27
+  },
+  "judge_wall_s": 17.848433205857873
+ },
+ "by_res": {
+  "10mm": {
+   "raster": "outputs/baselines/raster/WWEST_cylinder_r10mm.npz",
+   "raster_sha256": "18b776fd59c2f83e6f7d39db934dffa981b28619cf7099372a49c1827655fc79",
+   "build_wall_s": 65.82003018609248,
+   "grid": [
+    870,
+    510
+   ],
+   "occupied_frac": 0.5712778904665314,
+   "occupied_components_8conn": 4,
+   "free_components_8conn": 5,
+   "n_in_slab_and_near": 206133,
+   "n_cut_by_slab": 10333,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 28,
+    "conservatism_frac_of_judge_free": 0.022292993630573247,
+    "map_free": 1228,
+    "judge_free": 1256
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 6874,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 259.8552410949487,
+    "clearance_lower_m_p0_p5_p50": [
+     0.001000000357607017,
+     0.0010097619369045059,
+     0.0015886174468376533
+    ]
+   },
+   "routes_tuning": {
+    "n": 25,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.64,
+    "route_samples_occupied_frac_mean": 0.00734747607164626,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.004237924020083444,
+     0.0063517906674235335,
+     0.00657951365983862
+    ]
+   },
+   "routes_f4": {
+    "n": 2500,
+    "start_cell_occupied": 0.0124,
+    "goal_cell_occupied": 0.016,
+    "route_crosses_occupied": 0.5804,
+    "route_samples_occupied_frac_mean": 0.006703818377901892,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.004753945729602188,
+     0.00652993108692517,
+     0.021922819161777504
+    ],
+    "by_lateral_band": {
+     "20": {
+      "n": 664,
+      "route_crosses_occupied": 0.5391566265060241,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 201,
+      "route_crosses_occupied": 0.8706467661691543,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 601,
+      "route_crosses_occupied": 0.4825291181364393,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 579,
+      "route_crosses_occupied": 0.5129533678756477,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 126,
+      "route_crosses_occupied": 0.9126984126984127,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 31,
+      "route_crosses_occupied": 0.7741935483870968,
+      "connected": 1.0
+     },
+     "10": {
+      "n": 295,
+      "route_crosses_occupied": 0.6474576271186441,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 3,
+      "route_crosses_occupied": 0.3333333333333333,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 3.3952646099496633
+  },
+  "5mm": {
+   "raster": "outputs/baselines/raster/WWEST_cylinder_r5mm.npz",
+   "raster_sha256": "98f603b496f59d0eae7aa9a3f860c4b9f2c04554f66f89e4c5313318ea325ca1",
+   "build_wall_s": 138.1730459590908,
+   "grid": [
+    1740,
+    1020
+   ],
+   "occupied_frac": 0.5681428893396439,
+   "occupied_components_8conn": 4,
+   "free_components_8conn": 4,
+   "n_in_slab_and_near": 205589,
+   "n_cut_by_slab": 10313,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 16,
+    "conservatism_frac_of_judge_free": 0.012738853503184714,
+    "map_free": 1240,
+    "judge_free": 1256
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 13885,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 325.44407004583627,
+    "clearance_lower_m_p0_p5_p50": [
+     0.0010000077862728817,
+     0.0010070118922982441,
+     0.001351030430510952
+    ]
+   },
+   "routes_tuning": {
+    "n": 25,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.44,
+    "route_samples_occupied_frac_mean": 0.003043153118703468,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0022022715545547958,
+     0.0030183601046605475,
+     0.0034655446902329373
+    ]
+   },
+   "routes_f4": {
+    "n": 2500,
+    "start_cell_occupied": 0.006,
+    "goal_cell_occupied": 0.0072,
+    "route_crosses_occupied": 0.39,
+    "route_samples_occupied_frac_mean": 0.0025528282094233203,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0024083189157586274,
+     0.0031890437438202726,
+     0.007253275122315571
+    ],
+    "by_lateral_band": {
+     "20": {
+      "n": 664,
+      "route_crosses_occupied": 0.33433734939759036,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 201,
+      "route_crosses_occupied": 0.5870646766169154,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 601,
+      "route_crosses_occupied": 0.3161397670549085,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 579,
+      "route_crosses_occupied": 0.33678756476683935,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 126,
+      "route_crosses_occupied": 0.8650793650793651,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 31,
+      "route_crosses_occupied": 0.7741935483870968,
+      "connected": 1.0
+     },
+     "10": {
+      "n": 295,
+      "route_crosses_occupied": 0.39661016949152544,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 3,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 3.772039477014914
+  },
+  "2.5mm": {
+   "raster": "outputs/baselines/raster/WWEST_cylinder_r2.5mm.npz",
+   "raster_sha256": "0df67a843353361d99ca96c2af31023e6666e268e56e2aed06ccea5b323c9ac9",
+   "build_wall_s": 301.00543545698747,
+   "grid": [
+    3480,
+    2040
+   ],
+   "occupied_frac": 0.5666018706333108,
+   "occupied_components_8conn": 4,
+   "free_components_8conn": 4,
+   "n_in_slab_and_near": 205323,
+   "n_cut_by_slab": 10303,
+   "uniform": {
+    "map_free_judge_not_free": 0,
+    "map_free_judge_not_free_cases": [],
+    "map_occupied_judge_free": 5,
+    "conservatism_frac_of_judge_free": 0.003980891719745223,
+    "map_free": 1251,
+    "judge_free": 1256
+   },
+   "boundary": {
+    "free_cells_touching_occupied": 27856,
+    "cells_sampled": 1000,
+    "points_judged": 6000,
+    "points_not_free": 0,
+    "not_free_cases": [],
+    "judge_wall_s": 343.53675923496485,
+    "clearance_lower_m_p0_p5_p50": [
+     0.0010000234079193461,
+     0.001006331729477538,
+     0.0012792228859131133
+    ]
+   },
+   "routes_tuning": {
+    "n": 25,
+    "start_cell_occupied": 0.0,
+    "goal_cell_occupied": 0.0,
+    "route_crosses_occupied": 0.32,
+    "route_samples_occupied_frac_mean": 0.0015299058581562603,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.0011510864433221324,
+     0.001684092139462679,
+     0.0016985287751465734
+    ]
+   },
+   "routes_f4": {
+    "n": 2500,
+    "start_cell_occupied": 0.004,
+    "goal_cell_occupied": 0.0024,
+    "route_crosses_occupied": 0.2508,
+    "route_samples_occupied_frac_mean": 0.0011611420048571763,
+    "snapped_endpoints_connected": 1.0,
+    "max_snap_m_p50_p95_max": [
+     0.00120208152801704,
+     0.0015700318468108328,
+     0.003731621631408787
+    ],
+    "by_lateral_band": {
+     "20": {
+      "n": 664,
+      "route_crosses_occupied": 0.22289156626506024,
+      "connected": 1.0
+     },
+     "5": {
+      "n": 201,
+      "route_crosses_occupied": 0.24378109452736318,
+      "connected": 1.0
+     },
+     ">=100": {
+      "n": 601,
+      "route_crosses_occupied": 0.1930116472545757,
+      "connected": 1.0
+     },
+     "50": {
+      "n": 579,
+      "route_crosses_occupied": 0.23661485319516407,
+      "connected": 1.0
+     },
+     "2-3": {
+      "n": 126,
+      "route_crosses_occupied": 0.6428571428571429,
+      "connected": 1.0
+     },
+     "0.5-1.5": {
+      "n": 31,
+      "route_crosses_occupied": 0.7419354838709677,
+      "connected": 1.0
+     },
+     "10": {
+      "n": 295,
+      "route_crosses_occupied": 0.24745762711864408,
+      "connected": 1.0
+     },
+     "0": {
+      "n": 3,
+      "route_crosses_occupied": 0.0,
+      "connected": 1.0
+     }
+    }
+   },
+   "route_wall_s": 4.363135288003832
+  }
+ },
+ "wall_s": 1467.8439538620878
+}
