@@ -652,7 +652,7 @@ Reading [E]:
 - **Every construction violates the forest-world assumption**: 1–17 covers per region cross the workspace boundary
   (the walls), which the repo cannot represent otherwise (its workspace-tree path raises `TypeError`).
 - Construction cost (CPU, single thread, part of the setup "compile"): convex < 1 s; chain with tightening up to
-  13 min (WWEST sweeper, C3) because each re-decomposition re-fits and re-tests covers (`results/baselines/
+  13 min (WWEST sweeper, C3/C5) because each re-decomposition re-fits and re-tests covers (`results/baselines/
   cust_fields/setup/*/*.json`).
 So for the better constructions most pairs are topologically solvable in the NF world; what fails on the tuning set is
 the navigation-function descent itself (§11.3).
