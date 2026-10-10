@@ -1,0 +1,99 @@
+{
+ "schema": "bl.b4_doctrine.v1",
+ "definition": "Plan \u00a70/\u00a73.3/\u00a75 on every baseline row: endpoints identical to the F4 pair's; every \u00a75 field present; claimed\nrows carry the exact judged polyline (SplatNav: in its SHA-checked full file) and a judge verdict; task summaries\ncarry host/commit/setup-once proof/config SHA; no query over the 120 s limit without a TIMEOUT status.",
+ "ok": true,
+ "cells": {
+  "splatnav/cylinder": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 4958,
+   "claimed_with_exact_polyline": 4958,
+   "claimed_with_judge_verdict": 4958,
+   "claimed_polyline_starts_and_ends_at_pair": 4958,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 5,
+   "summaries_with_all_fields": 5
+  },
+  "splatnav/sweeper": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 5000,
+   "claimed_with_exact_polyline": 5000,
+   "claimed_with_judge_verdict": 5000,
+   "claimed_polyline_starts_and_ends_at_pair": 5000,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 3,
+   "summaries_with_all_fields": 3
+  },
+  "foci/cylinder": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 4986,
+   "claimed_with_exact_polyline": 4986,
+   "claimed_with_judge_verdict": 4986,
+   "claimed_polyline_starts_and_ends_at_pair": 4986,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 3,
+   "summaries_with_all_fields": 3
+  },
+  "foci/sweeper": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 4114,
+   "claimed_with_exact_polyline": 4114,
+   "claimed_with_judge_verdict": 4114,
+   "claimed_polyline_starts_and_ends_at_pair": 4114,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 3,
+   "summaries_with_all_fields": 3
+  },
+  "pno/cylinder": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 5000,
+   "claimed_with_exact_polyline": 5000,
+   "claimed_with_judge_verdict": 5000,
+   "claimed_polyline_starts_and_ends_at_pair": 5000,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 5,
+   "summaries_with_all_fields": 5
+  },
+  "pno/sweeper": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "claimed": 5000,
+   "claimed_with_exact_polyline": 5000,
+   "claimed_with_judge_verdict": 5000,
+   "claimed_polyline_starts_and_ends_at_pair": 5000,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 3,
+   "summaries_with_all_fields": 3
+  },
+  "cust_fields/cylinder": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 3,
+   "summaries_with_all_fields": 3
+  },
+  "cust_fields/sweeper": {
+   "rows": 5000,
+   "endpoints_equal_pair": 5000,
+   "all_section5_fields_present": 5000,
+   "over_120s_not_timeout": 0,
+   "task_summaries": 23,
+   "summaries_with_all_fields": 23,
+   "claimed": 113,
+   "claimed_with_exact_polyline": 113,
+   "claimed_with_judge_verdict": 113,
+   "claimed_polyline_starts_and_ends_at_pair": 113
+  }
+ }
+}

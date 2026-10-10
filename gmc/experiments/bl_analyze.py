@@ -21,7 +21,8 @@ Subcommands (run from gmc/ under gmc-venv, PYTHONPATH=src:experiments):
   analyze   -> results/baselines/b4/analysis.json (+ tables.md)
   sheets    -> docs/baselines_measurement_<method>.csv (from analysis.json + the template)
   figs      -> results/baselines/fig/*.png (+ fig/figures.json: what each figure shows, pair selection)
-  all       analyze, sheets, figs
+  doctrine  -> results/baselines/b4/doctrine_check.json (same endpoints, §5 fields, exact judged polylines, 120 s)
+  all       analyze, sheets, figs, doctrine
 """
 from __future__ import annotations
 
@@ -402,6 +403,55 @@ def audit(data):
                 "gmc/configs/baselines") or "none",
             "gmc_routes_through_baseline_judge": gj, "gmc_routes_all_pass": gj_ok,
             "collect_ok": col["ok"]}
+
+
+ROW_FIELDS = ["pair_id", "status", "reason", "algorithm_wall_s", "stages", "cpu_s", "outer_wall_s", "polyline_sha256",
+              "method", "setup_id", "claimed", "claimed_reason", "appended_goal_segment", "judge_passed",
+              "judge_reason", "judge_geometry_reason", "judge_kinematics_reason", "judge_wall_s", "path_length_m",
+              "vertices"]
+SUMMARY_FIELDS = ["host", "setup", "setup_once_proof", "config_file_sha256", "judge_scene", "timeout_s"]
+
+
+def cmd_doctrine(a):
+    """Plan §0/§3.3/§5 on every baseline row: endpoints identical to the F4 pair's; every §5 field present; claimed
+    rows carry the exact judged polyline (SplatNav: in its SHA-checked full file) and a judge verdict; task summaries
+    carry host/commit/setup-once proof/config SHA; no query over the 120 s limit without a TIMEOUT status."""
+    P = pairs_by_id()
+    out = {}
+    for m in BASELINES:
+        for robot in ROBOTS:
+            c = collections.Counter()
+            for reg in REGIONS:
+                full = splatnav_full(reg, robot) if m == "splatnav" else None
+                for r in base_rows(m, reg, robot):
+                    p = P[r["pair_id"]]
+                    c["rows"] += 1
+                    c["endpoints_equal_pair"] += (list(r["start_uv"]) == list(p["start_uv"])
+                                                  and list(r["goal_uv"]) == list(p["goal_uv"]))
+                    c["all_section5_fields_present"] += all(k in r for k in ROW_FIELDS)
+                    if r["claimed"]:
+                        c["claimed"] += 1
+                        poly = full.get(r["pair_id"]) if full is not None else r.get("route_polyline")
+                        c["claimed_with_exact_polyline"] += poly is not None
+                        c["claimed_with_judge_verdict"] += r.get("judge_passed") is not None
+                        c["claimed_polyline_starts_and_ends_at_pair"] += (
+                            poly is not None and list(poly[0]) == list(p["start_uv"])
+                            and list(poly[-1]) == list(p["goal_uv"]))
+                    c["over_120s_not_timeout"] += (r["outer_wall_s"] or 0) > 120 and r["status"] != "TIMEOUT"
+                for f in sorted((RES / m / reg / robot).glob("task_*.summary.json")):
+                    sm = json.loads(f.read_text())
+                    c["task_summaries"] += 1
+                    c["summaries_with_all_fields"] += (all(k in sm for k in SUMMARY_FIELDS)
+                                                       and bool(sm["host"].get("git_commit"))
+                                                       and sm["timeout_s"] == 120)
+            out[f"{m}/{robot}"] = dict(c)
+    ok = all(v["endpoints_equal_pair"] == v["rows"] == v["all_section5_fields_present"]
+             and v.get("claimed", 0) == v.get("claimed_with_exact_polyline", 0) == v.get("claimed_with_judge_verdict", 0)
+             == v.get("claimed_polyline_starts_and_ends_at_pair", 0) and v["over_120s_not_timeout"] == 0
+             and v["task_summaries"] == v["summaries_with_all_fields"] for v in out.values())
+    doc = {"schema": "bl.b4_doctrine.v1", "definition": cmd_doctrine.__doc__, "ok": ok, "cells": out}
+    (OUT / "doctrine_check.json").write_text(json.dumps(doc, indent=1))
+    print(json.dumps(doc, indent=1))
 
 
 def cmd_analyze(a):
@@ -1048,7 +1098,7 @@ def cmd_figs(a):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["analyze", "sheets", "figs", "all"])
+    ap.add_argument("cmd", choices=["analyze", "sheets", "figs", "doctrine", "all"])
     a = ap.parse_args(argv)
     if a.cmd in ("analyze", "all"):
         cmd_analyze(a)
@@ -1056,6 +1106,8 @@ def main(argv=None):
         cmd_sheets(a)
     if a.cmd in ("figs", "all"):
         cmd_figs(a)
+    if a.cmd in ("doctrine", "all"):
+        cmd_doctrine(a)
 
 
 if __name__ == "__main__":
