@@ -62,3 +62,25 @@
 - Pilot 19510252: SplatNav 100/100 + 100/100; FOCI 44/100 cylinder (54 margin-grazes on its own curve), 77/100
   sweeper (16 IPOPT max-iter; 6 unsafe on the appended goal segment). Projection: ~0.5 GPU-h per method for 5000×2.
 - Budget 4.0 CPU-h, 0.96 GPU-h. Doc `docs/baselines_adapters.md`.
+
+## 2026-10-10 — stage B2 (shared rasteriser, PNO, cust_fields, tuning, pilots, projection) — agent jobs 19511035/19511086/19521346/19523202
+- `bl_raster.py`: exact closed-form support of (2σ ellipsoid ∩ body slab) projected to the plane, rows bounded by
+  rigorous chord ends (sampled + golden-section angles); known-space and world-AABB workspace layers; floor splats
+  count only by their cap above 0.019 m. First version (outer 64-gon) overshot ~a·π/K on long thin splats — caught by
+  the tightness unit test before any use. 9 unit tests. Judge check 19518228: 0 unsafe of 9960 non-free uniform +
+  108 000 boundary samples (18 region × robot × resolution), conservatism 0.16–2.5 %.
+- PNO: only the example-notebook models are published (the planning notebooks' PNO2D checkpoint is not); used
+  DEEPNORM2dMultiGoal + FNOSDF inside the paper's heuristic-A* pipeline, zero-shot. Units probe: V × S/64 in cells,
+  ≈ 2.8 × distance on an empty room. Tuning: GPU OOM from my 4-stream layout on S = 2048 → stale rows moved,
+  P1/P3/P5 rerun unchanged (19518925); S = 4096 does not fit an L40S alone. Frozen P2_S1024_pinn (3a841e9).
+  Pilot 19520299: 100/100 + 100/100.
+- cust_fields: star world = disjoint squircles / chains (≤ 7) inside one squircle workspace; the repo's
+  boundary-attached form crashes (`compute_virtual_ws` TypeError); +0.1 m hidden pad undone. Convex covers merge the
+  big rooms into one obstacle; chain decomposition with adaptive tightening keeps 96–100 % of pairs connected except
+  WWEST cylinder but the NF descent fails (stuck / max steps / 120 s). Control: our loop reproduces test_nf.py on the
+  demo (step 179, 8.150 m); 15/30 on a clean synthetic world. Tuning 1/800 eligible → rule picks C0_convex (cylinder
+  by the median-time tie-break). Pilot: 0/100 cylinder, 3/100 sweeper, 0 unsafe.
+- Earlier world checks with a nearest-cell snap (`world_check_{convex,chain,chain_w2}.json`) superseded by
+  `world_check_C*.json` (segment-checked snap, tightening) and removed.
+- Agent allocation 19511086 ended OUT_OF_MEMORY (2 GB) after 2.5 h; resumed by the wrapper, no work lost.
+- Projection (4 methods, 5000 × 2): 2.3 GPU-h, 26 CPU-h total; no subset needed. Budget 19.1 CPU-h, 1.01 GPU-h.

@@ -706,7 +706,7 @@ Same 100 F4 pairs per robot, 20 CPU tasks (robot × region chunks, `--task/--n-t
   stays outside the covers, which contain the C-space map.
 - Per region, sweeper: GAPW1 3/30, S 0/20 (NF fails), WWEST 0/50 (one cover swallows the room, §11.2).
 - Setup: world build 0.2–1.0 s (convex) + the shared raster build; per task 1 worker start, 0 restarts, instantiate
-  (YAML world + `World`) ≈ 2 s.
+  (YAML world + `World`) 1.05–2.25 s; all 20 tasks complete with 0 setup builds in the task (`setup_once_proof`).
 
 ![B2 pilot](../gmc/results/baselines/pilot/fig_b2_pilot.png)
 
