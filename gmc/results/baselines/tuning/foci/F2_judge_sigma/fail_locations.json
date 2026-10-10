@@ -1,0 +1,14 @@
+{
+ "F2_judge_sigma": {
+  "cylinder": {
+   "CLAIMED_UNPROVEN|method_path": 27,
+   "CLAIMED_COLLIDES|method_path": 2,
+   "CLAIMED_COLLIDES|prepended_start_segment": 2
+  },
+  "sweeper": {
+   "CLAIMED_UNPROVEN|appended_goal_segment": 6,
+   "CLAIMED_COLLIDES|appended_goal_segment": 6,
+   "CLAIMED_UNPROVEN|method_path": 1
+  }
+ }
+}

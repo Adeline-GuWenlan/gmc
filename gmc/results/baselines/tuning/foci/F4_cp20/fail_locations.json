@@ -1,0 +1,16 @@
+{
+ "F4_cp20": {
+  "cylinder": {
+   "CLAIMED_UNPROVEN|method_path": 25,
+   "CLAIMED_COLLIDES|method_path": 2,
+   "CLAIMED_UNPROVEN|prepended_start_segment": 1,
+   "CLAIMED_COLLIDES|prepended_start_segment": 2,
+   "CLAIMED_UNPROVEN|appended_goal_segment": 1
+  },
+  "sweeper": {
+   "CLAIMED_COLLIDES|appended_goal_segment": 2,
+   "CLAIMED_UNPROVEN|method_path": 4,
+   "CLAIMED_UNPROVEN|appended_goal_segment": 3
+  }
+ }
+}

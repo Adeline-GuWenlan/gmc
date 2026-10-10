@@ -1,0 +1,13 @@
+{
+ "S7_eps05_native1sigma": {
+  "cylinder": {
+   "CLAIMED_COLLIDES|method_path": 5,
+   "CLAIMED_UNPROVEN|method_path": 6,
+   "CLAIMED_COLLIDES|prepended_start_segment": 1
+  },
+  "sweeper": {
+   "CLAIMED_UNPROVEN|method_path": 4,
+   "CLAIMED_COLLIDES|method_path": 3
+  }
+ }
+}

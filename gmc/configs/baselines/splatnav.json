@@ -1,0 +1,57 @@
+{
+ "method": "splatnav",
+ "frozen_utc": "2026-10-10T01:35Z",
+ "stage": "bl B1",
+ "selected_by": "configs/baselines/tuning/RULE.md (pre-registered), applied by bl_harness tunetable",
+ "tuning_table": "results/baselines/tuning/splatnav/tuning_table.json",
+ "tuning_set": "plan \u00a73.5: first 25 WWEST + 15 GAPW1 + 10 S of F3 pilot_pairs.json (disjoint from the F4 5000)",
+ "adapter": "experiments/bl_splatnav.py",
+ "adapter_sha256": "129dca545188a341b3f6bd599c927cf1ae58f807870683d31eb94c44ec9db27e",
+ "tuned_on": {
+  "cylinder": {
+   "n": 50,
+   "SUCCESS": 49,
+   "CLAIMED_COLLIDES": 0,
+   "CLAIMED_UNPROVEN": 0,
+   "FAIL": 1,
+   "median_alg_s": 0.562160576460883
+  },
+  "sweeper": {
+   "n": 50,
+   "SUCCESS": 50,
+   "CLAIMED_COLLIDES": 0,
+   "CLAIMED_UNPROVEN": 0,
+   "FAIL": 0,
+   "median_alg_s": 0.2960689355386421
+  }
+ },
+ "common": {},
+ "robots": {
+  "cylinder": {
+   "eps": 0.05,
+   "cell_m": 0.02,
+   "vmax": 0.1,
+   "amax": 0.1,
+   "spline_deg": 6,
+   "n_sec": 10,
+   "sigma_level": "judge",
+   "shrink_bounds": false,
+   "q_seed": 0
+  },
+  "sweeper": {
+   "eps": 0.05,
+   "cell_m": 0.02,
+   "vmax": 0.1,
+   "amax": 0.1,
+   "spline_deg": 6,
+   "n_sec": 10,
+   "sigma_level": "judge",
+   "shrink_bounds": true,
+   "q_seed": 0
+  }
+ },
+ "candidate": {
+  "cylinder": "S6_eps05_noshrink",
+  "sweeper": "S1_eps05"
+ }
+}

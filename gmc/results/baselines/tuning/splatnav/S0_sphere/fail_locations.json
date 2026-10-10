@@ -1,0 +1,8 @@
+{
+ "S0_sphere": {
+  "cylinder": {
+   "CLAIMED_COLLIDES|appended_goal_segment": 2,
+   "CLAIMED_COLLIDES|prepended_start_segment": 1
+  }
+ }
+}

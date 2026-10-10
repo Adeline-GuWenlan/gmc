@@ -1,0 +1,53 @@
+{
+ "method": "foci",
+ "frozen_utc": "2026-10-10T01:35Z",
+ "stage": "bl B1",
+ "selected_by": "configs/baselines/tuning/RULE.md (pre-registered), applied by bl_harness tunetable",
+ "tuning_table": "results/baselines/tuning/foci/tuning_table.json",
+ "tuning_set": "plan \u00a73.5: first 25 WWEST + 15 GAPW1 + 10 S of F3 pilot_pairs.json (disjoint from the F4 5000)",
+ "adapter": "experiments/bl_foci.py",
+ "adapter_sha256": "4c89a0210edad0261da5a7d43784b123b5ea2dd69bd289fd91776186bbe8060b",
+ "tuned_on": {
+  "cylinder": {
+   "n": 50,
+   "SUCCESS": 23,
+   "CLAIMED_COLLIDES": 2,
+   "CLAIMED_UNPROVEN": 24,
+   "FAIL": 1,
+   "median_alg_s": 0.3469373445259407
+  },
+  "sweeper": {
+   "n": 50,
+   "SUCCESS": 35,
+   "CLAIMED_COLLIDES": 2,
+   "CLAIMED_UNPROVEN": 1,
+   "FAIL": 12,
+   "median_alg_s": 0.47030354500748217
+  }
+ },
+ "common": {},
+ "robots": {
+  "cylinder": {
+   "num_control_points": 10,
+   "num_samples": 40,
+   "sigma_level": "native",
+   "cov_scale": 0.5,
+   "kin_scale": 0.2,
+   "z_half": 0.01,
+   "heading": "start_to_goal"
+  },
+  "sweeper": {
+   "num_control_points": 10,
+   "num_samples": 40,
+   "sigma_level": "native",
+   "cov_scale": 0.5,
+   "kin_scale": 0.2,
+   "z_half": 0.01,
+   "heading": "start_to_goal"
+  }
+ },
+ "candidate": {
+  "cylinder": "F3_cov05",
+  "sweeper": "F3_cov05"
+ }
+}

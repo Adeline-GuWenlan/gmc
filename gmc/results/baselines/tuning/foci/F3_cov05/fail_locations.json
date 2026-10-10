@@ -1,0 +1,12 @@
+{
+ "F3_cov05": {
+  "cylinder": {
+   "CLAIMED_UNPROVEN|method_path": 24,
+   "CLAIMED_COLLIDES|method_path": 2
+  },
+  "sweeper": {
+   "CLAIMED_COLLIDES|appended_goal_segment": 2,
+   "CLAIMED_UNPROVEN|method_path": 1
+  }
+ }
+}

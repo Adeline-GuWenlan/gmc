@@ -1,0 +1,13 @@
+{
+ "F0_repo_zband": {
+  "cylinder": {
+   "CLAIMED_UNPROVEN|method_path": 27,
+   "CLAIMED_COLLIDES|method_path": 3,
+   "CLAIMED_COLLIDES|prepended_start_segment": 2
+  },
+  "sweeper": {
+   "CLAIMED_COLLIDES|method_path": 7,
+   "CLAIMED_UNPROVEN|method_path": 16
+  }
+ }
+}

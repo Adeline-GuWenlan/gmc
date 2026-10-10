@@ -1,0 +1,146 @@
+{
+ "method": "foci",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_in_slice": 25,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 25,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 6,
+  "CLAIMED_COLLIDES": 3,
+  "CLAIMED_UNPROVEN": 16
+ },
+ "query_outer_wall_s_this_run": 5.715101097943261,
+ "query_algorithm_wall_s_this_run": 5.703237912617624,
+ "judge_wall_s_this_run": 1.2198243760503829,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+  "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+  "compile_id": "549453247f5cf37a",
+  "load_s": 0.9697536411695182
+ },
+ "setup": {
+  "setup_id": "6686a288e3f660b5",
+  "artifact": "outputs/baselines/foci/a26bb64a7361/WWEST_cylinder.setup.pkl",
+  "artifact_sha256": "36152e8ae5c8a186bf436ac33ddc14ba3d14537f5e6e3098afbf9c1da1786ca4",
+  "build_setup_wall_s": 0.03615868790075183,
+  "config": {}
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   26.38138448400423
+  ],
+  "load_s_per_start": [
+   0.03870364208705723
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "6686a288e3f660b5",
+   "artifact_sha256": "36152e8ae5c8a186bf436ac33ddc14ba3d14537f5e6e3098afbf9c1da1786ca4",
+   "load_s": 0.03870364208705723,
+   "instantiate_s": 26.38138448400423,
+   "instantiate_cpu_s": 3.393700302,
+   "pid": 2643896,
+   "setup_calls": 0,
+   "python": "3.10.21",
+   "info": {
+    "n_input": 390716,
+    "n_kept_slab_and_box": 226775,
+    "slab_z": [
+     0.019000000000000017,
+     1.751
+    ],
+    "centre_offset_plan": [
+     -5.65,
+     1.2,
+     0.385
+    ],
+    "robot_cov_diag": [
+     0.03397537499999999,
+     0.03397537499999999,
+     0.5624669999999999
+    ],
+    "cover_level_sigma_semi_axes_m": [
+     0.36864820628886824,
+     0.36864820628886824,
+     1.4999559993546476
+    ],
+    "cylinder_r_h_plus_margin": [
+     0.301,
+     0.866
+    ],
+    "obstacle_cov_factor": 1.0,
+    "z_range_real": [
+     0.385,
+     1.385
+    ],
+    "planner_init_s": 26.373126289108768,
+    "foci_file": "/scratch/wg2381/ext_repos/foci_bl/foci/__init__.py"
+   },
+   "ready_wall_s": 27.352029311005026,
+   "reason": "first"
+  }
+ ],
+ "config": {},
+ "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "config_file": "configs/baselines/tuning/foci/F1_zband.json",
+ "config_file_sha256": "516c2145bb6fdc60441d2ae878bc15aceeedfbeb992df00e7c8b2e27f98f8212",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/tuning/foci/F1_zband/WWEST/cylinder/task_00.worker.log",
+ "host": {
+  "node": "gl033.hpc.nyu.edu",
+  "slurm_job_id": "19510034",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   24.80859375,
+   29.560546875,
+   43.40869140625
+  ],
+  "utc": "2026-10-10T01:26:59Z",
+  "python": "3.13.5",
+  "git_commit": "a50273922d333242822767e62c8935acd28686f9"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003",
+  "F3X-00004",
+  "F3X-00005",
+  "F3X-00006",
+  "F3X-00007",
+  "F3X-00008",
+  "F3X-00009",
+  "F3X-00010",
+  "F3X-00011",
+  "F3X-00012",
+  "F3X-00013",
+  "F3X-00014",
+  "F3X-00015",
+  "F3X-00016",
+  "F3X-00017",
+  "F3X-00018",
+  "F3X-00019",
+  "F3X-00020",
+  "F3X-00021",
+  "F3X-00022",
+  "F3X-00023",
+  "F3X-00024"
+ ]
+}

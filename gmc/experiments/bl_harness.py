@@ -712,6 +712,27 @@ def iter_rows(root):
                     yield json.loads(x)
 
 
+def cmd_locate(a):
+    """For rows judged before ``judge_fail_location`` existed: re-export the stored exact ``route_polyline`` and
+    locate the judge's failing edge (start segment / goal segment / method path). Writes ``<root>/fail_locations.json``."""
+    out = {}
+    judges = {}
+    for r in iter_rows(a.root):
+        if not str(r["status"]).startswith("CLAIMED_") or r.get("judge_failed_edge") is None:
+            continue
+        key = (r["region"], r["robot"])
+        if key not in judges:
+            judges[key] = Judge(*key)
+        J = judges[key]
+        uv = np.asarray(r["route_polyline"], float)
+        _, res = J.export(uv, r["goal_uv"])
+        loc = fail_location(res, r["judge_failed_edge"], r)
+        cfg = Path(a.root).name
+        out.setdefault(cfg, {}).setdefault(r["robot"], collections.Counter())[f"{r['status']}|{loc}"] += 1
+    _dump(Path(a.root) / "fail_locations.json", out)
+    print(json.dumps(out, indent=1))
+
+
 def cmd_archive(a):
     """Compress finished task files for commit: drop the raw ``method_path_uv`` of judged rows (``route_polyline``
     is the exact judged path) and gzip ``task_NN.jsonl`` -> ``.jsonl.gz`` (rows otherwise byte-for-byte)."""
@@ -903,6 +924,8 @@ def main(argv=None):
     pj.add_argument("--gpus", type=int, default=2)
     pj.add_argument("--tasks", type=int, default=1, help="tasks (worker starts) per region x robot in the full run")
     pj.add_argument("--out", type=Path, required=True)
+    lo = sub.add_parser("locate")
+    lo.add_argument("root")
     ar = sub.add_parser("archive")
     ar.add_argument("root")
     tt = sub.add_parser("tunetable")
@@ -911,7 +934,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
     {"export": cmd_export, "setup": cmd_setup, "run": cmd_run, "judge": cmd_judge, "sample": cmd_sample,
      "report": cmd_report, "project": cmd_project,
-     "tunetable": cmd_tunetable, "archive": cmd_archive}[a.cmd](a)
+     "tunetable": cmd_tunetable, "archive": cmd_archive,
+     "locate": cmd_locate}[a.cmd](a)
 
 
 if __name__ == "__main__":
