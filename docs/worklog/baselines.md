@@ -95,3 +95,21 @@
   5000/5000, cust_fields 0/113. Spot-check 25/25 agree (only FOCI has CLAIMED_* rows).
 - SplatNav full rows (133 MB gz) kept under outputs/baselines/b3_rows/ with SHA sidecars; slim rows committed.
 - Budget 29.1 CPU-h, 4.88 GPU-h. Doc `docs/baselines_b3.md`.
+
+## 2026-10-10 — stage B4 (comparison, report, final sweep) — agent job 19529143
+- Audit by artifacts: 30 cells (5 methods × 2 robots × 3 regions) complete, 0 missing/dup/foreign, status counts =
+  collect.json, one setup id per cell; frozen configs committed 0f0e049 / 3a841e9 / 981f5b6 before B3's first job
+  (05:41 EDT), unchanged since; gmc/src 0 lines changed since d757729; harness/adapters/raster/configs unchanged since 8c5f2ef.
+- New evidence for "GMC column judged by d757729": all 8970 GMC re-judged REACHABLE routes (stored 0.1 mm) through
+  bl_harness.judge_row → 8970/8970 SUCCESS, 0 rounding failures (19529261, 0.29 CPU-h).
+- Doctrine check (19529631 → field-name fix 19529693): every baseline row has the F4 pair's exact endpoints, all §5
+  fields, exact judged polyline from/to the pair; task summaries carry host.git_commit / setup-once / config SHA / timeout 120.
+- bl_analyze.py (analyze 19529399 — its figs step crashed on a double GMC status map, fixed; figs reruns 19529487
+  (errorbar float clip), 19529508/19529550/19529577/19529614 (layout, S pick fallbacks, log-axis bars → dots)).
+  All 5 figures viewed and checked against analysis.json.
+- Headline cylinder SUCCESS: PNO 5000, SplatNav 4958, GMC 4147, FOCI 2102 (2884 unsafe claims), cust_fields 0.
+  Sweeper: PNO/SplatNav 5000, GMC 4823, FOCI 3665 (449 unsafe), cust_fields 113. Every GMC failure is solved by some
+  baseline; no pair is solved by nobody. Caveats in the report: PNO's 100 % = grid A* completeness on the judge-sound
+  raster; SplatNav's rests on our ε-squash cover; timing on unequal hardware.
+- Report docs/baselines_f4_report.md (Chinese), measurement sheets docs/baselines_measurement_<method>.csv.
+- Budget: 0.36 CPU-h compute + the agent's 1-core allocation (< 1 CPU-h).
