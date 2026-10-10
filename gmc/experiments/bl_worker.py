@@ -36,7 +36,8 @@ import traceback
 
 sys.dont_write_bytecode = True
 
-ADAPTERS = {"splatnav": "bl_splatnav", "foci": "bl_foci", "astar_replay": "bl_testmethods",
+ADAPTERS = {"splatnav": "bl_splatnav", "foci": "bl_foci", "pno": "bl_pno", "cust_fields": "bl_custfields",
+            "astar_replay": "bl_testmethods",
             "gmc_requery": "bl_testmethods", "straight": "bl_testmethods", "sleep": "bl_testmethods",
             "raise": "bl_testmethods", "crash": "bl_testmethods"}
 

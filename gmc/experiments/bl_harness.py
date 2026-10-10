@@ -67,7 +67,8 @@ QUERY_TIMEOUT_S = 120.
 READY_TIMEOUT_S = 1800.
 STATUSES = ("SUCCESS", "CLAIMED_COLLIDES", "CLAIMED_UNPROVEN", "CLAIMED_KINEMATICS", "FAIL", "TIMEOUT", "ERROR",
             "SETUP_FAIL")
-METHOD_PYTHON = {"splatnav": ENVS / "splatnav/bin/python", "foci": ENVS / "foci/bin/python"}
+METHOD_PYTHON = {"splatnav": ENVS / "splatnav/bin/python", "foci": ENVS / "foci/bin/python",
+                 "pno": ENVS / "pno/bin/python", "cust_fields": ENVS / "cust_fields/bin/python"}
 SNAP_M = 1e-9          # a method endpoint this close to the pair's endpoint is the endpoint (roundoff of frames)
 
 
