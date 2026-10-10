@@ -26,3 +26,21 @@
   that effect.
 - **Gate (a) fails as written → BLOCKED for the user** (prompt hard stop). Recommended option 1 (test-only change)
   in `docs/baselines_judge_check.md` §8. Total 5.59 CPU-h.
+
+## B0 — baseline envs + smoke tests (2026-10-09)
+- J standup: RESOLVED (user option 1, 54a4960) → proceeded. Test edit already done by the orchestrator in 54a4960.
+- Installs strictly serial, fresh `CONDA_PKGS_DIRS=/scratch/wg2381/.conda/pkgs_bl/<env>/<jobid>/conda`:
+  cust_fields 19506169 → foci repair 19506296 (died after its conda step: `set -u` vs base activate.d
+  `QT_XCB_GL_INTEGRATION`; scripts now `set -eo pipefail`) / 19506351 → pno 19506371 → splatnav 19506844. No
+  cache errors this time.
+- libEGL/libGL: conda-forge libegl+libgl in-env; open3d's RUNPATH `$ORIGIN/../../../` finds them, no
+  LD_LIBRARY_PATH (checked with `env -u LD_LIBRARY_PATH` + `ldd`).
+- foci: `ext_repos/foci_bl` = `cp -a` of the clone (first patch attempt failed: git-lfs not on PATH for the
+  smudge filter; nothing was changed; redone with the foci env's git-lfs on PATH) + `foci_mumps.patch`
+  (3 hunks); editable install re-pointed.
+- Smokes: cust_fields 19506295 (goal reached); FOCI 19506397 (6/6 IPOPT acceptable, curves end 0.2–4.0 m short:
+  soft goal); PNO CPU 19506845 FAILED (oneMKL DFTI on stride-0 `expand` input) → contiguous-rfft2 wrapper on CPU
+  → 19506958 (rel L2 0.1733/0.1636 vs paper 0.1748/0.1675); PNO cuda + SplatNav 19506846 — SplatNav part INVALID
+  (identity quaternions → NaN rotations in SplatNav → wall ignored); fixed scene, rerun 19507292 (3/3 feasible,
+  clearance ≥ r, negative control hits). Probe `bl_probe_splatnav_quat.py`: NaN iff vector part exactly 0.
+- Budget 2.13 CPU-h, 0.054 GPU-h. Doc: `docs/baselines_envs.md`.
