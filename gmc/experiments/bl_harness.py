@@ -36,6 +36,7 @@ Subcommands:
   judge    (sbatch) fill deferred judge fields of a task file (``run --judge defer`` keeps GPU time off the CPU judge)
   sample   (inline) stratified F4 pair lists (pilot / sanity), committed
   report   (inline) outcome counts + timing over task files
+  project  (inline) full-run cost projection (5000 x 2 robots) from pilot task files
 """
 from __future__ import annotations
 
@@ -711,6 +712,69 @@ def cmd_report(a):
         print(k, v["n"], v["status_counts"], "median alg", v["algorithm_wall_s"]["median"])
 
 
+def cmd_project(a):
+    """Cost projection for the full run (5000 pairs x 2 robots per method) from pilot task files.
+
+    Per method and robot: method time = mean ``outer_wall_s`` per query (parent send -> receive: what the worker holds
+    the GPU for; TIMEOUT rows count their full 120 s) x the F4 pair count of each region, + setup (build once per
+    region; one worker instantiate per task); judge CPU = mean ``judge_wall_s`` x pairs (CPU, separable with
+    ``--judge defer``). GPU-h assume ``--streams`` concurrent harness streams per GPU at the measured per-stream
+    speed (the pilot ran that many streams on one L40S), ``--gpus`` GPU jobs at a time (plan: <= 2)."""
+    regions = json.loads((F4 / "pairs_confirmed_5000.json").read_text())["regions"]
+    n_reg = {r: v["quota"] for r, v in regions.items()}
+    doc = {"definition": cmd_project.__doc__.strip(), "pairs_per_region": n_reg, "streams_per_gpu": a.streams,
+           "gpu_jobs_at_a_time": a.gpus, "tasks_per_region_robot": a.tasks, "methods": {}}
+    for mdir in a.roots:
+        rows = list(iter_rows(mdir))
+        if not rows:
+            continue
+        method = rows[0]["method"]
+        sums = {}
+        for f in sorted(Path(mdir).rglob("task_*.summary.json")):
+            s = json.loads(f.read_text())
+            sums[(s["region"], s["robot"])] = s
+        m = {"pilot_root": str(mdir), "robots": {}}
+        tot = {"method_gpu_h": 0., "judge_cpu_h": 0., "setup_h": 0.}
+        for robot in ROBOTS:
+            rr = [r for r in rows if r["robot"] == robot]
+            if not rr:
+                continue
+            per = {}
+            gpu_s = judge_s = setup_s = 0.
+            for reg, n in n_reg.items():
+                x = [r for r in rr if r["region"] == reg]
+                if not x:
+                    continue
+                ow = [r["outer_wall_s"] for r in x if r.get("outer_wall_s") is not None]
+                if not ow:
+                    continue
+                o = float(np.mean(ow))
+                jw = [r["judge_wall_s"] for r in x if r.get("judge_wall_s") is not None]
+                jm = float(np.mean(jw)) if jw else 0.
+                s = sums.get((reg, robot), {})
+                build = (s.get("setup") or {}).get("build_setup_wall_s") or 0.
+                inst = [t for t in (s.get("setup_once_proof") or {}).get("instantiate_s_per_start", []) if t]
+                inst_m = float(np.mean(inst)) if inst else 0.
+                per[reg] = {"pilot_rows": len(x), "mean_outer_wall_s": float(o), "mean_judge_wall_s": jm,
+                            "build_setup_wall_s": build, "instantiate_s": inst_m,
+                            "projected_method_s": float(o * n + inst_m * a.tasks), "projected_judge_s": jm * n}
+                gpu_s += per[reg]["projected_method_s"]
+                judge_s += per[reg]["projected_judge_s"]
+                setup_s += build
+            m["robots"][robot] = {"summary": summarize(rr), "regions": per,
+                                  "method_h_one_stream": gpu_s / 3600, "judge_cpu_h": judge_s / 3600,
+                                  "setup_build_h": setup_s / 3600}
+            tot["method_gpu_h"] += gpu_s / 3600 / a.streams
+            tot["judge_cpu_h"] += judge_s / 3600
+            tot["setup_h"] += setup_s / 3600
+        tot["wall_h_at_concurrency"] = tot["method_gpu_h"] / a.gpus
+        tot["cpu_h_harness_parents"] = tot["method_gpu_h"] * a.streams       # one CPU per harness stream
+        m["projection_5000x2"] = tot
+        doc["methods"][method] = m
+        print(method, json.dumps(tot))
+    _dump(a.out, doc)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -748,9 +812,15 @@ def main(argv=None):
     rp = sub.add_parser("report")
     rp.add_argument("root")
     rp.add_argument("--out", type=Path)
+    pj = sub.add_parser("project")
+    pj.add_argument("roots", nargs="+")
+    pj.add_argument("--streams", type=int, default=1)
+    pj.add_argument("--gpus", type=int, default=2)
+    pj.add_argument("--tasks", type=int, default=1, help="tasks (worker starts) per region x robot in the full run")
+    pj.add_argument("--out", type=Path, required=True)
     a = ap.parse_args(argv)
     {"export": cmd_export, "setup": cmd_setup, "run": cmd_run, "judge": cmd_judge, "sample": cmd_sample,
-     "report": cmd_report}[a.cmd](a)
+     "report": cmd_report, "project": cmd_project}[a.cmd](a)
 
 
 if __name__ == "__main__":
