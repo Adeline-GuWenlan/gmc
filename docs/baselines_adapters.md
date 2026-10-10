@@ -225,8 +225,8 @@ source), then F1 alone was rerun unchanged (19510034). No other candidate was re
 |---|---|---|---|---|---|---|---|---|
 | F0_repo_zband | repo's z band (0, 1) (plane **not** enforced; ineligible) | cylinder | 18 | 5 | 27 | 0 | 0.21 | 2/32 |
 | F0_repo_zband |  | sweeper | 27 | 7 | 16 | 0 | 0.19 | 0/23 |
-| F1_zband | F-defaults: z band ±0.01, 1σ covs, cov_scale 1, 10 cp, 40 samples | cylinder | 20 | 4 | 26 | 0 | 0.23 | 0/0 |
-| F1_zband |  | sweeper | 33 | 1 | 3 | 13 | 0.39 | 0/0 |
+| F1_zband | F-defaults: z band ±0.01, 1σ covs, cov_scale 1, 10 cp, 40 samples | cylinder | 20 | 4 | 26 | 0 | 0.23 | 2/30 |
+| F1_zband |  | sweeper | 33 | 1 | 3 | 13 | 0.39 | 3/4 |
 | F2_judge_sigma | F1 + obstacle covs × 4 (2σ shape) | cylinder | 19 | 4 | 27 | 0 | 0.26 | 2/31 |
 | F2_judge_sigma |  | sweeper | 31 | 6 | 7 | 6 | 0.55 | 12/13 |
 | **F3_cov05** | F1 + robot cov_scale 0.5 | cylinder | 23 | 2 | 24 | 1 | 0.35 | 0/26 |
@@ -254,3 +254,86 @@ Reading the tables **[E]** (all from the files above):
   `geometry_or_margin_unproven` on FOCI's own curve (it grazes Gaussians: a soft overlap cost has no margin). Sweeper
   29–35/50. The plane constraint costs nothing measurable (F0 18 vs F1 20 cylinder) while removing ±0.5 m z drift.
   Pick `F3_cov05` (robot covariance halved) for both robots.
+
+## 5. Pilot (frozen configs, 100 F4 pairs per robot)
+
+Configs frozen in `gmc/configs/baselines/{splatnav,foci}.json` (full effective parameters + adapter SHA-256), commit
+0f0e049, **before** the pilot. Pairs: `results/baselines/pilot/pilot_pairs.json` (50 WWEST / 30 GAPW1 / 20 S,
+stratified by region × lateral band, seed 20261010). Job 19510252 (one L40S, 4 concurrent streams = method × robot,
+judge inline, node gl015, commit 0f0e049). Rows `results/baselines/pilot/<method>/<R>/<robot>/task_00.jsonl.gz`,
+summaries `task_00.summary.json`, `report.json` **[E]**.
+
+| method | robot | SUCCESS | CLAIMED_COLLIDES | CLAIMED_UNPROVEN | FAIL | TIMEOUT / ERROR | algorithm s median / p95 / max | judge s median / p95 |
+|---|---|---|---|---|---|---|---|---|
+| SplatNav | cylinder | **100** | 0 | 0 | 0 | 0 / 0 | 0.60 / 1.57 / 2.97 | 1.45 / 13.9 |
+| SplatNav | sweeper | **100** | 0 | 0 | 0 | 0 / 0 | 0.40 / 1.30 / 1.88 | 0.98 / 1.64 |
+| FOCI | cylinder | **44** | 2 | 54 | 0 | 0 / 0 | 0.39 / 1.07 / 1.22 | 0.07 / 0.21 |
+| FOCI | sweeper | **77** | 5 | 2 | 16 | 0 / 0 | 0.46 / 2.96 / 3.38 | 0.06 / 0.08 |
+
+Per region (SUCCESS/n), cylinder: SplatNav WWEST 50/50, GAPW1 30/30, S 20/20; FOCI WWEST 16/50, GAPW1 8/30, S 20/20.
+Sweeper: SplatNav all; FOCI WWEST 37/50, GAPW1 21/30, S 19/20 **[E]**.
+
+Where the unsafe claims are **[E]** (`judge_fail_location`, inline): FOCI cylinder 53 of 56 on FOCI's own curve
+(`geometry_or_margin_unproven` 53 — clearance below the 1 mm margin — and 1 `minkowski_interior_witness`), 2 on the
+prepended start segment; FOCI sweeper 6 of 7 on the appended goal segment (FOCI stops short: goal gap median 0.20 m,
+p90 1.19 m) and 1 on its own curve. FOCI sweeper FAILs are all `ipopt_Maximum_Iterations_Exceeded` (16). So FOCI's
+sweeper unsafe claims are mostly caused by the completion that §3.3 prescribes, its cylinder ones by FOCI itself.
+Example (`fig_b1_pilot.png`, viewed): on F4X-00002 FOCI's curve cuts the corner the A* route and SplatNav go around;
+the Gaussian the judge flags there is a **floor-level** one (centre z −0.042 m, 2σ top 0.020 m = the chassis bottom,
+0.37 m from the edge, clearance 0.54 mm < 1 mm) **[E]** (job 19510804). Such sparse floor bumps are typical of these
+regions' hard pairs **[G]** (the figure shows them; not counted).
+
+![pilot paths](../gmc/results/baselines/pilot/fig_b1_pilot.png)
+
+Other pilot facts **[E]**:
+- **Completion**: SplatNav needed both completion segments on every row (A* voxel centres: start/goal gap median
+  8.7 / 8.5 mm, cylinder) and none of them failed; FOCI on every claimed row (start gap median 0.22 m: its soft start).
+- **Plane**: FOCI `max_abs_dz_m` ≤ 0.010 (the band); SplatNav ≤ 0.77 m in real units, i.e. ≤ 0.039 in squashed units,
+  inside the Δ = 0.0707 the cover accounts for.
+- **Paths**: SplatNav path / straight-line length median 1.19 (cylinder), 1.20 (sweeper), ≈ 700 exported vertices
+  (dense Bézier); FOCI 1.02 / 1.05, ≈ 42 vertices.
+- **Setup once**: every task 1 worker start, 0 restarts, same artifact SHA, same setup id on every row. Setup build
+  (numpy, persisted) 0.8–2.5 s SplatNav, 0.01–0.04 s FOCI; instantiate per worker start (GPU) 17.6–31.4 s SplatNav
+  (voxel grid; WWEST largest), 11.9–23.5 s FOCI (CasADi NLP + warp), under 4-stream contention.
+- **Success vs lateral-clearance band** (cylinder, n per band 2–25): SplatNav 100 % in every band; FOCI 3/4 at 0 m,
+  2/6 at 5 mm, 4/11 at 10 mm, 12/25 at 20 mm, 5/21 at 50 mm, 9/21 at ≥ 100 mm — no clear trend with the route's
+  lateral clearance **[E]**; its failures follow the floor-level grazes instead **[G]**.
+
+## 6. Projection for B3 (5000 pairs × 2 robots per method)
+
+`gmc/results/baselines/pilot/projection_b1.json` (`bl_harness project ... --streams 4 --gpus 2 --tasks 1`) **[E]**:
+mean per-query `outer_wall_s` and `judge_wall_s` per region from the pilot × F4's 2500/1500/1000 pairs, + setup.
+
+| method | method GPU-h (4 streams/GPU) | judge CPU-h | wall h at 2 GPU jobs (judge deferred) | GPU-h if judge inline | wall h, judge inline |
+|---|---|---|---|---|---|
+| SplatNav | 0.45 | 5.98 | 0.23 | 1.95 | 0.97 |
+| FOCI | 0.49 | 0.21 | 0.24 | 0.54 | 0.27 |
+
+Recommendation for B3 **[G]**: run each method with `--judge defer` on the GPU (4 harness streams per L40S job:
+method × robot, or more tasks per region) and judge with `bl_harness judge` as a CPU array (SplatNav's dense paths
+make the judge ~2–5 s/query on WWEST cylinder: ≈ 6 CPU-h). Either way both methods are two orders of magnitude inside
+the plan's B3 share (150 CPU-h, 100 GPU-h total). Caveats: linear scaling to 4 streams per GPU is assumed from a pilot
+whose streams also spent time in the inline judge [G]; CPU-h of the GPU jobs = 4 cores × wall. SplatNav task files
+are large (exact dense polylines): ≈ 100–300 kB per row before gzip; `bl_harness archive` drops the redundant raw
+path and gzips (pilot: 7.1 → 3.0 MB for 400 rows), so ~0.5–1 GB gzip per robot for 5000 rows is plausible [G] — B3
+should decide whether to commit them or keep them under `outputs/` with SHA sidecars.
+
+## 7. For B2 (PNO, cust_fields) and B3
+- Use the harness unchanged: write `bl_<method>.py` with `Adapter.build_setup / instantiate / plan` (see the
+  `bl_worker.py` docstring), add the module to `bl_worker.ADAPTERS` and the env's python to
+  `bl_harness.METHOD_PYTHON`. `plan` returns a planar path (u, v[, z]) in the plan frame; the harness does completion,
+  export, judge, timing, rows. Raise for errors; return `claimed: False` with a reason for method-declared failures.
+- The scene export (`outputs/baselines/scene/<R>_<robot>.npz`) is the input the shared rasteriser should read: the
+  judge's Gaussians (opacity > τ = 0.3 already), plan frame, level 2.0, margin 0.001, z_c, body, known box.
+- Artifacts are keyed on (config, adapter source SHA); a frozen config is `configs/baselines/<method>.json` with
+  per-robot full parameter sets; `bl_harness setup --method M --config configs/baselines/M.json`.
+- Tuning: `bl_harness run --pairs tuning`, `tunetable --method M --ineligible ...`; same pre-registered rule
+  (`configs/baselines/tuning/RULE.md`) keeps the effort comparable.
+- `astar_replay` (100 % SUCCESS) and the unit tests are the harness's regression check; rerun
+  `BL_HEAVY=1 pytest tests/unit/test_bl_harness.py` in an sbatch job after any harness change.
+
+## 8. Budget and jobs
+B1 used **4.0 CPU-h and 0.96 GPU-h** of 40 / 10 (`sacct` over the 18 jobs in `jobids/B1.txt`, excluding the agent's
+own 1-CPU allocation) **[E]**. Jobs: 19508155 export + tests, 19508232 sanity, 19508233 setup, 19508258 GPU probe,
+19508642 tuning, 19508644 rounding sanity, 19510034 F1 rerun, 19510126 / 19510253 fail locations, 19510252 pilot,
+19510647 / 19510776 (failed: script on node-local /tmp) / 19510804 / figure re-renders and diagnosis.
