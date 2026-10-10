@@ -1,0 +1,869 @@
+{
+ "A_interior_only": {
+  "chains": 3,
+  "counts": {
+   "nf_stuck": 9,
+   "nf_max_steps": 6,
+   "goal_reached": 15
+  },
+  "rows": [
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     0.5,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 187,
+    "s": 1.7820491378661245
+   },
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     0.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 605,
+    "s": 3.161257466999814
+   },
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.879761979915202
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     0.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 591,
+    "s": 3.1190073469188064
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.888160792179406
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 35,
+    "s": 0.12375668715685606
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.849878364941105
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 53,
+    "s": 0.20172019605524838
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.811121555045247
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 47,
+    "s": 0.16985217505134642
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.858456552028656
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 52,
+    "s": 0.19153172499500215
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 10.97001411113888
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 68,
+    "s": 0.24549377709627151
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 123,
+    "s": 0.4443849178496748
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 100,
+    "s": 0.3629505899734795
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 60,
+    "s": 0.2205712420400232
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 51,
+    "s": 0.18631269899196923
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 46,
+    "s": 0.16369128716178238
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 85,
+    "s": 0.31390855414792895
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 188,
+    "s": 1.6393041219562292
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 46,
+    "s": 0.16752374987117946
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 202,
+    "s": 1.7137768678367138
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 66,
+    "s": 0.24260516185313463
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 267,
+    "s": 1.9516233869362622
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 97,
+    "s": 0.353447861969471
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 180,
+    "s": 1.616389021044597
+   },
+   {
+    "start": [
+     5.5,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 48,
+    "s": 0.1774731120094657
+   },
+   {
+    "start": [
+     5.5,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 270,
+    "s": 1.9385805358178914
+   },
+   {
+    "start": [
+     5.5,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 131,
+    "s": 1.4704497100319713
+   }
+  ]
+ },
+ "B_plus_boundary_wall": {
+  "chains": 4,
+  "counts": {
+   "nf_stuck": 13,
+   "nf_max_steps": 4,
+   "goal_reached": 7,
+   "endpoint_in_obstacle_cover": 6
+  },
+  "rows": [
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     0.5,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 953,
+    "s": 6.501456069992855
+   },
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     0.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 16.260879221837968
+   },
+   {
+    "start": [
+     0.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 150,
+    "s": 2.2010378148406744
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     0.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 15.96746745891869
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 271,
+    "s": 2.8905801358632743
+   },
+   {
+    "start": [
+     0.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 35,
+    "s": 0.18536672578193247
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 466,
+    "s": 3.9533008728176355
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 58,
+    "s": 0.3147865820210427
+   },
+   {
+    "start": [
+     0.5,
+     3.5
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 246,
+    "s": 2.7309506381861866
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 55,
+    "s": 0.286031736060977
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 967,
+    "s": 6.582041448913515
+   },
+   {
+    "start": [
+     1.5,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     1.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 472,
+    "s": 3.9191620969213545
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     1.5,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 156,
+    "s": 1.0739582211244851
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 62,
+    "s": 0.3359568149317056
+   },
+   {
+    "start": [
+     1.5,
+     3.5
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 59,
+    "s": 0.31172879692167044
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     3.0,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "endpoint_in_obstacle_cover",
+    "steps": null,
+    "s": null
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     3.0,
+     3.5
+    ],
+    "claimed": true,
+    "reason": "goal_reached",
+    "steps": 46,
+    "s": 0.2448250229936093
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 15.892077584983781
+   },
+   {
+    "start": [
+     3.0,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 147,
+    "s": 2.1946087409742177
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     0.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 730,
+    "s": 5.781414425000548
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 296,
+    "s": 3.223257143981755
+   },
+   {
+    "start": [
+     3.0,
+     3.5
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_max_steps",
+    "steps": 3000,
+    "s": 15.999971695942804
+   },
+   {
+    "start": [
+     5.5,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     2.0
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 164,
+    "s": 2.2912342860363424
+   },
+   {
+    "start": [
+     5.5,
+     0.5
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 209,
+    "s": 2.5150208598934114
+   },
+   {
+    "start": [
+     5.5,
+     2.0
+    ],
+    "goal": [
+     5.5,
+     3.5
+    ],
+    "claimed": false,
+    "reason": "nf_stuck",
+    "steps": 411,
+    "s": 3.613220568979159
+   }
+  ]
+ },
+ "Z_repo_demo": {
+  "reason": "goal_reached",
+  "steps": 179,
+  "path_length_m": 8.150117490016502,
+  "expected": "goal reached at step 179, path 8.150 m (B0 smoke, unchanged test_nf.py)"
+ }
+}

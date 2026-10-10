@@ -338,3 +338,196 @@ agent's own 1-CPU allocation 19507514) **[E]**. Jobs: 19508155 export + tests, 1
 19508258 GPU probe, 19508642 tuning, 19508644 rounding sanity, 19510034 F1 rerun, 19510126 / 19510253 fail
 locations, 19510252 pilot, 19510647 / 19510683 / 19510875 figure renders, 19510776 (failed: script on node-local
 /tmp) / 19510804 flagged-Gaussian diagnosis (`experiments/bl_b1_diag_f4x00002.py`). Jobs still running: none.
+
+---
+
+# Part B2 — the shared rasteriser, PNO and cust_fields (bl stage B2)
+
+Code: `gmc/experiments/bl_raster.py` (+ `bl_raster_check.py`), `bl_pno.py` (+ `bl_pno_probe.py`), `bl_custfields.py`
+(+ `bl_custfields_probe.py`, `bl_custfields_check.py`, `bl_custfields_control.py`); tests
+`gmc/tests/unit/test_bl_raster.py` (9), `test_bl_custfields.py` (4); sbatch helpers `gmc/hpc/baselines/b2_{cpu,gpu}.sbatch`.
+Job IDs: `/scratch/wg2381/claude_jobs/baselines/jobids/B2.txt`. The harness (`bl_harness.py`, `bl_worker.py`) is used
+unchanged except for the registration of the two methods (`ADAPTERS`, `METHOD_PYTHON`).
+
+## 9. The shared rasteriser (`bl_raster.py`, plan §3.1)
+
+### 9.1 Construction — a free cell is judge-free everywhere
+
+Input: the harness's scene export (`outputs/baselines/scene/<R>_<robot>.npz`, SHA-checked) = the judge's own Gaussians
+(opacity > τ = 0.3, covariances as the judge floors them) in the plan frame, level 2, margin m = 0.001, body, z_c.
+Output per robot × region × resolution: `outputs/baselines/raster/<R>_<robot>_r<res>mm.npz` (+ `.json` sidecar with
+SHA-256, build time and the module's own SHA). Grid = the region box (= the known route box in u, v), cell (iy, ix)
+centred at (u0 + (ix + ½) res, v0 + (iy + ½) res). A cell is **occupied** if any point of the closed cell could fail
+the judge's pose check (`GaussianBodyOracle.edge` at a pose) for one of three reasons:
+
+1. **Gaussians.** The judge's body at p is the vertical cylinder disk(p, r) × [z_c − h, z_c + h], free of a Gaussian iff
+   its clearance to the 2σ ellipsoid E exceeds m. dist(body, E) ≤ m ⇒ E meets body ⊕ ball(m) ⊆ disk(p, r + m) × Z,
+   Z = [z_c − h − m, z_c + h + m] ⇒ dist(p, S) ≤ r + m with **S = xy-projection of E ∩ Z** (convex). The rasteriser
+   marks every cell that meets S ⊕ disk(r + m). S's support function is exact in closed form (whitened coordinates:
+   E ∩ Z is the unit ball cut by two parallel planes; h_S(d) = d·μ + max_{t∈[t_lo, t_hi]} (α t + β√(1 − t²)),
+   concave in t). Each grid row's chord of C = S ⊕ disk(r + m) ⊕ cell square is bounded by
+   min_θ (h_C(θ) − y sin θ)/cos θ; every θ gives a valid bound, 16 sampled angles + 16 golden-section steps make it
+   tight, and only the best value ever evaluated is used, so the result is sound whatever the refinement does.
+   (A first version used the outer 64-gon of C; its overshoot on the flat side of long, thin Gaussians is
+   ≈ a·π/K — 3 cm for a 0.6 m floor splat — which the tightness test caught; replaced before any use.)
+   **Floor splats** (F1/F5 EP-FLOOR): the slab cut makes a splat count exactly as the judge counts it. A splat whose 2σ
+   top lies below z_c − h − m = 0.019 m (1 mm under the 2 cm chassis clearance) is never within the margin of the
+   chassis and is not an obstacle; one whose top pokes above it counts only with its cap's footprint, not its whole
+   1 m-wide disk (`test_floor_splat_counts_only_its_cap_above_the_chassis`).
+2. **Known space** (`RouteBoxKnownSpace.contains_swept_cylinder`): route-frame centre ± (r, r, h) inside the known
+   prism (no margin); checked at the cell's four corners (linear condition).
+3. **Workspace bounds**: the body's *world* AABB must stay more than m (+ the judge's numerical slack) inside the scene
+   bounds = the world AABB of the known prism; a concave piecewise-linear condition, exact at the four corners. In the
+   rotated frames of these regions it never bites beyond (2) (a disk inside a rotated box cannot push its world AABB out
+   of the box's world AABB, corner geometry r − r√2 cos ψ ≤ 0; unit test), but it is kept exact.
+
+Conservatism added on top of the judge: the cell (≤ res/√2), the square (r + m) × (h + m) box around body ⊕ ball(m)
+(a rounded cylinder), and float guards (1e-9 m). The build also stores the 8-connected labels of occupied and free
+cells (scipy, gmc-venv): a diagonal grid move between two free cells crosses only their shared corner, which belongs
+to both closed cells, so 8-connected moves between free cells are judge-free too. Builds run once per region × robot
+under gmc-venv (numpy + scipy); the method envs read the bytes with `bl_raster.load` (numpy only, SHA-checked) and
+both map-based methods get byte-identical maps. Its build time is part of each map-based method's setup ("compile").
+
+Unit tests (`test_bl_raster.py`, 9 pass, gmc-venv): the closed-form support equals d·x at an explicit maximiser inside
+E ∩ Z and bounds 20 000 sampled points of E ∩ Z (random and flat Gaussians); every point of every free cell (corners,
+edge midpoints, centre, random) is farther than r + m from S by a rigorous 2048-direction distance lower bound; marked
+cells lie within r + m + res/√2 (+ 0.2 mm) of S (tightness); the floor-cap case; the known/workspace layers at every
+point of free cells in frames rotated by 0, 1.0 and 2.2 rad; SHA fail-closed loading; `nearest_free` equals brute force.
+
+### 9.2 Measured against the judge (job 19518228; `results/baselines/raster/check_*.json`, `summary.json`) [E]
+
+Per region × robot × resolution, the judge (`GaussianBodyOracle.pose` on the SHA-checked F3 compile, body on the
+support at z_c, margin 0.001) at (a) 3000 uniform points of the region box and (b) 1000 map-free cells that touch an
+occupied cell — where an unsafe map would show first — each at its centre, 4 corners and a random point (6000 points).
+Routes: the stored A* route of every pair (F4 5000, tuning 50) sampled at res/8.
+
+| region | robot | res | grid | build s | occupied | **map free ∧ judge not free** (uniform) | map occupied ∧ judge free (conservatism) | **boundary points not free** (min judge clearance bound, mm) | F4 A* route crosses an occupied cell | F4 start/goal cell occupied | snap p95 (mm) | F4 snapped endpoints connected |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| GAPW1 | cylinder | 10mm | 570x410 | 40 | 0.530 | **0**/1573 | 1.40 % of 1427 | **0**/6000 (1.0000) | 54.1 % | 1.1 % | 6.5 | 100.0 % |
+| GAPW1 | cylinder | 5mm | 1140x820 | 84 | 0.528 | **0**/1573 | 0.56 % of 1427 | **0**/6000 (1.0000) | 34.3 % | 0.5 % | 3.2 | 100.0 % |
+| GAPW1 | cylinder | 2.5mm | 2280x1640 | 186 | 0.526 | **0**/1573 | 0.28 % of 1427 | **0**/6000 (1.0000) | 23.0 % | 0.5 % | 1.6 | 100.0 % |
+| GAPW1 | sweeper | 10mm | 570x410 | 4 | 0.365 | **0**/1067 | 1.19 % of 1933 | **0**/6000 (1.0008) | 0.0 % | 0.0 % | 6.3 | 100.0 % |
+| GAPW1 | sweeper | 5mm | 1140x820 | 12 | 0.360 | **0**/1067 | 0.67 % of 1933 | **0**/6000 (1.0004) | 0.0 % | 0.0 % | 3.1 | 100.0 % |
+| GAPW1 | sweeper | 2.5mm | 2280x1640 | 46 | 0.358 | **0**/1067 | 0.52 % of 1933 | **0**/6000 (1.0004) | 0.0 % | 0.0 % | 1.6 | 100.0 % |
+| S | cylinder | 10mm | 980x130 | 7 | 0.681 | **0**/2073 | 1.40 % of 927 | **0**/6000 (1.0004) | 7.1 % | 2.7 % | 6.9 | 100.0 % |
+| S | cylinder | 5mm | 1960x260 | 15 | 0.679 | **0**/2073 | 0.86 % of 927 | **0**/6000 (1.0002) | 4.1 % | 1.6 % | 3.3 | 100.0 % |
+| S | cylinder | 2.5mm | 3920x520 | 40 | 0.678 | **0**/2073 | 0.54 % of 927 | **0**/6000 (1.0001) | 2.6 % | 1.0 % | 1.6 | 100.0 % |
+| S | sweeper | 10mm | 980x130 | 1 | 0.460 | **0**/1341 | 2.47 % of 1659 | **0**/6000 (1.0012) | 0.0 % | 0.0 % | 6.3 | 100.0 % |
+| S | sweeper | 5mm | 1960x260 | 5 | 0.451 | **0**/1341 | 0.48 % of 1659 | **0**/6000 (1.0016) | 0.0 % | 0.0 % | 3.1 | 100.0 % |
+| S | sweeper | 2.5mm | 3920x520 | 19 | 0.449 | **0**/1341 | 0.24 % of 1659 | **0**/6000 (1.0007) | 0.0 % | 0.0 % | 1.6 | 100.0 % |
+| WWEST | cylinder | 10mm | 870x510 | 66 | 0.571 | **0**/1744 | 2.23 % of 1256 | **0**/6000 (1.0000) | 58.0 % | 1.6 % | 6.5 | 100.0 % |
+| WWEST | cylinder | 5mm | 1740x1020 | 138 | 0.568 | **0**/1744 | 1.27 % of 1256 | **0**/6000 (1.0000) | 39.0 % | 0.7 % | 3.2 | 100.0 % |
+| WWEST | cylinder | 2.5mm | 3480x2040 | 301 | 0.567 | **0**/1744 | 0.40 % of 1256 | **0**/6000 (1.0000) | 25.1 % | 0.4 % | 1.6 | 100.0 % |
+| WWEST | sweeper | 10mm | 870x510 | 5 | 0.379 | **0**/1138 | 1.50 % of 1862 | **0**/6000 (1.0008) | 0.0 % | 0.0 % | 6.4 | 100.0 % |
+| WWEST | sweeper | 5mm | 1740x1020 | 18 | 0.373 | **0**/1138 | 0.59 % of 1862 | **0**/6000 (1.0001) | 0.0 % | 0.0 % | 3.1 | 100.0 % |
+| WWEST | sweeper | 2.5mm | 3480x2040 | 67 | 0.372 | **0**/1138 | 0.16 % of 1862 | **0**/6000 (1.0003) | 0.0 % | 0.0 % | 1.6 | 100.0 % |
+
+Reading the table [E]:
+- **The map is safe.** Over 18 region × robot × resolution combinations, no map-free point was judged anything but
+  free: 0 of 9960 judge-non-free uniform points (occupied, `map_unknown`, `body_exceeds_workspace_bounds`) and 0 of
+  108 000 points of boundary free cells. The smallest judge clearance lower bound found in a free cell is
+  1.0000–1.0016 mm, i.e. just above the 1 mm margin — the construction is tight where it must be.
+- **Conservatism** (judge-free points the map calls occupied): 1.2–2.5 % of judge-free space at 10 mm, 0.5–1.3 % at
+  5 mm, 0.16–0.54 % at 2.5 mm.
+- **It does not close passages topologically**: for every F4 pair (5000) and every tuning pair, at every resolution,
+  the endpoints (each moved to its nearest free cell when its own cell is occupied — 0–2.7 % of endpoints, by
+  ≤ 7 mm at p95) are in the same 8-connected free component. **But it closes the A\* route's own corridor** for the
+  cylinder in WWEST and GAPW1: the stored A* route crosses a map-occupied cell on 58 % / 54 % of pairs at 10 mm,
+  39 % / 34 % at 5 mm and 25 % / 23 % at 2.5 mm (S: 7 / 4 / 2.6 %). These routes graze obstacles within the cell
+  conservatism (F4's lateral-clearance ladder: most cylinder routes have ≤ 2 cm), so a map-based planner has to find
+  a wider way round — which exists for every pair. Sweeper routes never cross (0 %): the pairs were confirmed for the
+  cylinder, so the 0.175 m sweeper has room.
+- Build time (one core): 1–19 s for the sweeper, 7–301 s for the cylinder (its 0.30 m inflation makes every Gaussian
+  span ~2.5× more grid rows); WWEST cylinder at 2.5 mm is the worst case (301 s). Peak RSS of a check task 0.8–2.0 GB.
+
+## 10. PNO (`bl_pno.py`, env `pno`, GPU) — zero-shot
+
+### 10.1 Design
+- **Model (no training of any kind; the user's decision).** The only published 2D planning-operator weights are the
+  2D example notebook's: `DEEPNORM2dMultiGoal(4, 8, 8, 16)` with HF weights `PNO` or `PNOwPINN`, and its SDF
+  approximator `FNO2d(4, 1, 8, 8, 16)` `FNOSDF` (HF `lukebhan/generalizableMotionPlanningViaOperatorLearning`
+  rev 36a76173, SHA-256 checked against B0's sidecars at every worker start). The repo's 2D *planning* notebooks
+  (`2D_Neural_Heuristics/test_heuristics_on_*_maps.ipynb`) load a street-map `PNO2D` checkpoint that is not published
+  (the HF model repo lists exactly the five example models), so the published model is used inside the paper's own
+  2D extraction pipeline:
+- **Path extraction = the paper's.** `heuristics.py::planningoperator` + `astar/astar.py::AStar.plan` +
+  `environment_simple.Environment2D` (repo code, imported from the pristine clone): erode the obstacles by `erosion`
+  cells (`1 − binary_erosion(map, iterations=erosion)`, "to under-approximate the value function"), χ =
+  `smooth_chi(mask, FNOSDF(mask), 5)` (the example notebook's input), V = PNO(χ, goal), `V / (mask + 1e-9)`,
+  heuristic = max(V, Euclidean), 8-connected grid A* on the un-eroded map. Grid A* is complete on its grid: PNO's
+  quality changes the number of expansions (time), never whether a path is found.
+- **Units** (probe 19518250, `results/baselines/pno/probe_units.json`) [E]: V is in the training units (1/4 cell at
+  256², map width = 64); on empty S × S rooms V per cell × S/64 = 2.4–2.8 for S = 64…2048, i.e. the unit conversion
+  `S / 64` holds and the zero-shot model over-estimates free-space distance ≈ 2.8× on an empty room (an inadmissible
+  heuristic: A* stays complete but its path need not be the grid-shortest). FNOSDF/EDT ≈ 0.32 (expected 0.25) on City
+  map 0: the SDF approximator is used in its own units, as the notebook does.
+- **Map → model grid (resampling, plan §4).** The shared raster (judge-conservative at its resolution) is max-pooled
+  onto the model's S × S grid spanning the region box's longer side (the shorter side padded as occupied): a coarse
+  cell is free only if every fine cell its closed square overlaps is free, so free coarse cells stay judge-free and
+  8-connected moves stay judge-free. Resolution loss = coarse cell / fine cell, recorded per setup
+  (`resolution_loss_factor`): e.g. WWEST 8.7 m at S = 1024 → 8.5 mm cells from the 5 mm raster (×1.7); S = 2048 →
+  4.25 mm (≤ 1: no loss beyond the raster's).
+- **Endpoints.** A start/goal whose model-grid cell is occupied (F4 endpoints sit 1–5 mm from obstacles) is moved to
+  the nearest free cell centre (recorded `start_snap_m` / `goal_snap_m`); the harness adds the exact start/goal
+  segments, which the judge checks like everything else. If the snapped endpoints lie in different 8-connected free
+  components the repo's A* would exhaust the start component and return no path; the adapter returns that answer
+  directly (`astar_no_path_component`, same outcome, no search).
+- **Setup / per query.** Setup (persisted, numpy + scipy): raster load (SHA) + resample + labels + erosion.
+  Instantiate (per worker start, GPU): weights (SHA) + χ for the region (goal-independent, computed once).
+  Per query: V for the goal (one GPU inference), heuristic, A* (CPU Python), collinear grid vertices merged (same
+  geometry). Output = the grid path's cell centres.
+
+### 10.2 Obstacle contract
+| parameter | judge | PNO | status |
+|---|---|---|---|
+| σ level, τ, margin | 2σ, > 0.3, 0.001 | none (reads an occupancy map) | **matched through the shared rasteriser** (§9) |
+| body | vertical cylinder | point on a C-space map | matched: the raster is the C-space of the cylinder (r + m) |
+| safety | exact continuous check | grid path through free cells | sound by construction (§9; 8-connected moves) |
+| resolution | — | model grid S | resampled conservatively; loss recorded |
+
+### 10.3 Deviations from the paper's setup
+- Published example-notebook model (City-trained `DEEPNORM2dMultiGoal`) in the 2D planning pipeline, because the
+  planning notebooks' `PNO2D` checkpoint is unpublished; zero-shot on maps of a different kind (rasterised C-space of a
+  Gaussian-splat room, not street maps), at S up to 2048 (trained at 64², the paper evaluates zero-shot up to 1024²).
+- CPU `rfft2` contiguous-copy workaround from B0 (only if a worker ever runs on CPU; all runs here are on the L40S).
+- Endpoint snapping to the nearest free cell (needed by any grid method; recorded per row, completed by the harness).
+- `astar_no_path_component` short-cut (same outcome as the repo's exhaustive A*).
+
+## 11. cust_fields (`bl_custfields.py`, env `cust_fields`, CPU) — plain navigation function
+
+### 11.1 Design
+- **Method = the repo's plain NF** (`NF/`, as `test_nf.py`): `NavigationFunction(World(yaml), goal, NF_LAMBDA = 1e3,
+  NF_MU = [1e10, 1e8, 1e6, 1e4, 1e2, 1e1])`, path = `test_nf.py`'s own loop (normalised −∇φ steps of
+  DT·tanh(2d), DT = 0.05 m, `safe_advance` backtracking, 16 random escapes, stall limit 60, MAX_STEPS 3000,
+  GOAL_TOL 0.05 m), with `neg_gradient` / `safe_advance` imported from the pristine `test_nf.py`. Claimed = the loop
+  reached the goal tolerance; FAIL `nf_stuck` / `nf_max_steps` otherwise. The homotopy customisation (`TOPO/`) needs a
+  per-pair target homotopy class; this benchmark defines none, so it is not used (plan §4).
+- **What the method can represent** (read in code, confirmed by the probe 19518393, `results/baselines/cust_fields/
+  probe.json`) [E]: a star world = one squircle workspace + obstacles that are rotated squircles (`Rectangular`), each
+  obstacle either one squircle or a *chain* (`StarTree`: a list, leaf purged first; depth ≤ len(NF_MU) = 6, i.e. ≤ 7
+  squircles). Obstacles must be pairwise disjoint and inside the workspace. The repo's form for obstacles attached to
+  the workspace boundary (a workspace `StarTree`) **cannot run**: `ForestToStar.compute_virtual_ws` calls
+  `Rectangular(_type, center, w, h)` without the required `theta`, `s` → `TypeError` (probe). `Rectangular` silently adds
+  0.1 m to every width and height (`geometry.py`), `Workspace` too (it inherits that `__init__`). Our squircle level
+  equals the repo's `check_point_inside` on 40 000 random points once that pad is undone (0 mismatches) [E].
+- **World from the shared raster** (`build_setup`, numpy only): workspace = region box shrunk by r + m (squircle
+  s = 0.9999, inside the rectangle: probe); obstacle *pieces* = 8-connected components of the raster's Gaussian layer
+  inside that workspace. Each piece becomes a star obstacle by one of two constructions (a tuning choice, both
+  declared):
+  - `convex`: one squircle per piece — the piece's convex hull's minimum-area rectangle, scaled about its centre until
+    the squircle contains every hull vertex (so it contains the piece's closed cells); covers that overlap are merged
+    (union of pieces, re-fitted) until disjoint.
+  - `chain` (star decomposition): recursive bisection of the piece along its principal axis until a chunk's cover is
+    ≤ `waste` × its cells' area; then the chunk-overlap graph is coarsened (merge the overlapping pair whose cover grows
+    least) until every component is a simple path of ≤ 7 squircles = a repo `StarTree`. Pieces whose chains overlap
+    are first re-decomposed with stricter `waste` (2.0 → 1.5 → 1.25, `tighten`), then merged.
+  The repo's +0.1 m pad is undone (`native_pad: false`, matched contract: our C-space already contains r + m); keeping
+  it is an ineligible tuning candidate.
+- **Forced assumption violation.** The regions' walls are pieces attached to the workspace boundary (see figure in
+  §11.2); their covers cross the workspace boundary. With the repo's workspace-tree path broken, they are kept as
+  ordinary obstacles — a declared violation of the NF's forest-world assumption. Counted per setup
+  (`covers_crossing_workspace_boundary`).
+- **Endpoints.** An endpoint inside a cover (or in a map-occupied cell) moves to the nearest cell centre that is free
+  in the NF world and in the map, within `snap_max_m`, reachable by a straight segment whose samples are map-free
+  outside the endpoint's own cell (`snap_point`, unit test); else FAIL `endpoint_in_obstacle_cover`. The harness adds the
+  exact endpoint segments (judged).

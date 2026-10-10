@@ -102,6 +102,19 @@ def main():
             cnt[r["reason"]] = cnt.get(r["reason"], 0) + 1
         out[name] = {"chains": len(st["world"]["obstacles"]), "counts": cnt, "rows": res}
         print(name, cnt, flush=True)
+    # Z: the repo's own demo world, start and goal through our _descend (must equal test_nf.py: goal at step 179,
+    # path 8.150 m, B0 smoke 19506295)
+    sys.path.insert(0, C.REPO)
+    from NF.geometry import World
+    from NF.navigation import NavigationFunction
+    w = World(os.path.join(C.REPO, "CONFIG", "world_demo.yaml"))
+    tnf = C._test_nf_module()
+    nf = NavigationFunction(w, np.array([6.4, 3.0, 0.0]), tnf.NF_LAMBDA, tnf.NF_MU)
+    traj, reason, steps, evals = C.Adapter._descend(nf, w, tnf, np.array([0.6, 1.0]), np.array([6.4, 3.0]),
+                                                    dict(cfg, dt=tnf.DT, max_steps=tnf.MAX_STEPS, goal_tol=tnf.GOAL_TOL))
+    out["Z_repo_demo"] = {"reason": reason, "steps": steps, "path_length_m": tnf.path_length(traj),
+                          "expected": "goal reached at step 179, path 8.150 m (B0 smoke, unchanged test_nf.py)"}
+    print("Z_repo_demo", out["Z_repo_demo"], flush=True)
     o = C.GMC / "results/baselines/cust_fields/control.json"
     o.write_text(json.dumps(out, indent=1, default=float) + "\n")
 
