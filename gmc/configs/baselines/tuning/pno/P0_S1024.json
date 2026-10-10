@@ -1,0 +1,9 @@
+{
+ "method": "pno",
+ "name": "P0_S1024",
+ "what": "S=1024, PNO, erosion 4 (heuristics.py default), raster 5 mm",
+ "common": {
+  "S": 1024
+ },
+ "robots": {}
+}

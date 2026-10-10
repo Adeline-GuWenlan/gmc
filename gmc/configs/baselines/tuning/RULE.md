@@ -16,3 +16,18 @@ FOCI `F0_repo_zband` (the repo's z band (0, 1): the plan requires planning in th
 what the matched contract / plane constraint costs or gains, and are reported.
 
 The selected configuration is frozen in `configs/baselines/<method>.json` and committed before the pilot.
+
+## B2 addendum (PNO, cust_fields) — written and committed before any B2 tuning result
+
+Same tuning set, same harness, same selection rule (1. most SUCCESS, 2. fewest CLAIMED_*, 3. lowest median
+algorithm_wall_s, per robot), ≤ 10 candidates per method, one pass each.
+
+- **PNO** (`tuning/pno/P*.json`, 8 candidates): model grid S (1024 / 2048 / 4096), published weights (PNO /
+  PNOwPINN), heuristic erosion (4 = `heuristics.py` default / 1), shared-raster resolution (10 / 5 / 2.5 mm).
+  All are zero-shot (no training); all are eligible (none breaks plan §3: the map is the shared conservative raster in
+  every candidate, and PNO exposes no obstacle contract of its own).
+- **cust_fields** (`tuning/cust_fields/C*.json`): obstacle construction (one convex squircle cover per map piece vs
+  the chain star decomposition), cover tightness (`waste`, squareness `s`), endpoint snap radius, NF step `dt`. The
+  candidate keeping the repo's hidden 5 cm obstacle pad (`native_pad: true`) is run for information and is
+  **ineligible** (plan §3.1: where a method exposes a safety margin it is set to the judge's; our C-space map already
+  contains r + margin).

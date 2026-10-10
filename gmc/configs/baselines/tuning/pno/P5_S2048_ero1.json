@@ -1,0 +1,10 @@
+{
+ "method": "pno",
+ "name": "P5_S2048_ero1",
+ "what": "P1 with erosion 1",
+ "common": {
+  "S": 2048,
+  "erosion": 1
+ },
+ "robots": {}
+}

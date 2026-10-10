@@ -1,0 +1,10 @@
+{
+ "method": "pno",
+ "name": "P3_S2048_pinn",
+ "what": "P1 with the PNOwPINN weights",
+ "common": {
+  "S": 2048,
+  "model": "PNOwPINN"
+ },
+ "robots": {}
+}

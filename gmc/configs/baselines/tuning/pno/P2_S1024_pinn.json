@@ -1,0 +1,10 @@
+{
+ "method": "pno",
+ "name": "P2_S1024_pinn",
+ "what": "P0 with the PNOwPINN weights",
+ "common": {
+  "S": 1024,
+  "model": "PNOwPINN"
+ },
+ "robots": {}
+}

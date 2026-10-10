@@ -1,0 +1,9 @@
+{
+ "method": "pno",
+ "name": "P1_S2048",
+ "what": "S=2048 (grid ~ raster resolution)",
+ "common": {
+  "S": 2048
+ },
+ "robots": {}
+}
