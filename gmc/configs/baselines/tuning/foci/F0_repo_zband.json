@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F0_repo_zband",
+ "common": {
+  "z_half": 0.5
+ },
+ "robots": {}
+}

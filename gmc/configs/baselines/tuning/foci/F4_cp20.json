@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F4_cp20",
+ "common": {
+  "num_control_points": 20
+ },
+ "robots": {}
+}

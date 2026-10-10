@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F2_judge_sigma",
+ "common": {
+  "sigma_level": "judge"
+ },
+ "robots": {}
+}

@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F6_samples80",
+ "common": {
+  "num_samples": 80
+ },
+ "robots": {}
+}

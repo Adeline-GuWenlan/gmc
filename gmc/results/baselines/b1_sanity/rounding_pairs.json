@@ -1,0 +1,11 @@
+{
+ "schema": "bl.pair_list.v1",
+ "purpose": "harness sanity: the 4 F4 pairs whose stored 0.1 mm-rounded A* route fails the judge (stage J gate (b)); astar_replay must fall back to the exact A* re-run and still be SUCCESS",
+ "source": "results/baselines/j/astar/new/*.jsonl",
+ "pair_ids": [
+  "F4X-00400",
+  "F4X-00692",
+  "F4X-01125",
+  "F4W-00211"
+ ]
+}

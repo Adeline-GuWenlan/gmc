@@ -1,0 +1,8 @@
+{
+ "method": "splatnav",
+ "name": "S0_sphere",
+ "common": {
+  "eps": 1.0
+ },
+ "robots": {}
+}

@@ -1,0 +1,9 @@
+{
+ "method": "foci",
+ "name": "F7_cp20_samples80",
+ "common": {
+  "num_control_points": 20,
+  "num_samples": 80
+ },
+ "robots": {}
+}

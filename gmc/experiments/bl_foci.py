@@ -7,8 +7,12 @@ and ``Planner.plan(start, end)`` exactly as ``demos/stonehenge.py`` does; FOCI k
 a 0.25 m voxel grid of Gaussian means + a spline fit), never our A* route.
 
 Frame: plan frame recentred on the region box in (u, v); z shifted so that the body centre z_c sits at 0.5, the
-middle of FOCI's hard-coded ``z_range = (0, 1)`` (solver hull bounds and A* bounds), i.e. FOCI may move the body
-within z_c +- 0.5 m. It plans in 3D; the harness projects its curve onto z = z_c and records ``max_abs_dz_m``.
+middle of FOCI's hard-coded ``z_range = (0, 1)``. FOCI plans in 3D. Plane constraint (plan §3.2): the solver's z band
+is narrowed to z_c +- ``z_half`` (default 0.01 m) through ``_planner_cls`` (``Planner.__init__`` verbatim except that
+band and the body-point spacing). With the repo's (0, 1) band FOCI moved the body the full +-0.5 m off the plane on
+every probe query (job 19508258), and a projection of such a curve is not the curve FOCI planned. Its A* initial
+guess still searches z in (0, 1) (``Planner.plan`` unchanged). The harness projects the curve onto z = z_c and
+records ``max_abs_dz_m``.
 
 Obstacles: the judge's Gaussians (opacity > tau already). Cut to those that can touch the body at all (judge-level
 ellipsoid meets the body slab [z_c - h - m, z_c + h + m] and lies within reach of the known box) -- removing the
@@ -21,9 +25,8 @@ ellipsoid (the closest available "matched" setting). Mismatch recorded either wa
 Body: FOCI's robot is three body points (centre and +-0.2 m along the heading, ``Planner.kinematics``), each a
 Gaussian ``robot_cov``. Our cover: robot_cov = diag(a^2, a^2, c^2) / level^2 * cov_scale^2, where (a, a, c) is the
 minimum-volume ellipsoid enclosing the cylinder (r + m, h + m): a = sqrt(3/2) (r + m), c = sqrt(3) (h + m); so with
-cov_scale 1 the level-sigma ellipsoid of each body point encloses the cylinder. ``kin_scale`` (default None = the
-repo's 0.2 m) optionally changes the body-point spacing by subclassing ``Planner.__init__`` (same code, other
-scale): a deviation, used only if tuning shows it matters, and disclosed.
+cov_scale 1 the level-sigma ellipsoid of each body point encloses the cylinder. ``kin_scale`` optionally changes the
+body-point spacing through the same subclass; 0.2 is the repo's value.
 
 Claimed = IPOPT reported success (``solver.stats()['success']``: Solve_Succeeded or Solved_To_Acceptable_Level).
 FAIL reasons: astar_no_path (FOCI's ``ValueError("No path found")``), ipopt_<return_status>.
@@ -37,7 +40,7 @@ import numpy as np
 
 REPO = "/scratch/wg2381/ext_repos/foci_bl"
 DEFAULTS = {"num_control_points": 10, "num_samples": 40, "sigma_level": "native", "cov_scale": 1.0,
-            "kin_scale": None, "heading": "start_to_goal"}
+            "kin_scale": .2, "z_half": .01, "heading": "start_to_goal"}
 
 
 def prepare(scene, body, cfg):
@@ -66,16 +69,16 @@ def prepare(scene, body, cfg):
     return {"means": mu, "covs": C, "robot_cov": robot_cov, "centre": centre, "z_c": z_c, "info": info}
 
 
-def _planner_cls(kin_scale):
-    from foci.planners.planner import Planner
-    if kin_scale is None:
-        return Planner
+def _planner_cls(kin_scale, z_half):
+    """``Planner`` with ``__init__`` verbatim except two numbers: the body-point spacing (0.2 m upstream) and the
+    solver's z band (``z_range=(0, 1)`` upstream, here ``(0.5 - z_half, 0.5 + z_half)``: the plane constraint of plan
+    §3.2). ``kin_scale=0.2, z_half=0.5`` is the repo's planner exactly. ``plan`` (A* + spline-fit init + IPOPT) is
+    inherited unchanged; its A* still searches z in (0, 1)."""
     import casadi as cas
     from foci.optim.solvers import create_solver
+    from foci.planners.planner import Planner
 
-    class ScaledPlanner(Planner):
-        """``Planner.__init__`` verbatim except the body-point spacing (0.2 m upstream)."""
-
+    class BandPlanner(Planner):
         def __init__(self, obstacle_positions, obstacle_covs, robot_cov, num_control_points, num_samples,
                      obstacle_colors=None):
             self.num_control_points = num_control_points
@@ -99,8 +102,8 @@ def _planner_cls(kin_scale):
                 covs_inv[i] = np.linalg.inv(covs_sum[i])
             self.solver, self.lbg, self.ubg, self.convolution_functor = create_solver(
                 num_control_points, obstacle_positions, covs_det, covs_inv, self.kinematics, dim_control_points=3,
-                num_body_parts=3, num_samples=num_samples, z_range=(0, 1))
-    return ScaledPlanner
+                num_body_parts=3, num_samples=num_samples, z_range=(.5 - z_half, .5 + z_half))
+    return BandPlanner
 
 
 class Adapter:
@@ -118,9 +121,10 @@ class Adapter:
         import foci
         if not foci.__file__.startswith(REPO):
             raise ValueError(f"foci imported from {foci.__file__}, not the MUMPS copy {REPO}")
-        cfg = dict(state["cfg"], **{k: v for k, v in config.items() if k.startswith("q_")})
+        cfg = dict(DEFAULTS, **state["cfg"])
+        cfg.update({k: v for k, v in config.items() if k.startswith("q_")})
         t0 = time.perf_counter()
-        planner = _planner_cls(cfg["kin_scale"])(state["means"], state["covs"], state["robot_cov"],
+        planner = _planner_cls(cfg["kin_scale"], cfg["z_half"])(state["means"], state["covs"], state["robot_cov"],
                                                  num_control_points=int(cfg["num_control_points"]),
                                                  num_samples=int(cfg["num_samples"]))
         self.instance_info = dict(state["info"], planner_init_s=time.perf_counter() - t0, foci_file=foci.__file__)

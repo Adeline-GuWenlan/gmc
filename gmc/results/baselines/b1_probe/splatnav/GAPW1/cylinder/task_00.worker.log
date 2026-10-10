@@ -1,0 +1,19 @@
+
+=== worker start 2026-10-09T20:35:16 splatnav
+/scratch/wg2381/ext_repos/splatnav/initialization/grid_utils.py:21: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.max_index = torch.tensor(self.resolution, dtype=int, device=self.device) - 1
+/scratch/wg2381/.conda/envs/splatnav/lib/python3.10/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Iteration: 0
+Iteration: 1
+Iteration: 2
+Iteration: 3
+Iteration: 4
+Iteration: 5
+Iteration: 6
+Iteration: 7
+Iteration: 8
+Iteration: 9
+Iteration: 10
+Time to create GSplatVoxel: 0.1703810691833496
+Source is in occupied voxel. Projecting starting point to closest unoccupied.

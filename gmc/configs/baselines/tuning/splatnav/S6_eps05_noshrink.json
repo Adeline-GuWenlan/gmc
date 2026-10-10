@@ -1,0 +1,9 @@
+{
+ "method": "splatnav",
+ "name": "S6_eps05_noshrink",
+ "common": {
+  "eps": 0.05,
+  "shrink_bounds": false
+ },
+ "robots": {}
+}

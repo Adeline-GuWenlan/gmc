@@ -1,0 +1,9 @@
+{
+ "method": "splatnav",
+ "name": "S7_eps05_native1sigma",
+ "common": {
+  "eps": 0.05,
+  "sigma_level": "native"
+ },
+ "robots": {}
+}

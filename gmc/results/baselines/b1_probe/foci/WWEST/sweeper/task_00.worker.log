@@ -1,0 +1,48 @@
+
+=== worker start 2026-10-09T20:35:59 foci
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 158, in <module>
+    main()
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 154, in main
+    (cmd_setup if a.mode == "setup" else cmd_serve)(a)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 122, in cmd_serve
+    live = ad.instantiate(state, config)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_foci.py", line 127, in instantiate
+    planner = _planner_cls(cfg["kin_scale"], cfg["z_half"])(state["means"], state["covs"], state["robot_cov"],
+KeyError: 'z_half'
+
+=== worker start 2026-10-09T20:36:01 foci
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 158, in <module>
+    main()
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 154, in main
+    (cmd_setup if a.mode == "setup" else cmd_serve)(a)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 122, in cmd_serve
+    live = ad.instantiate(state, config)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_foci.py", line 127, in instantiate
+    planner = _planner_cls(cfg["kin_scale"], cfg["z_half"])(state["means"], state["covs"], state["robot_cov"],
+KeyError: 'z_half'
+
+=== worker start 2026-10-09T20:36:02 foci
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 158, in <module>
+    main()
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 154, in main
+    (cmd_setup if a.mode == "setup" else cmd_serve)(a)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 122, in cmd_serve
+    live = ad.instantiate(state, config)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_foci.py", line 127, in instantiate
+    planner = _planner_cls(cfg["kin_scale"], cfg["z_half"])(state["means"], state["covs"], state["robot_cov"],
+KeyError: 'z_half'
+
+=== worker start 2026-10-09T20:36:03 foci
+Traceback (most recent call last):
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 158, in <module>
+    main()
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 154, in main
+    (cmd_setup if a.mode == "setup" else cmd_serve)(a)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_worker.py", line 122, in cmd_serve
+    live = ad.instantiate(state, config)
+  File "/scratch/wg2381/splathjb-baselines/gmc/experiments/bl_foci.py", line 127, in instantiate
+    planner = _planner_cls(cfg["kin_scale"], cfg["z_half"])(state["means"], state["covs"], state["robot_cov"],
+KeyError: 'z_half'

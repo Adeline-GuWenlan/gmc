@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F5_kin0",
+ "common": {
+  "kin_scale": 0.0
+ },
+ "robots": {}
+}

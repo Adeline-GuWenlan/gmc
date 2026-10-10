@@ -1,0 +1,9 @@
+{
+ "method": "splatnav",
+ "name": "S3_eps05_cell4",
+ "common": {
+  "eps": 0.05,
+  "cell_m": 0.04
+ },
+ "robots": {}
+}

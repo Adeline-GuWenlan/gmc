@@ -1,0 +1,9 @@
+{
+ "method": "splatnav",
+ "name": "S5_eps05_narrow",
+ "common": {
+  "eps": 0.05,
+  "amax": 0.5
+ },
+ "robots": {}
+}

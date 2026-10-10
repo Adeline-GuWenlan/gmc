@@ -1,0 +1,8 @@
+{
+ "method": "foci",
+ "name": "F3_cov05",
+ "common": {
+  "cov_scale": 0.5
+ },
+ "robots": {}
+}

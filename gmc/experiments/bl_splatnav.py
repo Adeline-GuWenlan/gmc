@@ -38,7 +38,8 @@ Config (setup keys; ``q_*`` keys are query-time only): eps (z squash), cell_m (v
 spline_deg, n_sec, sigma_level ("judge" | "native"), shrink_bounds (keep the A* grid inside the known box shrunk by
 the body radius + corridor), q_seed.
 Claimed = A* found a path and the QP was feasible (the repo's ``feasible``). FAIL reasons: astar_no_path,
-qp_infeasible. Output path = the evaluated Bezier positions, unsquashed (z kept for the dz record).
+qp_infeasible. On an infeasible QP the repo's debug dump of the polytopes (``save_polytope`` -> 'infeasible.obj') is
+replaced, on the instance, by a no-op: it raised QhullError on degenerate polytopes and masked the infeasibility. Output path = the evaluated Bezier positions, unsquashed (z kept for the dz record).
 """
 from __future__ import annotations
 
@@ -179,17 +180,22 @@ class Adapter:
             rec["astar"] = p
             return p
         vox.create_path = create_path
+        # On an infeasible QP the repo first dumps the polytopes to 'infeasible.obj' (open3d + qhull) and only then
+        # re-raises; that debug dump itself raises QhullError on degenerate polytopes (probe 19508258), masking the
+        # infeasibility. Instance-level no-op: no file, same control flow (the repo's bare `raise` follows).
+        planner.save_polytope = lambda polytopes, path: rec.setdefault("infeasible_dump_skipped", True)
         try:
             out = planner.generate_path(x0, xf)
         except Exception as exc:
             if "astar" in rec and rec["astar"] is None:
                 return {"claimed": False, "claimed_reason": "astar_no_path", "path_uv": None}
-            if isinstance(exc, RuntimeError) and "reraise" in str(exc):
+            if rec.get("infeasible_dump_skipped") or (isinstance(exc, RuntimeError) and "reraise" in str(exc)):
                 return {"claimed": False, "claimed_reason": "qp_infeasible", "path_uv": None,
                         "info": {"astar_points": None if rec.get("astar") is None else len(rec["astar"])}}
             raise
         finally:
             del vox.create_path
+            del planner.save_polytope
         traj = np.asarray(out["traj"], float)[:, :3]
         P = np.c_[traj[:, 0] + c[0], traj[:, 1] + c[1], st["z_c"] + traj[:, 2] / st["eps"]]
         stages = {k: float(out[k]) for k in ("times_astar", "times_collision_set", "times_polytope", "times_opt")}

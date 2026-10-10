@@ -1,0 +1,124 @@
+{
+ "method": "foci",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_in_slice": 4,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 4,
+ "complete": true,
+ "status_counts": {
+  "SUCCESS": 2,
+  "CLAIMED_COLLIDES": 1,
+  "CLAIMED_UNPROVEN": 1
+ },
+ "query_outer_wall_s_this_run": 0.8311695670709014,
+ "query_algorithm_wall_s_this_run": 0.829228482209146,
+ "judge_wall_s_this_run": 0.33460123697295785,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+  "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+  "compile_id": "549453247f5cf37a",
+  "load_s": 0.992187516996637
+ },
+ "setup": {
+  "setup_id": "6686a288e3f660b5",
+  "artifact": "outputs/baselines/foci/44136fa355b3/WWEST_cylinder.setup.pkl",
+  "artifact_sha256": "3ed8ff9c45431681e6aa8f8380e17568eb8f9b596ed8de3a80390b5a8a46d4de",
+  "build_setup_wall_s": 0.0365094190929085,
+  "config": {}
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   11.899034018162638
+  ],
+  "load_s_per_start": [
+   0.036732975859194994
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "6686a288e3f660b5",
+   "artifact_sha256": "3ed8ff9c45431681e6aa8f8380e17568eb8f9b596ed8de3a80390b5a8a46d4de",
+   "load_s": 0.036732975859194994,
+   "instantiate_s": 11.899034018162638,
+   "instantiate_cpu_s": 3.129649809,
+   "pid": 2606230,
+   "setup_calls": 0,
+   "python": "3.10.21",
+   "info": {
+    "n_input": 390716,
+    "n_kept_slab_and_box": 226775,
+    "slab_z": [
+     0.019000000000000017,
+     1.751
+    ],
+    "centre_offset_plan": [
+     -5.65,
+     1.2,
+     0.385
+    ],
+    "robot_cov_diag": [
+     0.03397537499999999,
+     0.03397537499999999,
+     0.5624669999999999
+    ],
+    "cover_level_sigma_semi_axes_m": [
+     0.36864820628886824,
+     0.36864820628886824,
+     1.4999559993546476
+    ],
+    "cylinder_r_h_plus_margin": [
+     0.301,
+     0.866
+    ],
+    "obstacle_cov_factor": 1.0,
+    "z_range_real": [
+     0.385,
+     1.385
+    ],
+    "planner_init_s": 11.888281119987369,
+    "foci_file": "/scratch/wg2381/ext_repos/foci_bl/foci/__init__.py"
+   },
+   "ready_wall_s": 12.809165494982153,
+   "reason": "first"
+  }
+ ],
+ "config": {},
+ "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "config_file": null,
+ "config_file_sha256": null,
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "host": {
+  "node": "gl043.hpc.nyu.edu",
+  "slurm_job_id": "19508258",
+  "cpus_per_task": "4",
+  "affinity_cpus": 4,
+  "loadavg": [
+   80.029296875,
+   87.3466796875,
+   78.77880859375
+  ],
+  "utc": "2026-10-10T00:35:55Z",
+  "python": "3.13.5",
+  "git_commit": "7c39aaefbf345fd86c612ba53be42346351893d0"
+ },
+ "task": 0,
+ "n_tasks": 1,
+ "pairs_source": "tuning",
+ "pair_ids": [
+  "F3X-00000",
+  "F3X-00001",
+  "F3X-00002",
+  "F3X-00003"
+ ]
+}

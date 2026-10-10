@@ -1,0 +1,8 @@
+{
+ "method": "splatnav",
+ "name": "S4_eps02",
+ "common": {
+  "eps": 0.02
+ },
+ "robots": {}
+}
