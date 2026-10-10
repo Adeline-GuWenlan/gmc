@@ -1,0 +1,115 @@
+{
+ "method": "cust_fields",
+ "region": "WWEST",
+ "robot": "sweeper",
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "convex",
+  "waste": 2.0,
+  "tighten": [
+   1.5,
+   1.25
+  ],
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "artifact": "outputs/baselines/cust_fields/3a68406d72f1/WWEST_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.8006462440825999,
+ "host": {
+  "node": "cs601.hpc.nyu.edu",
+  "slurm_job_id": "19523046",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   76.64697265625,
+   79.21875,
+   79.5244140625
+  ],
+  "utc": "2026-10-10T07:47:04Z",
+  "python": "3.13.5",
+  "git_commit": "981f5b6377a8e9e270d1a309490acce935df17d2"
+ },
+ "scene_export_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+ "log": "outputs/baselines/cust_fields/3a68406d72f1/WWEST_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "e6e67c608b7078cf",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/WWEST_sweeper.npz",
+  "scene_sha256": "4e8af1d53614037aae0e2b378f66d8bec7cc6b1d733f35748ac49129b62d148d",
+  "config": {
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "waste": 2.0,
+   "tighten": [
+    1.5,
+    1.25
+   ],
+   "max_chain": 7,
+   "s": 0.85,
+   "ws_s": 0.9999,
+   "native_pad": false,
+   "merge_gap_m": 0.0,
+   "nf_lambda": 1000.0,
+   "nf_mu": [
+    10000000000.0,
+    100000000.0,
+    1000000.0,
+    10000.0,
+    100.0,
+    10.0
+   ],
+   "dt": 0.05,
+   "max_steps": 3000,
+   "goal_tol": 0.05,
+   "snap_max_m": 0.1,
+   "seed": 0
+  },
+  "build_setup_wall_s": 0.9378994728904217,
+  "build_setup_cpu_s": 0.9220397330000001,
+  "region": "WWEST",
+  "robot": "sweeper",
+  "info": {
+   "pieces": 18,
+   "covers": 1,
+   "merges": 17,
+   "pieces_in_merged_covers": 18,
+   "raster": "outputs/baselines/raster/WWEST_sweeper_r5mm.npz",
+   "raster_sha256": "c96ca8cee85905c185bd083afd7e0f1a31c3557342f20d3e4a50de5533e1d22a",
+   "raster_build_wall_s": 17.955699437996373,
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "n_stars": 1,
+   "covers_crossing_workspace_boundary": 1,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.7009700598802395,
+   "nf_free_frac_in_ws": 0.002036558462023322,
+   "map_free_cells_lost_to_covers": 1108858,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 0.8423001400660723
+  },
+  "python": "3.10.22",
+  "pid": 3888892,
+  "bytes": 3551258,
+  "sha256": "f27133fdade830d40f37d8818346720687bab19bded3c023c792bc182357de2b"
+ }
+}

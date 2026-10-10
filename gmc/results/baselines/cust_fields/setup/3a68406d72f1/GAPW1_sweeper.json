@@ -1,0 +1,115 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "sweeper",
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "convex",
+  "waste": 2.0,
+  "tighten": [
+   1.5,
+   1.25
+  ],
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "artifact": "outputs/baselines/cust_fields/3a68406d72f1/GAPW1_sweeper.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.3191586770117283,
+ "host": {
+  "node": "cs601.hpc.nyu.edu",
+  "slurm_job_id": "19523046",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   76.64697265625,
+   79.21875,
+   79.5244140625
+  ],
+  "utc": "2026-10-10T07:47:06Z",
+  "python": "3.13.5",
+  "git_commit": "981f5b6377a8e9e270d1a309490acce935df17d2"
+ },
+ "scene_export_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+ "log": "outputs/baselines/cust_fields/3a68406d72f1/GAPW1_sweeper.setup.log",
+ "artifact_meta": {
+  "setup_id": "cd6e919d4298890f",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/GAPW1_sweeper.npz",
+  "scene_sha256": "dec4f33774adc08a49cd8dff7eda16fa34fff75fc4e0fa27aed817cbfeb0c782",
+  "config": {
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "waste": 2.0,
+   "tighten": [
+    1.5,
+    1.25
+   ],
+   "max_chain": 7,
+   "s": 0.85,
+   "ws_s": 0.9999,
+   "native_pad": false,
+   "merge_gap_m": 0.0,
+   "nf_lambda": 1000.0,
+   "nf_mu": [
+    10000000000.0,
+    100000000.0,
+    1000000.0,
+    10000.0,
+    100.0,
+    10.0
+   ],
+   "dt": 0.05,
+   "max_steps": 3000,
+   "goal_tol": 0.05,
+   "snap_max_m": 0.1,
+   "seed": 0
+  },
+  "build_setup_wall_s": 0.42567242914810777,
+  "build_setup_cpu_s": 0.41153404800000004,
+  "region": "GAPW1",
+  "robot": "sweeper",
+  "info": {
+   "pieces": 9,
+   "covers": 5,
+   "merges": 4,
+   "pieces_in_merged_covers": 7,
+   "raster": "outputs/baselines/raster/GAPW1_sweeper_r5mm.npz",
+   "raster_sha256": "2a48e991a1aeddf09aaab51bd3e7e49e4efd55a7fc62946f4707afed17674083",
+   "raster_build_wall_s": 12.171052247984335,
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "n_stars": 5,
+   "covers_crossing_workspace_boundary": 3,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.7460199376947041,
+   "nf_free_frac_in_ws": 0.48333457943925234,
+   "map_free_cells_lost_to_covers": 210805,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 0.3696796461008489
+  },
+  "python": "3.10.22",
+  "pid": 3888936,
+  "bytes": 1871953,
+  "sha256": "fffc280dec22ded52d838e0aa2486ab0d528883eb0577699413be7808c8366f8"
+ }
+}

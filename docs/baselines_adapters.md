@@ -656,3 +656,89 @@ Reading [E]:
   cust_fields/setup/*/*.json`).
 So for the better constructions most pairs are topologically solvable in the NF world; what fails on the tuning set is
 the navigation-function descent itself (§11.3).
+
+### 11.3 Tuning → frozen (`configs/baselines/cust_fields.json`, 981f5b6, before the pilot)
+Same rule and tuning set; 9 candidates (8 eligible + `C8_native_pad`, ineligible: the repo's hidden 5 cm pad kept),
+one pass each, CPU array 19518610 (judge inline, 120 s). Rows `results/baselines/tuning/cust_fields/<C>/…jsonl.gz`,
+table `tuning_table.json` [E]. Outcome counts per robot over the 50 tuning pairs (every non-SUCCESS row is a FAIL or
+TIMEOUT; no candidate made a single unsafe claim):
+
+| candidate | construction | cylinder | sweeper | median s cyl / sweep |
+|---|---|---|---|---|
+| **C0_convex** | one convex squircle per piece, s 0.85, snap 0.10 m | 0 — swallowed 50 | **1** — swallowed 32, max_steps 10, stuck 7 | 0.0001 / 0.0002 |
+| C1_chain15 | chains, waste 1.5, no tightening | 0 — swallowed 32, stuck 18 | 0 — stuck 23, TIMEOUT 22, swallowed 5 | 0.0002 / 29.1 |
+| C2_chain20 | chains, waste 2.0 | 0 — swallowed 39, max_steps 6, stuck 5 | 0 — stuck 30, TIMEOUT 13, … | 0.0001 / 11.9 |
+| C3_adapt | chains, 2.0 → 1.5 → 1.25 tightening (adapter default) | 0 — swallowed 26, stuck 18, max_steps 6 | 0 — stuck 21, max_steps 14, swallowed 11, TIMEOUT 4 | 0.0006 / 9.8 |
+| C4_adapt_s99 | C3, squareness 0.99 | 0 — max_steps 22, swallowed 21, stuck 7 | 0 — TIMEOUT 17, max_steps 13, stuck 11, … | 8.9 / 27.5 |
+| C5_adapt_snap05 | C3, snap 0.5 m | 0 — stuck 26, swallowed 18, max_steps 6 | 0 — stuck 23, max_steps 17, … | 6.3 / 15.8 |
+| C6_adapt_s99_snap05 | C3, s 0.99, snap 0.5 m | 0 — max_steps 31, swallowed 10, stuck 9 | 0 — TIMEOUT 20, stuck 17, max_steps 12, … | 46.8 / 34.7 |
+| C7_…_dt02 | C6, NF step 0.02 m | 0 — max_steps 29, swallowed 10, stuck 8, TIMEOUT 3 | 0 — max_steps 22, stuck 14, TIMEOUT 13, … | 56.7 / 70.5 |
+| C8_native_pad (ineligible) | C6 keeping the repo's +0.1 m | 1 — … TIMEOUT 9 | 0 — TIMEOUT 23, … | 8.4 / 17.8 |
+
+Reading [E]:
+- **cust_fields does not solve these regions.** Of 800 eligible tuning queries, one succeeded (C0, GAPW1 sweeper,
+  F3W-00009: 139 NF steps, 4.53 m, the judged goal segment 4.7 cm).
+- With a tight construction (C4–C7) the endpoints mostly survive (§11.2) and **the navigation-function descent itself
+  fails**: it stalls (`nf_stuck`: 60 consecutive steps without progress), wanders for 3000 steps (`nf_max_steps`), or
+  exceeds 120 s (TIMEOUT: one potential evaluation costs O(M²)–O(M³) Python operations over M obstacles and chain
+  depths; 0.13 s per gradient at M = 32 in the probe). The control (§11.1, `control.json`) shows the same loop reaches
+  only 15/30 queries even on a synthetic world that satisfies every assumption, while the repo demo itself is
+  reproduced exactly (step 179, 8.150 m) — so this is the method's own descent on these geometries, not a broken
+  pipeline; the forced boundary-crossing covers make it worse (7/30 with one boundary wall).
+- **The pick is the rule's tie-break, said plainly**: no eligible candidate succeeds on the cylinder, all have zero
+  unsafe claims, so rule 3 (lowest median time) picks the one that fails fastest — `C0_convex`, whose covers swallow
+  every cylinder endpoint in < 1 ms. On the sweeper C0 has the only success. The frozen config is therefore C0 for both
+  robots. That choice does not hide a better variant: the best eligible alternative has 0/50 on both robots.
+- **Attribution (plan §7.6)**: the cylinder result is caused by our adaptation in the sense that a star world of
+  disjoint squircles cannot represent these maps without swallowing endpoints or closing passages (§11.2); the NF
+  descent failures of the tighter constructions are the method's. B4 must say both.
+
+### 11.4 Pilot (frozen C0_convex; setup 19523046 + CPU array 19523047; `results/baselines/pilot/cust_fields/`) [E]
+Same 100 F4 pairs per robot, 20 CPU tasks (robot × region chunks, `--task/--n-tasks`), judge inline.
+
+| robot | SUCCESS | CLAIMED_* | FAIL (reasons) | TIMEOUT / ERROR | algorithm s median / p95 / max |
+|---|---|---|---|---|---|
+| cylinder | **0/100** | 0 | 100 (all `endpoint_in_obstacle_cover`) | 0 / 0 | 0.0001 / 0.0001 / 0.0001 |
+| sweeper | **3/100** (all GAPW1) | 0 | 97 (swallowed 56, `nf_stuck` 25, `nf_max_steps` 16) | 0 / 0 | 0.0002 / 48.2 / 69.5 |
+
+- The three successes (F4W-00536, -01038, -01475) are genuine NF descents of 89–140 steps (3.6–4.5 m) ending
+  4.6–4.7 cm from the goal; the appended goal segment is judged free in each. No unsafe claim at all: every NF path
+  stays outside the covers, which contain the C-space map.
+- Per region, sweeper: GAPW1 3/30, S 0/20 (NF fails), WWEST 0/50 (one cover swallows the room, §11.2).
+- Setup: world build 0.2–1.0 s (convex) + the shared raster build; per task 1 worker start, 0 restarts, instantiate
+  (YAML world + `World`) ≈ 2 s.
+
+![B2 pilot](../gmc/results/baselines/pilot/fig_b2_pilot.png)
+
+Figure (`fig_b2_pilot.png`, viewed): per region and robot the 5 mm C-space map (dark = occupied for the body centre),
+cust_fields' frozen NF world (orange: under `C0_convex` one squircle encloses the whole of WWEST and GAPW1-cylinder;
+in S the covers cross the corridor walls), two pilot pairs each with the stored A* route (black), PNO (blue: grid
+paths around the C-space obstacles, sometimes on another side than the A* route, all SUCCESS) and cust_fields (red: its
+GAPW1-sweeper success F4W-00536).
+
+## 12. Projection for B3 (all four methods; `results/baselines/pilot/projection_b2.json`, `projection.json`) [E]
+`bl_harness project` (unchanged; B1's arithmetic) on the PNO and cust_fields pilots, `--streams 4 --gpus 2`; then
+`experiments/bl_b2_projection.py` combines it with `projection_b1.json` and adds the shared raster builds to the
+map-based methods' setup. Full 5000 pairs × 2 robots per method:
+
+| method | B3 layout | method stream-h | GPU-h | CPU-h (job cores + judge + setup) | wall h | plan §6 decision |
+|---|---|---|---|---|---|---|
+| SplatNav | 2 L40S jobs × 4 streams, `--judge defer`, then judge CPU array | 1.81 | 0.45 | 7.8 | 0.23 | full 5000 × 2 |
+| FOCI | same | 1.94 | 0.49 | 2.2 | 0.24 | full 5000 × 2 |
+| PNO | same (≥ 4 S = 1024 workers fit an L40S: 8.5 GB for 2) | 5.48 | 1.37 | 6.9 | 0.68 | full 5000 × 2 |
+| cust_fields | CPU array, region × robot × 100-pair chunks (50 tasks) %12, 4 GB, judge inline | 9.44 | 0 | 9.6 | 0.79 | full 5000 × 2 |
+| **total** | | | **2.3** | **26.4** | | inside B3's 600 CPU-h / 100 GPU-h |
+
+No method exceeds its share (150 CPU-h each, 100 GPU-h total), so **no stratified 1000-pair subset is needed**.
+Caveats [G]: linear scaling from the pilot's 2 concurrent PNO streams to 4 per GPU (PNO's per-query time is CPU-bound
+Python A*, one core per stream); cust_fields' cost is dominated by the sweeper queries whose endpoints survive (NF
+descent up to the 120 s limit) — its 5000-pair mean could differ from the pilot's; PNO judge 1.33 CPU-h. Rows are small
+(PNO ≈ 100 vertices, cust_fields mostly FAIL rows), so B3 can commit them gzipped (`bl_harness archive`).
+
+## 13. B2 budget and jobs
+**19.1 CPU-h of 40 and 1.01 GPU-h of 5** (`sacct`, allocated cores × elapsed over 16 compute jobs = 65 job/task
+records in `jobids/B2.txt`, GPU jobs counted with their 4 cores; the agent's own allocations excluded) [E]. Jobs:
+19518118 (failed: `/usr/bin/time` absent) / 19518180 raster probe; 19518228 raster build + judge check; 19518250 PNO
+unit probe; 19518393 cust_fields probe; 19518522 / 19520414 world checks; 19518559 PNO tuning + 19518925 OOM rerun;
+19518610 cust_fields tuning; 19518676 / 19518730 cust_fields control; 19520299 PNO pilot; 19523046 + 19523047
+cust_fields pilot; 19525402 figure. Jobs still running: none.

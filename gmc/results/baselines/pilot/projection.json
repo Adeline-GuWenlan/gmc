@@ -1,0 +1,135 @@
+{
+ "definition": "bl B2: combined B3 projection over all four methods (plan \u00a76) from the two pilot projections.\n\nReads ``results/baselines/pilot/projection_b1.json`` (SplatNav, FOCI) and ``projection_b2.json`` (PNO, cust_fields),\nboth made by ``bl_harness project`` from the frozen-config pilots, and writes ``results/baselines/pilot/projection.json``:\nper method the B3 array layout, concurrency, method stream-hours, GPU-h, CPU-h (GPU-job allocations + CPU judge +\nsetup, incl. the shared raster build for the map-based methods), wall time, and whether plan \u00a76's budget rule\n(per-method share 600/4 = 150 CPU-h; 100 GPU-h total) forces the stratified 1000-pair subset.\nCPU-h of a GPU job = its allocated cores x wall (4 cores per L40S job, one per harness stream).",
+ "budget": {
+  "B3_cpu_h": 600.0,
+  "per_method_cpu_share_h": 150.0,
+  "B3_gpu_h": 100.0
+ },
+ "assumptions": {
+  "gpu_jobs_at_a_time": 2,
+  "streams_per_gpu": 4,
+  "cpu_array_tasks_at_a_time": 12,
+  "judge": "deferred (`--judge defer` on the GPU, `bl_harness judge` as a CPU array) for GPU methods; inline for CPU-only cust_fields"
+ },
+ "methods": {
+  "splatnav": {
+   "layout": "GPU: 2 L40S jobs at a time, 4 harness streams each (region x robot tasks), --judge defer; then `bl_harness judge` CPU array",
+   "method_stream_h": 1.8058212580672826,
+   "gpu_h": 0.45145531451682064,
+   "cpu_h": 7.786492819112027,
+   "judge_cpu_h": 5.978415532555018,
+   "setup_h_incl_raster": 0.0022560284897271132,
+   "wall_h": 0.22572765725841032,
+   "over_cpu_share": false,
+   "decision": "full 5000 x 2",
+   "pilot": {
+    "cylinder": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 100
+     },
+     "median_alg_s": 0.5978228256572038
+    },
+    "sweeper": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 100
+     },
+     "median_alg_s": 0.39576417801436037
+    }
+   }
+  },
+  "foci": {
+   "layout": "GPU: 2 L40S jobs at a time, 4 harness streams each (region x robot tasks), --judge defer; then `bl_harness judge` CPU array",
+   "method_stream_h": 1.9418967733098866,
+   "gpu_h": 0.48547419332747166,
+   "cpu_h": 2.15211910300759,
+   "judge_cpu_h": 0.21018686895129582,
+   "setup_h_incl_raster": 3.5460746407301895e-05,
+   "wall_h": 0.24273709666373583,
+   "over_cpu_share": false,
+   "decision": "full 5000 x 2",
+   "pilot": {
+    "cylinder": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 44,
+      "CLAIMED_UNPROVEN": 54,
+      "CLAIMED_COLLIDES": 2
+     },
+     "median_alg_s": 0.39082203910220414
+    },
+    "sweeper": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 77,
+      "FAIL": 16,
+      "CLAIMED_UNPROVEN": 2,
+      "CLAIMED_COLLIDES": 5
+     },
+     "median_alg_s": 0.45973166555631906
+    }
+   }
+  },
+  "pno": {
+   "layout": "GPU: 2 L40S jobs at a time, 4 harness streams each (region x robot tasks), --judge defer; then `bl_harness judge` CPU array",
+   "method_stream_h": 5.47687101042629,
+   "gpu_h": 1.3692177526065725,
+   "cpu_h": 6.885876800221676,
+   "judge_cpu_h": 1.3310909228425265,
+   "setup_h_incl_raster": 0.07791486695285937,
+   "wall_h": 0.6846088763032863,
+   "over_cpu_share": false,
+   "decision": "full 5000 x 2",
+   "pilot": {
+    "cylinder": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 100
+     },
+     "median_alg_s": 2.1203118514968082
+    },
+    "sweeper": {
+     "n": 100,
+     "status_counts": {
+      "SUCCESS": 100
+     },
+     "median_alg_s": 1.1970169155392796
+    }
+   }
+  },
+  "cust_fields": {
+   "layout": "CPU array: region x robot x chunks of 100 pairs (50 tasks), %12, 4 GB, judge inline",
+   "method_stream_h": 9.443998786337648,
+   "gpu_h": 0.0,
+   "cpu_h": 9.568548675215311,
+   "judge_cpu_h": 0.048058886928225145,
+   "setup_h_incl_raster": 0.07649100194943861,
+   "wall_h": 0.7910048061054894,
+   "over_cpu_share": false,
+   "decision": "full 5000 x 2",
+   "pilot": {
+    "cylinder": {
+     "n": 100,
+     "status_counts": {
+      "FAIL": 100
+     },
+     "median_alg_s": 0.0001075610052794218
+    },
+    "sweeper": {
+     "n": 100,
+     "status_counts": {
+      "FAIL": 97,
+      "SUCCESS": 3
+     },
+     "median_alg_s": 0.00020745466463267803
+    }
+   }
+  }
+ },
+ "totals": {
+  "gpu_h": 2.3061472604508646,
+  "cpu_h": 26.393037397556604,
+  "within_B3_budget": true
+ }
+}

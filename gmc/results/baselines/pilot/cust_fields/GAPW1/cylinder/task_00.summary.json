@@ -1,0 +1,173 @@
+{
+ "method": "cust_fields",
+ "region": "GAPW1",
+ "robot": "cylinder",
+ "pairs_in_slice": 10,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 10,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 10
+ },
+ "query_outer_wall_s_this_run": 0.0019019129686057568,
+ "query_algorithm_wall_s_this_run": 0.0011415111366659403,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/GAPW1/cylinder.a3c",
+  "a3c_sha256": "1f06ddcbbe3a3af665dca91e12720ca368b1b72cdc8ead7eec234e448fd41599",
+  "compile_id": "abfa278e193c88d4",
+  "load_s": 0.5055028069764376
+ },
+ "setup": {
+  "setup_id": "1f934ee8f0944bcf",
+  "artifact": "outputs/baselines/cust_fields/3a68406d72f1/GAPW1_cylinder.setup.pkl",
+  "artifact_sha256": "553ed3d76088678f9428794e48aadf5e20b44ca26d2c8607a0d1ce46c4ecd894",
+  "build_setup_wall_s": 0.4431515538599342,
+  "config": {
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "waste": 2.0,
+   "tighten": [
+    1.5,
+    1.25
+   ],
+   "max_chain": 7,
+   "s": 0.85,
+   "ws_s": 0.9999,
+   "native_pad": false,
+   "merge_gap_m": 0.0,
+   "nf_lambda": 1000.0,
+   "nf_mu": [
+    10000000000.0,
+    100000000.0,
+    1000000.0,
+    10000.0,
+    100.0,
+    10.0
+   ],
+   "dt": 0.05,
+   "max_steps": 3000,
+   "goal_tol": 0.05,
+   "snap_max_m": 0.1,
+   "seed": 0
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.9346391691360623
+  ],
+  "load_s_per_start": [
+   0.00884076184593141
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "1f934ee8f0944bcf",
+   "artifact_sha256": "553ed3d76088678f9428794e48aadf5e20b44ca26d2c8607a0d1ce46c4ecd894",
+   "load_s": 0.00884076184593141,
+   "instantiate_s": 1.9346391691360623,
+   "instantiate_cpu_s": 0.31501287600000005,
+   "pid": 2193244,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 4,
+    "covers": 1,
+    "merges": 3,
+    "pieces_in_merged_covers": 4,
+    "raster": "outputs/baselines/raster/GAPW1_cylinder_r5mm.npz",
+    "raster_sha256": "a82d1c60a18c231107d36dadb01e3f84cd01f2aaed2c1c4e76578adcde6d3d28",
+    "raster_build_wall_s": 83.75322364689782,
+    "raster_res_m": 0.005,
+    "cover": "convex",
+    "n_stars": 1,
+    "covers_crossing_workspace_boundary": 1,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.6185238095238095,
+    "nf_free_frac_in_ws": 5.6022408963585436e-06,
+    "map_free_cells_lost_to_covers": 441622,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 0.38492367696017027,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/pilot/cust_fields/GAPW1/cylinder/cwd_cust_fields/bl_world_2193244.yaml",
+    "n_obstacles": 1,
+    "world_load_s": 1.8205735441297293
+   },
+   "ready_wall_s": 3.2588511321227998,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "convex",
+  "waste": 2.0,
+  "tighten": [
+   1.5,
+   1.25
+  ],
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "config_sha256": "f5361dc1c569a6e28ea4b5ec5312ff8a473aac5b121bd8fb092fb04709cdaffd",
+ "config_file": "configs/baselines/cust_fields.json",
+ "config_file_sha256": "4cb0109ef09d074179cb3590b97acc50d000b1753fb0611315875ecc3c984286",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/pilot/cust_fields/GAPW1/cylinder/task_00.worker.log",
+ "host": {
+  "node": "cs607.hpc.nyu.edu",
+  "slurm_job_id": "19523071",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   98.16650390625,
+   104.86376953125,
+   106.24609375
+  ],
+  "utc": "2026-10-10T07:48:03Z",
+  "python": "3.13.5",
+  "git_commit": "981f5b6377a8e9e270d1a309490acce935df17d2"
+ },
+ "task": 0,
+ "n_tasks": 3,
+ "pairs_source": "results/baselines/pilot/pilot_pairs.json",
+ "pair_ids": [
+  "F4W-00018",
+  "F4W-00020",
+  "F4W-00022",
+  "F4W-00132",
+  "F4W-00217",
+  "F4W-00229",
+  "F4W-00311",
+  "F4W-00327",
+  "F4W-00423",
+  "F4W-00459"
+ ]
+}

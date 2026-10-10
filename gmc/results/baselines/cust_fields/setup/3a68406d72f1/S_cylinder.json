@@ -1,0 +1,115 @@
+{
+ "method": "cust_fields",
+ "region": "S",
+ "robot": "cylinder",
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "convex",
+  "waste": 2.0,
+  "tighten": [
+   1.5,
+   1.25
+  ],
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "artifact": "outputs/baselines/cust_fields/3a68406d72f1/S_cylinder.setup.pkl",
+ "returncode": 0,
+ "outer_wall_s": 1.064325466984883,
+ "host": {
+  "node": "cs601.hpc.nyu.edu",
+  "slurm_job_id": "19523046",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   76.64697265625,
+   79.21875,
+   79.5244140625
+  ],
+  "utc": "2026-10-10T07:47:08Z",
+  "python": "3.13.5",
+  "git_commit": "981f5b6377a8e9e270d1a309490acce935df17d2"
+ },
+ "scene_export_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+ "log": "outputs/baselines/cust_fields/3a68406d72f1/S_cylinder.setup.log",
+ "artifact_meta": {
+  "setup_id": "d01b834fc0a74a49",
+  "method": "cust_fields",
+  "scene_export": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/scene/S_cylinder.npz",
+  "scene_sha256": "31ea5498ce3d721a73157aacb6d9ec56c9804ad9c32b3d8fe38f4dadca7883f5",
+  "config": {
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "waste": 2.0,
+   "tighten": [
+    1.5,
+    1.25
+   ],
+   "max_chain": 7,
+   "s": 0.85,
+   "ws_s": 0.9999,
+   "native_pad": false,
+   "merge_gap_m": 0.0,
+   "nf_lambda": 1000.0,
+   "nf_mu": [
+    10000000000.0,
+    100000000.0,
+    1000000.0,
+    10000.0,
+    100.0,
+    10.0
+   ],
+   "dt": 0.05,
+   "max_steps": 3000,
+   "goal_tol": 0.05,
+   "snap_max_m": 0.1,
+   "seed": 0
+  },
+  "build_setup_wall_s": 0.21900868811644614,
+  "build_setup_cpu_s": 0.20357459299999997,
+  "region": "S",
+  "robot": "cylinder",
+  "info": {
+   "pieces": 5,
+   "covers": 4,
+   "merges": 1,
+   "pieces_in_merged_covers": 2,
+   "raster": "outputs/baselines/raster/S_cylinder_r5mm.npz",
+   "raster_sha256": "d208f761a0b88850d86707e574e422cff522cedd52cf2c7ef3f5a09baa461578",
+   "raster_build_wall_s": 15.207640344975516,
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "n_stars": 4,
+   "covers_crossing_workspace_boundary": 4,
+   "covers_below_repo_pad": 0,
+   "native_pad": false,
+   "squareness": 0.85,
+   "map_free_frac_in_ws": 0.6356754658385093,
+   "nf_free_frac_in_ws": 0.2526203416149068,
+   "map_free_cells_lost_to_covers": 98675,
+   "map_occupied_cells_outside_covers_in_ws": 0,
+   "build_world_wall_s": 0.15726088406518102
+  },
+  "python": "3.10.22",
+  "pid": 3889052,
+  "bytes": 1021363,
+  "sha256": "cb3bfbeeb58df5ae046b9c8805b16d583f747430f327d7a3b144b5fc5e801699"
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "method": "cust_fields",
+ "region": "WWEST",
+ "robot": "cylinder",
+ "pairs_in_slice": 10,
+ "resumed_from_checkpoint": 0,
+ "answered_this_run": 10,
+ "complete": true,
+ "status_counts": {
+  "FAIL": 10
+ },
+ "query_outer_wall_s_this_run": 0.0019477962050586939,
+ "query_algorithm_wall_s_this_run": 0.001164229353889823,
+ "judge_wall_s_this_run": 0.0,
+ "judge_scene": {
+  "a3c": "/scratch/wg2381/splathjb-aerial3dg-fail/gmc/outputs/aerial3dg/f3/WWEST/cylinder.a3c",
+  "a3c_sha256": "2f8cf4af6ec78d4c39dcc82d9ebbc0e40121cefa33f41e0db6f63dad8214536d",
+  "compile_id": "549453247f5cf37a",
+  "load_s": 1.1876689640339464
+ },
+ "setup": {
+  "setup_id": "d4701c569cc4e1a3",
+  "artifact": "outputs/baselines/cust_fields/3a68406d72f1/WWEST_cylinder.setup.pkl",
+  "artifact_sha256": "5a21332145fae45b89cfd74398c0c7a7bbfb70a67b097b030daaa850a8f2c205",
+  "build_setup_wall_s": 0.9551230848301202,
+  "config": {
+   "raster_res_m": 0.005,
+   "cover": "convex",
+   "waste": 2.0,
+   "tighten": [
+    1.5,
+    1.25
+   ],
+   "max_chain": 7,
+   "s": 0.85,
+   "ws_s": 0.9999,
+   "native_pad": false,
+   "merge_gap_m": 0.0,
+   "nf_lambda": 1000.0,
+   "nf_mu": [
+    10000000000.0,
+    100000000.0,
+    1000000.0,
+    10000.0,
+    100.0,
+    10.0
+   ],
+   "dt": 0.05,
+   "max_steps": 3000,
+   "goal_tol": 0.05,
+   "snap_max_m": 0.1,
+   "seed": 0
+  }
+ },
+ "setup_once_proof": {
+  "setup_builds_in_this_task": 0,
+  "worker_starts": 1,
+  "worker_start_failures": 0,
+  "restarts": 0,
+  "every_start_loaded_the_same_artifact": true,
+  "every_start_setup_calls_zero": true,
+  "same_setup_id_all_rows": true,
+  "instantiate_s_per_start": [
+   1.0625667988788337
+  ],
+  "load_s_per_start": [
+   0.013679258059710264
+  ],
+  "definition": "the method's setup is built once per robot x region by `setup` and persisted; a task never builds it (0), each worker start loads that artifact (SHA checked) and instantiates the live planner from it; a restart happens only after a TIMEOUT kill or a worker crash, and its instantiate time is reported here, never charged to a query"
+ },
+ "worker_starts": [
+  {
+   "op": "ready",
+   "setup_id": "d4701c569cc4e1a3",
+   "artifact_sha256": "5a21332145fae45b89cfd74398c0c7a7bbfb70a67b097b030daaa850a8f2c205",
+   "load_s": 0.013679258059710264,
+   "instantiate_s": 1.0625667988788337,
+   "instantiate_cpu_s": 0.31280942599999995,
+   "pid": 2193315,
+   "setup_calls": 0,
+   "python": "3.10.22",
+   "info": {
+    "pieces": 10,
+    "covers": 1,
+    "merges": 9,
+    "pieces_in_merged_covers": 10,
+    "raster": "outputs/baselines/raster/WWEST_cylinder_r5mm.npz",
+    "raster_sha256": "98f603b496f59d0eae7aa9a3f860c4b9f2c04554f66f89e4c5313318ea325ca1",
+    "raster_build_wall_s": 138.1730459590908,
+    "raster_res_m": 0.005,
+    "cover": "convex",
+    "n_stars": 1,
+    "covers_crossing_workspace_boundary": 1,
+    "covers_below_repo_pad": 0,
+    "native_pad": false,
+    "squareness": 0.85,
+    "map_free_frac_in_ws": 0.5256927297668038,
+    "nf_free_frac_in_ws": 0.00021056241426611796,
+    "map_free_cells_lost_to_covers": 766153,
+    "map_occupied_cells_outside_covers_in_ws": 0,
+    "build_world_wall_s": 0.8474398020189255,
+    "world_yaml": "/scratch/wg2381/splathjb-baselines/gmc/outputs/baselines/worker_logs/baselines/pilot/cust_fields/WWEST/cylinder/cwd_cust_fields/bl_world_2193315.yaml",
+    "n_obstacles": 1,
+    "world_load_s": 0.9523573820479214
+   },
+   "ready_wall_s": 2.3662614489439875,
+   "reason": "first"
+  }
+ ],
+ "config": {
+  "raster_res_m": 0.005,
+  "cover": "convex",
+  "waste": 2.0,
+  "tighten": [
+   1.5,
+   1.25
+  ],
+  "max_chain": 7,
+  "s": 0.85,
+  "ws_s": 0.9999,
+  "native_pad": false,
+  "merge_gap_m": 0.0,
+  "nf_lambda": 1000.0,
+  "nf_mu": [
+   10000000000.0,
+   100000000.0,
+   1000000.0,
+   10000.0,
+   100.0,
+   10.0
+  ],
+  "dt": 0.05,
+  "max_steps": 3000,
+  "goal_tol": 0.05,
+  "snap_max_m": 0.1,
+  "seed": 0
+ },
+ "config_sha256": "f5361dc1c569a6e28ea4b5ec5312ff8a473aac5b121bd8fb092fb04709cdaffd",
+ "config_file": "configs/baselines/cust_fields.json",
+ "config_file_sha256": "4cb0109ef09d074179cb3590b97acc50d000b1753fb0611315875ecc3c984286",
+ "timeout_s": 120.0,
+ "judge_mode": "inline",
+ "worker_log": "outputs/baselines/worker_logs/baselines/pilot/cust_fields/WWEST/cylinder/task_02.worker.log",
+ "host": {
+  "node": "cs607.hpc.nyu.edu",
+  "slurm_job_id": "19523068",
+  "cpus_per_task": "1",
+  "affinity_cpus": 1,
+  "loadavg": [
+   98.16650390625,
+   104.86376953125,
+   106.24609375
+  ],
+  "utc": "2026-10-10T07:48:03Z",
+  "python": "3.13.5",
+  "git_commit": "981f5b6377a8e9e270d1a309490acce935df17d2"
+ },
+ "task": 2,
+ "n_tasks": 5,
+ "pairs_source": "results/baselines/pilot/pilot_pairs.json",
+ "pair_ids": [
+  "F4X-01140",
+  "F4X-01154",
+  "F4X-01155",
+  "F4X-01178",
+  "F4X-01202",
+  "F4X-01211",
+  "F4X-01219",
+  "F4X-01227",
+  "F4X-01346",
+  "F4X-01495"
+ ]
+}
